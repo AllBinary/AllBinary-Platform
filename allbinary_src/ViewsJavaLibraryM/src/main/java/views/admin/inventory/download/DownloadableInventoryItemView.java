@@ -74,7 +74,7 @@ public class DownloadableInventoryItemView
 
     public int getTypeId()
     {
-        return TYPE_ID;
+        return DownloadableInventoryItemView.TYPE_ID;
     }
 
     private void getFormData() throws Exception

@@ -21,6 +21,6 @@ public class ProcessingFrameIndexFactory
     }
     
     public static synchronized long next() {
-	return currentFrame++;
+	return ProcessingFrameIndexFactory.currentFrame++;
     }
 }

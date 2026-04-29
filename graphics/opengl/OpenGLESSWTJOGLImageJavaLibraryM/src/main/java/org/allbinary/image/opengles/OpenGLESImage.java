@@ -103,9 +103,9 @@ implements OpenGLSurfaceChangedInterface
  
     protected boolean initTexture(GL10 gl)
     {   
-        if (!texture2dList.contains(this))
+        if (!OpenGLESImage.texture2dList.contains(this))
         {
-            texture2dList.add(this);
+            OpenGLESImage.texture2dList.add(this);
 
             //PreLogUtil.put(this.commonStrings.INIT, this, "OpenGLESImage->initTexture");
             
@@ -204,7 +204,7 @@ implements OpenGLSurfaceChangedInterface
     public static final int TYPE = 4;
 
     public int getType() {
-        return TYPE;
+        return OpenGLESImage.TYPE;
     }
 
     public String toString() {

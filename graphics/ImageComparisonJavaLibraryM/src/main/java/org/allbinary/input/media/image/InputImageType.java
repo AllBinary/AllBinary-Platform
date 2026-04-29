@@ -33,7 +33,7 @@ public class InputImageType
     {
         this.name = name;
         this.index = index;
-        TYPE_VECTOR.add(this);
+        InputImageType.TYPE_VECTOR.add(this);
         this.hashMap.put(this.getName(), this);
     }
     
@@ -49,12 +49,12 @@ public class InputImageType
     
     public static InputImageType getInstance(String imageTypeString)
     {
-        return (InputImageType) hashMap.get(imageTypeString);
+        return (InputImageType) InputImageType.hashMap.get(imageTypeString);
     }
     
     public static Vector getAllAsVector()
     {
-        return TYPE_VECTOR;
+        return InputImageType.TYPE_VECTOR;
     }
 
     public int getIndex()

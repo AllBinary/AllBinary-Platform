@@ -29,7 +29,7 @@ public class PrimaryThreadPool extends ThreadPool
 
     public static ThreadPool getInstance()
     {
-        return THREAD_POOL;
+        return PrimaryThreadPool.THREAD_POOL;
     }
 
     public PrimaryThreadPool(final String poolName, final int numThreads, final int priority) {

@@ -34,7 +34,7 @@ public class AuthenticationRequestHelperFactory implements TagHelperFactoryInter
       throws LicensingException
    {
       return HelperFactory.getInstance(
-          FACTORYNAME, CLASSNAME, hashMap, pageContext);
+          AuthenticationRequestHelperFactory.FACTORYNAME, AuthenticationRequestHelperFactory.CLASSNAME, hashMap, pageContext);
    }
 
    public Object getInstance(
@@ -42,6 +42,6 @@ public class AuthenticationRequestHelperFactory implements TagHelperFactoryInter
       throws LicensingException
    {
       return HelperFactory.getInstance(
-          FACTORYNAME, CLASSNAME, hashMap, httpServletRequest);
+          AuthenticationRequestHelperFactory.FACTORYNAME, AuthenticationRequestHelperFactory.CLASSNAME, hashMap, httpServletRequest);
    }
 }

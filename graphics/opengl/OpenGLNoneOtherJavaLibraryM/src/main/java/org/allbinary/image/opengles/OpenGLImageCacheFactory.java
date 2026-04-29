@@ -28,12 +28,12 @@ public class OpenGLImageCacheFactory
 
     public static ImageCache getInstance()
     {
-        return IMAGE_CACHE;
+        return OpenGLImageCacheFactory.IMAGE_CACHE;
     }
     
     public static void init()
     {
-        if(IMAGE_CACHE == null)
+        if(OpenGLImageCacheFactory.IMAGE_CACHE == null)
         {
             //IMAGE_CACHE = new OpenGLImageCache();
         }

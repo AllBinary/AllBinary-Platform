@@ -31,11 +31,11 @@ public class FileLog
    //private static final String logPath = MyFrame.PATH + "/log/";
    private static final String logPath = "g:\\log\\";
    private static final String extension = new String("dat");
-   private static final String fileName = new String("log." + extension);
-   private static final String backupFileName = fileName.concat(".bak");
+   private static final String fileName = new String("log." + FileLog.extension);
+   private static final String backupFileName = FileLog.fileName.concat(".bak");
    private static final String ORG_ALLBINARY = "org.allbinary: ";
    private static boolean firstTime = true;
-   private static File logFile = new File(logPath, fileName);
+   private static File logFile = new File(FileLog.logPath, FileLog.fileName);
    private static File logFileBak;
    private static BufferedWriter fileOut;
    private static int backupIndex;
@@ -48,17 +48,17 @@ public class FileLog
    {
       try
       {
-         logFile = new File(logPath, fileName);
-         if(!firstTime)
+         FileLog.logFile = new File(logPath, fileName);
+         if(!FileLog.firstTime)
          {
-            fileOut = new BufferedWriter(new FileWriter(logFile));
+            FileLog.fileOut = new BufferedWriter(new FileWriter(logFile));
          }
          else
          {
-            firstTime = false;
+            FileLog.firstTime = false;
             RandomAccessFile raFile = new RandomAccessFile(logFile, "rw");
             raFile.seek(raFile.length());
-            fileOut = new BufferedWriter(new FileWriter(raFile.getFD()));
+            FileLog.fileOut = new BufferedWriter(new FileWriter(raFile.getFD()));
          }
          boolean canWrite = logFile.canWrite();         
          return canWrite;
@@ -74,10 +74,10 @@ public class FileLog
    {
       try
       {
-         logFileBak = new File(logPath, new StringBuilder().append(backupFileName).append(CommonSeps.getInstance().PERIOD).append(backupIndex).toString());
-         while(logFileBak.isFile()) {
-             backupIndex++;
-             logFileBak = new File(logPath, new StringBuilder().append(backupFileName).append(CommonSeps.getInstance().PERIOD).append(backupIndex).toString());
+         FileLog.logFileBak = new File(logPath, new StringBuilder().append(backupFileName).append(CommonSeps.getInstance().PERIOD).append(backupIndex).toString());
+         while(FileLog.logFileBak.isFile()) {
+             FileLog.backupIndex++;
+             FileLog.logFileBak = new File(logPath, new StringBuilder().append(backupFileName).append(CommonSeps.getInstance().PERIOD).append(backupIndex).toString());
          }
          
          //Calendar calendar=Calendar.getInstance();
@@ -98,7 +98,7 @@ public class FileLog
          tmpOut.close();
          tmpIn.close();
          
-         logFile.delete();
+         FileLog.logFile.delete();
 
          return true;
       }
@@ -114,7 +114,7 @@ public class FileLog
    Object object,
    String functionName)
    {
-      return put(specialMessage,object,functionName,null);
+      return FileLog.put(specialMessage,object,functionName,null);
    }
    
    public synchronized static String put(
@@ -126,9 +126,9 @@ public class FileLog
       
       try
       {
-         if(firstTime==true)
+         if(FileLog.firstTime==true)
          {
-            createLogFileBackup();
+            FileLog.createLogFileBackup();
             if (createLogFile()==false)
             {
                return new String("Log File Creation Error");
@@ -136,7 +136,7 @@ public class FileLog
          }
          
          long length = logFile.length();
-         if (length > logLength)
+         if (length > FileLog.logLength)
          {
             if (!(createLogFileBackup()) || createLogFile()==false)
             {
@@ -146,17 +146,17 @@ public class FileLog
          
          String className = new String(stringUtil.NULL_STRING);
 
-         if(functionName==null) functionName = new String(stringUtil.NULL_STRING);
-         if(specialMessage==null) specialMessage = new String(stringUtil.NULL_STRING);
+         if(functionName==null) functionName = new String(FileLog.stringUtil.NULL_STRING);
+         if(specialMessage==null) specialMessage = new String(FileLog.stringUtil.NULL_STRING);
 
          if(object.getClass().getName() != null) className = new String(object.getClass().getName());
 
          final String message = LogFormatUtil.getInstance().get(
                  className, functionName, specialMessage, exception);
 
-         fileOut.write(message, 0, message.length());
-         fileOut.newLine();
-         fileOut.flush();
+         FileLog.fileOut.write(message, 0, message.length());
+         FileLog.fileOut.newLine();
+         FileLog.fileOut.flush();
          return new String(ORG_ALLBINARY + message);
       }
       catch (Exception e)
@@ -170,7 +170,7 @@ public class FileLog
    final String className,
    final String functionName)
    {
-      return put(specialMessage, className, functionName, null);
+      return FileLog.put(specialMessage, className, functionName, null);
    }
    
    public synchronized static String put(
@@ -181,9 +181,9 @@ public class FileLog
    {      
       try
       {
-         if(firstTime==true)
+         if(FileLog.firstTime==true)
          {
-            createLogFileBackup();
+            FileLog.createLogFileBackup();
             if (createLogFile()==false)
             {
                return new String("Log File Creation Error");
@@ -191,7 +191,7 @@ public class FileLog
          }
          
          long length = logFile.length();
-         if (length > logLength)
+         if (length > FileLog.logLength)
          {
             if (!(createLogFileBackup()) || createLogFile()==false)
             {
@@ -199,15 +199,15 @@ public class FileLog
             }
          }
          
-         if(functionName==null) functionName = new String(stringUtil.NULL_STRING);
-         if(specialMessage==null) specialMessage = new String(stringUtil.NULL_STRING);                  
+         if(functionName==null) functionName = new String(FileLog.stringUtil.NULL_STRING);
+         if(specialMessage==null) specialMessage = new String(FileLog.stringUtil.NULL_STRING);                  
          
          final String message = LogFormatUtil.getInstance().get(
                  className, functionName, specialMessage, exception);
                            
-         fileOut.write(message, 0, message.length());
-         fileOut.newLine();
-         fileOut.flush();
+         FileLog.fileOut.write(message, 0, message.length());
+         FileLog.fileOut.newLine();
+         FileLog.fileOut.flush();
          
          return new String(ORG_ALLBINARY + message);
       }
@@ -219,7 +219,7 @@ public class FileLog
    
    public static String getFilePath()
    {
-      return logPath + fileName;
+      return FileLog.logPath + FileLog.fileName;
    }
 }
 

@@ -45,7 +45,7 @@ public class GraphicsAnalysisUtil
 
          //this.logUtil.putF(new StringBuilder().append("Color: ").append(color).append(" at: ").append(index).append(CommonSeps.getInstance().COMMA).append(y).toString(), this, "getNominator");
          //If it is dark
-         if (color.getRed() < MAX && color.getGreen() < MAX && color.getBlue() < MAX)
+         if (color.getRed() < GraphicsAnalysisUtil.MAX && color.getGreen() < GraphicsAnalysisUtil.MAX && color.getBlue() < GraphicsAnalysisUtil.MAX)
          {
             //Color is black continue
          } else

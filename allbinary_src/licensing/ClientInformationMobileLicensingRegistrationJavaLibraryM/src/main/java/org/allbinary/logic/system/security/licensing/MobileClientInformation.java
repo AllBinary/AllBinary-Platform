@@ -26,7 +26,7 @@ public class MobileClientInformation
 {
 
     protected static final String DESC = "Mobile";
-    protected static final String ANDROID_DESC = "Android" + DESC;
+    protected static final String ANDROID_DESC = "Android" + MobileClientInformation.DESC;
 
     public MobileClientInformation(final String name, final String version, final String specialName, final String shortName)
     {

@@ -75,9 +75,9 @@ public class ChangedPixelsUtil
             
             bufferedImageCacheables[index] = bufferedImageCacheable;
             //clear the image
-            bufferedImageCacheables[index].getBufferedImage().setRGB(START_X, START_Y,
+            bufferedImageCacheables[index].getBufferedImage().setRGB(ChangedPixelsUtil.START_X, ChangedPixelsUtil.START_Y,
                 bufferedImageInfo.getWidth(), bufferedImageInfo.getHeight(),
-                CLEAR_INT_ARRAY, OFFSET, SCAN_SIZE);
+                ChangedPixelsUtil.CLEAR_INT_ARRAY, ChangedPixelsUtil.OFFSET, ChangedPixelsUtil.SCAN_SIZE);
         }
         
         final Vector vector = imageComparisonInfo.getNonMatchingPixelVector();

@@ -35,12 +35,12 @@ public class MyCanvasEventService
     
    public static synchronized void addListener(MyCanvasEventListener listener) 
    {      
-      listenerList.add((Class) listener.getClass(), (java.util.EventListener) listener);
+      MyCanvasEventService.listenerList.add((Class) listener.getClass(), (java.util.EventListener) listener);
    }
 
    public static synchronized void removeListener(MyCanvasEventListener listener) 
    {    
-      listenerList.remove((Class) listener.getClass(), (java.util.EventListener) listener);
+      MyCanvasEventService.listenerList.remove((Class) listener.getClass(), (java.util.EventListener) listener);
    }
        
    public static synchronized void fire(MyCanvasEvent evt) 
@@ -52,37 +52,37 @@ public class MyCanvasEventService
       {         
          if (listeners[i]==listeners[i+1].getClass()) 
          {
-            if(evt.getCommand().compareTo(DELETE)==0)
+            if(evt.getCommand().compareTo(MyCanvasEventService.DELETE)==0)
             {
                ((MyCanvasEventListener)listeners[i+1]).delete(evt);
             }
             else
-            if(evt.getCommand().compareTo(DUPLICATE)==0)
+            if(evt.getCommand().compareTo(MyCanvasEventService.DUPLICATE)==0)
             {
                ((MyCanvasEventListener)listeners[i+1]).duplicate(evt);
             }
             else
-            if(evt.getCommand().compareTo(SELECT)==0)
+            if(evt.getCommand().compareTo(MyCanvasEventService.SELECT)==0)
             {
                ((MyCanvasEventListener)listeners[i+1]).select(evt);
             }
             else
-            if(evt.getCommand().compareTo(ROTATE)==0)
+            if(evt.getCommand().compareTo(MyCanvasEventService.ROTATE)==0)
             {
                ((MyCanvasEventListener)listeners[i+1]).rotate(evt);
             }
             else
-            if(evt.getCommand().compareTo(EXPLODE)==0)
+            if(evt.getCommand().compareTo(MyCanvasEventService.EXPLODE)==0)
             {
                ((MyCanvasEventListener)listeners[i+1]).explode(evt);
             }
             else
-            if(evt.getCommand().compareTo(AUTOEXPLODE)==0)
+            if(evt.getCommand().compareTo(MyCanvasEventService.AUTOEXPLODE)==0)
             {
                ((MyCanvasEventListener)listeners[i+1]).autoExplode(evt);
             }
             else
-            if(evt.getCommand().compareTo(CENTER)==0)
+            if(evt.getCommand().compareTo(MyCanvasEventService.CENTER)==0)
             {
                ((MyCanvasEventListener)listeners[i+1]).center(evt);
             }

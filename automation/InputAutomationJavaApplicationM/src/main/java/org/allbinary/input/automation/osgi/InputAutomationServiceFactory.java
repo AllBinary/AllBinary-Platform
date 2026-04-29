@@ -36,7 +36,7 @@ public class InputAutomationServiceFactory
     
     public static InputAutomationServiceFactory getInstance()
     {
-        return inputAutomationServiceFactory;
+        return InputAutomationServiceFactory.inputAutomationServiceFactory;
     }
     
     public Object getService(final Bundle bundle, final ServiceRegistration registration)

@@ -36,7 +36,7 @@ public class InputRobotFactory
     
     public static InputRobotFactory getInstance() throws Exception
     {
-        return inputRobotFactory;
+        return InputRobotFactory.inputRobotFactory;
     }
  
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -116,7 +116,7 @@ public class InputRobotFactory
         {
             InputRobotInterface inputRobotInterface =
                 InputRobotFactory.getInstance().get((String) nameArray[index]);
-            loadLibrary(inputRobotInterface);
+            InputRobotFactory.loadLibrary(inputRobotInterface);
         }
     }
     
@@ -128,7 +128,7 @@ public class InputRobotFactory
         final Iterator iterator = collection.iterator();
         while(iterator.hasNext())
         {
-            loadLibrary((InputRobotInterface) iterator.next());
+            InputRobotFactory.loadLibrary((InputRobotInterface) iterator.next());
         }
     }
     

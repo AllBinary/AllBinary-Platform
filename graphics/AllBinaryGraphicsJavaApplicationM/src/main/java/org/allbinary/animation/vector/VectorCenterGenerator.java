@@ -96,7 +96,7 @@ public class VectorCenterGenerator {
         {
             GraphicItemInterface item = (GraphicItemInterface) hashMap.get(graphicItemArray[index]);
 
-            BasicArrayList list = translate(item.getPointsInterface().getPoints(), dx, dy);
+            BasicArrayList list = VectorCenterGenerator.translate(item.getPointsInterface().getPoints(), dx, dy);
 
             Points newPoints = new Points();
             newPoints.addPoints(list);

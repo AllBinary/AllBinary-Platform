@@ -31,7 +31,7 @@ public class CapturedBufferedImagesCacheSingleton
     }
     
     public static CacheInterface getInstance() {
-	return cacheInterface;
+	return CapturedBufferedImagesCacheSingleton.cacheInterface;
     }
     
     static {
@@ -42,7 +42,7 @@ public class CapturedBufferedImagesCacheSingleton
 	try {
             
 	    logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
-	    cacheInterface = (AutomaticCacheInterface) 
+	    CapturedBufferedImagesCacheSingleton.cacheInterface = (AutomaticCacheInterface) 
                     CacheInterfaceFactory.getInstance((CacheTypeFactory.getInstance().SET),
 						    (CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX));
 	    logUtil.putF(commonStrings.END, instance, STATIC_BLOCK);

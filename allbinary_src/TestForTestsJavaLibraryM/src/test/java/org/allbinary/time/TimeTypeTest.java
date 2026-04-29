@@ -77,7 +77,7 @@ public class TimeTypeTest {
     void getHourOfDay_long_converts_epoch_to_local_hour() {
         TimeTypeUtil util = new TimeTypeUtil();
         for (int h : new int[]{0, 6, 12, 18, 23}) {
-            long millis = millisForHourLocal(h);
+            long millis = TimeTypeTest.millisForHourLocal(h);
             Assertions.assertEquals(h, util.getHourOfDay(millis), "Hour mismatch for h=" + h);
         }
     }
@@ -88,12 +88,12 @@ public class TimeTypeTest {
         TimeTypeUtil util = new TimeTypeUtil();
         // true cases
         for (int h : new int[]{0, 1, 2, 3, 4, 5, 19, 20, 21, 22, 23}) {
-            long millis = millisForHourLocal(h);
+            long millis = TimeTypeTest.millisForHourLocal(h);
             Assertions.assertTrue(util.isNight(millis), "Expected night for hour=" + h);
         }
         // false cases including boundaries
         for (int h : new int[]{6, 7, 12, 18}) {
-            long millis = millisForHourLocal(h);
+            long millis = TimeTypeTest.millisForHourLocal(h);
             Assertions.assertFalse(util.isNight(millis), "Expected day for hour=" + h);
         }
     }
@@ -102,8 +102,8 @@ public class TimeTypeTest {
     @DisplayName("getNightOrDay(long) returns DAY/NIGHT consistent with isNight(long)")
     void getNightOrDay_long_consistency() {
         TimeTypeUtil util = new TimeTypeUtil();
-        long nightMillis = millisForHourLocal(0);
-        long dayMillis = millisForHourLocal(12);
+        long nightMillis = TimeTypeTest.millisForHourLocal(0);
+        long dayMillis = TimeTypeTest.millisForHourLocal(12);
         Assertions.assertEquals(util.NIGHT, util.getNightOrDay(nightMillis));
         Assertions.assertEquals(util.DAY, util.getNightOrDay(dayMillis));
     }
@@ -113,7 +113,7 @@ public class TimeTypeTest {
     void boundaries_day_for_long_based_api() {
         TimeTypeUtil util = new TimeTypeUtil();
         for (int h : new int[]{6, 18}) {
-            long millis = millisForHourLocal(h);
+            long millis = TimeTypeTest.millisForHourLocal(h);
             Assertions.assertFalse(util.isNight(millis));
             Assertions.assertEquals(util.DAY, util.getNightOrDay(millis));
         }

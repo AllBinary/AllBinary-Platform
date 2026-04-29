@@ -125,8 +125,8 @@ public class SimpleFileUtil {
         };
     }
     
-    public final Writer NULL_WRITER = nullWriter(); 
-    public final Reader NULL_READER = nullReader(); 
+    public final Writer NULL_WRITER = SimpleFileUtil.nullWriter(); 
+    public final Reader NULL_READER = SimpleFileUtil.nullReader(); 
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final NullUtil nullUtil = NullUtil.getInstance();

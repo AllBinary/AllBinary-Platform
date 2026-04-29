@@ -62,7 +62,7 @@ public class RegistrationConfiguration
 
     public static RegistrationConfiguration getInstance()
     {
-        return SINGLETON;
+        return RegistrationConfiguration.SINGLETON;
     }
 
     private void read() throws Exception

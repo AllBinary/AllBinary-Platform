@@ -58,8 +58,8 @@ public class MyFrame extends javax.swing.JFrame
     private final String SAVEEXTENSION = ".gxml";
     private final String JAVAEXTENSION = ".javax";
     private static final String PATH = "G:/mnt/bc/mydev/work/graphics/AllBinaryGraphicsJavaApplication";
-    private static final String SAVE_PATH = PATH + "/save";
-    private static final String TEMPLATE_EXPORT_PATH = PATH + "/templates/export";
+    private static final String SAVE_PATH = MyFrame.PATH + "/save";
+    private static final String TEMPLATE_EXPORT_PATH = MyFrame.PATH + "/templates/export";
     private FileJDialog fileJDialog;
     private RotateJDialog rotateJDialog;
 
@@ -676,7 +676,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         try
         {
             this.numberOfWorkAreas++;
-            if (this.numberOfWorkAreas == MAXWORKAREAS)
+            if (this.numberOfWorkAreas == MyFrame.MAXWORKAREAS)
             {
                 throw new Exception();
             }

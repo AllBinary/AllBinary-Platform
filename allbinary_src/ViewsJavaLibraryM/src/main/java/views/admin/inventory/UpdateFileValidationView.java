@@ -58,7 +58,7 @@ public class UpdateFileValidationView
             String command = (String) 
                 this.getRequestHashMap().get(GLOBALS2.ADMINCOMMAND);
             
-            if (command == null || command.compareTo(UPDATEPRODUCT) != 0)
+            if (command == null || command.compareTo(UpdateFileValidationView.UPDATEPRODUCT) != 0)
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
@@ -150,7 +150,7 @@ public class UpdateFileValidationView
         StringMaker stringBuffer = new StringMaker();
 
         String command = (String) this.getRequestHashMap().get(GLOBALS2.ADMINCOMMAND);
-        if (command == null || command.compareTo(UPDATEPRODUCT) != 0)
+        if (command == null || command.compareTo(UpdateFileValidationView.UPDATEPRODUCT) != 0)
         {
             return CommonSeps.getInstance().SPACE;
         }

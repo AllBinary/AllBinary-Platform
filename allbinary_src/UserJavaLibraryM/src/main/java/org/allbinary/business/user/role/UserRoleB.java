@@ -32,7 +32,7 @@ public class UserRoleB extends UserRole
    {
         super(aBasicUserRole, aUserFactoryInterface);
 
-        roleVector.add(this);
+        UserRoleB.roleVector.add(this);
    }
 
    public static synchronized UserRole getRole(String role) throws Exception

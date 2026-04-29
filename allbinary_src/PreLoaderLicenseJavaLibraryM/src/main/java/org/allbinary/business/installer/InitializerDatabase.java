@@ -140,12 +140,12 @@ public class InitializerDatabase
 
         StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
-        if(!stringValidationUtil.isValidRequired(this.adminDbUserName, MIN, MAX))
+        if(!stringValidationUtil.isValidRequired(this.adminDbUserName, InitializerDatabase.MIN, InitializerDatabase.MAX))
         {
             isValid = false;
         }
 
-        if(!stringValidationUtil.isValidNotRequired(this.adminDbPassword, MINPASSWORD, MAX))
+        if(!stringValidationUtil.isValidNotRequired(this.adminDbPassword, InitializerDatabase.MINPASSWORD, InitializerDatabase.MAX))
         {
             isValid = false;
         }
@@ -177,12 +177,12 @@ public class InitializerDatabase
 
         StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
-        if (!stringValidationUtil.isValidRequired(this.adminDbUserName, MIN, MAX))
+        if (!stringValidationUtil.isValidRequired(this.adminDbUserName, InitializerDatabase.MIN, InitializerDatabase.MAX))
         {
             stringBuffer.append("Admin username should be < " + MAX + " and > " + MIN + " characters in length.<br />");
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.adminDbPassword, MINPASSWORD, MAX))
+        if (!stringValidationUtil.isValidNotRequired(this.adminDbPassword, InitializerDatabase.MINPASSWORD, InitializerDatabase.MAX))
         {
             stringBuffer.append("Admin password should be < " + MAX + " and > " + MINPASSWORD + " characters in length.<br />");
         }

@@ -36,7 +36,7 @@ public class NotificationUtil
     
     public static NotificationUtil getInstance()
     {
-        return SINGLETON;
+        return NotificationUtil.SINGLETON;
     }
     
     private final NotificationBuilder notificationBuilder;

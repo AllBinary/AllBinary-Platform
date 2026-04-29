@@ -57,7 +57,7 @@ extends BasicAI
     {
         super(ownerLayerInterface, gameInput);
         
-        this.sound = (Sound) hashtable.get(SOUND);
+        this.sound = (Sound) hashtable.get(HorizontalScreenPatrolAI.SOUND);
         //SleighBells4Sound.getInstance()
         if(this.sound == null)
         {

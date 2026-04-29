@@ -26,6 +26,6 @@ public class InputAutomationModuleConfigurationsSingletonFactory
 
     public static InputAutomationModuleConfigurations getInstance()
     {
-        return inputAutomationModuleConfigurations;
+        return InputAutomationModuleConfigurationsSingletonFactory.inputAutomationModuleConfigurations;
     }
 }

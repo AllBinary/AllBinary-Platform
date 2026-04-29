@@ -41,7 +41,7 @@ public class PixelDeltaFactory
         {
             logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
             
-            cacheInterface = (AutomaticCacheInterface) 
+            PixelDeltaFactory.cacheInterface = (AutomaticCacheInterface) 
                     CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, 
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
@@ -64,7 +64,7 @@ public class PixelDeltaFactory
         ColorDelta colorDelta = ColorDeltaFactory.getInstance(rgb1, rgb2);
 
         PixelDelta pixelDelta = (PixelDelta) 
-           cacheInterface.get(PixelDelta.getKey(point, colorDelta));
+           PixelDeltaFactory.cacheInterface.get(PixelDelta.getKey(point, colorDelta));
 
         if(pixelDelta == null)
         {

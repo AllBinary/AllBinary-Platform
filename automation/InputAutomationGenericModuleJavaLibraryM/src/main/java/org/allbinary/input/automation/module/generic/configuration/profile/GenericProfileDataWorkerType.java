@@ -42,7 +42,7 @@ public class GenericProfileDataWorkerType
     public GenericProfileDataWorkerType(String name)
     {
         this.setName(name);
-        hashMap.put(this.getName(), this);
+        GenericProfileDataWorkerType.hashMap.put(this.getName(), this);
     }
 
     public String getName()
@@ -70,6 +70,6 @@ public class GenericProfileDataWorkerType
     public static GenericProfileDataWorkerType getInstance(Node node)
     {
         String name = DomNodeHelper.getTextNodeValue(node);
-        return (GenericProfileDataWorkerType) hashMap.get(name);
+        return (GenericProfileDataWorkerType) GenericProfileDataWorkerType.hashMap.get(name);
     }
 }

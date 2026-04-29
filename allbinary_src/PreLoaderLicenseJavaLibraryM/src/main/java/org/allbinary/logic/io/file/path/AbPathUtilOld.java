@@ -54,7 +54,7 @@ public class AbPathUtilOld
 
    public String getExtension(String filePath) throws Exception
    {
-      if(filePath.length() < MIN)
+      if(filePath.length() < AbPathUtilOld.MIN)
       {
          //assuming the extension is 3 characters with a seperator
          throw new Exception("Could not be a file path since its less that 4 characters");
@@ -86,7 +86,7 @@ public class AbPathUtilOld
    
    public String getWithoutExtension(String filePath) throws Exception
    {
-      if(filePath.length() < MIN)
+      if(filePath.length() < AbPathUtilOld.MIN)
       {
          //assuming the extension is 3 characters with a seperator
          throw new Exception("Could not be a file path since its less that 4 characters");

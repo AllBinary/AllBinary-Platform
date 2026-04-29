@@ -37,7 +37,7 @@ public class ColorCacheFactory
         {            
             logUtil.putF(commonStrings.START, ColorCacheFactory.class, STATIC_BLOCK);
             
-            cacheInterface = AutomaticCacheInterfaceFactory.getInstance(
+            ColorCacheFactory.cacheInterface = AutomaticCacheInterfaceFactory.getInstance(
                 new ColorCacheableFactory(),
                 CacheTypeFactory.getInstance().CACHE, 
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
@@ -56,6 +56,6 @@ public class ColorCacheFactory
 
     public static AutomaticCacheInterface getInstance()
     {
-        return cacheInterface;
+        return ColorCacheFactory.cacheInterface;
     }    
 }

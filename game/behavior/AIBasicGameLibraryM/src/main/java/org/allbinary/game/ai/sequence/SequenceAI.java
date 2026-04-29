@@ -74,7 +74,7 @@ public class SequenceAI extends ArrayAI
    @Override
    public String getName()
    {
-       return SEQUENCE_AI;
+       return SequenceAI.SEQUENCE_AI;
    }
    
    public String toString()

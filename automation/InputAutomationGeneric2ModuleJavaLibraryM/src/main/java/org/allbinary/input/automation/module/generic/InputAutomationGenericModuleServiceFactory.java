@@ -45,6 +45,6 @@ public class InputAutomationGenericModuleServiceFactory
     
     public static InputAutomationGenericModuleServiceFactory getInstance()
     {
-        return inputAutomationGenericModuleServiceFactory;
+        return InputAutomationGenericModuleServiceFactory.inputAutomationGenericModuleServiceFactory;
     }
 }

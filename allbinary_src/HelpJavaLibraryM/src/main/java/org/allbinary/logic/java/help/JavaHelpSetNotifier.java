@@ -28,7 +28,7 @@ public class JavaHelpSetNotifier
     
     private static Vector get()
     {
-        return vector;
+        return JavaHelpSetNotifier.vector;
     }
 
     public static boolean isNotified(HelpSet helpSet)
@@ -45,7 +45,7 @@ public class JavaHelpSetNotifier
                 isNotified = true;
             }
         }
-        vector.add(url);
+        JavaHelpSetNotifier.vector.add(url);
         return isNotified;
     }    
 }

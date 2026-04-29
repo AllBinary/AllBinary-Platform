@@ -49,7 +49,7 @@ public class LicenseServerInitFileUtil
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    private final OutputStream NULL_OUTPUT_STREAM = nullOutputStream();
+    private final OutputStream NULL_OUTPUT_STREAM = LicenseServerInitFileUtil.nullOutputStream();
     
     public final void init()
     {

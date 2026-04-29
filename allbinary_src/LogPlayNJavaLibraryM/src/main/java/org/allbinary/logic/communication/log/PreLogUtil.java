@@ -71,7 +71,7 @@ public class PreLogUtil
         final String message = LogFormatUtil.getInstance().getS(
             className, functionName, specialMessage);
 
-        PlayN.log().debug(LOG_SUCCESS + message);
+        PlayN.log().debug(PreLogUtil.LOG_SUCCESS + message);
     }
 
     private final static String LOG_SUCCESS = "org.allbinary: ";
@@ -95,7 +95,7 @@ public class PreLogUtil
         final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
 
-        PlayN.log().error(LOG_SUCCESS + message, (Throwable) exception);
+        PlayN.log().error(PreLogUtil.LOG_SUCCESS + message, (Throwable) exception);
     }
     
     //ActualPlatform
@@ -107,7 +107,7 @@ public class PreLogUtil
         final String message = LogFormatUtil.getInstance().getS(
             className, functionName, specialMessage);
 
-        PlayN.log().debug(LOG_SUCCESS + message);
+        PlayN.log().debug(PreLogUtil.LOG_SUCCESS + message);
     }
 
     //ActualPlatform
@@ -120,7 +120,7 @@ public class PreLogUtil
         final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
 
-        PlayN.log().error(LOG_SUCCESS + message, (Throwable) exception);
+        PlayN.log().error(PreLogUtil.LOG_SUCCESS + message, (Throwable) exception);
     }
     
 //    public static String getClassName(Object object) {

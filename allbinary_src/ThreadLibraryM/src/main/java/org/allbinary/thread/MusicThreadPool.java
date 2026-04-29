@@ -29,7 +29,7 @@ public class MusicThreadPool extends ThreadPool
 
     public static ThreadPool getInstance()
     {
-        return THREAD_POOL;
+        return MusicThreadPool.THREAD_POOL;
     }
 
     public MusicThreadPool(final String poolName, final int numThreads, final int priority) {

@@ -120,7 +120,7 @@ public class CategoryProperties implements CategoryPropertiesInterface
             nextParentCategoryInterface = nextParentCategoryInterface.getHierarchy().getParent();
             
             depthIndex++;
-            if(depthIndex > MAXDEPTH)
+            if(depthIndex > CategoryProperties.MAXDEPTH)
             {
                //throw new Exception("Depth is to high: Probably child == parent");
                throw new Exception("Probably Major Error");

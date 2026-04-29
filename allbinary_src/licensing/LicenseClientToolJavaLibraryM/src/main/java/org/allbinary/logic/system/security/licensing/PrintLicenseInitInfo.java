@@ -35,7 +35,7 @@ public class PrintLicenseInitInfo
       //NoLicense.init(options[0], this.getClass().getClassLoader());
       //NoLicense.init("G:\\mnt\\bc\\mydev\\licenseserver\\testing\\", this.getClass().getClassLoader());
        //Globals.init(this.getClass().getClassLoader(), "G:\\mnt\\bc\\mydev\\licenseserver\\testing\\");
-       LicenseInitInfoUtil.getInstance().setFilePath(PATH + PATH_GLOBALS.getInstance().INIT_PATH);
+       LicenseInitInfoUtil.getInstance().setFilePath(PrintLicenseInitInfo.PATH + PATH_GLOBALS.getInstance().INIT_PATH);
    }
 
    public LicenseInitInfo getLicenseInitInfo() throws Exception

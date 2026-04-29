@@ -40,7 +40,7 @@ public class InputAutomationBundleActivator
         
     public static BundleContext getBundleContext()
     {
-        return bundleContext;
+        return InputAutomationBundleActivator.bundleContext;
     }
     
     public void start(final BundleContext bundleContext) throws Exception
@@ -76,10 +76,10 @@ public class InputAutomationBundleActivator
                 }
                  */
             
-            moduleManagementThread = new Thread(
+            InputAutomationBundleActivator.moduleManagementThread = new Thread(
                 new InputAutomationNewBundleRunnable(this));
             
-            moduleManagementThread.start();
+            InputAutomationBundleActivator.moduleManagementThread.start();
             
             InputAutomationJFrame.create(this);
         }

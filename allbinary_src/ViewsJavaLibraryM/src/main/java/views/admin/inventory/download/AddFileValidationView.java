@@ -62,7 +62,7 @@ public class AddFileValidationView
             String command = (String) this.getRequestHashMap().get(GLOBALS2.ADMINCOMMAND);
 
             if (StringValidationUtil.getInstance().isEmpty(command)
-                || (command.compareTo(ADDPRODUCT) != 0
+                || (command.compareTo(AddFileValidationView.ADDPRODUCT) != 0
                 && command.compareTo(ADDANOTHERDOWNLOADABLE) != 0))
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
@@ -285,7 +285,7 @@ public class AddFileValidationView
             String command = (String) this.getRequestHashMap().get(GLOBALS2.ADMINCOMMAND);
 
             if (StringValidationUtil.getInstance().isEmpty(command)
-                || (command.compareTo(ADDPRODUCT) != 0
+                || (command.compareTo(AddFileValidationView.ADDPRODUCT) != 0
                 && command.compareTo(ADDANOTHERDOWNLOADABLE) != 0))
             {
                 //stringBuffer.append("Invalid Command<br/>");

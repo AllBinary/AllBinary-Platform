@@ -29,11 +29,11 @@ public class NullAIFactory
           Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
     {
         //return new NullAI();
-    	return NULL_AI;
+    	return NullAIFactory.NULL_AI;
     }
 
     public static ArtificialIntelligenceInterface getInstance()
     {
-    	return NULL_AI;
+    	return NullAIFactory.NULL_AI;
     }
 }

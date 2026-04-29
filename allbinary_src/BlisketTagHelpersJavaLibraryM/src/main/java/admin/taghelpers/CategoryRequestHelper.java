@@ -108,10 +108,10 @@ public class CategoryRequestHelper extends ModifyTable
             String xmlRequest = (String) keyArray[0];
 
             int index = 1;
-            while(index < size && !xmlRequest.startsWith(categoryRequest))
+            while(index < size && !xmlRequest.startsWith(CategoryRequestHelper.categoryRequest))
             {
                xmlRequest = (String) keyArray[index];
-               if(xmlRequest.startsWith(categoryRequest)) break;
+               if(xmlRequest.startsWith(CategoryRequestHelper.categoryRequest)) break;
             }
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))

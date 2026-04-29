@@ -114,8 +114,8 @@ public class LinesGraphicItem implements GraphicItemInterface
 
    public void init() throws Exception
    {
-      this.treeNode = new DefaultMutableTreeNode(PointsDomUtil.getInstance().LINES + item);
-      item++;
+      this.treeNode = new DefaultMutableTreeNode(PointsDomUtil.getInstance().LINES + LinesGraphicItem.item);
+      LinesGraphicItem.item++;
       this.points.init();
       this.pointTreeNodeVector = new Vector();
       this.fulcrumPoint = PointFactory.getInstance().createXY(0, 0);
@@ -169,12 +169,12 @@ public class LinesGraphicItem implements GraphicItemInterface
 
    public String getName()
    {
-      return NAME;
+      return LinesGraphicItem.NAME;
    }
 
    public static String getStaticName()
    {
-      return NAME;
+      return LinesGraphicItem.NAME;
    }
 
    private synchronized void addPoint(NodeList pointNodes) throws Exception

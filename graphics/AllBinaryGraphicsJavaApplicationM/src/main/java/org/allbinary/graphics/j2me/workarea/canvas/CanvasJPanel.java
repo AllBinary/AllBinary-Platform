@@ -136,9 +136,9 @@ public class CanvasJPanel extends javax.swing.JPanel
     private void initMyComponents()
             throws Exception
     {
-        this.frameLabel = new CanvasTreeLabel("FrameLabel" + new Integer(frame).toString());
+        this.frameLabel = new CanvasTreeLabel("FrameLabel" + new Integer(CanvasJPanel.frame).toString());
         this.canvasTreeNode = new DefaultMutableTreeNode(this.frameLabel);
-        frame++;
+        CanvasJPanel.frame++;
 
         this.workAreaJTreeJPanel.add(this.getTreeNode());
 

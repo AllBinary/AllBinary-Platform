@@ -40,10 +40,10 @@ public class GenericProfiles
     public static final String DEFAULT_PROFILES_PATH = 
         "./modules/configs/profiles/";
     public static final String DEFAULT_PROFILE_ACTIONS_PATH = 
-        DEFAULT_PROFILES_PATH + "actions/";    
+        GenericProfiles.DEFAULT_PROFILES_PATH + "actions/";    
     
     public static final String DEFAULT_FILE = 
-        DEFAULT_PROFILES_PATH + "profiles.xml";
+        GenericProfiles.DEFAULT_PROFILES_PATH + "profiles.xml";
     
     private HashMap hashMap;
     

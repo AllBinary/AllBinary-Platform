@@ -40,7 +40,7 @@ public class AllBinaryPreloaderActivator
     
     public static BundleContext getBundleContext()
     {
-        return context;
+        return AllBinaryPreloaderActivator.context;
     }
  
     private final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -66,14 +66,14 @@ public class AllBinaryPreloaderActivator
         Hashtable properties = new Hashtable();
         
         ServiceRegistration serviceRegistration =
-            context.registerService(CRYPT_REGISTRY_NAME,
+            AllBinaryPreloaderActivator.context.registerService(CRYPT_REGISTRY_NAME,
             new CryptServiceFactory(), properties);
         
         ServiceReference serviceReference =
             serviceRegistration.getReference();
         
         serviceReference =
-            context.getServiceReference(CRYPT_REGISTRY_NAME);
+            AllBinaryPreloaderActivator.context.getServiceReference(CRYPT_REGISTRY_NAME);
         if(serviceReference == null)
             throw new Exception("No Such Service Reference");
     }

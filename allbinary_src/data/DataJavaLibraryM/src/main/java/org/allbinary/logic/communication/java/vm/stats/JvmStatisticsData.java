@@ -22,19 +22,19 @@ public class JvmStatisticsData
 
    public static final String JVM_STATISTICS = "JVM_STATISTICS_";
    
-   public static final String NAME = JVM_STATISTICS + "NAME";
+   public static final String NAME = JvmStatisticsData.JVM_STATISTICS + "NAME";
    
-   public static final String TOTAL_MEMORY_BYTES = JVM_STATISTICS + "TOTAL_MEMORY_BYTES";
-   public static final String TOTAL_MEMORY_KILOBYTES = JVM_STATISTICS + "TOTAL_MEMORY_KILOBYTES";
-   public static final String TOTAL_MEMORY_MEGABYTES = JVM_STATISTICS + "TOTAL_MEMORY_MEGABYTES";
+   public static final String TOTAL_MEMORY_BYTES = JvmStatisticsData.JVM_STATISTICS + "TOTAL_MEMORY_BYTES";
+   public static final String TOTAL_MEMORY_KILOBYTES = JvmStatisticsData.JVM_STATISTICS + "TOTAL_MEMORY_KILOBYTES";
+   public static final String TOTAL_MEMORY_MEGABYTES = JvmStatisticsData.JVM_STATISTICS + "TOTAL_MEMORY_MEGABYTES";
 
-   public static final String FREE_MEMORY_BYTES = JVM_STATISTICS + "FREE_MEMORY_BYTES";
-   public static final String FREE_MEMORY_KILOBYTES = JVM_STATISTICS + "FREE_MEMORY_KILOBYTES";
-   public static final String FREE_MEMORY_MEGABYTES = JVM_STATISTICS + "FREE_MEMORY_MEGABYTES";
+   public static final String FREE_MEMORY_BYTES = JvmStatisticsData.JVM_STATISTICS + "FREE_MEMORY_BYTES";
+   public static final String FREE_MEMORY_KILOBYTES = JvmStatisticsData.JVM_STATISTICS + "FREE_MEMORY_KILOBYTES";
+   public static final String FREE_MEMORY_MEGABYTES = JvmStatisticsData.JVM_STATISTICS + "FREE_MEMORY_MEGABYTES";
 
-   public static final String MAX_MEMORY_BYTES = JVM_STATISTICS + "MAX_MEMORY_BYTES";
-   public static final String MAX_MEMORY_KILOBYTES = JVM_STATISTICS + "MAX_MEMORY_KILOBYTES";
-   public static final String MAX_MEMORY_MEGABYTES = JVM_STATISTICS + "MAX_MEMORY_MEGABYTES";
+   public static final String MAX_MEMORY_BYTES = JvmStatisticsData.JVM_STATISTICS + "MAX_MEMORY_BYTES";
+   public static final String MAX_MEMORY_KILOBYTES = JvmStatisticsData.JVM_STATISTICS + "MAX_MEMORY_KILOBYTES";
+   public static final String MAX_MEMORY_MEGABYTES = JvmStatisticsData.JVM_STATISTICS + "MAX_MEMORY_MEGABYTES";
    
-   public static final String NUMBER_OF_THREADS = JVM_STATISTICS + "NUMBER_OF_THREADS";
+   public static final String NUMBER_OF_THREADS = JvmStatisticsData.JVM_STATISTICS + "NUMBER_OF_THREADS";
 }

@@ -32,7 +32,7 @@ public class FileStreamFactory
 
     public static FileStreamFactory getInstance()
     {
-        return SINGLETON;
+        return FileStreamFactory.SINGLETON;
     }
 
     public AbFileInputStream getFileInputStreamInstance(final String path, final String fileName) throws Exception

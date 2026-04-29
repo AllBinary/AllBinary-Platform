@@ -33,13 +33,13 @@ public class MyGraphicItemEventService
    public static synchronized void addListener(MyGraphicItemEventListener listener) 
    {
       //MyGraphicItemEventListener.class
-      listenerList.add((Class) listener.getClass(), (java.util.EventListener) listener);
+      MyGraphicItemEventService.listenerList.add((Class) listener.getClass(), (java.util.EventListener) listener);
    }
 
    public static synchronized void removeListener(MyGraphicItemEventListener listener) 
    {
       //MyGraphicItemEventListener.class
-      listenerList.remove((Class) listener.getClass(), (java.util.EventListener) listener);
+      MyGraphicItemEventService.listenerList.remove((Class) listener.getClass(), (java.util.EventListener) listener);
    }
        
    public static synchronized void fire(MyGraphicItemEvent evt) 
@@ -52,27 +52,27 @@ public class MyGraphicItemEventService
          //MyGraphicItemEventListener.class
          if (listeners[i]==listeners[i+1].getClass()) 
          {
-            if(evt.getCommand().compareTo(SELECT)==0)
+            if(evt.getCommand().compareTo(MyGraphicItemEventService.SELECT)==0)
             {
                ((MyGraphicItemEventListener)listeners[i+1]).highlight(evt);
             }
             else
-            if(evt.getCommand().compareTo(DESELECT)==0)
+            if(evt.getCommand().compareTo(MyGraphicItemEventService.DESELECT)==0)
             {
                ((MyGraphicItemEventListener)listeners[i+1]).deselect(evt);
             }
             else
-            if(evt.getCommand().compareTo(DELETE)==0)
+            if(evt.getCommand().compareTo(MyGraphicItemEventService.DELETE)==0)
             {
                ((MyGraphicItemEventListener)listeners[i+1]).delete(evt);
             }
             else
-            if(evt.getCommand().compareTo(DUPLICATE)==0)
+            if(evt.getCommand().compareTo(MyGraphicItemEventService.DUPLICATE)==0)
             {
                ((MyGraphicItemEventListener)listeners[i+1]).duplicate(evt);
             }               
             else
-            if(evt.getCommand().compareTo(ROTATE)==0)
+            if(evt.getCommand().compareTo(MyGraphicItemEventService.ROTATE)==0)
             {
                ((MyGraphicItemEventListener)listeners[i+1]).rotate(evt);
             }               

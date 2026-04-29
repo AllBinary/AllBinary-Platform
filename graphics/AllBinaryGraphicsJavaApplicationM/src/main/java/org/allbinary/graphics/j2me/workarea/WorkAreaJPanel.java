@@ -355,7 +355,7 @@ public class WorkAreaJPanel
     //dom methods excluding constructor
     public static Document getDocument()
     {
-        return document;
+        return WorkAreaJPanel.document;
     }
 
     public Document toDocument() throws Exception

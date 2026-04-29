@@ -51,12 +51,12 @@ public class InputAutomationConfigurationFactory
             final JAXBContext jaxbContext = JAXBContext.newInstance(InputAutomationConfiguration.class);
             final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             final JAXBElement<InputAutomationConfiguration> root = unmarshaller.unmarshal(new StreamSource(new FileInputStream(file)), InputAutomationConfiguration.class);
-            inputAutomationConfiguration = (InputAutomationConfiguration) 
+            InputAutomationConfigurationFactory.inputAutomationConfiguration = (InputAutomationConfiguration) 
                     //unmarshaller.unmarshal(file);
                     root.getValue();
             
             final List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList = 
-                    inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
+                    InputAutomationConfigurationFactory.inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
             
             logUtil.putF("isInstalled: " + inputAutomationConfiguration.isInstalled(), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
 
@@ -72,12 +72,12 @@ public class InputAutomationConfigurationFactory
         else
         {
             logUtil.putF("New Configuration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
-            inputAutomationConfiguration = new InputAutomationConfiguration();
+            InputAutomationConfigurationFactory.inputAutomationConfiguration = new InputAutomationConfiguration();
         }
     }
     
     public static InputAutomationConfiguration getInstance()
     {
-        return inputAutomationConfiguration;
+        return InputAutomationConfigurationFactory.inputAutomationConfiguration;
     }
 }

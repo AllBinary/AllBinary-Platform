@@ -575,12 +575,12 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
    public static InputAutomationJFrame getInstance()
    {
-      return INPUTAUTOMATION_JFRAME;
+      return InputAutomationJFrame.INPUTAUTOMATION_JFRAME;
    }
 
    public static void destroy()
    {
-      INPUTAUTOMATION_JFRAME.setVisible(false);
+      InputAutomationJFrame.INPUTAUTOMATION_JFRAME.setVisible(false);
    }
 
    public static void create(final InputAutomationBundleActivatorListenerInterface inputAutomationBundleActivatorListenerInterface)

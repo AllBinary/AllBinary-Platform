@@ -65,7 +65,7 @@ public class CanvasDom
         this.dimension = new IntegerDimension(0, 0);
 
         String name = canvasNode.getNodeName();
-        if (name.compareTo(FRAME) == 0)
+        if (name.compareTo(CanvasDom.FRAME) == 0)
         {
             this.graphicItemHashMap = new HashMap();
 

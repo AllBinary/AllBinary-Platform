@@ -50,7 +50,7 @@ public class UserConfigurationInterfaceFactory
       //user business object key as configuration file name
       AbPath abPath = new AbPath(
          URLGLOBALS.getMainPath() + FREEBLISKET_PATH_GLOBALS.getInstance().USERCONFIGURATIONPATH,
-         configurationName + userRole.toString() + AbPathData.getInstance().EXTENSION_SEP +
+         UserConfigurationInterfaceFactory.configurationName + userRole.toString() + AbPathData.getInstance().EXTENSION_SEP +
          UserConfigurationData.UNCRYPTED_EXTENSION);
 
       String documentString = new CryptFileReader(

@@ -48,9 +48,9 @@ public class DocumentToNode
         throws Exception
     {
         //TWB - Remove jsp:root from inserted component
-        documentString = remove(documentString, XMLJSPROOTSTART, XMLEND);
+        documentString = DocumentToNode.remove(documentString, XMLJSPROOTSTART, XMLEND);
         //"1: " + documentString);
-        documentString = remove(documentString, XMLJSPROOTENDSTART, XMLEND);
+        documentString = DocumentToNode.remove(documentString, XMLJSPROOTENDSTART, XMLEND);
         //"2: " + documentString);
         //this replaces the xml info and could cause a problem with different transformations
         Replace replaceXmlRoot = new Replace(XMLROOT, StringUtil.getInstance().EMPTY_STRING);
@@ -59,7 +59,7 @@ public class DocumentToNode
 
     public static String removeXmlDefinitionFromDocumentString(String documentString)
     {
-        return remove(documentString, XMLROOTSTART, XMLROOTEND);
+        return DocumentToNode.remove(documentString, XMLROOTSTART, XMLROOTEND);
     }
 
     public static String remove(String documentString, String start, String end)

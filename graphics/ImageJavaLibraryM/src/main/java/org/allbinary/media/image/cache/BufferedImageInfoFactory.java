@@ -37,7 +37,7 @@ public class BufferedImageInfoFactory
         String key = stringbuffer.toString();
         
         BufferedImageInfo bufferedImageInfo = 
-            (BufferedImageInfo) hashMap.get(key);
+            (BufferedImageInfo) BufferedImageInfoFactory.hashMap.get(key);
         
         if(bufferedImageInfo == null)
         {
@@ -45,7 +45,7 @@ public class BufferedImageInfoFactory
                 new BufferedImageInfo(
                 width, height, type);
 
-            hashMap.put(key, bufferedImageInfo);
+            BufferedImageInfoFactory.hashMap.put(key, bufferedImageInfo);
         }
         return bufferedImageInfo;
     }

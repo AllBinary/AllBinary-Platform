@@ -46,9 +46,9 @@ public class SystemHardwareFactory {
     {
       try
       {
-    	  if(hardwareInterface == NoHardware.getInstance())
+    	  if(SystemHardwareFactory.hardwareInterface == NoHardware.getInstance())
     	  {
-    	      hardwareInterface = HardwareFactory.getInstance().getInstance(operatingSystemInterface);
+    	      SystemHardwareFactory.hardwareInterface = HardwareFactory.getInstance().getInstance(operatingSystemInterface);
     	  }
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
@@ -64,7 +64,7 @@ public class SystemHardwareFactory {
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
          //}
       }
-      return hardwareInterface;
+      return SystemHardwareFactory.hardwareInterface;
    }
    
    /*
@@ -79,7 +79,7 @@ public class SystemHardwareFactory {
       StringMaker osBuffer = new StringMaker();
       osBuffer.append("Hardware Info: \n");
       
-      if(hardwareInterface != null)
+      if(SystemHardwareFactory.hardwareInterface != null)
       {
           osBuffer.append(hardwareInterface.toString());
       }

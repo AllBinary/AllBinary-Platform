@@ -107,7 +107,7 @@ public class SavedCaptureImagesWorker
                 {
                     BufferedImage bufferedImage = ImageIO.read(file);
                     
-                    index++;
+                    SavedCaptureImagesWorker.index++;
                     
                     CapturedBufferedImagesCacheSingleton.getInstance().add(
                         new BufferedImageFrameCacheable(bufferedImage, frame));

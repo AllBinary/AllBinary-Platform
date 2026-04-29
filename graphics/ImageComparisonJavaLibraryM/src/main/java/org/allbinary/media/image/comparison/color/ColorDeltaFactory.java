@@ -38,7 +38,7 @@ public class ColorDeltaFactory
             
             logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
             
-            cacheInterface = (AutomaticCacheInterface) CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE,
+            ColorDeltaFactory.cacheInterface = (AutomaticCacheInterface) CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE,
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
             logUtil.putF(commonStrings.END, instance, STATIC_BLOCK);
@@ -57,7 +57,7 @@ public class ColorDeltaFactory
     throws Exception
     {
         ColorDelta colorDelta = (ColorDelta) 
-            cacheInterface.get(ColorDelta.getKey(rgb1, rgb2));
+            ColorDeltaFactory.cacheInterface.get(ColorDelta.getKey(rgb1, rgb2));
         
         if(colorDelta == null)
         {

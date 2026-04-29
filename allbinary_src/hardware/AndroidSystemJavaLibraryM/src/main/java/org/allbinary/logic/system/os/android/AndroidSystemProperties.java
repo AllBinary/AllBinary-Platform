@@ -34,7 +34,7 @@ public class AndroidSystemProperties
 
     public static AndroidSystemProperties getInstance()
     {
-        return SINGLETON;
+        return AndroidSystemProperties.SINGLETON;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

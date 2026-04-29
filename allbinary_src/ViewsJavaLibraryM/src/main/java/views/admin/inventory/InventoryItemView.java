@@ -74,7 +74,7 @@ public class InventoryItemView extends HttpStoreComponentView
 
     public int getTypeId()
     {
-        return TYPE_ID;
+        return InventoryItemView.TYPE_ID;
     }
 
     private void getFormData() throws Exception

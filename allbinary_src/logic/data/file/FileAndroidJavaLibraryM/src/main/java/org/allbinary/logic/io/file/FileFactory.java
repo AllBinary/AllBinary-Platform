@@ -38,7 +38,7 @@ public class FileFactory {
     
     public static FileFactory getInstance()
     {
-        return SINGLETON;
+        return FileFactory.SINGLETON;
     }
 
     public boolean isFile(String path) throws Exception

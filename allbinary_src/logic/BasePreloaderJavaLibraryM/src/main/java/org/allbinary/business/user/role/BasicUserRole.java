@@ -41,7 +41,7 @@ public class BasicUserRole implements Serializable
       this.sessionTimeout = aSessionTimeout;
       this.sessionInactivityTimeout = aSessionInactivityTimeout;
 
-      roleVector.add(this);
+      BasicUserRole.roleVector.add(this);
    }
 
    private int getRoleId()

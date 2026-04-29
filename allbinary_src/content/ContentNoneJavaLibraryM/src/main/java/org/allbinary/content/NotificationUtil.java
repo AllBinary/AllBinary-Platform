@@ -21,7 +21,7 @@ public class NotificationUtil
         
     public static NotificationUtil getInstance()
     {
-        return SINGLETON;
+        return NotificationUtil.SINGLETON;
     }
     
     public void notify(Command command, String resource, String message)

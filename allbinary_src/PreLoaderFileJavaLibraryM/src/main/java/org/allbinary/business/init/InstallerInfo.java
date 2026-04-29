@@ -49,7 +49,7 @@ public class InstallerInfo
    public synchronized void write() throws Exception
    {
       AbPath FILEABPATH = 
-         new AbPath(URLGLOBALS.getMainPath() + PACKAGE, INITFILENAME);
+         new AbPath(URLGLOBALS.getMainPath() + InstallerInfo.PACKAGE, InstallerInfo.INITFILENAME);
       try
       {
          AbFile newFile = new AbFile(FILEABPATH);
@@ -63,7 +63,7 @@ public class InstallerInfo
          
          dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedUserName));
          dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedPassword));
-         hasRead = false;
+         InstallerInfo.hasRead = false;
       }
       catch(Exception e)
       {
@@ -78,7 +78,7 @@ public class InstallerInfo
    private synchronized void read() throws Exception
    {
       AbPath FILEABPATH = 
-         new AbPath(URLGLOBALS.getMainPath() + PACKAGE, INITFILENAME);
+         new AbPath(URLGLOBALS.getMainPath() + InstallerInfo.PACKAGE, InstallerInfo.INITFILENAME);
       try
       {
          AbFile file = new AbFile(FILEABPATH);
@@ -127,9 +127,9 @@ public class InstallerInfo
 
    private synchronized void updateIfNeeded() throws Exception
    {
-      if(!hasRead)
+      if(!InstallerInfo.hasRead)
       {
-         hasRead = true;
+         InstallerInfo.hasRead = true;
          this.read();
          if(InstallerInfo.userName == null || InstallerInfo.password == null)
          {

@@ -154,7 +154,7 @@ public class InputAutomationNewBundleRunnable
         
         String baseJarPath = System.getProperty(JAR_DIR_PROP);
         
-        if(baseJarPath.startsWith(FILE))
+        if(baseJarPath.startsWith(InputAutomationNewBundleRunnable.FILE))
         {
             baseJarPath = baseJarPath.substring(FILE.length());
         }

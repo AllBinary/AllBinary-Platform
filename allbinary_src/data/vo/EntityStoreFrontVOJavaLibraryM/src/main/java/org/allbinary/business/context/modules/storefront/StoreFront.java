@@ -206,14 +206,14 @@ public class StoreFront implements StoreFrontInterface
             this.createPath(storeFrontData.TESTHOSTNAMEPATH, storeHashMap);
 
         this.imagePath = this.createPath(
-            RESOURCES, storeFrontData.IMAGEPATH, storeHashMap);
+            StoreFront.RESOURCES, storeFrontData.IMAGEPATH, storeHashMap);
 
         this.staticPath = this.createPath(
             " Products" + AbPathData.getInstance().SEPARATOR,
             storeFrontData.STATICPATH, storeHashMap);
 
         this.categoryPath = this.createPath(
-            RESOURCES, storeFrontData.CATEGORYPATH, storeHashMap);
+            StoreFront.RESOURCES, storeFrontData.CATEGORYPATH, storeHashMap);
 
         this.inventoryControl = (String) storeHashMap.get(storeFrontData.INVENTORYCONTROL);
 

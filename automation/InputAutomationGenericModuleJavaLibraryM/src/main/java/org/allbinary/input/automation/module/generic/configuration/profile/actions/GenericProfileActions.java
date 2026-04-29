@@ -85,7 +85,7 @@ public class GenericProfileActions
     public void save() throws Exception
     {
         FileOutputStream idFile = new FileOutputStream(
-            DEFAULT_PROFILE_ACTIONS_PATH + getName() + ".xml");
+            GenericProfileActions.DEFAULT_PROFILE_ACTIONS_PATH + getName() + ".xml");
         DataOutputStream idOutData = new DataOutputStream(idFile);
         idOutData.writeBytes(
             DomDocumentHelper.toString(this.toXmlDoc()));
@@ -100,7 +100,7 @@ public class GenericProfileActions
     private void load()
     throws Exception
     {
-        File file = getFile(getName());
+        File file = GenericProfileActions.getFile(getName());
 
         if(file.isFile())
         {

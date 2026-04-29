@@ -30,7 +30,7 @@ public class WebappClassLoaderInfo
 
    public static synchronized ClassLoader getLoader()
    {
-      return (ClassLoader) classLoader;
+      return (ClassLoader) WebappClassLoaderInfo.classLoader;
    }
    
 }

@@ -23,12 +23,12 @@ public class LOGGING
    private LOGGING(String value)
    {
       this.name = value;
-      logging.add(value);
+      LOGGING.logging.add(value);
    }
    
    public static boolean contains(LOGGING logType)
    {
-      return logging.contains(logType.toString());
+      return LOGGING.logging.contains(logType.toString());
    }
    
    public String toString()

@@ -40,7 +40,7 @@ public class DesktopBundle
             for (int index = 0; index < bundleArray.length; index++) {
                 Bundle bundle = bundleArray[index];
                 String symbolicName = bundle.getSymbolicName();
-                if (symbolicName.compareTo(DESKTOP_SYMBOLIC_NAME) == 0) {
+                if (symbolicName.compareTo(DesktopBundle.DESKTOP_SYMBOLIC_NAME) == 0) {
                     this.bundle = bundle;
                 }
             }

@@ -28,8 +28,8 @@ public class PaymentGatewayPageData
     //Payment pages automatically added for each possible payment processor
     public final static String FORWARDMAKEPAYMENT = "MakePayment.jsp";
     public final String MAKEPAYMENT;
-    public final static String PAYMENTOPTIONS = "PaymentOptions" + EXTENSION;
-    public final static String STARTCHECKOUT = "StartCheckout" + EXTENSION;
+    public final static String PAYMENTOPTIONS = "PaymentOptions" + PaymentGatewayPageData.EXTENSION;
+    public final static String STARTCHECKOUT = "StartCheckout" + PaymentGatewayPageData.EXTENSION;
     public final String CHECKOUT;
     public final String SHIPPING;
     //String FORWARDSHIPPINGADDRESSPAGE = paymentMethod + SHIPPINGADDRESSPAGENAME;

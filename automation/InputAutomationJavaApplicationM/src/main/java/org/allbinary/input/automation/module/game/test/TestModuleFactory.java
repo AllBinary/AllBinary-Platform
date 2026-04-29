@@ -35,7 +35,7 @@ public class TestModuleFactory
 
    public String getName()
    {
-       return NAME;
+       return TestModuleFactory.NAME;
    }
    
     public JPanel getConfigurationJPanel()

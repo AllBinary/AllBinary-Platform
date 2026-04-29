@@ -41,7 +41,7 @@ public class GameSkill
         
         this.vector = new Vector();
         
-        hashMap.put(new StringBuilder().append(this.getGameSkillType().getName()).append(CommonSeps.getInstance().SPACE).append(extra).toString(), this);
+        GameSkill.hashMap.put(new StringBuilder().append(this.getGameSkillType().getName()).append(CommonSeps.getInstance().SPACE).append(extra).toString(), this);
    }
    
     public GameSkillType getGameSkillType()
@@ -88,7 +88,7 @@ public class GameSkill
         GameSkillType gameSkillType, String extra)
     {
         return (GameSkill) 
-           hashMap.get(new StringBuilder().append(gameSkillType.getName()).append(CommonSeps.getInstance().SPACE).append(extra).toString());
+           GameSkill.hashMap.get(new StringBuilder().append(gameSkillType.getName()).append(CommonSeps.getInstance().SPACE).append(extra).toString());
     }
     
     public String toString()

@@ -209,12 +209,12 @@ public class SelectionTool implements GraphicItemInterface
 
     public String getName()
     {
-        return NAME;
+        return SelectionTool.NAME;
     }
 
     public static String getStaticName()
     {
-        return NAME;
+        return SelectionTool.NAME;
     }
     private GPoint startPoint = PointFactory.getInstance().ZERO_ZERO;
     private GPoint endPoint = this.startPoint;

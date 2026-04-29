@@ -32,7 +32,7 @@ public class LogConfigType
        
       this.name = name;
       this.description = description;
-      availableLogConfigTypes.add(this);
+      LogConfigType.availableLogConfigTypes.add(this);
    }
 
    public String getName()

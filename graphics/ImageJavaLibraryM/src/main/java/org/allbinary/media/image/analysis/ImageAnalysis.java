@@ -71,9 +71,9 @@ public class ImageAnalysis
 
             Color color = colorCacheable.getColor();
 
-            processColorRangeResults(imageAnalysisResults, colorRangeInterface, color);
+            ImageAnalysis.processColorRangeResults(imageAnalysisResults, colorRangeInterface, color);
 
-            processImageColorResults(imageAnalysisResults.getImageColorResults(), colorRangeInterface, color);
+            ImageAnalysis.processImageColorResults(imageAnalysisResults.getImageColorResults(), colorRangeInterface, color);
 
             redTotal += color.getRed();
             greenTotal += color.getGreen();

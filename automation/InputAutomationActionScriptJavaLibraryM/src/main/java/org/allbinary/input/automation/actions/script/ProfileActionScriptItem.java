@@ -99,7 +99,7 @@ public class ProfileActionScriptItem extends DefaultMutableTreeNode
     
     public void actionPerformed(ActionEvent actionEvent)
     {
-        if(actionEvent.getActionCommand().compareTo(EDIT) == 0)
+        if(actionEvent.getActionCommand().compareTo(ProfileActionScriptItem.EDIT) == 0)
         {
             this.showDialog();
         }

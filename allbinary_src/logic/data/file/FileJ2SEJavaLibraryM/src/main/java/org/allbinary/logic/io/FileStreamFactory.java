@@ -27,7 +27,7 @@ public class FileStreamFactory
 
     public static FileStreamFactory getInstance()
     {
-        return SINGLETON;
+        return FileStreamFactory.SINGLETON;
     }
 
     public AbFileInputStream getFileInputStreamInstance(String path, String fileName)

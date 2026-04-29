@@ -38,7 +38,7 @@ public class TitleView implements DomNodeInterface
    
    public TitleView()
    {
-	   this.title = NAME;
+	   this.title = TitleView.NAME;
    }
 
    public TitleView(Node node) throws Exception
@@ -57,7 +57,7 @@ public class TitleView implements DomNodeInterface
       
       if(StringValidationUtil.getInstance().isEmpty(this.title))
       {
-    	  this.title = NAME;
+    	  this.title = TitleView.NAME;
       }
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
@@ -87,7 +87,7 @@ public class TitleView implements DomNodeInterface
       
       if(StringValidationUtil.getInstance().isEmpty(this.title))
       {
-    	  this.title = NAME;
+    	  this.title = TitleView.NAME;
       }
    }
    

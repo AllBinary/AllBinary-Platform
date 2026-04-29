@@ -637,7 +637,7 @@ public class FileUtil
             }
 
             //create new directory            
-            final String newDirectory = getNewDirectory(fromFile);
+            final String newDirectory = FileUtil.getNewDirectory(fromFile);
 
             final AbPath newDirectoryAbPath =
                 new AbPath(to.getPath() + AbPathData.getInstance().SEPARATOR + newDirectory);

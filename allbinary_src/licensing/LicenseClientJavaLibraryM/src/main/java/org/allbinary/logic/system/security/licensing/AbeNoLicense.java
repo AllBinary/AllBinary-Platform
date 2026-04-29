@@ -31,7 +31,7 @@ public class AbeNoLicense
     
     public static AbeNoLicense getInstance()
     {
-        return abeNoLicense;
+        return AbeNoLicense.abeNoLicense;
     }
     
     public boolean hasKey()

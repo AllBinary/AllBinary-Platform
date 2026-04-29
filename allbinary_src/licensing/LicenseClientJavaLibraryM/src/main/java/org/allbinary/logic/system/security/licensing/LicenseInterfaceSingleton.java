@@ -19,7 +19,7 @@ public class LicenseInterfaceSingleton
 
     public static AbeLicenseInterface getInstance()
     {
-        return licenseInterface;
+        return LicenseInterfaceSingleton.licenseInterface;
     }
 
     public static void init(AbeLicenseInterface licenseInterface)

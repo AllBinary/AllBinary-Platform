@@ -24,21 +24,21 @@ public class URLGLOBALS
    
    public static boolean isTestingMode()
    {
-      return urlGlobalsInterface.isTestingMode();
+      return URLGLOBALS.urlGlobalsInterface.isTestingMode();
    }
    
    public static String getWebappPath()
    {
-      return urlGlobalsInterface.getWebappPath();
+      return URLGLOBALS.urlGlobalsInterface.getWebappPath();
    }
    
    public static String getTestHtmlPath()
    {
-      return urlGlobalsInterface.getTestHtmlPath();
+      return URLGLOBALS.urlGlobalsInterface.getTestHtmlPath();
    }
       
    public static String getMainPath() throws Exception
    {
-      return urlGlobalsInterface.getMainPath();
+      return URLGLOBALS.urlGlobalsInterface.getMainPath();
    }   
 }

@@ -60,7 +60,7 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
                 BufferedImage bufferedImage
                         = this.screenScavangerRobot.getScreenAsBufferedImages()[0];
                 Long frame = new Long(index);
-                index++;
+                ScreenCaptureImagesWorker.index++;
                 CapturedBufferedImagesCacheSingleton.getInstance().add(
                         new BufferedImageFrameCacheable(bufferedImage, frame));
                 CapturedImageWorkerResultsEvent capturedImageEvent

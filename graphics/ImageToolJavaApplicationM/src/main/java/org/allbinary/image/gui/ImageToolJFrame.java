@@ -327,7 +327,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
           this.jPanel1.add(imageUnifierJPanel);
           this.jPanel1.updateUI();
 
-          imageProcessorInputCompositeInterface = imageUnifierJPanel;
+          ImageToolJFrame.imageProcessorInputCompositeInterface = imageUnifierJPanel;
        }
        catch (Exception e)
        {
@@ -351,7 +351,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
 
           this.analysisActionJDialog.setVisible(false);
 
-          imageProcessorInputCompositeInterface = null;
+          ImageToolJFrame.imageProcessorInputCompositeInterface = null;
        }
        catch (Exception e)
        {
@@ -424,9 +424,9 @@ public class ImageToolJFrame extends javax.swing.JFrame
 
          this.fileJDialog.setVisible(false);
 
-         if (imageProcessorInputCompositeInterface != null)
+         if (ImageToolJFrame.imageProcessorInputCompositeInterface != null)
          {
-            imageProcessorInputCompositeInterface.setImageProcessorInput(
+            ImageToolJFrame.imageProcessorInputCompositeInterface.setImageProcessorInput(
                this.imageProcessorInput);
          }
       }
@@ -468,7 +468,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
          this.jPanel1.add(spriteImageJPanel);
          this.jPanel1.updateUI();
 
-         imageProcessorInputCompositeInterface = spriteImageJPanel;
+         ImageToolJFrame.imageProcessorInputCompositeInterface = spriteImageJPanel;
       }
       catch (Exception e)
       {
@@ -490,7 +490,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
          this.jPanel1.add(imageJPanel);
          this.jPanel1.updateUI();
 
-         imageProcessorInputCompositeInterface = imageJPanel;
+         ImageToolJFrame.imageProcessorInputCompositeInterface = imageJPanel;
       }
       catch (Exception e)
       {
@@ -512,7 +512,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
          this.jPanel1.add(rotationImageJPanel);
          this.jPanel1.updateUI();
 
-         imageProcessorInputCompositeInterface = rotationImageJPanel;
+         ImageToolJFrame.imageProcessorInputCompositeInterface = rotationImageJPanel;
       }
       catch (Exception e)
       {
@@ -531,7 +531,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
          this.jPanel1.add(resizeImageJPanel);
          this.jPanel1.updateUI();
 
-         imageProcessorInputCompositeInterface = resizeImageJPanel;
+         ImageToolJFrame.imageProcessorInputCompositeInterface = resizeImageJPanel;
       }
       catch (Exception e)
       {
@@ -550,7 +550,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
          this.jPanel1.add(createIconImagesJPanel);
          this.jPanel1.updateUI();
 
-         imageProcessorInputCompositeInterface = createIconImagesJPanel;
+         ImageToolJFrame.imageProcessorInputCompositeInterface = createIconImagesJPanel;
       }
       catch (Exception e)
       {
@@ -569,7 +569,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
          this.jPanel1.add(resizeImageJPanel);
          this.jPanel1.updateUI();
 
-         imageProcessorInputCompositeInterface = resizeImageJPanel;
+         ImageToolJFrame.imageProcessorInputCompositeInterface = resizeImageJPanel;
       }
       catch (Exception e)
       {
@@ -590,7 +590,7 @@ private void generateMirrorSpriteMenuItemActionPerformed(java.awt.event.ActionEv
       this.jPanel1.add(spriteImageJPanel);
       this.jPanel1.updateUI();
 
-      imageProcessorInputCompositeInterface = spriteImageJPanel;
+      ImageToolJFrame.imageProcessorInputCompositeInterface = spriteImageJPanel;
    }
    catch (Exception e)
    {
@@ -611,7 +611,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
       this.jPanel1.add(mirrorImageJPanel);
       this.jPanel1.updateUI();
 
-      imageProcessorInputCompositeInterface = mirrorImageJPanel;
+      ImageToolJFrame.imageProcessorInputCompositeInterface = mirrorImageJPanel;
    }
    catch (Exception e)
    {

@@ -79,7 +79,7 @@ public class AbeClassLoader extends ClassLoader
     
     protected Class findLoadedClass1(String name)
     {
-        return (Class)classes.get(name);
+        return (Class)AbeClassLoader.classes.get(name);
     }
     
     public synchronized Class loadClass(String name) throws ClassNotFoundException
@@ -175,7 +175,7 @@ public class AbeClassLoader extends ClassLoader
                     throw new ClassNotFoundException("My Class Not Defineable for: " + name + "\nwith: " + "loadClassBytes");
                 }
                 
-                classes.put(name, myClass);
+                AbeClassLoader.classes.put(name, myClass);
                 
             /*
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
@@ -461,7 +461,7 @@ public class AbeClassLoader extends ClassLoader
                     throw new ClassNotFoundException("Class Not Defineable for: " + name);
                 }
                 
-                classes.put(name, myClass);
+                AbeClassLoader.classes.put(name, myClass);
                 
             /*
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))

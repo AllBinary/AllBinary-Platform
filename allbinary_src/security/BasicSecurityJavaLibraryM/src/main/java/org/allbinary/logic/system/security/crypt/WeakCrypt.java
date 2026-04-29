@@ -50,7 +50,7 @@ public class WeakCrypt
         "afo7d6ffkjb3jr3i34gb24ytuvu3jr3uryf",
         "4gijvqo8vq984hv984hj5j3511h832hf833"
     };
-    public static int KEYMAX = keys.length;
+    public static int KEYMAX = WeakCrypt.keys.length;
     private AbCrypt abCrypt = new AbCrypt(KeySpecFactory.getInstance().DES);
 
     public WeakCrypt(int key)

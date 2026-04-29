@@ -36,7 +36,7 @@ public class BufferedImagePoolSingleton
         {
             logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
             
-            poolInterface =
+            BufferedImagePoolSingleton.poolInterface =
                 PoolInterfaceFactory.getInstance(
                 new BufferedImageCacheableFactory(),
                 PoolTypeFactory.getInstance().VECTOR_POOL, 
@@ -56,6 +56,6 @@ public class BufferedImagePoolSingleton
     
     public static PoolInterface getInstance()
     {
-        return poolInterface;
+        return BufferedImagePoolSingleton.poolInterface;
     }
 }

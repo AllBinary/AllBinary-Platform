@@ -44,7 +44,7 @@ public static boolean isCollision(
       Rectangle rectangle1,
       Rectangle rectangle2)
    {
-      return isCollision(
+      return RectangleCollisionUtil.isCollision(
          rectangle1.x,
          rectangle1.y,
          rectangle1.x + rectangle1.width,

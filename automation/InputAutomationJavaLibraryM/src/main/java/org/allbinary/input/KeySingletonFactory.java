@@ -231,7 +231,7 @@ public class KeySingletonFactory
          for(int index = 0; index < keyArray.length; index++)
          {
             String keyAsString = KeyEvent.getKeyText(keyArray[index]);
-            keyStringHashtable.put(keyAsString, keyArray[index]);
+            KeySingletonFactory.keyStringHashtable.put(keyAsString, keyArray[index]);
             /*
             if(keyArray[index] < 0xFF && keyArray[index] > 0x00)
             {
@@ -252,7 +252,7 @@ public class KeySingletonFactory
    
    public static Hashtable getHashtable()
    {
-      return keyStringHashtable;
+      return KeySingletonFactory.keyStringHashtable;
    }
    
    public static Integer getInstance(int index)
@@ -272,6 +272,6 @@ public class KeySingletonFactory
    
    public static Integer[] getArray()
    {
-      return keyArray;
+      return KeySingletonFactory.keyArray;
    }
 }

@@ -38,7 +38,7 @@ public class ConstrainedMotionRectanglesResultsCacheSingleton
             
             logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
             
-            cacheInterface = CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
+            ConstrainedMotionRectanglesResultsCacheSingleton.cacheInterface = CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
             
             logUtil.putF(commonStrings.END, instance, STATIC_BLOCK);
         }
@@ -54,6 +54,6 @@ public class ConstrainedMotionRectanglesResultsCacheSingleton
     
     public static CacheInterface getInstance()
     {
-        return cacheInterface;
+        return ConstrainedMotionRectanglesResultsCacheSingleton.cacheInterface;
     }    
 }

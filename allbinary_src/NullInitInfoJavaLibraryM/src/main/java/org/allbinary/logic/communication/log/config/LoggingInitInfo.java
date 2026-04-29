@@ -36,7 +36,7 @@ public class LoggingInitInfo
       {
          //write new logConfigFile
          
-	 hasRead = false;
+	 LoggingInitInfo.hasRead = false;
       }
       catch(Exception e)
       {
@@ -84,10 +84,10 @@ public class LoggingInitInfo
    
    private synchronized static void updateIfNeeded() throws Exception
    {
-      if(!hasRead)
+      if(!LoggingInitInfo.hasRead)
       {
 	 LoggingInitInfo.read();
-	 hasRead = true;
+	 LoggingInitInfo.hasRead = true;
 	 if(LoggingInitInfo.logConfigInfoList == null)
 	 {
 	    throw new Exception("Read Failed");

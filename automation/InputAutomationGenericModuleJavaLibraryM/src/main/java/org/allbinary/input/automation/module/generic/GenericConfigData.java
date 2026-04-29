@@ -17,9 +17,9 @@ public class GenericConfigData
 {
    public static String RELATIVE_PATH = "./";
    public static String CONFIG_PATH = "modules/configs/";
-   public static String MODULE_RELATIVE_PATH = RELATIVE_PATH + CONFIG_PATH + "allbinary/input/automation/module/";
-   public static String GAME_MODULE_RELATIVE_PATH = MODULE_RELATIVE_PATH + "game/";
-   public static String MMO_GAME_MODULE_RELATIVE_PATH = GAME_MODULE_RELATIVE_PATH + "mmog/";
+   public static String MODULE_RELATIVE_PATH = GenericConfigData.RELATIVE_PATH + GenericConfigData.CONFIG_PATH + "allbinary/input/automation/module/";
+   public static String GAME_MODULE_RELATIVE_PATH = GenericConfigData.MODULE_RELATIVE_PATH + "game/";
+   public static String MMO_GAME_MODULE_RELATIVE_PATH = GenericConfigData.GAME_MODULE_RELATIVE_PATH + "mmog/";
    public static String FREE_MMO_GAME_MODULE_RELATIVE_PATH = "free/";
     
     private GenericConfigData()

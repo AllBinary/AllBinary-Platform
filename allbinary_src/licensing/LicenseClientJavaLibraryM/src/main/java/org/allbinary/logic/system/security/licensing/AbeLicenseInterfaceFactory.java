@@ -28,7 +28,7 @@ public class AbeLicenseInterfaceFactory
     
     public static AbeLicenseInterfaceFactory getInstance()
     {
-        return SINGLETON;
+        return AbeLicenseInterfaceFactory.SINGLETON;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

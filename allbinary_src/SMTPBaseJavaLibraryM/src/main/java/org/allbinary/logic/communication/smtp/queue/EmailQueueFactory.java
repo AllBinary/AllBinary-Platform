@@ -24,6 +24,6 @@ public class EmailQueueFactory
 
    public static EmailQueueInterface getInstance()
    {
-      return emailQueueInterface;
+      return EmailQueueFactory.emailQueueInterface;
    }
 }
