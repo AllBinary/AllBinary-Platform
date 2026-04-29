@@ -31,8 +31,8 @@ public class SecuredNativeLibraryHelperWrapper extends NativeLibraryHelperWrappe
     public boolean unlock(final AbeClientInformationInterface abeClientInformation)
     throws LicensingException
     {
-        return securedNativeLibraryInterface.unlock(
-            AbKeys.getInstance().getKey(abeClientInformation, securedNativeLibraryInterface.getName()));
+        return this.securedNativeLibraryInterface.unlock(
+            AbKeys.getInstance().getKey(abeClientInformation, this.securedNativeLibraryInterface.getName()));
     }
     
 }

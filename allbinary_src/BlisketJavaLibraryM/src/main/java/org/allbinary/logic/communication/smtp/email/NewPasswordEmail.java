@@ -78,7 +78,7 @@ public class NewPasswordEmail
          //Send response to Admin(s)
          UserEmailEventHandler adminUserEmailEventHandler =
             AdminUserEmailEventHandlerSingletons.getInstance().getInstance(
-                abeClientInformation, UserEmailEventNameData.NEWPASSWORD);
+                this.abeClientInformation, UserEmailEventNameData.NEWPASSWORD);
 
          /*
          UserEmailEventHandler storeAdminUserEmailEventHandler =
@@ -126,7 +126,7 @@ public class NewPasswordEmail
 
          UserEmailEventHandler userEmailEventHandler =
             UserEmailEventHandlerSingletons.getInstance().getInstance(
-               abeClientInformation, UserEmailEventNameData.NEWPASSWORD, this.userInterface);
+               this.abeClientInformation, UserEmailEventNameData.NEWPASSWORD, this.userInterface);
 
          userEmailEventHandler.receiveEmailInfo(UserEmailEventNameData.NEWPASSWORD, emailInfo);
       }

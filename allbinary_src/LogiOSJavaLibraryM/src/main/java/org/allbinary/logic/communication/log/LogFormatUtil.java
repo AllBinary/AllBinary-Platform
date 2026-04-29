@@ -56,7 +56,7 @@ public class LogFormatUtil
     //ActualPlatform
     public String get(final String className, final String functionName, final String specialMessage, final Object exception)
     {
-        final StringMaker stringBuffer = getF(className, functionName);
+        final StringMaker stringBuffer = this.getF(className, functionName);
 
         stringBuffer.append(this.getO(exception));
 
@@ -72,7 +72,7 @@ public class LogFormatUtil
     //ActualPlatform
     public String getS(final String className, final String functionName, final String specialMessage)
     {
-        final StringMaker stringBuffer = getF(className, functionName);
+        final StringMaker stringBuffer = this.getF(className, functionName);
 
         stringBuffer.append(this.SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);

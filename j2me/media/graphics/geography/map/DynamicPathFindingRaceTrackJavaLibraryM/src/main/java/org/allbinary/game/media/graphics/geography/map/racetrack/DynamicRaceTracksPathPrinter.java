@@ -54,7 +54,7 @@ public class DynamicRaceTracksPathPrinter extends RaceTracksPathPrinter
                    raceTrackGeographicMapInterfaceFactoryInterface.getTrackInstance(
                    SmallIntegerSingletonFactory.getInstance().getAt(index));
                 
-                BasicArrayList list = PathGenerator.getInstance().create(
+                BasicArrayList list = PathGenerator.getInstance().createList(
                    geographicMapInterface,
                    RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance(), 
                    pathFindingInfo,

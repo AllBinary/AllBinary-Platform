@@ -237,7 +237,7 @@ public class DownloadableInventoryItemView
 
     public HashMap getRequestHashMap()
     {
-        return requestHashMap;
+        return this.requestHashMap;
     }
 
     /**
@@ -245,6 +245,6 @@ public class DownloadableInventoryItemView
      */
     public DownloadableItem getDownloadableItem()
     {
-        return downloadableItem;
+        return this.downloadableItem;
     }
 }

@@ -48,7 +48,7 @@ public class ColorAverage
 
     public float getAvgRed()
     {
-        return avgRed;
+        return this.avgRed;
     }
 
     public void setAvgRed(float avgRed)
@@ -58,7 +58,7 @@ public class ColorAverage
 
     public float getAvgGreen()
     {
-        return avgGreen;
+        return this.avgGreen;
     }
 
     public void setAvgGreen(float avgGreen)
@@ -68,7 +68,7 @@ public class ColorAverage
 
     public float getAvgBlue()
     {
-        return avgBlue;
+        return this.avgBlue;
     }
 
     public void setAvgBlue(float avgBlue)

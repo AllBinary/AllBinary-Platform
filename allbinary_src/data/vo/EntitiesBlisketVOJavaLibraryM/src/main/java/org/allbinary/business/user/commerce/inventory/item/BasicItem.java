@@ -423,7 +423,7 @@ public class BasicItem implements ItemInterface
 
     public String getDownloads()
     {
-        return downloads;
+        return this.downloads;
     }
 
     public String getGroups()
@@ -453,7 +453,7 @@ public class BasicItem implements ItemInterface
 
     public boolean isDownloadable()
     {
-        return downloadable;
+        return this.downloadable;
     }
 
     public String getEnabled()

@@ -42,7 +42,7 @@ public class ShippingMethods implements ShippingMethodsInterface
    
    public Vector get()
    {
-      return shippingVector;
+      return this.shippingVector;
    }
    
    public ShippingInterface getShippingInterface(String name) throws Exception
@@ -67,6 +67,6 @@ public class ShippingMethods implements ShippingMethodsInterface
    
    public ShippingInterface getDefault() throws Exception
    {
-      return defaultShippingMethodInterface;
+      return this.defaultShippingMethodInterface;
    }
 }

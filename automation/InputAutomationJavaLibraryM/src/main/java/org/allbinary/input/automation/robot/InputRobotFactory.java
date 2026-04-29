@@ -174,7 +174,7 @@ public class InputRobotFactory
     
     public Hashtable get() throws Exception
     {
-        return hashtable;
+        return this.hashtable;
     }
     
     public InputRobotInterface get(final String name)

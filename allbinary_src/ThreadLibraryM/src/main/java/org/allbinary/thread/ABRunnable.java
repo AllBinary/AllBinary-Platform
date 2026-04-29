@@ -29,7 +29,7 @@ public class ABRunnable implements RunnableInterface {
     @Override
     public synchronized boolean isRunning()
     {
-        return running;
+        return this.running;
     }
 
     @Override

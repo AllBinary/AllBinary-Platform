@@ -76,7 +76,7 @@ public class InventorySearchProductUtil {
             }
             else
             {
-            	return ITEM_NOT_FOUND;
+            	return this.ITEM_NOT_FOUND;
                 //throw new Exception();
             }
         }

@@ -51,18 +51,18 @@ public class KeyPressesAI extends BasicAI {
 
    public void toggle() throws Exception {
       if (isOn()) {
-         setOn(false);
+         this.setOn(false);
       } else {
-         setOn(true);
+         this.setOn(true);
       }
    }
 
    public void disable() throws Exception {
-       setOn(false);
+       this.setOn(false);
     }
 
    public void enable() throws Exception {
-       setOn(true);
+       this.setOn(true);
    }
    
    private void setOn(boolean on) {
@@ -70,6 +70,6 @@ public class KeyPressesAI extends BasicAI {
    }
 
    protected boolean isOn() {
-      return on;
+      return this.on;
    }
 }

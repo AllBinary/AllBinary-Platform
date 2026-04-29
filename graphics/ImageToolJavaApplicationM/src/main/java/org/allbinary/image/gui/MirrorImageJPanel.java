@@ -45,7 +45,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
 
       this.logUtil.putF("Starting", this, this.commonStrings.CONSTRUCTOR);
 
-      initComponents();
+      this.initComponents();
       this.imageProcessorInput = imageProcessorInput;
 
    //setUI((PanelUI)UIManager.getUI(this));
@@ -123,7 +123,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
 
       jLayeredPane1 = new javax.swing.JLayeredPane();
       this.buttonGroup = new javax.swing.ButtonGroup();
-      jPanel1 = new javax.swing.JPanel(){
+      this.jPanel1 = new javax.swing.JPanel(){
          public void paint(Graphics graphics)
          {
             if(MirrorImageJPanel.this.result != null)
@@ -163,14 +163,14 @@ public class MirrorImageJPanel extends javax.swing.JPanel
       this.verticleJCheckBox.setEnabled(false);
 
       this.generateJButton.setText("Generate");
-      generateJButton.addActionListener(new java.awt.event.ActionListener() {
+      this.generateJButton.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             generateJButtonActionPerformed(evt);
          }
       });
 
       this.renameJRadioButton.setText("Save As filename_mirror");
-      renameJRadioButton.addActionListener(new java.awt.event.ActionListener() {
+      this.renameJRadioButton.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             renameJRadioButtonActionPerformed(evt);
          }
@@ -269,7 +269,7 @@ private void renameJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {
    // End of variables declaration//GEN-END:variables
    public ImageProcessorInput getImageProcessorInput()
    {
-      return imageProcessorInput;
+      return this.imageProcessorInput;
    }
 
    public void setImageProcessorInput(ImageProcessorInput imageProcessorInput)

@@ -344,7 +344,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         if (this.directionOfTarget == this.directionFactory.DOWN)
         {
             if (this.getOwnerLayerInterface().getYP() > this.lastTrackingLayerInterface
-                    .getYP() + MIN_DISTANCE)
+                    .getYP() + this.MIN_DISTANCE)
             {
                 return true;
             }
@@ -356,7 +356,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         else if (this.directionOfTarget == this.directionFactory.UP)
         {
             if (this.getOwnerLayerInterface().getYP() < this.lastTrackingLayerInterface
-                    .getYP() + MIN_DISTANCE)
+                    .getYP() + this.MIN_DISTANCE)
             {
                 return true;
             }
@@ -368,7 +368,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         else if (this.directionOfTarget == this.directionFactory.RIGHT)
         {
             if (this.getOwnerLayerInterface().getXP() > this.lastTrackingLayerInterface
-                    .getXP() + MIN_DISTANCE)
+                    .getXP() + this.MIN_DISTANCE)
             {
                 return true;
             }
@@ -380,7 +380,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         else if (this.directionOfTarget == this.directionFactory.LEFT)
         {
             if (this.getOwnerLayerInterface().getXP() < this.lastTrackingLayerInterface
-                    .getXP() + MIN_DISTANCE)
+                    .getXP() + this.MIN_DISTANCE)
             {
                 return true;
             }
@@ -480,7 +480,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
     public Direction getLastDirection()
     {
-        return lastDirection;
+        return this.lastDirection;
     }
 
     public String toString()

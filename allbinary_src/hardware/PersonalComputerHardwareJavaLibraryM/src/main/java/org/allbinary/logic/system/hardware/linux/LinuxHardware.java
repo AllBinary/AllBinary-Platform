@@ -101,7 +101,7 @@ public class LinuxHardware implements HardwareInterface
       LineNumberReader lineNumberReader = null;
       try
       {
-         init(lineNumberReader, filePath);
+         this.init(lineNumberReader, filePath);
       }
       catch(Exception e)
       {

@@ -86,6 +86,6 @@ public class FrameLog
 
     public Long getFrame()
     {
-        return frame;
+        return this.frame;
     }
 }

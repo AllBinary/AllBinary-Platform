@@ -67,7 +67,7 @@ public class LinesGraphicItem implements GraphicItemInterface
        this.points = new Points();
       try
       {
-      init();
+      this.init();
       this.active = true;
       } catch (Exception e)
       {
@@ -79,7 +79,7 @@ public class LinesGraphicItem implements GraphicItemInterface
    public LinesGraphicItem(Node linesNode) throws Exception
    {
        this.points = new Points();
-      init();
+      this.init();
       this.active = false;
 
       BasicArrayList lineNodes = DomHelper.getInstance().getWithoutTextNodes(linesNode.getChildNodes());
@@ -337,7 +337,7 @@ public class LinesGraphicItem implements GraphicItemInterface
 
    public Color getColor()
    {
-      return color;
+      return this.color;
    }
 
    public void setColor(Color color)

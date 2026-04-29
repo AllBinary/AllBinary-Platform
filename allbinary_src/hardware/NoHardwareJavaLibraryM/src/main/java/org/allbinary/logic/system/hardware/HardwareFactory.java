@@ -38,7 +38,7 @@ public class HardwareFactory
        try
        {
           //throw new Exception("NoSystemJavaLibrary - No Hardware Imp for: " + os.getName());
-           return SINGLETON;
+           return this.SINGLETON;
        }
        catch(Exception e)
        {

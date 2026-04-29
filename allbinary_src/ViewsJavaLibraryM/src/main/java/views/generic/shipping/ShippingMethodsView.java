@@ -52,7 +52,7 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
       this.storeFrontInterface = 
          StoreFrontFactory.getInstance(this.getTransformInfoInterface().getStoreName());
       
-      this.shippingMethods = new ShippingMethods(this.abeClientInformation, storeFrontInterface);
+      this.shippingMethods = new ShippingMethods(this.abeClientInformation, this.storeFrontInterface);
    }
       
    public Node toXmlNode(Document document) throws Exception

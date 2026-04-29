@@ -40,12 +40,12 @@ public class SecretComposite extends BaseSecretComposite {
    public byte[] encrypt(byte[] array) throws Exception {
        array = this.mutilate(array);
        this.cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-       return cipher.doFinal(array);
+       return this.cipher.doFinal(array);
    }
 
    @Override
    public byte[] decrypt(byte[] array) throws Exception {
-       cipher.init(Cipher.DECRYPT_MODE, secretKey);         
+       this.cipher.init(Cipher.DECRYPT_MODE, secretKey);         
        return this.mutilate(this.cipher.doFinal(array));
    }
    

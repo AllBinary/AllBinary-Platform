@@ -67,7 +67,7 @@ public class Basket implements BasketInterface, Serializable
    
    public String getTotalWeight()
    {
-      final HashMap itemsAndNumberInBasket = getItems();
+      final HashMap itemsAndNumberInBasket = this.getItems();
       final Money totalWeight = new Money();
       if(itemsAndNumberInBasket.size() > 0)
       {
@@ -100,7 +100,7 @@ public class Basket implements BasketInterface, Serializable
    
    public HashMap getItems()
    {
-      return items;
+      return this.items;
    }
    
    public Integer getNumberOf(String product)
@@ -111,7 +111,7 @@ public class Basket implements BasketInterface, Serializable
    
    public Money getSubTotal() throws MoneyException
    {
-      HashMap itemsAndNumberInBasket = getItems();
+      HashMap itemsAndNumberInBasket = this.getItems();
       Money subTotal = new Money();
       
       if(itemsAndNumberInBasket.size() > 0)

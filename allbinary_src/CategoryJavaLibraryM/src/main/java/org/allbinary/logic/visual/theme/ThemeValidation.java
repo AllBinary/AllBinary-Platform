@@ -178,7 +178,7 @@ public class ThemeValidation
 
    public TransformInfoInterface getTransformInfoInterface() throws Exception
    {
-      return transformInfoInterface;
+      return this.transformInfoInterface;
    }
    
    public String getName()

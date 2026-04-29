@@ -68,7 +68,7 @@ public class JavaHelpUtil
         {
             URI helpSetURI = new File(filePath).toURI();
             URL helpSetURL = helpSetURI.toURL();
-            return getHelpSet(helpSetURL);
+            return this.getHelpSet(helpSetURL);
         }
         catch (Exception e)
         {
@@ -99,7 +99,7 @@ public class JavaHelpUtil
             helpBroker.setLocation(this.point);
             helpBroker.setSize(this.dimension);
             
-            new CSH.DisplayHelpFromSource(helpBroker).actionPerformed(contextSensitiveHelpActionEvent);
+            new CSH.DisplayHelpFromSource(helpBroker).actionPerformed(this.contextSensitiveHelpActionEvent);
             this.logUtil.putF("CSH Action", getInstance(), "show");
         }
         catch (Exception e)

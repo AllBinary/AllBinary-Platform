@@ -271,7 +271,7 @@ public class CanvasDom
 
     public IntegerDimension getDimension()
     {
-        return dimension;
+        return this.dimension;
     }
 
     public void setDimension(IntegerDimension dimension)
@@ -284,6 +284,6 @@ public class CanvasDom
      */
     public Grid getGrid()
     {
-        return grid;
+        return this.grid;
     }
 }

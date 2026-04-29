@@ -42,7 +42,7 @@ public class ItemView
         Node node = document.createElement(ItemData.ITEM);
 
         BasicItemView basicItemView =
-            new BasicItemView(this.itemInterface, vector);
+            new BasicItemView(this.itemInterface, this.vector);
 
         node.appendChild(basicItemView.toXmlNode(document));
 

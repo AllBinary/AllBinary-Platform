@@ -361,14 +361,14 @@ public class TransformInfo implements TransformInfoInterface
         this.objectConfigFileName = value;
         this.setObjectConfigInterface(
             TransformInfoObjectConfigAndManipulatorFactory.getInstance().getInstance(
-                abeClientInformation,this, this.getObjectConfigFilePath()));
+                this.abeClientInformation,this, this.getObjectConfigFilePath()));
     }
 
     protected void setObjectConfig(String value) throws Exception
     {
         Document document = DomDocumentHelper.create(value);
         this.setObjectConfigInterface(
-            TransformInfoObjectConfigAndManipulatorFactory.getInstance().getInstance(abeClientInformation, this, document));
+            TransformInfoObjectConfigAndManipulatorFactory.getInstance().getInstance(this.abeClientInformation, this, document));
     }
 
     public void setDataFile(String value)
@@ -606,7 +606,7 @@ public class TransformInfo implements TransformInfoInterface
 
     public TransformInfoObjectConfigInterface getObjectConfigInterface()
     {
-        return objectConfigInterface;
+        return this.objectConfigInterface;
     }
 
     public void setObjectConfigInterface(TransformInfoObjectConfigInterface objectConfigInterface)

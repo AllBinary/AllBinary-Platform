@@ -26,7 +26,7 @@ public class ImageUnifierCell
 
     public Integer getWidth()
     {
-        return width;
+        return this.width;
     }
 
     public void setWidth(Integer width)
@@ -36,7 +36,7 @@ public class ImageUnifierCell
 
     public Integer getHeight()
     {
-        return height;
+        return this.height;
     }
 
     public void setHeight(Integer height)

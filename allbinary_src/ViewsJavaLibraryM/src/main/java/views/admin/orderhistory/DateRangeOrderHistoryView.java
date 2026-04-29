@@ -380,8 +380,8 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          Boolean isValid = Boolean.TRUE;
          
          if(this.dateType==null ||
-         (dateType.compareTo(OrderHistoryData.TYPELONG)!=0 &&
-         dateType.compareTo(OrderHistoryData.TYPECAESAR)!=0))
+         (this.dateType.compareTo(OrderHistoryData.TYPELONG)!=0 &&
+         this.dateType.compareTo(OrderHistoryData.TYPECAESAR)!=0))
          {
             isValid = Boolean.FALSE;
          }
@@ -437,12 +437,12 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                    Calendar calendar = Calendar.getInstance();
 
                    TimeUtil.getInstance().setCalendar(
-                 		  calendar, fromYear, fromMonth, fromDay, fromHour);
+                 		  calendar, this.fromYear, this.fromMonth, this.fromDay, this.fromHour);
 
                    this.fromDate = new Long(calendar.getTimeInMillis()).toString();
                   
                   TimeUtil.getInstance().setCalendar(
-                		  calendar, toYear, toMonth, toDay, toHour);
+                		  calendar, this.toYear, this.toMonth, this.toDay, this.toHour);
                   
                   this.toDate = new Long(calendar.getTimeInMillis()).toString();
                }
@@ -503,8 +503,8 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          StringMaker result = new StringMaker();
          
          if(this.dateType==null ||
-         (dateType.compareTo(OrderHistoryData.TYPELONG)!=0 &&
-         dateType.compareTo(OrderHistoryData.TYPECAESAR)!=0))
+         (this.dateType.compareTo(OrderHistoryData.TYPELONG)!=0 &&
+         this.dateType.compareTo(OrderHistoryData.TYPECAESAR)!=0))
          {
             result.append("DATETYPE not recognized");
          }

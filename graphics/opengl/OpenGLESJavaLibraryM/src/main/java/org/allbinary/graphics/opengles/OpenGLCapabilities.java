@@ -48,14 +48,14 @@ public class OpenGLCapabilities
     private final StringUtil stringUtil = StringUtil.getInstance();
     
     private boolean initialized = false;
-    private String glVersionString = stringUtil.EMPTY_STRING;
-    private String glShaderVersionString = stringUtil.EMPTY_STRING;
+    private String glVersionString = this.stringUtil.EMPTY_STRING;
+    private String glShaderVersionString = this.stringUtil.EMPTY_STRING;
     public int shaderVersion = 0;
-    private String glRenderer = stringUtil.EMPTY_STRING;
-    private String glVendor = stringUtil.EMPTY_STRING;
-    private String glExtensions = stringUtil.EMPTY_STRING;
+    private String glRenderer = this.stringUtil.EMPTY_STRING;
+    private String glVendor = this.stringUtil.EMPTY_STRING;
+    private String glExtensions = this.stringUtil.EMPTY_STRING;
     private boolean possiblyAccelerated;
-    private String acceleratedString = stringUtil.EMPTY_STRING;
+    private String acceleratedString = this.stringUtil.EMPTY_STRING;
     public int maxTextureSize = 64;
     
     public final String VERSION_1_0 = "1.0";
@@ -87,7 +87,7 @@ public class OpenGLCapabilities
     public final String GL_EXT_GPU_SHADER4 = "GL_EXT_gpu_shader4";
     
     private String glVersion = this.glVersionString;
-    public String glInstanceVersion = VERSION_UNK;
+    public String glInstanceVersion = this.VERSION_UNK;
     private boolean glExtensionDrawTexture;
     
     private boolean glThreedDrawTexture;
@@ -101,7 +101,7 @@ public class OpenGLCapabilities
     }
 
     public boolean isInitialized() {
-        return initialized;
+        return this.initialized;
     }
 
     private void requireInitialization() {

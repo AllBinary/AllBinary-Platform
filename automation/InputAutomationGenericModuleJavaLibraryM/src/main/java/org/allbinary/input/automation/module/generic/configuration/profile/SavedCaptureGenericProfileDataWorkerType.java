@@ -37,7 +37,7 @@ public class SavedCaptureGenericProfileDataWorkerType
 
     public String getPath()
     {
-        return path;
+        return this.path;
     }
 
     public void setPath(String path)
@@ -47,7 +47,7 @@ public class SavedCaptureGenericProfileDataWorkerType
 
     public int getLastFrame()
     {
-        return lastFrame;
+        return this.lastFrame;
     }
 
     public void setLastFrame(int lastFrame)

@@ -25,7 +25,7 @@ public class AdvertisementCampaigns implements AdvertisementCampaignsInterface
    
    public AdvertisementCampaigns(Vector vector)
    {
-      this.advertisementsVector = advertisementsVector;
+      this.advertisementsVector = this.advertisementsVector;
    }
    
    public void add(AdvertisementInterface advertisementInterface)

@@ -169,6 +169,6 @@ public class InventoryRequestHelper extends ModifyTable
 
     public ItemInterface getItemInterface()
     {
-        return itemInterface;
+        return this.itemInterface;
     }
 }

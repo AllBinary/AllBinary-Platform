@@ -57,7 +57,7 @@ public class SequenceAI extends ArrayAI
 
    public int getIndex()
    {
-      return index;
+      return this.index;
    }
 
    public void setIndex(int index)

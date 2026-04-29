@@ -32,6 +32,6 @@ public class HardDriveController implements HardwareComponentInterface, HardDriv
     
     public String toString()
     {
-       return data;        
+       return this.data;        
     }    
 }

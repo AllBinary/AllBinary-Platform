@@ -107,7 +107,7 @@ public class TestInputAutomationCaptureWorker
 
     public GenericProfileActions getGenericProfileActions()
     {
-        return genericProfileActions;
+        return this.genericProfileActions;
     }
     
     public void setGenericProfileActions(GenericProfileActions genericProfileActions)

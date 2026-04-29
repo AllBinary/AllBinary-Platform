@@ -199,7 +199,7 @@ public class WeblisketSession implements WeblisketSessionInterface
          }
 
          //Need to serialize new object since the previous object may not be the same
-         session.setAttribute(basketName, orderInterface);
+         this.session.setAttribute(basketName, orderInterface);
          
          return orderInterface;
       }
@@ -269,12 +269,12 @@ public class WeblisketSession implements WeblisketSessionInterface
 
    public long getCreationTime()
    {
-      return session.getCreationTime();
+      return this.session.getCreationTime();
    }
    
    public long getLastAccessedTime()
    {
-      return session.getLastAccessedTime();
+      return this.session.getLastAccessedTime();
    }
    
    public void removeBasket()

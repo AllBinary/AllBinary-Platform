@@ -51,7 +51,7 @@ public class Advertisement
      * @return the artist
      */
     public String getArtist() {
-        return artist;
+        return this.artist;
     }
 
     /**
@@ -65,7 +65,7 @@ public class Advertisement
      * @return the artistLink
      */
     public String getArtistLink() {
-        return artistLink;
+        return this.artistLink;
     }
 
     /**
@@ -79,7 +79,7 @@ public class Advertisement
      * @return the title
      */
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     /**
@@ -93,7 +93,7 @@ public class Advertisement
      * @return the dateAdded
      */
     public String getDateAdded() {
-        return dateAdded;
+        return this.dateAdded;
     }
 
     /**
@@ -107,7 +107,7 @@ public class Advertisement
      * @return the directory
      */
     public String getDirectory() {
-        return directory;
+        return this.directory;
     }
 
     /**
@@ -121,7 +121,7 @@ public class Advertisement
      * @return the framedLink
      */
     public String getFramedLink() {
-        return framedLink;
+        return this.framedLink;
     }
 
     /**
@@ -135,7 +135,7 @@ public class Advertisement
      * @return the listPrice
      */
     public Money getListPrice() {
-        return listPrice;
+        return this.listPrice;
     }
 
     /**
@@ -149,7 +149,7 @@ public class Advertisement
      * @return the ourPrice
      */
     public Money getOurPrice() {
-        return ourPrice;
+        return this.ourPrice;
     }
 
     /**
@@ -163,7 +163,7 @@ public class Advertisement
      * @return the rank
      */
     public int getRank() {
-        return rank;
+        return this.rank;
     }
 
     /**
@@ -177,7 +177,7 @@ public class Advertisement
      * @return the image
      */
     public AdvertisementImageInterface getImage() {
-        return image;
+        return this.image;
     }
 
     /**
@@ -191,7 +191,7 @@ public class Advertisement
      * @return the product
      */
     public AdvertisementProductInterface getProduct() {
-        return product;
+        return this.product;
     }
 
     /**
@@ -205,7 +205,7 @@ public class Advertisement
      * @return the thumbnail
      */
     public AdvertisementThumbnailInterface getThumbnail() {
-        return thumbnail;
+        return this.thumbnail;
     }
 
     /**
@@ -219,6 +219,6 @@ public class Advertisement
      * @return the displayInBrowserContraintsInterface
      */
     public DisplayInBrowserContraintsInterface getDisplayInBrowserContraintsInterface() {
-        return displayInBrowserContraintsInterface;
+        return this.displayInBrowserContraintsInterface;
     }
 }

@@ -37,7 +37,7 @@ public class TerrainPatrolAI extends PacePatrolAI
     
     private final Angle DOWN = AngleFactory.getInstance().DOWN;
     
-    private final BasicTerrainInfo CLIFF = new BasicTerrainInfo(DOWN);
+    private final BasicTerrainInfo CLIFF = new BasicTerrainInfo(this.DOWN);
 
     public TerrainPatrolAI(final Hashtable hashtable,
             final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)

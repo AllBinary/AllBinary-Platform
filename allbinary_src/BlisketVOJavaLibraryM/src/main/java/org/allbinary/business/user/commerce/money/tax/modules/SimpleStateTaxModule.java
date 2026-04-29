@@ -226,7 +226,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          
          if(!stringValidationUtil.isEmpty(country) && 
             !stringValidationUtil.isEmpty(taxableStreetAddress.getCountry()) && 
-            taxableStreetAddress.getCountry().compareTo(ALL) == 0)
+            taxableStreetAddress.getCountry().compareTo(this.ALL) == 0)
          {
             return Boolean.TRUE;            
          }         

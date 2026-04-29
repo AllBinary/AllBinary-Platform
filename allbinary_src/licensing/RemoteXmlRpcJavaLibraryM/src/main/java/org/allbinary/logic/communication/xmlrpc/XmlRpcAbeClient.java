@@ -112,11 +112,11 @@ public class XmlRpcAbeClient
     {
         if (getServer() < getMaxServers())
         {
-            setServer(getServer() + 1);
+            this.setServer(getServer() + 1);
         }
         else
         {
-            setServer(0);
+            this.setServer(0);
         }
 
         if (getServer() != getStart() && !isIsDone())
@@ -125,7 +125,7 @@ public class XmlRpcAbeClient
         }
         else
         {
-            setIsDone(true);
+            this.setIsDone(true);
         }
         throw new Exception("Tried All Servers But Still Failed");
 
@@ -136,7 +136,7 @@ public class XmlRpcAbeClient
      */
     protected AbeClientInformationInterface getClientInfo()
     {
-        return clientInfo;
+        return this.clientInfo;
     }
 
     /**
@@ -144,7 +144,7 @@ public class XmlRpcAbeClient
      */
     protected XmlRpcHandler getClient()
     {
-        return client;
+        return this.client;
     }
 
     /**
@@ -161,7 +161,7 @@ public class XmlRpcAbeClient
      */
     protected int getServer()
     {
-        return server;
+        return this.server;
     }
 
     /**
@@ -178,7 +178,7 @@ public class XmlRpcAbeClient
      */
     protected int getStart()
     {
-        return start;
+        return this.start;
     }
 
     /**
@@ -195,7 +195,7 @@ public class XmlRpcAbeClient
      */
     protected int getMaxServers()
     {
-        return maxServers;
+        return this.maxServers;
     }
 
     /**
@@ -212,7 +212,7 @@ public class XmlRpcAbeClient
      */
     protected boolean isIsDone()
     {
-        return isDone;
+        return this.isDone;
     }
 
     /**
@@ -226,6 +226,6 @@ public class XmlRpcAbeClient
 
     protected String getRemoteMethod()
     {
-        return remoteMethod;
+        return this.remoteMethod;
     }
 }

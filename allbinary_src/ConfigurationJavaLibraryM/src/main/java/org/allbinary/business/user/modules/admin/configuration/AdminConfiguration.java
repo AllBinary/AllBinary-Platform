@@ -84,7 +84,7 @@ public class AdminConfiguration implements AdminConfigurationInterface
 
     public ContextConfigurationInterface getContextConfigurationInterface()
     {
-        return contextConfigurationInterface;
+        return this.contextConfigurationInterface;
     }
 
     public void setContextConfigurationInterface(ContextConfigurationInterface contextConfigurationInterface)

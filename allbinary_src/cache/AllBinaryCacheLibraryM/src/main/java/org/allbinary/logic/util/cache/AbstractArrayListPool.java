@@ -44,7 +44,7 @@ public class AbstractArrayListPool implements PoolInterface {
     @Override
     public void add(CacheableInterface cacheableInterface) throws Exception {
         //buffers.set(++pos, cacheableInterface);
-        buffers.add(cacheableInterface);
+        this.buffers.add(cacheableInterface);
     }
 
     @Override

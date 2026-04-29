@@ -32,7 +32,7 @@ public class RootCategoryPropertiesAbstract
 {
    private final String category = CategoryData.getInstance().ROOTCATEGORY;
    private final String fileName = 
-	   category + AbPathData.getInstance().EXTENSION_SEP + 
+	   this.category + AbPathData.getInstance().EXTENSION_SEP + 
        CategoryData.getInstance().UNCRYPTED_EXTENSION;
 
    public RootCategoryPropertiesAbstract()
@@ -91,7 +91,7 @@ public class RootCategoryPropertiesAbstract
 
    public String getFileName()
    {
-      return fileName;
+      return this.fileName;
    }
 
    /*

@@ -28,7 +28,7 @@ public class CachePolicy
     
     public long getMaxTime()
     {
-        return maxTime;
+        return this.maxTime;
     }
 
     public void setMaxTime(long maxTime)
@@ -38,7 +38,7 @@ public class CachePolicy
 
     public long getMaxSize()
     {
-        return maxSize;
+        return this.maxSize;
     }
 
     public void setMaxSize(long maxSize)
@@ -48,7 +48,7 @@ public class CachePolicy
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
 }

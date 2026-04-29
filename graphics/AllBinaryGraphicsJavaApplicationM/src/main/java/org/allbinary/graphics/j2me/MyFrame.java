@@ -65,7 +65,7 @@ public class MyFrame extends javax.swing.JFrame
 
     public MyFrame()
     {
-        initComponents();
+        this.initComponents();
         this.setSize(new Dimension(550, 400));
         this.mainJPanel.setSize(new Dimension(550, 400));
         this.jTabbedPane.setSize(new Dimension(550, 400));
@@ -139,7 +139,7 @@ public class MyFrame extends javax.swing.JFrame
         });
 
         this.jButton2.setText("New");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        this.jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
@@ -147,7 +147,7 @@ public class MyFrame extends javax.swing.JFrame
         this.jToolBar1.add(this.jButton2);
 
         this.saveJButton.setText("Save");
-        saveJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.saveJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveJButtonActionPerformed(evt);
             }
@@ -155,7 +155,7 @@ public class MyFrame extends javax.swing.JFrame
         this.jToolBar1.add(this.saveJButton);
 
         this.jButton1.setText("Export");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        this.jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
@@ -163,7 +163,7 @@ public class MyFrame extends javax.swing.JFrame
         this.jToolBar1.add(this.jButton1);
 
         this.openJButton.setText("Open");
-        openJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.openJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openJButtonActionPerformed(evt);
             }
@@ -186,7 +186,7 @@ public class MyFrame extends javax.swing.JFrame
         this.jToolBar1.add(this.animateJButton);
 
         this.playJButton.setText("Play");
-        playJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.playJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 playJButtonMousePressed(evt);
             }
@@ -194,7 +194,7 @@ public class MyFrame extends javax.swing.JFrame
         this.jToolBar1.add(this.playJButton);
 
         this.stopJjButton.setText("Stop");
-        stopJjButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.stopJjButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 stopJjButtonMousePressed(evt);
             }
@@ -208,7 +208,7 @@ public class MyFrame extends javax.swing.JFrame
         this.mainJPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         this.jTabbedPane.setMinimumSize(new java.awt.Dimension(550, 400));
-        jTabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
+        this.jTabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jTabbedPaneStateChanged(evt);
             }
@@ -227,14 +227,14 @@ public class MyFrame extends javax.swing.JFrame
         getContentPane().add(this.statusJPanel, java.awt.BorderLayout.SOUTH);
 
         this.fileJMenu.setText("File");
-        fileJMenu.addActionListener(new java.awt.event.ActionListener() {
+        this.fileJMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fileJMenuActionPerformed(evt);
             }
         });
 
         this.newJMenuItem.setText("New");
-        newJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        this.newJMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newJMenuItemActionPerformed(evt);
             }
@@ -242,7 +242,7 @@ public class MyFrame extends javax.swing.JFrame
         this.fileJMenu.add(this.newJMenuItem);
 
         this.openJMenuItem.setText("Open");
-        openJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        this.openJMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openJMenuItemActionPerformed(evt);
             }
@@ -250,7 +250,7 @@ public class MyFrame extends javax.swing.JFrame
         this.fileJMenu.add(this.openJMenuItem);
 
         this.saveJMenuItem.setText("Save");
-        saveJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.saveJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 saveJMenuItemMousePressed(evt);
             }
@@ -261,7 +261,7 @@ public class MyFrame extends javax.swing.JFrame
         this.fileJMenu.add(this.saveAsJMenuItem);
 
         this.exportJMenuItem1.setText("Export");
-        exportJMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        this.exportJMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportJMenuItem1ActionPerformed(evt);
             }
@@ -269,7 +269,7 @@ public class MyFrame extends javax.swing.JFrame
         this.fileJMenu.add(this.exportJMenuItem1);
 
         this.exitJMenuItem.setText("Exit");
-        exitJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        this.exitJMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitJMenuItemActionPerformed(evt);
             }
@@ -281,7 +281,7 @@ public class MyFrame extends javax.swing.JFrame
         this.viewJMenu.setText("View");
 
         this.zoomInJMenuItem.setText("Zoom In");
-        zoomInJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.zoomInJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 zoomInJMenuItemMousePressed(evt);
             }
@@ -289,7 +289,7 @@ public class MyFrame extends javax.swing.JFrame
         this.viewJMenu.add(this.zoomInJMenuItem);
 
         this.zoomOutJMenuItem.setText("Zoom Out");
-        zoomOutJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.zoomOutJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 zoomOutJMenuItemMousePressed(evt);
             }
@@ -301,7 +301,7 @@ public class MyFrame extends javax.swing.JFrame
         this.objectJMenu.setText("Objects");
 
         this.explodeAllJMenuItem.setText("Explode All");
-        explodeAllJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.explodeAllJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 explodeAllJMenuItemMousePressed(evt);
             }
@@ -311,7 +311,7 @@ public class MyFrame extends javax.swing.JFrame
         this.menuJMenuBar.add(this.objectJMenu);
 
         this.frameJMenu.setText("Frame");
-        frameJMenu.addActionListener(new java.awt.event.ActionListener() {
+        this.frameJMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 frameJMenuActionPerformed(evt);
             }
@@ -340,7 +340,7 @@ public class MyFrame extends javax.swing.JFrame
         this.generateJMenu.setText("Generate");
 
         this.centerJMenuItem.setText("Center");
-        centerJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        this.centerJMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 centerJMenuItemActionPerformed(evt);
             }
@@ -351,7 +351,7 @@ public class MyFrame extends javax.swing.JFrame
         this.generateJMenu.add(this.autoDamageJMenuItem);
 
         this.autoExplodeJMenuItem.setText("Explode");
-        autoExplodeJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.autoExplodeJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 autoExplodeJMenuItemMousePressed(evt);
             }
@@ -362,7 +362,7 @@ public class MyFrame extends javax.swing.JFrame
         this.generateJMenu.add(this.autoGrowJMenuItem);
 
         this.jMenuItem1.setText("Mirror");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        this.jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
@@ -370,7 +370,7 @@ public class MyFrame extends javax.swing.JFrame
         this.generateJMenu.add(this.jMenuItem1);
 
         this.autoRotateGenerationJMenuItem.setText("Rotate");
-        autoRotateGenerationJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.autoRotateGenerationJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 autoRotateGenerationJMenuItemMousePressed(evt);
             }
@@ -443,12 +443,12 @@ public class MyFrame extends javax.swing.JFrame
 
    private void zoomOutJMenuItemMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_zoomOutJMenuItemMousePressed
    {//GEN-HEADEREND:event_zoomOutJMenuItemMousePressed
-       getSelectedWorkArea().changeZoom(-1);
+       this.getSelectedWorkArea().changeZoom(-1);
    }//GEN-LAST:event_zoomOutJMenuItemMousePressed
 
    private void zoomInJMenuItemMousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_zoomInJMenuItemMousePressed
    {//GEN-HEADEREND:event_zoomInJMenuItemMousePressed
-       getSelectedWorkArea().changeZoom(1);
+       this.getSelectedWorkArea().changeZoom(1);
    }//GEN-LAST:event_zoomInJMenuItemMousePressed
 
    private void openJMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_openJMenuItemActionPerformed

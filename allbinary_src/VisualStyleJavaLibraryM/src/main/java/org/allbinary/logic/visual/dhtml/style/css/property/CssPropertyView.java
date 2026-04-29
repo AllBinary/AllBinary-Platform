@@ -43,7 +43,7 @@ public class CssPropertyView implements DomNodeInterface
   
    public CssProperty getProperty()
    {
-      return cssProperty;
+      return this.cssProperty;
    }
 
    public Node toXmlNode(Document document) throws Exception

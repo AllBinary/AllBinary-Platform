@@ -253,7 +253,7 @@ public class GenericProfileActions
     
     public GenericProfileActionsJPanel getGenericProfileActionsJPanel()
     {
-        return genericProfileActionsJPanel;
+        return this.genericProfileActionsJPanel;
     }
     
     public void setGenericProfileActionsJPanel(GenericProfileActionsJPanel genericProfileActionsJPanel)
@@ -263,7 +263,7 @@ public class GenericProfileActions
     
     public HashMap getHashMap()
     {
-        return hashMap;
+        return this.hashMap;
     }
     
     public void setHashMap(HashMap hashMap)
@@ -273,7 +273,7 @@ public class GenericProfileActions
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     public void setName(String name)

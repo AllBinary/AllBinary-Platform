@@ -85,7 +85,7 @@ public class TransformFactory {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                 this.logUtil.putF("Created Transform: " + viewName, this,
-                    commonStrings.GET_INSTANCE);
+                    this.commonStrings.GET_INSTANCE);
             }
 
             return (TransformInterface) object;
@@ -94,7 +94,7 @@ public class TransformFactory {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
                 this.logUtil.put(commonStrings.EXCEPTION, this,
-                    commonStrings.GET_INSTANCE, e);
+                    this.commonStrings.GET_INSTANCE, e);
             }
             throw e;
         }
@@ -140,7 +140,7 @@ public class TransformFactory {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                 this.logUtil.putF("Created Transform: "
-                    + propertiesHashMap.get(transformInfoData.NAME), this, commonStrings.GET_INSTANCE);
+                    + propertiesHashMap.get(transformInfoData.NAME), this, this.commonStrings.GET_INSTANCE);
             }
             return (TransformInterface) object;
         } catch (Exception e) {

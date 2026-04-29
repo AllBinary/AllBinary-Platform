@@ -44,7 +44,7 @@ public class ConstantVelocityNotifyViewChangeMovement extends Movement
 
        AngleFactory angleFactory = AngleFactory.getInstance();
 
-       basicVelocityProperties.setVelocityWithBigDecimal(speedBasicDecimal,
+       this.basicVelocityProperties.setVelocityWithBigDecimal(speedBasicDecimal,
                angleFactory.getAt(angle), angleFactory.getAt(otherAngle));
    }
 

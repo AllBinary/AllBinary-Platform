@@ -32,6 +32,6 @@ public class Video implements HardwareComponentInterface, VideoInterface
     
     public String toString()
     {
-       return data;        
+       return this.data;        
     }
 }

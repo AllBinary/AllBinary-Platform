@@ -30,11 +30,11 @@ public class ImageCacheable //implements CacheableInterface
     
     public Object getKey()
     {
-        return name;
+        return this.name;
     }
 
     public String toString()
     {
-        return name;
+        return this.name;
     }
 }

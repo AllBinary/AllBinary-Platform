@@ -47,7 +47,7 @@ public class GenericProfileDataWorkerType
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     public void setName(String name)
@@ -58,7 +58,7 @@ public class GenericProfileDataWorkerType
     public Node toXmlNode(Document document) throws Exception
     {
         Node node = ModDomHelper.createTextNode(
-            document, GenericProfileDataWorkerData.NAME, name);
+            document, GenericProfileDataWorkerData.NAME, this.name);
         return node;
     }
     

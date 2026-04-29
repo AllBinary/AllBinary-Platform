@@ -31,7 +31,7 @@ public class CategoryComponent extends CategoryView
    
    public int getTypeId()
    {
-	   return NO_TYPE;
+	   return this.NO_TYPE;
    }
    
    public TransformDocumentInterface getTransformDocumentInterface()

@@ -107,7 +107,7 @@ public class MotionRectangleConstraints
 
     public int getMaxMotionRectangles()
     {
-        return maxMotionRectangles;
+        return this.maxMotionRectangles;
     }
 
     public void setMaxMotionRectangles(int maxMotionRectangles)
@@ -117,7 +117,7 @@ public class MotionRectangleConstraints
 
     public int getMinArea()
     {
-        return minArea;
+        return this.minArea;
     }
 
     public void setMinArea(int minArea)

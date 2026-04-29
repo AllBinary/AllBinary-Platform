@@ -453,6 +453,6 @@ public class AuthenticationHelper
      */
     public UserRole getRole()
     {
-        return role;
+        return this.role;
     }
 }

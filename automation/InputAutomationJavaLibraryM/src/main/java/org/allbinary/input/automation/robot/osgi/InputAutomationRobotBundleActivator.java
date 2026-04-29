@@ -162,7 +162,7 @@ public class InputAutomationRobotBundleActivator
     
     protected Object getServiceFactory()
     {
-        return serviceFactory;
+        return this.serviceFactory;
     }
     
     protected void setServiceFactory(ServiceFactory serviceObject)
@@ -172,7 +172,7 @@ public class InputAutomationRobotBundleActivator
     
     public InputRobotInterface[] getInputRobotInterface()
     {
-        return inputRobotInterface;
+        return this.inputRobotInterface;
     }
     
     public void setInputRobotInterface(InputRobotInterface[] inputRobotInterface)

@@ -39,7 +39,7 @@ public class MotionRectangles
         
     public Vector getVector()
     {
-        return rectangleVector;
+        return this.rectangleVector;
     }
     
     public void setVector(Vector rectangleVector)
@@ -49,12 +49,12 @@ public class MotionRectangles
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
     public ImageComparisonResult getImageComparisonResult()
     {
-        return imageComparisonResult;
+        return this.imageComparisonResult;
     }
 
     public void setImageComparisonResult(ImageComparisonResult imageComparisonResult)

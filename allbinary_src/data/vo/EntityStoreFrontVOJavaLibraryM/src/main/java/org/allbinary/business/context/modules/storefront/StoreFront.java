@@ -59,34 +59,34 @@ public class StoreFront implements StoreFrontInterface
     private final StringUtil stringUtil = StringUtil.getInstance();
     private final AbPathUtil abPathUtil = AbPathUtil.getInstance();
     
-    private String name = stringUtil.EMPTY_STRING;
-    private String basketName = stringUtil.EMPTY_STRING;
-    private String homeHostName = stringUtil.EMPTY_STRING;
-    private AbPath homeHostNamePath = abPathUtil.NO_ABPATH;
-    private String hostName = stringUtil.EMPTY_STRING;
-    private AbPath hostNamePath = abPathUtil.NO_ABPATH;
-    private String testHomeHostName = stringUtil.EMPTY_STRING;
-    private AbPath testHomeHostNamePath = abPathUtil.NO_ABPATH;
-    private String testHostName = stringUtil.EMPTY_STRING;
-    private AbPath testHostNamePath = abPathUtil.NO_ABPATH;
-    private AbPath imagePath = abPathUtil.NO_ABPATH;
-    private AbPath staticPath = abPathUtil.NO_ABPATH;
-    private AbPath categoryPath = abPathUtil.NO_ABPATH;
-    private String inventoryControl = stringUtil.EMPTY_STRING;
+    private String name = this.stringUtil.EMPTY_STRING;
+    private String basketName = this.stringUtil.EMPTY_STRING;
+    private String homeHostName = this.stringUtil.EMPTY_STRING;
+    private AbPath homeHostNamePath = this.abPathUtil.NO_ABPATH;
+    private String hostName = this.stringUtil.EMPTY_STRING;
+    private AbPath hostNamePath = this.abPathUtil.NO_ABPATH;
+    private String testHomeHostName = this.stringUtil.EMPTY_STRING;
+    private AbPath testHomeHostNamePath = this.abPathUtil.NO_ABPATH;
+    private String testHostName = this.stringUtil.EMPTY_STRING;
+    private AbPath testHostNamePath = this.abPathUtil.NO_ABPATH;
+    private AbPath imagePath = this.abPathUtil.NO_ABPATH;
+    private AbPath staticPath = this.abPathUtil.NO_ABPATH;
+    private AbPath categoryPath = this.abPathUtil.NO_ABPATH;
+    private String inventoryControl = this.stringUtil.EMPTY_STRING;
     private ContextConfigurationInterface contextConfigurationInterface;
-    private String subStores = stringUtil.EMPTY_STRING;
-    private String tagLocation = stringUtil.EMPTY_STRING;
-    private String packageLocation = stringUtil.EMPTY_STRING;
-    private String ftp = stringUtil.EMPTY_STRING;
-    private AbPath ftpPath = abPathUtil.NO_ABPATH;
-    private String ftpUserName = stringUtil.EMPTY_STRING;
-    private String ftpPassword = stringUtil.EMPTY_STRING;
-    private String testFtp = stringUtil.EMPTY_STRING;
-    private AbPath testFtpPath = abPathUtil.NO_ABPATH;
-    private String testFtpUserName = stringUtil.EMPTY_STRING;
-    private String testFtpPassword = stringUtil.EMPTY_STRING;
-    private String timeCreated = stringUtil.EMPTY_STRING;
-    private String lastModified = stringUtil.EMPTY_STRING;
+    private String subStores = this.stringUtil.EMPTY_STRING;
+    private String tagLocation = this.stringUtil.EMPTY_STRING;
+    private String packageLocation = this.stringUtil.EMPTY_STRING;
+    private String ftp = this.stringUtil.EMPTY_STRING;
+    private AbPath ftpPath = this.abPathUtil.NO_ABPATH;
+    private String ftpUserName = this.stringUtil.EMPTY_STRING;
+    private String ftpPassword = this.stringUtil.EMPTY_STRING;
+    private String testFtp = this.stringUtil.EMPTY_STRING;
+    private AbPath testFtpPath = this.abPathUtil.NO_ABPATH;
+    private String testFtpUserName = this.stringUtil.EMPTY_STRING;
+    private String testFtpPassword = this.stringUtil.EMPTY_STRING;
+    private String timeCreated = this.stringUtil.EMPTY_STRING;
+    private String lastModified = this.stringUtil.EMPTY_STRING;
     
     private final int MINCHAR = 0;
     private final int MINSTORENAMELENGTH = 1;
@@ -166,7 +166,7 @@ public class StoreFront implements StoreFrontInterface
 
         if (StringValidationUtil.getInstance().isEmpty(path))
         {
-            return EMPTY_STRING;
+            return this.EMPTY_STRING;
         } else
         {
             if (this.isColumn(path))
@@ -248,7 +248,7 @@ public class StoreFront implements StoreFrontInterface
 
     public Boolean isNameValid()
     {
-        if (!StringValidationUtil.getInstance().isValidRequired(this.name, MINSTORENAMELENGTH, this.MAXCHAR))
+        if (!StringValidationUtil.getInstance().isValidRequired(this.name, this.MINSTORENAMELENGTH, this.MAXCHAR))
         {
             return Boolean.FALSE;
         } else
@@ -272,7 +272,7 @@ public class StoreFront implements StoreFrontInterface
             if (isSpacesContained || isEscapedCharactersContained)
             {
                 final HashMap hashMap = SpecialCharacterUtil.getHashMap();
-                hashMap.put(new String[] {CommonSeps.getInstance().SPACE}, ONE_EMPTY_STRING_ARRAY);
+                hashMap.put(new String[] {CommonSeps.getInstance().SPACE}, this.ONE_EMPTY_STRING_ARRAY);
                 this.name = new Replace(hashMap).all(this.name);
             }
 
@@ -288,67 +288,67 @@ public class StoreFront implements StoreFrontInterface
 
         final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
-        if (!stringValidationUtil.isValidRequired(this.basketName, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidRequired(this.basketName, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidRequired(this.homeHostName, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidRequired(this.homeHostName, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.homeHostNamePath.toString(), MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.homeHostNamePath.toString(), this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidRequired(this.hostName, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidRequired(this.hostName, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidRequired(this.hostNamePath.toString(), MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidRequired(this.hostNamePath.toString(), this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.testHomeHostName, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.testHomeHostName, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.testHomeHostNamePath.toString(), MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.testHomeHostNamePath.toString(), this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.testHostName, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.testHostName, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.testHostNamePath.toString(), MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.testHostNamePath.toString(), this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidRequired(this.imagePath.toString(), MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidRequired(this.imagePath.toString(), this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidRequired(this.staticPath.toString(), MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidRequired(this.staticPath.toString(), this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidRequired(this.categoryPath.toString(), MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidRequired(this.categoryPath.toString(), this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidRequired(this.inventoryControl, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidRequired(this.inventoryControl, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
@@ -385,57 +385,57 @@ public class StoreFront implements StoreFrontInterface
         }
          */
 
-        if (!stringValidationUtil.isValidNotRequired(this.subStores, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.subStores, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.tagLocation, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.tagLocation, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidRequired(this.packageLocation, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidRequired(this.packageLocation, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.ftp, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.ftp, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.ftpPath.toString(), MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.ftpPath.toString(), this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.ftpUserName, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.ftpUserName, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.ftpPassword, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.ftpPassword, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.testFtp, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.testFtp, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.testFtpPath.toString(), MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.testFtpPath.toString(), this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.testFtpUserName, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.testFtpUserName, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(this.testFtpPassword, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidNotRequired(this.testFtpPassword, this.MINCHAR, this.MAXCHAR))
         {
             valid = Boolean.FALSE;
         }
@@ -458,7 +458,7 @@ public class StoreFront implements StoreFrontInterface
     {
         final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
-        if (!stringValidationUtil.isValidRequired(this.name, MINCHAR, this.MAXCHAR))
+        if (!stringValidationUtil.isValidRequired(this.name, this.MINCHAR, this.MAXCHAR))
         {
             final StringMaker stringBuffer = new StringMaker();
 
@@ -468,7 +468,7 @@ public class StoreFront implements StoreFrontInterface
 
             return stringBuffer.toString();
         }
-        return EMPTY_STRING;
+        return this.EMPTY_STRING;
     }
 
     public String validationInfo()
@@ -481,77 +481,77 @@ public class StoreFront implements StoreFrontInterface
 
             stringBuffer.append(this.nameValidationInfo());
 
-            if (!stringValidationUtil.isValidRequired(this.basketName, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidRequired(this.basketName, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Basket name is invalid. Must be < ");
                 stringBuffer.appendint(this.MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidRequired(this.homeHostName, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidRequired(this.homeHostName, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Home host name is invalid. Must be < ");
                 stringBuffer.appendint(this.MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.homeHostNamePath.toString(), MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.homeHostNamePath.toString(), this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Home host name path is invalid. Must be < ");
                 stringBuffer.appendint(this.MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidRequired(this.hostName, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidRequired(this.hostName, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Host name is invalid. Must be < ");
                 stringBuffer.appendint(this.MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidRequired(this.hostNamePath.toString(), MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidRequired(this.hostNamePath.toString(), this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Host name path is invalid. Must be < ");
                 stringBuffer.appendint(this.MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.testHomeHostName, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.testHomeHostName, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Test home host name is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.testHomeHostNamePath.toString(), MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.testHomeHostNamePath.toString(), this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Test home host name path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.testHostName, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.testHostName, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Test host name is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.testHostNamePath.toString(), MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.testHostNamePath.toString(), this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Test host name path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidRequired(this.imagePath.toString(), MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidRequired(this.imagePath.toString(), this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Image path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidRequired(this.staticPath.toString(), MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidRequired(this.staticPath.toString(), this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Static path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidRequired(this.categoryPath.toString(), MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidRequired(this.categoryPath.toString(), this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Category path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidRequired(this.inventoryControl, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidRequired(this.inventoryControl, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Inventory control is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
@@ -588,57 +588,57 @@ public class StoreFront implements StoreFrontInterface
             }
              */
 
-            if (!stringValidationUtil.isValidNotRequired(this.subStores, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.subStores, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Sub stores is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.tagLocation, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.tagLocation, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Tag location is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidRequired(this.packageLocation, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidRequired(this.packageLocation, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Package location is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.ftp, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.ftp, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Ftp is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.ftpPath.toString(), MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.ftpPath.toString(), this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Ftp path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.ftpUserName, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.ftpUserName, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Ftp username is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.ftpPassword, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.ftpPassword, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Ftp password is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.testFtp, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.testFtp, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Test ftp is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.testFtpPath.toString(), MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.testFtpPath.toString(), this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Test ftp Path is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.testFtpUserName, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.testFtpUserName, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Test ftp username is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
 
-            if (!stringValidationUtil.isValidNotRequired(this.testFtpPassword, MINCHAR, this.MAXCHAR))
+            if (!stringValidationUtil.isValidNotRequired(this.testFtpPassword, this.MINCHAR, this.MAXCHAR))
             {
                 stringBuffer.append("Test ftp password is invalid. Must be < " + this.MAXCHAR + " and > 0 characters.<br>");
             }
@@ -1275,7 +1275,7 @@ public class StoreFront implements StoreFrontInterface
 
     public ContextConfigurationInterface getContextConfigurationInterface()
     {
-        return contextConfigurationInterface;
+        return this.contextConfigurationInterface;
     }
 
     public void setContextConfigurationInterface(final ContextConfigurationInterface contextConfigurationInterface)

@@ -17,7 +17,7 @@ public class ToolJPanel extends javax.swing.JPanel
 {   
    public ToolJPanel()
    {
-      initComponents();
+      this.initComponents();
    }
       
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -42,7 +42,7 @@ public class ToolJPanel extends javax.swing.JPanel
         this.colorJPanel = new javax.swing.JPanel();
         this.colorJList = new javax.swing.JList();
 
-        setLayout(new java.awt.GridLayout(17, 1));
+        this.setLayout(new java.awt.GridLayout(17, 1));
 
         lineJButton.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         lineJButton.setText(LinesGraphicItem.getStaticName());
@@ -55,7 +55,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.rectJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.rectJButton.setText("Rect");
-        rectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.rectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 rectJButtonMouseClicked(evt);
             }
@@ -64,7 +64,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.arcJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.arcJButton.setText("Arc");
-        arcJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.arcJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 arcJButtonMousePressed(evt);
             }
@@ -73,7 +73,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.stringJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.stringJButton.setText("String");
-        stringJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.stringJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 stringJButtonMousePressed(evt);
             }
@@ -82,7 +82,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.charJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.charJButton.setText("Char");
-        charJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.charJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 charJButtonMousePressed(evt);
             }
@@ -91,7 +91,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.roundRectJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.roundRectJButton.setText("Round Rect");
-        roundRectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.roundRectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 roundRectJButtonMousePressed(evt);
             }
@@ -100,7 +100,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.imageJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.imageJButton.setText("Image");
-        imageJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.imageJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 imageJButtonMousePressed(evt);
             }
@@ -109,7 +109,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.fillArcJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.fillArcJButton.setText("Fill Arc");
-        fillArcJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.fillArcJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 fillArcJButtonMousePressed(evt);
             }
@@ -118,7 +118,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.fillRectJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.fillRectJButton.setText("Fill Rect");
-        fillRectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.fillRectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 fillRectJButtonMousePressed(evt);
             }
@@ -127,7 +127,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.fillRoundRectJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.fillRoundRectJButton.setText("Fill Rnd Rect");
-        fillRoundRectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.fillRoundRectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 fillRoundRectJButtonMousePressed(evt);
             }
@@ -136,7 +136,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.dottedLineJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.dottedLineJButton.setText("Dot Line");
-        dottedLineJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.dottedLineJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 dottedLineJButtonMousePressed(evt);
             }
@@ -145,7 +145,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.dottedRectButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.dottedRectButton.setText("Dot Rect");
-        dottedRectButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.dottedRectButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 dottedRectButtonMousePressed(evt);
             }
@@ -154,7 +154,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.dottedArcJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.dottedArcJButton.setText("Dot Arc");
-        dottedArcJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.dottedArcJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 dottedArcJButtonMousePressed(evt);
             }
@@ -163,7 +163,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.dottedFillRectJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.dottedFillRectJButton.setText("Dot Fill Rect");
-        dottedFillRectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.dottedFillRectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 dottedFillRectJButtonMousePressed(evt);
             }
@@ -172,7 +172,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.dottedFillArcJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.dottedFillArcJButton.setText("Dot Fill Arc");
-        dottedFillArcJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.dottedFillArcJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 dottedFillArcJButtonMousePressed(evt);
             }
@@ -181,7 +181,7 @@ public class ToolJPanel extends javax.swing.JPanel
 
         this.dottedFillRountRectJButton.setFont(new java.awt.Font("Dialog", 0, 10));
         this.dottedFillRountRectJButton.setText("Dot Fill Rnd Rect");
-        dottedFillRountRectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        this.dottedFillRountRectJButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 dottedFillRountRectJButtonMousePressed(evt);
             }

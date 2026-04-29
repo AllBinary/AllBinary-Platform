@@ -30,11 +30,11 @@ public class InitInfo2
     
     public boolean isTestHtmlPathValid(AbPath value)
     {
-        return directory.create(value);
+        return this.directory.create(value);
     }
 
     public boolean isMainPathValid(AbPath value)
     {
-        return directory.create(value);
+        return this.directory.create(value);
     }
 }

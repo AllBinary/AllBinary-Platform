@@ -363,7 +363,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                 {
                     BasicUserRole mustBeOfRole = (BasicUserRole) this.roles.get(index);
                     if (this.sessionUserName != null
-                        && role.equals(mustBeOfRole))
+                        && this.role.equals(mustBeOfRole))
                     {
                         return Boolean.TRUE.booleanValue();
                     }
@@ -491,7 +491,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                         return SKIP_BODY;
                     }
 
-                } else if (command.compareTo(WeblisketSessionData.INVALIDATESESSION) == 0)
+                } else if (this.command.compareTo(WeblisketSessionData.INVALIDATESESSION) == 0)
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
@@ -566,7 +566,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                      */
 
                     if ((this.userName == null || this.userName.compareTo(stringUtil.EMPTY_STRING) == 0)
-                        && (password == null || password.compareTo(stringUtil.EMPTY_STRING) == 0)
+                        && (this.password == null || this.password.compareTo(stringUtil.EMPTY_STRING) == 0)
                         && this.roles != null && this.isAuthenticationSessionValid())
                     {
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))

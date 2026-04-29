@@ -44,7 +44,7 @@ public class RegistrationConfiguration
     {
         try
         {
-            if(FileFactory.getInstance().isFile(FILE))
+            if(FileFactory.getInstance().isFile(this.FILE))
             {
                 this.read();
             }
@@ -72,7 +72,7 @@ public class RegistrationConfiguration
 
         InputStream fileInputStream = fileInputStreamFactory
                 .getFileInputStreamInstance(
-                        StringUtil.getInstance().EMPTY_STRING, FILE);
+                        StringUtil.getInstance().EMPTY_STRING, this.FILE);
 
         DataInputStream dataInputStream = 
             new DataInputStream(fileInputStream);
@@ -98,7 +98,7 @@ public class RegistrationConfiguration
         OutputStream fileOutputStream = 
             fileInputStreamFactory
                 .getFileOutputStreamInstance(
-                        StringUtil.getInstance().EMPTY_STRING, FILE);
+                        StringUtil.getInstance().EMPTY_STRING, this.FILE);
         
         dataOutputStream = 
             new AbDataOutputStream(fileOutputStream);
@@ -126,6 +126,6 @@ public class RegistrationConfiguration
 
     public String getRegistrationCode()
     {
-        return registrationCode;
+        return this.registrationCode;
     }
 }

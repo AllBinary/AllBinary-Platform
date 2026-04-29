@@ -63,12 +63,12 @@ public class HttpComponentView extends TransformInfoHttpComposite
     
     public int getTypeId()
     {
- 	   return NO_TYPE;
+ 	   return this.NO_TYPE;
     }
 
     public TransformDocumentInterface getTransformDocumentInterface()
     {
-        return transformDocumentInterface;
+        return this.transformDocumentInterface;
     }
 
     public void setTransformDocumentInterface(TransformDocumentInterface transformDocumentInterface)

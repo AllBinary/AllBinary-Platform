@@ -37,7 +37,7 @@ public class NewWorkAreaJDialog extends javax.swing.JDialog
       super((java.awt.Frame) parent, modal);
       try
       {
-         initComponents();
+         this.initComponents();
                   
          this.parent = parent;
          this.xSizeJTextField = new JTextField("12");

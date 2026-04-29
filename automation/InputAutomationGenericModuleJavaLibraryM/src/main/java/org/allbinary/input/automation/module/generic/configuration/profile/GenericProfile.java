@@ -82,7 +82,7 @@ public class GenericProfile
     public Node toXmlNode(Document document) throws Exception
     {
         Node node = ModDomHelper.createTextNode(
-            document, GenericProfileData.NAME, name);
+            document, GenericProfileData.NAME, this.name);
         
         final int size = this.vector.size();
         for(int index = 0; index < size; index++)
@@ -96,7 +96,7 @@ public class GenericProfile
     
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
     public void setName(String name)
@@ -106,7 +106,7 @@ public class GenericProfile
     
     public GenericProfileActions getGenericProfileActions()
     {
-        return genericProfileActions;
+        return this.genericProfileActions;
     }
 
     public void setGenericProfileActions(GenericProfileActions genericProfileActions)

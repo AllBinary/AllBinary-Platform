@@ -182,7 +182,7 @@ public class SearchParams
    {
       Node fieldsNode = 
          ModDomHelper.createNameValueNodes(document, SearchData.FIELDS, 
-            new Integer(columnsAndSearchValues.size()).toString());
+            new Integer(this.columnsAndSearchValues.size()).toString());
 
       Set set = this.columnsAndSearchValues.keySet();
       

@@ -56,7 +56,7 @@ public class InsertHeaderValidationView extends TopBarView implements Validation
             
       String fullPath =
         URLGLOBALS.getWebappPath() +
-        storeFrontInterface.getCurrentHostNamePath() + LOGOPATH;
+        storeFrontInterface.getCurrentHostNamePath() + this.LOGOPATH;
       
       multipartRequestHashMap.put(LogoData.getInstance().IMAGEPATH, fullPath);
       this.heading = new HeadingValidation(multipartRequestHashMap);

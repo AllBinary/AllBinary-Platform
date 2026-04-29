@@ -29,7 +29,7 @@ public class InputAutomationModuleService
 
     public InputAutomationModuleFactoryInterface[] getInputAutomationModuleInterfaceArray()
     {
-        return inputAutomationModuleInterfaceArray;
+        return this.inputAutomationModuleInterfaceArray;
     }
 
     public void setInputAutomationModuleInterfaceArray(

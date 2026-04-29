@@ -52,7 +52,7 @@ public class UserEmailEventConfiguration implements UserEmailEventConfigurationI
    
    public String getName()
    {
-      return name;
+      return this.name;
    }
    
    public void setName(String name)
@@ -62,7 +62,7 @@ public class UserEmailEventConfiguration implements UserEmailEventConfigurationI
    
    public String getEventListenerClassPath()
    {
-      return eventListenerClassPath;
+      return this.eventListenerClassPath;
    }
    
    public void setEventListenerClassPath(String eventListenerClassPath)

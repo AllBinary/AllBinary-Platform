@@ -144,12 +144,12 @@ public class ImageComparisonResult
     
     public BufferedImage[] getBufferedImages()
     {
-        return bufferedImages;
+        return this.bufferedImages;
     }
         
     public int getTolerance()
     {
-        return tolerance;
+        return this.tolerance;
     }
     
     private void setTolerance(int tolerance)
@@ -159,12 +159,12 @@ public class ImageComparisonResult
 
     public Long getFrameOne()
     {
-        return frameOne;
+        return this.frameOne;
     }
 
     public Long getFrameTwo()
     {
-        return frameTwo;
+        return this.frameTwo;
     }
     
 }

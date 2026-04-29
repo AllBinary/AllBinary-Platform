@@ -30,7 +30,7 @@ public class ImageIconUnique extends ImageIcon
 
     public int getId()
     {
-        return id;
+        return this.id;
     }
 
     public void setId(int id)

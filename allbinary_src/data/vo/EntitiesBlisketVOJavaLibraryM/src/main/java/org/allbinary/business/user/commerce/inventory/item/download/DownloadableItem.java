@@ -205,7 +205,7 @@ public class DownloadableItem
 
     public String getId()
     {
-        return id;
+        return this.id;
     }
 
     /**
@@ -213,7 +213,7 @@ public class DownloadableItem
      */
     public String getSystem()
     {
-        return system;
+        return this.system;
     }
 
     /**
@@ -221,7 +221,7 @@ public class DownloadableItem
      */
     public String getPlatform()
     {
-        return platform;
+        return this.platform;
     }
 
     /**
@@ -229,7 +229,7 @@ public class DownloadableItem
      */
     public String getSpecialName()
     {
-        return specialName;
+        return this.specialName;
     }
 
     /**
@@ -237,7 +237,7 @@ public class DownloadableItem
      */
     public String getVersion()
     {
-        return version;
+        return this.version;
     }
 
     /**
@@ -245,7 +245,7 @@ public class DownloadableItem
      */
     public String getChanges()
     {
-        return changes;
+        return this.changes;
     }
 
     /**
@@ -253,7 +253,7 @@ public class DownloadableItem
      */
     public String getLicenseFile()
     {
-        return licenseFile;
+        return this.licenseFile;
     }
 
     /**
@@ -261,7 +261,7 @@ public class DownloadableItem
      */
     public String getFile()
     {
-        return file;
+        return this.file;
     }
 
     /**
@@ -269,7 +269,7 @@ public class DownloadableItem
      */
     public Long getSize()
     {
-        return size;
+        return this.size;
     }
 
     /**
@@ -277,7 +277,7 @@ public class DownloadableItem
      */
     public Long getValidTime()
     {
-        return validTime;
+        return this.validTime;
     }
 
     /**
@@ -285,6 +285,6 @@ public class DownloadableItem
      */
     public String getRetries()
     {
-        return retries;
+        return this.retries;
     }
 }

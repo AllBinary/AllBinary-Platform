@@ -66,7 +66,7 @@ public class LurchAI  extends BasicAI
       if (this.currentRelativeAngle == 0)
       {
          x += this.currentSpeed;
-      } else if (currentRelativeAngle == 180)
+      } else if (this.currentRelativeAngle == 180)
       {
          x -= this.currentSpeed;
       }
@@ -76,7 +76,7 @@ public class LurchAI  extends BasicAI
       if (this.currentRelativeAngle == 0)
       {
          super.processKeyAI(Canvas.KEY_NUM0);
-      } else if (currentRelativeAngle == 180)
+      } else if (this.currentRelativeAngle == 180)
       {
          super.processKeyAI(Canvas.KEY_POUND);
       }
@@ -87,7 +87,7 @@ public class LurchAI  extends BasicAI
       if (this.currentRelativeAngle == 180)
       {
          this.currentRelativeAngle = 0;
-      } else if (currentRelativeAngle == 0)
+      } else if (this.currentRelativeAngle == 0)
       {
          this.currentRelativeAngle = 180;
       }
@@ -97,7 +97,7 @@ public class LurchAI  extends BasicAI
    {
       if (this.currentSpeed < 20)
       {
-         currentSpeed++;
+         this.currentSpeed++;
       }
    }
 

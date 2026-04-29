@@ -35,7 +35,7 @@ public class ColorDelta
 
     public Object getKey()
     {
-        return key;
+        return this.key;
     }    
 
     public static Object getKey(int rgb1, int rgb2)
@@ -45,7 +45,7 @@ public class ColorDelta
     
    public int getRgb1()
    {
-      return rgb1;
+      return this.rgb1;
    }
 
    protected void setRgb1(int rgb1)
@@ -55,7 +55,7 @@ public class ColorDelta
 
    public int getRgb2()
    {
-      return rgb2;
+      return this.rgb2;
    }
 
    protected void setRgb2(int rgb2)

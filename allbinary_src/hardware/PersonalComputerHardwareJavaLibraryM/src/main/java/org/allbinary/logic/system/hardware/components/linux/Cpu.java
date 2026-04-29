@@ -55,7 +55,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
       LineNumberReader lineNumberReader = null;
       try
       {
-         init(lineNumberReader, filePath);
+         this.init(lineNumberReader, filePath);
       }
       catch(Exception e)
       {

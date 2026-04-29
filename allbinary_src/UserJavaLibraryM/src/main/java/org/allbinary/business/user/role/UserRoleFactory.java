@@ -46,54 +46,54 @@ public class UserRoleFactory {
 		BasicUserRoleFactory.getInstance();
 	
    public final UserRole INSTALLER =
-      new UserRoleB(basicUserRoleFactory.INSTALLER, null);
+      new UserRoleB(this.basicUserRoleFactory.INSTALLER, null);
 
    //Administrators
    //new AdministratorUserFactory()
    public final UserRole ADMINISTRATOR =
-      new UserRoleB(basicUserRoleFactory.ADMINISTRATOR, new AdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.ADMINISTRATOR, new AdminUserFactory());
 
    //Users
    public final UserRole CUSTOMER =
-      new UserRoleB(basicUserRoleFactory.CUSTOMER, new UserFactory());
+      new UserRoleB(this.basicUserRoleFactory.CUSTOMER, new UserFactory());
    public final UserRole SUBSCRIBERCUSTOMER =
-      new UserRoleB(basicUserRoleFactory.SUBSCRIBERCUSTOMER, new SubscriberUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.SUBSCRIBERCUSTOMER, new SubscriberUserFactory());
    public final UserRole WHOLESALECUSTOMER =
-      new UserRoleB(basicUserRoleFactory.WHOLESALECUSTOMER, new WholesaleUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.WHOLESALECUSTOMER, new WholesaleUserFactory());
 
    //Store Users
 
    //Store Admin
    public final UserRole STOREMANAGER =
-      new UserRoleB(basicUserRoleFactory.STOREMANAGER, new StoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.STOREMANAGER, new StoreAdminUserFactory());
 
    //Managers
    public final UserRole PRODUCTMANAGER =
-      new UserRoleB(basicUserRoleFactory.PRODUCTMANAGER, new ProductStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.PRODUCTMANAGER, new ProductStoreAdminUserFactory());
    public final UserRole CUSTOMERMANAGER =
-      new UserRoleB(basicUserRoleFactory.CUSTOMERMANAGER, new CustomerStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.CUSTOMERMANAGER, new CustomerStoreAdminUserFactory());
    public final UserRole PAYMENTMANAGER =
-      new UserRoleB(basicUserRoleFactory.PAYMENTMANAGER, new PaymentStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.PAYMENTMANAGER, new PaymentStoreAdminUserFactory());
    public final UserRole ORDERMANAGER =
-      new UserRoleB(basicUserRoleFactory.ORDERMANAGER, new OrderStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.ORDERMANAGER, new OrderStoreAdminUserFactory());
    public final UserRole WEBMANAGER =
-      new UserRoleB(basicUserRoleFactory.WEBMANAGER, new WebStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.WEBMANAGER, new WebStoreAdminUserFactory());
    
    //Order Manager Assistants
    public final UserRole REVIEWER =
-      new UserRoleB(basicUserRoleFactory.REVIEWER, new ReviewOrderStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.REVIEWER, new ReviewOrderStoreAdminUserFactory());
    public final UserRole SHIPPING =
-      new UserRoleB(basicUserRoleFactory.SHIPPING, new ShipOrderStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.SHIPPING, new ShipOrderStoreAdminUserFactory());
    public final UserRole ADJUSTER =
-      new UserRoleB(basicUserRoleFactory.ADJUSTER, new AdjustOrderStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.ADJUSTER, new AdjustOrderStoreAdminUserFactory());
 
    //Web Manager Assistants
    public final UserRole WORKFLOWEDITOR =
-      new UserRoleB(basicUserRoleFactory.WORKFLOWEDITOR, new WorkflowEditorWebStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.WORKFLOWEDITOR, new WorkflowEditorWebStoreAdminUserFactory());
    public final UserRole WIZARD =
-      new UserRoleB(basicUserRoleFactory.WIZARD, new WizardWebStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.WIZARD, new WizardWebStoreAdminUserFactory());
    //public final UserRole WIZARDEDITOR =
    //new UserRole (BasicUserRole, new WizardEditorWebStoreAdminUserFactory());
    public final UserRole VIEWEDITOR =
-      new UserRoleB(basicUserRoleFactory.VIEWEDITOR, new ViewEditorWebStoreAdminUserFactory());
+      new UserRoleB(this.basicUserRoleFactory.VIEWEDITOR, new ViewEditorWebStoreAdminUserFactory());
 }

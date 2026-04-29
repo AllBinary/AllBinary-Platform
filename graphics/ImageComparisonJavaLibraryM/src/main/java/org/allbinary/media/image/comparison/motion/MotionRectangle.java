@@ -29,7 +29,7 @@ public class MotionRectangle implements Cloneable
 
     public Rectangle getRectangle()
     {
-        return rectangle;
+        return this.rectangle;
     }
 
     public void setRectangle(Rectangle rectangle)
@@ -39,7 +39,7 @@ public class MotionRectangle implements Cloneable
 
     public Vector getPixelDeltaVector()
     {
-        return pixelDeltaVector;
+        return this.pixelDeltaVector;
     }
 
     public void setPixelDeltaVector(Vector pixelDeltaVector)

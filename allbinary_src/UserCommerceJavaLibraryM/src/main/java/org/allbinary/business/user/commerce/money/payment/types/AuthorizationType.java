@@ -24,6 +24,6 @@ public class AuthorizationType
 
    public String toString()
    {
-      return name;
+      return this.name;
    }
 }

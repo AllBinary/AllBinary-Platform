@@ -186,11 +186,11 @@ public class AbeClientLicense implements AbeLicenseInterface
 
     public String getSpecial()
     {
-        return special;
+        return this.special;
     }
 
     public LicenseType getLicenseType()
     {
-        return licenseType;
+        return this.licenseType;
     }
 }

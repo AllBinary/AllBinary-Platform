@@ -440,7 +440,7 @@ public class UpdateFileValidationView
                         stringBuffer.append(fileName);
 
                         this.logUtil.putF(
-                            stringBuffer.toString(), this, commonStrings.IS_VALID);
+                            stringBuffer.toString(), this, this.commonStrings.IS_VALID);
                     }
 
                     return Boolean.FALSE;
@@ -471,7 +471,7 @@ public class UpdateFileValidationView
                     stringBuffer.appendint(fileData.MAXDOWNLOADABLEFILESIZE);
 
                     this.logUtil.putF(
-                        stringBuffer.toString(), this, commonStrings.IS_VALID);
+                        stringBuffer.toString(), this, this.commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }
@@ -487,7 +487,7 @@ public class UpdateFileValidationView
                 stringBuffer.appendint(fileData.MINDOWNLOADABLEFILESIZE);
 
                 this.logUtil.putF(
-                    stringBuffer.toString(), this, commonStrings.IS_VALID);
+                    stringBuffer.toString(), this, this.commonStrings.IS_VALID);
             }
             return Boolean.FALSE;
         }

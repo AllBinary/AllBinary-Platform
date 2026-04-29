@@ -64,7 +64,7 @@ public class ClientInformation implements AbeClientInformationInterface
     @Override
     public GenericOperatingSystem getOperatingSystemInterface()
     {
-        return operatingSystemInterface;
+        return this.operatingSystemInterface;
     }
 
     /*
@@ -250,7 +250,7 @@ public class ClientInformation implements AbeClientInformationInterface
     @Override
     public boolean isHardSale()
     {
-        return hardSale;
+        return this.hardSale;
     }
 
     protected void setOperatingSystemInterface(GenericOperatingSystem operatingSystemInterface)

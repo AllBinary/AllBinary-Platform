@@ -127,7 +127,7 @@ public class MultipartRequestParamForwardHelper
 
         if (StringValidationUtil.getInstance().isEmpty(this.command)
             || (!StringValidationUtil.getInstance().isEmpty(requestCommand) &&
-            command.compareTo(requestCommand) == 0))
+            this.command.compareTo(requestCommand) == 0))
         {
             return true;
         }

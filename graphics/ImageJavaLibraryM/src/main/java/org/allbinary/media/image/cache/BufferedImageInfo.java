@@ -31,7 +31,7 @@ public class BufferedImageInfo
 
     public int getWidth()
     {
-        return width;
+        return this.width;
     }
 
     public void setWidth(int width)
@@ -41,7 +41,7 @@ public class BufferedImageInfo
 
     public int getHeight()
     {
-        return height;
+        return this.height;
     }
 
     public void setHeight(int height)
@@ -51,7 +51,7 @@ public class BufferedImageInfo
 
     public int getType()
     {
-        return type;
+        return this.type;
     }
 
     public void setType(int type)

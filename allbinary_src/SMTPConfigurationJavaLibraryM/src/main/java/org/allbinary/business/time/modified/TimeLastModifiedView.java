@@ -42,7 +42,7 @@ public class TimeLastModifiedView implements DomNodeInterface
 
     public TimeLastModified getTimeLastModified()
     {
-        return timeLastModified;
+        return this.timeLastModified;
     }
 
     public void setTimeLastModified(TimeLastModified timeLastModified)

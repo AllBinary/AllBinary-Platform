@@ -141,7 +141,7 @@ public class ColorAtActionScriptCondition
     
     public Point getPoint()
     {
-        return point;
+        return this.point;
     }
 
     public void setPoint(Point point)
@@ -221,7 +221,7 @@ public class ColorAtActionScriptCondition
 
     public ColorRangeInterface getColorRangeInterface()
     {
-        return colorRangeInterface;
+        return this.colorRangeInterface;
     }
 
     public void setColorRangeInterface(ColorRangeInterface colorRangeInterface)

@@ -84,13 +84,13 @@ public class InitializerDatabase
         {
             InitializerData initializerData = InitializerData.getInstance();
         	
-            setAdminDbUserName((String) hashMap.get(initializerData.DBUSER));
-            setAdminDbPassword((String) hashMap.get(initializerData.DBPASSWORD));
+            this.setAdminDbUserName((String) hashMap.get(initializerData.DBUSER));
+            this.setAdminDbPassword((String) hashMap.get(initializerData.DBPASSWORD));
 
-            setAdminJdbcDriver((String) hashMap.get(initializerData.ADMINJDBCDRIVER));
-            setAdminSchema((String) hashMap.get(initializerData.ADMINSCHEMA));
-            setAdminServer((String) hashMap.get(initializerData.ADMINSERVER));
-            setAdminPort((String) hashMap.get(initializerData.ADMINPORT));
+            this.setAdminJdbcDriver((String) hashMap.get(initializerData.ADMINJDBCDRIVER));
+            this.setAdminSchema((String) hashMap.get(initializerData.ADMINSCHEMA));
+            this.setAdminServer((String) hashMap.get(initializerData.ADMINSERVER));
+            this.setAdminPort((String) hashMap.get(initializerData.ADMINPORT));
 
             DbConnectionInfo dbConnectionInfo = new DbConnectionInfo();
 
@@ -240,7 +240,7 @@ public class InitializerDatabase
      */
     public String getAdminDbUserName()
     {
-        return adminDbUserName;
+        return this.adminDbUserName;
     }
 
     /**
@@ -256,7 +256,7 @@ public class InitializerDatabase
      */
     public String getAdminDbPassword()
     {
-        return adminDbPassword;
+        return this.adminDbPassword;
     }
 
     /**
@@ -272,7 +272,7 @@ public class InitializerDatabase
      */
     public String getAdminJdbcDriver()
     {
-        return adminJdbcDriver;
+        return this.adminJdbcDriver;
     }
 
     /**
@@ -288,7 +288,7 @@ public class InitializerDatabase
      */
     public String getAdminSchema()
     {
-        return adminSchema;
+        return this.adminSchema;
     }
 
     /**
@@ -304,7 +304,7 @@ public class InitializerDatabase
      */
     public String getAdminServer()
     {
-        return adminServer;
+        return this.adminServer;
     }
 
     /**
@@ -320,7 +320,7 @@ public class InitializerDatabase
      */
     public String getAdminPort()
     {
-        return adminPort;
+        return this.adminPort;
     }
 
     /**

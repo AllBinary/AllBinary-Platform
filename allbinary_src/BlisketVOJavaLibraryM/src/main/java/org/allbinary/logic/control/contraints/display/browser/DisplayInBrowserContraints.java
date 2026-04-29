@@ -62,7 +62,7 @@ public class DisplayInBrowserContraints
 
    public boolean isMountable()
    {
-      return mountable;
+      return this.mountable;
    }
 
    public void setMountable(boolean mountable)
@@ -72,7 +72,7 @@ public class DisplayInBrowserContraints
 
    public boolean isFrameable()
    {
-      return frameable;
+      return this.frameable;
    }
 
    public void setFrameable(boolean frameable)
@@ -82,7 +82,7 @@ public class DisplayInBrowserContraints
 
    public boolean isQuickFrameable()
    {
-      return quickFrameable;
+      return this.quickFrameable;
    }
 
    public void setQuickFrameable(boolean quickFrameable)
@@ -92,7 +92,7 @@ public class DisplayInBrowserContraints
 
    public String getMountedLink()
    {
-      return mountedLink;
+      return this.mountedLink;
    }
 
    public void setMountedLink(String mountedLink)

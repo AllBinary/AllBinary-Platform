@@ -42,7 +42,7 @@ public class TimeCreatedView implements DomNodeInterface
 
     public TimeCreated getTimeCreated()
     {
-        return timeCreated;
+        return this.timeCreated;
     }
 
     public void setTimeCreated(TimeCreated timeCreated)

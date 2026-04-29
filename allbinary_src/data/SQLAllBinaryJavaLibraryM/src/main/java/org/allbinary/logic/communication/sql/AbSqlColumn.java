@@ -86,7 +86,7 @@ public class AbSqlColumn extends AbSqlTable
             {
                 this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN, e);
             }
-            return INVALID_RESULT;
+            return this.INVALID_RESULT;
         }
     }
 

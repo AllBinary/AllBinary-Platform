@@ -42,6 +42,6 @@ public class ArrayAI extends BasicAI
 
    public ArtificialIntelligenceInterface[] getArtificialIntelligenceInterface()
    {
-      return artificialIntelligenceInterfaceArray;
+      return this.artificialIntelligenceInterfaceArray;
    }
 }

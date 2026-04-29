@@ -36,6 +36,6 @@ public class HtmlTags
    
    public int size()
    {
-      return htmlTagVector.size();
+      return this.htmlTagVector.size();
    }
 }

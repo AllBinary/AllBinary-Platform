@@ -46,7 +46,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
 
       this.logUtil.putF("Starting", this, this.commonStrings.CONSTRUCTOR);
 
-      initComponents();
+      this.initComponents();
       this.imageProcessorInput = imageProcessorInput;
 
    //setUI((PanelUI)UIManager.getUI(this));
@@ -124,7 +124,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
    private void initComponents() {
 
       jLayeredPane1 = new javax.swing.JLayeredPane();
-      jPanel1 = new javax.swing.JPanel(){
+      this.jPanel1 = new javax.swing.JPanel(){
          public void paint(Graphics graphics)
          {
             if(MirrorSpriteImageJPanel.this.result != null)
@@ -159,7 +159,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
       this.imageHeightIsFrameSizeJCheckBox.setSelected(true);
       this.imageHeightIsFrameSizeJCheckBox.setText("Image Height Is Frame Size");
       this.imageHeightIsFrameSizeJCheckBox.setEnabled(false);
-      imageHeightIsFrameSizeJCheckBox.addActionListener(new java.awt.event.ActionListener() {
+      this.imageHeightIsFrameSizeJCheckBox.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             imageHeightIsFrameSizeJCheckBoxActionPerformed(evt);
          }
@@ -176,7 +176,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
       this.writeOverOriginalJCheckBox.setText("Write Over Original");
 
       this.generateJButton.setText("Generate");
-      generateJButton.addActionListener(new java.awt.event.ActionListener() {
+      this.generateJButton.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             generateJButtonActionPerformed(evt);
          }
@@ -270,7 +270,7 @@ private void imageHeightIsFrameSizeJCheckBoxActionPerformed(java.awt.event.Actio
    // End of variables declaration//GEN-END:variables
    public ImageProcessorInput getImageProcessorInput()
    {
-      return imageProcessorInput;
+      return this.imageProcessorInput;
    }
 
    public void setImageProcessorInput(ImageProcessorInput imageProcessorInput)

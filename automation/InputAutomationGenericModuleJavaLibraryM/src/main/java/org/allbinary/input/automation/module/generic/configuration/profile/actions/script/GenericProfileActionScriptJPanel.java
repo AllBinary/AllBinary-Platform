@@ -46,7 +46,7 @@ public class GenericProfileActionScriptJPanel
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
-        initComponents();
+        this.initComponents();
     }
     
     public void updateJTree()
@@ -63,7 +63,7 @@ public class GenericProfileActionScriptJPanel
     
     public GenericProfileActionScript getGenericProfileActionScript()
     {
-        return genericProfileActionScript;
+        return this.genericProfileActionScript;
     }
     
     public void setGenericProfileActionScript(GenericProfileActionScript genericProfileActionScript)
@@ -73,7 +73,7 @@ public class GenericProfileActionScriptJPanel
 
     public javax.swing.JTree getActionScriptJTree()
     {
-        return actionScriptJTree;
+        return this.actionScriptJTree;
     }
 
     public void setActionScriptJTree(javax.swing.JTree actionScriptJTree)
@@ -95,7 +95,7 @@ public class GenericProfileActionScriptJPanel
         setLayout(new java.awt.GridLayout(1, 0));
 
         this.actionScriptJTree.setPreferredSize(new java.awt.Dimension(500, 500));
-        actionScriptJTree.addMouseListener(new java.awt.event.MouseAdapter()
+        this.actionScriptJTree.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {

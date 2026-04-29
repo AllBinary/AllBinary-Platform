@@ -27,8 +27,8 @@ public class BooleanFactory
     public final Boolean TRUE = new Boolean(true); //Boolean.TRUE;
     public final Boolean FALSE = new Boolean(false); //Boolean.FALSE;
 
-    public final String TRUE_STRING = TRUE.toString();
-    public final String FALSE_STRING = FALSE.toString();
+    public final String TRUE_STRING = this.TRUE.toString();
+    public final String FALSE_STRING = this.FALSE.toString();
 
     public final String YES = "yes";
     public final String NO = "no";
@@ -37,11 +37,11 @@ public class BooleanFactory
     {
         if(bool)
         {
-            return TRUE_STRING;
+            return this.TRUE_STRING;
         }
         else
         {
-            return FALSE_STRING;
+            return this.FALSE_STRING;
         }
     }
 }

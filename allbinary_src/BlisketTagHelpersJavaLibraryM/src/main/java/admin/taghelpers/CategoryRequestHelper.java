@@ -204,7 +204,7 @@ public class CategoryRequestHelper extends ModifyTable
                StoreFrontFactory.getInstance(storeName);
 
             this.transformInfoInterface = (TransformInfoInterface)
-                new TransformInfoBasic(storeFrontInterface, hashMap, pageContext);
+                new TransformInfoBasic(storeFrontInterface, this.hashMap, this.pageContext);
 
             if(this.transformInfoInterface == null)
             {

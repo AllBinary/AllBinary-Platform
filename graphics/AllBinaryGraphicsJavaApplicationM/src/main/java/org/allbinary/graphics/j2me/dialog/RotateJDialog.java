@@ -34,7 +34,7 @@ public class RotateJDialog extends javax.swing.JDialog
     /** Creates new form RotateJDialog */
     public RotateJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
+        this.initComponents();
     }
     
     /** This method is called from within the constructor to
@@ -63,7 +63,7 @@ public class RotateJDialog extends javax.swing.JDialog
         this.jLabel2.setText("Total Angular Rotation:");
 
         this.jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        this.jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }

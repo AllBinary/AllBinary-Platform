@@ -31,7 +31,7 @@ public class TimeTypeTest {
         }
         @Override
         public int getHourOfDay() {
-            return hour;
+            return this.hour;
         }
     }
 

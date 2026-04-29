@@ -166,7 +166,7 @@ public class AbPathUtilOld
    {
       if(StringValidationUtil.getInstance().isEmpty(path))
       {
-         return abPathData.SEPARATOR;
+         return this.abPathData.SEPARATOR;
       }
 
       //Convert \ to / I.E. from dos/windows file path to uri/unix path

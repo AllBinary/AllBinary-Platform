@@ -70,7 +70,7 @@ public class ImageTypes
 
     public Vector getVector()
     {
-        return vector;
+        return this.vector;
     }
 
     public Node toXmlNode(Document document) throws Exception

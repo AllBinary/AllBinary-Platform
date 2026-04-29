@@ -66,7 +66,7 @@ public class BasicEmailQueue extends BasicQueue
       if(this.send(emailInterface))
       {
          this.remove(emailInterface);
-         processAllUnsent();
+         this.processAllUnsent();
       }
    }
 
@@ -81,7 +81,7 @@ public class BasicEmailQueue extends BasicQueue
          {
              //if(emailInterface.getEvent())
              this.remove(emailInterface);
-             processAllUnsent();
+             this.processAllUnsent();
          }
       }
    }

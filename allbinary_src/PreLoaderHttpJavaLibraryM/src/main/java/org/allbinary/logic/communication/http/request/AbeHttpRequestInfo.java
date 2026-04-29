@@ -42,22 +42,22 @@ public class AbeHttpRequestInfo
        StringUtil stringUtil = StringUtil.getInstance();
            
       this.httpUserAgent = stringUtil.getNonNull(
-         (String) hashMap.get(abeHttpRequestInfoData.HTTP_USER_AGENT));
+         (String) hashMap.get(this.abeHttpRequestInfoData.HTTP_USER_AGENT));
 
       this.remoteAddress = stringUtil.getNonNull(
-         (String) hashMap.get(abeHttpRequestInfoData.REMOTE_ADDRESS));
+         (String) hashMap.get(this.abeHttpRequestInfoData.REMOTE_ADDRESS));
 
       this.remoteHost = stringUtil.getNonNull(
-         (String) hashMap.get(abeHttpRequestInfoData.REMOTE_HOST));
+         (String) hashMap.get(this.abeHttpRequestInfoData.REMOTE_HOST));
 
       this.remoteHostByAddr = stringUtil.getNonNull(
-         (String) hashMap.get(abeHttpRequestInfoData.REMOTE_HOST_BY_ADDRESS));
+         (String) hashMap.get(this.abeHttpRequestInfoData.REMOTE_HOST_BY_ADDRESS));
 
       this.remotePort = stringUtil.getNonNull(
-         (String) hashMap.get(abeHttpRequestInfoData.REMOTE_PORT));
+         (String) hashMap.get(this.abeHttpRequestInfoData.REMOTE_PORT));
 
       this.requestedFilePath = stringUtil.getNonNull(
-         (String) hashMap.get(abeHttpRequestInfoData.REQUEST_FILE_PATH));
+         (String) hashMap.get(this.abeHttpRequestInfoData.REQUEST_FILE_PATH));
    }
    
    public AbeHttpRequestInfo(HttpServletRequest httpServletRequest)

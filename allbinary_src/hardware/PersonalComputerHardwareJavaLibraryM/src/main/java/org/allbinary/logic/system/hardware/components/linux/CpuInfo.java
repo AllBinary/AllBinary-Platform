@@ -24,7 +24,7 @@ public class CpuInfo
     
     public String toString()
     {
-        return name;
+        return this.name;
     }
     
     public static final CpuInfo PROCESSOR = new CpuInfo ("processor");

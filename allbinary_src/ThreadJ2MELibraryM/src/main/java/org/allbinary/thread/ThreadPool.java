@@ -152,7 +152,7 @@ public class ThreadPool
         {
             if (!this.isAlive)
             {
-                return NULL_RUNNABLE;
+                return this.NULL_RUNNABLE;
             }
             this.wait();
         }

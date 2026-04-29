@@ -46,7 +46,7 @@ public class MouseActionScriptInputJPanel
    {
       this.logUtil.putF(CommonLabels.getInstance().START + mouseActionScriptInputInterface, this, commonStrings.CONSTRUCTOR);
       
-      initComponents();
+      this.initComponents();
       
       this.mouseActionScriptInputInterface = mouseActionScriptInputInterface;
       
@@ -193,7 +193,7 @@ public class MouseActionScriptInputJPanel
    
    public javax.swing.JDialog getMouseActionJDialog()
    {
-      return mouseActionJDialog;
+      return this.mouseActionJDialog;
    }
    
    public void setMouseActionJDialog(javax.swing.JDialog mouseActionJDialog)
@@ -231,7 +231,7 @@ public class MouseActionScriptInputJPanel
         this.titleJLabel.setText("Mouse Input Options");
 
         this.okJButton.setText("OK");
-        okJButton.addActionListener(new java.awt.event.ActionListener()
+        this.okJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -250,7 +250,7 @@ public class MouseActionScriptInputJPanel
         this.button2JCheckBox.setText(CommonPhoneStrings.getInstance().TWO);
         this.button2JCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         this.button2JCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        button2JCheckBox.addActionListener(new java.awt.event.ActionListener()
+        this.button2JCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -349,7 +349,7 @@ public class MouseActionScriptInputJPanel
 
         setMinimumSize(new java.awt.Dimension(100, 0));
         this.mouseActionJButton.setText("Edit");
-        mouseActionJButton.addActionListener(new java.awt.event.ActionListener()
+        this.mouseActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {

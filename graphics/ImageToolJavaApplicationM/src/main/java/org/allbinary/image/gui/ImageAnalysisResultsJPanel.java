@@ -24,7 +24,7 @@ public class ImageAnalysisResultsJPanel extends javax.swing.JPanel
     public ImageAnalysisResultsJPanel(
         final ImageAnalysisResults[] imageAnalysisResultsArray)
     {
-        initComponents();
+        this.initComponents();
         
         /*
         for(int index = 0; index < imageAnalysisResultsArray.length; index++)

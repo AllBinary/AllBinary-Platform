@@ -32,7 +32,7 @@ public class Ethernet implements HardwareComponentInterface, EthernetInterface
     
     public String toString()
     {
-       return data;
+       return this.data;
     }
     
 }

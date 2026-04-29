@@ -39,12 +39,12 @@ public class InputImageType
     
     public String toString()
     {
-        return "ImageType: " + getName();
+        return "ImageType: " + this.getName();
     }
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
     public static InputImageType getInstance(String imageTypeString)
@@ -59,6 +59,6 @@ public class InputImageType
 
     public int getIndex()
     {
-        return index;
+        return this.index;
     }
 }

@@ -61,12 +61,12 @@ public class VectorCenterGenerator {
 
         this.logUtil.putF("minX: " + this.minX + " minY: " + this.minY + " maxX: " + this.maxX + " maxY: " + this.maxY, this, commonStrings.GET_INSTANCE);
 
-        setWidth(this.maxX - this.minX);
-        setHeight(this.maxY - this.minY);
+        this.setWidth(this.maxX - this.minX);
+        this.setHeight(this.maxY - this.minY);
 
-        int max = getWidth();
+        int max = this.getWidth();
         if (getHeight() > max) {
-            max = getHeight();
+            max = this.getHeight();
         }
 
         //max = max + 1;
@@ -77,8 +77,8 @@ public class VectorCenterGenerator {
         final String s = new StringMaker().append(commonLabels.WIDTH_LABEL).appendint(getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(getHeight()).append(" max: ").appendint(max).append(" middle: ").appendint(middle).toString();
         this.logUtil.putF(s, this, commonStrings.GET_INSTANCE);
 
-        int currentMiddleX = this.minX + getWidth() / 2;
-        int currentMiddleY = this.minY + getHeight() / 2;
+        int currentMiddleX = this.minX + this.getWidth() / 2;
+        int currentMiddleY = this.minY + this.getHeight() / 2;
 
         this.dx = middle - currentMiddleX;
         this.dy = middle - currentMiddleY;
@@ -145,7 +145,7 @@ public class VectorCenterGenerator {
     }
 
     public int getWidth() {
-        return width;
+        return this.width;
     }
 
     public void setWidth(int width) {
@@ -153,7 +153,7 @@ public class VectorCenterGenerator {
     }
 
     public int getHeight() {
-        return height;
+        return this.height;
     }
 
     public void setHeight(int height) {

@@ -57,12 +57,12 @@ public class CustomUriTransformView
    
    public int getTypeId()
    {
-	   return NO_TYPE;
+	   return this.NO_TYPE;
    }
    
    public TransformInfoInterface getTransformInfoInterface()
    {
-      return transformInfoInterface;
+      return this.transformInfoInterface;
    }
 
    public void setTransformInfoInterface(

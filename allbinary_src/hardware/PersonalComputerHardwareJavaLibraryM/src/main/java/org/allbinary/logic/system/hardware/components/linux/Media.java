@@ -32,7 +32,7 @@ public class Media implements HardwareComponentInterface, MediaInterface
     
     public String toString()
     {
-       return data;
+       return this.data;
     }
     
 }

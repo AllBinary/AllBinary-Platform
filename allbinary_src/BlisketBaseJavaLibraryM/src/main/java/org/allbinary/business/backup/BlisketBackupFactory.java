@@ -52,7 +52,7 @@ public class BlisketBackupFactory
 
         AbFile file = new AbFile(path);
 
-        return directory.search(file, true);
+        return this.directory.search(file, true);
     }
 
     public void backup()

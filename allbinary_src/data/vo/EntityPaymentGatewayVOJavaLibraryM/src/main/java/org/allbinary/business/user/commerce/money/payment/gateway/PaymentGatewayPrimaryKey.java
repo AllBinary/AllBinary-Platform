@@ -30,7 +30,7 @@ public class PaymentGatewayPrimaryKey implements java.io.Serializable
 
    public String getStoreName()
    {
-      return storeName;
+      return this.storeName;
    }
 
    public void setStoreName(String storeName)
@@ -40,7 +40,7 @@ public class PaymentGatewayPrimaryKey implements java.io.Serializable
 
    public String getName()
    {
-      return name;
+      return this.name;
    }
 
    public void setName(String name)

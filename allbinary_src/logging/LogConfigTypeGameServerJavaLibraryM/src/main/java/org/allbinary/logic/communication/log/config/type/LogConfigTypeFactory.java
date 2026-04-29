@@ -35,11 +35,11 @@ public class LogConfigTypeFactory
 
     private final String NO_DESCRIPTION = "No Description";
 
-    public final LogConfigType INIT_SERVER = new LogConfigType("Init Server", NO_DESCRIPTION);
-    public final LogConfigType LOBBY_SERVER = new LogConfigType("Lobby Server", NO_DESCRIPTION);
-    public final LogConfigType GAME_SERVER = new LogConfigType("Game Server", NO_DESCRIPTION);
-    public final LogConfigType GAME_SIMULATOR = new LogConfigType("Game Simulator", NO_DESCRIPTION);
-    public final LogConfigType CUSTOM_TYPES = new LogConfigType("Custom Types", NO_DESCRIPTION);
+    public final LogConfigType INIT_SERVER = new LogConfigType("Init Server", this.NO_DESCRIPTION);
+    public final LogConfigType LOBBY_SERVER = new LogConfigType("Lobby Server", this.NO_DESCRIPTION);
+    public final LogConfigType GAME_SERVER = new LogConfigType("Game Server", this.NO_DESCRIPTION);
+    public final LogConfigType GAME_SIMULATOR = new LogConfigType("Game Simulator", this.NO_DESCRIPTION);
+    public final LogConfigType CUSTOM_TYPES = new LogConfigType("Custom Types", this.NO_DESCRIPTION);
 
     private LogConfigTypeFactory()
     {

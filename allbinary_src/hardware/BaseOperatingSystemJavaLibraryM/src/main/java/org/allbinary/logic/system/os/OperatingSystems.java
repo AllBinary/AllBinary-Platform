@@ -28,7 +28,7 @@ public class OperatingSystems
    public final String WINDOWS_VISTA = "Windows Vista";
    public final String WINDOWS_XP = "Windows XP";
 
-   public final String ANDROID = LINUX;
+   public final String ANDROID = this.LINUX;
    
    private OperatingSystems()
    {
@@ -38,7 +38,7 @@ public class OperatingSystems
    
     public boolean isUnknownSpecificOSAllowed()
     {
-        return unknownSpecificOSAllowed;
+        return this.unknownSpecificOSAllowed;
     }
 
     public void setUnknownSpecificOSAllowed(boolean aUnknownSpecificOSAllowed)

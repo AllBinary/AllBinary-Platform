@@ -55,7 +55,7 @@ public class TimeTypeUtil {
     }
     
     public String getNightOrDay() {
-        return isNight() ? this.NIGHT : this.DAY;
+        return this.isNight() ? this.NIGHT : this.DAY;
     }
     
     public int getHourOfDay(long timeInMillis) {
@@ -72,6 +72,6 @@ public class TimeTypeUtil {
     }
     
     public String getNightOrDay(long timeInMillis) {
-        return isNight(timeInMillis) ? this.NIGHT : this.DAY;
+        return this.isNight(timeInMillis) ? this.NIGHT : this.DAY;
     }
 }

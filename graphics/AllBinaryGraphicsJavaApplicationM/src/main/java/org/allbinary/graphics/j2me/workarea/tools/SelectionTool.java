@@ -217,7 +217,7 @@ public class SelectionTool implements GraphicItemInterface
         return NAME;
     }
     private GPoint startPoint = PointFactory.getInstance().ZERO_ZERO;
-    private GPoint endPoint = startPoint;
+    private GPoint endPoint = this.startPoint;
 
     //mouse and key events occur on the component the tool
     //is used and not by the tool itself

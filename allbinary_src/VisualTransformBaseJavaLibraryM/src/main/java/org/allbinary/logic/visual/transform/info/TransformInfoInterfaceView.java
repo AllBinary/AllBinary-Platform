@@ -30,6 +30,6 @@ public class TransformInfoInterfaceView implements DomNodeInterface
    public Node toXmlNode(Document document) throws Exception
    {
       return ModDomHelper.createNameValueNodes(
-         document, TransformInfoData.getInstance().NAME, transformInfoInterface.toHashMap());
+         document, TransformInfoData.getInstance().NAME, this.transformInfoInterface.toHashMap());
    }
 }

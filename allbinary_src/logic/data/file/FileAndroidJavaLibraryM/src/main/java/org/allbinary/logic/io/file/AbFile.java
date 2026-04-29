@@ -64,7 +64,7 @@ public class AbFile implements AbFileInterface
      */
     protected File getFile()
     {
-        return file;
+        return this.file;
     }
 
     public String getName()

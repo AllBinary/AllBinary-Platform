@@ -77,7 +77,7 @@ public class PaymentTransactionInterfaceRequestFactory
             //Only if testing a gateway with a form instead of using OrderHistory
             if(command != null && command.compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEFORMEVALBODYONERROR) == 0)
             {
-                return generateFromTestData(transformInfoInterface);
+                return this.generateFromTestData(transformInfoInterface);
             }else
             {
 

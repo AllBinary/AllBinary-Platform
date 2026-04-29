@@ -97,6 +97,6 @@ public class PaymentGatewayData
 
    public String toString()
    {
-      return key;
+      return this.key;
    }
 }

@@ -44,7 +44,7 @@ public class IIOImageCacheable
 
     public IIOImage getIioImage()
     {
-        return iioImage;
+        return this.iioImage;
     }
 
     private void setIioImage(IIOImage iioImage)

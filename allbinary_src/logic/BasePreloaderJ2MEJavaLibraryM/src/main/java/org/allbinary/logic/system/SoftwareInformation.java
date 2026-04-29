@@ -34,12 +34,12 @@ public class SoftwareInformation
     
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     public String getVersion()
     {
-        return version;
+        return this.version;
     }
 
     public String toShortString() {

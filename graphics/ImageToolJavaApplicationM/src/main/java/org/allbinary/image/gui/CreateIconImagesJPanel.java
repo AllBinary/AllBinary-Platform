@@ -174,7 +174,7 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
     }
     
     public ImageProcessorInput getImageProcessorInput() {
-        return imageProcessorInput;
+        return this.imageProcessorInput;
     }
 
     public void setImageProcessorInput(ImageProcessorInput imageProcessorInput) {
@@ -193,7 +193,7 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
         this.aboveJButton = new javax.swing.JButton();
 
         this.aboveJButton.setText("Process");
-        aboveJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.aboveJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboveJButtonActionPerformed(evt);
             }

@@ -32,7 +32,7 @@ public class Bridge implements HardwareComponentInterface, BridgeInterface
     
     public String toString()
     {
-        return data;
+        return this.data;
     }
     
 }

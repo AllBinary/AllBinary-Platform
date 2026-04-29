@@ -120,7 +120,7 @@ public class TimeIntervalActionScriptCondition
 
     public TimeDelayHelper getTimeDelayHelper()
     {
-        return timeHelper;
+        return this.timeHelper;
     }
 
     public void setTimeDelayHelper(final TimeDelayHelper timeHelper)

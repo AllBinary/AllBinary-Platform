@@ -55,7 +55,7 @@ public class OrderItemsRequestHelper
       {
          if(newStatus==null) newStatus= this.status;
          String success = "Status successfully set to: " + newStatus;
-         OrderItemsEntityFactory.getInstance().setStatus(this.id,groupId,newStatus);                  
+         OrderItemsEntityFactory.getInstance().setStatus(this.id,this.groupId,newStatus);                  
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -79,7 +79,7 @@ public class OrderItemsRequestHelper
       try
       {         
          String success = "Status successfully set to: " + this.status;
-         OrderItemsEntityFactory.getInstance().setStatus(this.id, groupId, this.status);
+         OrderItemsEntityFactory.getInstance().setStatus(this.id, this.groupId, this.status);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {

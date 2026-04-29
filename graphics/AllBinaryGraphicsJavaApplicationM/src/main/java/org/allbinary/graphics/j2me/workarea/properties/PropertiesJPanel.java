@@ -22,7 +22,7 @@ public class PropertiesJPanel extends javax.swing.JPanel
    public PropertiesJPanel()//WorkAreaJPanelInterface workArea)
    {
       //this.workArea = workArea;
-      initComponents();
+      this.initComponents();
    }
    
    public void set(JPanel panel)

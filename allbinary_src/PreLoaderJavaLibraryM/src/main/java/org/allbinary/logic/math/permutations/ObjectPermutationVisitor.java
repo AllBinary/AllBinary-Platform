@@ -16,7 +16,7 @@ public class ObjectPermutationVisitor extends Visitor {
     private StringBuilder stringBuilder = new StringBuilder();
 
     public Object visit(Object object) {
-        stringBuilder.delete(0, stringBuilder.length());
+        this.stringBuilder.delete(0, stringBuilder.length());
         this.print(this.data, stringBuilder);
         return null;
     }

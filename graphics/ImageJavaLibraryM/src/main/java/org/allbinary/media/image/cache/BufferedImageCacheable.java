@@ -39,7 +39,7 @@ public class BufferedImageCacheable
 
     public BufferedImage getBufferedImage()
     {
-        return bufferedImage;
+        return this.bufferedImage;
     }
 
     private void setBufferedImage(BufferedImage bufferedImage)

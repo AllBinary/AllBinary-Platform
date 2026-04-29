@@ -17,7 +17,7 @@ public class BlankModuleConfigurationJPanel extends javax.swing.JPanel
 {
     public BlankModuleConfigurationJPanel()
     {
-        initComponents();
+        this.initComponents();
     }
     
     /** This method is called from within the constructor to

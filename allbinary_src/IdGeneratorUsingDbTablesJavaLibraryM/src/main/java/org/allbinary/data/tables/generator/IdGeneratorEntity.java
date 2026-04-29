@@ -119,8 +119,8 @@ public class IdGeneratorEntity extends AbSqlBean
         //hashMap.put(EntryData.getInstance().LASTMODIFIED, time);
 
         super.updateWhere(
-                NAME,
-                (String) hashMap.get(NAME),
+                this.NAME,
+                (String) hashMap.get(this.NAME),
                 hashMap);
     }
 

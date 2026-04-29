@@ -81,7 +81,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
 
     public String getAccountName()
     {
-        return accountName;
+        return this.accountName;
     }
 
     public void setAccountName(String accountName)
@@ -91,7 +91,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
 
     public String getPassword()
     {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password)

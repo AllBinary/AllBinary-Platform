@@ -25,7 +25,7 @@ public class PoolType
 
     public CacheType getCacheType()
     {
-        return cacheType;
+        return this.cacheType;
     }
 
    @Override

@@ -201,7 +201,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
     }
     
     public ImageProcessorInput getImageProcessorInput() {
-        return imageProcessorInput;
+        return this.imageProcessorInput;
     }
 
     public void setImageProcessorInput(ImageProcessorInput imageProcessorInput) {
@@ -234,7 +234,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
         this.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         this.aboveJButton.setText("Process");
-        aboveJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.aboveJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboveJButtonActionPerformed(evt);
             }
@@ -245,7 +245,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
         this.jLabel3.setText("Height:");
 
         this.updateJButton.setText("Update");
-        updateJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.updateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateJButtonActionPerformed(evt);
             }
@@ -255,14 +255,14 @@ public class ResizeImageJPanel extends javax.swing.JPanel
         this.floatPercentJTextField.setMinimumSize(new java.awt.Dimension(120, 22));
 
         this.adjustFor16AboveJButton.setText("Adjust for 16 Above");
-        adjustFor16AboveJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.adjustFor16AboveJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adjustFor16AboveJButtonActionPerformed(evt);
             }
         });
 
         this.adjustFor16BelowJButton.setText("Adjust for 16 Below");
-        adjustFor16BelowJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.adjustFor16BelowJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adjustFor16BelowJButtonActionPerformed(evt);
             }

@@ -125,7 +125,7 @@ public class SqlConnectionPool
                             stringBuffer.appendint(connectionVector.size());
 
                             this.logUtil.putF(NUMBER_OF_SQL_CONNECTION_VECTORS
-                                + this.connectionHashMap.size(), this, METHOD_GET);
+                                + this.connectionHashMap.size(), this, this.METHOD_GET);
                             this.logUtil.putF(stringBuffer.toString(), this, METHOD_GET);
                         }
                         return (Connection) sqlConnection;

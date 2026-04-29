@@ -55,6 +55,6 @@ public class AbContext
    
    public HashMap getPropertiesHashMap()
    {
-      return propertiesHashMap;
+      return this.propertiesHashMap;
    }
 }

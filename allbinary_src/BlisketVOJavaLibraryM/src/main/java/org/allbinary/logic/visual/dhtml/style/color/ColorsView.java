@@ -46,7 +46,7 @@ public class ColorsView implements DomNodeInterface
                hexColorStringBuffer.append(
                   Integer.toString(redIndex, HEXRADIX));
                
-               if(greenIndex < HEXRADIX)
+               if(greenIndex < this.HEXRADIX)
                {
                   hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
                }
@@ -54,7 +54,7 @@ public class ColorsView implements DomNodeInterface
                hexColorStringBuffer.append(
                   Integer.toString(greenIndex, HEXRADIX));
                
-               if(blueIndex < HEXRADIX)
+               if(blueIndex < this.HEXRADIX)
                {
                   hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
                }
@@ -90,7 +90,7 @@ public class ColorsView implements DomNodeInterface
          hexColorStringBuffer.append(
             Integer.toString(index, HEXRADIX));
          
-         if(index < HEXRADIX)
+         if(index < this.HEXRADIX)
          {
             hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
          }
@@ -98,7 +98,7 @@ public class ColorsView implements DomNodeInterface
          hexColorStringBuffer.append(
             Integer.toString(index, HEXRADIX));
          
-         if(index < HEXRADIX)
+         if(index < this.HEXRADIX)
          {
             hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
          }

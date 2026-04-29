@@ -24,6 +24,6 @@ public class Component
         
     public String toString()
     {
-        return name;
+        return this.name;
     }
 }

@@ -55,7 +55,7 @@ public class ImageComparisonWorker
     
     public synchronized boolean isRunning()
     {
-        return running;
+        return this.running;
     }
     
     public synchronized void setRunning(boolean running)
@@ -135,7 +135,7 @@ public class ImageComparisonWorker
             
             //Remove the first frame compared or not
             this.bufferedImageVector.remove(0);
-            index2++;
+            this.index2++;
             
             final String message = new StringMaker().append("Frame: ").appendint(this.index2).append(CommonLabels.getInstance().ELAPSED).appendlong(timeHelper.getElapsedTNT()).toString();
             this.logUtil.putF(message, this, this.commonStrings.RUN);

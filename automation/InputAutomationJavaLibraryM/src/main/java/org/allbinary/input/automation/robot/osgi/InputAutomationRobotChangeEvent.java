@@ -25,7 +25,7 @@ public class InputAutomationRobotChangeEvent
 
     public InputAutomationRobotInterfaceWrapper getInputAutomationRobotInterfaceWrapper()
     {
-        return inputAutomationRobotInterfaceWrapper;
+        return this.inputAutomationRobotInterfaceWrapper;
     }
 
     public void setInputAutomationRobotInterfaceWrapper(

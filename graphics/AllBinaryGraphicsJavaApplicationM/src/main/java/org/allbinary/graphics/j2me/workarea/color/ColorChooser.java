@@ -23,7 +23,7 @@ public class ColorChooser extends javax.swing.JPanel
    /** Creates new form ColorChooser */
    public ColorChooser()
    {
-      initComponents();
+      this.initComponents();
    }
    
    /** This method is called from within the constructor to

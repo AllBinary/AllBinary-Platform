@@ -41,6 +41,6 @@ public class OrderProcessorUtil
         orderItems.insert(userName, order);
         orderHistory.insert(userName, order);
 
-        return ORDER_PROCESSED;
+        return this.ORDER_PROCESSED;
     }
 }

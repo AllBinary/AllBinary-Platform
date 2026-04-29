@@ -111,13 +111,13 @@ public class BillingAddressTag extends TableTag
                
                if (this.getCommand().compareTo(BillingAddressData.SELECT)==0)
                {
-                  set();
+                  this.set();
                   return this.EVAL_BODY_INCLUDE;
                }
                else
                   if (this.getCommand().compareTo(BillingAddressData.SETTOSHIPPINGADDRESS)==0)
                   {
-                     setToShippingAddress();
+                     this.setToShippingAddress();
                   }
                   else
                   {

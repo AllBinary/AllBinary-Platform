@@ -188,11 +188,11 @@ public class DbConnectionInfo implements DatabaseConnectionInfoInterface
 
     public final String getUserNameKey()
     {
-        return USER_NAME_KEY;
+        return this.USER_NAME_KEY;
     }
 
     public final String getPasswordKey()
     {
-        return PASSWORD_KEY;
+        return this.PASSWORD_KEY;
     }
 }

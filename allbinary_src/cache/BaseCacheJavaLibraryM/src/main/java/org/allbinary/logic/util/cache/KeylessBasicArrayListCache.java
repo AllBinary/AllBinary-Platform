@@ -57,7 +57,7 @@ public class KeylessBasicArrayListCache
         catch (Exception e)
         {
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
-            return basicArrayListUtil.getImmutableInstance();
+            return this.basicArrayListUtil.getImmutableInstance();
         }
     }
 

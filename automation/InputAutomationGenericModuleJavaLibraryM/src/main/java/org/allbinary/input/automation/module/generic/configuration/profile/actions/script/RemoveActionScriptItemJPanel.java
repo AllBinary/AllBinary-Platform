@@ -35,7 +35,7 @@ public class RemoveActionScriptItemJPanel extends java.awt.Panel
         GenericProfileActionJPanel genericProfileActionJPanel,
         ProfileActionScriptConditionInterface profileActionScriptConditionInterface)
     {
-        initComponents();
+        this.initComponents();
         
         this.genericProfileActionJPanel = genericProfileActionJPanel;
         this.profileActionScriptConditionInterface = profileActionScriptConditionInterface;
@@ -54,7 +54,7 @@ public class RemoveActionScriptItemJPanel extends java.awt.Panel
         setLayout(new java.awt.GridLayout());
 
         this.removeJButton.setText("Remove");
-        removeJButton.addActionListener(new java.awt.event.ActionListener()
+        this.removeJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {

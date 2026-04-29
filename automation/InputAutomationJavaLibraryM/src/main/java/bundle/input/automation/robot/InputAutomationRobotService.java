@@ -29,7 +29,7 @@ public class InputAutomationRobotService
 
     public InputRobotInterface[] getInputRobotInterfaceArray()
     {
-        return inputRobotInterfaceArray;
+        return this.inputRobotInterfaceArray;
     }
 
     public void setInputRobotInterfaceArray(InputRobotInterface[] inputRobotInterfaceArray)

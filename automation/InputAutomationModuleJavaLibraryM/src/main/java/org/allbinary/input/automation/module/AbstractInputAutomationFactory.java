@@ -47,7 +47,7 @@ public class AbstractInputAutomationFactory extends InputAutomationModuleFactory
    
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
     public JPanel getConfigurationJPanel()
@@ -57,7 +57,7 @@ public class AbstractInputAutomationFactory extends InputAutomationModuleFactory
     
     public HelpSet getHelpSet()
     {
-        return helpSet;
+        return this.helpSet;
     }
     
 }

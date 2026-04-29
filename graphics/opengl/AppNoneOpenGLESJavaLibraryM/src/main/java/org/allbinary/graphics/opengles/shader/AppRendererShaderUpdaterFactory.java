@@ -30,7 +30,7 @@ public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
 
     private final ShaderComposite[] NULL_SHADER_COMPOSITE_ARRAY = new ShaderComposite[0];
 
-    public final ShaderComposite[] shaderCompositeArray = NULL_SHADER_COMPOSITE_ARRAY;
+    public final ShaderComposite[] shaderCompositeArray = this.NULL_SHADER_COMPOSITE_ARRAY;
 
     private final ShaderOpenGLProcessor[] shaderOpenGLProcessorArray = new ShaderOpenGLProcessor[0];
     

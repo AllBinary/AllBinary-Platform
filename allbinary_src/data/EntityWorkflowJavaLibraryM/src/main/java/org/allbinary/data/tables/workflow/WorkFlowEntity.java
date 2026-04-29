@@ -100,7 +100,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
             keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
             final HashMap hashMap = super.getRow(keysAndValues);
 
-            return (WorkFlowInterface) DbWorkFlowFactory.getInstance().getInstance(abeClientInformation, hashMap);
+            return (WorkFlowInterface) DbWorkFlowFactory.getInstance().getInstance(this.abeClientInformation, hashMap);
         }catch(LicensingException e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))

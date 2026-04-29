@@ -231,7 +231,7 @@ public class FileUtil
     {
         try
         {
-            AbPath outPath = fixPath(file, path, realPath, cloud);
+            AbPath outPath = this.fixPath(file, path, realPath, cloud);
 
             AbFile outFile = new AbFile(outPath);
 
@@ -806,7 +806,7 @@ public class FileUtil
                             this.copyFile(file, aFile);
                         } else if (file.isDirectory())
                         {
-                            copyDirectory(file, toLocationFile);
+                            this.copyDirectory(file, toLocationFile);
                         } else
                         {
                             throw new Exception("File Copy Error");
@@ -824,7 +824,7 @@ public class FileUtil
                         this.logUtil.putF("Copyinhg directory", getInstance(), COPY);
                     }
 
-                    copyDirectory(fromLocationFile, toLocationFile);
+                    this.copyDirectory(fromLocationFile, toLocationFile);
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILE))
                     {

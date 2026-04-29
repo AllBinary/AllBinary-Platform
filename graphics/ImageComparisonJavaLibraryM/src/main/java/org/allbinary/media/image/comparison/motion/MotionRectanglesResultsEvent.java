@@ -33,7 +33,7 @@ public class MotionRectanglesResultsEvent
     
     public MotionRectangles getMotionRectangles()
     {
-        return motionRectangles;
+        return this.motionRectangles;
     }
     
     public void setMotionRectangles(MotionRectangles motionRectangles)
@@ -43,6 +43,6 @@ public class MotionRectanglesResultsEvent
     
     public Long getFrame()
     {
-        return frame;
+        return this.frame;
     }
 }

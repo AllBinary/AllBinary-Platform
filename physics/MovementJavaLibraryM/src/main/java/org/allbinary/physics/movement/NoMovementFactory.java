@@ -25,6 +25,6 @@ public class NoMovementFactory {
 	
 	public final Movement getMovmentInstance()
 	{
-		return movement;
+		return this.movement;
 	}
 }

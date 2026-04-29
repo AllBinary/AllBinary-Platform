@@ -104,7 +104,7 @@ public class ImageActionScriptOutput
 
     public ImageActionScriptOutputJPanel getActionScriptOutputJPanel()
     {
-        return actionScriptOutputJPanel;
+        return this.actionScriptOutputJPanel;
     }
     
     public HashMap toHashMap()
@@ -150,7 +150,7 @@ public class ImageActionScriptOutput
 
     public boolean isSaved()
     {
-        return saved;
+        return this.saved;
     }
 
     public void setSaved(boolean saved)
@@ -160,7 +160,7 @@ public class ImageActionScriptOutput
 
     public boolean isDisplay()
     {
-        return display;
+        return this.display;
     }
 
     public void setDisplay(boolean display)
@@ -188,7 +188,7 @@ public class ImageActionScriptOutput
     
     public ImageTypes getImageTypes()
     {
-        return imageTypes;
+        return this.imageTypes;
     }
 
     public void setImageTypes(ImageTypes imageTypes)

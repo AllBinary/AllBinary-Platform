@@ -40,7 +40,7 @@ public class ColorRange
     
     public int getMinRed()
     {
-        return minRed;
+        return this.minRed;
     }
     
     public void setMinRed(int minRed)
@@ -50,7 +50,7 @@ public class ColorRange
     
     public int getMaxRed()
     {
-        return maxRed;
+        return this.maxRed;
     }
     
     public void setMaxRed(int maxRed)
@@ -60,7 +60,7 @@ public class ColorRange
     
     public int getMinGreen()
     {
-        return minGreen;
+        return this.minGreen;
     }
     
     public void setMinGreen(int minGreen)
@@ -70,7 +70,7 @@ public class ColorRange
     
     public int getMaxGreen()
     {
-        return maxGreen;
+        return this.maxGreen;
     }
     
     public void setMaxGreen(int maxGreen)
@@ -80,7 +80,7 @@ public class ColorRange
     
     public int getMinBlue()
     {
-        return minBlue;
+        return this.minBlue;
     }
     
     public void setMinBlue(int minBlue)
@@ -90,7 +90,7 @@ public class ColorRange
     
     public int getMaxBlue()
     {
-        return maxBlue;
+        return this.maxBlue;
     }
     
     public void setMaxBlue(int maxBlue)

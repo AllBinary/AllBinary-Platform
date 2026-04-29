@@ -24,7 +24,7 @@ public class Visitor implements VisitorInterface
     @Override
     public Object visit(Object object)
     {
-        return nullUtil.NULL_OBJECT;
+        return this.nullUtil.NULL_OBJECT;
     }
 
     public static Visitor getInstance()

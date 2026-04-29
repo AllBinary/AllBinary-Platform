@@ -37,7 +37,7 @@ public class AbPath
    
    public AbPath()
    {
-      init();
+      this.init();
    }
    
    private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
@@ -55,7 +55,7 @@ public class AbPath
       }
       else
       {
-         init();
+         this.init();
       }
    }
    
@@ -73,7 +73,7 @@ public class AbPath
       }
       else
       {
-         init();
+         this.init();
          
          if(!stringValidationUtil.isEmpty(name))
          {   
@@ -99,7 +99,7 @@ public class AbPath
          return aPath.substring(0, beginIndex);
       }
       this.hasSchema = false;
-      return EMPTY_STRING;
+      return this.EMPTY_STRING;
    }
    
    public boolean hasSchema()
@@ -134,7 +134,7 @@ public class AbPath
             tempPath.charAt(beginIndex) == filePathData.SEPARATORCHAR)
             {
                beginIndex++;
-               numberOfSeps++;
+               this.numberOfSeps++;
                if(this.numberOfSeps > 2)
                {
                   throw new Exception("Should Not Have More Than Two Seps");
@@ -212,7 +212,7 @@ public class AbPath
      */
     public String getPath()
     {
-        return path;
+        return this.path;
     }
 
     /**

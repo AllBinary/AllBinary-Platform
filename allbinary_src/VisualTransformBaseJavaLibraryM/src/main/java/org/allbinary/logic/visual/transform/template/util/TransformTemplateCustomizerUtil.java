@@ -80,12 +80,12 @@ public class TransformTemplateCustomizerUtil
         hashMap.put(new String[] {storeName + SPACE}, ONE_EMPTY_STRING_ARRAY);
 
         //Remove N # of Types
-        hashMap.put(new String[] {CUSTOMIZER_NAME}, ONE_EMPTY_STRING_ARRAY); //Customizer
-        hashMap.put(new String[] {BODY_VIEWNAMEKEY}, ONE_EMPTY_STRING_ARRAY); //Body
-        hashMap.put(new String[] {TITLE_VIEWNAMEKEY}, ONE_EMPTY_STRING_ARRAY); //Title
+        hashMap.put(new String[] {this.CUSTOMIZER_NAME}, ONE_EMPTY_STRING_ARRAY); //Customizer
+        hashMap.put(new String[] {this.BODY_VIEWNAMEKEY}, ONE_EMPTY_STRING_ARRAY); //Body
+        hashMap.put(new String[] {this.TITLE_VIEWNAMEKEY}, ONE_EMPTY_STRING_ARRAY); //Title
 
         //Remove Prefix
-        hashMap.put(new String[] {GLOBALS_NEW}, ONE_EMPTY_STRING_ARRAY);
+        hashMap.put(new String[] {this.GLOBALS_NEW}, ONE_EMPTY_STRING_ARRAY);
         hashMap.put(new String[] {this.GLOBALS_INSERT}, ONE_EMPTY_STRING_ARRAY);
         hashMap.put(new String[] {this.GLOBALS_DELETE}, ONE_EMPTY_STRING_ARRAY);
         hashMap.put(new String[] {this.GLOBALS_EDIT}, ONE_EMPTY_STRING_ARRAY);

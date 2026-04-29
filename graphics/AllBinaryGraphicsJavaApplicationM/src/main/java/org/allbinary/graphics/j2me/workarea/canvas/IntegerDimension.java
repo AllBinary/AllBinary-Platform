@@ -30,7 +30,7 @@ public class IntegerDimension {
    
    public int getWidth()
    {
-      return width;
+      return this.width;
    }
 
    public void setWidth(int width)
@@ -40,7 +40,7 @@ public class IntegerDimension {
 
    public int getHeight()
    {
-      return height;
+      return this.height;
    }
 
    public void setHeight(int height)

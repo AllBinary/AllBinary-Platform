@@ -134,7 +134,7 @@ public class StaticPagesRequestHelper extends AbContext
          
          SearchRequest searchRequest = 
             new SearchRequest(
-            null, this.searchParams, xslFile, contentType, 
+            null, this.searchParams, this.xslFile, contentType, 
             this.getPropertiesHashMap(), this.getPageContext());
          
          String success = ProductListingFactory.getInstance(searchRequest).generateAll(this.storeName);

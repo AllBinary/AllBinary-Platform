@@ -62,7 +62,7 @@ public class Email
       String textBody, String  htmlAttachment, String  contentBase) throws Exception
    {
       this.isDebug = false;
-      init(from, to, subject, server, textBody,
+      this.init(from, to, subject, server, textBody,
          htmlAttachment, contentBase);
    }
    
@@ -70,7 +70,7 @@ public class Email
       String textBody, String  htmlAttachment, String  contentBase, boolean isDebug) throws Exception
    {
       this.isDebug = isDebug;
-      init(from, to, subject, server, textBody,
+      this.init(from, to, subject, server, textBody,
          htmlAttachment, contentBase);
    }
    
@@ -96,7 +96,7 @@ public class Email
             }
             mimeBodyParts [ 1 ] = new MimeBodyPart( internetHeaders, htmlAttachment.getBytes( ) );
          }
-         init(server, ( Authenticator ) null,
+         this.init(server, ( Authenticator ) null,
             new InternetAddress [ ]
          { new InternetAddress( from ) },
             new InternetAddress [ ]

@@ -58,11 +58,11 @@ public class WorkAreaJPanel
     {
         try
         {
-            initComponents();
+            this.initComponents();
 
             this.name = name;
 
-            initMyComponents(dimension);
+            this.initMyComponents(dimension);
 
             this.workAreaJTreeJPanel = new WorkAreaJTreeJPanel(this.name);
 
@@ -86,11 +86,11 @@ public class WorkAreaJPanel
     {
         try
         {
-            initComponents();
+            this.initComponents();
 
 
             this.name = workAreaDom.getName();
-            initMyComponents(dimension);
+            this.initMyComponents(dimension);
 
             BasicArrayList canvasNodeList = workAreaDom.getCanvasNodes();
             int numberOfFrames = canvasNodeList.size();
@@ -206,7 +206,7 @@ public class WorkAreaJPanel
 
     public synchronized boolean isPlaying()
     {
-        return isPlaying;
+        return this.isPlaying;
     }
 
     public String getName()
@@ -280,7 +280,7 @@ public class WorkAreaJPanel
         {
             Integer frameInteger = (Integer) canvasJPanelHashMap.get(treeNode);
             CanvasJPanel canvasJPanel = (CanvasJPanel) this.canvasJPanelList.get(frameInteger.intValue());
-            initDuplicate(canvasJPanel.duplicate());
+            this.initDuplicate(canvasJPanel.duplicate());
         }
     }
 
@@ -293,7 +293,7 @@ public class WorkAreaJPanel
             CanvasJPanel canvasJPanel = (CanvasJPanel) this.getCurrentFrame();
             CanvasJPanel newCanvasJPanel = canvasJPanel.duplicate();
             newCanvasJPanel.setAngle(incrementAngle * index);
-            initDuplicate(newCanvasJPanel);
+            this.initDuplicate(newCanvasJPanel);
         }
     }
 
@@ -312,7 +312,7 @@ public class WorkAreaJPanel
             CanvasJPanel canvasJPanel = (CanvasJPanel) this.getCurrentFrame();
             CanvasJPanel newCanvasJPanel = canvasJPanel.duplicate();
             newCanvasJPanel.explode(index + 1, explodeType);
-            initDuplicate(newCanvasJPanel);
+            this.initDuplicate(newCanvasJPanel);
         }
     }
 
@@ -322,7 +322,7 @@ public class WorkAreaJPanel
         CanvasJPanel canvasJPanel = (CanvasJPanel) this.getCurrentFrame();
         CanvasJPanel newCanvasJPanel = canvasJPanel.duplicate();
         newCanvasJPanel.mirror();
-        initDuplicate(newCanvasJPanel);
+        this.initDuplicate(newCanvasJPanel);
     }
 
     private synchronized void select(int index)
@@ -391,7 +391,7 @@ public class WorkAreaJPanel
 
       setLayout(new java.awt.GridLayout(1, 1));
 
-      innerJPanel.addKeyListener(new java.awt.event.KeyAdapter()
+      this.innerJPanel.addKeyListener(new java.awt.event.KeyAdapter()
       {
          public void keyTyped(java.awt.event.KeyEvent evt)
          {

@@ -82,7 +82,7 @@ public class OpenGLConfiguration
         catch (Exception e)
         {
             this.logUtil.put(commonStrings.EXCEPTION, this,
-                    commonStrings.CONSTRUCTOR, e);
+                    this.commonStrings.CONSTRUCTOR, e);
         }
     }
     
@@ -94,7 +94,7 @@ public class OpenGLConfiguration
 
         final InputStream fileInputStream = 
             fileInputStreamFactory.getFileInputStreamInstance(
-                    StringUtil.getInstance().EMPTY_STRING, FILE);
+                    StringUtil.getInstance().EMPTY_STRING, this.FILE);
 
         final DataInputStream dataInputStream = new DataInputStream(fileInputStream);
 
@@ -201,7 +201,7 @@ public class OpenGLConfiguration
 
             final OutputStream fileOutputStream = fileInputStreamFactory
                     .getFileOutputStreamInstance(
-                            StringUtil.getInstance().EMPTY_STRING, FILE);
+                            StringUtil.getInstance().EMPTY_STRING, this.FILE);
 
             final AbDataOutputStream dataOutputStream = new AbDataOutputStream(fileOutputStream);
             closeable = dataOutputStream;
@@ -248,20 +248,20 @@ public class OpenGLConfiguration
                     features.addDefault(OpenGLFeatureFactory.getInstance().OPENGL);
                     
                     this.logUtil.putF("Using OpenGL Type Feature: "
-                            + this.getType(), this, commonStrings.INIT);
+                            + this.getType(), this, this.commonStrings.INIT);
                     
                     features.addDefault(this.getType());
                     
                     this.logUtil.putF("Using OpenGL ImageColor Feature: "
-                            + this.getImageColor(), this, commonStrings.INIT);
+                            + this.getImageColor(), this, this.commonStrings.INIT);
                     features.addDefault(this.getImageColor());
 
                     this.logUtil.putF("Using OpenGL Color Feature: "
-                            + this.getColor(), this, commonStrings.INIT);
+                            + this.getColor(), this, this.commonStrings.INIT);
                     features.addDefault(this.getColor());
 
                     this.logUtil.putF("Using OpenGL Version Selector Feature: "
-                            + this.getVersionSelector(), this, commonStrings.INIT);
+                            + this.getVersionSelector(), this, this.commonStrings.INIT);
                     features.addDefault(this.getVersionSelector());
                 }
             }
@@ -401,7 +401,7 @@ public class OpenGLConfiguration
 
     public boolean isOpenGL()
     {
-        return opengl;
+        return this.opengl;
     }
 
     public void setImageColor(final OpenGLFeature imageColor)
@@ -412,7 +412,7 @@ public class OpenGLConfiguration
 
     public OpenGLFeature getImageColor()
     {
-        return imageColor;
+        return this.imageColor;
     }
 
     public void setColor(final OpenGLFeature color)
@@ -423,7 +423,7 @@ public class OpenGLConfiguration
 
     public OpenGLFeature getColor()
     {
-        return color;
+        return this.color;
     }
 
     public void setVersionSelector(final OpenGLFeature versionSelector)
@@ -433,7 +433,7 @@ public class OpenGLConfiguration
 
     public OpenGLFeature getVersionSelector()
     {
-        return versionSelector;
+        return this.versionSelector;
     }
 
     public void setType(final OpenGLFeature type)
@@ -443,7 +443,7 @@ public class OpenGLConfiguration
 
     public OpenGLFeature getType()
     {
-        return type;
+        return this.type;
     }
     
     public String toString()

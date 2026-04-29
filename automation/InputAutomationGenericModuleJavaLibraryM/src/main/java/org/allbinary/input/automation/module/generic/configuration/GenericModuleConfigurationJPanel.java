@@ -44,7 +44,7 @@ public class GenericModuleConfigurationJPanel
     
     public GenericModuleConfigurationJPanel() throws Exception
     {
-        initComponents();
+        this.initComponents();
         
         this.setGenericProfiles(
             new GenericProfiles(GenericProfiles.DEFAULT_FILE));
@@ -83,7 +83,7 @@ public class GenericModuleConfigurationJPanel
         this.newProfileJDialog.setMinimumSize(new java.awt.Dimension(250, 150));
         this.newProfileJDialog.setResizable(false);
         this.okNewProfileJButton.setText("Ok");
-        okNewProfileJButton.addActionListener(new java.awt.event.ActionListener()
+        this.okNewProfileJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -129,7 +129,7 @@ public class GenericModuleConfigurationJPanel
         this.genericJTabbedPane.setMinimumSize(new java.awt.Dimension(800, 600));
         this.genericProfilesJPanel.setMinimumSize(new java.awt.Dimension(400, 300));
         this.genericProfilesJPanel.setPreferredSize(new java.awt.Dimension(0, 0));
-        genericProfilesJList.addListSelectionListener(new javax.swing.event.ListSelectionListener()
+        this.genericProfilesJList.addListSelectionListener(new javax.swing.event.ListSelectionListener()
         {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt)
             {
@@ -141,7 +141,7 @@ public class GenericModuleConfigurationJPanel
 
         this.newProfileJButton.setText("New");
         this.newProfileJButton.setToolTipText("Creates a new profile");
-        newProfileJButton.addActionListener(new java.awt.event.ActionListener()
+        this.newProfileJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -151,7 +151,7 @@ public class GenericModuleConfigurationJPanel
 
         this.deleteProfileJButton.setText("Delete");
         this.deleteProfileJButton.setToolTipText("Deletes the selected profile");
-        deleteProfileJButton.addActionListener(new java.awt.event.ActionListener()
+        this.deleteProfileJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -164,7 +164,7 @@ public class GenericModuleConfigurationJPanel
         this.screenCaptureJRadioButton.setToolTipText("Records the screen into memory for logical processing");
         this.screenCaptureJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         this.screenCaptureJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        screenCaptureJRadioButton.addActionListener(new java.awt.event.ActionListener()
+        this.screenCaptureJRadioButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -180,7 +180,7 @@ public class GenericModuleConfigurationJPanel
         this.savedCaptureJRadioButton.setToolTipText("Loads images from files for logical processing.  Usually for debugging your profile actions");
         this.savedCaptureJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         this.savedCaptureJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        savedCaptureJRadioButton.addActionListener(new java.awt.event.ActionListener()
+        this.savedCaptureJRadioButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -192,7 +192,7 @@ public class GenericModuleConfigurationJPanel
         this.captureMotionAnalysisJCheckBox.setToolTipText("Uses image comparison and contraints to locate moving objects");
         this.captureMotionAnalysisJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         this.captureMotionAnalysisJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        captureMotionAnalysisJCheckBox.addActionListener(new java.awt.event.ActionListener()
+        this.captureMotionAnalysisJCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -204,7 +204,7 @@ public class GenericModuleConfigurationJPanel
         this.captureComparisonJCheckBox.setToolTipText("Compares the last two input images for multi image logic");
         this.captureComparisonJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         this.captureComparisonJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        captureComparisonJCheckBox.addActionListener(new java.awt.event.ActionListener()
+        this.captureComparisonJCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -515,7 +515,7 @@ public class GenericModuleConfigurationJPanel
     
     public javax.swing.JPanel getBlankGenericProfileActionsJPanel()
     {
-        return blankGenericProfileActionsJPanel;
+        return this.blankGenericProfileActionsJPanel;
     }
     
     public void setBlankGenericProfileActionsJPanel(javax.swing.JPanel blankGenericProfileActionsJPanel)
@@ -525,7 +525,7 @@ public class GenericModuleConfigurationJPanel
     
     private GenericProfiles getGenericProfiles()
     {
-        return genericProfiles;
+        return this.genericProfiles;
     }
     
     private void setGenericProfiles(GenericProfiles genericProfiles)
@@ -535,7 +535,7 @@ public class GenericModuleConfigurationJPanel
     
     public GenericProfile getSelectedGenericProfile()
     {
-        return selectedGenericProfile;
+        return this.selectedGenericProfile;
     }
     
     public void setSelectedGenericProfile(GenericProfile selectedGenericProfile)

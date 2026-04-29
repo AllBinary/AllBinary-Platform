@@ -64,7 +64,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
    public InputAutomationJFrame() throws Exception
    {
-      initComponents();
+      this.initComponents();
 
       //fileJDialog = new FileJDialog();
       //fileJDialog.addFinishedListener(this);
@@ -190,7 +190,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(325, 215));
+        this.setMinimumSize(new java.awt.Dimension(325, 215));
         setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener()
         {
@@ -217,7 +217,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
         this.gameRobotJTabbedPane.setMinimumSize(new java.awt.Dimension(320, 200));
         this.inputAutomationModuleJList.setMinimumSize(new java.awt.Dimension(200, 0));
-        inputAutomationModuleJList.addListSelectionListener(new javax.swing.event.ListSelectionListener()
+        this.inputAutomationModuleJList.addListSelectionListener(new javax.swing.event.ListSelectionListener()
         {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt)
             {
@@ -258,7 +258,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
         this.processingJMenu.setText("Processing");
         this.processingJMenu.setToolTipText("Set module processing state");
         this.startJMenuItem.setText(this.commonStrings.START);
-        startJMenuItem.addActionListener(new java.awt.event.ActionListener()
+        this.startJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -269,7 +269,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
         this.processingJMenu.add(this.startJMenuItem);
 
         this.stopJMenuItem.setText("Stop");
-        stopJMenuItem.addActionListener(new java.awt.event.ActionListener()
+        this.stopJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -282,7 +282,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
         this.mainJMenuBar.add(this.processingJMenu);
 
         this.optionsJMenu.setText("Options");
-        optionsJMenu.addActionListener(new java.awt.event.ActionListener()
+        this.optionsJMenu.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -293,7 +293,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
         this.stopOnFocusJCheckBoxMenuItem.setSelected(true);
         this.stopOnFocusJCheckBoxMenuItem.setEnabled(false);
         this.stopOnFocusJCheckBoxMenuItem.setLabel("Stop Module On Focus");
-        stopOnFocusJCheckBoxMenuItem.addActionListener(new java.awt.event.ActionListener()
+        this.stopOnFocusJCheckBoxMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -307,7 +307,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
         this.toolsJMenu.setText("Help");
         this.helpJMenuItem.setText("Help");
-        helpJMenuItem.addActionListener(new java.awt.event.ActionListener()
+        this.helpJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -318,7 +318,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
         this.toolsJMenu.add(this.helpJMenuItem);
 
         this.updatesJMenuItem.setText("Updates");
-        updatesJMenuItem.addActionListener(new java.awt.event.ActionListener()
+        this.updatesJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -329,7 +329,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
         this.toolsJMenu.add(this.updatesJMenuItem);
 
         this.subscriptionJMenuItem.setText("Subscription");
-        subscriptionJMenuItem.addActionListener(new java.awt.event.ActionListener()
+        this.subscriptionJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -340,7 +340,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
         this.toolsJMenu.add(this.subscriptionJMenuItem);
 
         this.modulesJMenuItem.setText("Module Manager");
-        modulesJMenuItem.addActionListener(new java.awt.event.ActionListener()
+        this.modulesJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -351,7 +351,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
         this.toolsJMenu.add(this.modulesJMenuItem);
 
         this.aboutJMenuItem.setText("About");
-        aboutJMenuItem.addActionListener(new java.awt.event.ActionListener()
+        this.aboutJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -626,7 +626,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
    public javax.swing.JPanel getAutomationModuleConfigurationJPanel()
    {
-      return automationModuleConfigurationJPanel;
+      return this.automationModuleConfigurationJPanel;
    }
 
    public void setAutomationModuleConfigurationJPanel(javax.swing.JPanel automationModuleConfigurationJPanel)

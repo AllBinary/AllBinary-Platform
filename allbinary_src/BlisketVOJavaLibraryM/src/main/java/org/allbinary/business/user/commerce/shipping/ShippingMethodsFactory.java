@@ -128,11 +128,11 @@ public class ShippingMethodsFactory
    
    public Vector getInstance() throws Exception
    {      
-      return shippingVector;
+      return this.shippingVector;
    }
    
    public ShippingInterface getDefaultInstance()
    {
-      return defaultShippingMethodInterface;
+      return this.defaultShippingMethodInterface;
    }
 }

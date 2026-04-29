@@ -32,7 +32,7 @@ public class TableSearchRequest
       this.keywords = keywords;
       this.searchParams = searchParams;      
       this.xslFile = xslFile;
-      this.pageName = pageName;
+      this.pageName = this.pageName;
       this.contentType = contentType;
    }
    

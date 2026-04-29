@@ -66,7 +66,7 @@ public class CommonButtons
                 this.STANDARD_BUTTON_SIZE, this.STANDARD_BUTTON_SIZE);
 
         this.LARGE_BUTTON = new Rectangle(PointFactory.getInstance().ZERO_ZERO, 
-                this.STANDARD_BUTTON_SIZE << 1, STANDARD_BUTTON_SIZE << 1);
+                this.STANDARD_BUTTON_SIZE << 1, this.STANDARD_BUTTON_SIZE << 1);
     }
         
 }

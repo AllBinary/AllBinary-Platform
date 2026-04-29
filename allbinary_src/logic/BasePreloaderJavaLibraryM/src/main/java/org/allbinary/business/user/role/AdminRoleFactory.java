@@ -98,7 +98,7 @@ public class AdminRoleFactory
      */
     public Vector<Object> getProductManagementRoles()
     {
-        return productManagementRoles;
+        return this.productManagementRoles;
     }
 
     /**
@@ -106,7 +106,7 @@ public class AdminRoleFactory
      */
     public Vector<Object> getAdminRoles()
     {
-        return adminRoles;
+        return this.adminRoles;
     }
 
     /**
@@ -114,7 +114,7 @@ public class AdminRoleFactory
      */
     public Vector<Object> getStoreAdminRoles()
     {
-        return storeAdminRoles;
+        return this.storeAdminRoles;
     }
 
     /**
@@ -122,7 +122,7 @@ public class AdminRoleFactory
      */
     public Vector<Object> getStoreManagementRoles()
     {
-        return storeManagementRoles;
+        return this.storeManagementRoles;
     }
 
     /**
@@ -130,7 +130,7 @@ public class AdminRoleFactory
      */
     public Vector<Object> getReviewManagementRoles()
     {
-        return reviewManagementRoles;
+        return this.reviewManagementRoles;
     }
 
     /**
@@ -138,7 +138,7 @@ public class AdminRoleFactory
      */
     public Vector<Object> getCustomerManagementRoles()
     {
-        return customerManagementRoles;
+        return this.customerManagementRoles;
     }
 
     /**
@@ -146,7 +146,7 @@ public class AdminRoleFactory
      */
     public Vector<Object> getWorkflowManagementRoles()
     {
-        return workflowManagementRoles;
+        return this.workflowManagementRoles;
     }
 
     /**
@@ -154,7 +154,7 @@ public class AdminRoleFactory
      */
     public Vector<Object> getWebManagementRoles()
     {
-        return webManagementRoles;
+        return this.webManagementRoles;
     }
 
     /**
@@ -162,7 +162,7 @@ public class AdminRoleFactory
      */
     public Vector<Object> getShippingManagementRoles()
     {
-        return shippingManagementRoles;
+        return this.shippingManagementRoles;
     }
 
     /**
@@ -170,7 +170,7 @@ public class AdminRoleFactory
      */
     public Vector<Object> getAdjusterManagementRoles()
     {
-        return adjusterManagementRoles;
+        return this.adjusterManagementRoles;
     }
 
     /**
@@ -178,6 +178,6 @@ public class AdminRoleFactory
      */
     public Vector<Object> getOrderManagementRoles()
     {
-        return orderManagementRoles;
+        return this.orderManagementRoles;
     }
 }

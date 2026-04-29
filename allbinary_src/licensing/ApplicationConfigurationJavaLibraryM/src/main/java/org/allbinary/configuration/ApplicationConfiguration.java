@@ -46,7 +46,7 @@ public class ApplicationConfiguration
     {
         try
         {
-            if (FileFactory.getInstance().isFile(FILE))
+            if (FileFactory.getInstance().isFile(this.FILE))
             {
                 this.read();
             }
@@ -74,7 +74,7 @@ public class ApplicationConfiguration
 
         InputStream fileInputStream =
             fileInputStreamFactory.getFileInputStreamInstance(
-                    StringUtil.getInstance().EMPTY_STRING, FILE);
+                    StringUtil.getInstance().EMPTY_STRING, this.FILE);
 
         AbDataInputStream dataInputStream =
             new AbDataInputStream(fileInputStream);
@@ -139,7 +139,7 @@ public class ApplicationConfiguration
 
         final OutputStream fileOutputStream = 
             fileInputStreamFactory.getFileOutputStreamInstance(
-                    StringUtil.getInstance().EMPTY_STRING, FILE);
+                    StringUtil.getInstance().EMPTY_STRING, this.FILE);
 
         final AbDataOutputStream dataOutputStream =
             new AbDataOutputStream(fileOutputStream);
@@ -214,7 +214,7 @@ public class ApplicationConfiguration
 
     public boolean isFullscreen()
     {
-        return fullscreen;
+        return this.fullscreen;
     }
 
     public void setShowTitleBar(boolean showTitleBar)
@@ -224,7 +224,7 @@ public class ApplicationConfiguration
 
     public boolean isShowTitleBar()
     {
-        return showTitleBar;
+        return this.showTitleBar;
     }
 
     public void setProgressBarView(boolean progressBarView)
@@ -234,7 +234,7 @@ public class ApplicationConfiguration
 
     public boolean isProgressBarView()
     {
-        return progressBarView;
+        return this.progressBarView;
     }
     
     public String toString()

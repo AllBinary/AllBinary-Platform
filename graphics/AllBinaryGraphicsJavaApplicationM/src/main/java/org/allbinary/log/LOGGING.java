@@ -33,7 +33,7 @@ public class LOGGING
    
    public String toString()
    {
-      return name;
+      return this.name;
    }
    
    //graphics

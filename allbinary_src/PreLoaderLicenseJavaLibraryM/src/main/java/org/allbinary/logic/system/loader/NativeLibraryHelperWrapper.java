@@ -33,10 +33,10 @@ public class NativeLibraryHelperWrapper
     public void load() throws Exception
     {
         Object[] params = new Object[1];
-        params[0] = getLibraryName();
+        params[0] = this.getLibraryName();
 
         Class[] classes = new Class[1];
-        classes[0] = getLibraryName().getClass();
+        classes[0] = this.getLibraryName().getClass();
         
         this.loader = new 
             NativeLibraryClassLoader(this.getClass().getClassLoader());
@@ -64,7 +64,7 @@ public class NativeLibraryHelperWrapper
 
     public String getLibraryName()
     {
-        return libraryName;
+        return this.libraryName;
     }
 
     public void setLibraryName(String libraryName)

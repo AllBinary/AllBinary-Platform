@@ -108,7 +108,7 @@ public class GenericInputAutomationWorker
         if(keyArray.length > 0)
         {
             this.logUtil.putF("Image Available", this, this.PROCESS_DATA_WORKER_RESULTS);
-            setFrame((Long) keyArray[keyArray.length - 1]);
+            this.setFrame((Long) keyArray[keyArray.length - 1]);
 
             if(getFrame() > this.lastFrame)
             {
@@ -132,7 +132,7 @@ public class GenericInputAutomationWorker
                     final Vector vector = genericProfileActionScript.getProfileActionConditionInterfaceVector();
                     CaptureWorkerUtil.processProfileActionConditions(vector, getFrame());
                 }
-                this.lastFrame = getFrame();
+                this.lastFrame = this.getFrame();
             }
         }
         else
@@ -150,7 +150,7 @@ public class GenericInputAutomationWorker
     
     public GenericProfile getGenericProfile()
     {
-        return genericProfile;
+        return this.genericProfile;
     }
     
     public void setGenericProfile(final GenericProfile genericProfile)
@@ -160,7 +160,7 @@ public class GenericInputAutomationWorker
 
     protected Long getFrame()
     {
-        return frame;
+        return this.frame;
     }
 
     protected void setFrame(final Long frame)

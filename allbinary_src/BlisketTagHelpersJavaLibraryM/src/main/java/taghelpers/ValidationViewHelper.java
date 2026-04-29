@@ -49,7 +49,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
             this.logUtil.putF("Started", this, commonStrings.IS_VALID);
          }      
          
-         return viewInterface.isValid();
+         return this.viewInterface.isValid();
       }
       catch(Exception e)
       {
@@ -70,7 +70,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
    {
       try
       {
-         return viewInterface.validationInfo();
+         return this.viewInterface.validationInfo();
       }
       catch(Exception e)
       {
@@ -92,7 +92,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
    {
       try
       {
-         return viewInterface.toValidationInfoDoc();
+         return this.viewInterface.toValidationInfoDoc();
       }
       catch(Exception e)
       {
@@ -114,7 +114,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
    {
       try
       {
-         return viewInterface.toValidationInfoNode(document);
+         return this.viewInterface.toValidationInfoNode(document);
       }
       catch(Exception e)
       {

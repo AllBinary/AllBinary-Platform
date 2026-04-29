@@ -42,7 +42,7 @@ public class LicenseInitInfoUtil
     public final String ABOUT = "about";
     public final String PRIVACY_POLICY = "privacy_policy";
 
-    private String filePath = stringUtil.EMPTY_STRING;
+    private String filePath = this.stringUtil.EMPTY_STRING;
 
     public synchronized void setFilePath(String filePath)
     {
@@ -61,7 +61,7 @@ public class LicenseInitInfoUtil
         {
             final AbDataOutputStream dataOutputStream =
                 DataOutputStreamFactory.getInstance().getInstance(
-                this.filePath, INITFILENAME);
+                this.filePath, this.INITFILENAME);
 
             final byte[] licenseIdCrypted = new WeakCrypt(1).encrypt(
                     initData.getLicenseId()).getBytes();
@@ -87,7 +87,7 @@ public class LicenseInitInfoUtil
             this.logUtil.put("Command Failed: " + INITFILENAME, this, "write", e);
             // }
             FileStreamFactory.getInstance().delete(
-                    this.filePath, INITFILENAME);
+                    this.filePath, this.INITFILENAME);
 
             throw e;
         }
@@ -95,7 +95,7 @@ public class LicenseInitInfoUtil
 
     public synchronized LicenseInitInfo read() throws Exception
     {
-        return readAgain(0);
+        return this.readAgain(0);
     }
 
     //This does not work on Android LOL
@@ -206,6 +206,6 @@ public class LicenseInitInfoUtil
      */
     public String getFilePath()
     {
-        return filePath;
+        return this.filePath;
     }
 }

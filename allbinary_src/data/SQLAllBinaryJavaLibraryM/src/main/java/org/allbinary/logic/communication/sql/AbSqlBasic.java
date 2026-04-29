@@ -104,7 +104,7 @@ public class AbSqlBasic
         {
             //if(conn == null)
             //{
-            initialize();
+            this.initialize();
             //}
 
             Statement stmt = this.conn.createStatement();
@@ -195,7 +195,7 @@ public class AbSqlBasic
                 //give up after 20tries
                 if (this.connectAttemptCounter < 10)
                 {
-                    connectAttemptCounter++;
+                    this.connectAttemptCounter++;
                     this.initialize();
                 }
             } catch (Exception e)
@@ -260,7 +260,7 @@ public class AbSqlBasic
 
     public DatabaseConnectionInfoInterface getDatabaseConnectionInfoInterface()
     {
-        return databaseConnectionInfoInterface;
+        return this.databaseConnectionInfoInterface;
     }
 
     public void setDatabaseConnectionInfoInterface(final DbConnectionInfo databaseConnectionInfoInterface)

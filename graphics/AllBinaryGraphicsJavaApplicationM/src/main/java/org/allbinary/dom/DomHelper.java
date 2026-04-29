@@ -144,7 +144,7 @@ public class DomHelper
     {
         BasicArrayList list = new BasicArrayListD();
 
-        NodeList childNodeList = getChildNodeList(nodeName, nodeList);
+        NodeList childNodeList = this.getChildNodeList(nodeName, nodeList);
 
         int numberOfChildren = childNodeList.getLength();
 

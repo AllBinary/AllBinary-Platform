@@ -42,7 +42,7 @@ public class ImageActionScriptOutputJPanel
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
-        initComponents();
+        this.initComponents();
         
         this.capturedImageActionScriptOutputInterface = capturedImageActionScriptOutputInterface;
 
@@ -128,7 +128,7 @@ public class ImageActionScriptOutputJPanel
 
     public javax.swing.JDialog getCapturedImageActionJDialog()
     {
-        return capturedImageActionJDialog;
+        return this.capturedImageActionJDialog;
     }
 
     public void setCapturedImageActionJDialog(javax.swing.JDialog capturedImageActionJDialog)
@@ -158,7 +158,7 @@ public class ImageActionScriptOutputJPanel
         this.titleJLabel.setText("Image Output Options");
 
         this.okJButton.setText("OK");
-        okJButton.addActionListener(new java.awt.event.ActionListener()
+        this.okJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -173,7 +173,7 @@ public class ImageActionScriptOutputJPanel
         this.displayJCheckBox.setText("Display");
         this.displayJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         this.displayJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        displayJCheckBox.addActionListener(new java.awt.event.ActionListener()
+        this.displayJCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -181,7 +181,7 @@ public class ImageActionScriptOutputJPanel
             }
         });
 
-        itemTypesJList.setModel(new javax.swing.AbstractListModel()
+        this.itemTypesJList.setModel(new javax.swing.AbstractListModel()
         {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -229,7 +229,7 @@ public class ImageActionScriptOutputJPanel
 
         setMinimumSize(new java.awt.Dimension(100, 0));
         this.capturedImageActionJButton.setText("Edit");
-        capturedImageActionJButton.addActionListener(new java.awt.event.ActionListener()
+        this.capturedImageActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {

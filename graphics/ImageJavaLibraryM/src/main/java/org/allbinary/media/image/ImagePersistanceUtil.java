@@ -233,7 +233,7 @@ public class ImagePersistanceUtil {
 
    public void saveWithImageIO(String filePath, BufferedImage bufferedImage)
    {
-       saveWithImageIO(new File(filePath), bufferedImage);
+       this.saveWithImageIO(new File(filePath), bufferedImage);
    }
    
    public void saveWithImageIO(File file, BufferedImage bufferedImage)

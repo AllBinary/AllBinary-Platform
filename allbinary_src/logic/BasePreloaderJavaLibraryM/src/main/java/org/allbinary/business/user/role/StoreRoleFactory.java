@@ -54,7 +54,7 @@ public class StoreRoleFactory {
      */
     public Vector<Object> getRoles()
     {
-        return roles;
+        return this.roles;
     }
 
     /**
@@ -62,7 +62,7 @@ public class StoreRoleFactory {
      */
     public Vector<Object> getSubscriberRoles()
     {
-        return subscriberRoles;
+        return this.subscriberRoles;
     }
 
     /**
@@ -70,7 +70,7 @@ public class StoreRoleFactory {
      */
     public Vector<Object> getWholesaleRoles()
     {
-        return wholesaleRoles;
+        return this.wholesaleRoles;
     }
 
 }

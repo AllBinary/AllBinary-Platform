@@ -62,19 +62,19 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
     
     protected void initVertices()
     {
-        textureVertexFloatBuffer.put(0);
-        textureVertexFloatBuffer.put(1);
+        this.textureVertexFloatBuffer.put(0);
+        this.textureVertexFloatBuffer.put(1);
 
-        textureVertexFloatBuffer.put(1);
-        textureVertexFloatBuffer.put(1);
+        this.textureVertexFloatBuffer.put(1);
+        this.textureVertexFloatBuffer.put(1);
 
-        textureVertexFloatBuffer.put(0);
-        textureVertexFloatBuffer.put(0);
+        this.textureVertexFloatBuffer.put(0);
+        this.textureVertexFloatBuffer.put(0);
 
-        textureVertexFloatBuffer.put(1);
-        textureVertexFloatBuffer.put(0);
+        this.textureVertexFloatBuffer.put(1);
+        this.textureVertexFloatBuffer.put(0);
 
-        textureVertexFloatBuffer.rewind();
+        this.textureVertexFloatBuffer.rewind();
     }
     
     public void set(final GL gl)

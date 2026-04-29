@@ -64,7 +64,7 @@ public class HitPointGameObject extends MeteredGameObject
 
    public boolean isCloseDeath()
    {
-      return closeDeath;
+      return this.closeDeath;
    }
    
    protected void setCloseDeath(boolean closeDeath)
@@ -74,7 +74,7 @@ public class HitPointGameObject extends MeteredGameObject
    
    public boolean isDamaged()
    {
-      return damaged;
+      return this.damaged;
    }
    
    public void setDamaged(boolean damaged)

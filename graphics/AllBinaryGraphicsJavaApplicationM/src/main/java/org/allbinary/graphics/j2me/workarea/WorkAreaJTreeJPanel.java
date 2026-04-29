@@ -41,11 +41,11 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
 
    public WorkAreaJTreeJPanel(String workAreaName)
    {
-      initComponents();
+      this.initComponents();
 
       this.rootTreeNode = new DefaultMutableTreeNode(workAreaName);
       this.workAreaPropertiesJPanel.removeAll();
-      updateTree();
+      this.updateTree();
 
       this.highlightedBasicArrayList = new BasicArrayListD();
    }
@@ -238,7 +238,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       });
 
       this.deleteJMenuItem.setText("Delete");
-      deleteJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+      this.deleteJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
          public void mousePressed(java.awt.event.MouseEvent evt) {
             deleteJMenuItemMousePressed(evt);
          }
@@ -246,7 +246,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       this.itemJPopupMenu.add(this.deleteJMenuItem);
 
       this.copyJMenuItem.setText("Copy");
-      copyJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+      this.copyJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
          public void mousePressed(java.awt.event.MouseEvent evt) {
             copyJMenuItemMousePressed(evt);
          }
@@ -254,7 +254,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       this.itemJPopupMenu.add(this.copyJMenuItem);
 
       this.rotateJMenuItem.setText("Rotate 45*");
-      rotateJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+      this.rotateJMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
          public void mousePressed(java.awt.event.MouseEvent evt) {
             rotateJMenuItemMousePressed(evt);
          }
@@ -263,7 +263,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
 
       setLayout(new java.awt.GridLayout(1, 1));
 
-      workAreaPropertiesJPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+      this.workAreaPropertiesJPanel.addMouseListener(new java.awt.event.MouseAdapter() {
          public void mousePressed(java.awt.event.MouseEvent evt) {
             workAreaPropertiesJPanelMousePressed(evt);
          }

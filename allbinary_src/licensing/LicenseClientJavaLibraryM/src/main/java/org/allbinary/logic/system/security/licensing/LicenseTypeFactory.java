@@ -32,14 +32,14 @@ public class LicenseTypeFactory
     {
         if(this.DEMO.getName().compareTo(name) == 0)
         {
-            return DEMO;
+            return this.DEMO;
         }
         else
         if(this.NORMAL.getName().compareTo(name) == 0)
         {
-            return NORMAL;
+            return this.NORMAL;
         }
-        return UNKNOWN;
+        return this.UNKNOWN;
     }
 
 }

@@ -158,7 +158,7 @@ public class BasicWeblisketSession
    
    public long getCreationTime()
    {
-      return session.getCreationTime();   
+      return this.session.getCreationTime();   
    }
 
    public long getLastAccessedTime()

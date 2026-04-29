@@ -153,7 +153,7 @@ implements TransformInfoEntityInterface
 
             objectConfigVector.add(
                 this.transformInfoObjectConfigAndManipulatorFactoryInterface.getInstance(
-                    abeClientInformation, (TransformInfoInterface) this,
+                    this.abeClientInformation, (TransformInfoInterface) this,
                 DomDocumentHelper.create(objectConfigString)));
           //TWB - End Encoder for GAE for XML using JIQL
         }

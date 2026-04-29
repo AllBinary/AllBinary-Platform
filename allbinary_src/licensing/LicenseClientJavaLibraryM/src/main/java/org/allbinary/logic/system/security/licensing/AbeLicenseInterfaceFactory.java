@@ -47,11 +47,11 @@ public class AbeLicenseInterfaceFactory
     {
         if(isTimeToGetKey())
         {
-            return get(abeClientInformation);
+            return this.get(abeClientInformation);
         }
         else
         {
-            return abeLicenseInterface;
+            return this.abeLicenseInterface;
         }
     }
     
@@ -77,7 +77,7 @@ public class AbeLicenseInterfaceFactory
             }
          //}
  
-            return abeLicenseInterface;
+            return this.abeLicenseInterface;
         }
         catch (IOException e)
         {
@@ -109,7 +109,7 @@ public class AbeLicenseInterfaceFactory
         long currentTime = calendar.getTimeInMillis();
         if(this.abeLicenseInterface == null || 
            this.abeLicenseInterface == AbeNoLicense.getInstance() || 
-           !abeLicenseInterface.hasKey() || 
+           !this.abeLicenseInterface.hasKey() || 
            isCheck() ||
            currentTime - checkPeriod > time)
         {
@@ -127,7 +127,7 @@ public class AbeLicenseInterfaceFactory
 
     private boolean isCheck()
     {
-        return check;
+        return this.check;
     }
     
 }

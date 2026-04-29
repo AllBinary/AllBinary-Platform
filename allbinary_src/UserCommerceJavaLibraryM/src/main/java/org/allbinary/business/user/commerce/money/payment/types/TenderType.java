@@ -36,6 +36,6 @@ public class TenderType
    
    public String toString()
    {
-      return name;
+      return this.name;
    }   
 }

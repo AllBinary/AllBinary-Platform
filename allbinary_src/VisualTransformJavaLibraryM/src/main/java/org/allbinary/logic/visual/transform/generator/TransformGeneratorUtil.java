@@ -80,7 +80,7 @@ public class TransformGeneratorUtil {
         final AbeClientInformationInterface abeClientInformation,
         final TransformInfoDomNode transformInfoDomNode,
         final TransformInfoInterface ownerTransformInfoInterface) throws Exception {
-        generate(abeClientInformation, transformInfoDomNode.getTransformInfoInterface(), ownerTransformInfoInterface);
+        this.generate(abeClientInformation, transformInfoDomNode.getTransformInfoInterface(), ownerTransformInfoInterface);
 
     }
 }

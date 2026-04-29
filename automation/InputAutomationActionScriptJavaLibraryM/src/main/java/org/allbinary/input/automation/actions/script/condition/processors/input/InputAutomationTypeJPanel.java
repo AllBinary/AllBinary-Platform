@@ -23,12 +23,12 @@ public class InputAutomationTypeJPanel extends javax.swing.JPanel
     /** Creates new form InputAutomationTypeJPanel */
     public InputAutomationTypeJPanel()
     {
-        initComponents();
+        this.initComponents();
     }
 
     public javax.swing.JComboBox getInputAutomationTypeJComboBox()
     {
-        return inputAutomationTypeJComboBox;
+        return this.inputAutomationTypeJComboBox;
     }
 
     public void setInputAutomationTypeJComboBox(javax.swing.JComboBox inputAutomationTypeJComboBox)

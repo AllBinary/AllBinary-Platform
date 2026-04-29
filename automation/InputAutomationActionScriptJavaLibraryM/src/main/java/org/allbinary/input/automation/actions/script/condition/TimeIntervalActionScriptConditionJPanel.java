@@ -35,7 +35,7 @@ public class TimeIntervalActionScriptConditionJPanel
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
-        initComponents();
+        this.initComponents();
         
         this.timeIntervalActionScriptConditionInterface = timeIntervalActionScriptConditionInterface;
         
@@ -59,7 +59,7 @@ public class TimeIntervalActionScriptConditionJPanel
 
     public javax.swing.JTextField getTimeIntervalJTextField()
     {
-        return timeIntervalJTextField;
+        return this.timeIntervalJTextField;
     }
 
     public void setTimeIntervalJTextField(javax.swing.JTextField timeIntervalJTextField)
@@ -69,7 +69,7 @@ public class TimeIntervalActionScriptConditionJPanel
 
     public javax.swing.JDialog getTimeIntervalActionJDialog()
     {
-        return timeIntervalActionJDialog;
+        return this.timeIntervalActionJDialog;
     }
 
     public void setTimeIntervalActionJDialog(javax.swing.JDialog timeIntervalActionJDialog)
@@ -97,7 +97,7 @@ public class TimeIntervalActionScriptConditionJPanel
         this.titleJLabel.setText("Time Interval Condition Options");
 
         this.okJButton.setText("OK");
-        okJButton.addActionListener(new java.awt.event.ActionListener()
+        this.okJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -142,7 +142,7 @@ public class TimeIntervalActionScriptConditionJPanel
 
         setMinimumSize(new java.awt.Dimension(100, 0));
         this.timeIntervalActionJButton.setText("Edit");
-        timeIntervalActionJButton.addActionListener(new java.awt.event.ActionListener()
+        this.timeIntervalActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {

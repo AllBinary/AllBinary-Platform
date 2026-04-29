@@ -105,7 +105,7 @@ public class InputAutomationModuleConfigurations
     
     public HashMap getHashMap()
     {
-        return hashMap;
+        return this.hashMap;
     }
 
     public void setHashMap(HashMap hashMap)

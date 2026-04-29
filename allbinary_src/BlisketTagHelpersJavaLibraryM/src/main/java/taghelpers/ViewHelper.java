@@ -48,14 +48,14 @@ public class ViewHelper implements TransformInterface
    
    public int getTypeId()
    {
-	   return NO_TYPE;
+	   return this.NO_TYPE;
    }
    
    public String view() throws Exception
    {
       try
       {
-         return componentInterface.view();
+         return this.componentInterface.view();
       }
       catch(Exception e)
       {

@@ -399,7 +399,7 @@ public class AuthenticationTag extends CustomTagSupport
                         pageContext.getOut().print("New Password Was Sent.<p/>");
                         return SKIP_BODY;
                     }
-                } else if (command.compareTo(org.allbinary.globals.GLOBALS2.CHANGEPASSWORD) == 0)
+                } else if (this.command.compareTo(org.allbinary.globals.GLOBALS2.CHANGEPASSWORD) == 0)
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
@@ -415,7 +415,7 @@ public class AuthenticationTag extends CustomTagSupport
                         pageContext.getOut().print("Password Changed Successfully.<p/>");
                         return SKIP_BODY;
                     }
-                } else if (command.compareTo(WeblisketSessionData.INVALIDATESESSION) == 0)
+                } else if (this.command.compareTo(WeblisketSessionData.INVALIDATESESSION) == 0)
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
@@ -490,7 +490,7 @@ public class AuthenticationTag extends CustomTagSupport
                      */
 
                     if ((this.userName == null || this.userName.compareTo(stringUtil.EMPTY_STRING) == 0)
-                        && (password == null || password.compareTo(stringUtil.EMPTY_STRING) == 0)
+                        && (this.password == null || this.password.compareTo(stringUtil.EMPTY_STRING) == 0)
                         && this.roles != null && this.isAuthenticationSessionValid())
                     {
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))

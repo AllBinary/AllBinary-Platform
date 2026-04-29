@@ -171,7 +171,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    
    public Integer[] getKeyArray()
    {
-      return keyArray;
+      return this.keyArray;
    }
    
    public void setKeyArray(Integer[] keyArray)
@@ -190,7 +190,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    
    public String getText()
    {
-      return getText(this.getKeyArray());
+      return this.getText(this.getKeyArray());
    }
    
    public void setText(String text)

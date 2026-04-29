@@ -296,7 +296,7 @@ public class Payment implements PaymentInterface, DomNodeInterface
    
    public boolean isDefault()
    {
-      return isDefault;
+      return this.isDefault;
    }
 
    public HashMap toHashMap()

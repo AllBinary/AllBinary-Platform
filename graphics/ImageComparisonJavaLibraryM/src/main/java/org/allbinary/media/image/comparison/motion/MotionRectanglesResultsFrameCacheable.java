@@ -37,7 +37,7 @@ public class MotionRectanglesResultsFrameCacheable
 
     public MotionRectangles getMotionRectangles()
     {
-        return motionRectangles;
+        return this.motionRectangles;
     }
 
     public void setMotionRectangles(MotionRectangles motionRectangles)

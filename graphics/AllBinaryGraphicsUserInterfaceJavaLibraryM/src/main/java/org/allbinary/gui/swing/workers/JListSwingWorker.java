@@ -38,7 +38,7 @@ public class JListSwingWorker extends SwingWorker
 
     private JList getJList()
     {
-        return jList;
+        return this.jList;
     }
 
     private void setJList(JList jList)
@@ -48,7 +48,7 @@ public class JListSwingWorker extends SwingWorker
 
     private ListModel getListModel()
     {
-        return listModel;
+        return this.listModel;
     }
 
     private void setListModel(ListModel listModel)

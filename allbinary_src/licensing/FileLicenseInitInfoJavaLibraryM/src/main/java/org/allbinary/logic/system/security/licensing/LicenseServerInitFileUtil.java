@@ -71,7 +71,7 @@ public class LicenseServerInitFileUtil
                 this.logUtil.putF("Using Existing License File", this, commonStrings.INIT);
             } else
             {
-                write();
+                this.write();
             }
         } catch (Exception e)
         {

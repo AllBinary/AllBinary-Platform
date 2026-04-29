@@ -60,73 +60,73 @@ public class AndroidSystemProperties
     
     public String getDeviceSoftwareVersion()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getDeviceSoftwareVersion();
     }
 
     public String getLine1Number()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getLine1Number();
     }
 
     public String getNetworkCountryIso()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getNetworkCountryIso();
     }
 
     public String getNetworkOperator()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getNetworkOperator();
     }
 
     public String getNetworkOperatorName()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getNetworkOperatorName();
     }
 
     public String getSimCountryIso()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getSimCountryIso();
     }
 
     public String getSimOperator()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getSimOperator();
     }
 
     public String getSimOperatorName()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getSimOperatorName();
     }
 
     public String getSimSerialNumber()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getSimSerialNumber();
     }
 
     public String getSubscriberId()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getSubscriberId();
     }
 
     public String getVoiceMailAlphaTag()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getVoiceMailAlphaTag();
     }
 
     public String getVoiceMailNumber()
     {
-        return commonStrings.DISABLE;
+        return this.commonStrings.DISABLE;
         //return telephonyManager.getVoiceMailNumber();
     }
 

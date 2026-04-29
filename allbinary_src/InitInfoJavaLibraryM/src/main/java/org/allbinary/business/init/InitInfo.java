@@ -201,7 +201,7 @@ public class InitInfo
    public String getTesting()
    {
       this.updateIfNeeded();
-      return testing;
+      return this.testing;
    }
    
    public String getTestHtmlPath()
@@ -209,7 +209,7 @@ public class InitInfo
       this.updateIfNeeded();
       if(this.testHtmlPath != null)
       {
-         return testHtmlPath.toString();
+         return this.testHtmlPath.toString();
       }
       else
       {
@@ -222,7 +222,7 @@ public class InitInfo
       this.updateIfNeeded();
       if(this.mainPath != null)
       {
-         return mainPath.toString();
+         return this.mainPath.toString();
       }
       else
       {

@@ -42,7 +42,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
    {
       this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       
-      initComponents();
+      this.initComponents();
       
       this.keyActionScriptInputInterface = keyActionScriptInputInterface;
       
@@ -141,7 +141,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
    
    public javax.swing.JDialog getKeyActionJDialog()
    {
-      return keyActionJDialog;
+      return this.keyActionJDialog;
    }
    
    public void setKeyActionJDialog(javax.swing.JDialog keyActionJDialog)
@@ -186,7 +186,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
 
       this.addKeyJLabel.setText("Add Key:");
 
-      keyNameJComboBox.addActionListener(new java.awt.event.ActionListener()
+      this.keyNameJComboBox.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
@@ -211,7 +211,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
       this.pressJRadioButton.setText("Press");
       this.pressJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
       this.pressJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-      pressJRadioButton.addActionListener(new java.awt.event.ActionListener()
+      this.pressJRadioButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
@@ -222,7 +222,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
       this.releaseJRadioButton.setText("Release");
       this.releaseJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
       this.releaseJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-      releaseJRadioButton.addActionListener(new java.awt.event.ActionListener()
+      this.releaseJRadioButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
@@ -234,7 +234,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
       this.normalJRadioButton.setText("Normal");
       this.normalJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
       this.normalJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-      normalJRadioButton.addActionListener(new java.awt.event.ActionListener()
+      this.normalJRadioButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
@@ -246,7 +246,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
       this.simultaneousJRadioButton.setText("Simultaneous");
       this.simultaneousJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
       this.simultaneousJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-      simultaneousJRadioButton.addActionListener(new java.awt.event.ActionListener()
+      this.simultaneousJRadioButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
@@ -257,7 +257,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
       this.sequenceJRadioButton.setText("Sequence");
       this.sequenceJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
       this.sequenceJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-      sequenceJRadioButton.addActionListener(new java.awt.event.ActionListener()
+      this.sequenceJRadioButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
@@ -267,7 +267,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
 
       this.okJButton.setText("OK");
       this.okJButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-      okJButton.addActionListener(new java.awt.event.ActionListener()
+      this.okJButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
@@ -277,7 +277,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
 
       this.jPanel1.add(this.okJButton);
 
-      keyIntegerJComboBox.addActionListener(new java.awt.event.ActionListener()
+      this.keyIntegerJComboBox.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
@@ -369,7 +369,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
 
       setMinimumSize(new java.awt.Dimension(100, 0));
       this.keyActionJButton.setText("Edit");
-      keyActionJButton.addActionListener(new java.awt.event.ActionListener()
+      this.keyActionJButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
@@ -433,7 +433,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
    
    private void keyNameJComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keyNameJComboBoxActionPerformed
    {//GEN-HEADEREND:event_keyNameJComboBoxActionPerformed
-         Integer integer = getSelectedKey();
+         Integer integer = this.getSelectedKey();
          this.prependText(integer);
          this.keyIntegerJComboBox.setSelectedIndex(this.keyNameJComboBox.getSelectedIndex());
    }//GEN-LAST:event_keyNameJComboBoxActionPerformed

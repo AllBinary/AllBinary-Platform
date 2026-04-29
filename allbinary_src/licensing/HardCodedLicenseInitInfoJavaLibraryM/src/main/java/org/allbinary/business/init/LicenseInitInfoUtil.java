@@ -43,7 +43,7 @@ public class LicenseInitInfoUtil
 
     public synchronized LicenseInitInfo read() throws Exception
     {
-        return readAgain(0);
+        return this.readAgain(0);
     }
 
     //This does not work on Android LOL

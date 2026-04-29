@@ -43,7 +43,7 @@ public class StatusFactory {
 
     public void setStatus(String status)
     {
-        setStatusNoLog(status);
+        this.setStatusNoLog(status);
         this.logUtil.putF(this.STATUS_LABEL + status, this, SETSTATUS);
     }
 

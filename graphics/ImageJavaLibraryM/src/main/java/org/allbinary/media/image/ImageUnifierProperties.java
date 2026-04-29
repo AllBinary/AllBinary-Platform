@@ -35,7 +35,7 @@ public class ImageUnifierProperties
     
     public Integer getRows()
     {
-        return rows;
+        return this.rows;
     }
 
     public void setRows(Integer rows)
@@ -45,7 +45,7 @@ public class ImageUnifierProperties
 
     public Integer getColumns()
     {
-        return columns;
+        return this.columns;
     }
 
     public void setColumns(Integer columns)
@@ -55,7 +55,7 @@ public class ImageUnifierProperties
 
     public ImageUnifierCell getImageUnifierCell()
     {
-        return imageUnifierCell;
+        return this.imageUnifierCell;
     }
 
     public void setImageUnifierCell(ImageUnifierCell imageUnifierCell)

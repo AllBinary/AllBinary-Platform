@@ -83,13 +83,13 @@ public class MagicalImageServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
     {
-        processRequest(request, response);
+        this.processRequest(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
     {
-        processRequest(request, response);
+        this.processRequest(request, response);
     }
 
     public String getServletInfo()

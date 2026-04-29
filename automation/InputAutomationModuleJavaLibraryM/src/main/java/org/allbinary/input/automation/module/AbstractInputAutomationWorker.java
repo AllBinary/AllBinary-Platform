@@ -75,7 +75,7 @@ public class AbstractInputAutomationWorker
 
     public synchronized boolean isRunning()
     {
-        return running;
+        return this.running;
     }
     
     public synchronized void setRunning(boolean running)
@@ -86,7 +86,7 @@ public class AbstractInputAutomationWorker
     protected synchronized boolean isAnyDataWorkerRunning()
     {
         if(this.captureThread != null && 
-            (captureThread.isAlive() || this.getCaptureWorker().isRunning() ||
+            (this.captureThread.isAlive() || this.getCaptureWorker().isRunning() ||
             this.getMotionRectanglesWorker().isRunning() ||
             this.getImageComparisonWorker().isRunning()))
         {
@@ -102,7 +102,7 @@ public class AbstractInputAutomationWorker
             this.captureThread = new Thread(this.getCaptureWorker());
 
             this.logUtil.putF("Starting CaptureWorkers - Need more images - Thread State: " + 
-                captureThread.getState().toString(), this, "startCaptureWorkers");
+                this.captureThread.getState().toString(), this, "startCaptureWorkers");
 
             this.captureThread.start();
             //this.getCaptureWorker().run();
@@ -171,7 +171,7 @@ public class AbstractInputAutomationWorker
     
     public InputAutomationActionInterface getInputAutomationActionInterface()
     {
-        return inputAutomationActionInterface;
+        return this.inputAutomationActionInterface;
     }
     
     public void setInputAutomationActionInterface(InputAutomationActionInterface inputAutomationActionInterface)
@@ -181,7 +181,7 @@ public class AbstractInputAutomationWorker
 
     protected CaptureWorkerInterface getCaptureWorker()
     {
-        return captureWorkerInterface;
+        return this.captureWorkerInterface;
     }
 
     protected void setCaptureWorker(CaptureWorkerInterface captureWorkerInterface)
@@ -191,7 +191,7 @@ public class AbstractInputAutomationWorker
 
     protected ImageComparisonWorker getImageComparisonWorker()
     {
-        return imageComparisonWorker;
+        return this.imageComparisonWorker;
     }
 
     protected void setImageComparisonWorker(ImageComparisonWorker imageComparisonWorker)
@@ -201,7 +201,7 @@ public class AbstractInputAutomationWorker
 
     protected MotionRectanglesWorker getMotionRectanglesWorker()
     {
-        return motionRectanglesWorker;
+        return this.motionRectanglesWorker;
     }
 
     protected void setMotionRectanglesWorker(MotionRectanglesWorker motionRectanglesWorker)

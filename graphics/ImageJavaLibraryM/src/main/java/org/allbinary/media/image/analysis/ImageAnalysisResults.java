@@ -27,7 +27,7 @@ public class ImageAnalysisResults
 
     public ImageColorRangeResults getImageColorRangeResults()
     {
-        return imageColorRangeResults;
+        return this.imageColorRangeResults;
     }
 
     public void setImageColorRangeResults(ImageColorRangeResults imageColorRangeResults)
@@ -37,7 +37,7 @@ public class ImageAnalysisResults
 
     public float getAverageAmbientLevel()
     {
-        return averageAmbientLevel;
+        return this.averageAmbientLevel;
     }
 
     public void setAverageAmbientLevel(float averageAmbientLevel)
@@ -47,7 +47,7 @@ public class ImageAnalysisResults
 
     public ImageColorResults getImageColorResults()
     {
-        return imageColorResults;
+        return this.imageColorResults;
     }
 
     public void setImageColorResults(ImageColorResults imageColorResults)

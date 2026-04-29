@@ -37,7 +37,7 @@ public class ColorAtActionScriptConditionJPanel
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
-        initComponents();
+        this.initComponents();
         
         this.colorAtActionScriptConditionInterface = colorAtActionScriptConditionInterface;
         
@@ -112,7 +112,7 @@ public class ColorAtActionScriptConditionJPanel
     
     public javax.swing.JTextField getColorAtXJTextField()
     {
-        return colorAtXJTextField;
+        return this.colorAtXJTextField;
     }
     
     public void setColorAtXJTextField(javax.swing.JTextField colorAtXJTextField)
@@ -122,7 +122,7 @@ public class ColorAtActionScriptConditionJPanel
     
     public javax.swing.JTextField getColorAtYJTextField()
     {
-        return colorAtYJTextField;
+        return this.colorAtYJTextField;
     }
     
     public void setColorAtYJTextField(javax.swing.JTextField colorAtYJTextField)
@@ -132,7 +132,7 @@ public class ColorAtActionScriptConditionJPanel
     
     public javax.swing.JTextField getMaxBlueJTextField()
     {
-        return maxBlueJTextField;
+        return this.maxBlueJTextField;
     }
     
     public void setMaxBlueJTextField(javax.swing.JTextField maxBlueJTextField)
@@ -142,7 +142,7 @@ public class ColorAtActionScriptConditionJPanel
     
     public javax.swing.JTextField getMaxGreenJTextField()
     {
-        return maxGreenJTextField;
+        return this.maxGreenJTextField;
     }
     
     public void setMaxGreenJTextField(javax.swing.JTextField maxGreenJTextField)
@@ -152,7 +152,7 @@ public class ColorAtActionScriptConditionJPanel
     
     public javax.swing.JTextField getMaxRedJTextField()
     {
-        return maxRedJTextField;
+        return this.maxRedJTextField;
     }
     
     public void setMaxRedJTextField(javax.swing.JTextField maxRedJTextField)
@@ -162,7 +162,7 @@ public class ColorAtActionScriptConditionJPanel
     
     public javax.swing.JTextField getMinBlueJTextField()
     {
-        return minBlueJTextField;
+        return this.minBlueJTextField;
     }
     
     public void setMinBlueJTextField(javax.swing.JTextField minBlueJTextField)
@@ -172,7 +172,7 @@ public class ColorAtActionScriptConditionJPanel
     
     public javax.swing.JTextField getMinGreenJTextField()
     {
-        return minGreenJTextField;
+        return this.minGreenJTextField;
     }
     
     public void setMinGreenJTextField(javax.swing.JTextField minGreenJTextField)
@@ -182,7 +182,7 @@ public class ColorAtActionScriptConditionJPanel
     
     public javax.swing.JTextField getMinRedJTextField()
     {
-        return minRedJTextField;
+        return this.minRedJTextField;
     }
     
     public void setMinRedJTextField(javax.swing.JTextField minRedJTextField)
@@ -192,7 +192,7 @@ public class ColorAtActionScriptConditionJPanel
     
     public javax.swing.JLabel getYJLabel()
     {
-        return yJLabel;
+        return this.yJLabel;
     }
     
     public void setYJLabel(javax.swing.JLabel yJLabel)
@@ -202,7 +202,7 @@ public class ColorAtActionScriptConditionJPanel
     
     public javax.swing.JDialog getColorAtActionJDialog()
     {
-        return colorAtActionJDialog;
+        return this.colorAtActionJDialog;
     }
     
     public void setColorAtActionJDialog(javax.swing.JDialog colorAtActionJDialog)
@@ -263,7 +263,7 @@ public class ColorAtActionScriptConditionJPanel
         this.blueJLabel.setText("Blue:");
 
         this.okJButton.setText("OK");
-        okJButton.addActionListener(new java.awt.event.ActionListener()
+        this.okJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -367,7 +367,7 @@ public class ColorAtActionScriptConditionJPanel
 
         setPreferredSize(new java.awt.Dimension(100, 0));
         this.colorAtActionJButton.setText("Edit");
-        colorAtActionJButton.addActionListener(new java.awt.event.ActionListener()
+        this.colorAtActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {

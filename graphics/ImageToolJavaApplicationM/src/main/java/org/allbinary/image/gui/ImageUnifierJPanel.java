@@ -53,7 +53,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
    public ImageUnifierJPanel(final ImageProcessorInput imageProcessorInput)
       throws Exception
    {
-      initComponents();
+      this.initComponents();
 
       this.setImageProcessorInput(imageProcessorInput);
    }
@@ -286,28 +286,28 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
         this.jScrollPane1.setViewportView(this.imageJList);
 
         this.jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        this.jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
         this.upJButton.setText("Up");
-        upJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.upJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 upJButtonActionPerformed(evt);
             }
         });
 
         this.downJButton.setText("Down");
-        downJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.downJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 downJButtonActionPerformed(evt);
             }
         });
 
         this.fudgeItJButton.setText("Fudge It!");
-        fudgeItJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.fudgeItJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fudgeItJButtonActionPerformed(evt);
             }
@@ -316,17 +316,17 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
         this.jLabel2.setText("Columns:");
 
         this.columnsJTextField.setText(commonPhoneStrings.TWO);
-        columnsJTextField.addActionListener(new java.awt.event.ActionListener() {
+        this.columnsJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 columnsJTextFieldActionPerformed(evt);
             }
         });
-        columnsJTextField.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        this.columnsJTextField.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 columnsJTextFieldPropertyChange(evt);
             }
         });
-        columnsJTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        this.columnsJTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 columnsJTextFieldKeyPressed(evt);
             }
@@ -338,7 +338,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
         this.jLabel1.setText("Rows:");
 
         this.rowsJTextField.setText(commonPhoneStrings.TWO);
-        rowsJTextField.addActionListener(new java.awt.event.ActionListener() {
+        this.rowsJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rowsJTextFieldActionPerformed(evt);
             }
@@ -347,7 +347,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
         this.jLabel3.setText("Cell Width:");
 
         this.cellWidthJTextField.setText("200");
-        cellWidthJTextField.addActionListener(new java.awt.event.ActionListener() {
+        this.cellWidthJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cellWidthJTextFieldActionPerformed(evt);
             }
@@ -356,7 +356,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
         this.jLabel4.setText("Cell Height:");
 
         this.cellHeightJTextField.setText("150");
-        cellHeightJTextField.addActionListener(new java.awt.event.ActionListener() {
+        this.cellHeightJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cellHeightJTextFieldActionPerformed(evt);
             }
@@ -371,14 +371,14 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
         this.avgRatioJTextField.setEditable(false);
 
         this.jButton2.setText(this.commonStrings.UPDATE);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        this.jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
         this.jButtonOrder.setText("Order");
-        jButtonOrder.addActionListener(new java.awt.event.ActionListener() {
+        this.jButtonOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonOrderActionPerformed(evt);
             }
@@ -636,7 +636,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
     // End of variables declaration//GEN-END:variables
    public ImageProcessorInput getImageProcessorInput()
    {
-      return imageProcessorInput;
+      return this.imageProcessorInput;
    }
 
    public void setImageProcessorInput(ImageProcessorInput imageProcessorInput)

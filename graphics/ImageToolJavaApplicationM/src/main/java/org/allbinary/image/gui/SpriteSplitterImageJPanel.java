@@ -126,7 +126,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         this.writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
         this.widthReductionTextField = new javax.swing.JTextField();
         this.jLabel5 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel() {             public void paint(Graphics graphics) {                 if (SpriteSplitterImageJPanel.this.result != null) {                     graphics.drawImage(SpriteSplitterImageJPanel.this.result, 0, 0, SpriteSplitterImageJPanel.this.result.getWidth(null), SpriteSplitterImageJPanel.this.result.getHeight(null), null);                 }             }         };
+        this.jPanel1 = new javax.swing.JPanel() {             public void paint(Graphics graphics) {                 if (SpriteSplitterImageJPanel.this.result != null) {                     graphics.drawImage(SpriteSplitterImageJPanel.this.result, 0, 0, SpriteSplitterImageJPanel.this.result.getWidth(null), SpriteSplitterImageJPanel.this.result.getHeight(null), null);                 }             }         };
         this.jLabel4 = new javax.swing.JLabel();
         this.jLabel6 = new javax.swing.JLabel();
         this.heightReductionTextField = new javax.swing.JTextField();
@@ -140,21 +140,21 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         final String[] animationStringArray = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray[index - 1] = Integer.toString(index);       }       this.totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray));
         this.jLabel3 = new javax.swing.JLabel();
         this.spriteTypeJComboBox = new javax.swing.JComboBox<>();
-        spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { org.allbinary.media.image.SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_SPRITE                   }));  //, org.allbinary.media.image.SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS
+        this.spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { org.allbinary.media.image.SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_SPRITE                   }));  //, org.allbinary.media.image.SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS
         jLabel7 = new javax.swing.JLabel();
         this.increaseWidthTextField = new javax.swing.JTextField();
         this.jLabel8 = new javax.swing.JLabel();
         this.increaseHeightTextField = new javax.swing.JTextField();
 
         this.writeOverOriginalJCheckBox.setText("Write Over Original");
-        writeOverOriginalJCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        this.writeOverOriginalJCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 writeOverOriginalJCheckBoxActionPerformed(evt);
             }
         });
 
         this.widthReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
-        widthReductionTextField.addActionListener(new java.awt.event.ActionListener() {
+        this.widthReductionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 widthReductionTextFieldActionPerformed(evt);
             }
@@ -184,7 +184,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         this.heightReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
         this.generateJButton.setText("Generate");
-        generateJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.generateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 generateJButtonActionPerformed(evt);
             }
@@ -193,7 +193,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         this.jLabel1.setText("Row Total:");
 
         this.totalFramesJComboBox.setSelectedIndex(1);
-        totalFramesJComboBox.addActionListener(new java.awt.event.ActionListener() {
+        this.totalFramesJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalFramesJComboBoxActionPerformed(evt);
             }
@@ -202,7 +202,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         this.jLabel2.setText("Column Total :");
 
         this.totalAnimationsJComboBox.setSelectedIndex(3);
-        totalAnimationsJComboBox.addActionListener(new java.awt.event.ActionListener() {
+        this.totalAnimationsJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalAnimationsJComboBoxActionPerformed(evt);
             }
@@ -210,7 +210,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
         this.jLabel3.setText("Type:");
 
-        spriteTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
+        this.spriteTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 spriteTypeJComboBoxActionPerformed(evt);
             }
@@ -251,7 +251,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         this.jLabel7.setText("More Width:");
 
         this.increaseWidthTextField.setText(CommonPhoneStrings.getInstance().ZERO);
-        increaseWidthTextField.addActionListener(new java.awt.event.ActionListener() {
+        this.increaseWidthTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 increaseWidthTextFieldActionPerformed(evt);
             }
@@ -378,7 +378,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
    public ImageProcessorInput getImageProcessorInput()
    {
-      return imageProcessorInput;
+      return this.imageProcessorInput;
    }
 
    public void setImageProcessorInput(ImageProcessorInput imageProcessorInput)

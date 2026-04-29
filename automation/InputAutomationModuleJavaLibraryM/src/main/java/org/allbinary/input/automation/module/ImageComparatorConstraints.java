@@ -42,7 +42,7 @@ public class ImageComparatorConstraints
     
     public Vector getAvoidVector()
     {
-        return avoidVector;
+        return this.avoidVector;
     }
     
     public boolean isColorAllowed(int frame, GPoint point, Color color) {
@@ -95,7 +95,7 @@ public class ImageComparatorConstraints
     
     public int getMaxNonMatchingPixelDeltas()
     {
-        return maxNonMatchingPixelDeltas;
+        return this.maxNonMatchingPixelDeltas;
     }
     
     public void setMaxNonMatchingPixelDeltas(int maxNonMatchingPixelDeltas)

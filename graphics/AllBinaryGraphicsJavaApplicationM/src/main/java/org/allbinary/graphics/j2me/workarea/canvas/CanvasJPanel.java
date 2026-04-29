@@ -83,8 +83,8 @@ public class CanvasJPanel extends javax.swing.JPanel
         try
         {
             this.workAreaJTreeJPanel = workAreaJTreeJPanel;
-            initComponents();
-            initMyComponents();
+            this.initComponents();
+            this.initMyComponents();
             this.setSize(dimension);
 
             this.setCanvasSize(x, y);
@@ -92,7 +92,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         {
             if (LOGGING.contains(LOGGING.GRAPHICSCREATION))
             {
-                guiLog.put("Constructor Error", this, "contructor", e);
+                this.guiLog.put("Constructor Error", this, "contructor", e);
             }
         }
     }
@@ -103,8 +103,8 @@ public class CanvasJPanel extends javax.swing.JPanel
         try
         {
             this.workAreaJTreeJPanel = workAreaJTreeJPanel;
-            initComponents();
-            initMyComponents();
+            this.initComponents();
+            this.initMyComponents();
             this.setSize(dimension);
 
             this.setCanvasSize(canvasDom.getDimension().getWidth(), canvasDom.getDimension().getHeight());
@@ -795,7 +795,7 @@ public class CanvasJPanel extends javax.swing.JPanel
 
     public IntegerDimension getCanvasDimension()
     {
-        return canvasDimension;
+        return this.canvasDimension;
     }
 
     public void setCanvasDimension(IntegerDimension canvasDimension)
@@ -808,7 +808,7 @@ public class CanvasJPanel extends javax.swing.JPanel
      */
     public Grid getGrid()
     {
-        return grid;
+        return this.grid;
     }
    // Variables declaration - do not modify//GEN-BEGIN:variables
    // End of variables declaration//GEN-END:variables

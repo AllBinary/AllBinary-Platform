@@ -46,7 +46,7 @@ public class GameSkill
    
     public GameSkillType getGameSkillType()
     {
-        return gameSkillType;
+        return this.gameSkillType;
     }
 
     public void setGameSkillType(GameSkillType gameSkillType)
@@ -56,7 +56,7 @@ public class GameSkill
     
     public String getExtra()
     {
-        return extra;
+        return this.extra;
     }
 
     public void setExtra(String extra)
@@ -66,7 +66,7 @@ public class GameSkill
 
     public int getTime()
     {
-        return time;
+        return this.time;
     }
 
     public void setTime(int time)

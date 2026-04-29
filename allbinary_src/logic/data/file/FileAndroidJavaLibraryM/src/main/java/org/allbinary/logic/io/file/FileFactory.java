@@ -90,7 +90,7 @@ public class FileFactory {
 
     public Context getContext()
     {
-        return context;
+        return this.context;
     }
 
     public AbFile getFile(String filePath) throws Exception

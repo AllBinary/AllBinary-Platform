@@ -24,6 +24,6 @@ public class PaymentTransactionKeys
 
    public String toString()
    {
-      return key;
+      return this.key;
    }
 }

@@ -32,7 +32,7 @@ public class AbFileSystem {
      */
     public String getType()
     {
-        return type;
+        return this.type;
     }
 
     public boolean isType(String type)

@@ -611,7 +611,7 @@ public class User implements UserInterface
    
    public UserConfigurationInterface getUserConfigurationInterface()
    {
-      return userConfigurationInterface;
+      return this.userConfigurationInterface;
    }
    
    public void setUserConfigurationInterface(UserConfigurationInterface userConfigurationInterface)

@@ -117,7 +117,7 @@ public class GenericProfileActionScript
     
     public Vector getProfileActionConditionInterfaceVector()
     {
-        return profileActionConditionInterfaceVector;
+        return this.profileActionConditionInterfaceVector;
     }
 
     public void setProfileActionConditionInterfaceVector(

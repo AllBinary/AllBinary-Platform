@@ -56,7 +56,7 @@ public class AbeNoLicense
     
     public BasicArrayList getServers()
     {
-        return serverVector;
+        return this.serverVector;
     }
     
     public boolean isValid()

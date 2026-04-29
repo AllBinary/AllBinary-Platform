@@ -64,6 +64,6 @@ public class HttpFilePermissions
      */
     public Vector getUserRoles()
     {
-        return userRoles;
+        return this.userRoles;
     }
 }

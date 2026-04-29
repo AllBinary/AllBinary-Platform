@@ -38,7 +38,7 @@ public class ConsolidateMotionRectangles extends MotionRectangles
             vector.add(motionRectangle.clone());
         }
 
-        consolidateMotionRectangles();
+        this.consolidateMotionRectangles();
 
         //this.logUtil.putF(
           //  "After - Number Of Rectangles: " + vector.size(), this, this.commonStrings.CONSTRUCTOR);

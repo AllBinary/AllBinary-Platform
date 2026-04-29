@@ -44,6 +44,6 @@ public class AcceptableResponseUtil
 
     public int size()
     {
-        return candidateVector.size();
+        return this.candidateVector.size();
     }
 }

@@ -41,7 +41,7 @@ public class EmailEvent extends EventObject
 
     public int getAttempts()
     {
-        return attempts;
+        return this.attempts;
     }
 
     public void setAttempts(int attempts)

@@ -74,7 +74,7 @@ public class InputAutomationServiceConsumer
     
     public BundleContext getBundleContext()
     {
-        return bundleContext;
+        return this.bundleContext;
     }
 
     public void setBundleContext(BundleContext aBundleContext)
@@ -84,7 +84,7 @@ public class InputAutomationServiceConsumer
 
     public String getRegistryName()
     {
-        return registryName;
+        return this.registryName;
     }
 
     public void setRegistryName(String registryName)
@@ -94,7 +94,7 @@ public class InputAutomationServiceConsumer
 
     public OSGIServiceVisitorInterface getOsgiServiceVisitorInterface()
     {
-        return osgiServiceVisitorInterface;
+        return this.osgiServiceVisitorInterface;
     }
 
     public void setOsgiServiceVisitorInterface(OSGIServiceVisitorInterface osgiServiceVisitorInterface)

@@ -30,13 +30,13 @@ public class LogConfigTypeFactory {
     
    private final String NO_DESCRIPTION = "No Description";
    
-   public final LogConfigType FILE = new LogConfigType("File",NO_DESCRIPTION);
-   public final LogConfigType FILEERROR = new LogConfigType("File Error",NO_DESCRIPTION);
+   public final LogConfigType FILE = new LogConfigType("File",this.NO_DESCRIPTION);
+   public final LogConfigType FILEERROR = new LogConfigType("File Error",this.NO_DESCRIPTION);
 
-   public final LogConfigType IDLOGGING = new LogConfigType("ID Logging",NO_DESCRIPTION);
+   public final LogConfigType IDLOGGING = new LogConfigType("ID Logging",this.NO_DESCRIPTION);
    
-   public final LogConfigType REPLACE = new LogConfigType("Replace", NO_DESCRIPTION);
-   public final LogConfigType REPLACE_INFO = new LogConfigType("Replace Info", NO_DESCRIPTION);
-   public final LogConfigType REPLACEERROR = new LogConfigType("Replace Error", NO_DESCRIPTION);   
+   public final LogConfigType REPLACE = new LogConfigType("Replace", this.NO_DESCRIPTION);
+   public final LogConfigType REPLACE_INFO = new LogConfigType("Replace Info", this.NO_DESCRIPTION);
+   public final LogConfigType REPLACEERROR = new LogConfigType("Replace Error", this.NO_DESCRIPTION);   
    
 }

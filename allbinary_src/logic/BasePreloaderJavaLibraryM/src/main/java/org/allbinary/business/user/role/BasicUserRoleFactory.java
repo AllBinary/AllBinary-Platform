@@ -32,61 +32,61 @@ public class BasicUserRoleFactory
     private final long CUSTOMERMAXSESSIONTIME = 360000000;
     private final long MAXSESSIONTIME = 360000000;
     public final BasicUserRole INSTALLER =
-        new BasicUserRole("Installer", 16, MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
+        new BasicUserRole("Installer", 16, this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     //Administrators
     //new AdministratorUserFactory()
     public final BasicUserRole ADMINISTRATOR =
-        new BasicUserRole("Administrator", 0, MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
+        new BasicUserRole("Administrator", 0, this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     //Users
     public final BasicUserRole CUSTOMER =
         new BasicUserRole(
         "CustomerUser",
         "Customer User",
-        1, CUSTOMERTIMEOUT, CUSTOMERMAXSESSIONTIME);
+        1, this.CUSTOMERTIMEOUT, this.CUSTOMERMAXSESSIONTIME);
     public final BasicUserRole SUBSCRIBERCUSTOMER =
         new BasicUserRole("SubscriberUser", "Subscriber User", 2,
-        CUSTOMERTIMEOUT, CUSTOMERMAXSESSIONTIME);
+        this.CUSTOMERTIMEOUT, this.CUSTOMERMAXSESSIONTIME);
     public final BasicUserRole WHOLESALECUSTOMER =
         new BasicUserRole("WholesaleUser", "Wholesale User", 3,
-        CUSTOMERTIMEOUT, CUSTOMERMAXSESSIONTIME);
+        this.CUSTOMERTIMEOUT, this.CUSTOMERMAXSESSIONTIME);
     //Store Users
     //Store Admin
     public final BasicUserRole STOREMANAGER =
         new BasicUserRole("StoreManager", "Store Manager", 4,
-        MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     //Managers
     public final BasicUserRole PRODUCTMANAGER =
         new BasicUserRole("ProductManager", "Product Manager", 5,
-        MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     public final BasicUserRole CUSTOMERMANAGER =
         new BasicUserRole("UserManager", "User Manager", 6,
-        MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     public final BasicUserRole PAYMENTMANAGER =
         new BasicUserRole("PaymentManager", "Payment Manager", 7,
-        MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     public final BasicUserRole ORDERMANAGER =
         new BasicUserRole("OrderManager", "Order Manager", 8,
-        MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     public final BasicUserRole WEBMANAGER =
         new BasicUserRole("WebManager", "Web Manager", 9,
-        MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     //Order Manager Assistants
     public final BasicUserRole REVIEWER =
-        new BasicUserRole("Reviewer", 10, MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
+        new BasicUserRole("Reviewer", 10, this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     public final BasicUserRole SHIPPING =
-        new BasicUserRole("Shipping", 11, MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
+        new BasicUserRole("Shipping", 11, this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     public final BasicUserRole ADJUSTER =
-        new BasicUserRole("Adjuster", 12, MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
+        new BasicUserRole("Adjuster", 12, this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     //Web Manager Assistants
     public final BasicUserRole WORKFLOWEDITOR =
         new BasicUserRole("WorkFlowEditor", "WorkFlow Editor", 13,
-        MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     public final BasicUserRole WIZARD =
         new BasicUserRole("WizardUser", "Wizard User", 14,
-        MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     //public final BasicUserRole WIZARDEDITOR =
     //new BasicUserRole ("Wizard Editor User", MAXSESSIONTIME, INACTIVITYTIMEOUT);
     public final BasicUserRole VIEWEDITOR =
         new BasicUserRole("ViewEditor", "View Editor", 15,
-        MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        this.MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
 }

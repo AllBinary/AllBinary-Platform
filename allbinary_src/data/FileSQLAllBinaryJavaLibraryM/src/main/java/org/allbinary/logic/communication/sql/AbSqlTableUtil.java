@@ -106,7 +106,7 @@ public class AbSqlTableUtil
 
             if (backupFile.exists())
             {
-                backupFile(backupFilePath, backupPath, tableName);
+                this.backupFile(backupFilePath, backupPath, tableName);
                 backupFile.delete();
             }
 

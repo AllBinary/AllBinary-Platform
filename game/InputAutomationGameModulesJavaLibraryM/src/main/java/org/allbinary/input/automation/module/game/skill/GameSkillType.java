@@ -45,7 +45,7 @@ public class GameSkillType
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     protected void setName(String name)

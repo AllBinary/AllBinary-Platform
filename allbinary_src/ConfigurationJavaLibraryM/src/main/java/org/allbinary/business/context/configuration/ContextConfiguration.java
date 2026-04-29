@@ -44,7 +44,7 @@ public class ContextConfiguration implements ContextConfigurationInterface
 
     public EmailServerConfigurationInterface getEmailServerConfigurationInterface()
     {
-        return emailServerConfigurationInterface;
+        return this.emailServerConfigurationInterface;
     }
 
     public void setEmailServerConfigurationInterface(EmailServerConfigurationInterface emailServerConfigurationInterface)

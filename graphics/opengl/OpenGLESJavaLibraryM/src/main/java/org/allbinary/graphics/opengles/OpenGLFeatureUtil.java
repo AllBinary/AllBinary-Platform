@@ -46,6 +46,6 @@ public class OpenGLFeatureUtil
     
     public boolean isAnyThreed()
     {
-        return anyThreed;
+        return this.anyThreed;
     }
 }

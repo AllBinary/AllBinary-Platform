@@ -42,11 +42,11 @@ public class StoreFrontHelper
 
          this.currentLocation =
              new Replace(CommonSeps.getInstance().SPACE, "%20").all(
-             storeFrontInterface.getCurrentHostName() + storeFrontInterface.getCurrentHostNamePath());
+             this.storeFrontInterface.getCurrentHostName() + this.storeFrontInterface.getCurrentHostNamePath());
 
          this.currentHomeLocation =
              new Replace(CommonSeps.getInstance().SPACE, "%20").all(
-             storeFrontInterface.getCurrentHomeHostName() + storeFrontInterface.getCurrentHomeHostNamePath());
+             this.storeFrontInterface.getCurrentHomeHostName() + this.storeFrontInterface.getCurrentHomeHostNamePath());
       }
       else
       {

@@ -27,7 +27,7 @@ public class InputAutomationRobotInterfaceWrapper
     
     public InputRobotInterface getInputRobotInterface()
     {
-        return inputRobotInterface;
+        return this.inputRobotInterface;
     }
 
     public void setInputRobotInterface(InputRobotInterface inputRobotInterface)

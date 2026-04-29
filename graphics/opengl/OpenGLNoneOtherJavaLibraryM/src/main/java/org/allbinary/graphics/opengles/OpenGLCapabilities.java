@@ -53,7 +53,7 @@ public class OpenGLCapabilities
 
     public String getGlVersion()
     {
-        return glVersion;
+        return this.glVersion;
     }
     
     public boolean isVertexBufferObjectSupport()

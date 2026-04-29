@@ -23,12 +23,12 @@ public class ActionScriptItemJPanel extends javax.swing.JPanel
     /** Creates new form ActionScriptItemJPanel */
     public ActionScriptItemJPanel()
     {
-        initComponents();
+        this.initComponents();
     }
 
     public javax.swing.JPanel getNewActionScriptInputJPanel()
     {
-        return newActionScriptInputJPanel;
+        return this.newActionScriptInputJPanel;
     }
 
     public void setNewActionScriptInputJPanel(javax.swing.JPanel newActionScriptInputJPanel)
@@ -38,7 +38,7 @@ public class ActionScriptItemJPanel extends javax.swing.JPanel
 
     public javax.swing.JPanel getRemoveJPanel()
     {
-        return removeJPanel;
+        return this.removeJPanel;
     }
 
     public void setRemoveJPanel(javax.swing.JPanel removeJPanel)
@@ -48,7 +48,7 @@ public class ActionScriptItemJPanel extends javax.swing.JPanel
 
     public javax.swing.JPanel getScriptItemJPanel()
     {
-        return scriptItemJPanel;
+        return this.scriptItemJPanel;
     }
 
     public void setScriptItemJPanel(javax.swing.JPanel scriptItemJPanel)
@@ -58,7 +58,7 @@ public class ActionScriptItemJPanel extends javax.swing.JPanel
 
     public javax.swing.JPanel getNewActionScriptConditionJPanel()
     {
-        return newActionScriptConditionJPanel;
+        return this.newActionScriptConditionJPanel;
     }
 
     public void setNewActionScriptConditionJPanel(javax.swing.JPanel newActionScriptConditionJPanel)
@@ -68,7 +68,7 @@ public class ActionScriptItemJPanel extends javax.swing.JPanel
 
     public javax.swing.JPanel getChildActionScriptConditionJPanel()
     {
-        return childActionScriptConditionJPanel;
+        return this.childActionScriptConditionJPanel;
     }
 
     public void setChildActionScriptConditionJPanel(javax.swing.JPanel childActionScriptConditionJPanel)

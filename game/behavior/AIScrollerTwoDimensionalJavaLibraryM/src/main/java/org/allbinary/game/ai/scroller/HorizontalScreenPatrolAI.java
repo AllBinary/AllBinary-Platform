@@ -39,7 +39,7 @@ extends BasicAI
 
     private final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
     
-    private int firingX = displayInfoSingleton.getLastHalfWidth();
+    private int firingX = this.displayInfoSingleton.getLastHalfWidth();
     private int firedIndex = 0;
     private final int MAX_FIRE = 28;
     
@@ -96,7 +96,7 @@ extends BasicAI
 				this.firedIndex = 0;
 				this.firingX = this.displayInfoSingleton.getLastHalfWidth()
 						+ MyRandomFactory.getInstance().getNextInt(
-								displayInfoSingleton.getLastHalfWidth());
+								this.displayInfoSingleton.getLastHalfWidth());
 				
 				this.secondaryPlayerQueue.add(this.sound);
 			}
@@ -123,7 +123,7 @@ extends BasicAI
 					this.firedIndex = 0;
 					this.firingX = Integer.MIN_VALUE;
 				}
-				firedIndex++;
+				this.firedIndex++;
 			}
 		}
      }

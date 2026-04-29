@@ -41,7 +41,7 @@ public class AbSqlTable extends AbSqlBasic
 
     public String getTableName()
     {
-        return tableName;
+        return this.tableName;
     }
 
     public synchronized String createTable(String data)
@@ -53,14 +53,14 @@ public class AbSqlTable extends AbSqlBasic
             {
                 this.logUtil.putF(this.TABLE_CREATION_SUCCESS + this.tableName + " with statement: " + data, this, this.METHOD_CREATED_TABLE);
             }
-            return tableName + sqlStrings.CREATE_RETURN;
+            return this.tableName + sqlStrings.CREATE_RETURN;
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 this.logUtil.put("Table Creation Failed: " + this.tableName + " with statement: " + data, this, this.METHOD_CREATED_TABLE, e);
             }
-            return "Failed to Create " + tableName + " table.";
+            return "Failed to Create " + this.tableName + " table.";
         }
     }
 

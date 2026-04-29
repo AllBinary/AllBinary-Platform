@@ -164,7 +164,7 @@ public class InputAutomationModuleBundleActivator
     
     protected InputAutomationModuleFactoryInterface[] getInputAutomationModuleInterface()
     {
-        return inputAutomationModuleInterface;
+        return this.inputAutomationModuleInterface;
     }
     
     protected void setInputAutomationModuleInterface(InputAutomationModuleFactoryInterface inputAutomationModuleInterface[])
@@ -174,7 +174,7 @@ public class InputAutomationModuleBundleActivator
     
     protected Object getServiceFactory()
     {
-        return serviceFactory;
+        return this.serviceFactory;
     }
     
     protected void setServiceFactory(ServiceFactory serviceObject)

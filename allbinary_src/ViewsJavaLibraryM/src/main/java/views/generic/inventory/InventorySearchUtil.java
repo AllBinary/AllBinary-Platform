@@ -130,10 +130,10 @@ public class InventorySearchUtil {
         throws Exception
     {
         inventoryNode.appendChild(ModDomHelper.createNameValueNodes(
-            viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_PAGES, commonPhoneStrings.ZERO));
+            viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_PAGES, this.commonPhoneStrings.ZERO));
 
         inventoryNode.appendChild(ModDomHelper.createNameValueNodes(
-            viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_ITEMS, commonPhoneStrings.ZERO));
+            viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_ITEMS, this.commonPhoneStrings.ZERO));
 
         String success = DomDocumentHelper.toString(viewDocumentInterface.getDoc());
 
@@ -276,7 +276,7 @@ public class InventorySearchUtil {
 
                             itemNode.appendChild(ModDomHelper.createNameValueNodes(
                                 viewDocumentInterface.getDoc(),
-                                BasketData.ITEMTOTALINBASKET, commonPhoneStrings.ONE));
+                                BasketData.ITEMTOTALINBASKET, this.commonPhoneStrings.ONE));
 
                             inventoryNode.appendChild(itemNode.cloneNode(true));
                         }

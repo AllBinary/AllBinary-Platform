@@ -251,7 +251,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
             whereKeyAndValue.put(UserData.USERNAME, userName);
 
             //remove old default value if it exist
-            StreetAddress streetAddress = getDefault();
+            StreetAddress streetAddress = this.getDefault();
             if(streetAddress != null)
             {
                 updateKeyAndValue.put(StreetAddressData.DEFAULT, StringUtil.getInstance().EMPTY_STRING);

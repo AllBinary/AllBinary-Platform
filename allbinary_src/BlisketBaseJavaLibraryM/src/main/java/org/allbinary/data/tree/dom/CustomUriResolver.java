@@ -72,6 +72,6 @@ public class CustomUriResolver implements URIResolver
 
    public String toString()
    {
-      return path;
+      return this.path;
    }
 }

@@ -69,7 +69,7 @@ public class ProfileActionScriptItem extends DefaultMutableTreeNode
 
     private void init()
     {
-        setJPopupMenu(new JPopupMenu());
+        this.setJPopupMenu(new JPopupMenu());
 
         JMenuItem jMenuItemEdit = new JMenuItem(EDIT);
         JMenuItem jMenuItemDelete = new JMenuItem(DELETE);
@@ -80,8 +80,8 @@ public class ProfileActionScriptItem extends DefaultMutableTreeNode
         jMenuItemEdit.addActionListener(this);
         jMenuItemDelete.addActionListener(this);
 
-        getJPopupMenu().add(jMenuItemEdit);
-        getJPopupMenu().add(jMenuItemDelete);
+        this.getJPopupMenu().add(jMenuItemEdit);
+        this.getJPopupMenu().add(jMenuItemDelete);
     }
 
     public void process(Long frame) throws Exception {
@@ -90,7 +90,7 @@ public class ProfileActionScriptItem extends DefaultMutableTreeNode
     
     public JPopupMenu getJPopupMenu()
     {
-        return jPopupMenu;
+        return this.jPopupMenu;
     }
     
     public void showDialog() {

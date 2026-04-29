@@ -50,7 +50,7 @@ public class SaveImageComparisonWorker
     
     public synchronized boolean isRunning()
     {
-        return running;
+        return this.running;
     }
 
     public synchronized void setRunning(final boolean running)

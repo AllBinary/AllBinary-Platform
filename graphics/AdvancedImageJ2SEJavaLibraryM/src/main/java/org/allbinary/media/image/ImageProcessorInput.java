@@ -30,11 +30,11 @@ public class ImageProcessorInput {
 
    public BufferedImage[] getBufferedImageArray()
    {
-      return bufferedImageArray;
+      return this.bufferedImageArray;
    }
 
    public File[] getFiles()
    {
-      return files;
+      return this.files;
    }
 }

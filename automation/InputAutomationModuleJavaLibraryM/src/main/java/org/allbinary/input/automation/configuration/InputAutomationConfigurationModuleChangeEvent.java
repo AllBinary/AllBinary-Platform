@@ -28,7 +28,7 @@ public class InputAutomationConfigurationModuleChangeEvent
 
     public InputAutomationModuleConfiguration getInputAutomationModuleConfiguration()
     {
-        return inputAutomationModuleConfiguration;
+        return this.inputAutomationModuleConfiguration;
     }
 
     private void setInputAutomationModuleConfiguration(InputAutomationModuleConfiguration inputAutomationModuleConfiguration)

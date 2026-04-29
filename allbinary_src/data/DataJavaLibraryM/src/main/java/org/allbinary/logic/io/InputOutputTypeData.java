@@ -42,6 +42,6 @@ public class InputOutputTypeData
    public final String ASP = "asp";
    public final String PL = "pl";
 
-   public final String DEFAULT = JSP;
-   public final String DEFAULT_FRAGMENT = JSP_FRAGMENT;
+   public final String DEFAULT = this.JSP;
+   public final String DEFAULT_FRAGMENT = this.JSP_FRAGMENT;
 }

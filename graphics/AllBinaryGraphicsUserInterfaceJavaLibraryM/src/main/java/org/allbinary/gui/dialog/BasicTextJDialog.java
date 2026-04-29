@@ -27,7 +27,7 @@ public class BasicTextJDialog extends javax.swing.JDialog
     public BasicTextJDialog(java.awt.Frame parent, boolean modal, String text)
     {
         super(parent, modal);
-        initComponents();
+        this.initComponents();
         this.setText(text);
     }
     
@@ -44,7 +44,7 @@ public class BasicTextJDialog extends javax.swing.JDialog
     
     public BasicTextJDialog(String text)
     {
-        initComponents();
+        this.initComponents();
         this.textJLabel.setText(text);
     }
     

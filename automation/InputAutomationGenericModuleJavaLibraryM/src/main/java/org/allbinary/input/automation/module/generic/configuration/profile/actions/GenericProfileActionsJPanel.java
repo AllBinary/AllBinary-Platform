@@ -36,7 +36,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
     public GenericProfileActionsJPanel() 
         throws Exception
     {
-        initComponents();
+        this.initComponents();
     }
     
     /** This method is called from within the constructor to
@@ -64,7 +64,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         this.newProfileActionJLabel.setText("New Action Name");
 
         this.okNewProfileActionJButton.setText("Ok");
-        okNewProfileActionJButton.addActionListener(new java.awt.event.ActionListener()
+        this.okNewProfileActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -102,7 +102,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         );
 
         this.genericProfileActionsJPanel.setPreferredSize(new java.awt.Dimension(10000, 10000));
-        genericProfileActionsJList.addListSelectionListener(new javax.swing.event.ListSelectionListener()
+        this.genericProfileActionsJList.addListSelectionListener(new javax.swing.event.ListSelectionListener()
         {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt)
             {
@@ -113,7 +113,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         this.genericProfileActionsJScrollPane.setViewportView(this.genericProfileActionsJList);
 
         this.newActionJButton.setText("New");
-        newActionJButton.addActionListener(new java.awt.event.ActionListener()
+        this.newActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -122,7 +122,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         });
 
         this.deleteActionJButton.setText("Delete");
-        deleteActionJButton.addActionListener(new java.awt.event.ActionListener()
+        this.deleteActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -131,7 +131,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         });
 
         this.saveJButton.setText("Save");
-        saveJButton.addActionListener(new java.awt.event.ActionListener()
+        this.saveJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -342,7 +342,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
 
     public GenericProfileActionJPanel getGenericProfileActionJPanel()
     {
-        return genericProfileActionJPanel;
+        return this.genericProfileActionJPanel;
     }
 
     public void setGenericProfileActionJPanel(GenericProfileActionJPanel genericProfileActionJPanel)
@@ -352,7 +352,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
 
     public GenericProfileActions getGenericProfileActions()
     {
-        return genericProfileActions;
+        return this.genericProfileActions;
     }
 
     public void setGenericProfileActions(GenericProfileActions genericProfileActions)

@@ -32,8 +32,8 @@ public class FREEBLISKET_PATH_GLOBALS
    public final String XSLPATH;
 
    public final String TEMPLATEPATH = "template" + AbPathData.getInstance().SEPARATOR;
-   public final String STYLEPATH = TEMPLATEPATH + "style" + AbPathData.getInstance().SEPARATOR;
-   public final String THEMEPATH = STYLEPATH + "theme"  + AbPathData.getInstance().SEPARATOR;
+   public final String STYLEPATH = this.TEMPLATEPATH + "style" + AbPathData.getInstance().SEPARATOR;
+   public final String THEMEPATH = this.STYLEPATH + "theme"  + AbPathData.getInstance().SEPARATOR;
 
    public final String DBINITPATH = PATH_GLOBALS.getInstance().INIT_PATH + "db" + AbPathData.getInstance().SEPARATOR;
    public final String LINEDATAPATH = PATH_GLOBALS.getInstance().INIT_PATH + "lineData" + AbPathData.getInstance().SEPARATOR;

@@ -42,7 +42,7 @@ public class AndroidHardware implements HardwareInterface
     
     private BasicArrayList componentInterfaceVector = new BasicArrayListD();
     private final String PROC_BUS_INPUT_DIRECTORY = "/proc/bus/input/";
-    private final String DEVICES = PROC_BUS_INPUT_DIRECTORY + "devices/";
+    private final String DEVICES = this.PROC_BUS_INPUT_DIRECTORY + "devices/";
     //private final String HANDLERS = PROC_BUS_INPUT_DIRECTORY + "handlers/";
     private final int MINHARDWARE = 3;
 

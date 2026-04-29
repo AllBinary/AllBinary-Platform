@@ -39,22 +39,22 @@ public class InputProbability
     
     public Integer[][] getLikelyhoodIntegerArray()
     {
-        return likelyhoodIntegerArray;
+        return this.likelyhoodIntegerArray;
     }
 
     public Integer[] getRepeatLikelyhoodIntegerArray()
     {
-        return repeatLikelyhoodIntegerArray;
+        return this.repeatLikelyhoodIntegerArray;
     }
 
     public int getMax()
     {
-        return max;
+        return this.max;
     }
 
     public TimeDelayHelper getTimeDelayHelper()
     {
-        return timeDelayHelper;
+        return this.timeDelayHelper;
     }
     
     public Hashtable toHashtable()

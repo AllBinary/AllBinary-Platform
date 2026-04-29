@@ -36,7 +36,7 @@ public class GenericProfileActionJPanel extends javax.swing.JPanel
     /** Creates new form GenericProfileActionJPanel */
     public GenericProfileActionJPanel()
     {
-        initComponents();
+        this.initComponents();
     }
 
     public void updateProfileActionUI()
@@ -78,7 +78,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
 
     public GenericProfileAction getGenericProfileAction()
     {
-        return genericProfileAction;
+        return this.genericProfileAction;
     }
 
     public void setGenericProfileAction(
@@ -89,7 +89,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
 
     public GenericProfileActionScriptJPanel getGenericProfileActionScriptJPanel()
     {
-        return genericProfileActionScriptJPanel;
+        return this.genericProfileActionScriptJPanel;
     }
 
     public void setGenericProfileActionScriptJPanel(
@@ -132,7 +132,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
         this.ifJLabel.setText("Conditions:");
 
         this.newColorAtJButton.setText("Color Range At");
-        newColorAtJButton.addActionListener(new java.awt.event.ActionListener()
+        this.newColorAtJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -141,7 +141,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
         });
 
         this.newTimeIntervalJButton.setText("Time Interval");
-        newTimeIntervalJButton.addActionListener(new java.awt.event.ActionListener()
+        this.newTimeIntervalJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -150,7 +150,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
         });
 
         this.newAlwaysJButton.setText("Always On/Off");
-        newAlwaysJButton.addActionListener(new java.awt.event.ActionListener()
+        this.newAlwaysJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -190,7 +190,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
     {//GEN-HEADEREND:event_newTimeIntervalJButtonActionPerformed
         this.logUtil.putF("New Time Interval Action Condition", this, "newTimeIntervalJButtonActionPerformed");
         
-        getGenericProfileAction().getGenericProfileActionScript().addCondition(
+        this.getGenericProfileAction().getGenericProfileActionScript().addCondition(
             (ProfileActionScriptConditionInterface)
             new TimeIntervalActionScriptCondition());
         
@@ -201,7 +201,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
     {//GEN-HEADEREND:event_newAlwaysJButtonActionPerformed
         this.logUtil.putF("New EveryTime Action Condition", this, "newEveryTimeJButtonActionPerformed");
         
-        getGenericProfileAction().getGenericProfileActionScript().addCondition(
+        this.getGenericProfileAction().getGenericProfileActionScript().addCondition(
             (ProfileActionScriptConditionInterface)
             new AlwaysActionScriptCondition());
         
@@ -212,7 +212,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
     {//GEN-HEADEREND:event_newColorAtJButtonActionPerformed
         this.logUtil.putF("New Color At Action Condition", this, "newColorAtJButtonActionPerformed");
         
-        getGenericProfileAction().getGenericProfileActionScript().addCondition(
+        this.getGenericProfileAction().getGenericProfileActionScript().addCondition(
             (ProfileActionScriptConditionInterface)
             new ColorAtActionScriptCondition());
         

@@ -116,7 +116,7 @@ public class PaymentType //implements TableMappingInterface
    }
 
 public BasicPaymentType getBasicPaymentType() {
-	return basicPaymentType;
+	return this.basicPaymentType;
 }
 
 }

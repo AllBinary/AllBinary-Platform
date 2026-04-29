@@ -126,7 +126,7 @@ public class ImageComparisonSearch
 
    public BufferedImage[] getBufferedImages()
    {
-      return bufferedImages;
+      return this.bufferedImages;
    }
 
    private void setBufferedImages(BufferedImage[] bufferedImages)
@@ -136,7 +136,7 @@ public class ImageComparisonSearch
 
     public int getTolerance()
     {
-        return tolerance;
+        return this.tolerance;
     }
 
     public void setTolerance(int tolerance)

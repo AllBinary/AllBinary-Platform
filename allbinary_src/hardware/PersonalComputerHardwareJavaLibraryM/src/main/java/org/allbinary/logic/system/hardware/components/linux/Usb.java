@@ -32,7 +32,7 @@ public class Usb implements HardwareComponentInterface, UsbInterface
     
     public String toString()
     {
-       return data;
+       return this.data;
     }
     
 }

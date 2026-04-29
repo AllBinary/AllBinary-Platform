@@ -83,7 +83,7 @@ public class BasicRandomAI extends BasicAI
                             && likelyhoodIntegerKeyArray[0] != null)
                     {
                         if (this.i_random >= likelyhoodIntegerKeyArray[0].intValue()
-                                && i_random < likelyhoodIntegerKeyArray[1].intValue())
+                                && this.i_random < likelyhoodIntegerKeyArray[1].intValue())
                         {
                             this.setLastKey(key);
                             break;

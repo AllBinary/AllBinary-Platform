@@ -80,7 +80,7 @@ public class TableTag extends PropertiesTag
 
     protected TagHelperFactoryInterface getTagHelperFactoryInterface()
     {
-        return tagHelperFactoryInterface;
+        return this.tagHelperFactoryInterface;
     }
 
     protected void setTagRequestHelperFactory(TagHelperFactoryInterface tagHelperFactoryInterface)
@@ -90,7 +90,7 @@ public class TableTag extends PropertiesTag
 
     protected TagHelperFactoryInterface getTagRequestHelperFactoryInterface()
     {
-        return tagRequestHelperFactoryInterface;
+        return this.tagRequestHelperFactoryInterface;
     }
 
     public void setCurrent(Integer current)
@@ -100,7 +100,7 @@ public class TableTag extends PropertiesTag
 
     public Integer getCurrent()
     {
-        return current;
+        return this.current;
     }
 
     public void setTotal(Integer total)
@@ -110,14 +110,14 @@ public class TableTag extends PropertiesTag
 
     public Integer getTotal()
     {
-        return total;
+        return this.total;
     }
 
     public String drop() throws LicensingException
     {
         try
         {
-            final Object object = getTagHelperFactoryInterface().getInstance(
+            final Object object = this.getTagHelperFactoryInterface().getInstance(
                 this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
@@ -142,7 +142,7 @@ public class TableTag extends PropertiesTag
     {
         try
         {
-            final Object object = getTagHelperFactoryInterface().getInstance(
+            final Object object = this.getTagHelperFactoryInterface().getInstance(
                 this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
@@ -167,7 +167,7 @@ public class TableTag extends PropertiesTag
     {
         try
         {
-            final Object object = getTagHelperFactoryInterface().getInstance(
+            final Object object = this.getTagHelperFactoryInterface().getInstance(
                 this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
@@ -192,7 +192,7 @@ public class TableTag extends PropertiesTag
     {
         try
         {
-            final Object object = getTagHelperFactoryInterface().getInstance(
+            final Object object = this.getTagHelperFactoryInterface().getInstance(
                 this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
@@ -384,7 +384,7 @@ public class TableTag extends PropertiesTag
                             this.getCommand().compareTo(commonStrings.UPDATE) == 0 ||
                             this.getCommand().compareTo(SqlStrings.getInstance().UPDATE)==0)
                     {
-                        this.requestObject = getTagRequestHelperFactoryInterface().getInstance(
+                        this.requestObject = this.getTagRequestHelperFactoryInterface().getInstance(
                             this.getPropertiesHashMap(), pageContext);
                     }
 

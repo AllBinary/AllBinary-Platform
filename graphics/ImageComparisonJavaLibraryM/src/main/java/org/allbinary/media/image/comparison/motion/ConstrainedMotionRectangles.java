@@ -113,7 +113,7 @@ public class ConstrainedMotionRectangles extends MotionRectangles
     
     public MotionRectangleConstraintsInterface getMotionRectangleConstraintsInterface()
     {
-        return motionRectangleConstraintsInterface;
+        return this.motionRectangleConstraintsInterface;
     }
 
     public void setMotionRectangleConstraintsInterface(MotionRectangleConstraintsInterface motionRectangleConstraintsInterface)

@@ -37,24 +37,24 @@ public class SubDirectory
     // Find the files matching the FileFilter in the given directory
     public BasicArrayList search(FileFilter fileFilter, AbFile file)
     {
-        return directory.search(fileFilter, file, true);
+        return this.directory.search(fileFilter, file, true);
     }
 
     // Return the files in the given directory
     public BasicArrayList search(AbFile file)
     {
-        return directory.search(file, true);
+        return this.directory.search(file, true);
     }
 
     // Find the files matching the searchValue in the given directory
     public BasicArrayList search(String searchValue, AbFile file)
     {
-        return directory.search(searchValue, file, true);
+        return this.directory.search(searchValue, file, true);
     }
 
     public BasicArrayList search(int level, AbFile file)
     {
-        return directory.search(level, file, true);
+        return this.directory.search(level, file, true);
     }
 
     public static String toString(BasicArrayList files)

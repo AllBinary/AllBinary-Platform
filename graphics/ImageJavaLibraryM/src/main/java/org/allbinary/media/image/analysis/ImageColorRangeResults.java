@@ -27,7 +27,7 @@ public class ImageColorRangeResults
 
     public ColorRangeInterface getColorRangeInterface()
     {
-        return colorRangeInterface;
+        return this.colorRangeInterface;
     }
 
     public void setColorRangeInterface(ColorRangeInterface colorRangeInterface)
@@ -37,7 +37,7 @@ public class ImageColorRangeResults
 
     public long getMatchingPixelsChecked()
     {
-        return matchingPixelsChecked;
+        return this.matchingPixelsChecked;
     }
 
     public void setMatchingPixelsChecked(long matchingPixelsChecked)
@@ -52,12 +52,12 @@ public class ImageColorRangeResults
     
     public long getTotalPixelsChecked()
     {
-        return totalPixelsChecked;
+        return this.totalPixelsChecked;
     }
 
     public void addTotalPixelsChecked()
     {
-        totalPixelsChecked++;
+        this.totalPixelsChecked++;
     }
     
     public void setTotalPixelsChecked(long totalPixelsChecked)

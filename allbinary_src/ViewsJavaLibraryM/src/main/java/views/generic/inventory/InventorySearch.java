@@ -102,7 +102,7 @@ public class InventorySearch implements InventoryViewSearchInterface
     {
         try
         {
-            String[] str = search();
+            String[] str = this.search();
             return str[this.searchRequest.getParams().getStartPageInt().intValue()];
         }
         catch (Exception e)
@@ -135,7 +135,7 @@ public class InventorySearch implements InventoryViewSearchInterface
         final AbeClientInformationInterface abeClientInformation = 
             ServiceClientInformationInterfaceFactory.getInstance();
 
-        return InventorySearchProductUtil.getInstance().getProduct(abeClientInformation, searchRequest, product);
+        return InventorySearchProductUtil.getInstance().getProduct(abeClientInformation, this.searchRequest, product);
     }
 
     /*

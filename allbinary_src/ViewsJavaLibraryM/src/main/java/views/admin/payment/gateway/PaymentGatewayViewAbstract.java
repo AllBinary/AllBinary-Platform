@@ -60,7 +60,7 @@ public class PaymentGatewayViewAbstract extends TransformInfoHttpComposite
 
    public PaymentGatewayPrimaryKey getPaymentGatewayPrimaryKey()
    {
-      return paymentGatewayPrimaryKey;
+      return this.paymentGatewayPrimaryKey;
    }
 
    public void setPaymentGatewayPrimaryKey(PaymentGatewayPrimaryKey paymentGatewayPrimaryKey)

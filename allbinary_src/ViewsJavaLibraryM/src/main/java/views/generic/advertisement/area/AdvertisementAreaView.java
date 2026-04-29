@@ -57,7 +57,7 @@ public class AdvertisementAreaView extends HttpStoreComponentView implements Dom
          AdvertisementAreaInterface advertisementAreaInterface = 
             advertisementAreasEntityInterface.get(
                this.getTransformInfoInterface().getStoreName(), 
-               advertisementAreaName);
+               this.advertisementAreaName);
 
          //2 search ads from campaign associated with ad area
          //advertisementAreaInterface.getConstraints()

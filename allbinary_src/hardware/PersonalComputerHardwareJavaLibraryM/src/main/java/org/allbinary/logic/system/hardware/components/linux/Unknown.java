@@ -32,6 +32,6 @@ public class Unknown implements HardwareComponentInterface
     
     public String toString()
     {
-       return data;        
+       return this.data;        
     }
 }

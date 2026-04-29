@@ -47,7 +47,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
     {
         super();
 
-        initComponents();
+        this.initComponents();
         this.imageProcessorInput = imageProcessorInput;
 
     //setUI((PanelUI)UIManager.getUI(this));
@@ -141,7 +141,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
-      jPanel1 = new javax.swing.JPanel(){
+      this.jPanel1 = new javax.swing.JPanel(){
          public void paint(Graphics graphics)
          {
             if(RotationSpriteImageJPanel.this.result != null)
@@ -178,14 +178,14 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
       this.jLabel1.setText("Total Frames:");
 
       this.generateJButton.setText("Generate");
-      generateJButton.addActionListener(new java.awt.event.ActionListener() {
+      this.generateJButton.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             generateJButtonActionPerformed(evt);
          }
       });
 
       this.totalAngleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "360", "90" }));
-      totalAngleJComboBox.addActionListener(new java.awt.event.ActionListener() {
+      this.totalAngleJComboBox.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             totalAngleJComboBoxActionPerformed(evt);
          }
@@ -286,7 +286,7 @@ private void totalAngleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) 
 
    public ImageProcessorInput getImageProcessorInput()
    {
-      return imageProcessorInput;
+      return this.imageProcessorInput;
    }
 
    public void setImageProcessorInput(ImageProcessorInput imageProcessorInput)

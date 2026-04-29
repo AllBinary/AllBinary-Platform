@@ -127,7 +127,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
     private void initComponents() {
 
         this.writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
-        jPanel1 = new javax.swing.JPanel() {             public void paint(Graphics graphics) {                 if (CanvasImageJPanel.this.result != null) {                     graphics.drawImage(CanvasImageJPanel.this.result, 0, 0, CanvasImageJPanel.this.result.getWidth(null), CanvasImageJPanel.this.result.getHeight(null), null);                 }             }         };
+        this.jPanel1 = new javax.swing.JPanel() {             public void paint(Graphics graphics) {                 if (CanvasImageJPanel.this.result != null) {                     graphics.drawImage(CanvasImageJPanel.this.result, 0, 0, CanvasImageJPanel.this.result.getWidth(null), CanvasImageJPanel.this.result.getHeight(null), null);                 }             }         };
         this.generateJButton = new javax.swing.JButton();
         this.jLabel4 = new javax.swing.JLabel();
         this.jPanel2 = new javax.swing.JPanel();
@@ -142,7 +142,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
 
         this.writeOverOriginalJCheckBox.setSelected(true);
         this.writeOverOriginalJCheckBox.setText("Write Over Original");
-        writeOverOriginalJCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        this.writeOverOriginalJCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 writeOverOriginalJCheckBoxActionPerformed(evt);
             }
@@ -160,7 +160,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
         );
 
         this.generateJButton.setText("Generate");
-        generateJButton.addActionListener(new java.awt.event.ActionListener() {
+        this.generateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 generateJButtonActionPerformed(evt);
             }
@@ -171,7 +171,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
         this.jLabel5.setText("Right:");
 
         this.widthReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
-        widthReductionTextField.addActionListener(new java.awt.event.ActionListener() {
+        this.widthReductionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 widthReductionTextFieldActionPerformed(evt);
             }
@@ -182,7 +182,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
         this.heightReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
         this.widthReductionTextField1.setText(CommonPhoneStrings.getInstance().ZERO);
-        widthReductionTextField1.addActionListener(new java.awt.event.ActionListener() {
+        this.widthReductionTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 widthReductionTextField1ActionPerformed(evt);
             }
@@ -307,7 +307,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
 
    public ImageProcessorInput getImageProcessorInput()
    {
-      return imageProcessorInput;
+      return this.imageProcessorInput;
    }
 
    public void setImageProcessorInput(ImageProcessorInput imageProcessorInput)

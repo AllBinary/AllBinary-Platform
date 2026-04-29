@@ -26,11 +26,11 @@ public class CapturedImageWorkerResultsEvent extends AllBinaryEventObject
 					   BufferedImage bufferedImage) {
 	super(object);
 	this.frame = frame;
-	setBufferedImage(bufferedImage);
+	this.setBufferedImage(bufferedImage);
     }
     
     public BufferedImage getBufferedImage() {
-	return bufferedImage;
+	return this.bufferedImage;
     }
     
     private void setBufferedImage(BufferedImage bufferedImage) {
@@ -38,6 +38,6 @@ public class CapturedImageWorkerResultsEvent extends AllBinaryEventObject
     }
     
     public Long getFrame() {
-	return frame;
+	return this.frame;
     }
 }

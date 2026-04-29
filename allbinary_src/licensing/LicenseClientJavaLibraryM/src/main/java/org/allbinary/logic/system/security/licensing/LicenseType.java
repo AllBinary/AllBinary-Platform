@@ -29,6 +29,6 @@ public class LicenseType
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 }

@@ -77,12 +77,12 @@ public class BasicAIProcessor
            new GeographicMapCellPathHistoryInfo();
        
        this.geographicMapCellPathHistoryInfo.setPreviousOnPathGeographicMapCellPosition(
-          (GeographicMapCellPosition) geographicMapCellPositionBasicArrayList.get(
-          geographicMapCellPositionBasicArrayList.size() - 1));
+          (GeographicMapCellPosition) this.geographicMapCellPositionBasicArrayList.get(
+          this.geographicMapCellPositionBasicArrayList.size() - 1));
 
        this.geographicMapCellPathHistoryInfo.setNextOnPathGeographicMapCellPosition(
-          (GeographicMapCellPosition) geographicMapCellPositionBasicArrayList.get(
-          geographicMapCellPositionBasicArrayList.size() - 1));
+          (GeographicMapCellPosition) this.geographicMapCellPositionBasicArrayList.get(
+          this.geographicMapCellPositionBasicArrayList.size() - 1));
 
        this.update();
    }
@@ -100,13 +100,13 @@ public class BasicAIProcessor
          this.geographicMapCellPathHistoryInfo.getNextChosenOnPathGeographicMapCellPosition();
 
       Direction geographicMapDirectionData =
-         geographicMapDirectionUtil.getDirectionFromCellPositionToAdjacentCellPosition(
+         this.geographicMapDirectionUtil.getDirectionFromCellPositionToAdjacentCellPosition(
          currentGeographicMapCellPosition, goToGeographicMapCellPosition);
 
       if (geographicMapDirectionData == DirectionFactory.getInstance().NOT_BORDERED_WITH)
       {
          geographicMapDirectionData =
-            geographicMapDirectionUtil.getDirectionFromCellPositionToCellPosition(
+            this.geographicMapDirectionUtil.getDirectionFromCellPositionToCellPosition(
             currentGeographicMapCellPosition, goToGeographicMapCellPosition);
       }
 
@@ -229,7 +229,7 @@ public class BasicAIProcessor
    
    public String getName()
    {
-      return name;
+      return this.name;
    }
 
    public void setName(String name)
@@ -239,7 +239,7 @@ public class BasicAIProcessor
 
    public GeographicMapCellPathHistoryInfo getGeographicMapCellPathHistoryInfo()
    {
-      return geographicMapCellPathHistoryInfo;
+      return this.geographicMapCellPathHistoryInfo;
    }
 
    public void setGeographicMapCellPathHistoryInfo(GeographicMapCellPathHistoryInfo geographicMapCellPathHistoryInfo)
@@ -249,7 +249,7 @@ public class BasicAIProcessor
 
    public GeographicMapCellHistory getGeographicMapCellHistory()
    {
-      return geographicMapCellHistory;
+      return this.geographicMapCellHistory;
    }
 
    public void setGeographicMapCellHistory(GeographicMapCellHistory geographicMapCellHistory)

@@ -46,7 +46,7 @@ public class HtmlRow extends HtmlTag
 
    public int getNumberOfColumns()
    {
-      return numberOfColumns;
+      return this.numberOfColumns;
    }
    
    public String toString()

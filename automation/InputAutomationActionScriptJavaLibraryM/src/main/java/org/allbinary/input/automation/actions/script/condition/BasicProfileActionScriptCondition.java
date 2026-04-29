@@ -261,7 +261,7 @@ public class BasicProfileActionScriptCondition
     
     public Vector getProfileActionConditionInterfaceVector()
     {
-        return profileActionConditionInterfaceVector;
+        return this.profileActionConditionInterfaceVector;
     }
     
     public void setProfileActionConditionInterfaceVector(
@@ -335,7 +335,7 @@ public class BasicProfileActionScriptCondition
     
     public Vector getProfileActionProcessorInterfaceVector()
     {
-        return profileActionProcessorInterfaceVector;
+        return this.profileActionProcessorInterfaceVector;
     }
     
     public void setProfileActionProcessorInterfaceVector(Vector profileActionProcessorInterfaceVector)

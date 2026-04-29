@@ -41,6 +41,6 @@ public class OpenGLImageSpecificFactory
 
     public OpenGLImageFactory getImageFactory()
     {
-        return imageFactory;
+        return this.imageFactory;
     }
 }

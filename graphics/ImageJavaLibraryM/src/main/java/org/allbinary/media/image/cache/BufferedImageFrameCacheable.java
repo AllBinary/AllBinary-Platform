@@ -39,7 +39,7 @@ public class BufferedImageFrameCacheable
 
     public BufferedImage getBufferedImage()
     {
-        return bufferedImage;
+        return this.bufferedImage;
     }
 
     private void setBufferedImage(BufferedImage bufferedImage)
@@ -49,7 +49,7 @@ public class BufferedImageFrameCacheable
 
     public Long getFrame()
     {
-        return frame;
+        return this.frame;
     }
 
     public void setFrame(Long frame)

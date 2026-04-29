@@ -70,7 +70,7 @@ public class TestInputForMotionRectanglesResultsWorker
    
    public synchronized boolean isRunning()
    {
-      return running;
+      return this.running;
    }
    
    public synchronized void setRunning(boolean running)

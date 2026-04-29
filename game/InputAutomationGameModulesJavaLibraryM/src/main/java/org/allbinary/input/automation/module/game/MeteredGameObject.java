@@ -75,7 +75,7 @@ public class MeteredGameObject
    
    public boolean isGood()
    {
-      return good;
+      return this.good;
    }
    
    protected void setGood(boolean good)
@@ -85,7 +85,7 @@ public class MeteredGameObject
    
    public boolean isDropping()
    {
-      return dropping;
+      return this.dropping;
    }
    
    protected void setDropping(boolean dropping)
@@ -132,7 +132,7 @@ public class MeteredGameObject
 
    public Integer getMinX()
    {
-      return minX;
+      return this.minX;
    }
 
    public void setMinX(Integer minX)
@@ -142,7 +142,7 @@ public class MeteredGameObject
 
    public Integer getMaxX()
    {
-      return maxX;
+      return this.maxX;
    }
 
    public void setMaxX(Integer maxX)
@@ -152,7 +152,7 @@ public class MeteredGameObject
 
    public Integer getY()
    {
-      return y;
+      return this.y;
    }
 
    public void setY(Integer y)
@@ -162,7 +162,7 @@ public class MeteredGameObject
 
    public Integer getSize()
    {
-      return size;
+      return this.size;
    }
 
    public void setSize(Integer size)

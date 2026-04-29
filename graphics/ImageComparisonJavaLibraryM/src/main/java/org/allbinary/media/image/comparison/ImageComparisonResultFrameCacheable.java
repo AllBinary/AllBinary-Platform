@@ -38,7 +38,7 @@ public class ImageComparisonResultFrameCacheable
 
     public Long getFrame()
     {
-        return frame;
+        return this.frame;
     }
 
     public void setFrame(Long frame)
@@ -48,7 +48,7 @@ public class ImageComparisonResultFrameCacheable
 
     public ImageComparisonResult getImageComparisonResult()
     {
-        return imageComparisonResult;
+        return this.imageComparisonResult;
     }
 
     public void setImageComparisonResult(ImageComparisonResult imageComparisonResult)

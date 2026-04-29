@@ -44,6 +44,6 @@ public class ThrustAIVisitor extends Visitor
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.VISIT, e);
         }
-        return TRUE;
+        return this.TRUE;
     }
 }

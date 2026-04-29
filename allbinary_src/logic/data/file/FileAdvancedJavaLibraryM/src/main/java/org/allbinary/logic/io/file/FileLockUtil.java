@@ -45,7 +45,7 @@ public class FileLockUtil
         {
             AbFile file = (AbFile) vector.get(index);
 
-            FileLock fileLock = getLock(file);
+            FileLock fileLock = this.getLock(file);
             if(fileLock != null)
             {
                 this.logUtil.putF("File Lock Obtained: " + file.getAbsolutePath(), this, "getAll");
@@ -65,13 +65,13 @@ public class FileLockUtil
     public Vector getAllPossible(Vector vector)
     throws Exception
     {
-        return getAll(vector, false);
+        return this.getAll(vector, false);
     }
 
     public Vector getAllOrNone(Vector vector)
     throws Exception
     {
-        Vector fileLockVector = getAll(vector, true);
+        Vector fileLockVector = this.getAll(vector, true);
         if(vector.size() != fileLockVector.size())
         {
             return new Vector();
@@ -87,7 +87,7 @@ public class FileLockUtil
     {
         try
         {
-            return getLock(new AbFileOutputStream(file, true));
+            return this.getLock(new AbFileOutputStream(file, true));
         }
         catch(Exception e)
         {
@@ -104,7 +104,7 @@ public class FileLockUtil
     {
         try
         {
-            FileLock fileLock = getLock(fileOutputStream.getChannel());
+            FileLock fileLock = this.getLock(fileOutputStream.getChannel());
             return fileLock;
         }
         catch(Exception e)

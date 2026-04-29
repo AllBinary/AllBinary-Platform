@@ -139,7 +139,7 @@ public class InputAutomationModuleConfiguration
     
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
     public void setName(String name)
@@ -150,7 +150,7 @@ public class InputAutomationModuleConfiguration
     
     public String getClassName()
     {
-        return className;
+        return this.className;
     }
 
     public void setClassName(final String className)
@@ -161,7 +161,7 @@ public class InputAutomationModuleConfiguration
     
     public InputAutomationModuleFactoryInterface getInputAutomationModuleInterface()
     {
-        return inputAutomationModuleInterface;
+        return this.inputAutomationModuleInterface;
     }
     
     public void setInputAutomationModuleInterface(InputAutomationModuleFactoryInterface inputAutomationModuleInterface)

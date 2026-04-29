@@ -30,7 +30,7 @@ public class AllMotionRectangles extends MotionRectangles
     {
         super(NAME, imageComparisonResult);
         
-        createMotionRectangles(imageComparisonResult);
+        this.createMotionRectangles(imageComparisonResult);
         
         /*
         iterator = this.getVector();
@@ -71,7 +71,7 @@ public class AllMotionRectangles extends MotionRectangles
         for (int index = 0; index < size; index++)
         {
             PixelDelta pixelDelta = (PixelDelta) vector.get(index);
-            addPixelDeltaToAMotionRectangle(pixelDelta);
+            this.addPixelDeltaToAMotionRectangle(pixelDelta);
         }
     }
     
@@ -212,7 +212,7 @@ public class AllMotionRectangles extends MotionRectangles
              */
             
             //Does PixelDelta seem to be part of rectangle
-            return isPixelDeltaLikelyPartOfMotionRectangle(motionRectangle, pixelDelta);
+            return this.isPixelDeltaLikelyPartOfMotionRectangle(motionRectangle, pixelDelta);
         }
         
         return false;

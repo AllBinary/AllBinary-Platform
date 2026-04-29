@@ -33,6 +33,6 @@ public class LockableFeatureFactory {
      * @return the list
      */
     public BasicArrayList getList() {
-        return list;
+        return this.list;
     }
 }

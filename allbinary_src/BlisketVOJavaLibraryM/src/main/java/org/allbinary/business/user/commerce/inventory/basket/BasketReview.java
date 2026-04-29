@@ -43,7 +43,7 @@ public class BasketReview
    
    public Vector getItems()
    {
-      return items;
+      return this.items;
    }
    
    public void removeItem(String id)

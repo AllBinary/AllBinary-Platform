@@ -36,7 +36,7 @@ public class PixelDelta implements CacheableInterface
     
     public Object getKey()
     {
-        return key;
+        return this.key;
     }
     
     public static Object getKey(GPoint point, ColorDelta colorDelta)
@@ -46,7 +46,7 @@ public class PixelDelta implements CacheableInterface
     
     public GPoint getPoint()
     {
-        return point;
+        return this.point;
     }
     
     public void setPoint(GPoint point)
@@ -56,7 +56,7 @@ public class PixelDelta implements CacheableInterface
     
     public ColorDelta getColorDelta()
     {
-        return colorDelta;
+        return this.colorDelta;
     }
     
     public void setColorDelta(ColorDelta colorDelta)

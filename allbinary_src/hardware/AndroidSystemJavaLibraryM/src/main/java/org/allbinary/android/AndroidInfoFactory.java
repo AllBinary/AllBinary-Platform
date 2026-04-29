@@ -30,6 +30,6 @@ public class AndroidInfoFactory
     
     public int getVersion()
     {
-        return version;
+        return this.version;
     }    
 }

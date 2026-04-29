@@ -52,7 +52,7 @@ implements OpenGLSurfaceChangedInterface, GraphicsInterface
 
     public GL10 getGlP()
     {
-        return gl;
+        return this.gl;
     }
 
     @Override    

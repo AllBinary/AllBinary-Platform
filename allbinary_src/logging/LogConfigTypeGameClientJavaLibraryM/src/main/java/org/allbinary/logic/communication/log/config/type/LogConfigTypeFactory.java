@@ -30,8 +30,8 @@ public class LogConfigTypeFactory {
     
    private final String NO_DESCRIPTION = "No Description";
    
-   public final LogConfigType OS = new LogConfigType("Operating System",NO_DESCRIPTION);
-   public final LogConfigType FACTORYERROR = new LogConfigType("Factory Error",NO_DESCRIPTION);
+   public final LogConfigType OS = new LogConfigType("Operating System",this.NO_DESCRIPTION);
+   public final LogConfigType FACTORYERROR = new LogConfigType("Factory Error",this.NO_DESCRIPTION);
    
    private LogConfigTypeFactory() {
        LogConfigTypes.LOGGING.add(OS);

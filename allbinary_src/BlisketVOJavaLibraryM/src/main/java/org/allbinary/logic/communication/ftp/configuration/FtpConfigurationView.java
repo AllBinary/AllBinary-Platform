@@ -76,7 +76,7 @@ public class FtpConfigurationView implements DomNodeInterface
 
     public FtpConfigurationInterface getFtpConfigurationInterface()
     {
-        return ftpConfigurationInterface;
+        return this.ftpConfigurationInterface;
     }
 
     public void setFtpConfigurationInterface(FtpConfigurationInterface ftpConfigurationInterface)

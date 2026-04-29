@@ -29,12 +29,12 @@ public class CacheType
 
     public String getVendor()
     {
-        return vendor;
+        return this.vendor;
     }
 
     public String getType()
     {
-        return type;
+        return this.type;
     }
     
    @Override

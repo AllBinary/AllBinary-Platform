@@ -140,7 +140,7 @@ public class BasketRequestHelper
          //int index = 2;
          BasketInterface basket = this.weblisketSession.getOrder().getBasket();
          
-         if(this.id!=null && num!=null) basket.adjustItem(this.id,num);
+         if(this.id!=null && this.num!=null) basket.adjustItem(this.id,this.num);
          /*
          while(index < this.MAX)
          {

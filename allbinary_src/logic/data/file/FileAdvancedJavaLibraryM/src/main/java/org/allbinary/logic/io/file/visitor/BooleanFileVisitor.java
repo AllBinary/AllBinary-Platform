@@ -59,7 +59,7 @@ public class BooleanFileVisitor
 
    public BasicArrayList getFilterStringBasicArrayList()
    {
-      return filterStringBasicArrayList;
+      return this.filterStringBasicArrayList;
    }
 
    public void setFilterStringBasicArrayList(BasicArrayList filterStringBasicArrayList)

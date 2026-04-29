@@ -76,7 +76,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
    
    public Vector getAdministrators() throws Exception
    {
-      return getUsersWithRole(UserRoleFactory.getInstance().ADMINISTRATOR);
+      return this.getUsersWithRole(UserRoleFactory.getInstance().ADMINISTRATOR);
    }
 
    public Vector getStoreManagers(StoreFrontInterface storeFrontInterface) throws Exception
@@ -102,7 +102,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
    
    public Vector getCustomers() throws Exception
    {
-      return getUsersWithRole(UserRoleFactory.getInstance().CUSTOMER);
+      return this.getUsersWithRole(UserRoleFactory.getInstance().CUSTOMER);
    }
 
    public Vector getUsersWithRole(UserRole userRole) throws Exception

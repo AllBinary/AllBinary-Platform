@@ -68,7 +68,7 @@ public class GenericProfileAction
     
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
     public void setName(String name)
@@ -102,7 +102,7 @@ public class GenericProfileAction
 
     public GenericProfileActionScript getGenericProfileActionScript()
     {
-        return genericProfileActionScript;
+        return this.genericProfileActionScript;
     }
 
     public void setGenericProfileActionScript(GenericProfileActionScript genericProfileActionScript)

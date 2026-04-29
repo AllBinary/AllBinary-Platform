@@ -170,7 +170,7 @@ public class InputAutomationConfiguration
     
     public boolean isInstalled()
     {
-        return installed;
+        return this.installed;
     }
     
     public void setInstalled(boolean installed)
@@ -183,7 +183,7 @@ public class InputAutomationConfiguration
      * @return the inputAutomationModuleConfigurationList
      */
     public List<InputAutomationModuleConfiguration> getInputAutomationModuleConfigurationList() {
-        return inputAutomationModuleConfigurationList;
+        return this.inputAutomationModuleConfigurationList;
     }
 
     public void save()

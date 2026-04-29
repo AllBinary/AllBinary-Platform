@@ -179,12 +179,12 @@ public class Money
    
    public long getUnits()
    {
-      return units.longValue();
+      return this.units.longValue();
    }
 
    public Long getUnitsLong()
    {
-      return units;
+      return this.units;
    }
    
    public String toString()

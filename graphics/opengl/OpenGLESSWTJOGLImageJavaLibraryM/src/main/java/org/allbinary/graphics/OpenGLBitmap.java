@@ -19,7 +19,7 @@ public class OpenGLBitmap extends PlatformBitmapBase {
     }
 
     public Image getImage() {
-        return image;
+        return this.image;
     }
 
     public int getDepth() {
@@ -57,6 +57,6 @@ public class OpenGLBitmap extends PlatformBitmapBase {
     }
     
     public void recycle() {
-        DisposalUtil.getInstance().disposeImage(image);
+        DisposalUtil.getInstance().disposeImage(this.image);
     }
 }

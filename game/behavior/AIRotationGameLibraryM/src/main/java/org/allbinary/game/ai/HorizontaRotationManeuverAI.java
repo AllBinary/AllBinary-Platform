@@ -119,7 +119,7 @@ implements ArtificialIntelligenceTransitionInterface
         {
             super.processKeyAI(Canvas.UP);
 
-            velocityInterface.limitMaxXYVelocity(
+            this.velocityInterface.limitMaxXYVelocity(
                     this.velocityInterface.getMaxForwardVelocity() / this.currentSpeedDivisor);
         }
 
@@ -161,7 +161,7 @@ implements ArtificialIntelligenceTransitionInterface
     {
         if (this.currentSpeedDivisor > 1)
         {
-            currentSpeedDivisor--;
+            this.currentSpeedDivisor--;
         }
     }
 

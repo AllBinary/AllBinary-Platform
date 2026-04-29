@@ -29,11 +29,11 @@ public class Portion
 
     public Integer getCurrent()
     {
-        return current;
+        return this.current;
     }
 
     public Integer getTotal()
     {
-        return total;
+        return this.total;
     }
 }

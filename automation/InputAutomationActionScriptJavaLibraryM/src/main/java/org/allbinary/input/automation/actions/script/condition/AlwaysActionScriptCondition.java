@@ -84,7 +84,7 @@ public class AlwaysActionScriptCondition
 
     public boolean isIsOn()
     {
-        return isOn;
+        return this.isOn;
     }
 
     public void setIsOn(boolean isOn)

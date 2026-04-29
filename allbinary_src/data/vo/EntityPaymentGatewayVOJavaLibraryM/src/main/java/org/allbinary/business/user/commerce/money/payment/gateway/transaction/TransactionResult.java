@@ -67,12 +67,12 @@ public class TransactionResult implements TransactionResultInterface
    
    public String toString()
    {
-      return result;
+      return this.result;
    }
    
    public HashMap toHashMap()
    {
-      return keyValuePairs;
+      return this.keyValuePairs;
    }
    
    private Vector getAllPossibleKeys()

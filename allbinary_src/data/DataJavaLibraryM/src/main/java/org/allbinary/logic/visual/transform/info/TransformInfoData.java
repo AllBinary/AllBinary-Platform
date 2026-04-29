@@ -47,6 +47,6 @@ public final String PARENT = "TRANSFORM_INFO_PARENT";
    public final String LABEL = "TRANSFORM_INFO_LABEL";
 
    //
-   public final String OWNER = "OWNER_" + NAME;
-   public final String PARTIAL = "PARTIAL_" + NAME;
+   public final String OWNER = "OWNER_" + this.NAME;
+   public final String PARTIAL = "PARTIAL_" + this.NAME;
 }

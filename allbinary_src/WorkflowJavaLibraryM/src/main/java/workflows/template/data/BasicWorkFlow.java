@@ -51,7 +51,7 @@ public class BasicWorkFlow implements WorkFlowInterface
       this.pageContext = pageContext;
       
       this.validationDomNodeInterface = (ValidationComponentInterface)
-         TransformFactory.getInstance().getInstance(abeClientInformation, propertiesHashMap, pageContext);
+         TransformFactory.getInstance().getInstance(this.abeClientInformation, propertiesHashMap, pageContext);
    }
 
    public String getName() throws Exception

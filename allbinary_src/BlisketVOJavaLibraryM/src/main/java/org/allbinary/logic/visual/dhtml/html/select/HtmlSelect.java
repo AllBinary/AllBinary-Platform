@@ -142,7 +142,7 @@ public class HtmlSelect extends HtmlTag
          result += " " + this.multiple + " ";
       
       result += this.END;
-      result += getOptions();
+      result += this.getOptions();
       result += this.ENDSELECT;
       result += this.after;
       return result;

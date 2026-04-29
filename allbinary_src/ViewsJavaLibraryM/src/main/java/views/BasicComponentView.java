@@ -54,12 +54,12 @@ public class BasicComponentView implements TransformInterface
    
    public int getTypeId()
    {
-	   return NO_TYPE;
+	   return this.NO_TYPE;
    }
    
    public TransformDocumentInterface getTransformDocumentInterface()
    {
-      return transformDocumentInterface;
+      return this.transformDocumentInterface;
    }
 
    public void setTransformDocumentInterface(TransformDocumentInterface transformDocumentInterface)
@@ -69,7 +69,7 @@ public class BasicComponentView implements TransformInterface
 
    public TransformInfoInterface getTransformInfoInterface()
    {
-      return transformInfoInterface;
+      return this.transformInfoInterface;
    }
 
    public void setTransformInfoInterface(TransformInfoInterface transformInfoInterface)

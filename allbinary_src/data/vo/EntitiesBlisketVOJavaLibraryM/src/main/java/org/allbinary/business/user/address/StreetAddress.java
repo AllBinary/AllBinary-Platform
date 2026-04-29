@@ -215,7 +215,7 @@ public class StreetAddress
    
    public boolean isDefault()
    {
-      return isDefault;
+      return this.isDefault;
    }
 
    public Boolean isEmpty()

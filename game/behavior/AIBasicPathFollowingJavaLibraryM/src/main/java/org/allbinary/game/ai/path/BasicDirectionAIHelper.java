@@ -125,7 +125,7 @@ public class BasicDirectionAIHelper
 
    protected AngleInfo getAngleInfoP()
    {
-      return angleInfo;
+      return this.angleInfo;
    }
 
 //   protected void setAngleInfo(AngleInfo angleInfo)
@@ -135,7 +135,7 @@ public class BasicDirectionAIHelper
    
    public String getName()
    {
-      return name;
+      return this.name;
    }
 
 //   public void setName(String name)

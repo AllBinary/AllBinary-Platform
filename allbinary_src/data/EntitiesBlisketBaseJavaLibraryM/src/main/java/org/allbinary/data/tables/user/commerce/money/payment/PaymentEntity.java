@@ -59,7 +59,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
             whereKeyAndValue.put(UserData.USERNAME, userName);
 
             //remove old default value if it exist
-            PaymentInterface paymentInterface = getDefault(userName);
+            PaymentInterface paymentInterface = this.getDefault(userName);
             if(paymentInterface != null)
             {
                 updateKeyAndValue.put(EntryData.getInstance().DEFAULT, StringUtil.getInstance().EMPTY_STRING);

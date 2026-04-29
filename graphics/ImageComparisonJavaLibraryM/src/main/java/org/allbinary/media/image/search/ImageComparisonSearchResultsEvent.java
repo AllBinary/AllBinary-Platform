@@ -28,7 +28,7 @@ public class ImageComparisonSearchResultsEvent extends AllBinaryEventObject
 
    public ImageComparisonSearch getImageComparisonSearch()
    {
-      return imageComparisonSearch;
+      return this.imageComparisonSearch;
    }
 
    private void setImageComparisonSearch(ImageComparisonSearch imageComparisonSearch)

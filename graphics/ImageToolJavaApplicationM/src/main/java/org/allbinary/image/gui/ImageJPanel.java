@@ -31,7 +31,7 @@ public class ImageJPanel extends javax.swing.JPanel {
     private BufferedImage bufferedImage;
 
     public ImageJPanel(BufferedImage bufferedImage) {
-        initComponents();
+        this.initComponents();
 
         this.bufferedImage = bufferedImage;
         this.setSize(this.bufferedImage.getWidth(null),

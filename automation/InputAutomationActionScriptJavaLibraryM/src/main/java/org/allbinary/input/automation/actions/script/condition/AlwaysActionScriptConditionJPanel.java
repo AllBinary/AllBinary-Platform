@@ -35,7 +35,7 @@ public class AlwaysActionScriptConditionJPanel
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
-        initComponents();
+        this.initComponents();
         
         this.alwaysActionScriptConditionInterface = alwaysActionScriptConditionInterface;
         
@@ -72,7 +72,7 @@ public class AlwaysActionScriptConditionJPanel
 
     public javax.swing.JDialog getAlwaysActionJDialog()
     {
-        return alwaysActionJDialog;
+        return this.alwaysActionJDialog;
     }
 
     public void setAlwaysActionJDialog(javax.swing.JDialog alwaysActionJDialog)
@@ -100,7 +100,7 @@ public class AlwaysActionScriptConditionJPanel
         this.titleJLabel.setText("Always Condition Options");
 
         this.okJButton.setText("OK");
-        okJButton.addActionListener(new java.awt.event.ActionListener()
+        this.okJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -147,7 +147,7 @@ public class AlwaysActionScriptConditionJPanel
 
         setMinimumSize(new java.awt.Dimension(100, 0));
         this.alwaysActionJButton.setText("Edit");
-        alwaysActionJButton.addActionListener(new java.awt.event.ActionListener()
+        this.alwaysActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {

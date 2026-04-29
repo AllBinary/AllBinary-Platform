@@ -186,6 +186,6 @@ public class InventoryItemView extends HttpStoreComponentView
 
     public HashMap getRequestHashMap()
     {
-        return requestHashMap;
+        return this.requestHashMap;
     }
 }

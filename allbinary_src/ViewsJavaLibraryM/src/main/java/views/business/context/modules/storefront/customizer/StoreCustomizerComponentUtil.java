@@ -67,7 +67,7 @@ public class StoreCustomizerComponentUtil
                 this.logUtil.putF("View or component that was modified by a Customizer: " + nextTransformInfoInterface.getName(),this, "generateModifiedViews()");
             }
 
-            generate(abeClientInformation, transformInfoInterface, allViewsToBeModified);
+            this.generate(abeClientInformation, transformInfoInterface, allViewsToBeModified);
         }
         return StringUtil.getInstance().EMPTY_STRING;
     }

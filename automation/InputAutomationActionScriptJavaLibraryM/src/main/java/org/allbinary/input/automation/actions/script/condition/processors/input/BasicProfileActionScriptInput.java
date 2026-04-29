@@ -88,7 +88,7 @@ public class BasicProfileActionScriptInput
 
     public int getTime()
     {
-        return time;
+        return this.time;
     }
 
     public void setTime(int time)
@@ -133,7 +133,7 @@ public class BasicProfileActionScriptInput
     
     public InputRobotInterface getInputRobotInterface()
     {
-        return inputRobotInterface;
+        return this.inputRobotInterface;
     }
     
    public String toString()

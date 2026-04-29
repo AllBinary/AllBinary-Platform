@@ -32,7 +32,7 @@ public class Monitor implements HardwareComponentInterface, MonitorInterface
     
     public String toString()
     {
-       return data;        
+       return this.data;        
     }
     
 }

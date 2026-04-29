@@ -33,14 +33,14 @@ public class FileJDialog extends javax.swing.JDialog
     public FileJDialog()
     {
         super();
-        initComponents();
+        this.initComponents();
         this.getJFileChooser1().setMultiSelectionEnabled(true);
     }
     
     public FileJDialog(java.awt.Frame parent, boolean modal)
     {
         super(parent, modal);
-        initComponents();
+        this.initComponents();
         this.getJFileChooser1().setMultiSelectionEnabled(true);
     }
     
@@ -61,7 +61,7 @@ public class FileJDialog extends javax.swing.JDialog
         this.jFileChooser1 = new javax.swing.JFileChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        jFileChooser1.addActionListener(new java.awt.event.ActionListener()
+        this.jFileChooser1.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -129,7 +129,7 @@ public class FileJDialog extends javax.swing.JDialog
    
    public javax.swing.JFileChooser getJFileChooser1()
    {
-       return jFileChooser1;
+       return this.jFileChooser1;
    }
    
    public void setJFileChooser1(javax.swing.JFileChooser jFileChooser1)

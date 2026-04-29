@@ -36,7 +36,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
    {
       super(transformInfoInterface);
             
-      this.workFlowInterface = NewWorkFlowFactory.getInstance().getInstance(abeClientInformation, this.getPropertiesHashMap(), this.getPageContext());
+      this.workFlowInterface = NewWorkFlowFactory.getInstance().getInstance(this.abeClientInformation, this.getPropertiesHashMap(), this.getPageContext());
    }
    
    public Boolean isValid()

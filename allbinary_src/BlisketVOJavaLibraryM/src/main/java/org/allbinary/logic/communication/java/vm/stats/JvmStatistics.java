@@ -24,7 +24,7 @@ public class JvmStatistics
 
    public long getFreeMemoryBytes()
    {
-      return runtime.freeMemory();
+      return this.runtime.freeMemory();
    }
 
    public long getFreeMemoryKilobytes()
@@ -39,7 +39,7 @@ public class JvmStatistics
 
    public long getMaxMemoryBytes()
    {
-      return runtime.maxMemory();
+      return this.runtime.maxMemory();
    }
 
    public long getMaxMemoryKilobytes()
@@ -54,7 +54,7 @@ public class JvmStatistics
 
    public long getTotalMemoryBytes()
    {
-      return runtime.totalMemory();
+      return this.runtime.totalMemory();
    }
 
    public long getTotalMemoryKilobytes()

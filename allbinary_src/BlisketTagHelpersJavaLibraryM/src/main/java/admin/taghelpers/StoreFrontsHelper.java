@@ -154,7 +154,7 @@ public class StoreFrontsHelper extends BasicTable
             Vector storeNamesVector = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().getStoreFrontNames();
 
             HtmlSelect storeSelect = new HtmlSelect(
-                StringUtil.getInstance().EMPTY_STRING, commonPhoneStrings.ONE, 
+                StringUtil.getInstance().EMPTY_STRING, this.commonPhoneStrings.ONE, 
                 StoreFrontData.getInstance().SELECTSTORENAME, 
                 StringUtil.getInstance().EMPTY_STRING);
 

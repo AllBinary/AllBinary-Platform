@@ -68,7 +68,7 @@ public class InsertThemeValidationView extends ThemeCustomizerView implements Va
          }
 
          ThemeValidation themeValidation = 
-            new ThemeValidation(this.getTransformInfoInterface(), requestHashMap);
+            new ThemeValidation(this.getTransformInfoInterface(), this.requestHashMap);
          
          if(themeValidation.isValid() == Boolean.FALSE)
          {

@@ -129,7 +129,7 @@ public class PaymentTypeUtil {
           stringBuffer.append(this.PAYMENTGATEWAYFILEPATHSTRING);
 
          AbPath abPath = (AbPath)
-            new AbPath(stringBuffer.toString(),SHIPPINGMETHODSFILENAME);
+            new AbPath(stringBuffer.toString(),this.SHIPPINGMETHODSFILENAME);
 
          String data = new CryptFileReader(
             TransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION,

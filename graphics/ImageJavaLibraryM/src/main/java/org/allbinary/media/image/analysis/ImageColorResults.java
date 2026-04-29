@@ -35,7 +35,7 @@ public class ImageColorResults
 
     public ColorRange getColorRange()
     {
-        return colorRange;
+        return this.colorRange;
     }
 
     public void setColorRange(ColorRange colorRange)
@@ -45,7 +45,7 @@ public class ImageColorResults
 
     public ColorAverage getColorAverage()
     {
-        return colorAverage;
+        return this.colorAverage;
     }
 
     public void setColorAverage(ColorAverage colorAverage)

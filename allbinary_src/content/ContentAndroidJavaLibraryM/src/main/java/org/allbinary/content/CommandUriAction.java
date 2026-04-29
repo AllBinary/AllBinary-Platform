@@ -57,7 +57,7 @@ public class CommandUriAction
              * Uri.parse(BrowserLoader.url); intent.setData(uri);
              */
 
-            Intent intent = getIntent(command);
+            Intent intent = this.getIntent(command);
             ResourceUtil.getInstance().getContext().startActivity(intent);
 
         }

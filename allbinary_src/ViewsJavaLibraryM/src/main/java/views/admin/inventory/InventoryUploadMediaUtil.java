@@ -153,18 +153,18 @@ public class InventoryUploadMediaUtil
                     this.logUtil.putF("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
                 }
 
-                mediaUtil.saveImageFile(
-                    originalImageFile, itemInterface.getSmallImage(),
+                this.mediaUtil.saveImageFile(
+                    originalImageFile, this.itemInterface.getSmallImage(),
                     fullPath, mediaData,
                     this.SMALLWIDTH, this.SMALLHEIGHT);
 
-                mediaUtil.saveImageFile(
-                    originalImageFile, itemInterface.getMediumImage(),
+                this.mediaUtil.saveImageFile(
+                    originalImageFile, this.itemInterface.getMediumImage(),
                     fullPath, mediaData,
                     this.MEDIUMWIDTH, this.MEDIUMHEIGHT);
 
-                mediaUtil.saveImageFile(
-                    originalImageFile, itemInterface.getLargeImage(),
+                this.mediaUtil.saveImageFile(
+                    originalImageFile, this.itemInterface.getLargeImage(),
                     fullPath, mediaData,
                     this.LARGEWIDTH, this.LARGEHEIGHT);
             } else
@@ -197,18 +197,18 @@ public class InventoryUploadMediaUtil
                         this.logUtil.putF("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
                     }
 
-                    mediaUtil.saveImageFile(
-                        originalImageFile, itemInterface.getSmallImage(),
+                    this.mediaUtil.saveImageFile(
+                        originalImageFile, this.itemInterface.getSmallImage(),
                         fullPath, defaultMediaData,
                         this.SMALLWIDTH, this.SMALLHEIGHT);
 
-                    mediaUtil.saveImageFile(
-                        originalImageFile, itemInterface.getMediumImage(),
+                    this.mediaUtil.saveImageFile(
+                        originalImageFile, this.itemInterface.getMediumImage(),
                         fullPath, defaultMediaData,
                         this.MEDIUMWIDTH, this.MEDIUMHEIGHT);
 
-                    mediaUtil.saveImageFile(
-                        originalImageFile, itemInterface.getLargeImage(),
+                    this.mediaUtil.saveImageFile(
+                        originalImageFile, this.itemInterface.getLargeImage(),
                         fullPath, defaultMediaData,
                         this.LARGEWIDTH, this.LARGEHEIGHT);
                 } else

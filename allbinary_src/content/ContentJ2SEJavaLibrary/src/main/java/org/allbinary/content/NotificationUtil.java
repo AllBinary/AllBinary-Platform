@@ -54,7 +54,7 @@ public class NotificationUtil
         notification.setLatestEventInfo(
                 context, command.getLabel(), message, pendingIntent);
         
-        notificationManager.notify(TsUtil.getInstance().hashCode(command), notification);
+        this.notificationManager.notify(TsUtil.getInstance().hashCode(command), notification);
 
         //context.startActivity(intent);
     }
