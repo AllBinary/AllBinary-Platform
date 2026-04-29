@@ -56,11 +56,11 @@ public class MyCanvas extends Canvas
     
     public MyCanvas(final String name, final BasicArrayList childNameList)
     {
-        this.logUtil.putF(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR);
 
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.
-        this.displayInfoSingleton.update(this, canvasStrings.CONSTRUCTOR);
+        this.displayInfoSingleton.update(this, this.canvasStrings.CONSTRUCTOR);
 
         this.name = name;
         this.childNameList = childNameList;
@@ -77,13 +77,13 @@ public class MyCanvas extends Canvas
 
         //PreLogUtil.put("New W: " + this.getWidth() + " H: " + this.getHeight() +  " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
 
-        this.displayInfoSingleton.update(this, canvasStrings.SET_FULL_SCREEN_MODE);
+        this.displayInfoSingleton.update(this, this.canvasStrings.SET_FULL_SCREEN_MODE);
     }
 
     @Override
     protected void sizeChanged(int w, int h)
     {
-        this.displayInfoSingleton.update(this, canvasStrings.SIZE_CHANGED);
+        this.displayInfoSingleton.update(this, this.canvasStrings.SIZE_CHANGED);
     }
     
     public Stack<Object> getCommandStack()
@@ -150,7 +150,7 @@ public class MyCanvas extends Canvas
 
     public synchronized void pause()
     {
-        this.logUtil.putF(this.commonStrings.START, this, canvasStrings.PAUSE);
+        this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.PAUSE);
         this.removePauseCommand();
         this.addCommand(MyCommandsFactory.getInstance().RESUME_COMMAND);
         this.setPaused(true);
@@ -158,7 +158,7 @@ public class MyCanvas extends Canvas
 
     public synchronized void unPause()
     {
-        this.logUtil.putF(this.commonStrings.START, this, canvasStrings.UN_PAUSE);
+        this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.UN_PAUSE);
 
         this.removeCommand(MyCommandsFactory.getInstance().RESUME_COMMAND);
         this.addCommand(MyCommandsFactory.getInstance().PAUSE_COMMAND);

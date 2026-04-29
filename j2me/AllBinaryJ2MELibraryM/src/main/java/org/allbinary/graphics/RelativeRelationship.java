@@ -59,7 +59,7 @@ public class RelativeRelationship
    
    public BasicArrayList getTypesAllowedList()
    {
-      return typesAllowedList;
+      return this.typesAllowedList;
    }
 
    public void setTypesAllowedList(BasicArrayList typesAllowedList)

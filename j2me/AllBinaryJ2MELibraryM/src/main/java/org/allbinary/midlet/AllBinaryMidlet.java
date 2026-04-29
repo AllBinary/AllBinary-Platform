@@ -64,7 +64,7 @@ implements CommandListener
 
     public AllBinaryMidlet()
     {
-        this.logUtil.putF(commonStrings.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet");
+        this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet");
     }
 
     protected void setDisplay(final Displayable newDisplay)
@@ -76,14 +76,14 @@ implements CommandListener
             
             if (title != null)
             {
-                this.logUtil.putF(new StringMaker().append(this.SETTING_).append(title).append(this._DISPLAY_).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY);
+                this.logUtil.putF(new StringMaker().append(this.SETTING_).append(title).append(this._DISPLAY_).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, this.SET_DISPLAY);
             }
             else
             {
-                this.logUtil.putF(new StringMaker().append(this.SETTING_NO_TITLE).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY);
+                this.logUtil.putF(new StringMaker().append(this.SETTING_NO_TITLE).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, this.SET_DISPLAY);
             }            
         }
-        final Display display = getDisplay();
+        final Display display = this.getDisplay();
         display.setCurrent(newDisplay);
     }
 
@@ -104,7 +104,7 @@ implements CommandListener
 
     public boolean isDestroyed()
     {
-        return destroyed;
+        return this.destroyed;
     }
 
     @Override

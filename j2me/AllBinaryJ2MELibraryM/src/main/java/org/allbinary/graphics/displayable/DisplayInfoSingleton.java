@@ -94,12 +94,12 @@ public class DisplayInfoSingleton
     
     public int[] getLastHalf()
     {
-        return lastHalf;
+        return this.lastHalf;
     }
 
     public int[] getLast()
     {
-        return last;
+        return this.last;
     }
 
     /**
@@ -107,7 +107,7 @@ public class DisplayInfoSingleton
      */
     public int[] getFull()
     {
-        return full;
+        return this.full;
     }
 
     /**
@@ -115,7 +115,7 @@ public class DisplayInfoSingleton
      */
     public float getScaleLargestTo()
     {
-        return scaleLargestTo;
+        return this.scaleLargestTo;
     }
 
     /**
@@ -142,17 +142,17 @@ public class DisplayInfoSingleton
 
     private void setLastSizeForce(int aLastWidth, int aLastHeight, final String reason) {            
         final StringMaker stringMaker = new StringMaker();
-        this.logUtil.putF(stringMaker.append(CommonLabels.getInstance().START_LABEL).append(reason).toString(), this, SET_LAST_SIZE_METHOD_NAME);
+        this.logUtil.putF(stringMaker.append(CommonLabels.getInstance().START_LABEL).append(reason).toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
 
         final int aFullWidth = aLastWidth;
         final int aFullHeight = aLastHeight;
 
         stringMaker.delete(0, stringMaker.length());
         this.logUtil.putF(stringMaker
-            .append(FULL_WIDTH).appendint(aFullWidth)
-            .append(FULL_HEIGHT).appendint(aFullHeight)
+            .append(this.FULL_WIDTH).appendint(aFullWidth)
+            .append(this.FULL_HEIGHT).appendint(aFullHeight)
             .append(this.toString())
-            .toString(), this, SET_LAST_SIZE_METHOD_NAME);
+            .toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
 
         //this.logUtil.putF("Changing", this, SET_LAST_SIZE_METHOD_NAME);
         final GenericOperatingSystem operatingSystemInterface
@@ -169,7 +169,7 @@ public class DisplayInfoSingleton
                     this.displayRatio = this.scaleLargestTo / aLastHeight;
                     this.ratio = aLastHeight / this.scaleLargestTo;
                     stringMaker.delete(0, stringMaker.length());
-                    this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(this.displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME);
+                    this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(this.displayRatio).toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
                     aLastWidth = (int) (aLastWidth * this.displayRatio);
                     aLastHeight = (int) (aLastHeight * this.displayRatio);
                     this.scalableListener.scale((float) this.ratio);
@@ -183,7 +183,7 @@ public class DisplayInfoSingleton
                     this.displayRatio = this.scaleLargestTo / aLastWidth;
                     this.ratio = aLastWidth / this.scaleLargestTo;
                     stringMaker.delete(0, stringMaker.length());
-                    this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(this.displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME);
+                    this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(this.displayRatio).toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
                     aLastWidth = (int) (aLastWidth * this.displayRatio);
                     aLastHeight = (int) (aLastHeight * this.displayRatio);
                     this.scalableListener.scale((float) this.ratio);
@@ -197,9 +197,9 @@ public class DisplayInfoSingleton
 
         stringMaker.delete(0, stringMaker.length());
         this.logUtil.putF(stringMaker
-            .append(LAST_WIDTH).appendint(aLastWidth)
-            .append(LAST_HEIGHT).appendint(aLastHeight)
-            .toString(), this, SET_LAST_SIZE_METHOD_NAME);
+            .append(this.LAST_WIDTH).appendint(aLastWidth)
+            .append(this.LAST_HEIGHT).appendint(aLastHeight)
+            .toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
 
         this.xOffset = aFullWidth - aLastWidth;
         this.yOffset = aFullHeight - aLastHeight;
@@ -227,7 +227,7 @@ public class DisplayInfoSingleton
         
         SWTJOGLProcessor.getInstance().setCustom(aLastWidth, aLastHeight, this.ratio);
         
-        this.add(SET_LAST_SIZE_METHOD_NAME);
+        this.add(this.SET_LAST_SIZE_METHOD_NAME);
     }
     
     public boolean isPortraitWH(final int lastWidth, final int lastHeight)
@@ -258,9 +258,9 @@ public class DisplayInfoSingleton
     {
         //PreLogUtil.putF("Display Change Event").append(this.toString(), this, commonStrings.UPDATE);
         final StringMaker stringMaker = new StringMaker();
-        this.logUtil.putF(stringMaker.append(this.REASON).append(reason).toString(), this, FIRE_METHOD_NAME);
+        this.logUtil.putF(stringMaker.append(this.REASON).append(reason).toString(), this, this.FIRE_METHOD_NAME);
         stringMaker.delete(0, stringMaker.length());
-        this.logUtil.putF(this.toStringAppend(stringMaker), this, FIRE_METHOD_NAME);
+        this.logUtil.putF(this.toStringAppend(stringMaker), this, this.FIRE_METHOD_NAME);
         this.list.add(reason);
     }
 
@@ -273,7 +273,7 @@ public class DisplayInfoSingleton
             this.list.clear();
         }catch(Exception e)
         {
-            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, FIRE_METHOD_NAME, e);
+            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.FIRE_METHOD_NAME, e);
         }
     }
 
@@ -287,7 +287,7 @@ public class DisplayInfoSingleton
             swtJOGLProcessor.onSurfaceChanged();
         }catch(Exception e)
         {
-            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, FIRE_METHOD_NAME, e);
+            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.FIRE_METHOD_NAME, e);
         }
         
     }
@@ -303,11 +303,11 @@ public class DisplayInfoSingleton
         final StringMaker stringMaker = new StringMaker();
         this.logUtil.putF(stringMaker
                 .append(CommonLabels.getInstance().START_LABEL).append(reason)
-                .append(LAST_WIDTH).appendint(aLastWidth)
-                .append(LAST_HEIGHT).appendint(aLastHeight)
-                .append(commonSeps.SPACE)
+                .append(this.LAST_WIDTH).appendint(aLastWidth)
+                .append(this.LAST_HEIGHT).appendint(aLastHeight)
+                .append(this.commonSeps.SPACE)
                 .append(this.toString())
-                .toString(), this, commonStrings.UPDATE);
+                .toString(), this, this.commonStrings.UPDATE);
 
         if(aLastWidth > 0 && aLastHeight > 0)
         {
@@ -317,7 +317,7 @@ public class DisplayInfoSingleton
             if(this.last[this.WIDTH] != aLastWidth || this.last[this.HEIGHT] != aLastHeight)
             {
                 stringMaker.delete(0, stringMaker.length());        
-                this.logUtil.putF(stringMaker.append(this.UPDATE_FROM_ORIENTATION_CHANGE).toString(), this, commonStrings.UPDATE);
+                this.logUtil.putF(stringMaker.append(this.UPDATE_FROM_ORIENTATION_CHANGE).toString(), this, this.commonStrings.UPDATE);
 
                 final GenericOperatingSystem operatingSystemInterface
                         = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
@@ -342,7 +342,7 @@ public class DisplayInfoSingleton
                             this.ratio = aLastHeight / this.scaleLargestTo;
        
                             stringMaker.delete(0, stringMaker.length()); 
-                            this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(this.displayRatio).toString(), this, commonStrings.UPDATE);
+                            this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(this.displayRatio).toString(), this, this.commonStrings.UPDATE);
                             aLastWidth = (int) (aLastWidth * this.displayRatio);
                             aLastHeight = (int) (aLastHeight * this.displayRatio);
                             this.scalableListener.scale((float) this.ratio);
@@ -353,7 +353,7 @@ public class DisplayInfoSingleton
                         }
                     }else
                     {
-                        this.logUtil.putF("Found Landscape Orientation", this, commonStrings.UPDATE);
+                        this.logUtil.putF("Found Landscape Orientation", this, this.commonStrings.UPDATE);
                         
                         if(aLastWidth > this.scaleLargestTo)
                         {   
@@ -361,7 +361,7 @@ public class DisplayInfoSingleton
                             this.ratio = aLastWidth / this.scaleLargestTo;
                             
                             stringMaker.delete(0, stringMaker.length());
-                            this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(this.displayRatio).toString(), this, commonStrings.UPDATE);
+                            this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(this.displayRatio).toString(), this, this.commonStrings.UPDATE);
                             aLastWidth = (int) (aLastWidth * this.displayRatio);
                             aLastHeight = (int) (aLastHeight * this.displayRatio);
                             this.scalableListener.scale((float) this.ratio);
@@ -375,10 +375,10 @@ public class DisplayInfoSingleton
 
                 stringMaker.delete(0, stringMaker.length());        
                 this.logUtil.putF(
-                        stringMaker.append(UPDATE_FROM_ORIENTATION_CHANGE)
-                        .append(LAST_WIDTH).appendint(aLastWidth)
-                        .append(LAST_HEIGHT).appendint(aLastHeight)
-                        .toString(), this, commonStrings.UPDATE);
+                        stringMaker.append(this.UPDATE_FROM_ORIENTATION_CHANGE)
+                        .append(this.LAST_WIDTH).appendint(aLastWidth)
+                        .append(this.LAST_HEIGHT).appendint(aLastHeight)
+                        .toString(), this, this.commonStrings.UPDATE);
 
                 this.xOffset = aFullWidth - aLastWidth;
                 this.yOffset = aFullHeight - aLastHeight;
@@ -409,7 +409,7 @@ public class DisplayInfoSingleton
 
                 SWTJOGLProcessor.getInstance().setCustom(aLastWidth, aLastHeight, this.ratio);
                 
-                this.add(commonStrings.UPDATE);
+                this.add(this.commonStrings.UPDATE);
                 return;
             }
         }
@@ -462,7 +462,7 @@ public class DisplayInfoSingleton
      */
     public int getTop()
     {
-        return top;
+        return this.top;
     }
 
     /**
@@ -470,7 +470,7 @@ public class DisplayInfoSingleton
      */
     public int getLeft()
     {
-        return left;
+        return this.left;
     }
 
     public int getLastWidth()
@@ -515,7 +515,7 @@ public class DisplayInfoSingleton
     
     public void setCustom(final int width, final int height) {
 
-        this.last[CUSTOM_WIDTH] = width;
+        this.last[this.CUSTOM_WIDTH] = width;
         this.lastHalf[this.CUSTOM_WIDTH] = (this.last[this.CUSTOM_WIDTH] >> 1);
         this.last[this.CUSTOM_HEIGHT] = height;
         this.lastHalf[this.CUSTOM_HEIGHT] = (this.last[this.CUSTOM_HEIGHT] >> 1);
@@ -527,7 +527,7 @@ public class DisplayInfoSingleton
     }
 
     public ScalableListener getScalableListener() {
-        return scalableListener;
+        return this.scalableListener;
     }
 
     /**
@@ -535,7 +535,7 @@ public class DisplayInfoSingleton
      */
     public float getRatio()
     {
-        return ratio;
+        return this.ratio;
     }
 
     /**
@@ -543,7 +543,7 @@ public class DisplayInfoSingleton
      */
     public float getDisplayRatio()
     {
-        return displayRatio;
+        return this.displayRatio;
     }
     
     public void setOffset(int left, int top)
@@ -556,7 +556,7 @@ public class DisplayInfoSingleton
      */
     public int getxOffset()
     {
-        return xOffset;
+        return this.xOffset;
     }
 
     /**
@@ -564,6 +564,6 @@ public class DisplayInfoSingleton
      */
     public int getyOffset()
     {
-        return yOffset;
+        return this.yOffset;
     }
 }

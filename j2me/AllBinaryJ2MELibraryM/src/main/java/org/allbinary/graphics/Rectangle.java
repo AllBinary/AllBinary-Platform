@@ -37,7 +37,7 @@ public class Rectangle
 
    public GPoint getPoint()
    {
-      return point;
+      return this.point;
    }
 
    public void setPoint(final GPoint point)

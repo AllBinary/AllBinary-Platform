@@ -49,7 +49,7 @@ public class SimpleTextPaintable extends Paintable
 
         graphics.setColor(this.getBasicColorP().intValue());
         
-        graphics.drawString(this.text, (width >> 1) - topScoresWidth, myFont.DEFAULT_CHAR_HEIGHT * 3, anchor);    
+        graphics.drawString(this.text, (width >> 1) - topScoresWidth, myFont.DEFAULT_CHAR_HEIGHT * 3, this.anchor);    
     }
 
     @Override
@@ -60,7 +60,7 @@ public class SimpleTextPaintable extends Paintable
 
     private BasicColor getBasicColorP()
     {
-        return basicColor;
+        return this.basicColor;
     }
 
     public void setText(final String text)
@@ -70,6 +70,6 @@ public class SimpleTextPaintable extends Paintable
 
     public String getText()
     {
-        return text;
+        return this.text;
     }    
 }

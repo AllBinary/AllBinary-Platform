@@ -36,7 +36,7 @@ extends V
 
    public int getColumn()
    {
-      return column;
+      return this.column;
    }
 
    /*
@@ -48,7 +48,7 @@ extends V
    
    public int getRow()
    {
-      return row;
+      return this.row;
    }
 
    /*
@@ -88,6 +88,6 @@ extends V
    @Override
    public int getId()
    {
-      return id;
+      return this.id;
    }
 }

@@ -42,7 +42,7 @@ public class CustomGPoint extends GPoint
     @Override
     public int getX()
     {
-        return x;
+        return this.x;
     }
 
     public void setY(int y)
@@ -64,6 +64,6 @@ public class CustomGPoint extends GPoint
     @Override
     public int getZ()
     {
-        return z;
+        return this.z;
     }
 }

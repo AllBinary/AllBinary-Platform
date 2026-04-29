@@ -79,7 +79,7 @@ public class CellPositionFactory
       {
           final CommonStrings commonStrings = CommonStrings.getInstance();
          this.logUtil.put(new StringMaker().append("columns: ").appendint(this.getColumns()).append(" rows: ").appendint(this.getRows()).append(" col: ").appendint(i_column).append(" row: ").appendint(i_row).toString(), this, commonStrings.GET_INSTANCE, e);
-         return NONE;
+         return this.NONE;
       }
    }
 
@@ -102,11 +102,11 @@ public class CellPositionFactory
 
    public int getColumns()
    {
-      return columns;
+      return this.columns;
    }
 
    public int getRows()
    {
-      return rows;
+      return this.rows;
    }
 }
