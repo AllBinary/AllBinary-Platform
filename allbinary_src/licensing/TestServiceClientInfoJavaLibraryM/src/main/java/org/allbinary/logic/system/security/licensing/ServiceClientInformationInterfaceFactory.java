@@ -19,6 +19,6 @@ public class ServiceClientInformationInterfaceFactory {
 
     public static AbeClientInformationInterface getInstance()
     {
-        return instance;
+        return ServiceClientInformationInterfaceFactory.instance;
     }
 }

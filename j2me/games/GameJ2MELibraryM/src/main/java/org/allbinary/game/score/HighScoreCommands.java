@@ -24,7 +24,7 @@ public class HighScoreCommands
      */
     public static HighScoreCommands getInstance()
     {
-        return instance;
+        return HighScoreCommands.instance;
     }
 
     public final Command DISPLAY = new Command("Scores", Command.SCREEN, 1);

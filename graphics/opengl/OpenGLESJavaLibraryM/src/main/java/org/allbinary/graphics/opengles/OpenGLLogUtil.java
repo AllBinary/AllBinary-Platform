@@ -17,7 +17,7 @@ public class OpenGLLogUtil
 
     public static OpenGLLogUtil getInstance()
     {
-        return instance;
+        return OpenGLLogUtil.instance;
     }
     
     private final String MAX_TEXTURE = " Max Texture Size: ";

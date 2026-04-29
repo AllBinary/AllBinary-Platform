@@ -25,7 +25,7 @@ public class AbCryptUtil {
     private static final AbCryptUtil instance = new AbCryptUtil();
     
     public static AbCryptUtil getInstance() {
-        return instance;
+        return AbCryptUtil.instance;
     }
 
     private final StreamUtil streamUtil = StreamUtil.getInstance();

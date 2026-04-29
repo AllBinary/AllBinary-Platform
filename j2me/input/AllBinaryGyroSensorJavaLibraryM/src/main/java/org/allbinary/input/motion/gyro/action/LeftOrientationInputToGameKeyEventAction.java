@@ -24,7 +24,7 @@ public class LeftOrientationInputToGameKeyEventAction extends GameKeyCompleteMot
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return instance;
+        return LeftOrientationInputToGameKeyEventAction.instance;
     }
     
     private LeftOrientationInputToGameKeyEventAction()

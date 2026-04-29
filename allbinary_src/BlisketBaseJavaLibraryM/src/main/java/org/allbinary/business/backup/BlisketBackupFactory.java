@@ -39,7 +39,7 @@ public class BlisketBackupFactory
 
     public static BlisketBackupFactory getInstance()
     {
-        return instance;
+        return BlisketBackupFactory.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

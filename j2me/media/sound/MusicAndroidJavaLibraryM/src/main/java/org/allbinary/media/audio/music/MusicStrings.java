@@ -26,7 +26,7 @@ public class MusicStrings {
      */
     public static MusicStrings getInstance()
     {
-        return instance;
+        return MusicStrings.instance;
     }
     
     

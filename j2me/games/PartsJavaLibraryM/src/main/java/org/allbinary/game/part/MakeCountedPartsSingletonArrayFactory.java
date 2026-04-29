@@ -28,7 +28,7 @@ public class MakeCountedPartsSingletonArrayFactory
     private static final MakeCountedPartsSingletonArrayFactory instance = new MakeCountedPartsSingletonArrayFactory();
 
     public static MakeCountedPartsSingletonArrayFactory getInstance() {
-        return instance;
+        return MakeCountedPartsSingletonArrayFactory.instance;
     }
 
     protected final LogUtil logUtil = LogUtil.getInstance();

@@ -39,7 +39,7 @@ public class BuildingPropertiesFactory {
      * @return the instance
      */
     public static BuildingPropertiesFactory getInstance() {
-        return instance;
+        return BuildingPropertiesFactory.instance;
     }
 
     public int getEfficiencyPerLevel(final BuildingLayer buildingLayer) {

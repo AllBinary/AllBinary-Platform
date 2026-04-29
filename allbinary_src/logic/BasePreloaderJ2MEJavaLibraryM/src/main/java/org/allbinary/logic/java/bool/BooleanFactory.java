@@ -19,7 +19,7 @@ public class BooleanFactory
 
     public static BooleanFactory getInstance()
     {
-        return instance;
+        return BooleanFactory.instance;
     }
 
     //public final Boolean TRUE = Boolean.TRUE;

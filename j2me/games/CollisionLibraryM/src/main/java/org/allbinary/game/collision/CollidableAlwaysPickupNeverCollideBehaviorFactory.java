@@ -20,6 +20,6 @@ public class CollidableAlwaysPickupNeverCollideBehaviorFactory
     
     public static CollidableAlwaysPickupNeverCollideBehavior getInstance()
     {
-        return instance;
+        return CollidableAlwaysPickupNeverCollideBehaviorFactory.instance;
     }
 }

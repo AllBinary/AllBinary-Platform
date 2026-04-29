@@ -27,7 +27,7 @@ public class DisplayPointScalar {
      * @return the instance
      */
     public static DisplayPointScalar getInstance() {
-        return instance;
+        return DisplayPointScalar.instance;
     }
     
     public GPoint process(final GPoint point) {

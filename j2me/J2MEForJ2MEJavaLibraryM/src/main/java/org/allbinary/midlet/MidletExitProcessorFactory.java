@@ -29,7 +29,7 @@ public class MidletExitProcessorFactory
      */
     public static MidletExitProcessorFactory getInstance()
     {
-        return instance;
+        return MidletExitProcessorFactory.instance;
     }
 
     public Processor getExitInstance(MIDlet midlet)

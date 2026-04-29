@@ -23,7 +23,7 @@ public class MediaPlayerUtil
     private static final MediaPlayerUtil instance = new MediaPlayerUtil();
     
     public static MediaPlayerUtil getInstance() {
-        return instance;
+        return MediaPlayerUtil.instance;
     }
     
     public void wait(MediaPlayer mediaPlayer) throws Exception

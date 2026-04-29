@@ -25,7 +25,7 @@ public class RendererStrings {
      * @return the instance
      */
     public static RendererStrings getInstance() {
-        return instance;
+        return RendererStrings.instance;
     }
     
     public final String ON_SURFACE_CREATED = "onSurfaceCreated";

@@ -31,7 +31,7 @@ public class ColorAttributePointerVBOOpenGLProcessor extends ObjectThreedOpenGLP
      * @return the instance
      */
     public static ColorAttributePointerVBOOpenGLProcessor getInstance() {
-        return instance;
+        return ColorAttributePointerVBOOpenGLProcessor.instance;
     }
 
     public ColorAttributePointerVBOOpenGLProcessor()

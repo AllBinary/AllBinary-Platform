@@ -19,7 +19,7 @@ public class CustomItemUtil
 
     public static CustomItemUtil getInstance()
     {
-        return instance;
+        return CustomItemUtil.instance;
     }
     
     public final CustomItem[] CUSTOM_ITEM_ARRAY = new CustomItem[0];

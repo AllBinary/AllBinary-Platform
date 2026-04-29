@@ -25,7 +25,7 @@ public class ImageJ2SERotationUtil
      * @return the instance
      */
     public static ImageJ2SERotationUtil getInstance() {
-        return instance;
+        return ImageJ2SERotationUtil.instance;
     }
    
     private final ImageUtil imageUtil = ImageUtil.getInstance();

@@ -22,7 +22,7 @@ public class FileFactory {
      */
     public static FileFactory getInstance()
     {
-        return instance;
+        return FileFactory.instance;
     }
 
     public AbFile getInstance(String filePath) throws Exception

@@ -18,7 +18,7 @@ public class ThemesData
 	private static final ThemesData instance = new ThemesData();
 
 	   public static ThemesData getInstance() {
-			return instance;
+			return ThemesData.instance;
 		}
 	
    private ThemesData()

@@ -27,7 +27,7 @@ public class InGameMenuBehavior extends BaseMenuBehavior {
      * @return the instance
      */
     public static InGameMenuBehavior getInstance() {
-        return instance;
+        return InGameMenuBehavior.instance;
     }    
     
     @Override

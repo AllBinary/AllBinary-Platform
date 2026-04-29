@@ -25,7 +25,7 @@ public class CommonButtons
 
     public static CommonButtons getInstance()
     {
-        return instance;
+        return CommonButtons.instance;
     }
     
     public final int STANDARD_BUTTON_SIZE;

@@ -23,7 +23,7 @@ public class CurrentlyPressedTouchButtonSingleton
     
     public static CurrentlyPressedTouchButtonSingleton getInstance()
     {
-        return instance;
+        return CurrentlyPressedTouchButtonSingleton.instance;
     }
     
     protected final BasicArrayList list = new BasicArrayListD();

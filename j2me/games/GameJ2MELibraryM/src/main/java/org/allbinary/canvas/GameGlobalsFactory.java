@@ -28,7 +28,7 @@ public class GameGlobalsFactory {
      * @return the instance
      */
     public static GameGlobalsFactory getInstance() {
-        return instance;
+        return GameGlobalsFactory.instance;
     }
 
     public boolean newCanvas = true;

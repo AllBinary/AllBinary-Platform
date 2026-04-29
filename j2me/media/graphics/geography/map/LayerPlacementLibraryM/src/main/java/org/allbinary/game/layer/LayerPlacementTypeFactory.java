@@ -22,7 +22,7 @@ public class LayerPlacementTypeFactory
     
     public static LayerPlacementTypeFactory getInstance()
     {
-        return instance;
+        return LayerPlacementTypeFactory.instance;
     }    
     
     public final LayerPlacementType MAP =

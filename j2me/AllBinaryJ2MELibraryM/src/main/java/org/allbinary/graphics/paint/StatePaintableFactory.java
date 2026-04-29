@@ -19,6 +19,6 @@ public class StatePaintableFactory
 
     public static StatePaintable getInstance()
     {
-        return instance;
+        return StatePaintableFactory.instance;
     }
 }

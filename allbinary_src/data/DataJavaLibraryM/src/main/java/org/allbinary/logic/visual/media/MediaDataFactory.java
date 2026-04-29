@@ -18,7 +18,7 @@ public class MediaDataFactory {
 	private static final MediaDataFactory instance = new MediaDataFactory();
 	
 	public static MediaDataFactory getInstance() {
-		return instance;
+		return MediaDataFactory.instance;
 	}
 
 	   public final MediaData AVI = new MediaData("avi");

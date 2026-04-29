@@ -19,7 +19,7 @@ public class AcceptableResponseFactory
 
     public static AcceptableResponseFactory getInstance()
     {
-        return instance;
+        return AcceptableResponseFactory.instance;
     }
 
     public final AcceptableResponse HTML = new AcceptableResponse("text/html", "html", 0);

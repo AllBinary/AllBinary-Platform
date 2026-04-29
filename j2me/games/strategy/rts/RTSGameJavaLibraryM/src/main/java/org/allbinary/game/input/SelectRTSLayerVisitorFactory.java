@@ -24,7 +24,7 @@ implements SelectRTSLayerVisitorFactoryInterface
     
     public static SelectRTSLayerVisitorFactory getInstance()
     {
-        return instance;
+        return SelectRTSLayerVisitorFactory.instance;
     }
     
     private SelectRTSLayerVisitorFactory()

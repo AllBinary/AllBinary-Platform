@@ -23,7 +23,7 @@ public class InitInfo2
 
     public static InitInfo2 getInstance()
     {
-        return instance;
+        return InitInfo2.instance;
     }
 
     private final Directory directory = Directory.getInstance();

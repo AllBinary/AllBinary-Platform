@@ -18,7 +18,7 @@ public class ByteUtil
    private static final ByteUtil instance = new ByteUtil();
    
    public static final ByteUtil getInstance() {
-       return instance;
+       return ByteUtil.instance;
    }
 
    private ByteUtil()

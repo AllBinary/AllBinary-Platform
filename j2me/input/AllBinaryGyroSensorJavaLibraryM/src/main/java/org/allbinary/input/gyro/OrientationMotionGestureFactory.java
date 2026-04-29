@@ -23,7 +23,7 @@ public class OrientationMotionGestureFactory
 
     public static final OrientationMotionGestureFactory getInstance()
     {
-        return instance;
+        return OrientationMotionGestureFactory.instance;
     }
 
     public final MotionGestureInput LEFT;

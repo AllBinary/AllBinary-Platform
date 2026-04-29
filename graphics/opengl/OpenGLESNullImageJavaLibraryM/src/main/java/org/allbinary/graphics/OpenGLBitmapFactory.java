@@ -21,7 +21,7 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
      * @return the instance
      */
     public static OpenGLBitmapFactory getInstance() {
-        return instance;
+        return OpenGLBitmapFactory.instance;
     }
 
     public class Config {

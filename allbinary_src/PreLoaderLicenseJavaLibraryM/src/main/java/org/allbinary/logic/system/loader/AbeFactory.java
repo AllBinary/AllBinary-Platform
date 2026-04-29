@@ -30,7 +30,7 @@ public class AbeFactory
 	private static final AbeFactory instance = new AbeFactory();
 	
         public static AbeFactory getInstance() {
-            return instance;
+            return AbeFactory.instance;
         }
         
    private boolean useCustomLoader = false;

@@ -6,7 +6,7 @@ public class ScreenInfo
 
     public static ScreenInfo getInstance()
     {
-        return instance;
+        return ScreenInfo.instance;
     }
     
     public final int SMALL_WIDTH = 320;

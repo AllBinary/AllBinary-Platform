@@ -39,7 +39,7 @@ public class VisibleCellPositionsSingleton
 
     public static VisibleCellPositionsSingleton getInstance()
     {
-        return instance;
+        return VisibleCellPositionsSingleton.instance;
     }
 
     private short[][] stationaryVisibleCellPositions = NullUtil.getInstance().NULL_SHORT_ARRAY_ARRAY;

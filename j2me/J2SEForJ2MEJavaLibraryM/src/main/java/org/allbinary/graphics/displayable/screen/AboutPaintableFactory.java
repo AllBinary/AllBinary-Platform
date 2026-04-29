@@ -31,7 +31,7 @@ public class AboutPaintableFactory {
      * @return the instance
      */
     public static AboutPaintableFactory getInstance() {
-        return instance;
+        return AboutPaintableFactory.instance;
     }
 
     private AboutPaintableFactory() {

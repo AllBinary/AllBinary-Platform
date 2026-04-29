@@ -30,7 +30,7 @@ public class TransformGeneratorUtil {
     private static final TransformGeneratorUtil instance = new TransformGeneratorUtil();
 
     public static TransformGeneratorUtil getInstance() {
-        return instance;
+        return TransformGeneratorUtil.instance;
     }
     
     private TransformGeneratorUtil() {

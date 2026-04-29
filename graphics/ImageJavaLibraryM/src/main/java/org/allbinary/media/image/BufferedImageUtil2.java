@@ -11,7 +11,7 @@ public class BufferedImageUtil2 {
      * @return the instance
      */
     public static BufferedImageUtil2 getInstance() {
-        return instance;
+        return BufferedImageUtil2.instance;
     }
     
     private final ImageUtil imageUtil = ImageUtil.getInstance();

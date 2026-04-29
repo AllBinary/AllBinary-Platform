@@ -32,7 +32,7 @@ public class AbFileUploadFactory
     private static final AbFileUploadFactory instance = new AbFileUploadFactory();
 
     public static AbFileUploadFactory getInstance() {
-        return instance;
+        return AbFileUploadFactory.instance;
     }
     
     private AbFileUploadFactory()

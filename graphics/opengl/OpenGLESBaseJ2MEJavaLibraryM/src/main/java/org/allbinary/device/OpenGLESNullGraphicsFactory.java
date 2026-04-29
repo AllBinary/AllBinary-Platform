@@ -6,6 +6,6 @@ public class OpenGLESNullGraphicsFactory
 
     public static OpenGLESGraphics getInstance()
     {
-        return instance;
+        return OpenGLESNullGraphicsFactory.instance;
     }
 }

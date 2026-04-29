@@ -19,7 +19,7 @@ public class BasicUserRoleFactory
 
     public static BasicUserRoleFactory getInstance()
     {
-        return instance;
+        return BasicUserRoleFactory.instance;
     }
     //60000 = 1 min
     //600000 = 10 min

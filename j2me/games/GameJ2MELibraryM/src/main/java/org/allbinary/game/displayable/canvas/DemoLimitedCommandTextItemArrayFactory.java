@@ -26,7 +26,7 @@ public class DemoLimitedCommandTextItemArrayFactory
 
     public static DemoLimitedCommandTextItemArrayFactory getInstance()
     {
-        return instance;
+        return DemoLimitedCommandTextItemArrayFactory.instance;
     }
 
     public CommandTextItemArrayFactory getCommandTextItemArrayFactory()

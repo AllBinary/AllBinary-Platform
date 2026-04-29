@@ -6,7 +6,7 @@ public class MultiPlayerGameFeatureFactory
     
     public static MultiPlayerGameFeatureFactory getInstance()
     {
-        return instance;
+        return MultiPlayerGameFeatureFactory.instance;
     }
     
     private MultiPlayerGameFeatureFactory()

@@ -24,7 +24,7 @@ public class RandomRotationFactory
     
     public static RandomRotationFactory getInstance()
     {
-        return instance;
+        return RandomRotationFactory.instance;
     }
 
     private final MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();

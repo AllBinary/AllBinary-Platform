@@ -19,7 +19,7 @@ public class CharArrayFactory
     
     public static CharArrayFactory getInstance()
     {
-        return instance;
+        return CharArrayFactory.instance;
     }
     
     private final char[] zeroCharArray = new char[0];

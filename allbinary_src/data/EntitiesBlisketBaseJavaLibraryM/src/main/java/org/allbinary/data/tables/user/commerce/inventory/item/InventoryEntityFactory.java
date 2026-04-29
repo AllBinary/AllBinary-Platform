@@ -27,7 +27,7 @@ public class InventoryEntityFactory
      * @return the instance
      */
     public static InventoryEntityFactory getInstance() {
-        return instance;
+        return InventoryEntityFactory.instance;
     }
 
    //private final String CLASSNAME = "org.allbinary.data.tables.InventoryEntity";

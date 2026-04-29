@@ -18,7 +18,7 @@ public class WorkFlowData
 	private static final WorkFlowData instance = new WorkFlowData();
 	
 	   public static WorkFlowData getInstance() {
-			return instance;
+			return WorkFlowData.instance;
 		}
 
    private WorkFlowData()

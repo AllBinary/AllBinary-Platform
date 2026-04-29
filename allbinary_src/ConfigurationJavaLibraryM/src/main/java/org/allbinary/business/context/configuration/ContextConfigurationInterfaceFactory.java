@@ -28,7 +28,7 @@ public class ContextConfigurationInterfaceFactory
      * @return the instance
      */
     public static ContextConfigurationInterfaceFactory getInstance() {
-        return instance;
+        return ContextConfigurationInterfaceFactory.instance;
     }
     
    private ContextConfigurationInterfaceFactory()

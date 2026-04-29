@@ -27,7 +27,7 @@ public class UnitTechnologySingletonFactory {
      */
     public static UnitTechnologySingletonFactory getInstance()
     {
-        return instance;
+        return UnitTechnologySingletonFactory.instance;
     }
 
     private int damage;

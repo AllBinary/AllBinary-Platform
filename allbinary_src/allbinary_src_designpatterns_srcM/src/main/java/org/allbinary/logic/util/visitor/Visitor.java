@@ -29,6 +29,6 @@ public class Visitor implements VisitorInterface
 
     public static Visitor getInstance()
     {
-        return instance;
+        return Visitor.instance;
     }
 }

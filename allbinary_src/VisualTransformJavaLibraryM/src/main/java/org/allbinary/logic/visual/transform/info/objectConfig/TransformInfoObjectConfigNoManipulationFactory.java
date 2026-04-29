@@ -28,7 +28,7 @@ public class TransformInfoObjectConfigNoManipulationFactory
         new TransformInfoObjectConfigNoManipulationFactory();
     
     public static TransformInfoObjectConfigNoManipulationFactory getInstance() {
-        return instance;
+        return TransformInfoObjectConfigNoManipulationFactory.instance;
     }
 
    private TransformInfoObjectConfigNoManipulationFactory()

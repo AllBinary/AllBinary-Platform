@@ -18,7 +18,7 @@ public class LogConfigTypeData
    private static final LogConfigTypeData instance = new LogConfigTypeData();
    
    public static LogConfigTypeData getInstance() {
-		return instance;
+		return LogConfigTypeData.instance;
 	}
    
    private LogConfigTypeData()

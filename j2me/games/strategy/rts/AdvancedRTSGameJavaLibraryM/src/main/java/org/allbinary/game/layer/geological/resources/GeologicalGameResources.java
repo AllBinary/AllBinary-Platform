@@ -58,6 +58,6 @@ public class GeologicalGameResources extends BasicGameResources
 
     public static BasicGameResources getInstance()
     {
-        return instance;
+        return GeologicalGameResources.instance;
     }
 }

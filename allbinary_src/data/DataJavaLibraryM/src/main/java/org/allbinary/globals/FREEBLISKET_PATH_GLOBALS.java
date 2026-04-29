@@ -22,7 +22,7 @@ public class FREEBLISKET_PATH_GLOBALS
 
    public static FREEBLISKET_PATH_GLOBALS getInstance()
    {
-       return instance;
+       return FREEBLISKET_PATH_GLOBALS.instance;
    }
 
    //public static final String SERIALPATH = "serializeddata" + PathData.SEPARATOR;

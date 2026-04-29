@@ -26,7 +26,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     
     public static CurrentlyPressedTouchButtonSingleton getInstance()
     {
-        return instance;
+        return CurrentlyPressedTouchButtonSingletonDebug.instance;
     }
     
     private String string = StringUtil.getInstance().EMPTY_STRING;

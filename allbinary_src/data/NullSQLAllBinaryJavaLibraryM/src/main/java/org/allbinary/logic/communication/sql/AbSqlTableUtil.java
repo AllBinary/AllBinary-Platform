@@ -28,7 +28,7 @@ public class AbSqlTableUtil
      */
     public static AbSqlTableUtil getInstance()
     {
-        return instance;
+        return AbSqlTableUtil.instance;
     }
     
     private final String TABLE_LABEL = "Table: ";

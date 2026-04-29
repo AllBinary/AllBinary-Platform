@@ -27,7 +27,7 @@ public class BasicGroupItemsEntityFactory
      * @return the instance
      */
     public static BasicGroupItemsEntityFactory getInstance() {
-        return instance;
+        return BasicGroupItemsEntityFactory.instance;
     }
 
    //private final String CLASSNAME = "org.allbinary.data.tables.InventoryEntity";

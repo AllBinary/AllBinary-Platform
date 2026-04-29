@@ -29,7 +29,7 @@ public class AlphaProcessor extends ModifierBaseProcessor {
      * @return the instance
      */
     public static AlphaProcessor getInstance() {
-        return instance;
+        return AlphaProcessor.instance;
     }
     
     @Override

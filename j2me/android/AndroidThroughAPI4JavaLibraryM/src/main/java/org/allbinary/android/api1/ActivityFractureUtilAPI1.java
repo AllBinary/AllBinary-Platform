@@ -24,7 +24,7 @@ public class ActivityFractureUtilAPI1 extends ActivityFractureUtil
 
     public static ActivityFractureUtilAPI1 getInstance()
     {
-        return instance;
+        return ActivityFractureUtilAPI1.instance;
     }
     
     //private final int MAX_API = 4;

@@ -18,7 +18,7 @@ public class AdvertisementAreaData
 	private static final AdvertisementAreaData instance = new AdvertisementAreaData();
 
 	   public static AdvertisementAreaData getInstance() {
-			return instance;
+			return AdvertisementAreaData.instance;
 		}
 	
    private AdvertisementAreaData()

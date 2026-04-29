@@ -24,7 +24,7 @@ public class DestroyEventCircularStaticPool {
     
     public static DestroyEventCircularStaticPool getInstance()
     {
-        return instance;
+        return DestroyEventCircularStaticPool.instance;
     }
     
     private AllBinaryEventCircularPool EVENT_POOL = 

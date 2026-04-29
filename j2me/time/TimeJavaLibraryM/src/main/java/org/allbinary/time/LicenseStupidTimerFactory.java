@@ -19,6 +19,6 @@ public class LicenseStupidTimerFactory
     
     public static StupidTimer getInstance()
     {
-        return instance;
+        return LicenseStupidTimerFactory.instance;
     }
 }

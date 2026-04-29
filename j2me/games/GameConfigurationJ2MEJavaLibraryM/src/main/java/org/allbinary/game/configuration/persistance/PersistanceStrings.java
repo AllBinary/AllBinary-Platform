@@ -25,7 +25,7 @@ public class PersistanceStrings {
      * @return the instance
      */
     public static PersistanceStrings getInstance() {
-        return instance;
+        return PersistanceStrings.instance;
     }
 
     public final String SAVING = "Saving: ";

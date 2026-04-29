@@ -27,7 +27,7 @@ public class ScaleBaseProcessor {
      * @return the instance
      */
     public static ScaleBaseProcessor getInstance() {
-        return instance;
+        return ScaleBaseProcessor.instance;
     }
 
     public void update(final Image originalImage, final Image[] originalImageArray, final Image[] imageToShowArray, final int index, final float scaleX, final float scaleY, final float maxScaleX, final float maxScaleY) {

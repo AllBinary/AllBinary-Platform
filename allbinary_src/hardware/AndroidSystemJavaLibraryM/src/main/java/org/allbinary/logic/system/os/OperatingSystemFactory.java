@@ -26,7 +26,7 @@ public class OperatingSystemFactory
 
     public static OperatingSystemFactory getInstance()
     {
-        return instance;
+        return OperatingSystemFactory.instance;
     }
 
     private GenericOperatingSystem genericOperatingSystem = NoOperatingSystem.NO_OPERATING_SYSTEM;

@@ -27,7 +27,7 @@ public class FileUnamedUtil {
      * @return the instance
      */
     public static FileUnamedUtil getInstance() {
-        return instance;
+        return FileUnamedUtil.instance;
     }
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();

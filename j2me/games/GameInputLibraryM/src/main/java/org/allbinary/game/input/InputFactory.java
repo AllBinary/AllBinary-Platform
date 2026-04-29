@@ -26,7 +26,7 @@ public class InputFactory
 
     public static InputFactory getInstance()
     {
-        return instance;
+        return InputFactory.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

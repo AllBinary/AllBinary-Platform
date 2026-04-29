@@ -29,7 +29,7 @@ public class TransformsGeneratorUtil
     private static final TransformsGeneratorUtil instance = new TransformsGeneratorUtil();
 
     public static TransformsGeneratorUtil getInstance() {
-        return instance;
+        return TransformsGeneratorUtil.instance;
     }
         
     private TransformsGeneratorUtil()

@@ -27,7 +27,7 @@ public class OpenGLVersionValidator {
      * @return the instance
      */
     public static OpenGLVersionValidator getInstance() {
-        return instance;
+        return OpenGLVersionValidator.instance;
     }
 
     public boolean isGL31OrHigher() {

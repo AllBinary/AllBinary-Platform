@@ -28,7 +28,7 @@ public class ImageThreadPool extends ThreadPool
 
     public static ThreadPool getInstance()
     {
-        return instance;
+        return ImageThreadPool.instance;
     }
 
     public ImageThreadPool(final String poolName, final int numThreads, final int priority) {

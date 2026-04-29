@@ -21,7 +21,7 @@ public class TouchButtonUpResource extends TouchButtonResource
      * @return the instance
      */
     public static TouchButtonResource getInstance() {
-        return instance;
+        return TouchButtonUpResource.instance;
     }
     
     private TouchButtonUpResource()

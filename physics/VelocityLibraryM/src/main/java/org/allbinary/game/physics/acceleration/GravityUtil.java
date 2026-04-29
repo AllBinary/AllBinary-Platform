@@ -25,7 +25,7 @@ public class GravityUtil
 
     public static GravityUtil getInstance()
     {
-        return instance;
+        return GravityUtil.instance;
     }
 
     public final int GAME_GRAVITY_VELOCITY = 1800; //6900; // 800;

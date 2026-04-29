@@ -20,7 +20,7 @@ public class HttpRequestUtil {
 	private static final HttpRequestUtil instance = new HttpRequestUtil();
 	
 	public static HttpRequestUtil getInstance() {
-		return instance;
+		return HttpRequestUtil.instance;
 	}
 	
 	private HttpRequestUtil() {

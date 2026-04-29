@@ -24,7 +24,7 @@ public class ImageCompleteUtil
      */
     public static ImageCompleteUtil getInstance()
     {
-        return instance;
+        return ImageCompleteUtil.instance;
     }
 
     public void waitFor(Image image, String name)

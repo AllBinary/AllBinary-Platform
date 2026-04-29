@@ -31,7 +31,7 @@ public class MirrorImageUtil
      * @return the instance
      */
     public static MirrorImageUtil getInstance() {
-        return instance;
+        return MirrorImageUtil.instance;
     }
     
     private final ImageUtil imageUtil = ImageUtil.getInstance();

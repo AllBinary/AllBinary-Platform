@@ -13,7 +13,7 @@ public class SqlStrings
      */
     public static SqlStrings getInstance()
     {
-        return instance;
+        return SqlStrings.instance;
     }
     
     public final String CREATE_DATABASE = "CREATE DATABASE ";

@@ -22,7 +22,7 @@ public class AbFileSystem {
      */
     public static AbFileSystem getInstance()
     {
-        return instance;
+        return AbFileSystem.instance;
     }
 
     private final String type = "java.io";

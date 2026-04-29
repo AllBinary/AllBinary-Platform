@@ -27,7 +27,7 @@ public class StoreFrontsEntityFactory
      * @return the instance
      */
     public static StoreFrontsEntityFactory getInstance() {
-        return instance;
+        return StoreFrontsEntityFactory.instance;
     }
 
    //private final String CLASSNAME = "org.allbinary.data.tables.StoreFrontsEntity";

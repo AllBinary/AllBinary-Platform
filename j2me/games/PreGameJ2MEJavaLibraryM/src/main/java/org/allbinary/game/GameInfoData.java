@@ -19,7 +19,7 @@ public class GameInfoData {
             new GameInfoData();
 
     public static GameInfoData getInstance() {
-        return instance;
+        return GameInfoData.instance;
     }
 
     private GameInfoData() {

@@ -33,7 +33,7 @@ public class OpenGLConfiguration
     
     public static OpenGLConfiguration getInstance()
     {
-        return instance;
+        return OpenGLConfiguration.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

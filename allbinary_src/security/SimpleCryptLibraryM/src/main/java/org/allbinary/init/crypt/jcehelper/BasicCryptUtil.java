@@ -30,7 +30,7 @@ public class BasicCryptUtil
      */
     public static BasicCryptUtil getInstance()
     {
-        return instance;
+        return BasicCryptUtil.instance;
     }
 
     private final String XML_START = "<?xml";

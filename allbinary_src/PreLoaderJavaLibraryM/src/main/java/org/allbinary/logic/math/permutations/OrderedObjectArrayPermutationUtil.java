@@ -27,7 +27,7 @@ public class OrderedObjectArrayPermutationUtil {
      * @return the instance
      */
     public static OrderedObjectArrayPermutationUtil getInstance() {
-        return instance;
+        return OrderedObjectArrayPermutationUtil.instance;
     }
 
     private final String TOTAL_ITERATIONS_TABLE = "Total Iterations: ";

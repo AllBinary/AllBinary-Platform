@@ -18,7 +18,7 @@ public class QuoteRequestData
 	private static final QuoteRequestData instance = new QuoteRequestData();
 	
 	   public static QuoteRequestData getInstance() {
-			return instance;
+			return QuoteRequestData.instance;
 		}
 	
    private QuoteRequestData()

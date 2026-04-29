@@ -41,7 +41,7 @@ public class WebCommandProcessor {
      * @return the instance
      */
     public static WebCommandProcessor getInstance() {
-        return instance;
+        return WebCommandProcessor.instance;
     }
 
     private final AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();

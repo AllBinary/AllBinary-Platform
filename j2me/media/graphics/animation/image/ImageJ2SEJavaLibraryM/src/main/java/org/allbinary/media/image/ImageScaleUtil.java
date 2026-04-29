@@ -29,7 +29,7 @@ public class ImageScaleUtil
 
     public static ImageScaleUtil getInstance()
     {
-        return instance;
+        return ImageScaleUtil.instance;
     }
 
     private final ImageUtil imageUtil = ImageUtil.getInstance();

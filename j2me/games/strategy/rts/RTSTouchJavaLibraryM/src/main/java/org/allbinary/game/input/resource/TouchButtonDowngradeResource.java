@@ -29,7 +29,7 @@ public class TouchButtonDowngradeResource extends TouchButtonResource
      * @return the instance
      */
     public static TouchButtonResource getInstance() {
-        return instance;
+        return TouchButtonDowngradeResource.instance;
     }
     
     private TouchButtonDowngradeResource()

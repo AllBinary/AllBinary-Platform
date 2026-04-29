@@ -33,7 +33,7 @@ public class SpriteFactory implements SpriteFactoryInterface {
      * @return the instance
      */
     public static SpriteFactory getInstance() {
-        return instance;
+        return SpriteFactory.instance;
     }
 
     //private final CommonStrings commonStrings = CommonStrings.getInstance();

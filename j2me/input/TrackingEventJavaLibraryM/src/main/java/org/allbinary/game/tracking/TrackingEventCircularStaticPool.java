@@ -23,7 +23,7 @@ public class TrackingEventCircularStaticPool
     
     public static TrackingEventCircularStaticPool getInstance()
     {
-        return instance;
+        return TrackingEventCircularStaticPool.instance;
     }
 
     private AllBinaryEventCircularPool EVENT_POOL = 

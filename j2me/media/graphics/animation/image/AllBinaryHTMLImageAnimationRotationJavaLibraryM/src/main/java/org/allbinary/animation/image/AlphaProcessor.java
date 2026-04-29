@@ -28,7 +28,7 @@ public class AlphaProcessor extends AlphaBaseProcessor {
      * @return the instance
      */
     public static AlphaProcessor getInstance() {
-        return instance;
+        return AlphaProcessor.instance;
     }
     
     @Override

@@ -6,7 +6,7 @@ public class OpenGLStrings
 
     public static OpenGLStrings getInstance()
     {
-        return instance;
+        return OpenGLStrings.instance;
     }
     
     public final String GL_ERROR_LABEL = "GLError: ";

@@ -33,7 +33,7 @@ public class ThreadFactoryUtil
 
     public static ThreadFactoryUtil getInstance()
     {
-        return instance;
+        return ThreadFactoryUtil.instance;
     }
 
     public Thread getInstanceGameCanvasRunnable(final GameCanvasRunnableInterface runnable)

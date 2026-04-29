@@ -60,7 +60,7 @@ public class InventorySearchUtil {
      */
     public static InventorySearchUtil getInstance()
     {
-        return instance;
+        return InventorySearchUtil.instance;
     }
 
     protected final LogUtil logUtil = LogUtil.getInstance();

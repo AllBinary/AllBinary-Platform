@@ -26,7 +26,7 @@ public class OpenGLESGraphicsCompositeFactory {
      */
     public static OpenGLESGraphicsCompositeFactory getInstance()
     {
-        return instance;
+        return OpenGLESGraphicsCompositeFactory.instance;
     }
     
     private OpenGLESGraphicsFactory openGLESGraphicsFactory = new OpenGLESGraphicsFactory();

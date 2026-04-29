@@ -28,7 +28,7 @@ public class TouchButtonUpgradeResource extends TouchButtonResource
      * @return the instance
      */
     public static TouchButtonResource getInstance() {
-        return instance;
+        return TouchButtonUpgradeResource.instance;
     }
     
     private TouchButtonUpgradeResource()

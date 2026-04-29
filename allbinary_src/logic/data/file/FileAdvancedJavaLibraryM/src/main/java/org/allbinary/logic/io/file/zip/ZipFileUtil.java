@@ -45,7 +45,7 @@ public class ZipFileUtil
      */
     public static ZipFileUtil getInstance()
     {
-        return instance;
+        return ZipFileUtil.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

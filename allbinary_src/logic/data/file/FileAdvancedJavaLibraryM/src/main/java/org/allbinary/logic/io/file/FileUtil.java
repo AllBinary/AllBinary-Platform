@@ -49,7 +49,7 @@ public class FileUtil
      */
     public static FileUtil getInstance()
     {
-        return instance;
+        return FileUtil.instance;
     }
 
     private final Directory directory = Directory.getInstance();

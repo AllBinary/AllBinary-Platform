@@ -28,7 +28,7 @@ public class ScreenRepaintProcessorFactory {
      */
     public static ScreenRepaintProcessorFactory getInstance()
     {
-        return instance;
+        return ScreenRepaintProcessorFactory.instance;
     }
 
     private ScreenRepaintProcessorFactory()

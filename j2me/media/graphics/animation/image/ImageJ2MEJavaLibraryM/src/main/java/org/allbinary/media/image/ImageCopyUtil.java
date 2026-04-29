@@ -30,7 +30,7 @@ public class ImageCopyUtil
     
     public static ImageCopyUtil getInstance()
     {
-        return instance;
+        return ImageCopyUtil.instance;
     }
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();

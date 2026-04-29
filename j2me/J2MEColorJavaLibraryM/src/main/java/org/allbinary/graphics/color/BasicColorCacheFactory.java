@@ -21,7 +21,7 @@ public class BasicColorCacheFactory
 
     public static BasicColorCacheFactory getInstance()
     {
-        return instance;
+        return BasicColorCacheFactory.instance;
     }
 
     private final Hashtable hashtable = new Hashtable();

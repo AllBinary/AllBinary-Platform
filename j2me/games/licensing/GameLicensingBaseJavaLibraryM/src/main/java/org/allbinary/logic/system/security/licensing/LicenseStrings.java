@@ -21,6 +21,6 @@ public class LicenseStrings
 
     public static LicenseStrings getInstance()
     {
-        return instance;
+        return LicenseStrings.instance;
     }
 }

@@ -19,7 +19,7 @@ public class ShakeEventFactory
 
     public static ShakeEventFactory getInstance()
     {
-        return instance;
+        return ShakeEventFactory.instance;
     }
 
     public ShakeEvent MICRO = new ShakeEvent();

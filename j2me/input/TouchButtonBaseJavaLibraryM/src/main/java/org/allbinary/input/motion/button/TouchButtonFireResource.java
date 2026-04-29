@@ -21,7 +21,7 @@ public class TouchButtonFireResource extends TouchButtonResource
      * @return the instance
      */
     public static TouchButtonResource getInstance() {
-        return instance;
+        return TouchButtonFireResource.instance;
     }
     
     private TouchButtonFireResource()

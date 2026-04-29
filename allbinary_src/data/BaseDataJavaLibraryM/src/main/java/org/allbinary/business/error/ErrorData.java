@@ -18,7 +18,7 @@ public class ErrorData
 	private static final ErrorData instance = new ErrorData();
 
 	   public static ErrorData getInstance() {
-			return instance;
+			return ErrorData.instance;
 		}
 	
    private ErrorData()

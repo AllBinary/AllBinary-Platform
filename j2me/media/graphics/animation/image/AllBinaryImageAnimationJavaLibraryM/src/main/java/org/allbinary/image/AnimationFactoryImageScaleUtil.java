@@ -34,7 +34,7 @@ public class AnimationFactoryImageScaleUtil {
      * @return the instance
      */
     public static AnimationFactoryImageScaleUtil getInstance() {
-        return instance;
+        return AnimationFactoryImageScaleUtil.instance;
     }
     
     //private final ImageCache imageCache = ImageCacheFactory.getInstance();

@@ -27,7 +27,7 @@ public class OpenGLESImageDraw {
      * @return the instance
      */
     public static OpenGLESImageDraw getInstance() {
-        return instance;
+        return OpenGLESImageDraw.instance;
     }
     
     public void drawRegion(final GL10 gl, final int viewHeight, 

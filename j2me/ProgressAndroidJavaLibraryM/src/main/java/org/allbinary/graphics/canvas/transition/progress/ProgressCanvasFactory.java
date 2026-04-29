@@ -32,7 +32,7 @@ public class ProgressCanvasFactory {
     
     public static ProgressCanvas getInstance()
     {
-        return instance;
+        return ProgressCanvasFactory.instance;
     }
 
     public static PaintableInterface getLazyInstance() {

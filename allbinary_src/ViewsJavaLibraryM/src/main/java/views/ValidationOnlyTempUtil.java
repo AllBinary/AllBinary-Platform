@@ -26,7 +26,7 @@ public class ValidationOnlyTempUtil
     private static final ValidationOnlyTempUtil instance = new ValidationOnlyTempUtil();
     
     public static ValidationOnlyTempUtil getInstance() {
-        return instance;
+        return ValidationOnlyTempUtil.instance;
     }
    
    private ValidationOnlyTempUtil()

@@ -22,7 +22,7 @@ public class TimeUtil
 
     public static TimeUtil getInstance()
     {
-        return instance;
+        return TimeUtil.instance;
     }
 
     public void setCalendar(

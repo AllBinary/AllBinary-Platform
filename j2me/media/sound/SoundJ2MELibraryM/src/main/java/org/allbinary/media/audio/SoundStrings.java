@@ -22,7 +22,7 @@ public class SoundStrings {
     private static final SoundStrings instance = new SoundStrings();
     
     public static SoundStrings getInstance() {
-        return instance;
+        return SoundStrings.instance;
     }
     
     public final String STOP_ALL = "stopAll";

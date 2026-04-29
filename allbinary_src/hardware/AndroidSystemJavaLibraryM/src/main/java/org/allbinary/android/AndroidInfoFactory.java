@@ -21,7 +21,7 @@ public class AndroidInfoFactory
 
     public static AndroidInfoFactory getInstance()
     {
-        return instance;
+        return AndroidInfoFactory.instance;
     }
     
     private final int version = Integer.parseInt(Build.VERSION.SDK);

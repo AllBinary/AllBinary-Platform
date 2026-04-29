@@ -27,7 +27,7 @@ public class ColorUtil {
      * @return the instance
      */
     public static ColorUtil getInstance() {
-        return instance;
+        return ColorUtil.instance;
     }
     
     public boolean isGreyishOrWhiteLike(final Color color) {

@@ -34,7 +34,7 @@ public class CamelCaseUtil
      */
     public static CamelCaseUtil getInstance()
     {
-        return instance;
+        return CamelCaseUtil.instance;
     }
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();

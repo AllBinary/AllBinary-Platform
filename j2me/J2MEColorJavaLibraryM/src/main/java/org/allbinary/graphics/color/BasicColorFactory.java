@@ -21,7 +21,7 @@ public class BasicColorFactory
     
     public static BasicColorFactory getInstance()
     {
-        return instance;
+        return BasicColorFactory.instance;
     }
 
     public BasicColor createInstance(final int value) {

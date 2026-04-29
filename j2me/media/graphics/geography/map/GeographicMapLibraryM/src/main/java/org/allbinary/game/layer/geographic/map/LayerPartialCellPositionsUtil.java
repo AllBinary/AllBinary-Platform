@@ -157,7 +157,7 @@ public class LayerPartialCellPositionsUtil {
 
     public static LayerPartialCellPositionsUtil getInstance()
     {
-        return instance;
+        return LayerPartialCellPositionsUtil.instance;
     }
 
     /*

@@ -25,7 +25,7 @@ public class GameKeyEventHandler
 
     public static GameKeyEventHandler getInstance()
     {
-        return instance;
+        return GameKeyEventHandler.instance;
     }
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();

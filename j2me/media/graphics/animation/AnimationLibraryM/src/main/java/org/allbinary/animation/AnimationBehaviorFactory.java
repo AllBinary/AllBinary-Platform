@@ -25,7 +25,7 @@ public class AnimationBehaviorFactory {
      * @return the instance
      */
     public static AnimationBehaviorFactory getInstance() {
-        return instance;
+        return AnimationBehaviorFactory.instance;
     }
     
     public AnimationBehavior getOrCreateInstance() {

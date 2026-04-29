@@ -25,7 +25,7 @@ public class ChoiceGroupImageFactory {
      * @return the instance
      */
     public static ChoiceGroupImageFactory getInstance() {
-        return instance;
+        return ChoiceGroupImageFactory.instance;
     }
 
     private final byte multiOff[] = {

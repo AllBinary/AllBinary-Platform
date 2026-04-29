@@ -43,7 +43,7 @@ public class SimpleFileUtil {
      * @return the instance
      */
     public static SimpleFileUtil getInstance() {
-        return instance;
+        return SimpleFileUtil.instance;
     }
 
     public static Writer nullWriter() {

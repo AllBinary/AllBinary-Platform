@@ -29,7 +29,7 @@ public class ShaderInitializer {
      * @return the instance
      */
     public static ShaderInitializer getInstance() {
-        return instance;
+        return ShaderInitializer.instance;
     }
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

@@ -54,7 +54,7 @@ public class PaymentTypeUtil {
      */
     public static PaymentTypeUtil getInstance()
     {
-        return instance;
+        return PaymentTypeUtil.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

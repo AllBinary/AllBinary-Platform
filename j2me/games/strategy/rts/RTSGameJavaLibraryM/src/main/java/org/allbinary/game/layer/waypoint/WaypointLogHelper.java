@@ -31,7 +31,7 @@ public class WaypointLogHelper {
      * @return the instance
      */
     public static WaypointLogHelper getInstance() {
-        return instance;
+        return WaypointLogHelper.instance;
     }
     
     public void onWaypointEvent(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final PathFindingLayerInterface advancedRTSGameLayer) {

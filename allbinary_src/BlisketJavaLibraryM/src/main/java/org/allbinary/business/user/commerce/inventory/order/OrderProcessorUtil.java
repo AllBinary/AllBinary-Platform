@@ -28,7 +28,7 @@ public class OrderProcessorUtil
 
     public static OrderProcessorUtil getInstance()
     {
-        return instance;
+        return OrderProcessorUtil.instance;
     }
 
     private final String ORDER_PROCESSED = "Order Processed";

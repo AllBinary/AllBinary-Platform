@@ -23,7 +23,7 @@ public class AllBinaryThreedTiledLayerFactory
 
     public static AllBinaryThreedTiledLayerFactory getInstance()
     {
-        return instance;
+        return AllBinaryThreedTiledLayerFactory.instance;
     }
 
     public AllBinaryTiledLayer getInstance(

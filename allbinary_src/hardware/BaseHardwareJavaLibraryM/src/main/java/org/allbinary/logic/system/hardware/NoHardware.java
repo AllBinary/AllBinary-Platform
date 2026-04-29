@@ -32,7 +32,7 @@ public class NoHardware implements HardwareInterface
      * @return the instance
      */
     public static HardwareInterface getInstance() {
-        return instance;
+        return NoHardware.instance;
     }
     
     @Override

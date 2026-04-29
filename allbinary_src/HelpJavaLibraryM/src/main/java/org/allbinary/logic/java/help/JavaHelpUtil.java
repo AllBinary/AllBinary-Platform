@@ -37,7 +37,7 @@ public class JavaHelpUtil
      * @return the instance
      */
     public static JavaHelpUtil getInstance() {
-        return instance;
+        return JavaHelpUtil.instance;
     }
 
     private final Point point = new Point(0,0);

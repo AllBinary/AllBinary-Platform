@@ -18,7 +18,7 @@ public class LogoData
 	private static final LogoData instance = new LogoData();
 
 	   public static LogoData getInstance() {
-			return instance;
+			return LogoData.instance;
 		}
 	
    private LogoData()

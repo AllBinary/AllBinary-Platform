@@ -21,7 +21,7 @@ public class RectangleCollisionUtil
      * @return the instance
      */
     public static RectangleCollisionUtil getInstance() {
-        return instance;
+        return RectangleCollisionUtil.instance;
     }
     
     private RectangleCollisionUtil()

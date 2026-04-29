@@ -24,7 +24,7 @@ public class RollLeftOrientationInputToGameKeyEventAction extends GameKeyComplet
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return instance;
+        return RollLeftOrientationInputToGameKeyEventAction.instance;
     }
     
     private RollLeftOrientationInputToGameKeyEventAction()

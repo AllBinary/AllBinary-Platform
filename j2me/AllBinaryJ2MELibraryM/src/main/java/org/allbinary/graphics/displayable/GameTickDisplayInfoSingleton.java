@@ -25,7 +25,7 @@ public class GameTickDisplayInfoSingleton {
      * @return the instance
      */
     public static GameTickDisplayInfoSingleton getInstance() {
-        return instance;
+        return GameTickDisplayInfoSingleton.instance;
     }
     
     private final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();

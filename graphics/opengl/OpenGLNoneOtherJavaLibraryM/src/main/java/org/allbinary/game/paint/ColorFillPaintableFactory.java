@@ -22,7 +22,7 @@ public class ColorFillPaintableFactory
     private static final ColorFillPaintableFactory instance = new ColorFillPaintableFactory();
     
     public static ColorFillPaintableFactory getInstance() {
-        return instance;
+        return ColorFillPaintableFactory.instance;
     }
 
     public ColorFillBasePaintable getInstance(final BasicColor basicColor, final boolean forThreedCanvas)

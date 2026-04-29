@@ -19,6 +19,6 @@ public class RendererInitializedStupidTimerFactory
     
     public static StupidTimer getInstance()
     {
-        return instance;
+        return RendererInitializedStupidTimerFactory.instance;
     }
 }

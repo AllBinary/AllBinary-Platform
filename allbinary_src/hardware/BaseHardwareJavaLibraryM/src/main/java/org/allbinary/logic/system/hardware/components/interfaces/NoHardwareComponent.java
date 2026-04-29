@@ -27,7 +27,7 @@ public class NoHardwareComponent implements HardwareComponentInterface {
      * @return the instance
      */
     public static NoHardwareComponent getInstance() {
-        return instance;
+        return NoHardwareComponent.instance;
     }
     
     @Override

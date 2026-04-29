@@ -26,7 +26,7 @@ public class GDLazyResources
      */
     public static GDLazyResources getInstance()
     {
-        return instance;
+        return GDLazyResources.instance;
     }
 
     public final int[] imageResourceWidthArray = {

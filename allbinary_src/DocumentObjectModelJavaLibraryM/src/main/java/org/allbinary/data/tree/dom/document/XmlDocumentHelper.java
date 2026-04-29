@@ -45,7 +45,7 @@ public class XmlDocumentHelper {
      * @return the instance
      */
     public static XmlDocumentHelper getInstance() {
-        return instance;
+        return XmlDocumentHelper.instance;
     }
     
     private final String INDENT_NUMBER = "indent-number";

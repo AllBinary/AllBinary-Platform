@@ -22,7 +22,7 @@ public class IntermissionFactory
 
     public static IntermissionFactory getInstance()
     {
-        return instance;
+        return IntermissionFactory.instance;
     }
     
     public final GameState START_LEVEL_INTERMISSION_GAME_STATE = GameStateFactory

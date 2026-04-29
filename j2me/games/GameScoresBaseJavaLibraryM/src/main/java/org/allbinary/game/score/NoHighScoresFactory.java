@@ -25,7 +25,7 @@ public class NoHighScoresFactory extends HighScoresBase
     
     public static NoHighScoresFactory getInstance()
     {
-        return instance;
+        return NoHighScoresFactory.instance;
     }
     
     public final HighScores[] NO_HIGH_SCORES = new HighScores[0];

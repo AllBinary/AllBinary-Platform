@@ -42,7 +42,7 @@ public class NullShaderComposite extends ShaderComposite {
      * @return the instance
      */
     public static ShaderComposite getInstance() {
-        return instance;
+        return NullShaderComposite.instance;
     }
     
     public NullShaderComposite(final String requiresOpenGLVersion, final Shader[] shaderArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,

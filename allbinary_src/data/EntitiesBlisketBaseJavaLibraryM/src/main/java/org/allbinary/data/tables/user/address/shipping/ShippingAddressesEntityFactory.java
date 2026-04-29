@@ -28,7 +28,7 @@ public class ShippingAddressesEntityFactory
      * @return the instance
      */
     public static ShippingAddressesEntityFactory getInstance() {
-        return instance;
+        return ShippingAddressesEntityFactory.instance;
     }
 
    //private final String CLASSNAME = "org.allbinary.data.tables.ShippingAddressesEntity";

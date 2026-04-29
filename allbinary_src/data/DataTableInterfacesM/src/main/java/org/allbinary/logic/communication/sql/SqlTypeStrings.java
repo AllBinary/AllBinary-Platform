@@ -15,7 +15,7 @@ public class SqlTypeStrings
      */
     public static SqlTypeStrings getInstance()
     {
-        return instance;
+        return SqlTypeStrings.instance;
     }
     
     public final String CHAR_COLUMN = "VARCHAR";

@@ -25,7 +25,7 @@ public class PostLoadPlatformImage extends PlatformImage {
      * @return the instance
      */
     public static PostLoadPlatformImage getInstance() {
-        return instance;
+        return PostLoadPlatformImage.instance;
     }
 
 }

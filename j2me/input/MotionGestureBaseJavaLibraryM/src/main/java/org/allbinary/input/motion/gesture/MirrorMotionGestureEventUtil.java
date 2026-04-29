@@ -76,6 +76,6 @@ public class MirrorMotionGestureEventUtil
 
     public static MirrorMotionGestureEventUtil getInstance()
     {
-        return instance;
+        return MirrorMotionGestureEventUtil.instance;
     }
 }

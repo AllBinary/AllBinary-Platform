@@ -19,7 +19,7 @@ public class OpenGLImageUtil {
      * @return the instance
      */
     public static OpenGLImageUtil getInstance() {
-        return instance;
+        return OpenGLImageUtil.instance;
     }
    
     //private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();

@@ -28,7 +28,7 @@ public class ComponentFactory
      */
     public static ComponentFactory getInstance()
     {
-        return instance;
+        return ComponentFactory.instance;
     }
     
     public final Component VGA = new Component("VGA");

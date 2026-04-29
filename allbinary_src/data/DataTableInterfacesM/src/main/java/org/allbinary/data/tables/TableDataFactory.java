@@ -28,7 +28,7 @@ public class TableDataFactory {
      */
     public static TableDataFactory getInstance()
     {
-        return instance;
+        return TableDataFactory.instance;
     }
 
 

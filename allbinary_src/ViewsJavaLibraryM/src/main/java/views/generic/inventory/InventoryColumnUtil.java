@@ -29,7 +29,7 @@ public class InventoryColumnUtil
 
     public static InventoryColumnUtil getInstance()
     {
-        return instance;
+        return InventoryColumnUtil.instance;
     }
 
     //private final String NEXTCATEGORY = "Next Item Category: ";

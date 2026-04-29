@@ -31,7 +31,7 @@ public class ResourceUtil {
     private static final ResourceUtil instance = new ResourceUtil();
 
     public static ResourceUtil getInstance() {
-        return instance;
+        return ResourceUtil.instance;
     }
 
     private String path = StringUtil.getInstance().EMPTY_STRING;

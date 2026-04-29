@@ -66,6 +66,6 @@ public class GameKeyUtil
 
     public static GameKeyUtil getInstance()
     {
-        return instance;
+        return GameKeyUtil.instance;
     }
 }

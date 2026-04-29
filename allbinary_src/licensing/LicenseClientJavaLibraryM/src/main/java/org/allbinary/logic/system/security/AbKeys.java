@@ -26,7 +26,7 @@ public class AbKeys
     private static final AbKeys instance = new AbKeys();
 
     public static AbKeys getInstance() {
-        return instance;
+        return AbKeys.instance;
     }
 
    private AbKeys()

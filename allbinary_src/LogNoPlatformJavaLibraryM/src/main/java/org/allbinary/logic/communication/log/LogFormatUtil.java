@@ -29,7 +29,7 @@ public class LogFormatUtil
 
     public static LogFormatUtil getInstance()
     {
-        return instance;
+        return LogFormatUtil.instance;
     }
     
     private LogFormatUtil()

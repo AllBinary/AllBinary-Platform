@@ -28,7 +28,7 @@ public class BillingAddressesEntityFactory
      * @return the instance
      */
     public static BillingAddressesEntityFactory getInstance() {
-        return instance;
+        return BillingAddressesEntityFactory.instance;
     }
 
    //private final String CLASSNAME = "org.allbinary.data.tables.BillingAddressesEntity";

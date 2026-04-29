@@ -36,7 +36,7 @@ public class GameGraphicsResourceUtil
 
     public static GameGraphicsResourceUtil getInstance()
     {
-        return instance;
+        return GameGraphicsResourceUtil.instance;
     }
     
     public final String SPRITE = "_sprite";

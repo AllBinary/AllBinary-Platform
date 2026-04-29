@@ -27,7 +27,7 @@ public class DecalAnimationInterfaceFactory
 
     public static DecalAnimationInterfaceFactory getInstance()
     {
-        return instance;
+        return DecalAnimationInterfaceFactory.instance;
     }
 
     public AnimationInterfaceFactoryInterface getAnimationFactory(

@@ -18,7 +18,7 @@ public class InputOutputTypeData
 	private static final InputOutputTypeData instance = new InputOutputTypeData();
 	
 	   public static InputOutputTypeData getInstance() {
-			return instance;
+			return InputOutputTypeData.instance;
 		}
 	
    private InputOutputTypeData()

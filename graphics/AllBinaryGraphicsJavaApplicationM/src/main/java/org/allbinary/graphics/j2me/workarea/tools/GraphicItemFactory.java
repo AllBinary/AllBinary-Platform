@@ -28,7 +28,7 @@ public class GraphicItemFactory
      */
     public static GraphicItemFactory getInstance()
     {
-        return instance;
+        return GraphicItemFactory.instance;
     }
 
    private final HashMap graphicItems;

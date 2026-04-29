@@ -25,7 +25,7 @@ public class GraphicsStrings {
      * @return the instance
      */
     public static GraphicsStrings getInstance() {
-        return instance;
+        return GraphicsStrings.instance;
     }
     
     public final String ANIMATION = "animation";

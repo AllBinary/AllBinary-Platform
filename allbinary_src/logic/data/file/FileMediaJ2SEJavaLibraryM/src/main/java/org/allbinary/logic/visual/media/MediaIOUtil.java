@@ -16,7 +16,7 @@ public class MediaIOUtil
      */
     public static MediaIOUtil getInstance()
     {
-        return instance;
+        return MediaIOUtil.instance;
     }
 
     public String[] getReaderFormatNames()

@@ -29,7 +29,7 @@ public class FormUtil
 
     public static FormUtil getInstance()
     {
-        return instance;
+        return FormUtil.instance;
     }
 
     public Rectangle createFormRectangle()

@@ -28,7 +28,7 @@ implements ValidatorBaseInterface
 
     public static ValidatorBase getInstance()
     {
-        return instance;
+        return ValidatorBase.instance;
     }    
     
     public ValidatorBase()

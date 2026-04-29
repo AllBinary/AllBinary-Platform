@@ -28,7 +28,7 @@ public class StoreRoleFactory {
      */
     public static StoreRoleFactory getInstance()
     {
-        return instance;
+        return StoreRoleFactory.instance;
     }
 
     private final Vector<Object> roles = new Vector<Object>();

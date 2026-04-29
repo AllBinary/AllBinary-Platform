@@ -18,7 +18,7 @@ public class FileUploadData
 	private static final FileUploadData instance = new FileUploadData();
 
 	public static FileUploadData getInstance() {
-		return instance;
+		return FileUploadData.instance;
 	}
 
         public final String FILE = "download_file_permissions.xml";

@@ -25,7 +25,7 @@ public class DataOutputStreamFactory
      */
     public static DataOutputStreamFactory getInstance()
     {
-        return instance;
+        return DataOutputStreamFactory.instance;
     }
 
     public AbDataOutputStream getInstance(AbFile file) throws Exception

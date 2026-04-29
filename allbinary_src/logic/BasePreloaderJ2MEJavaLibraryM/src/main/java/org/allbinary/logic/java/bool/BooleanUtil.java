@@ -24,7 +24,7 @@ public class BooleanUtil
      */
     public static BooleanUtil getInstance()
     {
-        return instance;
+        return BooleanUtil.instance;
     }
     
     private BooleanUtil()

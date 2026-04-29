@@ -28,7 +28,7 @@ public class NoDecimalTrigTable
 
     public static NoDecimalTrigTable getInstance()
     {
-        return instance;
+        return NoDecimalTrigTable.instance;
     }
 
     private final MathUtil mathUtil = MathUtil.getInstance();

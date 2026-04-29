@@ -30,7 +30,7 @@ public class SolarisOperatingSystemFactory
     
     public static SolarisOperatingSystemFactory getInstance()
     {
-        return instance;
+        return SolarisOperatingSystemFactory.instance;
     }
 
     private SolarisOperatingSystemFactory()

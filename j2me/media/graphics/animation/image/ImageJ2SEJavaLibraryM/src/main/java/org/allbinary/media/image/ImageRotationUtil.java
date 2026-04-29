@@ -29,7 +29,7 @@ public class ImageRotationUtil
     
     public static ImageRotationUtil getInstance()
     {
-        return instance;
+        return ImageRotationUtil.instance;
     }
     
     private final ImageJ2SERotationUtil imageJ2SERotationUtil = ImageJ2SERotationUtil.getInstance();

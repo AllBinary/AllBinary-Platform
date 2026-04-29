@@ -26,7 +26,7 @@ public class AllBinaryRenderer
      */
     public static AllBinaryRenderer getInstance()
     {
-        return instance;
+        return AllBinaryRenderer.instance;
     }
 
     public void setRunnable(Runnable runnable)

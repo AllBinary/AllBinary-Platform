@@ -31,7 +31,7 @@ public class ShaderUpdater {
      * @return the instance
      */
     public static ShaderUpdater getInstance() {
-        return instance;
+        return ShaderUpdater.instance;
     }
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

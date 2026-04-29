@@ -20,7 +20,7 @@ public class GameStatisticsFactory extends BaseGameStatistics
     
     public static GameStatisticsFactory getInstance()
     {
-        return instance;
+        return GameStatisticsFactory.instance;
     }
 
     @Override

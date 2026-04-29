@@ -18,7 +18,7 @@ public class HtmlNameMathData
 	private static final HtmlNameMathData instance = new HtmlNameMathData();
 	
 	   public static HtmlNameMathData getInstance() {
-			return instance;
+			return HtmlNameMathData.instance;
 		}
 	
    private HtmlNameMathData()

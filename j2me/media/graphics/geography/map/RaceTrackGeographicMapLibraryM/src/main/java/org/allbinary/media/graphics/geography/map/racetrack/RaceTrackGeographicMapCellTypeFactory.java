@@ -22,7 +22,7 @@ public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellType
 
     public static RaceTrackGeographicMapCellTypeFactory getInstance()
     {
-        return instance;
+        return RaceTrackGeographicMapCellTypeFactory.instance;
     }
 
     public GeographicMapCellType EMPTY_CELL_TYPE = new GeographicMapCellType(0, -1);

@@ -46,7 +46,7 @@ public class CurrentDisplayableFactory
 
     public static CurrentDisplayableFactory getInstance()
     {
-        return instance;
+        return CurrentDisplayableFactory.instance;
     }
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();

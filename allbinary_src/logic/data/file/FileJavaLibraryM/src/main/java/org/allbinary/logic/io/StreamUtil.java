@@ -31,7 +31,7 @@ public class StreamUtil {
      * @return the instance
      */
     public static StreamUtil getInstance() {
-        return instance;
+        return StreamUtil.instance;
     }
 
     private StreamUtil() {

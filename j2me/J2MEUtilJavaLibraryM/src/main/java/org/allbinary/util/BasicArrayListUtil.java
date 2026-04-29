@@ -28,7 +28,7 @@ public class BasicArrayListUtil
 
     public static BasicArrayListUtil getInstance()
     {
-        return instance;
+        return BasicArrayListUtil.instance;
     }
 
     public final BasicArrayList[][] NULL_ARRAY_OF_ARRAY = new BasicArrayList[0][0];

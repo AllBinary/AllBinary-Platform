@@ -33,7 +33,7 @@ public class FileListFetcher
      */
     public static FileListFetcher getInstance()
     {
-        return instance;
+        return FileListFetcher.instance;
     }
 
     private final SubDirectory subDirectory = SubDirectory.getInstance();

@@ -24,7 +24,7 @@ public class HashtableUtil
 
     public static HashtableUtil getInstance()
     {
-        return instance;
+        return HashtableUtil.instance;
     }
 
     public void putAll(Hashtable fromHashtable, Hashtable hashtable)

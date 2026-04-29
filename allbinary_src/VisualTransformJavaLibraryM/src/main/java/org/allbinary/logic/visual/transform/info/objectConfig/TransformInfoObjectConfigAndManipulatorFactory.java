@@ -36,7 +36,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
      */
     public static TransformInfoObjectConfigAndManipulatorFactory getInstance()
     {
-        return instance;
+        return TransformInfoObjectConfigAndManipulatorFactory.instance;
     }
 
    private TransformInfoObjectConfigAndManipulatorFactory()

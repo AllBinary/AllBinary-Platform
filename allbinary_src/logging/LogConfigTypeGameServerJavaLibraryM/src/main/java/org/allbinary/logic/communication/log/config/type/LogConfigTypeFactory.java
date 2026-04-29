@@ -30,7 +30,7 @@ public class LogConfigTypeFactory
      */
     public static LogConfigTypeFactory getInstance()
     {
-        return instance;
+        return LogConfigTypeFactory.instance;
     }
 
     private final String NO_DESCRIPTION = "No Description";

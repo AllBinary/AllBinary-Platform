@@ -23,7 +23,7 @@ public class PathFindingThreadPool extends ThreadPool
 
     public static ThreadPool getInstance()
     {
-        return instance;
+        return PathFindingThreadPool.instance;
     }
 
     public PathFindingThreadPool(final String poolName, final int numThreads, final int priority) {

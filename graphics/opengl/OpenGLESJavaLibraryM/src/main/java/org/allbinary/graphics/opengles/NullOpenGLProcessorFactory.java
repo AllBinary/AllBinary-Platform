@@ -8,6 +8,6 @@ public class NullOpenGLProcessorFactory
 
     public static OpenGLProcessor getInstance()
     {
-        return instance;
+        return NullOpenGLProcessorFactory.instance;
     }
 }

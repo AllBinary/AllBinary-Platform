@@ -20,7 +20,7 @@ public class TransformInfoObjectConfigData
 	private static final TransformInfoObjectConfigData instance = new TransformInfoObjectConfigData();
 
 	   public static TransformInfoObjectConfigData getInstance() {
-		return instance;
+		return TransformInfoObjectConfigData.instance;
 	}
 
    private TransformInfoObjectConfigData()

@@ -32,7 +32,7 @@ public class HttpFileUploadUtil
      */
     public static HttpFileUploadUtil getInstance()
     {
-        return instance;
+        return HttpFileUploadUtil.instance;
     }
 
     private HttpFileUploadUtil()

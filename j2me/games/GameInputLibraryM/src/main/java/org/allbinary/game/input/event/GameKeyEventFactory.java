@@ -26,7 +26,7 @@ public class GameKeyEventFactory
 
     public static GameKeyEventFactory getInstance()
     {
-        return instance;
+        return GameKeyEventFactory.instance;
     }
 
     protected final LogUtil logUtil = LogUtil.getInstance();

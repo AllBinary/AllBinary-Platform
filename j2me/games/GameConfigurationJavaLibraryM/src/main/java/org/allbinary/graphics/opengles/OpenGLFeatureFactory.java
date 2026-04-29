@@ -19,7 +19,7 @@ public class OpenGLFeatureFactory
 
     public static OpenGLFeatureFactory getInstance()
     {
-        return instance;
+        return OpenGLFeatureFactory.instance;
     }
 
     private OpenGLFeatureFactory()

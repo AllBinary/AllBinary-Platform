@@ -24,7 +24,7 @@ public class LockableFeatureFactory {
      * @return the instance
      */
     public static LockableFeatureFactory getInstance() {
-        return instance;
+        return LockableFeatureFactory.instance;
     }
     
     private final BasicArrayList list = new BasicArrayListD();

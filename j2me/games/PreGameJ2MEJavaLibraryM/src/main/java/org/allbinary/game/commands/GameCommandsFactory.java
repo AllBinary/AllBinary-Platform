@@ -24,7 +24,7 @@ public class GameCommandsFactory
     
     public static GameCommandsFactory getInstance()
     {
-        return instance;
+        return GameCommandsFactory.instance;
     }
         
     public final Command TOGGLE_FULLSCREEN  = new Command("Toggle FullScreen", Command.SCREEN, 1);

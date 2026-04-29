@@ -20,7 +20,7 @@ public class StoreFrontOrdersStatisticsData
 	   new StoreFrontOrdersStatisticsData();
    
    public static StoreFrontOrdersStatisticsData getInstance() {
-		return instance;
+		return StoreFrontOrdersStatisticsData.instance;
 	}
    
    private StoreFrontOrdersStatisticsData()

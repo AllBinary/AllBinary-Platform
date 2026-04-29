@@ -27,7 +27,7 @@ public class FullScreenUtil
      * @return the instance
      */
     public static FullScreenUtil getInstance() {
-        return instance;
+        return FullScreenUtil.instance;
     }
     
     public final void initOnRun(final Canvas fullScreenInterface, final CommandListener commandListener)

@@ -25,7 +25,7 @@ public class TouchScreenTypesFactory {
      * @return the instance
      */
     public static TouchScreenTypesFactory getInstance() {
-        return instance;
+        return TouchScreenTypesFactory.instance;
     }
     
     public final TouchScreenType FINGER = new TouchScreenType("Finger");

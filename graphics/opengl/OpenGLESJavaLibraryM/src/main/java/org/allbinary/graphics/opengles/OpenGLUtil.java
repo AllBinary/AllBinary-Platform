@@ -29,7 +29,7 @@ public class OpenGLUtil {
     private static final OpenGLUtil instance = new OpenGLUtil();
 
     public static OpenGLUtil getInstance() {
-        return instance;
+        return OpenGLUtil.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

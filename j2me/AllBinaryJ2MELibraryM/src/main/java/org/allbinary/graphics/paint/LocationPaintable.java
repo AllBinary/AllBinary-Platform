@@ -28,7 +28,7 @@ public class LocationPaintable
      * @return the instance
      */
     public static LocationPaintable getInstance() {
-        return instance;
+        return LocationPaintable.instance;
     }
     
     @Override

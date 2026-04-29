@@ -19,7 +19,7 @@ public class AudioContentTypeDataFactory
 
     public static AudioContentTypeDataFactory getInstance()
     {
-        return instance;
+        return AudioContentTypeDataFactory.instance;
     }
 
     public final AudioContentTypeData MIME_AUDIO_TONE = 

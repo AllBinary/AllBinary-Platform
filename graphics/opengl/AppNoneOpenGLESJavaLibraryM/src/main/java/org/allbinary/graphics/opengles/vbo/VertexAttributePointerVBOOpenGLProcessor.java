@@ -31,7 +31,7 @@ public class VertexAttributePointerVBOOpenGLProcessor extends ObjectThreedOpenGL
      * @return the instance
      */
     public static VertexAttributePointerVBOOpenGLProcessor getInstance() {
-        return instance;
+        return VertexAttributePointerVBOOpenGLProcessor.instance;
     }
         
     public VertexAttributePointerVBOOpenGLProcessor()

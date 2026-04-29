@@ -21,7 +21,7 @@ public class OpenGLCapabilities
     
     public static OpenGLCapabilities getInstance()
     {
-        return instance;
+        return OpenGLCapabilities.instance;
     }
 
     public final String VERSION_1_0 = "1.0";

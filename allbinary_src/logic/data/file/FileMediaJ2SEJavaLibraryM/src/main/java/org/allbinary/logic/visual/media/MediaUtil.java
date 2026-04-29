@@ -20,7 +20,7 @@ public class MediaUtil
     private static final MediaUtil instance = new MediaUtil();
 
     public static MediaUtil getInstance() {
-        return instance;
+        return MediaUtil.instance;
     }
 
     private MediaUtil()

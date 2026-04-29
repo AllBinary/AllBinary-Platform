@@ -35,7 +35,7 @@ public class ImageJ2MEScaleUtil {
      * @return the instance
      */
     public static ImageJ2MEScaleUtil getInstance() {
-        return instance;
+        return ImageJ2MEScaleUtil.instance;
     }
     
     private ImageJ2MEScaleUtil() {

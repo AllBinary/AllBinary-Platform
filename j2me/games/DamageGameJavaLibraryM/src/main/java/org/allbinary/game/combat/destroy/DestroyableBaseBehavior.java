@@ -21,7 +21,7 @@ public class DestroyableBaseBehavior implements DestroyableInterface
     
     public static DestroyableBaseBehavior getInstance()
     {
-        return instance;
+        return DestroyableBaseBehavior.instance;
     }
 
     @Override

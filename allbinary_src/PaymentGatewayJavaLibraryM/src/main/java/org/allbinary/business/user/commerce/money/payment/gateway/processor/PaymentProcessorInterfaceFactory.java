@@ -29,7 +29,7 @@ public class PaymentProcessorInterfaceFactory
 	private static final PaymentProcessorInterfaceFactory instance = new PaymentProcessorInterfaceFactory();
 	
 	public static PaymentProcessorInterfaceFactory getInstance() {
-		return instance;
+		return PaymentProcessorInterfaceFactory.instance;
 	}
 
    private PaymentProcessorInterfaceFactory()

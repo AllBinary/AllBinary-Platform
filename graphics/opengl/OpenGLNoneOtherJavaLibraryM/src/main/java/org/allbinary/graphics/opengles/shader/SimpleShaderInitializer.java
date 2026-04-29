@@ -25,7 +25,7 @@ public class SimpleShaderInitializer extends ShaderInitializer {
      * @return the instance
      */
     public static SimpleShaderInitializer getInstance() {
-        return instance;
+        return SimpleShaderInitializer.instance;
     }
     
 }

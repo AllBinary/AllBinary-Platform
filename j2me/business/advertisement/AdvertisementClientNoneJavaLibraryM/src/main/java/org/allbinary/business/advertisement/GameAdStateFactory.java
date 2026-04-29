@@ -9,7 +9,7 @@ public class GameAdStateFactory implements GameAdStateFactoryInterface
 
     public static GameAdStateFactory getInstance()
     {
-        return instance;
+        return GameAdStateFactory.instance;
     }
 
     private final GameAdState[] gameAdStateArray = {

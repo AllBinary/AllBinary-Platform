@@ -23,7 +23,7 @@ public class InApplicationPurchaseFactory {
      * @return the instance
      */
     public static InApplicationPurchaseFactory getInstance() {
-        return instance;
+        return InApplicationPurchaseFactory.instance;
     }
 
     

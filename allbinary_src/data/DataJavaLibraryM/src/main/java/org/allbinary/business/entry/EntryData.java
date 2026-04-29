@@ -19,7 +19,7 @@ public class EntryData
 
     public static EntryData getInstance()
     {
-        return instance;
+        return EntryData.instance;
     }
 
     private EntryData()

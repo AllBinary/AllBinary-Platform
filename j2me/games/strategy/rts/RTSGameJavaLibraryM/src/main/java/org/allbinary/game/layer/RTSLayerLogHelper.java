@@ -31,7 +31,7 @@ public class RTSLayerLogHelper {
      * @return the instance
      */
     public static RTSLayerLogHelper getInstance() {
-        return instance;
+        return RTSLayerLogHelper.instance;
     }
     
     public void setClosestGeographicMapCellHistory(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final BasicArrayList pathsList) {

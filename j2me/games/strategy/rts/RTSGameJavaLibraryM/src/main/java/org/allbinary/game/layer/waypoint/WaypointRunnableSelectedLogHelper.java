@@ -33,7 +33,7 @@ public class WaypointRunnableSelectedLogHelper extends WaypointRunnableLogHelper
      * @return the instance
      */
     public static WaypointRunnableSelectedLogHelper getInstance() {
-        return instance;
+        return WaypointRunnableSelectedLogHelper.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

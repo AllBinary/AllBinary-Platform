@@ -26,7 +26,7 @@ public class FeatureResourceInitializationUtil
  
     public static FeatureResourceInitializationUtil getInstance()
     {
-        return instance;
+        return FeatureResourceInitializationUtil.instance;
     }
     
     public void init(int level) throws Exception

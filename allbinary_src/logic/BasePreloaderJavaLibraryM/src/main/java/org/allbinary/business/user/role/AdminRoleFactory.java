@@ -22,7 +22,7 @@ public class AdminRoleFactory
 
     public static AdminRoleFactory getInstance()
     {
-        return instance;
+        return AdminRoleFactory.instance;
     }
     
     private final Vector<Object> adminRoles = new Vector<Object>();

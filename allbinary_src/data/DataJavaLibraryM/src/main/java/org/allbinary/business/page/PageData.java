@@ -18,7 +18,7 @@ public class PageData
 	private static final PageData instance = new PageData();
 	
 	   public static PageData getInstance() {
-			return instance;
+			return PageData.instance;
 		}
 	
    private PageData()

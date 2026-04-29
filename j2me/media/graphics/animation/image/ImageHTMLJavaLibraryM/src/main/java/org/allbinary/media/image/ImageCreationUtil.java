@@ -25,7 +25,7 @@ public class ImageCreationUtil
 
     public static ImageCreationUtil getInstance()
     {
-        return instance;
+        return ImageCreationUtil.instance;
     }
     
     private ImageCreationUtil()

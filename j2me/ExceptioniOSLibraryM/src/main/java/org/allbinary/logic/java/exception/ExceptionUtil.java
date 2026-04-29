@@ -27,7 +27,7 @@ public class ExceptionUtil
     //ActualPlatform
     public static ExceptionUtil getInstance()
     {
-        return instance;
+        return ExceptionUtil.instance;
     }
 
     private ExceptionUtil()

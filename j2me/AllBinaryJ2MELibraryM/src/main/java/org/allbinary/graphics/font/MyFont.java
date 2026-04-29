@@ -24,7 +24,7 @@ public class MyFont
 	
    public static MyFont getInstance()
    {
-      return instance;
+      return MyFont.instance;
    }
    
    //fonts

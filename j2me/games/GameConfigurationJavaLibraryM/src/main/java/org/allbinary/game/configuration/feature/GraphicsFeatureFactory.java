@@ -21,7 +21,7 @@ public class GraphicsFeatureFactory
 
     public static GraphicsFeatureFactory getInstance()
     {
-        return instance;
+        return GraphicsFeatureFactory.instance;
     }
 
     private GraphicsFeatureFactory()

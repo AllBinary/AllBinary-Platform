@@ -33,7 +33,7 @@ public class CanvasTrimUtil {
      * @return the instance
      */
     public static CanvasTrimUtil getInstance() {
-        return instance;
+        return CanvasTrimUtil.instance;
     }
 
     //private final CommonSeps commonSeps = CommonSeps.getInstance();

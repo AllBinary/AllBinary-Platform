@@ -27,7 +27,7 @@ public class XmlOptionItemsEntityFactory
      * @return the instance
      */
     public static XmlOptionItemsEntityFactory getInstance() {
-        return instance;
+        return XmlOptionItemsEntityFactory.instance;
     }
 
    //private static final String CLASSNAME = "org.allbinary.data.tables.InventoryEntity";

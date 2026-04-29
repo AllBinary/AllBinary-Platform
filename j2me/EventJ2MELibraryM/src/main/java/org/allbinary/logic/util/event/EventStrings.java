@@ -25,7 +25,7 @@ public class EventStrings {
      * @return the instance
      */
     public static EventStrings getInstance() {
-        return instance;
+        return EventStrings.instance;
     }
 
     public final String PERFORMANCE_MESSAGE = "Use Custom onEvent Methods for needed optimization";

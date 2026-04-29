@@ -59,6 +59,6 @@ public class Unit1DecalGameResources extends BasicGameResources
 
     public static BasicGameResources getInstance()
     {
-        return instance;
+        return Unit1DecalGameResources.instance;
     }
 }

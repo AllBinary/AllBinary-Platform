@@ -26,7 +26,7 @@ public class ServletStrings {
      */
     public static ServletStrings getInstance()
     {
-        return instance;
+        return ServletStrings.instance;
     }
 
     public final String DOPOST = "doPost";

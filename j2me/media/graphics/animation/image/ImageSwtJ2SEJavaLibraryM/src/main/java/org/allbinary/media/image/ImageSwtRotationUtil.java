@@ -32,7 +32,7 @@ public class ImageSwtRotationUtil {
      * @return the instance
      */
     public static ImageSwtRotationUtil getInstance() {
-        return instance;
+        return ImageSwtRotationUtil.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

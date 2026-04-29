@@ -22,7 +22,7 @@ public class PlacedLayerFactory
 
     public static PlacedLayerFactory getInstance()
     {
-        return instance;
+        return PlacedLayerFactory.instance;
     }
 
     public int getSize()

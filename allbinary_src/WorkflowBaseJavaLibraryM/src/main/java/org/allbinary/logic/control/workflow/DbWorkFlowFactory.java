@@ -29,7 +29,7 @@ public class DbWorkFlowFactory
     private static final DbWorkFlowFactory instance = new DbWorkFlowFactory();
 
     public static DbWorkFlowFactory getInstance() {
-        return instance;
+        return DbWorkFlowFactory.instance;
     }
     
    private DbWorkFlowFactory()

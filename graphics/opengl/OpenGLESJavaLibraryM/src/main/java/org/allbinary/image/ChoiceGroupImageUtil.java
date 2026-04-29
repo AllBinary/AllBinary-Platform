@@ -30,7 +30,7 @@ public class ChoiceGroupImageUtil
      * @return the instance
      */
     public static ChoiceGroupImageUtil getInstance() {
-        return instance;
+        return ChoiceGroupImageUtil.instance;
     }
     
     public void init()

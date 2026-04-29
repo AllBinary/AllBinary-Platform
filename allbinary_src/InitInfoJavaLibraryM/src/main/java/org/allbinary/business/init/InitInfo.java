@@ -28,7 +28,7 @@ public class InitInfo
 	private static final InitInfo instance = new InitInfo();
 	
 	public static InitInfo getInstance() {
-		return instance;
+		return InitInfo.instance;
 	}
 	
    public final String TESTING = "TESTING";

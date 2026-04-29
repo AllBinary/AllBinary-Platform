@@ -24,7 +24,7 @@ public class OutputTypeData
    //public static final String NAME = "TRANSFORM_INFOOBJECTCONFIGGENERATE_NAME";
 
    public static OutputTypeData getInstance() {
-	return instance;
+	return OutputTypeData.instance;
 }
 
 public final String NAME = "OUTPUT_TYPE_NAME";

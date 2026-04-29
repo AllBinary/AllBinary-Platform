@@ -30,7 +30,7 @@ public class ShaderManager {
      * @return the instance
      */
     public static ShaderManager getInstance() {
-        return instance;
+        return ShaderManager.instance;
     }
     
     protected final String LOAD_SHADER = "loadShader";

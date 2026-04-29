@@ -25,7 +25,7 @@ public class ImageStrings {
      * @return the instance
      */
     public static ImageStrings getInstance() {
-        return instance;
+        return ImageStrings.instance;
     }
     
     public final String PNG = "PNG";

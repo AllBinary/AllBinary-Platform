@@ -24,7 +24,7 @@ public class AdvancedRTSLayerUtil
     
     public static AdvancedRTSLayerUtil getInstance()
     {
-        return instance;
+        return AdvancedRTSLayerUtil.instance;
     }
     
     public final Hashtable createFakeRTSLayerHashtable(final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap)

@@ -18,7 +18,7 @@ public class AdvertisementCampaignData
 	private static final AdvertisementCampaignData instance = new AdvertisementCampaignData();
 
 	   public static AdvertisementCampaignData getInstance() {
-			return instance;
+			return AdvertisementCampaignData.instance;
 		}
 	
    private AdvertisementCampaignData()

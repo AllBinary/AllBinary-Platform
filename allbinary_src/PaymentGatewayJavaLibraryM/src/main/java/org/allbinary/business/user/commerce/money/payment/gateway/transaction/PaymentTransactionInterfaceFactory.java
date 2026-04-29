@@ -26,7 +26,7 @@ public class PaymentTransactionInterfaceFactory
 	private static final PaymentTransactionInterfaceFactory instance = new PaymentTransactionInterfaceFactory();
 	
 	public static PaymentTransactionInterfaceFactory getInstance() {
-		return instance;
+		return PaymentTransactionInterfaceFactory.instance;
 	}   
 	
    private PaymentTransactionInterfaceFactory()

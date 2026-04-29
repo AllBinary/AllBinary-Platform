@@ -27,7 +27,7 @@ public class GameLevelDisplayChangeEventListenersFactory
 
     public static GameLevelDisplayChangeEventListenersFactory getInstance()
     {
-        return instance;
+        return GameLevelDisplayChangeEventListenersFactory.instance;
     }
 
     private final BasicArrayList list = new BasicArrayListD();

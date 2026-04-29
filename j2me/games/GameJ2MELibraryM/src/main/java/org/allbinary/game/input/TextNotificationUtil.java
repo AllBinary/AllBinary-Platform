@@ -29,7 +29,7 @@ public class TextNotificationUtil
 
     public static TextNotificationUtil getInstance()
     {
-        return instance;
+        return TextNotificationUtil.instance;
     }
     
     public void fireError(String message) throws Exception

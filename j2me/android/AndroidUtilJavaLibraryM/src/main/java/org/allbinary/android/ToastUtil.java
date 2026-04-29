@@ -13,7 +13,7 @@ public class ToastUtil {
 	private static final ToastUtil instance = new ToastUtil();
 
 	public static ToastUtil getInstance() {
-		return instance;
+		return ToastUtil.instance;
 	}
 
 	public void makeToast(final View view, final Context context, String message, final int time)

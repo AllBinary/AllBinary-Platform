@@ -27,7 +27,7 @@ public class ThreedObjResources {
      * @return the instance
      */
     public static ThreedObjResources getInstance() {
-        return instance;
+        return ThreedObjResources.instance;
     }
     
     public final Hashtable hashtable = new Hashtable();

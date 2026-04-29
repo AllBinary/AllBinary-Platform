@@ -29,7 +29,7 @@ public class PlayerStateUtil {
      * @return the instance
      */
     public static PlayerStateUtil getInstance() {
-        return instance;
+        return PlayerStateUtil.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

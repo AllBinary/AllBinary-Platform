@@ -20,7 +20,7 @@ public class GameDifficultyFactory
 
     public static GameDifficultyFactory getInstance()
     {
-        return instance;
+        return GameDifficultyFactory.instance;
     }
 
     private int level = 0;

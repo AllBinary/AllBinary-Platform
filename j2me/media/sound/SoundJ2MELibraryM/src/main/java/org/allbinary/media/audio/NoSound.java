@@ -25,7 +25,7 @@ public class NoSound extends Sound {
      * @return the instance
      */
     public static NoSound getInstance() {
-        return instance;
+        return NoSound.instance;
     }
  
     private static final NoSound instance = new NoSound();

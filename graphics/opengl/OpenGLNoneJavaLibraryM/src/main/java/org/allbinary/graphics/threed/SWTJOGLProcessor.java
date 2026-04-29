@@ -28,7 +28,7 @@ public class SWTJOGLProcessor implements Runnable {
      * @return the instance
      */
     public static SWTJOGLProcessor getInstance() {
-        return instance;
+        return SWTJOGLProcessor.instance;
     }
 
     public void init(final Object display, final Object comp) {

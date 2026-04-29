@@ -28,7 +28,7 @@ public class ImageRotationUtil
     
     public static ImageRotationUtil getInstance()
     {
-        return instance;
+        return ImageRotationUtil.instance;
     }
     
     private final Matrix matrix = new Matrix();

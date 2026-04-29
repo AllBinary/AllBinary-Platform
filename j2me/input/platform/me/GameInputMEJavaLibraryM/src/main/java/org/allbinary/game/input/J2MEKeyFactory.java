@@ -21,7 +21,7 @@ public class J2MEKeyFactory
 
     public static final J2MEKeyFactory getInstance()
     {
-        return instance;
+        return J2MEKeyFactory.instance;
     }
 
     private J2MEKeyFactory()

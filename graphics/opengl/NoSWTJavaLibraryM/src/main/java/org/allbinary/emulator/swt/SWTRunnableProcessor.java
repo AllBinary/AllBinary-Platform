@@ -27,7 +27,7 @@ public class SWTRunnableProcessor extends SWTProcessor {
      * @return the instance
      */
     public static SWTRunnableProcessor getInstance() {
-        return instance;
+        return SWTRunnableProcessor.instance;
     }
 
     @Override

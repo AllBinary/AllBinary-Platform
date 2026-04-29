@@ -25,7 +25,7 @@ public class NullOpenGLTextureProcessor {
      * @return the instance
      */
     public static OpenGLObject3dProcessor getInstance() {
-        return instance;
+        return NullOpenGLTextureProcessor.instance;
     }
     
 }

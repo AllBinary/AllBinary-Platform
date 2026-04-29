@@ -30,7 +30,7 @@ public class GuiLog
      */
     public static GuiLog getInstance()
     {
-        return instance;
+        return GuiLog.instance;
     }
 
     private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();

@@ -28,7 +28,7 @@ public class KeyValueFactory
      */
     public static KeyValueFactory getInstance()
     {
-        return instance;
+        return KeyValueFactory.instance;
     }
     
     public final Hashtable MAP = new Hashtable();

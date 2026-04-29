@@ -33,7 +33,7 @@ public class ImageArrayRotationUtil {
      * @return the instance
      */
     public static ImageArrayRotationUtil getInstance() {
-        return instance;
+        return ImageArrayRotationUtil.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

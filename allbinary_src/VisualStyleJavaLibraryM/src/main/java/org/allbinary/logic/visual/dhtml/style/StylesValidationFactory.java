@@ -34,7 +34,7 @@ public class StylesValidationFactory {
     private static final StylesValidationFactory instance = new StylesValidationFactory();
 
     public static StylesValidationFactory getInstance() {
-        return instance;
+        return StylesValidationFactory.instance;
     }
 
     private StylesValidationFactory() {

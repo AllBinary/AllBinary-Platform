@@ -17,7 +17,7 @@ public class BasicGeographicMapExtractedPathCacheFactory
      */
     public static  BasicGeographicMapExtractedPathCacheFactory getInstance()
     {
-        return instance;
+        return BasicGeographicMapExtractedPathCacheFactory.instance;
     }
     
     private int maxConcurrentPaths;

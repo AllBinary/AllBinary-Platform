@@ -33,7 +33,7 @@ public class AndroidImageUtil {
      * @return the instance
      */
     public static AndroidImageUtil getInstance() {
-        return instance;
+        return AndroidImageUtil.instance;
     }
 
     public void paintBitmap(final Bitmap bitmap, final Bitmap originalBitmap, final Paint paint) {

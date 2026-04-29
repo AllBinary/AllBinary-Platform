@@ -19,7 +19,7 @@ public class RaceTrackGeographicMapCellTypes
 
     public static RaceTrackGeographicMapCellTypes getInstance()
     {
-        return instance;
+        return RaceTrackGeographicMapCellTypes.instance;
     }
     
     public final RaceTrackGeographicMapCellType BOTTOM_LEFT_TURN_ROAD_CELL_TYPE;

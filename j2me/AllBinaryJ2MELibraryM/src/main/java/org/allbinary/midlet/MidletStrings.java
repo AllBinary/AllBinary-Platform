@@ -19,7 +19,7 @@ public class MidletStrings
 
     public static MidletStrings getInstance()
     {
-        return instance;
+        return MidletStrings.instance;
     }
     
     public final String COMMAND_ACTION =  "commandAction";

@@ -28,7 +28,7 @@ public class AnalogControllerConfigurationEventHandler extends BasicEventHandler
 
     public static AnalogControllerConfigurationEventHandler getInstance()
     {
-        return instance;
+        return AnalogControllerConfigurationEventHandler.instance;
     }
     
     private final BasicArrayList list = new BasicArrayListD();

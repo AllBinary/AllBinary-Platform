@@ -33,7 +33,7 @@ public class DemoGameBehavior {
      * @return the instance
      */
     public static DemoGameBehavior getInstance() {
-        return instance;
+        return DemoGameBehavior.instance;
     }
 
     public void init() throws Exception {

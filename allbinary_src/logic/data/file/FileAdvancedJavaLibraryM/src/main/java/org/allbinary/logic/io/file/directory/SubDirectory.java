@@ -25,7 +25,7 @@ public class SubDirectory
     private static final SubDirectory instance = new SubDirectory();
     
     public static SubDirectory getInstance() {
-        return instance;
+        return SubDirectory.instance;
     }
     
     private final Directory directory = Directory.getInstance();

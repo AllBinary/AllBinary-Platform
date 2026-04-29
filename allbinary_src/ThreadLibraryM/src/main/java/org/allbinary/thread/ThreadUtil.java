@@ -23,7 +23,7 @@ public class ThreadUtil
     
     public static ThreadUtil getInstance()
     {
-        return instance;
+        return ThreadUtil.instance;
     }
 
     public final String JOIN = "join";

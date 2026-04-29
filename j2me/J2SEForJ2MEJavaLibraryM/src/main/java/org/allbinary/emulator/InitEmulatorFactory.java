@@ -6,7 +6,7 @@ public class InitEmulatorFactory
 
     public static InitEmulatorFactory getInstance()
     {
-        return instance;
+        return InitEmulatorFactory.instance;
     }
     
     public void setInitEmulator(boolean initEmulator)

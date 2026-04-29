@@ -29,7 +29,7 @@ public class CommandUriAction
  
     public static CommandUriAction getInstance()
     {
-        return instance;
+        return CommandUriAction.instance;
     }
     
     private Hashtable hashtable = new Hashtable();

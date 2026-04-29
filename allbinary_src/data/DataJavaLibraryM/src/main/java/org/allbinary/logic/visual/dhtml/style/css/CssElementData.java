@@ -18,7 +18,7 @@ public class CssElementData
 	private static final CssElementData instance = new CssElementData();
 
 	   public static CssElementData getInstance() {
-			return instance;
+			return CssElementData.instance;
 		}
 	
    private CssElementData()

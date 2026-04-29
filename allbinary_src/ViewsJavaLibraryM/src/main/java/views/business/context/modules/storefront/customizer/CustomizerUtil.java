@@ -34,7 +34,7 @@ public class CustomizerUtil
     private static final CustomizerUtil instance = new CustomizerUtil();
 
     public static CustomizerUtil getInstance() {
-        return instance;
+        return CustomizerUtil.instance;
     }
 
     private CustomizerUtil()

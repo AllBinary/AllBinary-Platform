@@ -11,7 +11,7 @@ public class AndroidResources
      */
     public static AndroidResources getInstance()
     {
-        return instance;
+        return AndroidResources.instance;
     }
     
     public R.drawable drawable = new R.drawable();

@@ -25,7 +25,7 @@ public class BaseImageLoadingProcessor {
      * @return the instance
      */
     public static BaseImageLoadingProcessor getInstance() {
-        return instance;
+        return BaseImageLoadingProcessor.instance;
     }
 
     public void runTask() {

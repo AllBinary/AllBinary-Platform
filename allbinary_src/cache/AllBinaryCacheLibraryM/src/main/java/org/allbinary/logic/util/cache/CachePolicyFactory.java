@@ -19,7 +19,7 @@ public class CachePolicyFactory
     
     public static CachePolicyFactory getInstance()
     {
-        return instance;
+        return CachePolicyFactory.instance;
     }
     
     public final String NAME = "lru";

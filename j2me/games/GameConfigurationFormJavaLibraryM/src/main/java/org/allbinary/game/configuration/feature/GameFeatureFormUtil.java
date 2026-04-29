@@ -35,7 +35,7 @@ public class GameFeatureFormUtil
     
     public static GameFeatureFormUtil getInstance()
     {
-        return instance;
+        return GameFeatureFormUtil.instance;
     }
     
     public ChoiceGroup getChoiceGroup(Hashtable hashtable, String name, int option)

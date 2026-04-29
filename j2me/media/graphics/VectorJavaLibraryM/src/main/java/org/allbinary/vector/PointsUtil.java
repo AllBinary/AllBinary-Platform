@@ -22,7 +22,7 @@ public class PointsUtil
 
     public static PointsUtil getInstance()
     {
-        return instance;
+        return PointsUtil.instance;
     }
     
     public int[][][] adjustXY(final int[][][] points, final int x, final int y)

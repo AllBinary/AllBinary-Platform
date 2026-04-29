@@ -22,7 +22,7 @@ public class CancelTouchButtonInputFactory
         
     public static CancelTouchButtonInputFactory getInstance()
     {
-        return instance;
+        return CancelTouchButtonInputFactory.instance;
     }
     
     private final TouchButtonInput[] cancelInputArray = new TouchButtonInput[InputFactory.getInstance().MAX];

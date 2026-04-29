@@ -19,7 +19,7 @@ public class GameInputStrings
 
     public static GameInputStrings getInstance()
     {
-        return instance;
+        return GameInputStrings.instance;
     }
     
     public final String PROCESS_INPUT = "processInput";

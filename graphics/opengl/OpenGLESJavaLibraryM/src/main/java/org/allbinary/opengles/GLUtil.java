@@ -33,7 +33,7 @@ public class GLUtil
      * @return the instance
      */
     public static GLUtil getInstance() {
-        return instance;
+        return GLUtil.instance;
     }
 
     private final int BYTES_PER_FLOAT = 4;

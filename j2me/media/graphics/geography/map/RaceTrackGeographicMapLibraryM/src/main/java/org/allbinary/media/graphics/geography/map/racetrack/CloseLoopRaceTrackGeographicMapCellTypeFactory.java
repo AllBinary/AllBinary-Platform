@@ -21,7 +21,7 @@ public class CloseLoopRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeo
      * @return the instance
      */
     public static CloseLoopRaceTrackGeographicMapCellTypeFactory getInstance() {
-        return instance;
+        return CloseLoopRaceTrackGeographicMapCellTypeFactory.instance;
     }
     
     private CloseLoopRaceTrackGeographicMapCellTypeFactory()

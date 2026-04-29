@@ -18,7 +18,7 @@ public class BackgroundColorData
 	private static final BackgroundColorData instance = new BackgroundColorData();
 	
 	   public static BackgroundColorData getInstance() {
-			return instance;
+			return BackgroundColorData.instance;
 		}
 	
    private BackgroundColorData()

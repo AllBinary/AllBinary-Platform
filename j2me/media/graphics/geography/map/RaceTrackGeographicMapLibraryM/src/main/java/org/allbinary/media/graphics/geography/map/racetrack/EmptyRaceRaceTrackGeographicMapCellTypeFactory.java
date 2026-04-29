@@ -24,7 +24,7 @@ public class EmptyRaceRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeo
      * @return the instance
      */
     public static EmptyRaceRaceTrackGeographicMapCellTypeFactory getInstance() {
-        return instance;
+        return EmptyRaceRaceTrackGeographicMapCellTypeFactory.instance;
     }
     
     private EmptyRaceRaceTrackGeographicMapCellTypeFactory()

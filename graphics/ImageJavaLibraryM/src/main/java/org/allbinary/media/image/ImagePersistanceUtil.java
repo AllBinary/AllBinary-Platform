@@ -33,7 +33,7 @@ public class ImagePersistanceUtil {
     private static final ImagePersistanceUtil instance = new ImagePersistanceUtil();
     
     public static ImagePersistanceUtil getInstance() {
-        return instance;
+        return ImagePersistanceUtil.instance;
     }
     
     protected final LogUtil logUtil = LogUtil.getInstance();

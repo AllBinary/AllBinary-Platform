@@ -27,7 +27,7 @@ public class BufferedWriterUtil {
      * @return the instance
      */
     public static BufferedWriterUtil getInstance() {
-        return instance;
+        return BufferedWriterUtil.instance;
     }
 
     public void overwrite(final String path, final String data) throws Exception

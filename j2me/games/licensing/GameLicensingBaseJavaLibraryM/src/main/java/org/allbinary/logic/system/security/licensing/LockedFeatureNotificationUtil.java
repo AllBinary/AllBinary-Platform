@@ -29,7 +29,7 @@ public class LockedFeatureNotificationUtil
 
     public static LockedFeatureNotificationUtil getInstance()
     {
-        return instance;
+        return LockedFeatureNotificationUtil.instance;
     }
 
     private final GameNotificationEvent gameNotificationEvent = 

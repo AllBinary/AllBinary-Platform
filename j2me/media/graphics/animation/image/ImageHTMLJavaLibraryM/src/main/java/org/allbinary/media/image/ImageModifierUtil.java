@@ -31,7 +31,7 @@ public class ImageModifierUtil {
      * @return the instance
      */
     public static ImageModifierUtil getInstanceOrCreate() {
-        return instance;
+        return ImageModifierUtil.instance;
     }
         
     public void setColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {

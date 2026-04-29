@@ -18,7 +18,7 @@ public class StoreFrontsData
 	private static final StoreFrontsData instance = new StoreFrontsData();
 
 	public static StoreFrontsData getInstance() {
-		return instance;
+		return StoreFrontsData.instance;
 	}
 
    //StoreFront Commands

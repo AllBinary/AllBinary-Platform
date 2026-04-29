@@ -17,7 +17,7 @@ public class TimeTypeUtil {
      * @return the instance
      */
     public static TimeTypeUtil getInstance() {
-        return instance;
+        return TimeTypeUtil.instance;
     }
     
     public final String NIGHT = "Night";

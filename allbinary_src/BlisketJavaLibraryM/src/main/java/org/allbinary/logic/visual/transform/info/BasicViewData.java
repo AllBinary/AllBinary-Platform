@@ -23,7 +23,7 @@ public class BasicViewData
 
     public static BasicViewData getInstance()
     {
-        return instance;
+        return BasicViewData.instance;
     }
 
     private BasicViewData()

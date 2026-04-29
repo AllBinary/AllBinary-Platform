@@ -32,7 +32,7 @@ public class VectorRotationGenerator
 
     public static VectorRotationGenerator getInstance()
     {
-        return instance;
+        return VectorRotationGenerator.instance;
     }
     
     private final VectorAnimationUtil vectorAnimationUtil = VectorAnimationUtil.getInstance();

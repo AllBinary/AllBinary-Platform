@@ -27,7 +27,7 @@ public class TransactionEntityFactory
      * @return the instance
      */
     public static TransactionEntityFactory getInstance() {
-        return instance;
+        return TransactionEntityFactory.instance;
     }
 
    //privatec final String CLASSNAME = "org.allbinary.data.tables.transaction.TransactionEntity";

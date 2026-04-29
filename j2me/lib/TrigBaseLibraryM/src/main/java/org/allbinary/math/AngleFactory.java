@@ -27,7 +27,7 @@ public class AngleFactory
 
     public static AngleFactory getInstance()
     {
-        return instance;
+        return AngleFactory.instance;
     }
     
     public final short TOTAL_ANGLE = 360;

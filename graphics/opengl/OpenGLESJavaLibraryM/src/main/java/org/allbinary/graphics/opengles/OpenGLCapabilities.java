@@ -40,7 +40,7 @@ public class OpenGLCapabilities
     
     public static OpenGLCapabilities getInstance()
     {
-        return instance;
+        return OpenGLCapabilities.instance;
     }
     
     public final boolean CUSTOM_GL_SURFACE_VIEW = true;

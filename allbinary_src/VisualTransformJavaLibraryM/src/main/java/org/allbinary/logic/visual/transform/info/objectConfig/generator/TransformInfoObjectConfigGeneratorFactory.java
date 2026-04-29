@@ -31,7 +31,7 @@ public class TransformInfoObjectConfigGeneratorFactory implements
      */
     public static TransformInfoObjectConfigGeneratorFactory getInstance()
     {
-        return instance;
+        return TransformInfoObjectConfigGeneratorFactory.instance;
     }
 
     private TransformInfoObjectConfigGeneratorFactory()

@@ -28,7 +28,7 @@ public class AbPathUtilOld
     private static final AbPathUtilOld instance = new AbPathUtilOld();
 
     public static final AbPathUtilOld getInstance() {
-        return instance;
+        return AbPathUtilOld.instance;
     }
 
     private final AbPathData abPathData = AbPathData.getInstance();    

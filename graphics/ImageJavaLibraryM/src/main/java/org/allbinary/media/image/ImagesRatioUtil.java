@@ -29,7 +29,7 @@ public class ImagesRatioUtil
      * @return the instance
      */
     public static ImagesRatioUtil getInstance() {
-        return instance;
+        return ImagesRatioUtil.instance;
     }
     
     private ImagesRatioUtil()

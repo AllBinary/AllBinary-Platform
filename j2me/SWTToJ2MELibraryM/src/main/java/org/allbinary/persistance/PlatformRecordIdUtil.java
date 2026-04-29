@@ -29,7 +29,7 @@ public class PlatformRecordIdUtil {
      * @return the instance
      */
     public static PlatformRecordIdUtil getInstance() {
-        return instance;
+        return PlatformRecordIdUtil.instance;
     }
     
     private final String PLATFORM_SHORT_NAME = "AVN";

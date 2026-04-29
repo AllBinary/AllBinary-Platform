@@ -35,7 +35,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
      * @return the instance
      */
     public static DemoGameBehavior getInstance() {
-        return instance;
+        return BaseGameBehavior.instance;
     }
 
     @Override

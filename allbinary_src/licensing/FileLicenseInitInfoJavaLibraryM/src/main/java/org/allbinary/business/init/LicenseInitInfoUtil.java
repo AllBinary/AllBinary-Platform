@@ -33,7 +33,7 @@ public class LicenseInitInfoUtil
 
     public static LicenseInitInfoUtil getInstance()
     {
-        return instance;
+        return LicenseInitInfoUtil.instance;
     }
 
     private final StringUtil stringUtil = StringUtil.getInstance();

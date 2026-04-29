@@ -34,7 +34,7 @@ public class RawKeyEventHandler {
      * @return the instance
      */
     public static RawKeyEventHandler getInstance() {
-        return instance;
+        return RawKeyEventHandler.instance;
     }
 
     protected BasicArrayList eventListenerInterfaceList;

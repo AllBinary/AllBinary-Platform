@@ -18,7 +18,7 @@ public class TenderTypeFactory {
 	private static final TenderTypeFactory instance = new TenderTypeFactory();
 	
 	public static TenderTypeFactory getInstance() {
-		return instance;
+		return TenderTypeFactory.instance;
 	}
 	
 	   public final TenderType CREDITCARD = new TenderType("Credit Card");

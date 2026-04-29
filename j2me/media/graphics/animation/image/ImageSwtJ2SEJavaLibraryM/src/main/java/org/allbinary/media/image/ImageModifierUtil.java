@@ -44,7 +44,7 @@ public class ImageModifierUtil {
      * @return the instance
      */
     public static ImageModifierUtil getInstanceOrCreate() {
-        return instance;
+        return ImageModifierUtil.instance;
     }
 
     //private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();

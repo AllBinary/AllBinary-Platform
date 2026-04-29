@@ -19,7 +19,7 @@ public class ExplosionResources
 
     public static ExplosionResources getInstance()
     {
-        return instance;
+        return ExplosionResources.instance;
     }
     
     private ExplosionResources()

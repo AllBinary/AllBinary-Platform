@@ -19,7 +19,7 @@ public class CaptionResources
     
     public static CaptionResources getInstance()
     {
-        return instance;
+        return CaptionResources.instance;
     }
     
     private CaptionResources()

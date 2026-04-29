@@ -19,7 +19,7 @@ public class GameFeatureFactory
     
     public static GameFeatureFactory getInstance()
     {
-        return instance;
+        return GameFeatureFactory.instance;
     }
     
     private GameFeatureFactory()

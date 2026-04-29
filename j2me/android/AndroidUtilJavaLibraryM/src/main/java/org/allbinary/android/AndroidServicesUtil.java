@@ -35,7 +35,7 @@ public class AndroidServicesUtil {
      * @return the instance
      */
     public static AndroidServicesUtil getInstance() {
-        return instance;
+        return AndroidServicesUtil.instance;
     }
  
     private static final AndroidServicesUtil instance = new AndroidServicesUtil();

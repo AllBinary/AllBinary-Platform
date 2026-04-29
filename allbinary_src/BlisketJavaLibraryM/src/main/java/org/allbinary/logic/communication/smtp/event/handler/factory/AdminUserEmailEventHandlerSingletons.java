@@ -35,7 +35,7 @@ public class AdminUserEmailEventHandlerSingletons {
      * @return the instance
      */
     public static AdminUserEmailEventHandlerSingletons getInstance() {
-        return instance;
+        return AdminUserEmailEventHandlerSingletons.instance;
     }
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

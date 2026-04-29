@@ -18,7 +18,7 @@ public class FontFamilyData
 	private static final FontFamilyData instance = new FontFamilyData();
 	
 	   public static FontFamilyData getInstance() {
-			return instance;
+			return FontFamilyData.instance;
 		}
 	
    private FontFamilyData()

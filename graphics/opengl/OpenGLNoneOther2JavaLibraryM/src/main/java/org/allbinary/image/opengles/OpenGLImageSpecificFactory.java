@@ -29,7 +29,7 @@ public class OpenGLImageSpecificFactory
     
     public static OpenGLImageSpecificFactory getInstance()
     {
-        return instance;
+        return OpenGLImageSpecificFactory.instance;
     }
 
 //    public void setImageFactory(OpenGLImageFactory imageFactory)

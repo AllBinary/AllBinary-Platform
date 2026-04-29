@@ -33,7 +33,7 @@ public class StoreTagWorkFlowFactory
     private static final StoreTagWorkFlowFactory instance = new StoreTagWorkFlowFactory();
 
     public static StoreTagWorkFlowFactory getInstance() {
-        return instance;
+        return StoreTagWorkFlowFactory.instance;
     }
 
     private StoreTagWorkFlowFactory()

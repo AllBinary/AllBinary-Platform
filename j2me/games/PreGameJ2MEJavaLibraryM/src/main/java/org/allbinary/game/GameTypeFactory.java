@@ -21,7 +21,7 @@ public class GameTypeFactory
     
     public static GameTypeFactory getInstance()
     {
-        return instance;
+        return GameTypeFactory.instance;
     }
 
     public GameType[] NULL_GAME_TYPE_ARRAY = new GameType[0];

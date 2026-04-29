@@ -26,7 +26,7 @@ public class HttpFilePermissionsUtil {
      */
     public static HttpFilePermissionsUtil getInstance()
     {
-        return instance;
+        return HttpFilePermissionsUtil.instance;
     }
     
     public void create(AbPath path)

@@ -32,7 +32,7 @@ public class ImageCompleteUtil {
      * @return the instance
      */
     public static ImageCompleteUtil getInstance() {
-        return instance;
+        return ImageCompleteUtil.instance;
     }
     
     protected final String ISREADY = "isReady";

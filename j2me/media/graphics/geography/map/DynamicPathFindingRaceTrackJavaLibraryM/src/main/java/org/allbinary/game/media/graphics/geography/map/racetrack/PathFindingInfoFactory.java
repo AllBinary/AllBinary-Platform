@@ -48,7 +48,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
      */
     public static PathFindingInfoFactory getInstance()
     {
-        return instance;
+        return PathFindingInfoFactory.instance;
     }
 
     public static void initMax(int max)

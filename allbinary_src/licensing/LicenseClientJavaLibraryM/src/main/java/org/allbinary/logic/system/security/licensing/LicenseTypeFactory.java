@@ -21,7 +21,7 @@ public class LicenseTypeFactory
 
     public static LicenseTypeFactory getInstance()
     {
-        return instance;
+        return LicenseTypeFactory.instance;
     }
     
     public final LicenseType UNKNOWN = new LicenseType(CommonStrings.getInstance().UNKNOWN);

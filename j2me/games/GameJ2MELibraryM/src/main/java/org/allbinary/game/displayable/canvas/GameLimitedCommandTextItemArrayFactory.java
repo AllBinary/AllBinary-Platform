@@ -26,7 +26,7 @@ public class GameLimitedCommandTextItemArrayFactory
 
     public static GameLimitedCommandTextItemArrayFactory getInstance()
     {
-        return instance;
+        return GameLimitedCommandTextItemArrayFactory.instance;
     }
 
     public CommandTextItemArrayFactory getCommandTextItemArrayFactory()

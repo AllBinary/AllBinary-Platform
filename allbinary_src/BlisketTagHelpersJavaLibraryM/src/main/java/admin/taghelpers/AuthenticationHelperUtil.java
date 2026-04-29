@@ -32,7 +32,7 @@ public class AuthenticationHelperUtil
 
     public static AuthenticationHelperUtil getInstance()
     {
-        return instance;
+        return AuthenticationHelperUtil.instance;
     }
 
     public final boolean isAuthorized(

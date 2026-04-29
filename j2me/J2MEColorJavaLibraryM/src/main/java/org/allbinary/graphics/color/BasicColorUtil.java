@@ -19,7 +19,7 @@ public class BasicColorUtil
 
     public static BasicColorUtil getInstance()
     {
-        return instance;
+        return BasicColorUtil.instance;
     }
     
     public final BasicColor[] ZERO_ARRAY = new BasicColor[0];

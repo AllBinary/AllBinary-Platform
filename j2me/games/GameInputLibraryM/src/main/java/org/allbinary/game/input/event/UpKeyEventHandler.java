@@ -31,7 +31,7 @@ public class UpKeyEventHandler extends UpKeyEventHandlerBase
 
    public static UpKeyEventHandler getInstance()
    {
-      return instance;
+      return UpKeyEventHandler.instance;
    }
 
    private final LocalPlayerInputIdFactory playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();

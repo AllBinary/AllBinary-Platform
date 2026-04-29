@@ -19,7 +19,7 @@ public class GameStrings
 
     public static GameStrings getInstance()
     {
-        return instance;
+        return GameStrings.instance;
     }
     
     public final String PROCESS_TICK = "processTick";

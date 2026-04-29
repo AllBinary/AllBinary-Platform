@@ -21,7 +21,7 @@ extends BaseDropCellPositionGenerator
 
     public static NullDropCellPositionGenerator getInstance()
     {
-        return instance;
+        return NullDropCellPositionGenerator.instance;
     }
     
 }

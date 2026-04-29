@@ -30,7 +30,7 @@ public class GeographicMapDirectionUtil
     
     public static GeographicMapDirectionUtil getInstance()
     {
-        return instance;
+        return GeographicMapDirectionUtil.instance;
     }
     
     private GeographicMapDirectionUtil()

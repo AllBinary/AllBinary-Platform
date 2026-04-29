@@ -24,7 +24,7 @@ public class BottomLimiter
 
     public static BottomLimiter getInstance()
     {
-        return instance;
+        return BottomLimiter.instance;
     }
 
     private int bottom;

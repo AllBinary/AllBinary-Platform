@@ -18,7 +18,7 @@ public class TransactionTypeFactory {
 	private static final TransactionTypeFactory instance = new TransactionTypeFactory();
 
 	public static TransactionTypeFactory getInstance() {
-		return instance;
+		return TransactionTypeFactory.instance;
 	}
 
 	   public final TransactionType SALE = new TransactionType("Sale");

@@ -29,7 +29,7 @@ public class LinePathRelativeAnimation extends LinePathAnimation {
      * @return the instance
      */
     public static LinePathAnimation getInstance() {
-        return instance;
+        return LinePathRelativeAnimation.instance;
     }
     
     @Override

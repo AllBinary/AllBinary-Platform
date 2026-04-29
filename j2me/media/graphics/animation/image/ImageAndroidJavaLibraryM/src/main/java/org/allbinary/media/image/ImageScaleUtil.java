@@ -36,7 +36,7 @@ public class ImageScaleUtil
 
     public static ImageScaleUtil getInstance()
     {
-        return instance;
+        return ImageScaleUtil.instance;
     }
 
     private ImageScaleUtil()

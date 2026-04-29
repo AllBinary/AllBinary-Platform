@@ -35,7 +35,7 @@ public class CompositeShaderUpdater extends ShaderUpdater {
      * @return the instance
      */
     public static CompositeShaderUpdater getInstance() {
-        return instance;
+        return CompositeShaderUpdater.instance;
     }
     
     public final int[] uniformBlockHandleArray;

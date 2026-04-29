@@ -20,7 +20,7 @@ public class InitializerData {
 	private static final InitializerData instance = new InitializerData();
 
 	public static InitializerData getInstance() {
-		return instance;
+		return InitializerData.instance;
 	}
 
     public final String DBUSER = "DBUSER";

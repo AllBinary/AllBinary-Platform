@@ -26,7 +26,7 @@ public class TiledLayerUtil {
 
     public static TiledLayerUtil getInstance()
     {
-        return instance;
+        return TiledLayerUtil.instance;
     }
     
     /*

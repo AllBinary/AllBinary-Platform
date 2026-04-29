@@ -18,7 +18,7 @@ public class HtmlInputData {
 	private static final HtmlInputData instance = new HtmlInputData();
 	
 	public static HtmlInputData getInstance() {
-		return instance;
+		return HtmlInputData.instance;
 	}
 	
 	   public final String TEXT = "text";

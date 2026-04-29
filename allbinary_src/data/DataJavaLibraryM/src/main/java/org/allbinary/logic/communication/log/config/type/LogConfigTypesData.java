@@ -18,7 +18,7 @@ public class LogConfigTypesData
 	private static final LogConfigTypesData instance = new LogConfigTypesData();
 
 	public static LogConfigTypesData getInstance() {
-		return instance;
+		return LogConfigTypesData.instance;
 	}
 	
    public final String NAME = "LOG_CONFIG_TYPES_NAME";

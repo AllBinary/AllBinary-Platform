@@ -27,7 +27,7 @@ public class PartnerIdentifierFileUtil
     
     public static PartnerIdentifierFileUtil getInstance()
     {
-        return instance;
+        return PartnerIdentifierFileUtil.instance;
     }
 
     public final String FILE_NAME = "partner.txt";

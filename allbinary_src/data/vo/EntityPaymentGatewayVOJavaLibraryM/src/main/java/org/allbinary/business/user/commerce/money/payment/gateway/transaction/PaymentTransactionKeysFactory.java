@@ -18,7 +18,7 @@ public class PaymentTransactionKeysFactory {
 	private static final PaymentTransactionKeysFactory instance = new PaymentTransactionKeysFactory();
 
 	public static PaymentTransactionKeysFactory getInstance() {
-		return instance;
+		return PaymentTransactionKeysFactory.instance;
 	}      
 
 	   public final PaymentTransactionKeys TRXTYPE = new PaymentTransactionKeys("TRXTYPE");

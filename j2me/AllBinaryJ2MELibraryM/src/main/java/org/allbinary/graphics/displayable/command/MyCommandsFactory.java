@@ -22,7 +22,7 @@ public class MyCommandsFactory
 
     public static MyCommandsFactory getInstance()
     {
-        return instance;
+        return MyCommandsFactory.instance;
     }
 
     public final Command NO_COMMAND = new Command(StringUtil.getInstance().EMPTY_STRING, -1, -1);

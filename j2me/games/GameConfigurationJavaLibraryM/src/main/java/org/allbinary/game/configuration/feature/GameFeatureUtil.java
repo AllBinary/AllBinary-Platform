@@ -32,7 +32,7 @@ public class GameFeatureUtil
 
     public static GameFeatureUtil getInstance()
     {
-        return instance;
+        return GameFeatureUtil.instance;
     }
 
     public final String ON_GAME_FEATURE_CHANGE = "onGameFeatureChange";

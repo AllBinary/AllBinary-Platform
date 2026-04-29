@@ -27,7 +27,7 @@ public class PaymentEntityFactory
      * @return the instance
      */
     public static PaymentEntityFactory getInstance() {
-        return instance;
+        return PaymentEntityFactory.instance;
     }
 
    //private final String CLASSNAME = "org.allbinary.data.tables.PaymentEntity";

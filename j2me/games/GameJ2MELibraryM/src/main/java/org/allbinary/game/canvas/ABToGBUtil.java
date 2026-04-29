@@ -29,7 +29,7 @@ public class ABToGBUtil {
      * @return the instance
      */
     public static ABToGBUtil getInstance() {
-        return instance;
+        return ABToGBUtil.instance;
     }
 
     public Canvas abCanvas = NullCanvas.NULL_CANVAS;

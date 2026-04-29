@@ -99,6 +99,6 @@ public class GameInitializationUtil
     
     public static GameInitializationUtil getInstance()
     {
-        return instance;
+        return GameInitializationUtil.instance;
     }
 }

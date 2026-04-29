@@ -18,7 +18,7 @@ public class TransformInfoData
 	private static final TransformInfoData instance = new TransformInfoData();
 
 	   public static TransformInfoData getInstance() {
-			return instance;
+			return TransformInfoData.instance;
 		}
 	
    private TransformInfoData()

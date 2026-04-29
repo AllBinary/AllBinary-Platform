@@ -19,7 +19,7 @@ public class RendererStateFactory
 
     public static RendererStateFactory getInstance()
     {
-        return instance;
+        return RendererStateFactory.instance;
     }
     
     private boolean loaded = false;

@@ -29,7 +29,7 @@ public class VectorExplosionGenerator
 
     public static VectorExplosionGenerator getInstance()
     {
-        return instance;
+        return VectorExplosionGenerator.instance;
     }
     
     public final VectorExplosionType RANDOM = new VectorExplosionType();

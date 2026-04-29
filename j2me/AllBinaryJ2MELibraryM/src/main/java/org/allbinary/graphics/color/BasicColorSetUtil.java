@@ -21,7 +21,7 @@ public class BasicColorSetUtil
     
     public static BasicColorSetUtil getInstance()
     {
-        return instance;
+        return BasicColorSetUtil.instance;
     }
     
     protected BasicColorSetUtil()

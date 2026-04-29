@@ -28,7 +28,7 @@ public class MouseStrings {
      */
     public static MouseStrings getInstance()
     {
-        return instance;
+        return MouseStrings.instance;
     }
 
     public final String MOUSE_PRESSED = "mousePressed";

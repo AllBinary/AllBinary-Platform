@@ -20,7 +20,7 @@ public class HtmlTableData {
 	private static final HtmlTableData instance = new HtmlTableData();
 
 	public static HtmlTableData getInstance() {
-		return instance;
+		return HtmlTableData.instance;
 	}
 
 	   public final String LEFT = CommonStrings.getInstance().LEFT;

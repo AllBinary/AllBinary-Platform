@@ -25,7 +25,7 @@ public class LoadedShaderManager {
      * @return the instance
      */
     public static ShaderManager getInstance() {
-        return instance;
+        return LoadedShaderManager.instance;
     }
     
 }

@@ -22,7 +22,7 @@ public class TransformInfosData
    }
 
    public static TransformInfosData getInstance() {
-	return instance;
+	return TransformInfosData.instance;
 }
 
 public final String NAME = "TRANSFORM_INFOS_NAME";

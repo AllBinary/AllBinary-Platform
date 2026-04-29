@@ -42,7 +42,7 @@ public class ImageUtil {
      * @return the instance
      */
     public static ImageUtil getInstance() {
-        return instance;
+        return ImageUtil.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

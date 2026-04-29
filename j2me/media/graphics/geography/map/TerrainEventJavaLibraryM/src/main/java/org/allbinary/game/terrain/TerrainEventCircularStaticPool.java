@@ -21,7 +21,7 @@ public class TerrainEventCircularStaticPool
 
     public static TerrainEventCircularStaticPool getInstance()
     {
-        return instance;
+        return TerrainEventCircularStaticPool.instance;
     }
 
     private AllBinaryEventCircularPool EVENT_POOL = new AllBinaryEventCircularPool(20);

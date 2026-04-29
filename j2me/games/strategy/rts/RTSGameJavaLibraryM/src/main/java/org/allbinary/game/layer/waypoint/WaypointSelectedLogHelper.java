@@ -39,7 +39,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
      * @return the instance
      */
     public static WaypointSelectedLogHelper getInstance() {
-        return instance;
+        return WaypointSelectedLogHelper.instance;
     }
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();

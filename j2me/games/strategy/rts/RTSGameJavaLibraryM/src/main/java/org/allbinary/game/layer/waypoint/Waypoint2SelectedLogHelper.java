@@ -39,7 +39,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
      * @return the instance
      */
     public static Waypoint2LogHelper getInstance() {
-        return instance;
+        return Waypoint2SelectedLogHelper.instance;
     }
 
     //private final CommonStrings commonStrings = CommonStrings.getInstance();

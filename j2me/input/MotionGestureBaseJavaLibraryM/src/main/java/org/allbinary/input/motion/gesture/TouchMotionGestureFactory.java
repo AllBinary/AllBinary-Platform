@@ -21,7 +21,7 @@ public class TouchMotionGestureFactory
     
     public static final TouchMotionGestureFactory getInstance()
     {
-        return instance;
+        return TouchMotionGestureFactory.instance;
     }
 
     public final MotionGestureInput LEFT;

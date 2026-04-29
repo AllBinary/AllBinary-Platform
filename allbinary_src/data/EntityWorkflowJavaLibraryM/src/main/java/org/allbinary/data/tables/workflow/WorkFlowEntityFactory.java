@@ -23,7 +23,7 @@ public class WorkFlowEntityFactory
     private static final WorkFlowEntityFactory instance = new WorkFlowEntityFactory();
 
     public static WorkFlowEntityFactory getInstance() {
-        return instance;
+        return WorkFlowEntityFactory.instance;
     }
 
    private WorkFlowEntityFactory()

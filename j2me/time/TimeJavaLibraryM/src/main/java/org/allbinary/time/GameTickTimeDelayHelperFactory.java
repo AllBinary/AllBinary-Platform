@@ -23,7 +23,7 @@ public class GameTickTimeDelayHelperFactory
     
     public static GameTickTimeDelayHelper getInstance()
     {
-        return instance;
+        return GameTickTimeDelayHelperFactory.instance;
     }
     
     private GameTickTimeDelayHelperFactory()

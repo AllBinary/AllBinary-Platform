@@ -29,7 +29,7 @@ public class UserName
    private static final UserName instance = new UserName();
 
    public static UserName getInstance() {
-       return instance;
+       return UserName.instance;
    }
 
    //private String className = "UserName";

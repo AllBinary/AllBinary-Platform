@@ -25,7 +25,7 @@ public class TagStrings {
      * @return the instance
      */
     public static TagStrings getInstance() {
-        return instance;
+        return TagStrings.instance;
     }
 
     public final String DO_START_TAG = "doStartTag";

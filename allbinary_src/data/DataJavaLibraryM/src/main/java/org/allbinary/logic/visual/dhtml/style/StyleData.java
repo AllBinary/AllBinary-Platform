@@ -18,7 +18,7 @@ public class StyleData
 	private static final StyleData instance = new StyleData();
 	
 	   public static StyleData getInstance() {
-			return instance;
+			return StyleData.instance;
 		}
 	
    private StyleData()

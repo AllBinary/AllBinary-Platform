@@ -25,7 +25,7 @@ public class ShaderStrings {
      * @return the instance
      */
     public static ShaderStrings getInstance() {
-        return instance;
+        return ShaderStrings.instance;
     }
     
     public final String NO_PROGRAM_HANDLE = "No program handle";

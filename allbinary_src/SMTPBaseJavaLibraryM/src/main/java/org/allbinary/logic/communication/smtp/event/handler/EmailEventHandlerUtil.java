@@ -33,7 +33,7 @@ public class EmailEventHandlerUtil
     private static final EmailEventHandlerUtil instance = new EmailEventHandlerUtil();
     
     public static EmailEventHandlerUtil getInstance() {
-        return instance;
+        return EmailEventHandlerUtil.instance;
     }
 
    private EmailEventHandlerUtil()

@@ -32,7 +32,7 @@ public class ImageRotationUtil {
     private static final ImageRotationUtil instance = new ImageRotationUtil();
 
     public static ImageRotationUtil getInstance() {
-        return instance;
+        return ImageRotationUtil.instance;
     }
 
     private final ImageSwtRotationUtil imageSwtRotationUtil = ImageSwtRotationUtil.getInstance();

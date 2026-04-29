@@ -7,7 +7,7 @@ public class CacheTypeFactory
 	private static final CacheTypeFactory instance = new CacheTypeFactory();
 
 	public static CacheTypeFactory getInstance() {
-		return instance;
+		return CacheTypeFactory.instance;
 	}
 	    
     public CacheType NO_CACHE = new CacheType(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);

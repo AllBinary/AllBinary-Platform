@@ -34,7 +34,7 @@ public class SimulatedBuildingPropertiesFactory extends BuildingPropertiesFactor
      * @return the instance
      */
     public static SimulatedBuildingPropertiesFactory getInstance() {
-        return instance;
+        return SimulatedBuildingPropertiesFactory.instance;
     }
     
     @Override

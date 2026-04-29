@@ -35,6 +35,6 @@ public class GameSpeed
 
     public static GameSpeed getInstance()
     {
-        return instance;
+        return GameSpeed.instance;
     }
 }

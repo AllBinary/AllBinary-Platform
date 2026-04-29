@@ -39,7 +39,7 @@ public class CompleteMotionGestureInputToGameMotionGestureInput
            new CompleteMotionGestureInputToGameMotionGestureInput();
 
     public static CompleteMotionGestureInputToGameMotionGestureInput getInstance() {
-        return instance;
+        return CompleteMotionGestureInputToGameMotionGestureInput.instance;
     }
    
     public void init()

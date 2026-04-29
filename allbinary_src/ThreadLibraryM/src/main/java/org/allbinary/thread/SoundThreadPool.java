@@ -19,6 +19,6 @@ public class SoundThreadPool
 
     public static ThreadPool getInstance()
     {
-        return instance;
+        return SoundThreadPool.instance;
     }
 }

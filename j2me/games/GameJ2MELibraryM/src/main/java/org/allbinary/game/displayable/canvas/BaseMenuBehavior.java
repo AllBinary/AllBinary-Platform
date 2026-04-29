@@ -28,7 +28,7 @@ public class BaseMenuBehavior {
      * @return the instance
      */
     public static BaseMenuBehavior getInstance() {
-        return instance;
+        return BaseMenuBehavior.instance;
     }
 
     public void onDisplayChangeEvent(final AllBinaryGameCanvas allBinaryGameCanvas, final DisplayChangeEvent displayChangeEvent) throws Exception {

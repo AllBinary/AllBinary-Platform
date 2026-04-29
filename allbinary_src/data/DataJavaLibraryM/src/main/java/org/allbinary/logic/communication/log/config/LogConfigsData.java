@@ -18,7 +18,7 @@ public class LogConfigsData
 	private static final LogConfigsData instance = new LogConfigsData();
 
 	public static LogConfigsData getInstance() {
-		return instance;
+		return LogConfigsData.instance;
 	}
 	
 	public final String NAME = "LOG_CONFIGS_NAME";

@@ -24,7 +24,7 @@ public class LayerCollisionUtil
     
     public static LayerCollisionUtil getInstance()
     {
-        return instance;
+        return LayerCollisionUtil.instance;
     }
     
     private final CollisionProcessor collisionProcessor;

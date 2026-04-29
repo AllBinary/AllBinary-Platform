@@ -19,7 +19,7 @@ public class StoreFrontAdvertisementsStatisticsData
 	   new StoreFrontAdvertisementsStatisticsData();
    
    public static StoreFrontAdvertisementsStatisticsData getInstance() {
-		return instance;
+		return StoreFrontAdvertisementsStatisticsData.instance;
 	}
    
    private StoreFrontAdvertisementsStatisticsData()

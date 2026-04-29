@@ -25,7 +25,7 @@ public class ModifierOpenGLESImageProcessor extends OpenGLESImageProcessor {
      * @return the instance
      */
     public static ModifierOpenGLESImageProcessor getInstance() {
-        return instance;
+        return ModifierOpenGLESImageProcessor.instance;
     }
         
 }

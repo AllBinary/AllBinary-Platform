@@ -28,7 +28,7 @@ public class TransformInfoPropertiesFactory
     private static final TransformInfoPropertiesFactory instance = new TransformInfoPropertiesFactory();
 
     public static TransformInfoPropertiesFactory getInstance() {
-        return instance;
+        return TransformInfoPropertiesFactory.instance;
     }
     
    private TransformInfoPropertiesFactory()

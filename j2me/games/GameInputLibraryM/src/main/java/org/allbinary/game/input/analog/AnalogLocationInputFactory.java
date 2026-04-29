@@ -8,7 +8,7 @@ public class AnalogLocationInputFactory {
 	private static final AnalogLocationInputFactory instance = new AnalogLocationInputFactory();
 
 	public static AnalogLocationInputFactory getInstance() {
-		return instance;
+		return AnalogLocationInputFactory.instance;
 	}
 	
 	private final BasicArrayList list = new BasicArrayListD();

@@ -30,7 +30,7 @@ public class LogFormatUtil
     //ActualPlatform
     public static LogFormatUtil getInstance()
     {
-        return instance;
+        return LogFormatUtil.instance;
     }
 
     private final TimeStampUtil timeStampUtil = TimeStampUtil.getInstance();

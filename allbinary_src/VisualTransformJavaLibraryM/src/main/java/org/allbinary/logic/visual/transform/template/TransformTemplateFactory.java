@@ -34,7 +34,7 @@ public class TransformTemplateFactory
      * @return the instance
      */
     public static TransformTemplateFactory getInstance() {
-        return instance;
+        return TransformTemplateFactory.instance;
     }
     
    private TransformTemplateFactory()

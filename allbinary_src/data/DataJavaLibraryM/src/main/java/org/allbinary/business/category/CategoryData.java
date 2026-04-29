@@ -20,7 +20,7 @@ public class CategoryData
 	private static final CategoryData instance = new CategoryData();
 	
 	public static CategoryData getInstance() {
-		return instance;
+		return CategoryData.instance;
 	}
 
 	private CategoryData()

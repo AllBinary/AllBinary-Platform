@@ -32,7 +32,7 @@ public class NewWorkFlowFactory
     private static final NewWorkFlowFactory instance = new NewWorkFlowFactory();
 
     public static NewWorkFlowFactory getInstance() {
-        return instance;
+        return NewWorkFlowFactory.instance;
     }
 
    private NewWorkFlowFactory()

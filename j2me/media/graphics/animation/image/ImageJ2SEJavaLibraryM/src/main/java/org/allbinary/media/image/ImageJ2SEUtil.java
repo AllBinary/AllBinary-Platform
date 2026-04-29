@@ -27,7 +27,7 @@ public class ImageJ2SEUtil {
      * @return the instance
      */
     public static ImageJ2SEUtil getInstance() {
-        return instance;
+        return ImageJ2SEUtil.instance;
     }
 
     public final Color TRANSPARENT_COLOR = new Color(0,0,0,0);

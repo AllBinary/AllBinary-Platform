@@ -27,7 +27,7 @@ public class ThirdPartyStoreFactory {
      */
     public static ThirdPartyStore getInstance()
     {
-        return instance;
+        return ThirdPartyStoreFactory.instance;
     }
 
     private ThirdPartyStoreFactory()

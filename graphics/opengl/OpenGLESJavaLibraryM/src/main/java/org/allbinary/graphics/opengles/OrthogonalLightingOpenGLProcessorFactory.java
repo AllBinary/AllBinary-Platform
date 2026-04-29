@@ -25,7 +25,7 @@ public class OrthogonalLightingOpenGLProcessorFactory {
      * @return the instance
      */
     public static OrthogonalLightingOpenGLProcessorFactory getInstance() {
-        return instance;
+        return OrthogonalLightingOpenGLProcessorFactory.instance;
     }
     
     public OpenGLProcessor sceneLightingOrthogonalModeOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();

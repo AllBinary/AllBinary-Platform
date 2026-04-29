@@ -30,7 +30,7 @@ public class ImageAnalysis
      * @return the instance
      */
     public static ImageAnalysis getInstance() {
-        return instance;
+        return ImageAnalysis.instance;
     }
     
     protected final LogUtil logUtil = LogUtil.getInstance();

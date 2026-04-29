@@ -28,7 +28,7 @@ public class Globals {
     private static final Globals instance = new Globals();
     
     public static Globals getInstance() {
-        return instance;
+        return Globals.instance;
     }
     
     private Globals() {

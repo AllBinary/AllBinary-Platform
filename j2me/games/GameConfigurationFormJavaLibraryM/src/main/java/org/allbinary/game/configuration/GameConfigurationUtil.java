@@ -28,7 +28,7 @@ public class GameConfigurationUtil
     
     public static GameConfigurationUtil getInstance()
     {
-        return instance;
+        return GameConfigurationUtil.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

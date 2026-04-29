@@ -18,7 +18,7 @@ public class StoreFrontStatisticsData
 	private static final StoreFrontStatisticsData instance = new StoreFrontStatisticsData();
 	
 	   public static StoreFrontStatisticsData getInstance() {
-			return instance;
+			return StoreFrontStatisticsData.instance;
 		}
    
    private StoreFrontStatisticsData()

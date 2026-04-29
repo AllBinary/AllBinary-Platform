@@ -25,7 +25,7 @@ public class BasicGeographicMapUtil {
     
     public static BasicGeographicMapUtil getInstance()
     {
-        return instance;
+        return BasicGeographicMapUtil.instance;
     }
 
     public int getBorderingRow(

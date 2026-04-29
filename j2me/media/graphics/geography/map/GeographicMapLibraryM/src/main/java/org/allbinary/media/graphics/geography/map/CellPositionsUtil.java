@@ -31,7 +31,7 @@ public class CellPositionsUtil
     
     public static CellPositionsUtil getInstance()
     {
-        return instance;
+        return CellPositionsUtil.instance;
     }
     
     public final BasicArrayList getAll(

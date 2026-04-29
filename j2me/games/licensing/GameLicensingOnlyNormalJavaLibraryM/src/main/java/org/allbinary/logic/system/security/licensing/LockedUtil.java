@@ -19,7 +19,7 @@ public class LockedUtil implements LockedUtilInterface
 
     public static LockedUtil getInstance()
     {
-        return instance;
+        return LockedUtil.instance;
     }
  
     public boolean isLocked()

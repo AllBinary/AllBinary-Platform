@@ -29,7 +29,7 @@ public class ActivityFractureUtilAPI5 extends ActivityFractureUtilAPI1
 
     public static ActivityFractureUtilAPI5 getInstance()
     {
-        return instance;
+        return ActivityFractureUtilAPI5.instance;
     }
 
     //PackageManager

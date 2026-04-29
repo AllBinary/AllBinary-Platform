@@ -19,7 +19,7 @@ public class AngleIncrementInfoFactory
 
     public static AngleIncrementInfoFactory getInstance()
     {
-        return instance;
+        return AngleIncrementInfoFactory.instance;
     }
     
     private final AngleIncrementInfo[] angleIncrementInfo = new AngleIncrementInfo[(int) AngleFactory.getInstance().TOTAL_ANGLE];

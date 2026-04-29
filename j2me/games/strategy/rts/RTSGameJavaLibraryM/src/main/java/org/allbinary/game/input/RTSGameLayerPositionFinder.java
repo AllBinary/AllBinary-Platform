@@ -33,7 +33,7 @@ implements LayerPositionFinderInterface
      */
     public static RTSGameLayerPositionFinder getInstance()
     {
-        return instance;
+        return RTSGameLayerPositionFinder.instance;
     }
 
     private RTSGameLayerPositionFinder()

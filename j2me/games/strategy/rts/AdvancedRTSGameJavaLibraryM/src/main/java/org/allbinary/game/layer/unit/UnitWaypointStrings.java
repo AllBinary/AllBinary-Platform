@@ -25,7 +25,7 @@ public class UnitWaypointStrings {
      * @return the instance
      */
     public static UnitWaypointStrings getInstance() {
-        return instance;
+        return UnitWaypointStrings.instance;
     }
     
     public final String WANDERING = "Order?"; //"Lalala" //"What Now? //"Wander";

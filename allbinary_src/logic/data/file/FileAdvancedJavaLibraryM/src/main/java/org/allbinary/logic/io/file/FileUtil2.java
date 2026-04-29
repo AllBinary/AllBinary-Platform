@@ -35,7 +35,7 @@ public class FileUtil2 {
      */
     public static FileUtil2 getInstance()
     {
-        return instance;
+        return FileUtil2.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

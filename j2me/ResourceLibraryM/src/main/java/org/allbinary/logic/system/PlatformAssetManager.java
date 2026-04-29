@@ -29,7 +29,7 @@ public class PlatformAssetManager {
      * @return the instance
      */
     public static PlatformAssetManager getInstance() {
-        return instance;
+        return PlatformAssetManager.instance;
     }
     
     public InputStream getResourceAsStream(final String resource) throws Exception {

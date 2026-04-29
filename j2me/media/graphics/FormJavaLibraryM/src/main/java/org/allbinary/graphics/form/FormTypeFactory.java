@@ -21,7 +21,7 @@ public class FormTypeFactory
     
     public static FormTypeFactory getInstance()
     {
-        return instance;
+        return FormTypeFactory.instance;
     }
     
     public final String UNK = "Unknown FormType";

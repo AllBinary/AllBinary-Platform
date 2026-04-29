@@ -25,7 +25,7 @@ public class PlatformInputMappingFactory
 
     public static PlatformInputMappingFactory getInstance()
     {
-        return instance;
+        return PlatformInputMappingFactory.instance;
     }
 
     private PersistentInputMapping SINGLETON = PersistentInputMapping.NULL_PERSISTENT_INPUT_MAPPING;

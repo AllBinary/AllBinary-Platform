@@ -27,7 +27,7 @@ public class PermissionItemsEntityFactory
      * @return the instance
      */
     public static PermissionItemsEntityFactory getInstance() {
-        return instance;
+        return PermissionItemsEntityFactory.instance;
     }
 
    //private final String CLASSNAME = "org.allbinary.data.tables.InventoryEntity";

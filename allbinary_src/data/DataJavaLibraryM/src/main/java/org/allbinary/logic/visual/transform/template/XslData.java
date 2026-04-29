@@ -18,7 +18,7 @@ public class XslData
 	private final static XslData instance = new XslData();
 	
 	   public static XslData getInstance() {
-			return instance;
+			return XslData.instance;
 		}
 	
 	   private XslData()

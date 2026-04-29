@@ -23,7 +23,7 @@ public class ColorFromEventUtil
 
     public static ColorFromEventUtil getInstance()
     {
-        return instance;
+        return ColorFromEventUtil.instance;
     }
     
     private final BasicColor YELLOW = BasicColorFactory.getInstance().YELLOW;

@@ -35,7 +35,7 @@ public class TestingInputSingleton
     
     public static TestingInputSingleton getInstance()
     {
-        return instance;
+        return TestingInputSingleton.instance;
     }
     
     protected final GameInputProcessor[] inputProcessorArray = 

@@ -23,7 +23,7 @@ implements SelectRTSLayerVisitorFactoryInterface
     
     public static SelectAdvancedRTSLayerVisitorFactory getInstance()
     {
-        return instance;
+        return SelectAdvancedRTSLayerVisitorFactory.instance;
     }
     
     private SelectAdvancedRTSLayerVisitorFactory()

@@ -29,7 +29,7 @@ public class OSGIServiceUtil
      * @return the instance
      */
     public static OSGIServiceUtil getInstance() {
-        return instance;
+        return OSGIServiceUtil.instance;
     }
     
     protected final LogUtil logUtil = LogUtil.getInstance();

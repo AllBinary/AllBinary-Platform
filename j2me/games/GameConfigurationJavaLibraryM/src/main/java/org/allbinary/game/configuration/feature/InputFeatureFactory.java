@@ -19,7 +19,7 @@ public class InputFeatureFactory
     
     public static InputFeatureFactory getInstance()
     {
-        return instance;
+        return InputFeatureFactory.instance;
     }
     
     private InputFeatureFactory()

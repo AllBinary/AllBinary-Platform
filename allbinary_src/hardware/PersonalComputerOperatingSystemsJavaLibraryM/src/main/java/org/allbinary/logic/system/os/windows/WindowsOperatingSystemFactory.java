@@ -30,7 +30,7 @@ public class WindowsOperatingSystemFactory
     
     public static WindowsOperatingSystemFactory getInstance()
     {
-        return instance;
+        return WindowsOperatingSystemFactory.instance;
     }
 
     private WindowsOperatingSystemFactory()

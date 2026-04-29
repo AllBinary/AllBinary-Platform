@@ -19,7 +19,7 @@ public class InputProcessorFactory
 
     public static InputProcessorFactory getInstance()
     {
-        return instance;
+        return InputProcessorFactory.instance;
     }
 
     private final InputProcessor inputProcessor = new InputProcessor();

@@ -41,7 +41,7 @@ public class DomHelper
      */
     public static DomHelper getInstance()
     {
-        return instance;
+        return DomHelper.instance;
     }
 
     private DomHelper()

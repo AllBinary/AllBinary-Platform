@@ -25,7 +25,7 @@ public class LayerDistanceUtil
      * @return the instance
      */
     public static LayerDistanceUtil getInstance() {
-        return instance;
+        return LayerDistanceUtil.instance;
     }
     
     private final MathUtil mathUtil = MathUtil.getInstance();

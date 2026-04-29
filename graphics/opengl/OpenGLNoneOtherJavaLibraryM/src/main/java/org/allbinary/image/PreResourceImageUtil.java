@@ -26,7 +26,7 @@ public class PreResourceImageUtil
      */
     public static PreResourceImageUtil getInstance()
     {
-        return instance;
+        return PreResourceImageUtil.instance;
     }
 
     public Image encapsulate(Image image)

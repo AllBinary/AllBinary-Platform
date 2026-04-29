@@ -19,7 +19,7 @@ public class HudResources
     
     public static HudResources getInstance()
     {
-        return instance;
+        return HudResources.instance;
     }
     
     private HudResources()

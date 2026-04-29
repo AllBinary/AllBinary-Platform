@@ -37,7 +37,7 @@ public class DrawStringUtil
 
     public static DrawStringUtil getInstance()
     {
-        return instance;
+        return DrawStringUtil.instance;
     }    
 
     public void paintVerticle(final Graphics graphics, final String string, final int x, final int y, final int anchor)

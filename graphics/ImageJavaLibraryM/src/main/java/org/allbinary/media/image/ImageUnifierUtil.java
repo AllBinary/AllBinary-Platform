@@ -29,7 +29,7 @@ public class ImageUnifierUtil
      * @return the instance
      */
     public static ImageUnifierUtil getInstance() {
-        return instance;
+        return ImageUnifierUtil.instance;
     }
     
     private final ImageUtil imageUtil = ImageUtil.getInstance();

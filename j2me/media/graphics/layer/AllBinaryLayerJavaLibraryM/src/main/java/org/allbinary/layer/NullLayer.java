@@ -21,7 +21,7 @@ public class NullLayer extends Layer
     
     public static NullLayer getInstance()
     {
-        return instance;
+        return NullLayer.instance;
     }
 
     private NullLayer()

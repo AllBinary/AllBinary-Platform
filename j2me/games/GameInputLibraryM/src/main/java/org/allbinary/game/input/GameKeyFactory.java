@@ -23,7 +23,7 @@ public class GameKeyFactory
     
     public static GameKeyFactory getInstance()
     {
-        return instance;
+        return GameKeyFactory.instance;
     }
 
     public final GameKey NONE = new GameKey(InputFactory.getInstance().MAX - 1, "None");

@@ -45,6 +45,6 @@ extends CompleteMotionGestureInputEventListener
 
     public static NoCompleteMotionGestureInputEventListener getInstance()
     {
-        return instance;
+        return NoCompleteMotionGestureInputEventListener.instance;
     }
 }

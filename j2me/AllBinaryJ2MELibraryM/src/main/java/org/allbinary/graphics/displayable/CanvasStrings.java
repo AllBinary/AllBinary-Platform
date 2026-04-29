@@ -28,7 +28,7 @@ public class CanvasStrings {
      * @return the instance
      */
     public static CanvasStrings getInstance() {
-        return instance;
+        return CanvasStrings.instance;
     }
     
     public final String CONSTRUCTOR = "MyCanvas::MyCanvas";

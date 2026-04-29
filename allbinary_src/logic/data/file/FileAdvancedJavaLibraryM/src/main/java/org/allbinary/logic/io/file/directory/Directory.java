@@ -34,7 +34,7 @@ public class Directory
      */
     public static Directory getInstance()
     {
-        return instance;
+        return Directory.instance;
     }
 
     private Directory()

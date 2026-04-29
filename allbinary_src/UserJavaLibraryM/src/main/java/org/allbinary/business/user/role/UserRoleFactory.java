@@ -39,7 +39,7 @@ public class UserRoleFactory {
 	private static final UserRoleFactory instance = new UserRoleFactory();
 	
 	public static UserRoleFactory getInstance() {
-		return instance;
+		return UserRoleFactory.instance;
 	}
 	
 	private final BasicUserRoleFactory basicUserRoleFactory = 

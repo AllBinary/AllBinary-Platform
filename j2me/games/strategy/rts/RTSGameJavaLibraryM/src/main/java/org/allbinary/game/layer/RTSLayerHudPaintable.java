@@ -29,7 +29,7 @@ public class RTSLayerHudPaintable extends SelectionHudPaintable {
     private static final RTSLayerHudPaintable instance = new RTSLayerHudPaintable();
 
     public static final RTSLayerHudPaintable getInstance() {
-        return instance;
+        return RTSLayerHudPaintable.instance;
     }
 
     private String[] weaponProperties = StringUtil.getInstance().getArrayInstance();

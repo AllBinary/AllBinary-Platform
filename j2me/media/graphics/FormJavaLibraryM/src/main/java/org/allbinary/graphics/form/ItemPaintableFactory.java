@@ -20,13 +20,13 @@ public class ItemPaintableFactory extends ItemPaintable
 
     public static ItemPaintableFactory getInstance()
     {
-        return instance;
+        return ItemPaintableFactory.instance;
     }
 
     public ItemPaintable getInstanceItemPaintable(final PaintableForm paintableForm)
             throws Exception
     {
-        return instance;
+        return ItemPaintableFactory.instance;
     }
 
 }

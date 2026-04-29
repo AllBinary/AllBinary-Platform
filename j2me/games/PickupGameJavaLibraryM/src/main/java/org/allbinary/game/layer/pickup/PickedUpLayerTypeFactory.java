@@ -22,7 +22,7 @@ public class PickedUpLayerTypeFactory
     
     public static PickedUpLayerTypeFactory getInstance()
     {
-        return instance;
+        return PickedUpLayerTypeFactory.instance;
     }
 
     public PickedUpLayerType NONE = new PickedUpLayerType(StringUtil.getInstance().NULL_STRING);

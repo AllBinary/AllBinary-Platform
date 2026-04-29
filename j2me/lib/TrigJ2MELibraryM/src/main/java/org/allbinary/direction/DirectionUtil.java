@@ -22,7 +22,7 @@ public class DirectionUtil
 
     public static DirectionUtil getInstance()
     {
-        return instance;
+        return DirectionUtil.instance;
     }
     
     private Angle[] directionArray = new Angle[10];

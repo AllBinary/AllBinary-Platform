@@ -25,6 +25,6 @@ public class ThirdPartyMessageFactory
     
     public static ThirdPartyMessageFactory getInstance()
     {
-        return instance;
+        return ThirdPartyMessageFactory.instance;
     }
 }

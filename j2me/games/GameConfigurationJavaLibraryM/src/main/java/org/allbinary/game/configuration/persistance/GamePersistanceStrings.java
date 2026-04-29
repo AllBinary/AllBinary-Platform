@@ -25,7 +25,7 @@ public class GamePersistanceStrings {
      * @return the instance
      */
     public static GamePersistanceStrings getInstance() {
-        return instance;
+        return GamePersistanceStrings.instance;
     }
     
     public final String SAVED_GAME_RECORD_ID = "_SG";

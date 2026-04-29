@@ -31,7 +31,7 @@ public class RTSLayer2SelectedLogHelper extends RTSLayer2LogHelper {
      * @return the instance
      */
     public static RTSLayer2SelectedLogHelper getInstance() {
-        return instance;
+        return RTSLayer2SelectedLogHelper.instance;
     }
 
     private final String TRACK_TO_FIRE_OR_MOVE = "trackTo:fireOrMove";

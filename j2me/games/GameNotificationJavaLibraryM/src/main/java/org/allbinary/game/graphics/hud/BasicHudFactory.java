@@ -19,7 +19,7 @@ public class BasicHudFactory
     
     public static BasicHudFactory getInstance()
     {
-        return instance;
+        return BasicHudFactory.instance;
     }
 
     private BasicHudFactory()

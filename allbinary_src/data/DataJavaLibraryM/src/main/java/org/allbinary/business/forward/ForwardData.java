@@ -23,7 +23,7 @@ public class ForwardData
 	}
 	
    public static ForwardData getInstance() {
-		return instance;
+		return ForwardData.instance;
 	}
 
 public final String PAGE = "FORWARD_PAGE";

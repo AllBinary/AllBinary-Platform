@@ -31,7 +31,7 @@ public class ColorAttributePointerOpenGLProcessor extends ObjectThreedOpenGLProc
      * @return the instance
      */
     public static ColorAttributePointerOpenGLProcessor getInstance() {
-        return instance;
+        return ColorAttributePointerOpenGLProcessor.instance;
     }
     
     public ColorAttributePointerOpenGLProcessor()

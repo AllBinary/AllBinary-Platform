@@ -31,7 +31,7 @@ public class TextureAttributePointerVBOOpenGLProcessor extends ObjectThreedOpenG
      * @return the instance
      */
     public static TextureAttributePointerVBOOpenGLProcessor getInstance() {
-        return instance;
+        return TextureAttributePointerVBOOpenGLProcessor.instance;
     }
     
     public TextureAttributePointerVBOOpenGLProcessor()

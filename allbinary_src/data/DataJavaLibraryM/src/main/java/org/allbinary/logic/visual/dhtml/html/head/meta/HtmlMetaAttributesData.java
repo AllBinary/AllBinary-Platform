@@ -19,7 +19,7 @@ public class HtmlMetaAttributesData
 		new HtmlMetaAttributesData();
 
     public static HtmlMetaAttributesData getInstance() {
-		return instance;
+		return HtmlMetaAttributesData.instance;
 	}
 	
    private HtmlMetaAttributesData()

@@ -21,7 +21,7 @@ public class TouchButtonStrafeLeftResource extends TouchButtonResource
      * @return the instance
      */
     public static TouchButtonResource getInstance() {
-        return instance;
+        return TouchButtonStrafeLeftResource.instance;
     }
     
     private TouchButtonStrafeLeftResource()

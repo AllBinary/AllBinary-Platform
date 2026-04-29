@@ -19,6 +19,6 @@ public class NoButtonsTouchInputFactory
     
     public static BaseTouchInput getInstance()
     {
-        return instance;
+        return NoButtonsTouchInputFactory.instance;
     }
 }

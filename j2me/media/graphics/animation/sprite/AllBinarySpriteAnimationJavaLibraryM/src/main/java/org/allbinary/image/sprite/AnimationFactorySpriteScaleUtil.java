@@ -38,7 +38,7 @@ public class AnimationFactorySpriteScaleUtil {
      * @return the instance
      */
     public static AnimationFactorySpriteScaleUtil getInstance() {
-        return instance;
+        return AnimationFactorySpriteScaleUtil.instance;
     }
     
     private final ImageCache imageCache = ImageCacheFactory.getInstance();

@@ -23,7 +23,7 @@ public class ScreenListenerHandler {
      */
     public static ScreenListenerHandler getInstance()
     {
-        return instance;
+        return ScreenListenerHandler.instance;
     }
 
     private ScreenListenerInterface screenListenerInterface =

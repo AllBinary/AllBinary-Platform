@@ -38,7 +38,7 @@ public class ResourceUtil
 
     public static ResourceUtil getInstance()
     {
-        return instance;
+        return ResourceUtil.instance;
     }
     
     //private Activity activity;

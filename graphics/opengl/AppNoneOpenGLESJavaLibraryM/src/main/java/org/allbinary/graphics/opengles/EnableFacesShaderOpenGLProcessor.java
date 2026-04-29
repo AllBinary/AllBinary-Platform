@@ -13,7 +13,7 @@ public class EnableFacesShaderOpenGLProcessor extends ObjectThreedOpenGLProcesso
      * @return the instance
      */
     public static EnableFacesShaderOpenGLProcessor getInstance() {
-        return instance;
+        return EnableFacesShaderOpenGLProcessor.instance;
     }
     
     public EnableFacesShaderOpenGLProcessor()

@@ -32,7 +32,7 @@ public class ToolFactory
      */
     public static ToolFactory getInstance()
     {
-        return instance;
+        return ToolFactory.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

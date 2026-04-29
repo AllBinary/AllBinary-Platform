@@ -17,7 +17,7 @@ public class JTreeInterfaceFactory {
      * @return the instance
      */
     public static JTreeInterfaceFactory getInstance() {
-        return instance;
+        return JTreeInterfaceFactory.instance;
     }
     
     private JTreeInterface jTreeInterface;

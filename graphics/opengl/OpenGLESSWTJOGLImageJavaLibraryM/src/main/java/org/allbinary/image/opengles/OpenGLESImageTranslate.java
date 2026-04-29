@@ -27,7 +27,7 @@ public class OpenGLESImageTranslate {
      * @return the instance
      */
     public static OpenGLESImageTranslate getInstance() {
-        return instance;
+        return OpenGLESImageTranslate.instance;
     }
     
     public void translate(final GL10 gl, final OpenGLESImage openGLESImage, final float x, final float y) {

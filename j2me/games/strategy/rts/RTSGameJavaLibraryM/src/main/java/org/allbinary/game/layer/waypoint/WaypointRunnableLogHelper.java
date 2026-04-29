@@ -27,7 +27,7 @@ public class WaypointRunnableLogHelper {
      * @return the instance
      */
     public static WaypointRunnableLogHelper getInstance() {
-        return instance;
+        return WaypointRunnableLogHelper.instance;
     }
 
     public void start(final PathFindingLayerInterface pathFindingLayerInterface) {

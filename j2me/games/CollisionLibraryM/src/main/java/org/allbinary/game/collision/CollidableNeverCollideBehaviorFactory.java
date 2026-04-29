@@ -19,6 +19,6 @@ public class CollidableNeverCollideBehaviorFactory
     
     public static CollidableNeverCollideBehavior getInstance()
     {
-        return instance;
+        return CollidableNeverCollideBehaviorFactory.instance;
     }
 }

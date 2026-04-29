@@ -29,7 +29,7 @@ public class LinePathAnimation {
      * @return the instance
      */
     public static LinePathAnimation getInstance() {
-        return instance;
+        return LinePathAnimation.instance;
     }
     
     public void paint(final Graphics graphics, final GPoint point, final GPoint nextPoint, final Layer tiledLayer) {

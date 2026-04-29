@@ -32,7 +32,7 @@ public class CanvasExpandUtil {
      * @return the instance
      */
     public static CanvasExpandUtil getInstance() {
-        return instance;
+        return CanvasExpandUtil.instance;
     }
 
     //private final CommonSeps commonSeps = CommonSeps.getInstance();

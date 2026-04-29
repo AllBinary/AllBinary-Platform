@@ -19,7 +19,7 @@ public class PositionStrings
 
     public static PositionStrings getInstance()
     {
-        return instance;
+        return PositionStrings.instance;
     }
 
     public final String X = "x";

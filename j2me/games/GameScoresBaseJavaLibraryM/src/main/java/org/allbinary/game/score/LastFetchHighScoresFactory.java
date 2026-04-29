@@ -25,7 +25,7 @@ public class LastFetchHighScoresFactory {
      * @return the instance
      */
     public static LastFetchHighScoresFactory getInstance() {
-        return instance;
+        return LastFetchHighScoresFactory.instance;
     }
 
     public HighScores[] highScoresArray = NoHighScoresFactory.getInstance().NO_HIGH_SCORES;

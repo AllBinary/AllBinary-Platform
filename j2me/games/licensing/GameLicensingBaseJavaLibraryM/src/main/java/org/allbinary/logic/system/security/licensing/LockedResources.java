@@ -21,6 +21,6 @@ public class LockedResources
 
     public static LockedResources getInstance()
     {
-        return instance;
+        return LockedResources.instance;
     }
 }

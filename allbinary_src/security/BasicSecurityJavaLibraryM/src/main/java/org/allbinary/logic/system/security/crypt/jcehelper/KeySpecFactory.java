@@ -29,7 +29,7 @@ public class KeySpecFactory
     
     public static KeySpecFactory getInstance()
     {
-        return instance;
+        return KeySpecFactory.instance;
     }
     
    //tested

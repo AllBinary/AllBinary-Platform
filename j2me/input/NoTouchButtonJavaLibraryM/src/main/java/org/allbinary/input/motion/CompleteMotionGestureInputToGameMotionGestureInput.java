@@ -24,7 +24,7 @@ public class CompleteMotionGestureInputToGameMotionGestureInput {
         new CompleteMotionGestureInputToGameMotionGestureInput();
 
     public static CompleteMotionGestureInputToGameMotionGestureInput getInstance() {
-        return instance;
+        return CompleteMotionGestureInputToGameMotionGestureInput.instance;
     }
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

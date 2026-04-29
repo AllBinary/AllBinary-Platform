@@ -34,7 +34,7 @@ public class BasicPaymentTypeUtil {
      */
     public static BasicPaymentTypeUtil getInstance()
     {
-        return instance;
+        return BasicPaymentTypeUtil.instance;
     }
 
     private BasicPaymentTypeUtil()

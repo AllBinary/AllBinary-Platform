@@ -25,7 +25,7 @@ public class ThreadPoolStrings {
      * @return the instance
      */
     public static ThreadPoolStrings getInstance() {
-        return instance;
+        return ThreadPoolStrings.instance;
     }
     
     public final String ADD_TASK = "addTask";

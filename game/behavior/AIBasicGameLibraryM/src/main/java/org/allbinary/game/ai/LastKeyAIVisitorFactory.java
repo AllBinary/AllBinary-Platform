@@ -20,6 +20,6 @@ public class LastKeyAIVisitorFactory
 
     public static LastKeyAIVisitor getInstance()
     {
-        return instance;
+        return LastKeyAIVisitorFactory.instance;
     }
 }

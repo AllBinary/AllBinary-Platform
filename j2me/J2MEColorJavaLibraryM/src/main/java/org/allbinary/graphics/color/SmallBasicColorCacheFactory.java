@@ -21,7 +21,7 @@ public class SmallBasicColorCacheFactory
 
     public static SmallBasicColorCacheFactory getInstance()
     {
-        return instance;
+        return SmallBasicColorCacheFactory.instance;
     }
 
     private final int SIZE = 255;

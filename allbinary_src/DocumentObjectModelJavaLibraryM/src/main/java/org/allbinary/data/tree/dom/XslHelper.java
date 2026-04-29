@@ -38,7 +38,7 @@ public class XslHelper
      */
     public static XslHelper getInstance()
     {
-        return instance;
+        return XslHelper.instance;
     }
 
     private XslHelper()

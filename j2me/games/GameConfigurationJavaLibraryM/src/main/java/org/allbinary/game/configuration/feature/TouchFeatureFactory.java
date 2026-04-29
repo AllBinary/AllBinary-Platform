@@ -20,7 +20,7 @@ public class TouchFeatureFactory
 
     public static TouchFeatureFactory getInstance()
     {
-        return instance;
+        return TouchFeatureFactory.instance;
     }
     
     private TouchFeatureFactory()

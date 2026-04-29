@@ -25,7 +25,7 @@ public class HighScoreCommandsFactory extends HighScoreCommandsBaseFactory
      */
     public static HighScoreCommandsFactory getInstance()
     {
-        return instance;
+        return HighScoreCommandsFactory.instance;
     }
 
     private HighScoreCommandsFactory()

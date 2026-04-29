@@ -21,7 +21,7 @@ public class TouchButtonTurnLeftResource extends TouchButtonResource
      * @return the instance
      */
     public static TouchButtonResource getInstance() {
-        return instance;
+        return TouchButtonTurnLeftResource.instance;
     }
     
     private TouchButtonTurnLeftResource()

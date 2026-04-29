@@ -19,7 +19,7 @@ public class ColorTemperatureUtil
 
     public static ColorTemperatureUtil getInstance()
     {
-        return instance;
+        return ColorTemperatureUtil.instance;
     }
 
     private final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();

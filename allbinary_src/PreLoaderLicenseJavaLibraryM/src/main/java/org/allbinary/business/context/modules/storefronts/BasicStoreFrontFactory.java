@@ -29,7 +29,7 @@ public class BasicStoreFrontFactory
      */
     public static BasicStoreFrontFactory getInstance()
     {
-        return instance;
+        return BasicStoreFrontFactory.instance;
     }
 
    private BasicStoreFrontFactory()

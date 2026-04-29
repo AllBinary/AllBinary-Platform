@@ -25,7 +25,7 @@ public class NullABRunnable extends ABRunnable {
      * @return the instance
      */
     public static NullABRunnable getInstance() {
-        return instance;
+        return NullABRunnable.instance;
     }
     
     @Override

@@ -27,7 +27,7 @@ public class QuoteRequestEntityFactory
      * @return the instance
      */
     public static QuoteRequestEntityFactory getInstance() {
-        return instance;
+        return QuoteRequestEntityFactory.instance;
     }
 
    //private final String CLASSNAME = "org.allbinary.data.tables.user.quotes.QuoteRequestEntity";

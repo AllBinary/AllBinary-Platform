@@ -25,7 +25,7 @@ public class LicenseUtil {
 
     public static LicenseUtil getInstance()
     {
-        return instance;
+        return LicenseUtil.instance;
     }
 
     /*

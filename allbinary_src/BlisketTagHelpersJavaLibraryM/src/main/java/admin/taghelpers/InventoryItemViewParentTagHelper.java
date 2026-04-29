@@ -27,7 +27,7 @@ public class InventoryItemViewParentTagHelper
 
     public static InventoryItemViewParentTagHelper getInstance()
     {
-        return instance;
+        return InventoryItemViewParentTagHelper.instance;
     }
 
     public InventoryItemView getInventoryItemView(HelperTag inventoryTag) throws Exception

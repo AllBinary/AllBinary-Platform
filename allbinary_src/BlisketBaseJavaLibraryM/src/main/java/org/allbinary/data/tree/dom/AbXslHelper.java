@@ -34,7 +34,7 @@ public class AbXslHelper {
      * @return the instance
      */
     public static AbXslHelper getInstance() {
-        return instance;
+        return AbXslHelper.instance;
     }
 
     public String translate(final AbFile xslFile, final AbFile xmlFile)

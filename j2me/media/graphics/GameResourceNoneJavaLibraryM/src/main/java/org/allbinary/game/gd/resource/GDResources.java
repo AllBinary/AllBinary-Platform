@@ -26,7 +26,7 @@ public class GDResources
      */
     public static GDResources getInstance()
     {
-        return instance;
+        return GDResources.instance;
     }
 
     public final String[] resourceStringArray = {

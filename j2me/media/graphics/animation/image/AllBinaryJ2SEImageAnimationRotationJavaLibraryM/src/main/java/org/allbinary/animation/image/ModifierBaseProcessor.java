@@ -30,7 +30,7 @@ public class ModifierBaseProcessor {
      * @return the instance
      */
     public static ModifierBaseProcessor getInstance() {
-        return instance;
+        return ModifierBaseProcessor.instance;
     }
     
     public void updateColor(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int index, final BasicColor basicColor) {

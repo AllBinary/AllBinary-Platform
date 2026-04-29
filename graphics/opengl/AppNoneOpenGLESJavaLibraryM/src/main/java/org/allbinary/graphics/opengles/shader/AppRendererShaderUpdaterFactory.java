@@ -25,7 +25,7 @@ public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
      * @return the instance
      */
     public static AppRendererShaderUpdaterFactory getInstance() {
-        return instance;
+        return AppRendererShaderUpdaterFactory.instance;
     }
 
     private final ShaderComposite[] NULL_SHADER_COMPOSITE_ARRAY = new ShaderComposite[0];

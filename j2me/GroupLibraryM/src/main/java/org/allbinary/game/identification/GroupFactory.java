@@ -27,7 +27,7 @@ public class GroupFactory {
 
    public static GroupFactory getInstance()
    {
-      return instance;
+      return GroupFactory.instance;
    }
    
    public final Group[] NULL_GROUP_ARRAY = new Group[0];

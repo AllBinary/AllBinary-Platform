@@ -22,7 +22,7 @@ public class StoreFrontUsersStatisticsData
    }
    
    public static StoreFrontUsersStatisticsData getInstance() {
-	return instance;
+	return StoreFrontUsersStatisticsData.instance;
 }
 
 public final String NAME = "STOREFRONT_USERS_STATISTICS_NAME";

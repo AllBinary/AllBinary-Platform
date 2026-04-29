@@ -28,7 +28,7 @@ public class SWTProcessor {
      * @return the instance
      */
     public static SWTProcessor getInstance() {
-        return instance;
+        return SWTProcessor.instance;
     }
     
     protected SWTProcessor() {

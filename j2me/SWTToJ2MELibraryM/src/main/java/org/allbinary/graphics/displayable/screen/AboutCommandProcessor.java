@@ -30,7 +30,7 @@ public class AboutCommandProcessor {
      * @return the instance
      */
     public static AboutCommandProcessor getInstance() {
-        return instance;
+        return AboutCommandProcessor.instance;
     }
     
     public void process(final CommandListener midletCommandListener, final Command command, final Canvas canvas) {

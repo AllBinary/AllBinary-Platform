@@ -17,7 +17,7 @@ public class OpenGLGLUUtils {
      * @return the instance
      */
     public static OpenGLGLUUtils getInstance() {
-        return instance;
+        return OpenGLGLUUtils.instance;
     }
     
     public ByteBuffer makeByteBuffer(final OpenGLBitmap bmp, final boolean flip)

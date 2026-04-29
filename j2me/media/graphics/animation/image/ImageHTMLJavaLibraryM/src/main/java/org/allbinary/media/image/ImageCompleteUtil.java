@@ -33,7 +33,7 @@ public class ImageCompleteUtil
      */
     public static ImageCompleteUtil getInstance()
     {
-        return instance;
+        return ImageCompleteUtil.instance;
     }
 
     //private final String WAIT = "Waiting to load image";

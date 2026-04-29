@@ -33,7 +33,7 @@ public class TransformTemplateCustomizerUtil
 
     public static TransformTemplateCustomizerUtil getInstance()
     {
-        return instance;
+        return TransformTemplateCustomizerUtil.instance;
     }
 
     

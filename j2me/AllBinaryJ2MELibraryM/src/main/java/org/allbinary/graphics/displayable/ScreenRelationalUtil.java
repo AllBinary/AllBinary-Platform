@@ -9,7 +9,7 @@ public class ScreenRelationalUtil
 
     public static ScreenRelationalUtil getInstance()
     {
-        return instance;
+        return ScreenRelationalUtil.instance;
     }
 
     public float getScaleImage(final Image image)

@@ -26,7 +26,7 @@ public class WithNormalAttributePointerOpenGLProcessor extends ObjectThreedOpenG
 
     public static WithNormalAttributePointerOpenGLProcessor getInstance()
     {
-        return instance;
+        return WithNormalAttributePointerOpenGLProcessor.instance;
     }
 
     public WithNormalAttributePointerOpenGLProcessor()

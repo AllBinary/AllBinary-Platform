@@ -23,7 +23,7 @@ public class ImageToRotationImageArrayUtil
     
     public static ImageToRotationImageArrayUtil getInstance()
     {
-        return instance;
+        return ImageToRotationImageArrayUtil.instance;
     }
     
     private ImageToRotationImageArrayUtil()

@@ -19,7 +19,7 @@ public class SensorFeatureFactory
     
     public static SensorFeatureFactory getInstance()
     {
-        return instance;
+        return SensorFeatureFactory.instance;
     }
     
     private SensorFeatureFactory()

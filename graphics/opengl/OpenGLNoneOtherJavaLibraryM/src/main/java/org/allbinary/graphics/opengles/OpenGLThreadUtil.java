@@ -6,7 +6,7 @@ public class OpenGLThreadUtil
 
     public static OpenGLThreadUtil getInstance()
     {
-        return instance;
+        return OpenGLThreadUtil.instance;
     }
     
     public void set(Object glSurfaceView)

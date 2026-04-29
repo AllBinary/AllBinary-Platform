@@ -22,7 +22,7 @@ public class AcceptableResponseUtil
 
     public static AcceptableResponseUtil getInstance()
     {
-        return instance;
+        return AcceptableResponseUtil.instance;
     }
 
     static

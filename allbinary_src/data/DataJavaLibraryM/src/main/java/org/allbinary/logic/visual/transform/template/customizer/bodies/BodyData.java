@@ -22,7 +22,7 @@ public class BodyData
    }
    
    public static BodyData getInstance() {
-	return instance;
+	return BodyData.instance;
 }
 
    public final String NAME = "BODY_NAME";

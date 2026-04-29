@@ -22,7 +22,7 @@ public class VectorAnimationUtil
 
     public static VectorAnimationUtil getInstance()
     {
-        return instance;
+        return VectorAnimationUtil.instance;
     }
 
     private VectorAnimationUtil()

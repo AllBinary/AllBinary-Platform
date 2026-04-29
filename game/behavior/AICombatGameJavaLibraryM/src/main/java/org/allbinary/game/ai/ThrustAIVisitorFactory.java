@@ -19,6 +19,6 @@ public class ThrustAIVisitorFactory
 
     public static ThrustAIVisitor getInstance()
     {
-        return instance;
+        return ThrustAIVisitorFactory.instance;
     }
 }

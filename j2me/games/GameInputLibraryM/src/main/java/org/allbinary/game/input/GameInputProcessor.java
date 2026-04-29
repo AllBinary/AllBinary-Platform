@@ -22,7 +22,7 @@ public class GameInputProcessor
 
     public static GameInputProcessor getInstance()
     {
-        return instance;
+        return GameInputProcessor.instance;
     }
     
     protected GameInputProcessor()

@@ -18,7 +18,7 @@ public class MediaTypeData
 	private static final MediaTypeData instance = new MediaTypeData();
 
 	   public static MediaTypeData getInstance() {
-			return instance;
+			return MediaTypeData.instance;
 		}
 	
    private MediaTypeData()

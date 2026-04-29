@@ -30,7 +30,7 @@ public class UpgradableRTSLayerHudPaintable
     
     public static UpgradableRTSLayerHudPaintable getInstance()
     {
-        return instance;
+        return UpgradableRTSLayerHudPaintable.instance;
     }
 
     //private final String PERCENT_COMPLETE = "% Complete";

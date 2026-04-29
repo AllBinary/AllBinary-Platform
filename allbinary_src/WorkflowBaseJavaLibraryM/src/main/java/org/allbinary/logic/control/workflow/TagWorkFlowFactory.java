@@ -33,7 +33,7 @@ public class TagWorkFlowFactory
     private static final TagWorkFlowFactory instance = new TagWorkFlowFactory();
 
     public static TagWorkFlowFactory getInstance() {
-        return instance;
+        return TagWorkFlowFactory.instance;
     }
     
     private TagWorkFlowFactory()

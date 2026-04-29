@@ -15,7 +15,7 @@ public class OpenGLResources {
      * @return the instance
      */
     public static OpenGLResources getInstance() {
-        return instance;
+        return OpenGLResources.instance;
     }
     
     public void init() {

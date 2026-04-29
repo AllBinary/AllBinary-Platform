@@ -34,7 +34,7 @@ public class SpriteSplitterUtil {
      * @return the instance
      */
     public static SpriteSplitterUtil getInstance() {
-        return instance;
+        return SpriteSplitterUtil.instance;
     }
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();

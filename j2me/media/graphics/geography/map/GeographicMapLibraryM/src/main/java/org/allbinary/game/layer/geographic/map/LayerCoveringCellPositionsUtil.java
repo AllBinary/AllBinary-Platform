@@ -35,7 +35,7 @@ public class LayerCoveringCellPositionsUtil {
      * @return the instance
      */
     public static LayerCoveringCellPositionsUtil getInstance() {
-        return instance;
+        return LayerCoveringCellPositionsUtil.instance;
     }
     
     private final CellPositionsUtil cellPositionsUtil = CellPositionsUtil.getInstance();

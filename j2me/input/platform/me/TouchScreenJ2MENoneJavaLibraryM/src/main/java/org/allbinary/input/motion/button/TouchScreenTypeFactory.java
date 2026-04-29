@@ -19,7 +19,7 @@ public class TouchScreenTypeFactory
 
     public static TouchScreenTypeFactory getInstance()
     {
-        return instance;
+        return TouchScreenTypeFactory.instance;
     }
         
     public void TouchScreenTypeFactory()

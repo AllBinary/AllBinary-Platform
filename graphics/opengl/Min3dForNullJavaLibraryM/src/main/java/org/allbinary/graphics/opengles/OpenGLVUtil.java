@@ -25,7 +25,7 @@ public class OpenGLVUtil extends OpenGLVUtilBase {
      * @return the instance
      */
     public static OpenGLVUtil getInstance() {
-        return instance;
+        return OpenGLVUtil.instance;
     }
     
 }

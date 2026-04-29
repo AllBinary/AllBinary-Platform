@@ -23,7 +23,7 @@ public class ResizableListenerHandler {
      */
     public static ResizableListenerHandler getInstance()
     {
-        return instance;
+        return ResizableListenerHandler.instance;
     }
 
     //private ResizableListenerInterface resizableListenerInterface =

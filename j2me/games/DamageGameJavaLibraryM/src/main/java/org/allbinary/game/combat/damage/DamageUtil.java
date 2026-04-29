@@ -29,7 +29,7 @@ public class DamageUtil
      * @return the instance
      */
     public static DamageUtil getInstance() {
-        return instance;
+        return DamageUtil.instance;
     }
 
     public final String COLLIDE = "collide";

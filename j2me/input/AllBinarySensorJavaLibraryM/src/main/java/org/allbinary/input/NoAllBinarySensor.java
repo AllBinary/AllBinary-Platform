@@ -20,7 +20,7 @@ public class NoAllBinarySensor
 
     public static NoAllBinarySensor getInstance()
     {
-        return instance;
+        return NoAllBinarySensor.instance;
     }
 
     private NoAllBinarySensor()

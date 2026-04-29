@@ -11,7 +11,7 @@ public class OpenGLTextureFactory extends PlatformTextureBaseFactory
 
     public static OpenGLTextureFactory getInstance()
     {
-        return instance;
+        return OpenGLTextureFactory.instance;
     }
 
     private final OpenGLGLUUtils gluUtils = OpenGLGLUUtils.getInstance();

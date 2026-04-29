@@ -38,7 +38,7 @@ public class RepaintBehavior {
      * @return the instance
      */
     public static RepaintBehavior getInstance() {
-        return instance;
+        return RepaintBehavior.instance;
     }
     
     public void repaint(final Canvas canvas) {

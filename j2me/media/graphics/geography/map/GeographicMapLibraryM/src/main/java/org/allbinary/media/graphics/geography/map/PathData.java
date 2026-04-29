@@ -21,7 +21,7 @@ public class PathData
     
     public static PathData getInstance()
     {
-        return instance;
+        return PathData.instance;
     }
     
 }

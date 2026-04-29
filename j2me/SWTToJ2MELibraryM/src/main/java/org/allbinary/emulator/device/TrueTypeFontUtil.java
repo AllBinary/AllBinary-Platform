@@ -46,7 +46,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
 
     public static TrueTypeFontUtil getInstance()
     {
-        return instance;
+        return TrueTypeFontUtil.instance;
     }
 
     private final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();

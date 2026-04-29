@@ -19,7 +19,7 @@ public class StringValidationUtil
 
     public static StringValidationUtil getInstance()
     {
-        return instance;
+        return StringValidationUtil.instance;
     }
 
     private final StringUtil stringUtil = StringUtil.getInstance();

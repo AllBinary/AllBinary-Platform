@@ -29,7 +29,7 @@ public class SWTProcessor {
      * @return the instance
      */
     public static SWTProcessor getInstance() {
-        return instance;
+        return SWTProcessor.instance;
     }
     
     public Runnable runnable = NullRunnable.getInstance();

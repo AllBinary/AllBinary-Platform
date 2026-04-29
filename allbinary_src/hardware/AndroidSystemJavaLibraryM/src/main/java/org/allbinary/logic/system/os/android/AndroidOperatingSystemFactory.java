@@ -33,7 +33,7 @@ public class AndroidOperatingSystemFactory {
     
     public static AndroidOperatingSystemFactory getInstance()
     {
-        return instance;
+        return AndroidOperatingSystemFactory.instance;
     }
 
     private AndroidOperatingSystemFactory()

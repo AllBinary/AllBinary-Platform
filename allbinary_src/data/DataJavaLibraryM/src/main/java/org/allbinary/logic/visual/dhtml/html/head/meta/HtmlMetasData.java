@@ -22,7 +22,7 @@ public class HtmlMetasData
    }
 
    public static HtmlMetasData getInstance() {
-	return instance;
+	return HtmlMetasData.instance;
 }
 
 public String NAME = "HTMLMETAS_NAME";

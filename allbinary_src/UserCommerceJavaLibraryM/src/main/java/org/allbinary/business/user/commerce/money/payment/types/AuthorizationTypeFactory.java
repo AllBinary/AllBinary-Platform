@@ -18,7 +18,7 @@ public class AuthorizationTypeFactory {
 	private static final AuthorizationTypeFactory instance = new AuthorizationTypeFactory();
 
 	public static AuthorizationTypeFactory getInstance() {
-		return instance;
+		return AuthorizationTypeFactory.instance;
 	}
 	
 	   public final AuthorizationType NONE = new AuthorizationType("None");   

@@ -18,7 +18,7 @@ public class AbeHttpRequestInfoData
 	private static final AbeHttpRequestInfoData instance = new AbeHttpRequestInfoData();
 
 	   public static AbeHttpRequestInfoData getInstance() {
-			return instance;
+			return AbeHttpRequestInfoData.instance;
 		}
 	
    private AbeHttpRequestInfoData()

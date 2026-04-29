@@ -33,7 +33,7 @@ public class WeblisketFinder
      * @return the instance
      */
     public static WeblisketFinder getInstance() {
-        return instance;
+        return WeblisketFinder.instance;
     }
 	
     private static final String KEY = "installerdata.dat";

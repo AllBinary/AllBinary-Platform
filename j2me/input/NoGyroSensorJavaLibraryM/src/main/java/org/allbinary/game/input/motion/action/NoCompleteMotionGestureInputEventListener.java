@@ -45,6 +45,6 @@ CompleteMotionGestureInputEventListenerInterface
 
     public static NoCompleteMotionGestureInputEventListener getInstance()
     {
-        return instance;
+        return NoCompleteMotionGestureInputEventListener.instance;
     }
 }

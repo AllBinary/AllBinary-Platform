@@ -28,7 +28,7 @@ public class DisposalUtil {
      * @return the instance
      */
     public static DisposalUtil getInstance() {
-        return instance;
+        return DisposalUtil.instance;
     }
 
     public void disposeImage(final Image image) {

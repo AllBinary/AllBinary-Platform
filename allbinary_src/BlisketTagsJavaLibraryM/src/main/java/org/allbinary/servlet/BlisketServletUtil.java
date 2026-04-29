@@ -25,7 +25,7 @@ public class BlisketServletUtil {
 	private static final BlisketServletUtil instance = new BlisketServletUtil();
 
 	public static BlisketServletUtil getInstance() {
-		return instance;
+		return BlisketServletUtil.instance;
 	}
 	
 	public void init(HttpServletRequest request)

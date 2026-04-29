@@ -106,7 +106,7 @@ public class GameNotificationEventHandler extends BasicEventHandler
    
    public static GameNotificationEventHandler getInstance()
    {
-      return instance;
+      return GameNotificationEventHandler.instance;
    }
 
    @Override

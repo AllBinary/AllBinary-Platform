@@ -22,7 +22,7 @@ public class NormalRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeogra
      * @return the instance
      */
     public static NormalRaceTrackGeographicMapCellTypeFactory getInstance() {
-        return instance;
+        return NormalRaceTrackGeographicMapCellTypeFactory.instance;
     }
     
     private NormalRaceTrackGeographicMapCellTypeFactory()

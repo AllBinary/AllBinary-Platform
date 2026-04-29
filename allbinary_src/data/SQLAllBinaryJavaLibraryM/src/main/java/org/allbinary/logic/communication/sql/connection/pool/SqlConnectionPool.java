@@ -30,7 +30,7 @@ public class SqlConnectionPool
     private static final SqlConnectionPool instance = new SqlConnectionPool();
     
     public static SqlConnectionPool getInstance() {
-        return instance;
+        return SqlConnectionPool.instance;
     }
 
     private HashMap connectionHashMap = null;

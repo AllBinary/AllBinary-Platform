@@ -5,7 +5,7 @@ public class ThreadObjectUtil {
     private static final ThreadObjectUtil instance = new ThreadObjectUtil();
 
     public static ThreadObjectUtil getInstance() {
-        return instance;
+        return ThreadObjectUtil.instance;
     }
 
     public final PriorityRunnable NULL_PRIORITY_RUNNABLE = new NullPriorityRunnable();

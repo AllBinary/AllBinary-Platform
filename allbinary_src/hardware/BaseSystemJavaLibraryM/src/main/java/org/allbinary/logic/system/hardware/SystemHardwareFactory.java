@@ -30,7 +30,7 @@ public class SystemHardwareFactory {
     private static final SystemHardwareFactory instance = new SystemHardwareFactory();
 
     public static SystemHardwareFactory getInstance() {
-        return instance;
+        return SystemHardwareFactory.instance;
     }
 	
     private static HardwareInterface hardwareInterface = NoHardware.getInstance();

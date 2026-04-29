@@ -29,7 +29,7 @@ public class PostGameCommandFactory {
      * @return the instance
      */
     public static PostGameCommandFactory getInstance() {
-        return instance;
+        return PostGameCommandFactory.instance;
     }
     
     public void addCommands(MyCanvas canvas) {

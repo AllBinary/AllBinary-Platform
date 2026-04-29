@@ -22,7 +22,7 @@ public class ProfilingRefreshHelper extends AndroidGameStatistics
     
     public static AndroidGameStatistics getInstance()
     {
-        return instance;
+        return ProfilingRefreshHelper.instance;
     }    
     
     private boolean firstTime = true;

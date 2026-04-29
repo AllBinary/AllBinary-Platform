@@ -19,6 +19,6 @@ public class NullLocationPaintable extends LocationPaintable
 
     public static NullLocationPaintable getInstance()
     {
-        return instance;
+        return NullLocationPaintable.instance;
     }
 }

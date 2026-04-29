@@ -34,7 +34,7 @@ public class PointsDomUtil {
      */
     public static PointsDomUtil getInstance()
     {
-        return instance;
+        return PointsDomUtil.instance;
     }
 
     public final String LINES = "lines";

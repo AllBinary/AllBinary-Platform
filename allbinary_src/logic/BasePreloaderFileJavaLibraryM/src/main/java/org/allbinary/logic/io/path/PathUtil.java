@@ -26,7 +26,7 @@ public class PathUtil
 
     public static PathUtil getInstance()
     {
-        return instance;
+        return PathUtil.instance;
     }
 
     private final AbPathData abPathData = AbPathData.getInstance();

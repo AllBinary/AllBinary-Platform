@@ -30,7 +30,7 @@ public class StoreCustomizerComponentUtil
     private static final StoreCustomizerComponentUtil instance = new StoreCustomizerComponentUtil();
     
     public static StoreCustomizerComponentUtil getInstance() {
-        return instance;
+        return StoreCustomizerComponentUtil.instance;
     }
 
     private StoreCustomizerComponentUtil()

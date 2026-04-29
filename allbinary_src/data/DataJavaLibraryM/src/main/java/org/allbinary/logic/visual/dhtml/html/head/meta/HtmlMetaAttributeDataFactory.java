@@ -19,7 +19,7 @@ public class HtmlMetaAttributeDataFactory {
 		new HtmlMetaAttributeDataFactory();
 	
 	   public static HtmlMetaAttributeDataFactory getInstance() {
-		return instance;
+		return HtmlMetaAttributeDataFactory.instance;
 	}
 	
 	private HtmlMetaAttributeDataFactory()

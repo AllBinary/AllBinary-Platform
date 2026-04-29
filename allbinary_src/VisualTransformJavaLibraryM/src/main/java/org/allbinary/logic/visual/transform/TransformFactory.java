@@ -36,7 +36,7 @@ public class TransformFactory {
     private static final TransformFactory instance = new TransformFactory();
 
     public static TransformFactory getInstance() {
-        return instance;
+        return TransformFactory.instance;
     }
 
     private TransformFactory() {

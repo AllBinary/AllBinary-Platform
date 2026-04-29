@@ -25,7 +25,7 @@ public class CustomMapGeneratorBaseFactory {
      * @return the instance
      */
     public static CustomMapGeneratorBaseFactory getInstance() {
-        return instance;
+        return CustomMapGeneratorBaseFactory.instance;
     }
     
     public CustomMapGeneratorBaseFactory() {

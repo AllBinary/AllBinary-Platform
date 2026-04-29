@@ -30,7 +30,7 @@ public class StatusFactory {
      */
     public static StatusFactory getInstance()
     {
-        return instance;
+        return StatusFactory.instance;
     }
 
     private final String SETSTATUS = "setStatus";

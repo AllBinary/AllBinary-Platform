@@ -24,6 +24,6 @@ public class WaypointInfoHudPaintableSingleton
 
     public static WaypointInfoHudPaintable getInstance()
     {
-        return instance;
+        return WaypointInfoHudPaintableSingleton.instance;
     }
 }

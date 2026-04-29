@@ -19,7 +19,7 @@ public class ResourceLoadingLevelFactory
 
     public static ResourceLoadingLevelFactory getInstance()
     {
-        return instance;
+        return ResourceLoadingLevelFactory.instance;
     }
 
     public final ResourceLoadingLevel LOAD_EARLY = new ResourceLoadingLevel("Load Early", Integer.MAX_VALUE);

@@ -25,7 +25,7 @@ public class SecondaryThreadPool extends ThreadPool
 
     public static ThreadPool getInstance()
     {
-        return instance;
+        return SecondaryThreadPool.instance;
     }
 
     public SecondaryThreadPool(final String poolName, final int numThreads, final int priority) {

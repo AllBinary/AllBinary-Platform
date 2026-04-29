@@ -23,7 +23,7 @@ public class FilePathData {
      * @return the instance
      */
     public static FilePathData getInstance() {
-        return instance;
+        return FilePathData.instance;
     }
 
     //final

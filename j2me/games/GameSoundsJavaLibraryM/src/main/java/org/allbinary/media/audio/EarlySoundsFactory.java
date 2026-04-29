@@ -33,6 +33,6 @@ public class EarlySoundsFactory
 
     public static EarlySoundsFactory getInstance()
     {
-        return instance;
+        return EarlySoundsFactory.instance;
     }
 }

@@ -27,7 +27,7 @@ public class ModelViewProjection {
      * @return the instance
      */
     public static ModelViewProjection getInstance() {
-        return instance;
+        return ModelViewProjection.instance;
     }
     
     public float[] get() {

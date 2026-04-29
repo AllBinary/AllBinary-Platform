@@ -31,7 +31,7 @@ public class TextureAttributePointerOpenGLProcessor extends ObjectThreedOpenGLPr
      * @return the instance
      */
     public static TextureAttributePointerOpenGLProcessor getInstance() {
-        return instance;
+        return TextureAttributePointerOpenGLProcessor.instance;
     }
     
     public TextureAttributePointerOpenGLProcessor()

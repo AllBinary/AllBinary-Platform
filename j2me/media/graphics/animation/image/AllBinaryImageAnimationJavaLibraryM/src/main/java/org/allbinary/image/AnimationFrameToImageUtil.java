@@ -25,7 +25,7 @@ public class AnimationFrameToImageUtil
 
     public static AnimationFrameToImageUtil getInstance()
     {
-        return instance;
+        return AnimationFrameToImageUtil.instance;
     }
 
     public Image getInstanceTranslate(int width, int height,

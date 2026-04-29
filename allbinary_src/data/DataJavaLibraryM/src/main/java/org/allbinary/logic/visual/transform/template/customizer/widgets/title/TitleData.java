@@ -18,7 +18,7 @@ public class TitleData
 	private static final TitleData instance = new TitleData();
 	
 	   public static TitleData getInstance() {
-			return instance;
+			return TitleData.instance;
 		}
 	
    private TitleData()

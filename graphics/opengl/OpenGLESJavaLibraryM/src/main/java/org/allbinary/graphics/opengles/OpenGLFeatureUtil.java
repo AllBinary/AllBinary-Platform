@@ -23,7 +23,7 @@ public class OpenGLFeatureUtil
 
     public static OpenGLFeatureUtil getInstance()
     {
-        return instance;
+        return OpenGLFeatureUtil.instance;
     }
     
     private final boolean anyThreed;

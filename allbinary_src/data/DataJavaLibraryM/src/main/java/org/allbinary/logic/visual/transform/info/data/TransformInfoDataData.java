@@ -20,7 +20,7 @@ public class TransformInfoDataData
 	private static final TransformInfoDataData instance = new TransformInfoDataData();
 
 	   public static TransformInfoDataData getInstance() {
-			return instance;
+			return TransformInfoDataData.instance;
 		}
 	
    private TransformInfoDataData()

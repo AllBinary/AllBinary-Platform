@@ -27,7 +27,7 @@ public class OpenGLESImageProcessor {
      * @return the instance
      */
     public static OpenGLESImageProcessor getInstance() {
-        return instance;
+        return OpenGLESImageProcessor.instance;
     }
     
     public void translate(GL10 gl, float translateX, float translateY) {

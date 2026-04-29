@@ -43,7 +43,7 @@ public class TaxFactory
     private static final TaxFactory instance = new TaxFactory();
     
     public static TaxFactory getInstance() {
-        return instance;
+        return TaxFactory.instance;
     }
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

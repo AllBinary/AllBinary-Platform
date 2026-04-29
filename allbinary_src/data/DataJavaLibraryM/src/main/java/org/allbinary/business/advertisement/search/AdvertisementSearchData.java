@@ -18,7 +18,7 @@ public class AdvertisementSearchData
 	private static final AdvertisementSearchData instance = new AdvertisementSearchData();
 
 	   public static AdvertisementSearchData getInstance() {
-			return instance;
+			return AdvertisementSearchData.instance;
 		}
 	
    private AdvertisementSearchData()

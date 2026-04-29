@@ -32,7 +32,7 @@ public class DownKeyEventHandler extends DownKeyEventHandlerBase
 
     public static DownKeyEventHandler getInstance()
     {
-        return instance;
+        return DownKeyEventHandler.instance;
     }
     
     private final LocalPlayerInputIdFactory playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();

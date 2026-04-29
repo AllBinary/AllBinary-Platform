@@ -25,7 +25,7 @@ public class SWTProcessorUtil {
      * @return the instance
      */
     public static SWTProcessorUtil getInstance() {
-        return instance;
+        return SWTProcessorUtil.instance;
     }
     
     public SWTProcessor swtProcessor = SWTProcessor.getInstance();

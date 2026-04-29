@@ -24,7 +24,7 @@ public class GameStatisticsFactory extends BaseGameStatistics
     //ActualPlatform
     public static GameStatisticsFactory getInstance()
     {
-        return instance;
+        return GameStatisticsFactory.instance;
     }
     
     private StringMaker stringBuffer = new StringMaker();

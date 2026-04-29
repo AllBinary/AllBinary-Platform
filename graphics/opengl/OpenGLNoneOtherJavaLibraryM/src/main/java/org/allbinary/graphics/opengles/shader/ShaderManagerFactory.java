@@ -25,7 +25,7 @@ public class ShaderManagerFactory {
      * @return the instance
      */
     public static ShaderManagerFactory getInstance() {
-        return instance;
+        return ShaderManagerFactory.instance;
     }
     
     public ShaderManager create() {

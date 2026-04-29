@@ -16,7 +16,7 @@ public class FontDebugBase {
      * @return the instance
      */
     public static FontDebugBase getInstance() {
-        return instance;
+        return FontDebugBase.instance;
     }
     
     public final String SET_FONT = "setFont";

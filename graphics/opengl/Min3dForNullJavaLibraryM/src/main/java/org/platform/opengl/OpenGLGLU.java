@@ -14,7 +14,7 @@ public class OpenGLGLU {
      * @return the instance
      */
     public static OpenGLGLU getInstance() {
-        return instance;
+        return OpenGLGLU.instance;
     }
     
     public void gluLookAt(final GL10 gl, final float eyeX, final float eyeY, final float eyeZ, final float centerX, final float centerY, final float centerZ, final float upX, final float upY, final float upZ) {

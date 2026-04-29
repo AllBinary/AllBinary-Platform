@@ -40,7 +40,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
      */
     public static PathFindingInfoFactory getInstance()
     {
-        return instance;
+        return PathFindingInfoFactory.instance;
     }
 
     private static int MAX = 32768;

@@ -27,7 +27,7 @@ public class HardwareFactory
 
     public static HardwareFactory getInstance()
     {
-        return instance;
+        return HardwareFactory.instance;
     }
 
     private HardwareFactory()

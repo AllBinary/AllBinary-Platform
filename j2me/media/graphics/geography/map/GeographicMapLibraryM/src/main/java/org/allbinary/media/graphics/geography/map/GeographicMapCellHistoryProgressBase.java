@@ -25,7 +25,7 @@ public class GeographicMapCellHistoryProgressBase {
      * @return the instance
      */
     public static GeographicMapCellHistoryProgressBase getInstance() {
-        return instance;
+        return GeographicMapCellHistoryProgressBase.instance;
     }
     
     public GeographicMapCellHistoryProgressBase() {

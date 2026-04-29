@@ -24,7 +24,7 @@ public class WeaponLayerArrayLayerCircularStaticPool
 
     public static WeaponLayerArrayLayerCircularStaticPool getInstance()
     {
-        return instance;
+        return WeaponLayerArrayLayerCircularStaticPool.instance;
     }
 
     private final int MAX = 5;

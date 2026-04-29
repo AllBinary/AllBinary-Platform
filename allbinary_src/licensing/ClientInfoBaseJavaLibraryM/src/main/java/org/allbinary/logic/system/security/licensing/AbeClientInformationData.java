@@ -21,7 +21,7 @@ public class AbeClientInformationData
 
     public static AbeClientInformationData getInstance()
     {
-        return instance;
+        return AbeClientInformationData.instance;
     }
 
     private AbeClientInformationData()

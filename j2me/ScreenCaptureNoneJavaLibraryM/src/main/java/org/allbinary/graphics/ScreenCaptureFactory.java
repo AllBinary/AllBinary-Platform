@@ -19,6 +19,6 @@ public class ScreenCaptureFactory
 
     public static ScreenCapture getInstance()
     {
-        return instance;
+        return ScreenCaptureFactory.instance;
     }
 }

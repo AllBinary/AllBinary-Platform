@@ -36,7 +36,7 @@ public class OperatingSystemFactory
      */
     public static OperatingSystemFactory getInstance()
     {
-        return instance;
+        return OperatingSystemFactory.instance;
     }
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();

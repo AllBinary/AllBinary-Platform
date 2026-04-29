@@ -23,7 +23,7 @@ public class PATH_GLOBALS
 
    public static PATH_GLOBALS getInstance()
    {
-       return instance;
+       return PATH_GLOBALS.instance;
    }
 
    private PATH_GLOBALS()

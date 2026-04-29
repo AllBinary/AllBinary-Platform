@@ -33,7 +33,7 @@ public class CloudStreamUtil {
      */
     public static CloudStreamUtil getInstance()
     {
-        return instance;
+        return CloudStreamUtil.instance;
     }
 
     public InputStream getFile(AbFile file)

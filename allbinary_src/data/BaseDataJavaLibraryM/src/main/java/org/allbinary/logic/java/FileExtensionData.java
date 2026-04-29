@@ -23,7 +23,7 @@ public class FileExtensionData
      */
     public static FileExtensionData getInstance()
     {
-        return instance;
+        return FileExtensionData.instance;
     }
 
     private FileExtensionData()

@@ -20,7 +20,7 @@ public class FileItemUtil {
     private static final FileItemUtil instance = new FileItemUtil();
     
     public static FileItemUtil getInstance() {
-        return instance;
+        return FileItemUtil.instance;
     }
     
     public final String DEFAULT_CHARSET = "ISO-8859-1";

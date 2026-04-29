@@ -28,7 +28,7 @@ public class FullScreenPaintableFactory {
      * @return the instance
      */
     public static FullScreenPaintableFactory getInstance() {
-        return instance;
+        return FullScreenPaintableFactory.instance;
     }
     
     public Paintable paintable = FullScreenPaintable.getInstance();

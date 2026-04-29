@@ -23,7 +23,7 @@ public class NullWaitGameRunnable extends GameRunnable {
 
     public static GameRunnable getInstance()
     {
-        return instance;
+        return NullWaitGameRunnable.instance;
     }
     
 }

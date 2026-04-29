@@ -25,7 +25,7 @@ public class AbPathUtil {
      * @return the instance
      */
     public static AbPathUtil getInstance() {
-        return instance;
+        return AbPathUtil.instance;
     }
     
     public final AbPath NO_ABPATH = new AbPath();

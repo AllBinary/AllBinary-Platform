@@ -19,7 +19,7 @@ public class BasicGroupFactory
     
     public static BasicGroupFactory getInstance()
     {
-        return instance;
+        return BasicGroupFactory.instance;
     }
     
     public final String NAME = "GROUP_NAME";

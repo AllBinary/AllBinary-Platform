@@ -30,7 +30,7 @@ public class LinuxOperatingSystemFactory
     
     public static LinuxOperatingSystemFactory getInstance()
     {
-        return instance;
+        return LinuxOperatingSystemFactory.instance;
     }
 
     private LinuxOperatingSystemFactory()

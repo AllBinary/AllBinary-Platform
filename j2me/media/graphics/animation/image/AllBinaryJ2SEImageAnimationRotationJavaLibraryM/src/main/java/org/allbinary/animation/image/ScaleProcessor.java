@@ -33,7 +33,7 @@ public class ScaleProcessor extends ScaleBaseProcessor {
      * @return the instance
      */
     public static ScaleBaseProcessor getInstance() {
-        return instance;
+        return ScaleProcessor.instance;
     }
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

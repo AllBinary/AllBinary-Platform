@@ -23,7 +23,7 @@ public class DirectionFactory
     
     public static DirectionFactory getInstance()
     {
-        return instance;
+        return DirectionFactory.instance;
     }
 
     public final String NAME = "DIRECTION";

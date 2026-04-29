@@ -25,7 +25,7 @@ public class BasicTopViewGeographicMapStrings {
      * @return the instance
      */
     public static BasicTopViewGeographicMapStrings getInstance() {
-        return instance;
+        return BasicTopViewGeographicMapStrings.instance;
     }
     
     public final String DEFAULT = "Default";

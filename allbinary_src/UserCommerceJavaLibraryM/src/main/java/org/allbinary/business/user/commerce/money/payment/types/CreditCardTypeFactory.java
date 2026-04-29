@@ -18,7 +18,7 @@ public class CreditCardTypeFactory {
 	private static final CreditCardTypeFactory instance = new CreditCardTypeFactory();
 	
 	public static CreditCardTypeFactory getInstance() {
-		return instance;
+		return CreditCardTypeFactory.instance;
 	}
 	
 	   public final CreditCardType VISA = new CreditCardType("Visa");

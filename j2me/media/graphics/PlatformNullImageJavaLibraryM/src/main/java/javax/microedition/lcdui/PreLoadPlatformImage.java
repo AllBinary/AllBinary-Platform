@@ -25,7 +25,7 @@ public class PreLoadPlatformImage extends PlatformImage {
      * @return the instance
      */
     public static PreLoadPlatformImage getInstance() {
-        return instance;
+        return PreLoadPlatformImage.instance;
     }
     
 }

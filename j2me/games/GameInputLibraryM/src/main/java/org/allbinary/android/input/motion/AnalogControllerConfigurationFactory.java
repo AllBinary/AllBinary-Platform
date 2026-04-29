@@ -23,7 +23,7 @@ public class AnalogControllerConfigurationFactory {
     private static final AnalogControllerConfigurationFactory instance = new AnalogControllerConfigurationFactory();
 
     public static AnalogControllerConfigurationFactory getInstance() {
-        return instance;
+        return AnalogControllerConfigurationFactory.instance;
     }
 
     public final int SCALE_FACTOR = ScaleFactorFactory.getInstance().DEFAULT_SCALE_FACTOR;

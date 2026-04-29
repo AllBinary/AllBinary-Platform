@@ -26,7 +26,7 @@ public class LayerManagerNoDebug extends LayerManagerLoggingBase {
      * @return the instance
      */
     public static LayerManagerNoDebug getInstance() {
-        return instance;
+        return LayerManagerNoDebug.instance;
     }
 
 }

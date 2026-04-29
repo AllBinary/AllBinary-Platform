@@ -32,7 +32,7 @@ public class DisplaysUtil {
      * @return the instance
      */
     public static DisplaysUtil getInstance() {
-        return instance;
+        return DisplaysUtil.instance;
     }
     
     private static final DisplaysUtil instance = new DisplaysUtil();

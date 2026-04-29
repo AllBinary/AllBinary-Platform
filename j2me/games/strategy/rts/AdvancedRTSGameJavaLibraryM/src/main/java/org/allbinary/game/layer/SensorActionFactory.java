@@ -26,7 +26,7 @@ public class SensorActionFactory {
      */
     public static SensorActionFactory getInstance()
     {
-        return instance;
+        return SensorActionFactory.instance;
     }
 
     private SensorActionFactory()

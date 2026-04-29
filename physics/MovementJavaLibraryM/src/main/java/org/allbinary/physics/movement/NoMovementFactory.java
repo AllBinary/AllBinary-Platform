@@ -18,7 +18,7 @@ public class NoMovementFactory {
 	private static final NoMovementFactory instance = new NoMovementFactory();
 
 	public static NoMovementFactory getInstance() {
-		return instance;
+		return NoMovementFactory.instance;
 	}
 	
 	private final Movement movement = new Movement();

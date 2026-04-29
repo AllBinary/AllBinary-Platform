@@ -18,7 +18,7 @@ public class CharacterSetData
    private static final CharacterSetData instance = new CharacterSetData();
 
    public static CharacterSetData getInstance() {
-		return instance;
+		return CharacterSetData.instance;
 	}
    
    private CharacterSetData()

@@ -29,7 +29,7 @@ public class ImageScaleUtil {
     private static final ImageScaleUtil instance = new ImageScaleUtil();
 
     public static ImageScaleUtil getInstance() {
-        return instance;
+        return ImageScaleUtil.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

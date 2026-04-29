@@ -33,7 +33,7 @@ public class StoreAdminUserEmailEventHandlerSingletons {
         new StoreAdminUserEmailEventHandlerSingletons();
 
     public static StoreAdminUserEmailEventHandlerSingletons getInstance() {
-        return instance;
+        return StoreAdminUserEmailEventHandlerSingletons.instance;
     }
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

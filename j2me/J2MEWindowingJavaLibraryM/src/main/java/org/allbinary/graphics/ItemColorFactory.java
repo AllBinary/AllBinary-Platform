@@ -19,7 +19,7 @@ public class ItemColorFactory
 
     public static ItemColorFactory getInstance()
     {
-        return instance;
+        return ItemColorFactory.instance;
     }
     
     public int INVERT_PAINT = (int) 0xFF000000;

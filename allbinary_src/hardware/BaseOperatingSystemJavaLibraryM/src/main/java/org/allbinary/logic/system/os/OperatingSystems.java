@@ -48,7 +48,7 @@ public class OperatingSystems
 
     public static OperatingSystems getInstance()
     {
-        return instance;
+        return OperatingSystems.instance;
     }
    
 }

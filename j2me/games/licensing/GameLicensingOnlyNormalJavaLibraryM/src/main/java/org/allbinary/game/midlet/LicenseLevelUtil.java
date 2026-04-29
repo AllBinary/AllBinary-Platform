@@ -19,7 +19,7 @@ public class LicenseLevelUtil
 
     public static LicenseLevelUtil getInstance()
     {
-        return instance;
+        return LicenseLevelUtil.instance;
     }
 
     public int getMaxLevel(int maxLevel, int demoLevel)

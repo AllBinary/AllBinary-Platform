@@ -18,7 +18,7 @@ public class ColorData
 	private static final ColorData instance = new ColorData();
 	
 	   public static ColorData getInstance() {
-			return instance;
+			return ColorData.instance;
 		}
 	
    private ColorData()

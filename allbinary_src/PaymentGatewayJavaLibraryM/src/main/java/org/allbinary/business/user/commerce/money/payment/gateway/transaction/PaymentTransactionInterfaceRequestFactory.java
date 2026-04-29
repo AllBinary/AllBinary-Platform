@@ -49,7 +49,7 @@ public class PaymentTransactionInterfaceRequestFactory
             = new PaymentTransactionInterfaceRequestFactory();
 
     public static PaymentTransactionInterfaceRequestFactory getInstance() {
-        return instance;
+        return PaymentTransactionInterfaceRequestFactory.instance;
     }
 
     private PaymentTransactionInterfaceRequestFactory()

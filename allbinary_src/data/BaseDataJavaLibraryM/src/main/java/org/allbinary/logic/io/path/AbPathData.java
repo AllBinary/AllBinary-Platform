@@ -23,7 +23,7 @@ public class AbPathData
 
     public static AbPathData getInstance()
     {
-        return instance;
+        return AbPathData.instance;
     }
     
    public final String EXTENSION_SEP = CommonSeps.getInstance().PERIOD;

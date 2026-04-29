@@ -25,7 +25,7 @@ public class NullServiceReferenceFactory {
      * @return the instance
      */
     public static NullServiceReferenceFactory getInstance() {
-        return instance;
+        return NullServiceReferenceFactory.instance;
     }
 
     public NullServiceReference NULL_SERVICE_REFERENCE = new NullServiceReference();

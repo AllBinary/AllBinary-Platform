@@ -25,7 +25,7 @@ public class AcceptableResponseGenerator
     private static final AcceptableResponseGenerator instance = new AcceptableResponseGenerator();
     
     public static AcceptableResponseGenerator getInstance() {
-        return instance;
+        return AcceptableResponseGenerator.instance;
     }
 
    private AcceptableResponseGenerator()

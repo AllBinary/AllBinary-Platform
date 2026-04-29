@@ -25,7 +25,7 @@ public class AnimationBehavior {
      * @return the instance
      */
     public static AnimationBehavior getInstance() {
-        return instance;
+        return AnimationBehavior.instance;
     }
 
     public void reset() {

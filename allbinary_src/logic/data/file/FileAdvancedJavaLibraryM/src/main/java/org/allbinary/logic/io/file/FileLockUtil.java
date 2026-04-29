@@ -28,7 +28,7 @@ public class FileLockUtil
     private static final FileLockUtil instance = new FileLockUtil();
 
     public static FileLockUtil getInstance() {
-        return instance;
+        return FileLockUtil.instance;
     }
     
     private FileLockUtil()

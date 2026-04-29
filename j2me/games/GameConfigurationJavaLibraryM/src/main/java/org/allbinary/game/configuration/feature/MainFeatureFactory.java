@@ -19,7 +19,7 @@ public class MainFeatureFactory
     
     public static MainFeatureFactory getInstance()
     {
-        return instance;
+        return MainFeatureFactory.instance;
     }
     
     public final Feature FULL_SCREEN = new Feature("Full Screen");

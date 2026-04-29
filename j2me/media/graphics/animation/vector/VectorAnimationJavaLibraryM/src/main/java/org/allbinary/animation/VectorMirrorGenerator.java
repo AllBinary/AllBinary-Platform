@@ -29,7 +29,7 @@ public class VectorMirrorGenerator
 
     public static VectorMirrorGenerator getInstance()
     {
-        return instance;
+        return VectorMirrorGenerator.instance;
     }
 
     private final VectorAnimationUtil vectorAnimationUtil = VectorAnimationUtil.getInstance();

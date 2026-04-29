@@ -30,7 +30,7 @@ public class ArtificialIntelligence
      */
     public static ArtificialIntelligence getInstance()
     {
-        return instance;
+        return ArtificialIntelligence.instance;
     }
     
     public ArtificialIntelligence()

@@ -31,7 +31,7 @@ public class OpenGLESImageExclusionUtil {
      * @return the instance
      */
     public static OpenGLESImageExclusionUtil getInstance() {
-        return instance;
+        return OpenGLESImageExclusionUtil.instance;
     }
 
     public final BasicArrayList list = new BasicArrayListD();

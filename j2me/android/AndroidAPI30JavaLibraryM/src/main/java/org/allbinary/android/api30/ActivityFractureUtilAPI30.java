@@ -28,7 +28,7 @@ public class ActivityFractureUtilAPI30 extends ActivityFractureUtilAPI5
 
     public static ActivityFractureUtilAPI30 getInstance()
     {
-        return instance;
+        return ActivityFractureUtilAPI30.instance;
     }
 
     @Override

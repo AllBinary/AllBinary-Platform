@@ -38,7 +38,7 @@ public class RTSLayerUtil
     
     public static RTSLayerUtil getInstance()
     {
-        return instance;
+        return RTSLayerUtil.instance;
     }
 
     private WeaponProperties createWeaponProperties(

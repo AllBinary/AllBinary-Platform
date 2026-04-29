@@ -19,7 +19,7 @@ public class LicenseLoadingTypeFactory
     
     public static LicenseLoadingTypeFactory getIntance()
     {
-        return instance;
+        return LicenseLoadingTypeFactory.instance;
     }
     
     public final LicenseLoadingType INITIAL_LOADING = new LicenseLoadingType("Initial Loading");

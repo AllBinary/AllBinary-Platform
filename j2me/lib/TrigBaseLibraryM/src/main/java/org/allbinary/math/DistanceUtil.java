@@ -23,7 +23,7 @@ public class DistanceUtil
      * @return the instance
      */
     public static DistanceUtil getInstance() {
-        return instance;
+        return DistanceUtil.instance;
     }
     
     private final MathUtil mathUtil = MathUtil.getInstance();

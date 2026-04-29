@@ -31,7 +31,7 @@ public class PointsUtil {
      */
     public static PointsUtil getInstance()
     {
-        return instance;
+        return PointsUtil.instance;
     }
 
    public BasicArrayList doTransforms(BasicArrayList pointVector, Double angle, GPoint fulcrumPoint) throws Exception

@@ -40,7 +40,7 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
      * @return the instance
      */
     public static RTSLayerSelectedLogHelper getInstance() {
-        return instance;
+        return RTSLayerSelectedLogHelper.instance;
     }
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();

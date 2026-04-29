@@ -28,7 +28,7 @@ public class InGameOptionsFormFactory
     private static final InGameOptionsFormFactory instance = new InGameOptionsFormFactory();
 
     public static InGameOptionsFormFactory getInstance() {
-        return instance;
+        return InGameOptionsFormFactory.instance;
     }
 
     private CommandForm SINGLETON = CommandForm.NULL_COMMAND_FORM;

@@ -18,7 +18,7 @@ public class CssPropertyData
 	private static final CssPropertyData instance = new CssPropertyData();
 	   
 	   public static CssPropertyData getInstance() {
-		return instance;
+		return CssPropertyData.instance;
 	}
 	
    private CssPropertyData()

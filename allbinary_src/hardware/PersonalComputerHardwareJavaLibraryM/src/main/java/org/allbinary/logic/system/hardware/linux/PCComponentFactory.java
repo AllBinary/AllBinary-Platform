@@ -39,7 +39,7 @@ public class PCComponentFactory
      */
     public static PCComponentFactory getInstance()
     {
-        return instance;
+        return PCComponentFactory.instance;
     }
     
     private final ComponentFactory componentFactory = ComponentFactory.getInstance();

@@ -21,7 +21,7 @@ public class AxisMathVectorUtil
 
     public static AxisMathVectorUtil getInstance()
     {
-        return instance;
+        return AxisMathVectorUtil.instance;
     }
     
     private final NoDecimalTrigTable noDecimalTrigTable = NoDecimalTrigTable.getInstance();

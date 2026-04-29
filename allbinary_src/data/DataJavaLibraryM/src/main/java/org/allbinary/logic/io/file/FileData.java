@@ -19,7 +19,7 @@ public class FileData
 
     public static FileData getInstance()
     {
-        return instance;
+        return FileData.instance;
     }
 
     private FileData()

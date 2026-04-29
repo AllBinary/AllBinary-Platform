@@ -23,7 +23,7 @@ public class UpOrientationInputToGameKeyEventAction extends GameKeyCompleteMotio
 
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return instance;
+        return UpOrientationInputToGameKeyEventAction.instance;
     }
 
     private UpOrientationInputToGameKeyEventAction()

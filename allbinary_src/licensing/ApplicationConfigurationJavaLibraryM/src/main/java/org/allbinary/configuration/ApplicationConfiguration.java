@@ -64,7 +64,7 @@ public class ApplicationConfiguration
 
     public static ApplicationConfiguration getInstance()
     {
-        return instance;
+        return ApplicationConfiguration.instance;
     }
 
     private void read() throws Exception

@@ -27,7 +27,7 @@ public class CategoryEntityFactory
      * @return the instance
      */
     public static CategoryEntityFactory getInstance() {
-        return instance;
+        return CategoryEntityFactory.instance;
     }
 
    //private final String CLASSNAME = "org.allbinary.data.tables.CategoryEntity";

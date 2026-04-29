@@ -20,7 +20,7 @@ public class ContextConfigurationData
 	private static final ContextConfigurationData instance = new ContextConfigurationData();
 
 	   public static ContextConfigurationData getInstance() {
-			return instance;
+			return ContextConfigurationData.instance;
 		}
 	
    private ContextConfigurationData()

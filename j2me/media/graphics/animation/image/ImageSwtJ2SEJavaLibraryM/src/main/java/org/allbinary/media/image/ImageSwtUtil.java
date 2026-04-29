@@ -29,7 +29,7 @@ public class ImageSwtUtil {
      * @return the instance
      */
     public static ImageSwtUtil getInstance() {
-        return instance;
+        return ImageSwtUtil.instance;
     }
 
     //public final Color TRANSPARENT_COLOR = new Color(BareMain.shell.getDisplay(), new RGB(0, 0, 0));

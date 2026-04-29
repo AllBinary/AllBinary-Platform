@@ -18,7 +18,7 @@ public class TimeData
 	private static final TimeData instance = new TimeData();
 
 	   public static TimeData getInstance() {
-			return instance;
+			return TimeData.instance;
 		}
 	
    private TimeData()

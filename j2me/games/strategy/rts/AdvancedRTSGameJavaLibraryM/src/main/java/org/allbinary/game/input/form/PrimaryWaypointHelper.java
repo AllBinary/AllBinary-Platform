@@ -31,7 +31,7 @@ public class PrimaryWaypointHelper {
      */
     public static PrimaryWaypointHelper getInstance()
     {
-        return instance;
+        return PrimaryWaypointHelper.instance;
     }
 
     private PathFindingLayerInterface waypointLayer = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;

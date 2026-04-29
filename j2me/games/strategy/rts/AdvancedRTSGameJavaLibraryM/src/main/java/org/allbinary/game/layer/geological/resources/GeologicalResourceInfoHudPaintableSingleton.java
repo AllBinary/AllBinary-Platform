@@ -24,7 +24,7 @@ public class GeologicalResourceInfoHudPaintableSingleton {
 
     public static GeologicalResourceInfoHudPaintable getInstance()
     {
-        return instance;
+        return GeologicalResourceInfoHudPaintableSingleton.instance;
     }
 
 }

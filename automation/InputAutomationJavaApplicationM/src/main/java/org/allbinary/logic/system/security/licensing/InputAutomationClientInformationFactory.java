@@ -25,7 +25,7 @@ public class InputAutomationClientInformationFactory {
      * @return the instance
      */
     public static InputAutomationClientInformation getInstance() {
-        return instance;
+        return InputAutomationClientInformationFactory.instance;
     }
     
 }

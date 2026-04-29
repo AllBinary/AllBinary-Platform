@@ -25,7 +25,7 @@ public class AnalogInputBuilder {
      * @return the instance
      */
     public static AnalogInputBuilder getInstance() {
-        return instance;
+        return AnalogInputBuilder.instance;
     }
 
     public void disable(final GameInputProcessor[] inputProcessorArray, 

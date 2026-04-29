@@ -42,7 +42,7 @@ public class OpenGLConfiguration
     
     public static OpenGLConfiguration getInstance()
     {
-        return instance;
+        return OpenGLConfiguration.instance;
     }
 
     private final String FILE = "OpenGLConfiguration.dat";

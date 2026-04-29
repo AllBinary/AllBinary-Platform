@@ -33,7 +33,7 @@ public class AssignWaypointsUtil
     
     public static AssignWaypointsUtil getInstance()
     {
-        return instance;
+        return AssignWaypointsUtil.instance;
     }
     
     private final RTSLayerEvent WAYPOINT_EVENT = new RTSLayerEvent(NullPathFindingLayer.NULL_PATH_FINDING_LAYER);

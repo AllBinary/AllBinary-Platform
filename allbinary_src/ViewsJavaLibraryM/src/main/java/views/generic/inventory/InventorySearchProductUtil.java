@@ -41,7 +41,7 @@ public class InventorySearchProductUtil {
     private static final InventorySearchProductUtil instance = new InventorySearchProductUtil();
 
     public static InventorySearchProductUtil getInstance() {
-        return instance;
+        return InventorySearchProductUtil.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

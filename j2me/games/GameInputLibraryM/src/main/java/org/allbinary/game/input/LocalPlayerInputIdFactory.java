@@ -40,7 +40,7 @@ public class LocalPlayerInputIdFactory {
     }
 
     public static LocalPlayerInputIdFactory getInstance() {
-        return instance;
+        return LocalPlayerInputIdFactory.instance;
     }
 
     public int getDeviceId(int playerInputId)

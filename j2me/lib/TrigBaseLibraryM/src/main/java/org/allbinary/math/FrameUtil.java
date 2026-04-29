@@ -21,7 +21,7 @@ public class FrameUtil
 
     public static FrameUtil getInstance()
     {
-        return instance;
+        return FrameUtil.instance;
     }
 
     //private final String AJUST_ANGLE_TO_FRAME_ANGLE_MORE = "adjustAngleToFrameAngle >";

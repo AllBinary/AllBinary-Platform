@@ -34,7 +34,7 @@ implements LayerPositionFinderInterface
      */
     public static AdvancedRTSGameLayerPositionFinder getInstance()
     {
-        return instance;
+        return AdvancedRTSGameLayerPositionFinder.instance;
     }
 
     private AdvancedRTSGameLayerPositionFinder()

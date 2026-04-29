@@ -31,7 +31,7 @@ public class TransformInfoHttpStoreFactory implements TransformInfoFactoryInterf
      */
     public static TransformInfoHttpStoreFactory getInstance()
     {
-        return instance;
+        return TransformInfoHttpStoreFactory.instance;
     }
 
     private TransformInfoHttpStoreFactory()

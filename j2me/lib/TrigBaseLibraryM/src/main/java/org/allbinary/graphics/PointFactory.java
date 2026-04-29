@@ -19,7 +19,7 @@ public class PointFactory
 
     public static PointFactory getInstance()
     {
-        return instance;
+        return PointFactory.instance;
     }
     
     public GPoint ZERO_ZERO = this.createXYZ(0, 0, 0);

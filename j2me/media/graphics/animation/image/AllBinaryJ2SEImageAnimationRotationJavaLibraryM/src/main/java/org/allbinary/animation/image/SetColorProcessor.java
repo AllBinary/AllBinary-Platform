@@ -30,7 +30,7 @@ public class SetColorProcessor extends ModifierBaseProcessor {
      * @return the instance
      */
     public static SetColorProcessor getInstance() {
-        return instance;
+        return SetColorProcessor.instance;
     }
     
     @Override

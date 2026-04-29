@@ -32,7 +32,7 @@ public class LevelLayersFinder {
 
     public static LevelLayersFinder getInstance()
     {
-        return instance;
+        return LevelLayersFinder.instance;
     }
 
     public BasicArrayList get(Hashtable hashtable)

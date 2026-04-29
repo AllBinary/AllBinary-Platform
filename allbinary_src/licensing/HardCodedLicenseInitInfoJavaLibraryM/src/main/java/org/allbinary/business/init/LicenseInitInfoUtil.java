@@ -19,7 +19,7 @@ public class LicenseInitInfoUtil
 
     public static LicenseInitInfoUtil getInstance()
     {
-        return instance;
+        return LicenseInitInfoUtil.instance;
     }
 
     public final String INITFILENAME = "licenseinitdata.dat";

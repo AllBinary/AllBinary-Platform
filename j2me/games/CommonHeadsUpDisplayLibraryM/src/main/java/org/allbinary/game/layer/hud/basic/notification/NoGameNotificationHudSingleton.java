@@ -27,7 +27,7 @@ public class NoGameNotificationHudSingleton
 
     public static NoGameNotificationHudSingleton getInstance()
     {
-        return instance;
+        return NoGameNotificationHudSingleton.instance;
     }
 
     private GameNotificationHud gameNotificationHud = GameNotificationHud.NULL_GAME_NOTIFICATION;

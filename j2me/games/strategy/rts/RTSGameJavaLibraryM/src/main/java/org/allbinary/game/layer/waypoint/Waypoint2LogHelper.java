@@ -30,7 +30,7 @@ public class Waypoint2LogHelper {
      * @return the instance
      */
     public static Waypoint2LogHelper getInstance() {
-        return instance;
+        return Waypoint2LogHelper.instance;
     }
 
     public void initRange(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int closeRange, final int sensorRange) {

@@ -19,7 +19,7 @@ public class DamageableBaseBehavior implements DamageableInterface
     
     public static DamageableBaseBehavior getInstance()
     {
-        return instance;
+        return DamageableBaseBehavior.instance;
     }
  
     @Override

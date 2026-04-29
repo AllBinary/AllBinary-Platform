@@ -31,7 +31,7 @@ public class ParentInventoryTagHelper
      */
     public static ParentInventoryTagHelper getInstance()
     {
-        return instance;
+        return ParentInventoryTagHelper.instance;
     }
 
     public void isValid(Object tagClass, Tag parentTag)

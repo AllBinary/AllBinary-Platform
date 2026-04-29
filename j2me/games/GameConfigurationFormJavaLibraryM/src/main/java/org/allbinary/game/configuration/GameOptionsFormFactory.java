@@ -33,7 +33,7 @@ public class GameOptionsFormFactory
     
     public static GameOptionsFormFactory getInstance()
     {
-        return instance;
+        return GameOptionsFormFactory.instance;
     }
     
     public CommandForm init(

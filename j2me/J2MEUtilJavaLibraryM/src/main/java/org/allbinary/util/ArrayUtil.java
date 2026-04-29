@@ -11,7 +11,7 @@ public class ArrayUtil
 
     public static ArrayUtil getInstance()
     {
-        return instance;
+        return ArrayUtil.instance;
     }
 
     private final MathUtil mathUtil = MathUtil.getInstance();

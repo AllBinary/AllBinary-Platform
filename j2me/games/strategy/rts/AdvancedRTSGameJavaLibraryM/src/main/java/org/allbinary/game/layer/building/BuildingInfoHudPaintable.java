@@ -37,7 +37,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
     private static final BuildingInfoHudPaintable instance = new BuildingInfoHudPaintable();
 
     public static final BuildingInfoHudPaintable getInstance() {
-        return instance;
+        return BuildingInfoHudPaintable.instance;
     }
 
     private final String HEALTH = "Health:";

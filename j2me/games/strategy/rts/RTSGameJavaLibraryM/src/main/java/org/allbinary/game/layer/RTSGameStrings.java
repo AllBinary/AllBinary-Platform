@@ -20,7 +20,7 @@ public class RTSGameStrings
     
     public static RTSGameStrings getInstance()
     {
-        return instance;
+        return RTSGameStrings.instance;
     }
     
     public final String DRAG_TO_SPOT = "Please Drag";

@@ -36,7 +36,7 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
      * @return the instance
      */
     public static AlwaysRepaintBehavior getInstance() {
-        return instance;
+        return AlwaysRepaintBehavior.instance;
     }
         
     private final String NAME = "AlwaysRepaintBehavior";

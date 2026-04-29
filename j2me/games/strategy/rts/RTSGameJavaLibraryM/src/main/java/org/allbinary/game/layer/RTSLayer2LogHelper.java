@@ -25,7 +25,7 @@ public class RTSLayer2LogHelper {
      * @return the instance
      */
     public static RTSLayer2LogHelper getInstance() {
-        return instance;
+        return RTSLayer2LogHelper.instance;
     }
 
     public void steeringUp(final PathFindingLayerInterface pathFindingLayerInterface) {

@@ -28,7 +28,7 @@ public class FontDebugFactory {
      * @return the instance
      */
     public static FontDebugFactory getInstance() {
-        return instance;
+        return FontDebugFactory.instance;
     }
         
     public void setFont(final Font font, final Graphics graphics) {

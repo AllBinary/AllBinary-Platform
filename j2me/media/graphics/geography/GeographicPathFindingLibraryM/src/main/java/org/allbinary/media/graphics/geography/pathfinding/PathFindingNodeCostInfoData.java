@@ -22,7 +22,7 @@ public class PathFindingNodeCostInfoData
      * @return the instance
      */
     public static PathFindingNodeCostInfoData getInstance() {
-        return instance;
+        return PathFindingNodeCostInfoData.instance;
     }
 
    private PathFindingNodeCostInfoData()

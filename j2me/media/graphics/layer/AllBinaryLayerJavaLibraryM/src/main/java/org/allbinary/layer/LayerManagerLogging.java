@@ -34,7 +34,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
      * @return the instance
      */
     public static LayerManagerLogging getInstance() {
-        return instance;
+        return LayerManagerLogging.instance;
     }
     
     private final StringMaker stringBuilder = new StringMaker();

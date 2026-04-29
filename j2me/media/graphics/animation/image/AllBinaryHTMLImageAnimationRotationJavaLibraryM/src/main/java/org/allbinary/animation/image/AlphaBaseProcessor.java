@@ -28,7 +28,7 @@ public class AlphaBaseProcessor {
      * @return the instance
      */
     public static AlphaBaseProcessor getInstance() {
-        return instance;
+        return AlphaBaseProcessor.instance;
     }
     
     public void setAlpha(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int alpha) {    

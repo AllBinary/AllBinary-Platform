@@ -25,7 +25,7 @@ public class J2SEMath {
      * @return the instance
      */
     public static J2SEMath getInstance() {
-        return instance;
+        return J2SEMath.instance;
     }
     
     public int round(float value) {

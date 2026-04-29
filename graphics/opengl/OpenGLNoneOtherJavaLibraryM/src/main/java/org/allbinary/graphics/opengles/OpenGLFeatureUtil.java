@@ -19,7 +19,7 @@ public class OpenGLFeatureUtil
 
     public static OpenGLFeatureUtil getInstance()
     {
-        return instance;
+        return OpenGLFeatureUtil.instance;
     }
     
     public OpenGLFeatureUtil()
