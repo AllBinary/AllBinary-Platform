@@ -19,7 +19,7 @@ public class StupidTimer
     private final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
     
     private boolean visitBool(final Visitor visitorInterface) {
-        final Boolean result = (Boolean) visitorInterface.visit(nullUtil.NULL_OBJECT);
+        final Boolean result = (Boolean) visitorInterface.visit(this.nullUtil.NULL_OBJECT);
         final boolean result2 = result.booleanValue();
         return result2;
     }
@@ -31,14 +31,14 @@ public class StupidTimer
 
         final String WAITING_FOR = "Waiting for: ";
         //this.logUtil.putF(WAITING_FOR).append(visitorInterface, this, commonStrings.VISIT);
-        PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(StringUtil.getInstance().toString(visitorInterface)).toString(), this, commonStrings.VISIT);
+        PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(StringUtil.getInstance().toString(visitorInterface)).toString(), this, this.commonStrings.VISIT);
 
         int index = 0;
         while (this.visitBool(visitorInterface))
         {
             if(index % 10 == 0)
             {
-                PreLogUtil.put(new StringMaker().append(WAITING_FOR).appendint(index).toString(), this, commonStrings.VISIT);
+                PreLogUtil.put(new StringMaker().append(WAITING_FOR).appendint(index).toString(), this, this.commonStrings.VISIT);
             }
             
             index++;
@@ -63,7 +63,7 @@ public class StupidTimer
         }
         else
         {
-            PreLogUtil.put(timeDelayHelper.toString(), this, commonStrings.VISIT);
+            PreLogUtil.put(timeDelayHelper.toString(), this, this.commonStrings.VISIT);
         }
     }
 
