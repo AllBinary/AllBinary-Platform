@@ -22,14 +22,14 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 public interface AdvertisementAreasEntityInterface extends BasicDataTableInterface
 {   
    //AdvertisementAreaInterface
-   public Vector get(String storeName) throws Exception;
+   Vector get(String storeName) throws Exception;
 
-   public AdvertisementAreaInterface get(
+   AdvertisementAreaInterface get(
       String storeName, String advertisementAreaName) throws Exception;
 
-   public void delete(String value);
+   void delete(String value);
 
-   public void insert(Vector values);
+   void insert(Vector values);
 
-   public void update(HashMap updatedValues);
+   void update(HashMap updatedValues);
 }

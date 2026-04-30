@@ -15,6 +15,7 @@ package org.allbinary.util;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
+import org.allbinary.logic.NullUtil;
 
 public class HashtableUtil
 {
@@ -32,20 +33,20 @@ public class HashtableUtil
     public void putAll(final Hashtable fromHashtable, final Hashtable hashtable)
     {
         final Enumeration enumeration = fromHashtable.keys();
-        Object key;
-        Object value;
+        Object keyCanBeNull;
+        Object valueCanBeNull;
         while (this.enumerationUtil.hasMoreElements(enumeration))
         {
-            key = this.enumerationUtil.nextElement(enumeration);
-            value = hashtable.get(key);
+            keyCanBeNull = this.enumerationUtil.nextElement(enumeration);
+            valueCanBeNull = hashtable.get(keyCanBeNull);
 
-            if(value == null)
+            if(valueCanBeNull == null)
             {
                 //PreLogUtil.put("key: " + key, this, "putAll");
             }
             else
             {
-                hashtable.put(key, value);
+                hashtable.put(keyCanBeNull, valueCanBeNull);
             }
         }
     }

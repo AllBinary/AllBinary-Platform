@@ -17,6 +17,6 @@ import org.allbinary.logic.communication.smtp.EmailInterface;
 
 public interface EmailQueueInterface
 {
-   public boolean offer(EmailInterface emailInterface) throws Exception;
-   public EmailInterface remove() throws Exception;
+   boolean offer(EmailInterface emailInterface) throws Exception;
+   EmailInterface remove() throws Exception;
 }

@@ -20,5 +20,5 @@ package org.allbinary.logic.control.workflow;
 
 public interface StoreWorkFlowInterface extends WorkFlowInterface
 {
-   public String getStoreName() throws Exception;
+   String getStoreName() throws Exception;
 }

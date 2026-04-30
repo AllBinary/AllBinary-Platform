@@ -17,10 +17,10 @@ import org.allbinary.business.advertisement.AdvertisementInterface;
 
 public interface AdvertisementCampaignsInterface
 {
-   public void add(AdvertisementInterface advertisementInterface);
-   public AdvertisementInterface get(int index);
+   void add(AdvertisementInterface advertisementInterface);
+   AdvertisementInterface get(int index);
    
-   public int size();
-   public boolean isEnabled();
+   int size();
+   boolean isEnabled();
 
 }

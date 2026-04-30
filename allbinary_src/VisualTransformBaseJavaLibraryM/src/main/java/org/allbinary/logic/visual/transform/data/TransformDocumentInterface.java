@@ -19,7 +19,7 @@ import org.w3c.dom.Node;
 
 public interface TransformDocumentInterface
 {
-   public Node getBaseNode();
+   Node getBaseNode();
    
-   public Document getDoc();
+   Document getDoc();
 }

@@ -17,6 +17,6 @@ import org.allbinary.logic.communication.smtp.configuration.user.event.UserEmail
 
 public interface UserEmailConfigurationInterface
 {
-    public UserEmailEventsConfigurationInterface getUserEmailEventsConfigurationInterface();
-    public void setUserEmailEventsConfigurationInterface(UserEmailEventsConfigurationInterface emailEventsConfigurationInterface);
+    UserEmailEventsConfigurationInterface getUserEmailEventsConfigurationInterface();
+    void setUserEmailEventsConfigurationInterface(UserEmailEventsConfigurationInterface emailEventsConfigurationInterface);
 }

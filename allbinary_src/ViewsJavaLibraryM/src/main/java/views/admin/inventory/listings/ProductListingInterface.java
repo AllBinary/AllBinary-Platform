@@ -15,6 +15,6 @@ package views.admin.inventory.listings;
 
 public interface ProductListingInterface
 {
-   public String generateAll() throws Exception;
-   public String generateAll(String storeName) throws Exception;
+   String generateAll() throws Exception;
+   String generateAll(String storeName) throws Exception;
 }

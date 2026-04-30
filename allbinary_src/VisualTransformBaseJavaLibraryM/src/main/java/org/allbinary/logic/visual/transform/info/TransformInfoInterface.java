@@ -22,42 +22,42 @@ import org.w3c.dom.Document;
 
 public interface TransformInfoInterface extends TableMappingInterface
 {
-   public String log();
+   String log();
 
-   public void override(HashMap hashMap) throws Exception;
+   void override(HashMap hashMap) throws Exception;
    
-   public String getName();
+   String getName();
 
-   public void setStoreName(String value);
-   public String getStoreName();
+   void setStoreName(String value);
+   String getStoreName();
    
-   public String getObjectFile();
-   public Object getObject();
+   String getObjectFile();
+   Object getObject();
    
-   public AbPath getTemplateFilePath() throws Exception;
-   public String getTemplateFile();
-   public String getTemplate();
+   AbPath getTemplateFilePath() throws Exception;
+   String getTemplateFile();
+   String getTemplate();
    
-   public AbPath getDataFilePath() throws Exception;
-   public String getDataFile();
-   public Document getDataDocument() throws Exception;
+   AbPath getDataFilePath() throws Exception;
+   String getDataFile();
+   Document getDataDocument() throws Exception;
   
-   public void setName(String value);
+   void setName(String value);
    
-   public void setObjectFile(String value);
-   public void setObject(Object object);
+   void setObjectFile(String value);
+   void setObject(Object object);
    
-   public void setObjectConfigInterface(TransformInfoObjectConfigInterface transformInfoObjectConfigInterface) throws Exception;
-   public TransformInfoObjectConfigInterface getObjectConfigInterface() throws Exception;
+   void setObjectConfigInterface(TransformInfoObjectConfigInterface transformInfoObjectConfigInterface) throws Exception;
+   TransformInfoObjectConfigInterface getObjectConfigInterface() throws Exception;
 
-   public void setTemplateFile(String value);
-   public void setTemplate(String value);
+   void setTemplateFile(String value);
+   void setTemplate(String value);
    
-   public void setDataFile(String value);
-   public void setData(String value);
+   void setDataFile(String value);
+   void setData(String value);
 
    //When the componentFactory generates a child component this method is 
    //called so it will not use a special viewinfoobjectgenerator
-   public void setChild();
-   public boolean isChild();
+   void setChild();
+   boolean isChild();
 }

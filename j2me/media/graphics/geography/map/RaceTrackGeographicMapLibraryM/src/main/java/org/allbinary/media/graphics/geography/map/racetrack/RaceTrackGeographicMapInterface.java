@@ -18,9 +18,9 @@ import org.allbinary.media.graphics.geography.map.GeographicMapInterface;
 public interface RaceTrackGeographicMapInterface 
    extends GeographicMapInterface
 {
-   public RaceTrackInfo getRaceTrackInfo();
+   RaceTrackInfo getRaceTrackInfo();
 
-   public void setRaceTrackInfo(RaceTrackInfo aRaceTrackInfo);
+   void setRaceTrackInfo(RaceTrackInfo aRaceTrackInfo);
 
    RaceTrackData getRaceTrackData();
 

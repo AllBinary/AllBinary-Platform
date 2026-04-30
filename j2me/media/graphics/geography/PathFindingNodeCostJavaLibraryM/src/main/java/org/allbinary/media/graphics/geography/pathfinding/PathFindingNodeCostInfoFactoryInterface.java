@@ -19,7 +19,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 public interface PathFindingNodeCostInfoFactoryInterface extends
     PathFindingNodeCostInfoFactoryBaseInterface
 {
-   public PathFindingNodeCostInfo getInstance(
+   PathFindingNodeCostInfo getInstance(
       GeographicMapCellPosition comingFromGeographicMapCellPosition,
       //GeographicMapCellPosition startGeographicMapCellPosition, 
       //GeographicMapCellPosition endGeographicMapCellPosition, 
@@ -28,11 +28,11 @@ public interface PathFindingNodeCostInfoFactoryInterface extends
       long costToEnd)
       throws Exception;
       
-   public PathFindingNodeCostInfo getInstance(
+   PathFindingNodeCostInfo getInstance(
       GeographicMapCellPosition comingFromGeographicMapCellPosition,
       GeographicMapCellPosition geographicMapCellPosition);
 
-   public long getTotalCost(
+   long getTotalCost(
       GeographicMapCellPosition comingFromGeographicMapCellPosition,
       GeographicMapCellPosition geographicMapCellPosition);
 }

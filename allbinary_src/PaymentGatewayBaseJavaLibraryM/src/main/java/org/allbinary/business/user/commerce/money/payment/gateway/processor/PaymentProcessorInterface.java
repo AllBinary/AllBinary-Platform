@@ -18,5 +18,5 @@ import org.allbinary.data.tree.dom.DomNodeInterface;
 
 public interface PaymentProcessorInterface extends DomNodeInterface
 {
-   public void process() throws PaymentException, Exception;
+   void process() throws PaymentException, Exception;
 }

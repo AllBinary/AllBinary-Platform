@@ -21,7 +21,7 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSessionIn
 
 public interface TransformInfoHttpInterface extends TransformInfoInterface
 {
-   public WeblisketSessionInterface getWeblisketSession();
-   public PageContext getPageContext();
-   public HashMap getPropertiesHashMap();
+   WeblisketSessionInterface getWeblisketSession();
+   PageContext getPageContext();
+   HashMap getPropertiesHashMap();
 }

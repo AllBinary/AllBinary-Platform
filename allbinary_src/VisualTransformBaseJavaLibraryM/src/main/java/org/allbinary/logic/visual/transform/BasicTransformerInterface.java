@@ -22,15 +22,15 @@ import org.allbinary.logic.visual.transform.info.CompositeTransformInfoInterface
 
 public interface BasicTransformerInterface extends CompositeTransformInfoInterface
 {
-   public void setInputStream(InputStream inputStream);
+   void setInputStream(InputStream inputStream);
    
-   public void setURIResolver(URIResolver uriResolver);
+   void setURIResolver(URIResolver uriResolver);
       
-   public StreamSource getStreamSource();
+   StreamSource getStreamSource();
 
-   public InputStream getInputStream();
+   InputStream getInputStream();
    
-   public URIResolver getURIResolver();
+   URIResolver getURIResolver();
    
-   public String translate(String xmlDocumentStr) throws Exception;
+   String translate(String xmlDocumentStr) throws Exception;
 }

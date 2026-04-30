@@ -19,11 +19,11 @@ package org.allbinary.thread;
  */
 public interface PriorityRunnable extends Runnable {
     
-    public int getPriority();
+    int getPriority();
     
     //This is not really about priority and is for HTML5 builds
-    public boolean isDone();
+    boolean isDone();
     
-    public void reset();
+    void reset();
     
 }

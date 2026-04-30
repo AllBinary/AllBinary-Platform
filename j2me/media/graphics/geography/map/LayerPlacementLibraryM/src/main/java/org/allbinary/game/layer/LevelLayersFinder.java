@@ -46,20 +46,20 @@ public class LevelLayersFinder {
 
         final Enumeration enumeration = hashtable.keys();
 
-        Hashtable layerHashtable;
-        Integer integer;
-        Integer cachedInteger;
+        Hashtable layerHashtableCanBeNull;
+        Integer integerCanBeNull;
+        Integer cachedIntegerCanBeNull;
         while(this.enumerationUtil.hasMoreElements(enumeration))
         {
-            layerHashtable = (Hashtable) hashtable.get((Object) this.enumerationUtil.nextElement(enumeration));
+            layerHashtableCanBeNull = (Hashtable) hashtable.get((Object) this.enumerationUtil.nextElement(enumeration));
 
-            integer = (Integer) layerHashtable.get((Object) Layer.ID);
+            integerCanBeNull = (Integer) layerHashtableCanBeNull.get((Object) Layer.ID);
 
-            cachedInteger = smallIntegerSingletonFactory.getAt(integer.intValue());
+            cachedIntegerCanBeNull = smallIntegerSingletonFactory.getAt(integerCanBeNull.intValue());
 
-            if(!list.contains(cachedInteger))
+            if(!list.contains(cachedIntegerCanBeNull))
             {
-                list.add(cachedInteger);
+                list.add(cachedIntegerCanBeNull);
             }
         }
 

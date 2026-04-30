@@ -23,25 +23,25 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface UserEntityInterface extends BasicDataTableInterface
 {
-   public Vector getAdministrators() throws Exception;
+   Vector getAdministrators() throws Exception;
    
-   public Vector getStoreManagers(StoreFrontInterface storeFrontInterface) throws Exception;
+   Vector getStoreManagers(StoreFrontInterface storeFrontInterface) throws Exception;
    
-   public Vector getCustomers() throws Exception;
+   Vector getCustomers() throws Exception;
 
-   public Vector getUsersWithRole(UserRole userRole) throws Exception;
+   Vector getUsersWithRole(UserRole userRole) throws Exception;
    
-   public Vector getUsers(StoreFrontInterface storeFrontInterface) throws Exception;
+   Vector getUsers(StoreFrontInterface storeFrontInterface) throws Exception;
    
-   public UserInterface getUser(String userName) throws Exception;
+   UserInterface getUser(String userName) throws Exception;
       
    //public String getUserRole(String userName, String password);
    
-   public String login(String userName, String password);
+   String login(String userName, String password);
 
-   public void deleteWhere(String key, String value);
+   void deleteWhere(String key, String value);
 
-   public void insert(Vector values);
+   void insert(Vector values);
    
-   public void update(String userName, HashMap updatedValues);
+   void update(String userName, HashMap updatedValues);
 }

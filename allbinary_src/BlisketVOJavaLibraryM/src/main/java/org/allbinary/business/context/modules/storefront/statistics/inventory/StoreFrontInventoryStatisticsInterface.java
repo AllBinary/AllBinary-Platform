@@ -18,6 +18,6 @@ import org.allbinary.data.tables.TableMappingInterface;
 
 public interface StoreFrontInventoryStatisticsInterface extends TableMappingInterface
 {
-   public Long getNumber();
-   public Money getTotal();
+   Long getNumber();
+   Money getTotal();
 }

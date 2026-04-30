@@ -21,11 +21,11 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface StaticPagesEntityInterface extends BasicDataTableInterface
 {    
-   public String getFile(String store, String keywords);
+   String getFile(String store, String keywords);
    
-   public void delete(String value);
+   void delete(String value);
    
-   public void insert(Vector values);
+   void insert(Vector values);
 
-   public void update(HashMap updatedValues);
+   void update(HashMap updatedValues);
 }

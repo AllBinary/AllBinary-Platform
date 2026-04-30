@@ -4,17 +4,17 @@ import java.util.Dictionary;
 
 public interface BundleContext {
     
-    public Bundle[] getBundles();
+    Bundle[] getBundles();
     
-    public Bundle installBundle(String location) throws BundleException;
+    Bundle installBundle(String location) throws BundleException;
 
-    public ServiceRegistration registerService(String clazz,
+    ServiceRegistration registerService(String clazz,
             Object service, Dictionary properties);
         
-    public Object getService(ServiceReference reference);
+    Object getService(ServiceReference reference);
     
-    public ServiceReference[] getServiceReferences(String clazz,
+    ServiceReference[] getServiceReferences(String clazz,
             String filter) throws InvalidSyntaxException;
 
-    public ServiceReference getServiceReference(String clazz);
+    ServiceReference getServiceReference(String clazz);
 }

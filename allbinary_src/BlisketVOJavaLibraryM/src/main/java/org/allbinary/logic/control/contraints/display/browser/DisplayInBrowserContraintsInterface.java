@@ -15,16 +15,16 @@ package org.allbinary.logic.control.contraints.display.browser;
 
 public interface DisplayInBrowserContraintsInterface
 {
-   public boolean isMountable();
-   public boolean isFrameable();
-   public boolean isQuickFrameable();
+   boolean isMountable();
+   boolean isFrameable();
+   boolean isQuickFrameable();
    
-   public void setMountable(boolean canBeMounted);
+   void setMountable(boolean canBeMounted);
    
-   public void setFrameable(boolean canBeFramed);
+   void setFrameable(boolean canBeFramed);
 
-   public void setQuickFrameable(boolean canBeQuickFramed);
+   void setQuickFrameable(boolean canBeQuickFramed);
    
-   public void setMountedLink(String mountedLink);
-   public String getMountedLink();
+   void setMountedLink(String mountedLink);
+   String getMountedLink();
 }

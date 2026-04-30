@@ -18,6 +18,6 @@ import org.allbinary.logic.util.event.BasicEventListenerInterface;
 public interface CapturedImageWorkerResultsListener
     extends BasicEventListenerInterface
 {
-    public void onCaptureEvent
+    void onCaptureEvent
 	(CapturedImageWorkerResultsEvent capturedimageworkerresultsevent);
 }

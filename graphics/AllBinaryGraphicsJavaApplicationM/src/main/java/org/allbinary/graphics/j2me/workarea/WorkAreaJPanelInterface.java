@@ -17,20 +17,20 @@ import org.w3c.dom.Document;
 
 public interface WorkAreaJPanelInterface extends java.awt.event.KeyListener
 {
-    public String getName();
-    public void deselect();
-    public void select();
-    public void changeZoom(int factor);
+    String getName();
+    void deselect();
+    void select();
+    void changeZoom(int factor);
     
-    public void explodeAll();
+    void explodeAll();
     
-    public void autoRotate(int increments, int totalAngle)throws Exception;
-    public void autoExplode(int numberOfFrames, int explodeType)throws Exception;
+    void autoRotate(int increments, int totalAngle)throws Exception;
+    void autoExplode(int numberOfFrames, int explodeType)throws Exception;
     void autoMirror()throws Exception;
        
-    public void play();
-    public void stop();
-    public boolean isPlaying();
+    void play();
+    void stop();
+    boolean isPlaying();
 
-    public Document toDocument() throws Exception;
+    Document toDocument() throws Exception;
 }

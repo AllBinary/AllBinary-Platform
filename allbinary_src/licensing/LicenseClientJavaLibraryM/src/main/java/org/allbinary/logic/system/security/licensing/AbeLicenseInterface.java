@@ -21,17 +21,17 @@ public interface AbeLicenseInterface
 {    
    boolean hasKey();
 
-   public String getKey(String keyName);
+   String getKey(String keyName);
    //public void setKey(String keyValue);
-   public String getLicenseId();   
+   String getLicenseId();   
    
-   public BasicArrayList getServers();
+   BasicArrayList getServers();
    
-   public String getSpecial();
+   String getSpecial();
    
-   public LicenseType getLicenseType();
+   LicenseType getLicenseType();
    
-   public boolean isValid();
+   boolean isValid();
    
-   public String toString();
+   String toString();
 }

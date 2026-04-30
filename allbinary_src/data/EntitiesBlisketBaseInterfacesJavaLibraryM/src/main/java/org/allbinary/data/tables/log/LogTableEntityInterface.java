@@ -20,9 +20,9 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface LogTableEntityInterface extends BasicDataTableInterface
 {
-   public void deleteWhere(String key,String value);
+   void deleteWhere(String key,String value);
 
-   public void insert(Vector values);
+   void insert(Vector values);
 
    //public void update(HashMap updatedValues);
 }

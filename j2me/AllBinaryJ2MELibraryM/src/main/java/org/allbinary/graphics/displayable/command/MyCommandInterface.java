@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Command;
 
 public interface MyCommandInterface
 {
-   public void addCommand(Command command);
+   void addCommand(Command command);
    
-   public void removeAllCommands();
+   void removeAllCommands();
 }

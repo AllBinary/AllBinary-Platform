@@ -17,8 +17,8 @@ import org.allbinary.logic.control.contraints.size.TwoDimensionalConstraintInter
 
 public interface AdvertisementImageInterface
 {
-   public String getFileName();
-   public String getUrl();
-   public TwoDimensionalConstraintInterface getTwoDimensionalConstraint();
+   String getFileName();
+   String getUrl();
+   TwoDimensionalConstraintInterface getTwoDimensionalConstraint();
    
 }

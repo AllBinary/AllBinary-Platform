@@ -18,7 +18,7 @@ import org.allbinary.logic.util.event.BasicEventListenerInterface;
 public interface MotionRectanglesResultsListener
    extends BasicEventListenerInterface
 {
-   public void onMotionRectanglesImageComparisonResultsEvent(
+   void onMotionRectanglesImageComparisonResultsEvent(
       MotionRectanglesResultsEvent
          motionRectanglesImageComparisonResultsEvent);
 }

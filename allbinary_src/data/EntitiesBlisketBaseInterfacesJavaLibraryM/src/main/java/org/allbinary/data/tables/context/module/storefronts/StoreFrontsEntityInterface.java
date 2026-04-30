@@ -22,13 +22,13 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 public interface StoreFrontsEntityInterface 
    extends BasicDataTableInterface
 {
-   public StoreFrontInterface getStoreFrontInterface(String name) throws Exception;
+   StoreFrontInterface getStoreFrontInterface(String name) throws Exception;
       
-   public Vector getStoreFrontNames();
+   Vector getStoreFrontNames();
    
-   public void delete(String value);
+   void delete(String value);
 
-   public void insert(Vector values);
+   void insert(Vector values);
 
-   public void update(HashMap updatedValues);
+   void update(HashMap updatedValues);
 }

@@ -18,7 +18,7 @@ import org.allbinary.business.user.commerce.money.Money;
 
 public interface ShippingInterface
 {            
-   public Money getCost(OrderInterface order);
-   public String getName();
-   public String getDescription();
+   Money getCost(OrderInterface order);
+   String getName();
+   String getDescription();
 }

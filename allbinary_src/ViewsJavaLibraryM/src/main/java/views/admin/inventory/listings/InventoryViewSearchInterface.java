@@ -16,12 +16,12 @@ package views.admin.inventory.listings;
 
 public interface InventoryViewSearchInterface
 {
-   public String searchSingleStaticPage() throws Exception;
-   public String searchSingleDynamicPage() throws Exception;
+   String searchSingleStaticPage() throws Exception;
+   String searchSingleDynamicPage() throws Exception;
    
-   public String[] search() throws Exception;
+   String[] search() throws Exception;
       
-   public String getProduct(String product) throws Exception;
+   String getProduct(String product) throws Exception;
    
    //public String remove(String keywords);
    //public String update(String keywords);

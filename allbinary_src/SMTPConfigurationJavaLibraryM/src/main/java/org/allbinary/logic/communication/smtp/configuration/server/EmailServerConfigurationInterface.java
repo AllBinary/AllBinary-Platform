@@ -15,16 +15,16 @@ package org.allbinary.logic.communication.smtp.configuration.server;
 
 public interface EmailServerConfigurationInterface
 {
-   public void setSmtpServer(String value);
-   public String getSmtpServer();
+   void setSmtpServer(String value);
+   String getSmtpServer();
 
-   public String getAccountName();
-   public void setAccountName(String accountName);
+   String getAccountName();
+   void setAccountName(String accountName);
 
-   public String getPassword();
-   public void setPassword(String password);
+   String getPassword();
+   void setPassword(String password);
 
-   public void log();
+   void log();
 
-   public String toString();
+   String toString();
 }

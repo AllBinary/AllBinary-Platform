@@ -23,13 +23,13 @@ import org.allbinary.layer.NamedInterface;
  */
 public interface CollidableInterface extends NamedInterface
 {
-   public boolean isCollidable()
+   boolean isCollidable()
            throws Exception;
 
-   public boolean isCollision(CollidableCompositeLayer collidableInterfaceCompositeInterface)
+   boolean isCollision(CollidableCompositeLayer collidableInterfaceCompositeInterface)
            throws Exception;
 
-   public void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
+   void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
            throws Exception;
    
    CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface);

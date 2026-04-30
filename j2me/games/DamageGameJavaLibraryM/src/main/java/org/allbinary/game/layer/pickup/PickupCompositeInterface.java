@@ -15,6 +15,6 @@ package org.allbinary.game.layer.pickup;
 
 public interface PickupCompositeInterface
 {
-    public PickupBehavior getPickupBehavior();
-    public void setPickupBehavior(PickupBehavior pickupBehavior);
+    PickupBehavior getPickupBehavior();
+    void setPickupBehavior(PickupBehavior pickupBehavior);
 }

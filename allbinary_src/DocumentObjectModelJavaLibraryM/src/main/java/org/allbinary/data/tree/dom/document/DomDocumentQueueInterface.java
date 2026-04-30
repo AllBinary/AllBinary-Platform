@@ -17,8 +17,8 @@ import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 
 public interface DomDocumentQueueInterface
 {
-   public boolean offer(
+   boolean offer(
       DomDocumentMappingInterface domDocumentMappingInterface) 
       throws Exception;
-   public DomDocumentMappingInterface remove() throws Exception;
+   DomDocumentMappingInterface remove() throws Exception;
 }

@@ -18,6 +18,6 @@ import java.util.EventListener;
 public interface EventListenerInterface 
    extends EventListener
 {
-   public void onEvent(AllBinaryEventObject eventObject)
+   void onEvent(AllBinaryEventObject eventObject)
       throws Exception;
 }

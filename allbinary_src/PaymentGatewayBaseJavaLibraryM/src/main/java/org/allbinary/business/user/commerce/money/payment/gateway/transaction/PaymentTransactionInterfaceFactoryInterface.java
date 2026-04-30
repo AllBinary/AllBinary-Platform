@@ -19,17 +19,17 @@ import org.allbinary.business.user.commerce.money.payment.types.TenderType;
 
 public interface PaymentTransactionInterfaceFactoryInterface
 {
-   public PaymentTransactionInterface getInstance(OrderHistory orderHistory) throws Exception;
+   PaymentTransactionInterface getInstance(OrderHistory orderHistory) throws Exception;
 
-   public PaymentTransactionInterface getSaleTransaction(TenderType tenderType) throws Exception;
+   PaymentTransactionInterface getSaleTransaction(TenderType tenderType) throws Exception;
 
-   public PaymentTransactionInterface getCreditTransaction(TenderType tenderType) throws Exception;
+   PaymentTransactionInterface getCreditTransaction(TenderType tenderType) throws Exception;
 
-   public PaymentTransactionInterface getAuthorizationTransaction(TenderType tenderType) throws Exception;
+   PaymentTransactionInterface getAuthorizationTransaction(TenderType tenderType) throws Exception;
 
-   public PaymentTransactionInterface getCaptureDelayedTransaction(TenderType tenderType) throws Exception;
+   PaymentTransactionInterface getCaptureDelayedTransaction(TenderType tenderType) throws Exception;
 
-   public PaymentTransactionInterface getVoidTransaction(TenderType tenderType) throws Exception;
+   PaymentTransactionInterface getVoidTransaction(TenderType tenderType) throws Exception;
 
-   public PaymentTransactionInterface getInquiryTransaction(TenderType tenderType) throws Exception;
+   PaymentTransactionInterface getInquiryTransaction(TenderType tenderType) throws Exception;
 }

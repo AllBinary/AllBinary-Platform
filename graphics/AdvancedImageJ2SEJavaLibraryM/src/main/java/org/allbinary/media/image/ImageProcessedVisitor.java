@@ -22,5 +22,5 @@ import java.io.IOException;
  */
 public interface ImageProcessedVisitor extends ImageProcessorInputCompositeInterface {
     
-    public void visit(final BufferedImage generatedBufferedImage, final String nameEnding, final int index) throws IOException;
+    void visit(final BufferedImage generatedBufferedImage, final String nameEnding, final int index) throws IOException;
 }

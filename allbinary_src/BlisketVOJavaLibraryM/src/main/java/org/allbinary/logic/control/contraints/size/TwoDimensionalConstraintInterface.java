@@ -15,9 +15,9 @@ package org.allbinary.logic.control.contraints.size;
 
 public interface TwoDimensionalConstraintInterface
 {
-   public SizeConstraintInterface getHeight();
-   public SizeConstraintInterface getWidth();
+   SizeConstraintInterface getHeight();
+   SizeConstraintInterface getWidth();
 
-   public void setHeight(SizeConstraintInterface heightSizeConstraintInterface);
-   public void setWidth(SizeConstraintInterface widthSizeConstraintInterface);
+   void setHeight(SizeConstraintInterface heightSizeConstraintInterface);
+   void setWidth(SizeConstraintInterface widthSizeConstraintInterface);
 }

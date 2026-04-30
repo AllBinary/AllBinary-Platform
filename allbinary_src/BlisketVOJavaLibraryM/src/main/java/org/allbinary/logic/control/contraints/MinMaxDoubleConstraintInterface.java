@@ -15,8 +15,8 @@ package org.allbinary.logic.control.contraints;
 
 public interface MinMaxDoubleConstraintInterface
 {
-   public double getMax();
-   public double getMin();
-   public void setMax(double max);
-   public void setMin(double min);
+   double getMax();
+   double getMin();
+   void setMax(double max);
+   void setMin(double min);
 }

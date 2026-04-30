@@ -18,6 +18,6 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 public interface TrackingEventListenerInterface 
    extends EventListenerInterface
 {
-   public void onMovement(TrackingEvent trackingEvent)
+   void onMovement(TrackingEvent trackingEvent)
       throws Exception;
 }

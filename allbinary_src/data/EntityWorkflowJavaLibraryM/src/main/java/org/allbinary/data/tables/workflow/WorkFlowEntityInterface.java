@@ -23,13 +23,13 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 public interface WorkFlowEntityInterface 
    extends BasicDataTableInterface
 {
-   public Vector get(String storeName);
+   Vector get(String storeName);
 
-   public WorkFlowInterface get(String name, String storeName) throws Exception, LicensingException;
+   WorkFlowInterface get(String name, String storeName) throws Exception, LicensingException;
 
-   public void delete(String name, String storeName);
+   void delete(String name, String storeName);
    
-   public void insert(Vector values);
+   void insert(Vector values);
 
-   public void update(HashMap updatedValues);
+   void update(HashMap updatedValues);
 }

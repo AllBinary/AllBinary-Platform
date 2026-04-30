@@ -20,39 +20,39 @@ import org.allbinary.util.BasicArrayList;
 
 public interface StoreFrontInterface extends TableMappingInterface
 { 
-   public Boolean isNameValid();
-   public Boolean isValid();
-   public String nameValidationInfo();
-   public String validationInfo();
+   Boolean isNameValid();
+   Boolean isValid();
+   String nameValidationInfo();
+   String validationInfo();
    
-   public String getTestHtmlPath();
-   public String getCurrentHostName();
-   public String getCurrentHostNamePath();   
-   public String getCurrentHomeHostName();
-   public String getCurrentHomeHostNamePath();   
-   public String getName();
+   String getTestHtmlPath();
+   String getCurrentHostName();
+   String getCurrentHostNamePath();   
+   String getCurrentHomeHostName();
+   String getCurrentHomeHostNamePath();   
+   String getName();
    
    //public String getUserName();
    
-   public String getBasketName();
-   public String getHomeHostName();
-   public String getHomeHostNamePath();
-   public String getHostName();
-   public String getHostNamePath();
-   public String getTestHomeHostName();
-   public String getTestHomeHostNamePath();
-   public String getTestHostName();
-   public String getTestHostNamePath();
+   String getBasketName();
+   String getHomeHostName();
+   String getHomeHostNamePath();
+   String getHostName();
+   String getHostNamePath();
+   String getTestHomeHostName();
+   String getTestHomeHostNamePath();
+   String getTestHostName();
+   String getTestHostNamePath();
    //public String getImagePath();
-   public String getStaticPath();
-   public String getCategoryPath();
-   public BasicArrayList getSubStores() throws Exception;
-   public String getTagLocation();
-   public String getPackageLocation();
-   public String getInventoryControl();
+   String getStaticPath();
+   String getCategoryPath();
+   BasicArrayList getSubStores() throws Exception;
+   String getTagLocation();
+   String getPackageLocation();
+   String getInventoryControl();
 
-   public ContextConfigurationInterface getContextConfigurationInterface();
-   public void setContextConfigurationInterface(ContextConfigurationInterface contextConfigurationInterface);
+   ContextConfigurationInterface getContextConfigurationInterface();
+   void setContextConfigurationInterface(ContextConfigurationInterface contextConfigurationInterface);
    
    /*
    public String getOut();
@@ -62,32 +62,32 @@ public interface StoreFrontInterface extends TableMappingInterface
    public String getOrder();
    public String getOrderCancel();
     **/
-   public String getFtp();
-   public String getFtpPath();
-   public String getFtpUserName();
-   public String getFtpPassword();
-   public String getTestFtp();
-   public String getTestFtpPath();
-   public String getTestFtpUserName();
-   public String getTestFtpPassword();
-   public String getTimeCreated();
-   public String getLastModified();   
+   String getFtp();
+   String getFtpPath();
+   String getFtpUserName();
+   String getFtpPassword();
+   String getTestFtp();
+   String getTestFtpPath();
+   String getTestFtpUserName();
+   String getTestFtpPassword();
+   String getTimeCreated();
+   String getLastModified();   
 
-   public void setName(String value);
-   public void setBasketName(String value);
-   public void setHomeHostName(String value);
-   public void setHomeHostNamePath(String value) throws Exception;
-   public void setHostName(String value);
-   public void setHostNamePath(String value) throws Exception;
-   public void setTestHomeHostName(String value);
-   public void setTestHomeHostNamePath(String value) throws Exception;
-   public void setTestHostName(String value);
-   public void setTestHostNamePath(String value) throws Exception;
-   public void setImagePath(String value) throws Exception;
-   public void setStaticPath(String value) throws Exception;
-   public void setCategoryPath(String value) throws Exception;
-   public void setPackageLocation(String value);
-   public void setInventoryControl(String value);
+   void setName(String value);
+   void setBasketName(String value);
+   void setHomeHostName(String value);
+   void setHomeHostNamePath(String value) throws Exception;
+   void setHostName(String value);
+   void setHostNamePath(String value) throws Exception;
+   void setTestHomeHostName(String value);
+   void setTestHomeHostNamePath(String value) throws Exception;
+   void setTestHostName(String value);
+   void setTestHostNamePath(String value) throws Exception;
+   void setImagePath(String value) throws Exception;
+   void setStaticPath(String value) throws Exception;
+   void setCategoryPath(String value) throws Exception;
+   void setPackageLocation(String value);
+   void setInventoryControl(String value);
    
    /*
    public void setOut(String value);
@@ -98,17 +98,17 @@ public interface StoreFrontInterface extends TableMappingInterface
    public void setOrderCancel(String value);
     */
    
-   public void setFtp(String value);   
-   public void setFtpPath(String value) throws Exception;
-   public void setFtpUserName(String value);
-   public void setFtpPassword(String value);
-   public void setTestFtp(String value);
-   public void setTestFtpPath(String value) throws Exception;
-   public void setTestFtpUserName(String value);
-   public void setTestFtpPassword(String value);
-   public void setTimeCreated(String value);
-   public void setLastModified(String value);
+   void setFtp(String value);   
+   void setFtpPath(String value) throws Exception;
+   void setFtpUserName(String value);
+   void setFtpPassword(String value);
+   void setTestFtp(String value);
+   void setTestFtpPath(String value) throws Exception;
+   void setTestFtpUserName(String value);
+   void setTestFtpPassword(String value);
+   void setTimeCreated(String value);
+   void setLastModified(String value);
 
-   public void install(int current, int total) throws Exception;
+   void install(int current, int total) throws Exception;
    //public boolean createDirectories();
 }

@@ -19,14 +19,14 @@ import org.allbinary.business.advertisement.search.AdvertisementSearchInterface;
 public interface AdvertisementCampaignInterface
 {
    //AffiliateData.NAME
-   public String getName();
+   String getName();
    //DynamicObjectData.NAME
-   public Object getComponent();
+   Object getComponent();
    
-   public void setName(String name);
+   void setName(String name);
    //DynamicObjectData.NAME
-   public void setComponentName(String name);
+   void setComponentName(String name);
 
-   public AdvertisementsInterface search(
+   AdvertisementsInterface search(
       AdvertisementSearchInterface advertisementSearchInterface);
 }

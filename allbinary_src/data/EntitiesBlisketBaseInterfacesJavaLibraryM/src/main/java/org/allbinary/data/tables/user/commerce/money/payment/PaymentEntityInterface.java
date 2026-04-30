@@ -20,19 +20,19 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface PaymentEntityInterface extends BasicDataTableInterface
 {         
-   public String getLastId(String userName);
+   String getLastId(String userName);
    
-   public void setDefault(String userName, Integer index);
+   void setDefault(String userName, Integer index);
       
-   public PaymentInterface getDefault(String userName);
+   PaymentInterface getDefault(String userName);
 
-   public Vector get(String userName);
+   Vector get(String userName);
    
-   public void add(String userName, PaymentInterface paymentInterface);
+   void add(String userName, PaymentInterface paymentInterface);
 
-   public void remove(String userName, Integer index);
+   void remove(String userName, Integer index);
    
-   public void insert(Vector values);
+   void insert(Vector values);
 
    //public void update(HashMap updatedValues);
 }

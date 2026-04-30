@@ -25,9 +25,9 @@ public interface AffiliateSalesEntityInterface extends BasicDataTableInterface
    
    //public AffiliateInterface get(String name, String affiliateName);
    
-   public void delete(String value);
+   void delete(String value);
    
-   public void insert(Vector values);
+   void insert(Vector values);
 
-   public void update(HashMap updatedValues);
+   void update(HashMap updatedValues);
 }

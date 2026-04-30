@@ -19,11 +19,11 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface IdGeneratorEntityInterface extends BasicDataTableInterface
 {
-   public Long get(String name) throws Exception;
+   Long get(String name) throws Exception;
 
-   public void deleteWhere(String key, String value);
+   void deleteWhere(String key, String value);
    
-   public void insert(Vector values);
+   void insert(Vector values);
 
-   public void update(HashMap updatedValues);
+   void update(HashMap updatedValues);
 }

@@ -19,6 +19,6 @@ package org.allbinary.media.graphics.geography.map;
  */
 public interface CurrentGeographicMapCellPositionInterface {
     
-    public GeographicMapCellPosition getCurrentGeographicMapCellPosition();
+    GeographicMapCellPosition getCurrentGeographicMapCellPosition();
     
 }

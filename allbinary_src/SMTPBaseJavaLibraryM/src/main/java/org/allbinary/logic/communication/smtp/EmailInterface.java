@@ -21,7 +21,7 @@ import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 public interface EmailInterface
    extends DomNodeInterface, DomDocumentMappingInterface
 {
-    public String getDebugInfo();
-    public MimeMessage getMimeMessage();
-    public String log() throws Exception;
+    String getDebugInfo();
+    MimeMessage getMimeMessage();
+    String log() throws Exception;
 }

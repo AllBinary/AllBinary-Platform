@@ -18,6 +18,6 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 public interface TerrainEventListenerInterface 
    extends EventListenerInterface
 {
-   public void onTerrainEvent(TerrainEvent trackingEvent)
+   void onTerrainEvent(TerrainEvent trackingEvent)
       throws Exception;
 }

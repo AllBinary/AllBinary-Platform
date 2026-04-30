@@ -15,6 +15,6 @@ package org.allbinary.logic.util.event.handler;
 
 public interface BasicCompositeEventHandlerInterface
 {
-   public BasicEventHandlerInterface getEventHandler();
-   public void setEventHandler(BasicEventHandlerInterface basicEventHandlerInterface);
+   BasicEventHandlerInterface getEventHandler();
+   void setEventHandler(BasicEventHandlerInterface basicEventHandlerInterface);
 }

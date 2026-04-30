@@ -24,98 +24,98 @@ import org.allbinary.logic.control.validate.ValidationInterface;
 public interface UserInterface
     extends TableMappingInterface, ValidationInterface
 {
-   public void setUserName(String value);
+   void setUserName(String value);
    
-   public void setPrefixName(String value);
+   void setPrefixName(String value);
    
-   public void setFirstName(String value);
+   void setFirstName(String value);
    
-   public void setLastName(String value);
+   void setLastName(String value);
    
-   public void setMiddleName(String value);
+   void setMiddleName(String value);
    
-   public void setSuffixName(String value);
+   void setSuffixName(String value);
    
-   public void setCompany(String value);
+   void setCompany(String value);
    
-   public void setPositionAtCompany(String value);
+   void setPositionAtCompany(String value);
    
-   public void setMainEmail(String value);
+   void setMainEmail(String value);
    
-   public void setSecondaryEmail(String value);
+   void setSecondaryEmail(String value);
    
-   public void setHomePhone(String value);
+   void setHomePhone(String value);
    
-   public void setCellPhone(String value);
+   void setCellPhone(String value);
    
-   public void setWorkPhone(String value);
+   void setWorkPhone(String value);
    
-   public void setOtherContact(String value);
+   void setOtherContact(String value);
    
-   public void setElectronicContact(String value);
+   void setElectronicContact(String value);
    
-   public void setFax(String value);
+   void setFax(String value);
    
-   public void setRole(UserRole aRole);
+   void setRole(UserRole aRole);
    
-   public void setEncryption(String value);
+   void setEncryption(String value);
    
-   public void setSecret(String value);
+   void setSecret(String value);
    
-   public void setPassword(String value);
+   void setPassword(String value);
    
-   public void setPermissions(String value);
+   void setPermissions(String value);
    
-   public void enable();
+   void enable();
    
-   public void setEnable(String enable);
+   void setEnable(String enable);
    
-   public String getUserName();
+   String getUserName();
    
-   public String getPrefixName();
+   String getPrefixName();
    
-   public String getFirstName();
+   String getFirstName();
    
-   public String getLastName();
+   String getLastName();
    
-   public String getMiddleName();
+   String getMiddleName();
    
-   public String getSuffixName();
+   String getSuffixName();
    
-   public String getCompany();
+   String getCompany();
    
-   public String getPositionAtCompany();
+   String getPositionAtCompany();
    
-   public String getMainEmail();
+   String getMainEmail();
    
-   public String getSecondaryEmail();
+   String getSecondaryEmail();
    
-   public String getHomePhone();
+   String getHomePhone();
    
-   public String getCellPhone();
+   String getCellPhone();
    
-   public String getWorkPhone();
+   String getWorkPhone();
    
-   public String getOtherContact();
+   String getOtherContact();
    
-   public String getElectronicContact();
+   String getElectronicContact();
    
-   public String getFax();
+   String getFax();
    
-   public UserRole getRole();
+   UserRole getRole();
    
-   public String getEncryption();
+   String getEncryption();
    
-   public String getSecret();
+   String getSecret();
    
-   public String getPassword();
+   String getPassword();
    
-   public String getPermissions();
+   String getPermissions();
    
-   public UserConfigurationInterface getUserConfigurationInterface();
-   public void setUserConfigurationInterface(UserConfigurationInterface userConfigurationInterface);
+   UserConfigurationInterface getUserConfigurationInterface();
+   void setUserConfigurationInterface(UserConfigurationInterface userConfigurationInterface);
 
-   public HashMap toPasswordHashMap();
+   HashMap toPasswordHashMap();
    //public boolean hasPermission(RequestParams requestParams);
    
    //public void validateSession(
@@ -124,10 +124,10 @@ public interface UserInterface
    //public void updateSession(WeblisketSession weblisketSession, 
      // RequestParams requestParams);
 
-   public void validateSession(WeblisketSessionInterface weblisketSession);
+   void validateSession(WeblisketSessionInterface weblisketSession);
    
-   public void updateSession(WeblisketSessionInterface weblisketSession);
+   void updateSession(WeblisketSessionInterface weblisketSession);
    
-   public Boolean isSessionValid();
+   Boolean isSessionValid();
    
 }

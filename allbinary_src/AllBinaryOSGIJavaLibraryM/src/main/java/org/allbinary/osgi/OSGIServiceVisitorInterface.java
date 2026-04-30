@@ -17,5 +17,5 @@ import org.allbinary.logic.util.visitor.VisitorInterface;
 
 public interface OSGIServiceVisitorInterface extends VisitorInterface
 {
-    public Boolean visit(OSGIServiceInterface osgiServiceInterface);
+    Boolean visit(OSGIServiceInterface osgiServiceInterface);
 }

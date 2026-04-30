@@ -20,8 +20,8 @@ import org.allbinary.business.context.modules.storefront.statistics.users.StoreF
 
 public interface StoreFrontStatisticsInterface
 {
-   public StoreFrontAdvertisementsStatisticsInterface getAdvertisements();
-   public StoreFrontUsersStatisticsInterface getUsers();
-   public StoreFrontInventoryStatisticsInterface getInventory();
-   public StoreFrontOrdersHistoryStatisticsInterface getOrders();
+   StoreFrontAdvertisementsStatisticsInterface getAdvertisements();
+   StoreFrontUsersStatisticsInterface getUsers();
+   StoreFrontInventoryStatisticsInterface getInventory();
+   StoreFrontOrdersHistoryStatisticsInterface getOrders();
 }

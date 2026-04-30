@@ -20,16 +20,16 @@ import org.allbinary.logic.visual.transform.info.CompositeTransformInfoInterface
 public interface TransformInterface 
    extends DomDocumentMappingInterface, CompositeTransformInfoInterface
 {
-   public int getTypeId();
+   int getTypeId();
    
-   public void setTransformDocumentInterface(
+   void setTransformDocumentInterface(
       TransformDocumentInterface viewDocumentInterface);
-   public TransformDocumentInterface getTransformDocumentInterface();
+   TransformDocumentInterface getTransformDocumentInterface();
    
    //public String getIconFile();
    //public String getIconFilePath();
    //public Image getIcon()
    //public String getEditorView()
 
-   public String view() throws Exception;
+   String view() throws Exception;
 }

@@ -26,126 +26,126 @@ public interface PaymentGatewayInterface
 {           
    //public String getGatewayId();
    
-   public String getEnable();
+   String getEnable();
     
-   public String getStoreName();
+   String getStoreName();
 
-   public String getName();
+   String getName();
    
-   public String getPaymentMethod();
+   String getPaymentMethod();
 
-   public String getMode();
+   String getMode();
    
-   public String getTestProtocol();
+   String getTestProtocol();
 
-   public String getTestServer();
+   String getTestServer();
 
-   public String getTestPort();
+   String getTestPort();
       
-   public String getTestPath();
+   String getTestPath();
    
-   public String getServerProtocol();
+   String getServerProtocol();
 
-   public String getServer();
+   String getServer();
 
-   public String getServerPort();
+   String getServerPort();
    
-   public String getServerPath();
+   String getServerPath();
    
-   public String getUserName();
+   String getUserName();
 
-   public String getPassword();
+   String getPassword();
    
-   public String getProxyProtocol();
+   String getProxyProtocol();
 
-   public String getProxyServer();
+   String getProxyServer();
 
-   public String getProxyPath();
+   String getProxyPath();
 
-   public String getProxyPort();
+   String getProxyPort();
 
-   public String getProxyUserName();
+   String getProxyUserName();
    
-   public String getProxyPassword();   
+   String getProxyPassword();   
    
-   public String getTimeout();
+   String getTimeout();
    
-   public String getProxyTimeout();
+   String getProxyTimeout();
    
-   public String getSpecial1();
-   public String getSpecial2();
-   public String getSpecial3();
-   public String getSpecial4();
-   public String getSpecial5();
-   public String getSpecial6();
-   public String getSpecial7();
-   public String getSpecial8();
-   public String getSpecial9();
+   String getSpecial1();
+   String getSpecial2();
+   String getSpecial3();
+   String getSpecial4();
+   String getSpecial5();
+   String getSpecial6();
+   String getSpecial7();
+   String getSpecial8();
+   String getSpecial9();
    
-   public String getLastModified();
-   public String getTimeEntered(); 
+   String getLastModified();
+   String getTimeEntered(); 
          
    //public void setGatewayId(String value);
    
-   public void setEnable(String value);
+   void setEnable(String value);
     
-   public void setStoreName(String value);
+   void setStoreName(String value);
 
-   public void setName(String value);
+   void setName(String value);
    
-   public void setPaymentMethod(String value);
+   void setPaymentMethod(String value);
 
-   public void setMode(String value);
+   void setMode(String value);
    
-   public void setTestProtocol(String value);
+   void setTestProtocol(String value);
 
-   public void setTestServer(String value);
+   void setTestServer(String value);
 
-   public void setTestPort(String value);
+   void setTestPort(String value);
       
-   public void setTestPath(String value);
+   void setTestPath(String value);
    
-   public void setServerProtocol(String value);
+   void setServerProtocol(String value);
 
-   public void setServer(String value);
+   void setServer(String value);
 
-   public void setServerPort(String value);
+   void setServerPort(String value);
    
-   public void setServerPath(String value);
+   void setServerPath(String value);
    
-   public void setUserName(String value);
+   void setUserName(String value);
 
-   public void setPassword(String value);
+   void setPassword(String value);
 
-   public void setProxyProtocol(String value);
+   void setProxyProtocol(String value);
 
-   public void setProxyServer(String value);
+   void setProxyServer(String value);
 
-   public void setProxyPath(String value);
+   void setProxyPath(String value);
 
-   public void setProxyPort(String value);
+   void setProxyPort(String value);
 
-   public void setProxyUserName(String value);
+   void setProxyUserName(String value);
    
-   public void setProxyPassword(String value);
+   void setProxyPassword(String value);
    
-   public void setTimeout(String value);
+   void setTimeout(String value);
    
-   public void setProxyTimeout(String value);
+   void setProxyTimeout(String value);
    
-   public void setSpecial1(String value);
-   public void setSpecial2(String value);
-   public void setSpecial3(String value);
-   public void setSpecial4(String value);
-   public void setSpecial5(String value);
-   public void setSpecial6(String value);
-   public void setSpecial7(String value);
-   public void setSpecial8(String value);
-   public void setSpecial9(String value);
+   void setSpecial1(String value);
+   void setSpecial2(String value);
+   void setSpecial3(String value);
+   void setSpecial4(String value);
+   void setSpecial5(String value);
+   void setSpecial6(String value);
+   void setSpecial7(String value);
+   void setSpecial8(String value);
+   void setSpecial9(String value);
    
-   public void setLastModified(String value);
-   public void setTimeEntered(String value);
+   void setLastModified(String value);
+   void setTimeEntered(String value);
    
-   public HashMap toHashMap(boolean isEncrypted) throws Exception;
-   public Vector toVector(boolean isEncrypted);
+   HashMap toHashMap(boolean isEncrypted) throws Exception;
+   Vector toVector(boolean isEncrypted);
 }

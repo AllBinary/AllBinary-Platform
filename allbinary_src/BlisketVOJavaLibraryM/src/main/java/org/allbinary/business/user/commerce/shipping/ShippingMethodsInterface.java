@@ -19,9 +19,9 @@ import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
 
 public interface ShippingMethodsInterface
 {         
-   public Vector get();
+   Vector get();
 
-   public ShippingInterface getShippingInterface(String name) throws Exception;
+   ShippingInterface getShippingInterface(String name) throws Exception;
 
-   public ShippingInterface getDefault() throws Exception;
+   ShippingInterface getDefault() throws Exception;
 }

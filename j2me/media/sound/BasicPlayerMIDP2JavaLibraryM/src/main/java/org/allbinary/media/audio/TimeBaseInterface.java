@@ -22,7 +22,7 @@ import javax.microedition.media.TimeBase;
  */
 public interface TimeBaseInterface {
 
-    public TimeBase getTimeBase();
-    public void setTimeBase(TimeBase timeBase) throws MediaException;
+    TimeBase getTimeBase();
+    void setTimeBase(TimeBase timeBase) throws MediaException;
 
 }

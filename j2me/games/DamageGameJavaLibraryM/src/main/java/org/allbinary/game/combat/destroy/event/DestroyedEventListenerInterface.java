@@ -18,6 +18,6 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 public interface DestroyedEventListenerInterface 
    extends EventListenerInterface
 {
-   public void onDestroyed(DestroyedEvent destroyedEvent)
+   void onDestroyed(DestroyedEvent destroyedEvent)
       throws Exception;
 }

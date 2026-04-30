@@ -24,11 +24,11 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 public interface OrderHistoryEntityInterface extends BasicDataTableInterface
 {
       
-   public void insert(String userName, Order order);
+   void insert(String userName, Order order);
       
-   public void setStatus(String orderId,String status);
+   void setStatus(String orderId,String status);
    
-   public void setPaymentMethod(String orderId,String status);
+   void setPaymentMethod(String orderId,String status);
    
    //public String getCancelledTable(String fromDate,String toDate);
    
@@ -58,15 +58,15 @@ public interface OrderHistoryEntityInterface extends BasicDataTableInterface
    
   // public String getOrderForm(String orderId);
 
-   public Vector getStoreOrders(StoreFrontInterface storeFrontInterface) throws Exception;
+   Vector getStoreOrders(StoreFrontInterface storeFrontInterface) throws Exception;
    
-   public Vector getOrders(String userName) throws Exception;
+   Vector getOrders(String userName) throws Exception;
    
-   public Vector getOrders(String status, String fromDate, String toDate) throws Exception;
+   Vector getOrders(String status, String fromDate, String toDate) throws Exception;
    
-   public OrderHistory getOrder(String id) throws Exception;
+   OrderHistory getOrder(String id) throws Exception;
 
-   public void update(HashMap whereHashMap, HashMap orderHashMap) throws Exception;
+   void update(HashMap whereHashMap, HashMap orderHashMap) throws Exception;
    
    //public void delete(String value);
 }

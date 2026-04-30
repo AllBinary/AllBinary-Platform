@@ -19,5 +19,5 @@ import org.allbinary.data.tree.dom.DomNodeInterface;
 
 public interface PaymentTransactionInterface extends TableMappingInterface, DomNodeInterface
 {
-   public OrderHistory getOrderHistory();
+   OrderHistory getOrderHistory();
 }

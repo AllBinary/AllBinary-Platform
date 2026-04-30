@@ -15,5 +15,5 @@ package org.allbinary.logic.visual.transform.info.objectConfig.generator;
 
 public interface TransformInfoObjectConfigGeneratorInterface
 {
-   public String process(String input) throws Exception;
+   String process(String input) throws Exception;
 }

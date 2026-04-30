@@ -23,25 +23,25 @@ import org.allbinary.logic.io.path.AbPath;
 
 public interface CategoryInterface extends TableMappingInterface, ValidationInterface
 {
-   public Vector getChildNodes();
+   Vector getChildNodes();
    
-   public boolean addChildProperty(CategoryPropertiesInterface categoryPropertiesInterface);
-   public boolean addChild(CategoryInterface categoryInterface);
-   public boolean removeChild(CategoryInterface categoryInterface);
-   public boolean isLeaf() throws Exception;
+   boolean addChildProperty(CategoryPropertiesInterface categoryPropertiesInterface);
+   boolean addChild(CategoryInterface categoryInterface);
+   boolean removeChild(CategoryInterface categoryInterface);
+   boolean isLeaf() throws Exception;
    
-   public CategoryPropertiesInterface getProperties();
+   CategoryPropertiesInterface getProperties();
 
-   public void setProperties(CategoryPropertiesInterface categoryPropertiesInterface);
+   void setProperties(CategoryPropertiesInterface categoryPropertiesInterface);
 
-   public CategoryHierarchyInterface getHierarchy();
+   CategoryHierarchyInterface getHierarchy();
 
-   public void setHierarchy(CategoryHierarchyInterface categoryHierarchyInterface);
+   void setHierarchy(CategoryHierarchyInterface categoryHierarchyInterface);
 
-   public AbPath getPath() throws Exception;
-   public AbPath getFilePath() throws Exception;
-   public AbPath getWebAppPath() throws Exception;
-   public AbPath getRootFilePath() throws Exception;
+   AbPath getPath() throws Exception;
+   AbPath getFilePath() throws Exception;
+   AbPath getWebAppPath() throws Exception;
+   AbPath getRootFilePath() throws Exception;
    
-   public void log() throws Exception;
+   void log() throws Exception;
 }

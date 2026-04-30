@@ -15,19 +15,19 @@ package org.allbinary.logic.communication.ftp.configuration;
 
 public interface FtpConfigurationInterface
 {
-   public String getServer();
+   String getServer();
    
-   public String getPath();
+   String getPath();
 
-   public String getUserName();
+   String getUserName();
 
-   public String getPassword();
+   String getPassword();
 
-   public void setServer(String value);
+   void setServer(String value);
    
-   public void setPath(String value);
+   void setPath(String value);
 
-   public void setUserName(String value);
+   void setUserName(String value);
 
-   public void setPassword(String value);
+   void setPassword(String value);
 }

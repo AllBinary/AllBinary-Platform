@@ -18,6 +18,6 @@ import org.allbinary.data.tables.TableMappingInterface;
 
 public interface StoreFrontUsersStatisticsInterface extends TableMappingInterface
 {
-   public Long getNumberOfUsers();
-   public Long getNumberOfUsersByRole(String role);
+   Long getNumberOfUsers();
+   Long getNumberOfUsersByRole(String role);
 }

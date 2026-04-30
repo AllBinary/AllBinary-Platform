@@ -19,5 +19,5 @@ import org.w3c.dom.Document;
 public interface DomDocumentMappingInterface
 {
    //remember only on thread may modify the document
-   public Document toXmlDoc() throws Exception;
+   Document toXmlDoc() throws Exception;
 }

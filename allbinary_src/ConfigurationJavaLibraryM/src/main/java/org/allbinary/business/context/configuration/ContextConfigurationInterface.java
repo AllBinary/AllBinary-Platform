@@ -17,7 +17,7 @@ import org.allbinary.logic.communication.smtp.configuration.server.EmailServerCo
 
 public interface ContextConfigurationInterface
 {
-    public EmailServerConfigurationInterface getEmailServerConfigurationInterface();
+    EmailServerConfigurationInterface getEmailServerConfigurationInterface();
 
-    public void setEmailServerConfigurationInterface(EmailServerConfigurationInterface emailServerConfigurationInterface);   
+    void setEmailServerConfigurationInterface(EmailServerConfigurationInterface emailServerConfigurationInterface);   
 }

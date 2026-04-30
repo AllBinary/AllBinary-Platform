@@ -17,7 +17,7 @@ import org.allbinary.util.BasicArrayList;
 
 public interface CompleteMotionGestureListenerInterface {
  
-    public void onMotionGestureCompleted(BasicArrayList list)
+    void onMotionGestureCompleted(BasicArrayList list)
     throws Exception;    
     
 }

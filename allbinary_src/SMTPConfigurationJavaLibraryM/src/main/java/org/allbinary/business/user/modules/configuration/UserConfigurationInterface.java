@@ -19,16 +19,16 @@ import org.allbinary.logic.communication.smtp.configuration.user.UserEmailConfig
 
 public interface UserConfigurationInterface
 {
-   public UserEmailConfigurationInterface getUserEmailConfigurationInterface();
+   UserEmailConfigurationInterface getUserEmailConfigurationInterface();
 
-   public void setUserEmailConfigurationInterface(
+   void setUserEmailConfigurationInterface(
       UserEmailConfigurationInterface userEmailConfigurationInterface);
    
-   public TimeCreated getTimeCreated();
+   TimeCreated getTimeCreated();
    
-   public TimeLastModified getTimeLastModified();
+   TimeLastModified getTimeLastModified();
 
-   public void setTimeCreated(TimeCreated timeCreated);
+   void setTimeCreated(TimeCreated timeCreated);
 
-   public void setTimeLastModified(TimeLastModified timeLastModified);
+   void setTimeLastModified(TimeLastModified timeLastModified);
 }

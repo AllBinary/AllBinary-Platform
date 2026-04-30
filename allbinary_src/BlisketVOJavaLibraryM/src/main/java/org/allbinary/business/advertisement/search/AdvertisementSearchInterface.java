@@ -22,35 +22,35 @@ import org.allbinary.logic.control.contraints.size.TwoDimensionalConstraintInter
 
 public interface AdvertisementSearchInterface
 {
-   public AdvertisementWebsiteInterface getWebSite();
+   AdvertisementWebsiteInterface getWebSite();
 
-   public AdvertisementCategoryInterface getCategory();
+   AdvertisementCategoryInterface getCategory();
    
-   public TwoDimensionalConstraintInterface getSizeConstraints();
+   TwoDimensionalConstraintInterface getSizeConstraints();
    
-   public PriceConstraintInterface getPricingConstraints();
+   PriceConstraintInterface getPricingConstraints();
    
-   public int getPageNumber();
+   int getPageNumber();
    
-   public int getProductsPerPage();
+   int getProductsPerPage();
    
-   public HashMap getSearchParams();
+   HashMap getSearchParams();
    
    //public String getSortOrder();
 
-   public void setCategory(AdvertisementCategoryInterface advertisementCategoryInterface);
+   void setCategory(AdvertisementCategoryInterface advertisementCategoryInterface);
 
-   public void setSizeConstraints(
+   void setSizeConstraints(
       TwoDimensionalConstraintInterface twoDimensionConstraintsInterface);
    
-   public void setPricingConstraints(
+   void setPricingConstraints(
       PriceConstraintInterface priceConstraintInterface);
    
-   public void setPageNumber(int pageNumber);
+   void setPageNumber(int pageNumber);
    
-   public void setProductsPerPage(int productsPerPage);
+   void setProductsPerPage(int productsPerPage);
    
-   public void setSearchParams(HashMap columnAndKeywordHashMap);
+   void setSearchParams(HashMap columnAndKeywordHashMap);
    
    //public void setSortOrder(String columnName);
 }

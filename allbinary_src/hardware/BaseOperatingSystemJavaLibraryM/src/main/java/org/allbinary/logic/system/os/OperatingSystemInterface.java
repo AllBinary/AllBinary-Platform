@@ -23,10 +23,10 @@ public interface OperatingSystemInterface
    CharacterSet getCharacterSet();
    
    boolean isOverScan();
-   public int getOverScanXPercent();
-   public int getOverScanYPercent();
-   public boolean isScalable();
-   public boolean isAutoHide();
+   int getOverScanXPercent();
+   int getOverScanYPercent();
+   boolean isScalable();
+   boolean isAutoHide();
 
    String toString();      
 }

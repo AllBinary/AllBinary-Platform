@@ -19,8 +19,8 @@ import org.allbinary.layer.Layer;
 
 public interface GeographicMapInterface
 {
-   public Integer getId();
-   public String getName();
+   Integer getId();
+   String getName();
    
    void reset();
    
@@ -51,7 +51,7 @@ public interface GeographicMapInterface
    BasicGeographicMapCellPositionFactory getGeographicMapCellPositionFactory();
    GeographicMapCellPositionFactoryInterface getGeographicMapCellPositionFactoryInterface();
    
-   public BasicColor getForegroundBasicColor();
-   public BasicColor getBackgroundBasicColor();
+   BasicColor getForegroundBasicColor();
+   BasicColor getBackgroundBasicColor();
 
 }

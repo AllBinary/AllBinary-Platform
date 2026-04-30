@@ -22,41 +22,41 @@ public interface OrderInterface
    */
    //public void setBasket(BasketInterface basket);
    
-   public void setShippingMethod(String shippingType);
+   void setShippingMethod(String shippingType);
    
-   public void setPaymentMethod(String value);
+   void setPaymentMethod(String value);
    
-   public void setSpecial(String special);
+   void setSpecial(String special);
    
-   public void setStoreName(String value);
+   void setStoreName(String value);
 
-   public void setUserComments(String value);
+   void setUserComments(String value);
 
-   public void setUserCancelComments(String value);
+   void setUserCancelComments(String value);
 
-   public void setStoreComments(String value);
+   void setStoreComments(String value);
 
-   public void setStoreCancelComments(String value);
+   void setStoreCancelComments(String value);
    
-   public BasketInterface getBasket();
+   BasketInterface getBasket();
    
-   public String getShippingMethod();
+   String getShippingMethod();
          
-   public String getPaymentMethod();
+   String getPaymentMethod();
    
-   public String getSpecial();   
+   String getSpecial();   
 
-   public String getId();
+   String getId();
    
-   public String getStoreName();
+   String getStoreName();
       
-   public String getUserComments();
+   String getUserComments();
 
-   public String getUserCancelComments();
+   String getUserCancelComments();
 
-   public String getStoreComments();
+   String getStoreComments();
 
-   public String getStoreCancelComments();
+   String getStoreCancelComments();
 
    //public String process(String userName) throws Exception;
 

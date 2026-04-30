@@ -18,6 +18,6 @@ import org.allbinary.logic.util.event.BasicEventListenerInterface;
 public interface ImageComparisonSearchResultsListener 
    extends BasicEventListenerInterface
 {
-   public void onImageComparisonResultsEvent(
+   void onImageComparisonResultsEvent(
       ImageComparisonSearchResultsEvent imageComparisonSearchResultsEvent);
 }

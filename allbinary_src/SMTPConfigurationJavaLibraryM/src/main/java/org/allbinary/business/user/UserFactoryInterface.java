@@ -18,5 +18,5 @@ import java.util.HashMap;
 
 public interface UserFactoryInterface extends Serializable
 {
-   public UserInterface getInstance(HashMap hashMap) throws Exception;
+   UserInterface getInstance(HashMap hashMap) throws Exception;
 }

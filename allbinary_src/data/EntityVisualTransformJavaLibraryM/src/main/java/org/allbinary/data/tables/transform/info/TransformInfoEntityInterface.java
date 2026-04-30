@@ -24,16 +24,16 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 public interface TransformInfoEntityInterface 
    extends BasicDataTableInterface
 {      
-   public TransformInfoInterface get(String name, HashMap propertiesHashMap, PageContext pageContext) throws Exception;
+   TransformInfoInterface get(String name, HashMap propertiesHashMap, PageContext pageContext) throws Exception;
    //public TransformInfoInterface get(String name) throws Exception;
 
-   public Vector getObjectConfigs(String storeName) throws Exception;
+   Vector getObjectConfigs(String storeName) throws Exception;
    
-   public Vector getNames(String storeName) throws Exception;
+   Vector getNames(String storeName) throws Exception;
    
-   public void delete(String name);
+   void delete(String name);
    
-   public void insert(Vector values);
+   void insert(Vector values);
 
-   public void update(HashMap updatedValues);
+   void update(HashMap updatedValues);
 }

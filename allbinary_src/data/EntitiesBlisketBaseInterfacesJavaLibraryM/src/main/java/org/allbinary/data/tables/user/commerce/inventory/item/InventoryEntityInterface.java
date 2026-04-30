@@ -23,17 +23,17 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface InventoryEntityInterface extends BasicDataTableInterface
 {      
-   public ItemInterface getItem(String id) throws MoneyException;
-   public Vector getItems(StoreFrontInterface storeFrontInterface) throws Exception;
+   ItemInterface getItem(String id) throws MoneyException;
+   Vector getItems(StoreFrontInterface storeFrontInterface) throws Exception;
    
-   public String getWeight(String id);
+   String getWeight(String id);
    
    //public String getItemForm(String id);
    //public Vector getColumnWhereLike(String columnName,String key,String value);
 
-   public void deleteWhere(String key,String value);
+   void deleteWhere(String key,String value);
    
-   public void insert(Vector values);
+   void insert(Vector values);
 
-   public void update(HashMap updatedValues);
+   void update(HashMap updatedValues);
 }

@@ -15,25 +15,25 @@ package org.allbinary.business.advertisement;
 
 public interface AdvertisementsInterface
 {
-   public void add(AdvertisementInterface advertisementInterface);
-   public AdvertisementInterface get(int index);
+   void add(AdvertisementInterface advertisementInterface);
+   AdvertisementInterface get(int index);
    
-   public int getCurrentPageNum();
-   public String getErrorDescription();
-   public String getErrorNum();
-   public int getNumberOfPosters();
-   public int getNumberOfProductsInPage();
-   public int getStatusCode();
-   public int getTotalNumberOfProducts();
-   public boolean isSearchValid();
+   int getCurrentPageNum();
+   String getErrorDescription();
+   String getErrorNum();
+   int getNumberOfPosters();
+   int getNumberOfProductsInPage();
+   int getStatusCode();
+   int getTotalNumberOfProducts();
+   boolean isSearchValid();
 
    //If status code = 0 search is valid, if statuscode is 1 search is invalid.
-   public void setCurrentPageNum(int currentPageNum);
-   public void setErrorDescription(String errorDescription);
-   public void setErrorNum(String errorNum);
-   public void setNumberOfProductsInPage(int numberOfProductsInPage);
-   public void setStatusCode(int statusCode);
-   public void setTotalNumberOfProducts(int totalNumberOfProducts);
+   void setCurrentPageNum(int currentPageNum);
+   void setErrorDescription(String errorDescription);
+   void setErrorNum(String errorNum);
+   void setNumberOfProductsInPage(int numberOfProductsInPage);
+   void setStatusCode(int statusCode);
+   void setTotalNumberOfProducts(int totalNumberOfProducts);
 
-   public String toString();
+   String toString();
 }

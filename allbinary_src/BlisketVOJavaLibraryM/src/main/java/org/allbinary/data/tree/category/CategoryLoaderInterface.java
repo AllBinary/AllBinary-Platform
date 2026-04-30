@@ -19,13 +19,13 @@ import org.w3c.dom.Document;
 public interface CategoryLoaderInterface extends CategoryModifierTreeInterface
 {
    //Get the document associated the properties specified
-   public Document getDoc(CategoryInterface categoryInterface);
+   Document getDoc(CategoryInterface categoryInterface);
    
-   public CategoryInterface get(CategoryInterface categoryInterface);
+   CategoryInterface get(CategoryInterface categoryInterface);
    //public CategoryInterface get(Document document);
    //public CategoryInterface get(Node node);
 
    //public CategoryInterface getUpToLevel(CategoryInterface categoryInterface);
 
-   public CategoryInterface getAll(CategoryInterface categoryInterface);
+   CategoryInterface getAll(CategoryInterface categoryInterface);
 }

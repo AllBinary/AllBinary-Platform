@@ -15,27 +15,27 @@ package org.allbinary.business.user.commerce.money.payment;
 
 public interface PaymentInterface
 {
-   public void setName(String value);
+   void setName(String value);
 
-   public void setType(String value);
+   void setType(String value);
 
-   public void setExpiration(String value);
+   void setExpiration(String value);
 
-   public void setNumber(String value);
+   void setNumber(String value);
 
-   public String getId();
+   String getId();
 
-   public String getName();
+   String getName();
 
-   public String getType();
+   String getType();
 
-   public String getExpiration();
+   String getExpiration();
 
-   public String getEncryption();
+   String getEncryption();
 
-   public String getNumber();
+   String getNumber();
 
-   public String getLastFour();
+   String getLastFour();
 
-   public boolean isDefault();
+   boolean isDefault();
 }

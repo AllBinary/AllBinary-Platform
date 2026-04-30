@@ -15,39 +15,39 @@ package org.allbinary.business.init.db;
 
 public interface DatabaseConnectionInfoInterface
 {
-   public String getUrl();
+   String getUrl();
 
-   public String getJdbcDriver();
+   String getJdbcDriver();
    
-   public String getName();
+   String getName();
    
-   public String getUserName();
+   String getUserName();
    
-   public String getPassword();
+   String getPassword();
    
-   public String getHost();
+   String getHost();
 
-   public String getSchema();
+   String getSchema();
    
-   public String getServer();
+   String getServer();
 
-   public String getPort();
+   String getPort();
 
-   public void setJdbcDriver(String value);
+   void setJdbcDriver(String value);
    
-   public void setName(String value);
+   void setName(String value);
    
-   public void setUserName(String value);
+   void setUserName(String value);
    
-   public void setPassword(String value);
+   void setPassword(String value);
 
-   public void setSchema(String value);
+   void setSchema(String value);
    
-   public void setServer(String value);
+   void setServer(String value);
 
-   public void setPort(String value);
+   void setPort(String value);
    
-   public String getUserNameKey();
+   String getUserNameKey();
    
-   public String getPasswordKey();  
+   String getPasswordKey();  
 }

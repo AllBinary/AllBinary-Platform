@@ -20,5 +20,5 @@ import org.allbinary.graphics.form.ScrollSelectionForm;
 
 public interface RTSLayerFormFactoryInterface
 {
-    public ScrollSelectionForm getInstance(RTSLayer rtsLayer);
+    ScrollSelectionForm getInstance(RTSLayer rtsLayer);
 }

@@ -18,10 +18,10 @@ import java.util.Vector;
 
 public interface TableMappingInterface
 {
-   public Object getKey() throws Exception;
+   Object getKey() throws Exception;
    
    //Used for inserting into database   
-   public Vector toVector() throws Exception;
+   Vector toVector() throws Exception;
    //Used for updating viewinfo in database   
-   public HashMap toHashMap() throws Exception;
+   HashMap toHashMap() throws Exception;
 }

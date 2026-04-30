@@ -19,11 +19,11 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 public interface TransactionResultEntityInterface
         extends BasicDataTableInterface
 {
-   public TransactionResultInterface getTransactionResultInterface(String orderNumber);
+   TransactionResultInterface getTransactionResultInterface(String orderNumber);
    
-   public void remove(String userName, String orderNumber);
+   void remove(String userName, String orderNumber);
 
-   public void add(String userName, String orderNumber, TransactionResultInterface resultInterface);
+   void add(String userName, String orderNumber, TransactionResultInterface resultInterface);
 
    //public void update(HashMap updatedValues);
 }

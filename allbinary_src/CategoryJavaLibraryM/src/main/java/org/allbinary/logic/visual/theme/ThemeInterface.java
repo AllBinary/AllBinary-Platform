@@ -17,9 +17,9 @@ import org.allbinary.data.tables.TableMappingInterface;
 
 public interface ThemeInterface extends TableMappingInterface
 {
-   public String getName();
-   public String getPath();
+   String getName();
+   String getPath();
    
-   public String getPreviewImageName();
-   public String getPreviewImagePath();
+   String getPreviewImageName();
+   String getPreviewImagePath();
 }

@@ -19,9 +19,9 @@ import org.osgi.framework.BundleContext;
 
 public interface RemoteFramework
 {
-    public BundleContext connect(String host);
+    BundleContext connect(String host);
     
-    public void disconnect(BundleContext bc);
+    void disconnect(BundleContext bc);
     
-    public Map getSystemProperties(BundleContext bc);
+    Map getSystemProperties(BundleContext bc);
 }

@@ -17,8 +17,8 @@ import org.allbinary.business.context.configuration.ContextConfigurationInterfac
 
 public interface AdminConfigurationInterface
 {
-   public void write() throws Exception;
+   void write() throws Exception;
    
-   public ContextConfigurationInterface getContextConfigurationInterface();
-   public void setContextConfigurationInterface(ContextConfigurationInterface contextConfigurationInterface);
+   ContextConfigurationInterface getContextConfigurationInterface();
+   void setContextConfigurationInterface(ContextConfigurationInterface contextConfigurationInterface);
 }

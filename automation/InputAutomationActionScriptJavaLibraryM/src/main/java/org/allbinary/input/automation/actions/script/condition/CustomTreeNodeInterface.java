@@ -19,6 +19,6 @@ import javax.swing.tree.MutableTreeNode;
 public interface CustomTreeNodeInterface
     extends MutableTreeNode
 {
-    public JPopupMenu getJPopupMenu();
+    JPopupMenu getJPopupMenu();
     //Action getAction();
 }

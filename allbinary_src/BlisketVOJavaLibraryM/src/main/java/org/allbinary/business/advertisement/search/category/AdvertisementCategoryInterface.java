@@ -15,5 +15,5 @@ package org.allbinary.business.advertisement.search.category;
 
 public interface AdvertisementCategoryInterface
 {
-   public String toString();
+   String toString();
 }

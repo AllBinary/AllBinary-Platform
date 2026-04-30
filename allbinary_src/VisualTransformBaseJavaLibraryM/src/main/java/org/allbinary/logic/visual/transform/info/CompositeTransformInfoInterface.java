@@ -15,5 +15,5 @@ package org.allbinary.logic.visual.transform.info;
 
 public interface CompositeTransformInfoInterface
 {
-   public TransformInfoInterface getTransformInfoInterface() throws Exception;
+   TransformInfoInterface getTransformInfoInterface() throws Exception;
 }

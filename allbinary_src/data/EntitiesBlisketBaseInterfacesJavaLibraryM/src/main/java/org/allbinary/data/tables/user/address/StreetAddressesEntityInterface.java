@@ -18,17 +18,17 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface StreetAddressesEntityInterface extends BasicDataTableInterface
 {      
-   public void remove(Integer index);
+   void remove(Integer index);
    
-   public void add(StreetAddress address);   
+   void add(StreetAddress address);   
    
    //public void add(StreetAddress address,String index);
    
-   public void update(StreetAddress address);
+   void update(StreetAddress address);
    
-   public String getLastId();
+   String getLastId();
    
-   public StreetAddress getDefault();
+   StreetAddress getDefault();
       
-   public void setDefault(String value);
+   void setDefault(String value);
 }

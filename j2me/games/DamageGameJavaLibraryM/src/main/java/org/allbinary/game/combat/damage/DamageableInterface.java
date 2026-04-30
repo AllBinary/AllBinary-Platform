@@ -17,6 +17,6 @@ import org.allbinary.layer.NamedInterface;
 
 public interface DamageableInterface extends NamedInterface
 {
-   public void damage(int damage,int damageType)throws Exception;
-   public int getDamage(int damageType)throws Exception;
+   void damage(int damage,int damageType)throws Exception;
+   int getDamage(int damageType)throws Exception;
 }

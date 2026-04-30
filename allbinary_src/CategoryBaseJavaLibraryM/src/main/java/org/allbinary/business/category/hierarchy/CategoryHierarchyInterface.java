@@ -17,14 +17,14 @@ import org.allbinary.business.category.CategoryInterface;
 
 public interface CategoryHierarchyInterface
 {
-   public int getLevel();
-   public String getLevelString();
+   int getLevel();
+   String getLevelString();
  
-   public CategoryInterface getRoot();
+   CategoryInterface getRoot();
    
-   public CategoryInterface getParent();
+   CategoryInterface getParent();
    
-   public void setLevel(int level);
-   public void setRoot(CategoryInterface categoryInterface);
-   public void setParent(CategoryInterface categoryInterface);
+   void setLevel(int level);
+   void setRoot(CategoryInterface categoryInterface);
+   void setParent(CategoryInterface categoryInterface);
 }

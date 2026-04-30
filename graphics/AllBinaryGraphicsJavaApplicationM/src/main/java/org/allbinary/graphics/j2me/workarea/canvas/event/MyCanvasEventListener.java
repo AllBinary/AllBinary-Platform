@@ -15,11 +15,11 @@ package org.allbinary.graphics.j2me.workarea.canvas.event;
 
 public interface MyCanvasEventListener
 {
-   public void delete(MyCanvasEvent evt);
-   public void duplicate(MyCanvasEvent evt)throws Exception;
-   public void select(MyCanvasEvent evt);
-   public void rotate(MyCanvasEvent evt);
-   public void explode(MyCanvasEvent evt);
-   public void autoExplode(MyCanvasEvent evt)throws Exception;
-   public void center(MyCanvasEvent evt)throws Exception;
+   void delete(MyCanvasEvent evt);
+   void duplicate(MyCanvasEvent evt)throws Exception;
+   void select(MyCanvasEvent evt);
+   void rotate(MyCanvasEvent evt);
+   void explode(MyCanvasEvent evt);
+   void autoExplode(MyCanvasEvent evt)throws Exception;
+   void center(MyCanvasEvent evt)throws Exception;
 }

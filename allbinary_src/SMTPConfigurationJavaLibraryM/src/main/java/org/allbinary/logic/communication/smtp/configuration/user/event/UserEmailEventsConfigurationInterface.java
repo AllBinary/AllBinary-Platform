@@ -22,11 +22,11 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public interface UserEmailEventsConfigurationInterface
 {
-   public HashMap getEventConfigurationHashMap();
+   HashMap getEventConfigurationHashMap();
    
-   public void addUserEmailEventConfiguration(UserEmailEventConfigurationInterface userEmailEventConfigurationInterface);
+   void addUserEmailEventConfiguration(UserEmailEventConfigurationInterface userEmailEventConfigurationInterface);
    
-   public UserEmailEventListenerInterface getEventListener(
+   UserEmailEventListenerInterface getEventListener(
        final AbeClientInformationInterface abeClientInformation,
        final UserEmailEventNameData userEmailEventNameData, 
        final UserInterface userInterface) throws Exception;

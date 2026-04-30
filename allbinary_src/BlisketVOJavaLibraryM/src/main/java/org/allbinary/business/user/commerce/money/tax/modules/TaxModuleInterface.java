@@ -20,7 +20,7 @@ import org.allbinary.business.user.address.StreetAddress;
 
 public interface TaxModuleInterface
 {
-   public Float getTaxRate(StreetAddress streetAddress, StoreFrontInterface storeFrontInterface) throws Exception;
+   Float getTaxRate(StreetAddress streetAddress, StoreFrontInterface storeFrontInterface) throws Exception;
    
-   public Boolean isValid(StreetAddress streetAddress, StoreFrontInterface storeFrontInterface) throws Exception;
+   Boolean isValid(StreetAddress streetAddress, StoreFrontInterface storeFrontInterface) throws Exception;
 }

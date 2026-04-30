@@ -17,6 +17,6 @@ import java.util.HashMap;
 
 public interface PaymentGatewayInterfaceFactoryInterface
 {
-   public PaymentGatewayInterface getInstance(
+   PaymentGatewayInterface getInstance(
       HashMap hashMap) throws Exception;
 }

@@ -17,8 +17,8 @@ import org.allbinary.logic.control.contraints.size.TwoDimensionalConstraintInter
 
 public interface AdvertisementProductInterface
 {
-   public String getType();
-   public String getLink();
-   public int getNumber();
-   public TwoDimensionalConstraintInterface getTwoDimensionalConstraint();
+   String getType();
+   String getLink();
+   int getNumber();
+   TwoDimensionalConstraintInterface getTwoDimensionalConstraint();
 }

@@ -15,5 +15,5 @@ package org.allbinary.business.advertisement.search.website;
 
 public interface AdvertisementWebsiteInterface
 {
-   public String toString();
+   String toString();
 }

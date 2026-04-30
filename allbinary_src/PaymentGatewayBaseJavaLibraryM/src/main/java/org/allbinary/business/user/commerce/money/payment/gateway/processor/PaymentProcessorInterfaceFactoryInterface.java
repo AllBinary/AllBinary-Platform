@@ -18,7 +18,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public interface PaymentProcessorInterfaceFactoryInterface
 {
-   public PaymentProcessorInterface getInstance(
+   PaymentProcessorInterface getInstance(
       TransformInfoInterface transformInfoInterface, 
       PaymentTransactionInterface paymentTransactionInterface)
       throws Exception;

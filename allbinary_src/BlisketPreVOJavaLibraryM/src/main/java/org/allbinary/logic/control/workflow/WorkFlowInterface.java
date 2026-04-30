@@ -19,7 +19,7 @@ package org.allbinary.logic.control.workflow;
 
 public interface WorkFlowInterface
 {
-   public String getName() throws Exception;
+   String getName() throws Exception;
    
-   public Integer process() throws Exception;   
+   Integer process() throws Exception;   
 }

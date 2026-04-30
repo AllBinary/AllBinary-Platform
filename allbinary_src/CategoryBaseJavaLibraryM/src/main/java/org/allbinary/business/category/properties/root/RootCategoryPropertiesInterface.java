@@ -17,6 +17,6 @@ import org.allbinary.logic.io.path.AbPath;
 
 public interface RootCategoryPropertiesInterface
 {
-   public void setRootFilePath(AbPath value) throws Exception;
-   public AbPath getRootFilePath() throws Exception;
+   void setRootFilePath(AbPath value) throws Exception;
+   AbPath getRootFilePath() throws Exception;
 }

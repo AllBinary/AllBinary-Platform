@@ -18,6 +18,6 @@ import org.allbinary.logic.control.contraints.size.TwoDimensionalConstraintInter
 
 public interface AdvertisementAreaConstraintsInterface
 {
-   public DisplayInBrowserContraintsInterface getDisplayInBrowserContraints();
-   public TwoDimensionalConstraintInterface getTwoDimensionContraints();
+   DisplayInBrowserContraintsInterface getDisplayInBrowserContraints();
+   TwoDimensionalConstraintInterface getTwoDimensionContraints();
 }

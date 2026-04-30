@@ -21,15 +21,15 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface QuoteRequestEntityInterface extends BasicDataTableInterface
 {      
-	public QuoteRequest get(String userName, int id) throws Exception;
-	public Vector getIds(String userName);
+	QuoteRequest get(String userName, int id) throws Exception;
+	Vector getIds(String userName);
    //public QuoteRequest[] get(String userName);
    
-   public void deleteWhere(String key,String value);
+   void deleteWhere(String key,String value);
    
-   public void insert(Vector values);
+   void insert(Vector values);
 
-   public void update(String userName, HashMap updatedValues);
+   void update(String userName, HashMap updatedValues);
 
    //public String getTable(String itemId);
    //public String getForm(String id);

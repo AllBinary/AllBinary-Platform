@@ -20,14 +20,14 @@ import org.allbinary.logic.io.path.AbPath;
 
 public interface CategoryPropertiesInterface extends TableMappingInterface, ValidationInterface
 {
-   public void setValue(String value);
-   public String getValue();
+   void setValue(String value);
+   String getValue();
    
    //Provides the path of the category
-   public AbPath getWebAppPath() throws Exception;
-   public AbPath getPath(CategoryHierarchyInterface categoryHierarchyInterface) throws Exception;
-   public String getFileName() throws Exception;
+   AbPath getWebAppPath() throws Exception;
+   AbPath getPath(CategoryHierarchyInterface categoryHierarchyInterface) throws Exception;
+   String getFileName() throws Exception;
    
-   public boolean isRoot() throws Exception;
-   public boolean isRealRoot() throws Exception;
+   boolean isRoot() throws Exception;
+   boolean isRealRoot() throws Exception;
 }

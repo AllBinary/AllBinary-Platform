@@ -21,13 +21,13 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface PaymentGatewayEntityInterface extends BasicDataTableInterface
 {
-   public PaymentGatewayInterface getPaymentGatewayInterface(String storeName, BasicPaymentType paymentType);
+   PaymentGatewayInterface getPaymentGatewayInterface(String storeName, BasicPaymentType paymentType);
    
-   public Vector findPaymentTypeVectorByStore(String storeName);
+   Vector findPaymentTypeVectorByStore(String storeName);
  
-   public void remove(String storeName, BasicPaymentType paymentType);
+   void remove(String storeName, BasicPaymentType paymentType);
 
-   public void add(PaymentGatewayInterface paymentGatewayInterface);
+   void add(PaymentGatewayInterface paymentGatewayInterface);
    
-   public void update(PaymentGatewayInterface paymentGatewayInterface);
+   void update(PaymentGatewayInterface paymentGatewayInterface);
 }

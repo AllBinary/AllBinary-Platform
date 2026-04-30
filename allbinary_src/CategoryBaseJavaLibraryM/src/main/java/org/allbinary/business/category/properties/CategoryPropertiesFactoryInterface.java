@@ -15,7 +15,7 @@ package org.allbinary.business.category.properties;
 
 public interface CategoryPropertiesFactoryInterface
 {
-   public CategoryPropertiesInterface getInstance();
+   CategoryPropertiesInterface getInstance();
 
    /*
    public CategoryPropertiesInterface getInstance(String name);

@@ -19,12 +19,12 @@ import org.allbinary.util.BasicArrayList;
 
 public interface ValidatorBaseInterface
 {
-    public Boolean isValid();
+    Boolean isValid();
 
-    public String validationInfo();
+    String validationInfo();
 
-    public Hashtable toHashtable();
+    Hashtable toHashtable();
 
-    public BasicArrayList toList();
+    BasicArrayList toList();
 
 }

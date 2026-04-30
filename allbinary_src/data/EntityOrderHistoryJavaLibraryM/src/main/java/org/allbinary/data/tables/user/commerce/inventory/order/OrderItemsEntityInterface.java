@@ -21,17 +21,17 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface OrderItemsEntityInterface extends BasicDataTableInterface
 {
-   public void setStatus(String orderId,String groupId,String status);
+   void setStatus(String orderId,String groupId,String status);
    
-   public boolean isEverythingShipped(String orderId);
+   boolean isEverythingShipped(String orderId);
    
-   public BasketReview getBasketReview(String orderId);
+   BasketReview getBasketReview(String orderId);
    
    //public void delete(String value);
    
-   public void insert(String userName,OrderInterface order);
+   void insert(String userName,OrderInterface order);
    
-   public void insert(Vector values);
+   void insert(Vector values);
 
    //public void update(HashMap updatedValues);
 }

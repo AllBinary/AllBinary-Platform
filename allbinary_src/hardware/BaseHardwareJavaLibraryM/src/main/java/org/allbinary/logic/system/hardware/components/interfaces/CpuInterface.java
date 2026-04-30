@@ -15,21 +15,21 @@ package org.allbinary.logic.system.hardware.components.interfaces;
 
 public interface CpuInterface
 {
-    public String getProcessor();
+    String getProcessor();
 
-    public String getVendorId();
+    String getVendorId();
 
-    public String getCpuFamily();
+    String getCpuFamily();
     
-    public String getModel();
+    String getModel();
 
-    public String getModelName();
+    String getModelName();
 
-    public String getStepping();
+    String getStepping();
 
-    public String getCpuSpeed();
+    String getCpuSpeed();
          
-    public String getCacheSize();
+    String getCacheSize();
     
-    public boolean compareTo(CpuInterface cpuInterface);
+    boolean compareTo(CpuInterface cpuInterface);
 }

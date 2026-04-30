@@ -17,5 +17,5 @@ import java.io.IOException;
 
 public interface IdGeneratorInterface
 {
-   public String getNext() throws IOException;
+   String getNext() throws IOException;
 }

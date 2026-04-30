@@ -16,6 +16,6 @@ package org.allbinary.logic.visual.transform.info;
 public interface TransformInfoHttpStoreInterface 
    extends TransformInfoHttpInterface
 {
-   public void setStoreName(String value);
-   public String getStoreName();
+   void setStoreName(String value);
+   String getStoreName();
 }

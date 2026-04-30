@@ -17,7 +17,7 @@ import org.allbinary.business.category.CategoryInterface;
 
 public interface CategoryModifierTreeInterface
 {
-   public void insert(
+   void insert(
       CategoryInterface parentCategoryInterface,
       CategoryInterface newChildCategoryInterface);
    /*
@@ -28,7 +28,7 @@ public interface CategoryModifierTreeInterface
       String newCategory   
    */
    
-   public void delete(
+   void delete(
       CategoryInterface parentCategoryInterface,
       CategoryInterface newChildCategoryInterface);
    /*

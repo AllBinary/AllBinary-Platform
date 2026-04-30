@@ -21,21 +21,21 @@ import org.allbinary.business.user.commerce.money.MoneyException;
 
 public interface BasketInterface
 {         
-   public void addItem(String id, String num);
+   void addItem(String id, String num);
    
-   public void removeItem(String id);
+   void removeItem(String id);
 
-   public void adjustItem(String id, String num);
+   void adjustItem(String id, String num);
      
-   public String getTotalWeight();
+   String getTotalWeight();
    
-   public Integer getNumberOfItems();
+   Integer getNumberOfItems();
    
-   public Set getIds();
+   Set getIds();
    
-   public HashMap getItems();
+   HashMap getItems();
 
-   public Integer getNumberOf(String product);
+   Integer getNumberOf(String product);
    
-   public Money getSubTotal() throws MoneyException;         
+   Money getSubTotal() throws MoneyException;         
 }

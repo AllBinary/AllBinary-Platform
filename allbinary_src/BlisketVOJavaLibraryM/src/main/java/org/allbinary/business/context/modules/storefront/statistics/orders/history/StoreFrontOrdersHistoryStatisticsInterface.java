@@ -18,10 +18,10 @@ import org.allbinary.data.tables.TableMappingInterface;
 
 public interface StoreFrontOrdersHistoryStatisticsInterface extends TableMappingInterface
 {
-   public Long getNumberOfOrders();
+   Long getNumberOfOrders();
    
-   public Money getSubTotal();
-   public Money getShippingCost();
-   public Money getTaxes();
-   public Money getTotal();   
+   Money getSubTotal();
+   Money getShippingCost();
+   Money getTaxes();
+   Money getTotal();   
 }

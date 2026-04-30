@@ -27,6 +27,6 @@ public interface StoreThemeCategoryInterface
    ValidationInterface,
    CompositeTransformInfoInterface
 {
-   public void addTheme(ThemeValidation themeValidation);
-   public Vector getThemes();
+   void addTheme(ThemeValidation themeValidation);
+   Vector getThemes();
 }

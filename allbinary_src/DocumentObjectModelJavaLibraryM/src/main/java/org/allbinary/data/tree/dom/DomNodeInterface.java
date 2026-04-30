@@ -19,5 +19,5 @@ import org.w3c.dom.Node;
 public interface DomNodeInterface
 {
    //public String getName();
-   public Node toXmlNode(Document document) throws Exception;
+   Node toXmlNode(Document document) throws Exception;
 }

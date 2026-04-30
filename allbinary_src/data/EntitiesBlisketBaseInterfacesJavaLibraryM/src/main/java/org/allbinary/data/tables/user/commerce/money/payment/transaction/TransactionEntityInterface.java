@@ -20,9 +20,9 @@ public interface TransactionEntityInterface extends BasicDataTableInterface
 {
    //public PaymentTransactionInterface getTransactionInterface(String storeName, String orderNumber);
    
-   public void remove(String userName, String orderNumber);
+   void remove(String userName, String orderNumber);
    
-   public void add(String userName, String orderNumber, PaymentTransactionInterface paymentTransactionInterface);
+   void add(String userName, String orderNumber, PaymentTransactionInterface paymentTransactionInterface);
 
    //public void update(HashMap updatedValues);
 }

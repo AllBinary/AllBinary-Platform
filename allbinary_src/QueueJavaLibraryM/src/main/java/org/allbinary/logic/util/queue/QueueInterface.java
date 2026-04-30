@@ -15,7 +15,7 @@ package org.allbinary.logic.util.queue;
 
 public interface QueueInterface
 {
-   public boolean offer(Object object) throws Exception;
-   public void remove(Object object) throws Exception;
-   public Object remove() throws Exception;
+   boolean offer(Object object) throws Exception;
+   void remove(Object object) throws Exception;
+   Object remove() throws Exception;
 }

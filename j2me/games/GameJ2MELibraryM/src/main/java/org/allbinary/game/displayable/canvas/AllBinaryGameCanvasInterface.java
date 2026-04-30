@@ -21,5 +21,5 @@ public interface AllBinaryGameCanvasInterface
     extends DisplayableInterface
 //, GameCanvasRunnableInterface
 {
-    public AllBinaryGameLayerManager getLayerManager();
+    AllBinaryGameLayerManager getLayerManager();
 }

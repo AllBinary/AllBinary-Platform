@@ -489,12 +489,12 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
     void glViewport(int x, int y, int width, int height);
 
     //These below are for the example only
-    public void glBegin(int i);
+    void glBegin(int i);
 
-    public void glEnd();
+    void glEnd();
         
-    public void glVertex3f(float f, float f2, float f3);
+    void glVertex3f(float f, float f2, float f3);
     
-    public void glPolygonMode(int i, int i1);
+    void glPolygonMode(int i, int i1);
     
 }

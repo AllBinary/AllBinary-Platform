@@ -17,25 +17,25 @@ import org.allbinary.logic.io.path.AbPath;
 
 public interface InitInfoInterface
 {
-   public boolean isTesting();
+   boolean isTesting();
 
-   public String getTesting();
+   String getTesting();
    
-   public String getTestHtmlPath();
+   String getTestHtmlPath();
 
-   public String getMainPath();
+   String getMainPath();
 
-   public void setTesting(String value);
+   void setTesting(String value);
 
-   public void setTestHtmlPath(AbPath value);
+   void setTestHtmlPath(AbPath value);
    
-   public void setMainPath(AbPath value);
+   void setMainPath(AbPath value);
 
-   public boolean isTestingValid(String testing) throws Exception;
+   boolean isTestingValid(String testing) throws Exception;
 
-   public boolean isTestHtmlPathValid(AbPath value);
+   boolean isTestHtmlPathValid(AbPath value);
 
-   public boolean isMainPathValid(AbPath value);
+   boolean isMainPathValid(AbPath value);
 
    //public HashMap toHashMap();
 }

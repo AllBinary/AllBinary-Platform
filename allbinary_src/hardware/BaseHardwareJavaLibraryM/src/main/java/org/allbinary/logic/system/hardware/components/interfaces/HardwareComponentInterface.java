@@ -15,8 +15,8 @@ package org.allbinary.logic.system.hardware.components.interfaces;
 
 public interface HardwareComponentInterface
 {
-    public boolean compareTo(HardwareComponentInterface componentInterface);
-    public String toString();    
+    boolean compareTo(HardwareComponentInterface componentInterface);
+    String toString();    
 }
 
 

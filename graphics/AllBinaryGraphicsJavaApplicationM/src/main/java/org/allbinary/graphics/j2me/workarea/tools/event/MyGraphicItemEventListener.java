@@ -15,9 +15,9 @@ package org.allbinary.graphics.j2me.workarea.tools.event;
 
 public interface MyGraphicItemEventListener
 {
-   public void delete(MyGraphicItemEvent evt);
-   public void duplicate(MyGraphicItemEvent evt)throws Exception;
-   public void rotate(MyGraphicItemEvent evt);
-   public void highlight(MyGraphicItemEvent evt);
-   public void deselect(MyGraphicItemEvent evt);
+   void delete(MyGraphicItemEvent evt);
+   void duplicate(MyGraphicItemEvent evt)throws Exception;
+   void rotate(MyGraphicItemEvent evt);
+   void highlight(MyGraphicItemEvent evt);
+   void deselect(MyGraphicItemEvent evt);
 }

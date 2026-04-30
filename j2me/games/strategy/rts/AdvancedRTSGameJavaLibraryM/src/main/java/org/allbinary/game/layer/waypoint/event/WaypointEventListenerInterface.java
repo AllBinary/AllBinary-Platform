@@ -19,6 +19,6 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 public interface WaypointEventListenerInterface
    extends EventListenerInterface
 {
-   public void onWaypointEvent(RTSLayerEvent event)
+   void onWaypointEvent(RTSLayerEvent event)
       throws Exception;
 }

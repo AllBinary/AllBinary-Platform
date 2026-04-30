@@ -21,9 +21,9 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface BasicGroupItemsEntityInterface extends BasicDataTableInterface
 {
-   public void delete(String value);
+   void delete(String value);
    
-   public void insert(Vector values);
+   void insert(Vector values);
 
-   public void update(HashMap updatedValues);
+   void update(HashMap updatedValues);
 }

@@ -15,20 +15,20 @@ package org.allbinary.business.advertisement.area;
 
 public interface AdvertisementAreaInterface
 {
-   public String getName();
-   public String getStoreName();
-   public String getDescription();
+   String getName();
+   String getStoreName();
+   String getDescription();
    
-   public AdvertisementAreaConstraintsInterface getConstraints();
+   AdvertisementAreaConstraintsInterface getConstraints();
    
-   public String getCampaign();
+   String getCampaign();
    
-   public void setName(String name);
-   public void setStoreName(String storeName);
-   public void setDescription(String description);
+   void setName(String name);
+   void setStoreName(String storeName);
+   void setDescription(String description);
    
-   public void setConstraints(
+   void setConstraints(
       AdvertisementAreaConstraintsInterface advertisementConstraintsInterface);
    
-   public void setCampaign(String campaign);
+   void setCampaign(String campaign);
 }

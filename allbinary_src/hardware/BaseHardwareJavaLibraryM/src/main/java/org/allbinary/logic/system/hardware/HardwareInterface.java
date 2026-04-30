@@ -43,11 +43,11 @@ public interface HardwareInterface
     public VideoInterface getVideo(int index);
     */
     
-    public HardwareComponentInterface getComponent(int index);
+    HardwareComponentInterface getComponent(int index);
  
-    public String toString();
+    String toString();
     
-    public boolean compareTo(HardwareInterface hardwareInterface);
+    boolean compareTo(HardwareInterface hardwareInterface);
     
-    public Hashtable difference(HardwareInterface hardwareInterface);
+    Hashtable difference(HardwareInterface hardwareInterface);
 }

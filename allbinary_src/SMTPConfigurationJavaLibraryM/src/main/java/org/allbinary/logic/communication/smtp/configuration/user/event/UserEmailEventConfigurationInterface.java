@@ -15,13 +15,13 @@ package org.allbinary.logic.communication.smtp.configuration.user.event;
 
 public interface UserEmailEventConfigurationInterface
 {
-   public String getName();
+   String getName();
 
-   public void setName(String name);
+   void setName(String name);
 
-   public String getEventListenerClassPath();
+   String getEventListenerClassPath();
 
-   public void setEventListenerClassPath(String eventListenerClassPath);
+   void setEventListenerClassPath(String eventListenerClassPath);
    
-   public String log();
+   String log();
 }

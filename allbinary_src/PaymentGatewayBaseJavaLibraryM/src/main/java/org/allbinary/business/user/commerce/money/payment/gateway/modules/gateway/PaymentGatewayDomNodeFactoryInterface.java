@@ -19,5 +19,5 @@ import org.allbinary.data.tree.dom.DomNodeInterface;
 
 public interface PaymentGatewayDomNodeFactoryInterface
 {
-   public DomNodeInterface getInstance(PaymentGatewayInterface paymentGatewayInterface);
+   DomNodeInterface getInstance(PaymentGatewayInterface paymentGatewayInterface);
 }

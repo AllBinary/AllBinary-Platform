@@ -15,6 +15,6 @@ package org.allbinary.init.crypt.jcehelper;
 
 public interface CryptInterface
 {
-   public byte[] encrypt(byte [] array);
-   public byte[] decrypt(byte [] array);
+   byte[] encrypt(byte [] array);
+   byte[] decrypt(byte [] array);
 }

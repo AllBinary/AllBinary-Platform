@@ -17,6 +17,6 @@ import java.util.EventListener;
 
 public interface UserEmailEventListenerInterface extends EventListener
 {
-   public void onEmailSendRequest(EmailEvent userEmailInfoEvent)
+   void onEmailSendRequest(EmailEvent userEmailInfoEvent)
       throws Exception;
 }

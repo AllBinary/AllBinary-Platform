@@ -15,5 +15,5 @@ package org.allbinary.logic.visual.transform.template;
 
 public interface TransformTemplateInterface
 {
-    public String getName() throws Exception;
+    String getName() throws Exception;
 }

@@ -6,6 +6,6 @@ package org.allbinary.input.automation.actions.script;
  */
 public interface JTreeInterface {
     
-        public void updateJTree();
-        public javax.swing.JTree getActionScriptJTree();
+        void updateJTree();
+        javax.swing.JTree getActionScriptJTree();
 }
