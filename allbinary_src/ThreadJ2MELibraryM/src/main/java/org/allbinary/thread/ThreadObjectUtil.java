@@ -22,7 +22,7 @@ public class ThreadObjectUtil
         object.wait();
     }
 
-    public void waitObject(Object object, long delay)
+    public void waitObjectFor(Object object, long delay)
             throws Exception
     {
         object.wait(delay);

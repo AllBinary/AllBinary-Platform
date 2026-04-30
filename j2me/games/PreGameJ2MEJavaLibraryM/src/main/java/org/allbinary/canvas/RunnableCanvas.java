@@ -213,7 +213,7 @@ public class RunnableCanvas extends MyCanvas
         {
             if (wait > 0)
             {
-                this.threadObjectUtil.waitObject(this, (long) wait);
+                this.threadObjectUtil.waitObjectFor(this, (long) wait);
             } else
             {
                 this.threadObjectUtil.waitObject(this);

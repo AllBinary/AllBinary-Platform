@@ -17,7 +17,7 @@ public class ThreadObjectUtil {
         throws Exception {
     }
 
-    public void waitObject(Object object, long delay)
+    public void waitObjectFor(Object object, long delay)
         throws Exception {
     }
 

@@ -45,7 +45,7 @@ public class StupidTimer
 
             synchronized (this)
             {
-                this.threadObjectUtil.waitObject(this, 1800);
+                this.threadObjectUtil.waitObjectFor(this, 1800);
             }
 
             if (timeDelayHelper.isTimeTNT())
