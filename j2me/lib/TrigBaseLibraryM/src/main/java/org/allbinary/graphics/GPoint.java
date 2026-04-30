@@ -28,7 +28,7 @@ public class GPoint
    private final int z;
 
    //protected
-   public GPoint(int x, int y, int z)
+   public GPoint(final int x, final int y, final int z)
    {
       this.x = x;
       this.y = y;
@@ -72,14 +72,14 @@ public class GPoint
    
    private static final String POINT_LABEL = "Point: ";
    
-   public static String toStringStatic(int x, int y, int z)
+   public static String toStringStatic(final int x, final int y, final int z)
    {
-      StringMaker stringBuffer = new StringMaker();
+      final StringMaker stringBuffer = new StringMaker();
 
-      PositionStrings positionStrings = 
+      final PositionStrings positionStrings = 
           PositionStrings.getInstance();
 
-      stringBuffer.append(POINT_LABEL);
+      stringBuffer.append(GPoint.POINT_LABEL);
       stringBuffer.append(positionStrings.X_LABEL);
       stringBuffer.appendint(x);
       stringBuffer.append(CommonSeps.getInstance().SPACE);
