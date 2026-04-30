@@ -1137,7 +1137,7 @@ public class NoDecimalTrigTable
 
     public long sin(int angle)
     {
-        return noDecimalSin[angle];
+        return this.noDecimalSin[angle];
     }
 
     public long cos(int angle)

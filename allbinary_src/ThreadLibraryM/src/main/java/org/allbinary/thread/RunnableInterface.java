@@ -15,8 +15,8 @@ package org.allbinary.thread;
 
 public interface RunnableInterface extends Runnable
 {
-    public boolean isRunning();
-    public void setRunning(boolean isRunning);
-    //public Thread getThread();
-    public void setThread(Thread thread)throws Exception;
+    boolean isRunning();
+    void setRunning(boolean isRunning);
+    //Thread getThread();
+    void setThread(Thread thread)throws Exception;
 }

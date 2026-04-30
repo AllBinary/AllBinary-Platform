@@ -26,12 +26,12 @@ public class AngleInfo
 
    private short angle = 0;
       
-   public static AngleInfo getInstance(short angleIncrement)
+   public static AngleInfo getInstance(final short angleIncrement)
    {
       return new AngleInfo(AngleIncrementInfoFactory.getInstance().getAt(angleIncrement));
    }
    
-   private AngleInfo(AngleIncrementInfo angleIncrementInfo)
+   private AngleInfo(final AngleIncrementInfo angleIncrementInfo)
    {
       this.angleIncrementInfo = angleIncrementInfo;
       //this.logUtil.putF(this.angleIncrementInfo.toString(), this, "getAngleIncrementInfo()");
@@ -39,9 +39,9 @@ public class AngleInfo
    
    private final FrameUtil frameUtil = FrameUtil.getInstance();
    
-   public void adjustAngle(int frame)
+   public void adjustAngle(final int frame)
    {
-      int newAngle = this.angleIncrementInfo.getAngleIncrement() * frame - 90;
+      final int newAngle = this.angleIncrementInfo.getAngleIncrement() * frame - 90;
       this.setAngle((short) this.frameUtil.adjustAngleToFrameAngle(newAngle));
    }
    
@@ -50,7 +50,7 @@ public class AngleInfo
       return this.angle;
    }
    
-   public void setAngle(short angle)
+   public void setAngle(final short angle)
    {
       //this.logUtil.putF("Set Angle: " + angle, this, "setAngle");
       this.angle = angle;
@@ -66,9 +66,9 @@ public class AngleInfo
    
    public String toString()
    {
-      StringMaker stringBuffer = new StringMaker();
+      final StringMaker stringBuffer = new StringMaker();
       
-      stringBuffer.append(ANGLE);
+      stringBuffer.append(this.ANGLE);
       stringBuffer.appendshort(this.angle);
       stringBuffer.append(CommonSeps.getInstance().SPACE);
       stringBuffer.append(StringUtil.getInstance().toString(this.getAngleIncrementInfo()));

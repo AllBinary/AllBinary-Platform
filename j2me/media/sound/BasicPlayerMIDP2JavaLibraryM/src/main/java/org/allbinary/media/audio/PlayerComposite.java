@@ -163,7 +163,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.START_METHOD_NAME, e);
         }
     }
 

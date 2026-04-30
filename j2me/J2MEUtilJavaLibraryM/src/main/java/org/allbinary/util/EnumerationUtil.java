@@ -28,7 +28,7 @@ public class EnumerationUtil {
      * @return the instance
      */
     public static EnumerationUtil getInstance() {
-        return instance;
+        return EnumerationUtil.instance;
     }
     
     public boolean hasMoreElements(final Enumeration enumeration) {
