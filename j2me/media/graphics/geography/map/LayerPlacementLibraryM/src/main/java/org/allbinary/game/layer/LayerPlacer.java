@@ -22,9 +22,12 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.LayerInterfaceFactory;
 import org.allbinary.layer.LayerInterfaceVisitor;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.EnumerationUtil;
 
 public class LayerPlacer
 {
+    private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
+    
    protected final LayerInterfaceVisitor layerInterfaceVisitor;
    private final GPoint dimension;
 
@@ -71,9 +74,9 @@ public class LayerPlacer
       int z;
       AllBinaryLayer layerInterface;
 
-      while (enumeration.hasMoreElements())
+      while (this.enumerationUtil.hasMoreElements(enumeration))
       {
-         point = (GPoint) enumeration.nextElement();
+         point = (GPoint) this.enumerationUtil.nextElement(enumeration);
 
          layerHashtable = (Hashtable) hashtable.get(point);
 

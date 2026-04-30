@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.EnumerationUtil;
 import org.allbinary.util.HashtableUtil;
 
 public class GameFeatureUtil
@@ -35,6 +36,8 @@ public class GameFeatureUtil
         return GameFeatureUtil.instance;
     }
 
+    private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
+    
     public final String ON_GAME_FEATURE_CHANGE = "onGameFeatureChange";
     public final String GAME_FEATURE_CHANGED = "Game Feature Changed: ";
     
@@ -171,12 +174,13 @@ public class GameFeatureUtil
 
     public boolean isExclusive(String itemLabel)
     {
-        Enumeration enumeration = 
+        final Enumeration enumeration = 
             GameFeatureChoiceGroups.getExclusiveInstance().get().keys();
 
-        while (enumeration.hasMoreElements())
+        String name;
+        while (this.enumerationUtil.hasMoreElements(enumeration))
         {
-            String name = (String) enumeration.nextElement();
+            name = (String) this.enumerationUtil.nextElement(enumeration);
 
             if (itemLabel.compareTo(name) == 0)
             {

@@ -17,11 +17,10 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 import org.allbinary.string.CommonStrings;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.EnumerationUtil;
 
 /**
  *
@@ -29,6 +28,8 @@ import org.allbinary.util.BasicArrayList;
  */
 public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellTypeFactory {
 
+    private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
+    
     public final BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE;
     public final BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE;
     public final BasicPlatormGeographicMapCellType LADDER_CELL_TYPE;
@@ -57,8 +58,8 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
         BasicArrayList idsWithTypeList;
         String key;
         BasicPlatormGeographicMapCellType basicPlatormGeographicMapCellType;
-        while(enumeration.hasMoreElements()) {
-            key = (String) enumeration.nextElement();
+        while(this.enumerationUtil.hasMoreElements(enumeration)) {
+            key = (String) this.enumerationUtil.nextElement(enumeration);
             
             this.logUtil.putF(key, this, commonStrings.INIT);
             

@@ -28,6 +28,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.EnumerationUtil;
 
 public class PersistentInputMapping
 {
@@ -36,6 +37,7 @@ public class PersistentInputMapping
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
     
     private final InputToGameKeyMapping inputMapping = new InputToGameKeyMapping();
     
@@ -115,7 +117,7 @@ public class PersistentInputMapping
             this.inputPersistance.loadAll(abeClientInformation);
         }
 
-        BasicArrayList list = this.inputPersistance.getList();
+        final BasicArrayList list = this.inputPersistance.getList();
 
         int totalMappedTo = 0;
         //TWB - Use selected profile/id for future imp
@@ -129,9 +131,9 @@ public class PersistentInputMapping
             hashtable = (Hashtable) list.objectArray[index];
             enumeration = hashtable.keys();
 
-            while(enumeration.hasMoreElements())
+            while(this.enumerationUtil.hasMoreElements(enumeration))
             {
-                mappedToInput = (Input) enumeration.nextElement();
+                mappedToInput = (Input) this.enumerationUtil.nextElement(enumeration);
                 gameActionInput = (Input) hashtable.get(mappedToInput);
 
                 //AndroidGameKey mappedToKey

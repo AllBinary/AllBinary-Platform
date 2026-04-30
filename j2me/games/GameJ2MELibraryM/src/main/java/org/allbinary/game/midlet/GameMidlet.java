@@ -109,11 +109,13 @@ import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.EnumerationUtil;
 
 public class GameMidlet extends ProgressMidlet
     implements CommandListener //, GameMidletEventListener
 {
-
+    private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
+    
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     protected final Features features = Features.getInstance();
     protected final MidletStrings midletStrings = MidletStrings.getInstance();
@@ -1034,9 +1036,9 @@ public class GameMidlet extends ProgressMidlet
             final Hashtable currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
             final Enumeration enumeration = currentHashtable.keys();
             Object key;
-            while (enumeration.hasMoreElements())
+            while (this.enumerationUtil.hasMoreElements(enumeration))
             {
-                key = enumeration.nextElement();
+                key = this.enumerationUtil.nextElement(enumeration);
                 hashtable.put(key, currentHashtable.get(key));
             }
         }

@@ -28,6 +28,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.EnumerationUtil;
 
 public class PersistentInputMapping
 {
@@ -36,6 +37,7 @@ public class PersistentInputMapping
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
     
     private final InputToGameKeyMapping inputMapping = new InputToGameKeyMapping();
     
@@ -116,22 +118,25 @@ public class PersistentInputMapping
         }
 
         final BasicArrayList list = this.inputPersistance.getList();
-
-        final int size = list.size();
-        //this.logUtil.putF("size: " + size, this, commonStrings.INIT);
         
         int totalMappedTo = 0;
         //TWB - Use selected profile/id for future imp
+        final int size = list.size();
+        //this.logUtil.putF("size: " + size, this, commonStrings.INIT);
+        Hashtable hashtable;
+        Enumeration enumeration;
+        Input mappedToInput;
+        Input gameActionInput;
         for(int index = 0; index < size; index++)
         {
-            final Hashtable hashtable = (Hashtable) list.objectArray[index];
+            hashtable = (Hashtable) list.objectArray[index];
             //this.logUtil.putF("hashtable.keySet().size(): " + hashtable.keySet().size(), this, commonStrings.INIT);
-            final Enumeration enumeration = hashtable.keys();
+            enumeration = hashtable.keys();
             
-            while(enumeration.hasMoreElements())
+            while(this.enumerationUtil.hasMoreElements(enumeration))
             {
-                final Input mappedToInput = (Input) enumeration.nextElement();
-                final Input gameActionInput = (Input) hashtable.get(mappedToInput);
+                mappedToInput = (Input) this.enumerationUtil.nextElement(enumeration);
+                gameActionInput = (Input) hashtable.get(mappedToInput);
 
                 //AndroidGameKey mappedToKey
                 //MotionGestureInput mappedToKey

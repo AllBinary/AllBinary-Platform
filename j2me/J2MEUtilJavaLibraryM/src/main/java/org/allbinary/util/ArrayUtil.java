@@ -103,7 +103,7 @@ public class ArrayUtil
         }
     }	
     
-    public String toString(final int[][] twoDimensionalIntArray)
+    public String toStringFromTwoDimensionaArray(final int[][] twoDimensionalIntArray)
     {
         final StringMaker stringBuffer = new StringMaker();
 

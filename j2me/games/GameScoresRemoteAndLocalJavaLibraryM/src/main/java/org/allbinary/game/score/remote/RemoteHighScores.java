@@ -25,10 +25,13 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.EnumerationUtil;
 
 public class RemoteHighScores extends HighScores {
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
 
     private static final Hashtable hashTable = new Hashtable();
     private final AbeClientInformationInterface abeClientInformation;
@@ -111,13 +114,13 @@ public class RemoteHighScores extends HighScores {
                 this.getList().add(highScore);
             }
         } else {
-            
+            final String NEXT_ELEMENT = "NextElement: ";
             final CommonStrings commonStrings = CommonStrings.getInstance();
             final Enumeration enumeration = hashtable.elements();
             Object nextElement;
-            while(enumeration.hasMoreElements()) {
-                nextElement = enumeration.nextElement();
-                this.logUtil.putF("NextElement: " + nextElement, this, commonStrings.PROCESS);
+            while(this.enumerationUtil.hasMoreElements(enumeration)) {
+                nextElement = this.enumerationUtil.nextElement(enumeration);
+                this.logUtil.putF(NEXT_ELEMENT + nextElement, this, commonStrings.PROCESS);
             }
 
         }

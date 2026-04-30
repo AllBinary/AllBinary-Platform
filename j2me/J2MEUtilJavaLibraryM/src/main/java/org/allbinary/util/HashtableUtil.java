@@ -27,14 +27,16 @@ public class HashtableUtil
         return HashtableUtil.instance;
     }
 
+    private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
+    
     public void putAll(final Hashtable fromHashtable, final Hashtable hashtable)
     {
         final Enumeration enumeration = fromHashtable.keys();
         Object key;
         Object value;
-        while (enumeration.hasMoreElements())
+        while (this.enumerationUtil.hasMoreElements(enumeration))
         {
-            key = enumeration.nextElement();
+            key = this.enumerationUtil.nextElement(enumeration);
             value = hashtable.get(key);
 
             if(value == null)
@@ -56,9 +58,9 @@ public class HashtableUtil
 
         int index = 0;
         final Enumeration enumeration = hashtable.keys();
-        while (enumeration.hasMoreElements())
+        while (this.enumerationUtil.hasMoreElements(enumeration))
         {
-            objectArray[index++] = enumeration.nextElement();
+            objectArray[index++] = this.enumerationUtil.nextElement(enumeration);
         }
 
         return objectArray;
@@ -72,9 +74,9 @@ public class HashtableUtil
         final BasicArrayList list = new BasicArrayListS(hashtable.size());
         
         final Enumeration enumeration = hashtable.keys();
-        while(enumeration.hasMoreElements())
+        while(this.enumerationUtil.hasMoreElements(enumeration))
         {
-            list.add(enumeration.nextElement());
+            list.add(this.enumerationUtil.nextElement(enumeration));
         }
         
         return list;

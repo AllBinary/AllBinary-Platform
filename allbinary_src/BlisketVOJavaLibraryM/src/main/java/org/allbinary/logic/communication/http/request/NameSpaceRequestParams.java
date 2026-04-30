@@ -477,10 +477,10 @@ public class NameSpaceRequestParams extends RequestParams
    public HashMap toHashMap() throws Exception
    {
       Document document = DomDocumentHelper.create();
-      HashMap hashMap = new HashMap();
-      Set keys = this.getMap().keySet();
-      Object[] keyArray = keys.toArray();
-      int keySize = keyArray.length;
+      final HashMap hashMap = new HashMap();
+      final Set keys = this.getMap().keySet();
+      final Object[] keyArray = keys.toArray();
+      final int keySize = keyArray.length;
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
       org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))

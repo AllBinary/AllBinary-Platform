@@ -30,7 +30,7 @@ public class BasicArrayList
     public void addAt(final int index, final Object element)
     {
         if (index > this.currentIndex || index < 0) {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.appendint(index);
@@ -60,7 +60,7 @@ public class BasicArrayList
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.appendint(index);
-            stringBuffer.append(SIZE);
+            stringBuffer.append(BasicArrayList.SIZE);
             stringBuffer.appendint(this.currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
@@ -69,8 +69,9 @@ public class BasicArrayList
         Object oldValue = this.objectArray[index];
 
         final int numMoved = this.currentIndex - index - 1;
-        if (numMoved > 0)
+        if (numMoved > 0) {
             System.arraycopy(this.objectArray, index + 1, this.objectArray, index, numMoved);
+        }
 
         this.objectArray[--this.currentIndex] = null;
 
@@ -203,15 +204,17 @@ public class BasicArrayList
     {
         if (object == null) {
             for (int i = this.currentIndex - 1; i >= 0; i--) {
-                if (this.objectArray[i] == null)
+                if (this.objectArray[i] == null) {
                     return i;
+                }
             }
         }
         else
         {
             for (int i = this.currentIndex - 1; i >= 0; i--) {
-                if (object.equals(this.objectArray[i]))
+                if (object.equals(this.objectArray[i])) {
                     return i;
+                }
             }
         }
         return -1;
@@ -224,7 +227,7 @@ public class BasicArrayList
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.appendint(index);
-            stringBuffer.append(SIZE);
+            stringBuffer.append(BasicArrayList.SIZE);
             stringBuffer.appendint(this.currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
@@ -240,7 +243,7 @@ public class BasicArrayList
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.appendint(index);
-            stringBuffer.append(SIZE);
+            stringBuffer.append(BasicArrayList.SIZE);
             stringBuffer.appendint(this.currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
@@ -312,7 +315,7 @@ public class BasicArrayList
     public String toString()
     {
         final String COMMA_SEP = CommonSeps.getInstance().COMMA_SEP;
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         for (int index = 0; index < this.currentIndex; index++) {
             stringBuffer.append(this.objectArray[index].toString());

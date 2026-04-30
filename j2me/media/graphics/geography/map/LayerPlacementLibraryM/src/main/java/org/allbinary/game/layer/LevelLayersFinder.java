@@ -21,6 +21,7 @@ import org.allbinary.layer.Layer;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import org.allbinary.util.EnumerationUtil;
 
 /**
  *
@@ -35,21 +36,26 @@ public class LevelLayersFinder {
         return LevelLayersFinder.instance;
     }
 
-    public BasicArrayList get(Hashtable hashtable)
+    private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
+    
+    public BasicArrayList get(final Hashtable hashtable)
     {
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
-        BasicArrayList list = new BasicArrayListD();
+        final BasicArrayList list = new BasicArrayListD();
 
-        Enumeration enumeration = hashtable.keys();
+        final Enumeration enumeration = hashtable.keys();
 
-        while(enumeration.hasMoreElements())
+        Hashtable layerHashtable;
+        Integer integer;
+        Integer cachedInteger;
+        while(this.enumerationUtil.hasMoreElements(enumeration))
         {
-            Hashtable layerHashtable = (Hashtable) hashtable.get((Object) enumeration.nextElement());
+            layerHashtable = (Hashtable) hashtable.get((Object) this.enumerationUtil.nextElement(enumeration));
 
-            Integer integer = (Integer) layerHashtable.get((Object) Layer.ID);
+            integer = (Integer) layerHashtable.get((Object) Layer.ID);
 
-            Integer cachedInteger = smallIntegerSingletonFactory.getAt(integer.intValue());
+            cachedInteger = smallIntegerSingletonFactory.getAt(integer.intValue());
 
             if(!list.contains(cachedInteger))
             {
