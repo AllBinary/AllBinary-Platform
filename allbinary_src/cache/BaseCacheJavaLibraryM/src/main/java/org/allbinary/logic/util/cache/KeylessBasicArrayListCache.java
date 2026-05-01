@@ -29,7 +29,6 @@ public class KeylessBasicArrayListCache
     protected final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
 
     public KeylessBasicArrayListCache()
-    throws Exception
     {
     }
     
