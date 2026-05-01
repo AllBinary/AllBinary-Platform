@@ -26,16 +26,15 @@ import org.allbinary.string.CommonStrings;
 public class SystemHardwareFactory {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    
     private static final SystemHardwareFactory instance = new SystemHardwareFactory();
 
     public static SystemHardwareFactory getInstance() {
         return SystemHardwareFactory.instance;
     }
-	
-    private static HardwareInterface hardwareInterface = NoHardware.getInstance();
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    private HardwareInterface hardwareInterface = NoHardware.getInstance();
     
     /** Creates a new instance of SystemHardware */
     private SystemHardwareFactory(){
@@ -46,42 +45,43 @@ public class SystemHardwareFactory {
     {
       try
       {
-    	  if(SystemHardwareFactory.hardwareInterface == NoHardware.getInstance())
+    	  if(this.hardwareInterface == NoHardware.getInstance())
     	  {
-    	      SystemHardwareFactory.hardwareInterface = HardwareFactory.getInstance().getInstance(operatingSystemInterface);
+    	      this.hardwareInterface = HardwareFactory.getInstance().getInstance(operatingSystemInterface);
     	  }
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
          //{
             //this.logUtil.putF(static_toString(), this, commonStrings.CONSTRUCTOR);
-    	    this.logUtil.putF("Found Hardware", this, commonStrings.CONSTRUCTOR);
+    	    this.logUtil.putF("Found Hardware", this, this.commonStrings.CONSTRUCTOR);
          //}
       }
       catch(Exception e)
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
          //{
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
          //}
       }
-      return SystemHardwareFactory.hardwareInterface;
+      return this.hardwareInterface;
    }
    
    /*
    public HardwareInterface getHardware()
    {
-      return hardwareInterface;
+      return this.hardwareInterface;
    }
    */
 
    public static String static_toString()
    {
-      StringMaker osBuffer = new StringMaker();
+       final SystemHardwareFactory systemHardwareFactory = SystemHardwareFactory.getInstance();
+      final StringMaker osBuffer = new StringMaker();
       osBuffer.append("Hardware Info: \n");
       
-      if(SystemHardwareFactory.hardwareInterface != null)
+      if(systemHardwareFactory.hardwareInterface != null)
       {
-          osBuffer.append(hardwareInterface.toString());
+          osBuffer.append(systemHardwareFactory.hardwareInterface.toString());
       }
       else
       {

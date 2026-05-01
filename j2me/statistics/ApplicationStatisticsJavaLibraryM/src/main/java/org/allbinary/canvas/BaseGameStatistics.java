@@ -84,7 +84,7 @@ public class BaseGameStatistics
         
         if(elapsed > 1)
         {
-            final short time = (short) (this.totalRefreshes / (elapsed >> DEFAULT_SCALE_FACTOR));
+            final short time = (short) (this.totalRefreshes / (elapsed >> this.DEFAULT_SCALE_FACTOR));
             return time;
         }
         else
@@ -128,7 +128,7 @@ public class BaseGameStatistics
     public char[][] toCharArray()
     {
         long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);
-        totalTime = (totalTime >> DEFAULT_SCALE_FACTOR);
+        totalTime = (totalTime >> this.DEFAULT_SCALE_FACTOR);
 
         if (totalTime > 0 && this.updateDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime))
         {
@@ -200,18 +200,18 @@ public class BaseGameStatistics
     {
         StringMaker stringBuffer = new StringMaker();
 
-        stringBuffer.append(STRING_ARRAY[0]);
+        stringBuffer.append(this.STRING_ARRAY[0]);
         stringBuffer.appendlong(totalTime);
-        stringBuffer.append(STRING_ARRAY[2]);
+        stringBuffer.append(this.STRING_ARRAY[2]);
         stringBuffer.appendlong(this.totalFrames);
-        stringBuffer.append(STRING_ARRAY[4]);
+        stringBuffer.append(this.STRING_ARRAY[4]);
         stringBuffer.appendlong(this.totalFrames / totalTime);
         
         if(this.totalRefreshes > 0)
         {
-            stringBuffer.append(STRING_ARRAY[6]);
+            stringBuffer.append(this.STRING_ARRAY[6]);
             stringBuffer.appendlong(this.totalRefreshes);
-            stringBuffer.append(STRING_ARRAY[8]);
+            stringBuffer.append(this.STRING_ARRAY[8]);
             stringBuffer.appendlong(this.totalRefreshes / totalTime);
             stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         }

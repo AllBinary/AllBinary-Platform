@@ -111,7 +111,7 @@ public class BasicArrayListUtil
         
         BasicArrayListUtil.getInstance().reverse(list);
         
-        System.out.println(list);
+        System.out.println(list.toString());
     }
     
 }

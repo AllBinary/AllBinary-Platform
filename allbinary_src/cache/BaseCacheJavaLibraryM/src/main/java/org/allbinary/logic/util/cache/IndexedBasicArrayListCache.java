@@ -24,6 +24,13 @@ public class IndexedBasicArrayListCache
     extends BaseBasicArrayListCache
     implements CacheInterface
 {
+    public static IndexedBasicArrayListCache createCache(int size) throws Exception
+    {
+        final IndexedBasicArrayListCache indexedBasicArrayListCache = new IndexedBasicArrayListCache();
+        indexedBasicArrayListCache.init(size);
+        return indexedBasicArrayListCache;
+    }
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private int size = 0;
@@ -31,13 +38,7 @@ public class IndexedBasicArrayListCache
 
     public IndexedBasicArrayListCache()
     {
-        
-    }
 
-    public IndexedBasicArrayListCache(int size)
-    throws Exception
-    {
-        this.init(size);
     }
 
     public void init(int size)
@@ -51,23 +52,23 @@ public class IndexedBasicArrayListCache
             this.list.ensureCapacity(size);
             for(int index = size - 1; index >= this.size; index--)
             {
-                this.add();
+                this.addDefault();
             }
             this.size = size;
         }
     }
 
-    public Object get(int index)
+    public Object getAt(int index)
     {
         return this.list.objectArray[index];
     }
 
-    public void add() throws Exception
+    public void addDefault() throws Exception
     {
 
     }
 
-    public void add(Object object) throws Exception
+    public void addObject(Object object) throws Exception
     {
         this.list.add(object);
     }
@@ -79,7 +80,7 @@ public class IndexedBasicArrayListCache
     }
 
     @Override
-    public void add(CacheableInterface[] cacheableInterfaces) throws Exception
+    public void addArray(CacheableInterface[] cacheableInterfaces) throws Exception
     {
         //this.list.add(this);
         throw new Exception("No Imple");

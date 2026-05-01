@@ -29,14 +29,8 @@ public class KeylessBasicArrayListCache
     protected final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
 
     public KeylessBasicArrayListCache()
-    {
-        
-    }
-    
-    public KeylessBasicArrayListCache(int size)
     throws Exception
     {
-        super(size);
     }
     
     public BasicArrayList get()
@@ -46,17 +40,17 @@ public class KeylessBasicArrayListCache
         {
             if (this.index >= this.list.size())
             {
-                this.add();
+                this.addDefault();
             }
 
-            BasicArrayList list = (BasicArrayList) this.get(this.index++);
+            final BasicArrayList list = (BasicArrayList) this.getAt(this.index++);
             return list;
 
             //return new BasicArrayListS(this.maxPathSize);
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.GET, e);
             return this.basicArrayListUtil.getImmutableInstance();
         }
     }

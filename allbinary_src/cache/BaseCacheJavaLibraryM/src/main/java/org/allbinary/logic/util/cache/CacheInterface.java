@@ -21,6 +21,6 @@ package org.allbinary.logic.util.cache;
 public interface CacheInterface
 {
     void add(CacheableInterface cacheableInterface) throws Exception;
-    void add(CacheableInterface[] cacheableInterfaces) throws Exception;
+    void addArray(CacheableInterface[] cacheableInterfaces) throws Exception;
     void clear() throws Exception;
 }
