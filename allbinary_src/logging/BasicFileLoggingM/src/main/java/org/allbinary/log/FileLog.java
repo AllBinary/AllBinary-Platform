@@ -22,6 +22,7 @@ import java.io.RandomAccessFile;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFormatUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class FileLog
 {
@@ -74,10 +75,12 @@ public class FileLog
    {
       try
       {
-         FileLog.logFileBak = new File(logPath, new StringBuilder().append(backupFileName).append(CommonSeps.getInstance().PERIOD).append(backupIndex).toString());
+          final StringMaker stringMaker = new StringMaker();
+         FileLog.logFileBak = new File(logPath, stringMaker.append(backupFileName).append(CommonSeps.getInstance().PERIOD).appendint(backupIndex).toString());
          while(FileLog.logFileBak.isFile()) {
              FileLog.backupIndex++;
-             FileLog.logFileBak = new File(logPath, new StringBuilder().append(backupFileName).append(CommonSeps.getInstance().PERIOD).append(backupIndex).toString());
+             stringMaker.delete(0, stringMaker.length());
+             FileLog.logFileBak = new File(logPath, stringMaker.append(backupFileName).append(CommonSeps.getInstance().PERIOD).appendint(backupIndex).toString());
          }
          
          //Calendar calendar=Calendar.getInstance();

@@ -98,7 +98,7 @@ public class SqlConnectionPool
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
                 {
-                    this.logUtil.putF(new StringBuilder().append(this.NEW_CONNECTION_FOR).append(url).append(this.CREATED).toString(), this, METHOD_GET);
+                    this.logUtil.putF(new StringMaker().append(this.NEW_CONNECTION_FOR).append(url).append(this.CREATED).toString(), this, METHOD_GET);
                 }
                 return DriverManager.getConnection(url);
             } else

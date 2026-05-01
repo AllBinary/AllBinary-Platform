@@ -41,7 +41,7 @@ public class BasicMenuInputProcessor extends PlayerGameInput
     public void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
     {
         //PreLogUtil.put(commonStrings.START, this, 
-                //new StringBuilder().append("onMotionGestureEvent - id: ").append(motionGestureEvent.getId())
+                //new StringMaker().append("onMotionGestureEvent - id: ").append(motionGestureEvent.getId())
                         //.append(" point: ").append(motionGestureEvent.getCurrentPoint()).toString());
        
         this.motionGestureEventList.add(motionGestureEvent);

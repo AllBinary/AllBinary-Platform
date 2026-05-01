@@ -53,7 +53,7 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
         final DestroyEventCircularStaticPool destroyEventCircularStaticPool =
             DestroyEventCircularStaticPool.getInstance();
         
-        //final StringBuilder stringBuilder = new StringBuilder();
+        //final StringMaker stringBuilder = new StringMaker();
         //this.logUtil.putF(stringBuilder.append("Removing: ").append(size).append(" left: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
 
         //GroupLayerManagerListener.getInstance().log();

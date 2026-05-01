@@ -25,10 +25,12 @@ import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
 import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonStrings;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -208,14 +210,14 @@ public class SimpleStateTaxModule implements TaxModuleInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
          {
-             final StringBuilder stringBuffer = new StringBuilder();
+             final StringMaker stringBuffer = new StringMaker();
 
              stringBuffer.append("StreetAddress Node: ");
              stringBuffer.append(streetAddressNode.getNodeName());
              stringBuffer.append(" Value: ");
              stringBuffer.append(streetAddressNode.getNodeValue());
              stringBuffer.append(" Number Of Children: ");
-             stringBuffer.append(streetAddressNode.getChildNodes().getLength());
+             stringBuffer.appendint(streetAddressNode.getChildNodes().getLength());
 
             this.logUtil.putF(stringBuffer.toString(), this,commonStrings.IS_VALID);
          }

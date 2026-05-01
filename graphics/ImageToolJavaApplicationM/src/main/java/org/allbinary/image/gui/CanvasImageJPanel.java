@@ -331,7 +331,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
        if (!this.writeOverOriginalJCheckBox.isSelected()) {
            String filePath = file.getAbsolutePath();
            final int extensionIndex = filePath.indexOf(this.imageStrings.PNG_EXTENSION);
-           filePath = new StringBuilder().append(filePath.substring(0, extensionIndex)).append(this.commonSeps.UNDERSCORE).append(name).append(this.imageStrings.PNG_EXTENSION).toString();
+           filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(this.commonSeps.UNDERSCORE).append(name).append(this.imageStrings.PNG_EXTENSION).toString();
            file = new File(filePath);
        }
 

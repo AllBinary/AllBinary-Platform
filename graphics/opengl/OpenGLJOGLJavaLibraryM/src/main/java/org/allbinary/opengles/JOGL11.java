@@ -26,7 +26,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    //private final StringBuilder stringBuilder = new StringBuilder();
+    //private final StringMaker stringBuilder = new StringMaker();
 
 //    private final String RED = "red: ";
 //    private final String GREEN = " green: ";

@@ -186,7 +186,7 @@ public class ScrollSelectionForm extends PaintableForm
                 throw new Exception(formTypeFactory.UNK);
             }
             
-//            this.logUtil.putF(new StringBuilder().append("Checking: ")
+//            this.logUtil.putF(new StringMaker().append("Checking: ")
 //                    .append(diffX).append(CommonSeps.getInstance().COMMA)
 //                    .append((dy - this.halfBorder)).append(CommonSeps.getInstance().COMMA)
 //                    .append((diffX + width + this.border)).append(CommonSeps.getInstance().COMMA)

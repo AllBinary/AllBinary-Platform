@@ -43,6 +43,7 @@ import org.allbinary.graphics.pipeline.RandomRotationFactory;
 import org.allbinary.log.LOGGING;
 import org.allbinary.logic.communication.log.GuiLog;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
@@ -645,15 +646,15 @@ public class CanvasJPanel extends javax.swing.JPanel
         this.repaint();
     }
 
-    private String logMouseEvent(java.awt.event.MouseEvent mouseEvent)
+    private String logMouseEvent(final java.awt.event.MouseEvent mouseEvent)
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(PositionStrings.getInstance().X_LABEL);
-        stringBuffer.append(mouseEvent.getX() / this.getXPixelsPerWorkAreaPixel());
+        stringBuffer.appendint(mouseEvent.getX() / this.getXPixelsPerWorkAreaPixel());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(PositionStrings.getInstance().Y_LABEL);
-        stringBuffer.append(mouseEvent.getY() / this.getYPixelsPerWorkAreaPixel());
+        stringBuffer.appendint(mouseEvent.getY() / this.getYPixelsPerWorkAreaPixel());
 
         return stringBuffer.toString();
     }

@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
+import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
@@ -128,7 +129,7 @@ public class AbeHttpRequestInfo
    
    public String toString()
    {
-       return new StringBuilder()
+       return new StringMaker()
                .append(this.NAME)
                .append(this.commonSeps.COLON_SEP)
                .append(abeHttpRequestInfoData.HTTP_USER_AGENT)

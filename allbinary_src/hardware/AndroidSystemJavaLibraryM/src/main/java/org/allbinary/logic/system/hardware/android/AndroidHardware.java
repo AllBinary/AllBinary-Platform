@@ -21,6 +21,7 @@ import java.util.Hashtable;
 import org.allbinary.logic.io.NullCloseable;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.hardware.HardwareInterface;
 import org.allbinary.logic.system.hardware.components.android.UnknownHardware;
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
@@ -121,9 +122,9 @@ public class AndroidHardware implements HardwareInterface
 
     public String toString()
     {
-        StringBuilder hardwareBuffer = new StringBuilder();
+        final StringMaker hardwareBuffer = new StringMaker();
         
-        int size = this.componentInterfaceVector.size();
+        final int size = this.componentInterfaceVector.size();
         
         for (int index = 0; index < size; index++)
         {

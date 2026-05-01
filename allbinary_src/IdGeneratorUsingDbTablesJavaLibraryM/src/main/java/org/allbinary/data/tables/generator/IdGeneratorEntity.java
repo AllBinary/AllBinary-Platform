@@ -13,14 +13,13 @@
  */
 package org.allbinary.data.tables.generator;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
-import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.UserDbInitInfo;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.string.StringMaker;
 
 public class IdGeneratorEntity extends AbSqlBean
         implements IdGeneratorEntityInterface {
@@ -36,7 +35,7 @@ public class IdGeneratorEntity extends AbSqlBean
     public IdGeneratorEntity() {
         super(new UserDbInitInfo());
 
-        this.tableData = new StringBuilder()
+        this.tableData = new StringMaker()
                 .append(this.sqlStrings.CREATE_TABLE)
                 .append(tableName)
                 .append(this.sqlStrings.START)

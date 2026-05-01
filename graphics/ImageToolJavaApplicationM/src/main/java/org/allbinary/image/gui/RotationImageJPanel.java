@@ -22,6 +22,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.ImageArrayRotationUtil;
 import org.allbinary.media.image.ImageProcessedVisitor;
 import org.allbinary.media.image.ImageProcessorInput;
@@ -261,7 +262,7 @@ private void totalAngleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) 
        if (!this.writeOverOriginalJCheckBox.isSelected()) {
            String filePath = file.getAbsolutePath();
            int extensionIndex = filePath.indexOf(this.imageStrings.PNG_EXTENSION);
-           filePath = new StringBuilder().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append(name).append(this.imageStrings.PNG_EXTENSION).toString();
+           filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append(name).append(this.imageStrings.PNG_EXTENSION).toString();
            file = new File(filePath);
        }
 

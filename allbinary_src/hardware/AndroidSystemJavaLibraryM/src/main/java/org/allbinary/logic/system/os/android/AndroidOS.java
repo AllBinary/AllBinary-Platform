@@ -25,7 +25,7 @@ import org.allbinary.string.CommonSeps;
  */
 public class AndroidOS extends GenericOperatingSystem
 {
-   private StringBuilder stringBuffer = new StringBuilder();
+   private StringMaker stringBuffer = new StringMaker();
    
    private final String DEVICE_ID ="DeviceId";
    private final String DEVICE_SOFTWARE_VERSION ="DeviceSoftwareVersion";
@@ -70,11 +70,11 @@ public class AndroidOS extends GenericOperatingSystem
        this.stringBuffer.append(commonStrings.SPACE);
        this.stringBuffer.append("NetworkType");
        this.stringBuffer.append(commonStrings.EQUALS);
-       this.stringBuffer.append(properties.getNetworkType());
+       this.stringBuffer.appendint(properties.getNetworkType());
        this.stringBuffer.append(commonStrings.SPACE);
        this.stringBuffer.append("PhoneType");
        this.stringBuffer.append(commonStrings.EQUALS);
-       this.stringBuffer.append(properties.getPhoneType());
+       this.stringBuffer.appendint(properties.getPhoneType());
        this.stringBuffer.append(commonStrings.SPACE);
        this.stringBuffer.append("SimCountryIso");
        this.stringBuffer.append(commonStrings.EQUALS);

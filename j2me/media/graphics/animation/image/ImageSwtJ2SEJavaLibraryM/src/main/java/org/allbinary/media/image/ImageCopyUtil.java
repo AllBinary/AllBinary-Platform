@@ -520,7 +520,7 @@ public class ImageCopyUtil
         }
 
 //        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
-//        this.logUtil.putF(new StringBuilder().append(spacialStrings.WIDTH_LABEL).append(originalImage.getWidth()).append(spacialStrings.HEIGHT_LABEL).append(originalImage.getHeight()).toString(), this, commonStrings.CONSTRUCTOR);
+//        this.logUtil.putF(new StringMaker().append(spacialStrings.WIDTH_LABEL).append(originalImage.getWidth()).append(spacialStrings.HEIGHT_LABEL).append(originalImage.getHeight()).toString(), this, commonStrings.CONSTRUCTOR);
 
         int newWidth = (int) (originalImage.getWidth() * canvasScale);
         int newHeight = (int) (originalImage.getHeight() * canvasScale);

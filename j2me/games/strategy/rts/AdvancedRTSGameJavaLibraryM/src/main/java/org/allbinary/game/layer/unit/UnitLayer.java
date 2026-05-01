@@ -1038,7 +1038,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         if (this.slightAngle > ANGLE_INCREMENT)
         {
             if(this.isSelected()) {
-                this.logUtil.putF(new StringBuilder().append("steering - slightAngle: ").append(this.slightAngle).toString(), this, "trackTo:trackTo");
+                this.logUtil.putF(new StringMaker().append("steering - slightAngle: ").append(this.slightAngle).toString(), this, "trackTo:trackTo");
             }
 
             if (angleOfTarget - angle < 0)
@@ -1056,7 +1056,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         else if (this.slightAngle < -ANGLE_INCREMENT)
         {
             if(this.isSelected()) {
-                this.logUtil.putF(new StringBuilder().append("steering - slightAngle: ").append(this.slightAngle).toString(), this, "trackTo:trackTo");
+                this.logUtil.putF(new StringMaker().append("steering - slightAngle: ").append(this.slightAngle).toString(), this, "trackTo:trackTo");
             }
 
             if (angle - angleOfTarget < 0)

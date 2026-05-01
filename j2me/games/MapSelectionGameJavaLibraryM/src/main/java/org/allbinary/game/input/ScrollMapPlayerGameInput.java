@@ -257,7 +257,7 @@ public class ScrollMapPlayerGameInput
         
         //int mapBorderBufferHeight = terrainTiledLayer.getCellHeight();
 
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Y Bottom: > ");
         stringBuffer.append(this.maxBottom + this.border);
@@ -289,7 +289,7 @@ public class ScrollMapPlayerGameInput
 
         //int mapBorderBufferHeight = tiledLayer.getCellHeight();
 
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Y Top: < ");
         
@@ -323,7 +323,7 @@ public class ScrollMapPlayerGameInput
 
         AllBinaryTiledLayer tiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
 
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("X Right: < ");
         
         stringBuffer.append(-this.maxRight - this.border);
@@ -355,7 +355,7 @@ public class ScrollMapPlayerGameInput
 
         //int mapBorderBufferWidth = terrainTiledLayer.getCellWidth();
 
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("X Left: > ");
         stringBuffer.append(this.border);
         //stringBuffer.append(mapBorderBufferWidth);

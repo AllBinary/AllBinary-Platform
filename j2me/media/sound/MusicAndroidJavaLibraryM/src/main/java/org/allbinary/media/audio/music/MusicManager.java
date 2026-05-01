@@ -6,6 +6,7 @@ import android.content.Intent;
 import org.allbinary.android.AndroidServicesUtil;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.audio.NoSound;
 import org.allbinary.media.audio.Sound;
@@ -107,7 +108,7 @@ public class MusicManager
 
             final long duration = (long) sound.getDuration();
 
-            PreLogUtil.put(new StringBuilder().append(this.PLAY).append(sound.getResource()).append(this.FOR).append(duration).toString(), this, commonStrings.PROCESS);
+            PreLogUtil.put(new StringMaker().append(this.PLAY).append(sound.getResource()).append(this.FOR).appendlong(duration).toString(), this, commonStrings.PROCESS);
         }
     }
 
@@ -130,7 +131,7 @@ public class MusicManager
             final long duration = (long) this.currentSongSound.getDuration();
 					//18000;
 
-            PreLogUtil.put(new StringBuilder().append(this.PLAY).append(this.currentSongSound.getResource()).append(this.FOR).append(duration).toString(), this, commonStrings.PROCESS);
+            PreLogUtil.put(new StringMaker().append(this.PLAY).append(this.currentSongSound.getResource()).append(this.FOR).appendlong(duration).toString(), this, commonStrings.PROCESS);
 
             this.timeDelayHelper.delay = (int) duration;
 

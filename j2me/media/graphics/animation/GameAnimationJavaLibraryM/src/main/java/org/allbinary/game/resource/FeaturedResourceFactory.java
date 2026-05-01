@@ -75,7 +75,7 @@ public class FeaturedResourceFactory
 
             if (isLoadingLevel && isFeature)
             {
-//                this.logUtil.putF(new StringBuilder()
+//                this.logUtil.putF(new StringMaker()
 //                        .append(commonStrings.INIT)
 //                        .append(CommonSeps.getInstance().SPACE)
 //                        .append(this.GAME_FEATURE_CONTROLLED)

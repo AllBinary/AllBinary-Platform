@@ -903,7 +903,7 @@ public class FileUtil
         try
         {
             //this.logUtil.putF("Write Configuration: " + this.toString(), this, "write");
-            PreLogUtil.put(new StringBuilder().append(this.WRITE_LABEL).append(filePath).append(this.DATA_LABEL).append(string).toString(), this, this.WRITE_METHOD);
+            PreLogUtil.put(new StringMaker().append(this.WRITE_LABEL).append(filePath).append(this.DATA_LABEL).append(string).toString(), this, this.WRITE_METHOD);
 
             final FileStreamFactory fileInputStreamFactory = FileStreamFactory.getInstance();
 

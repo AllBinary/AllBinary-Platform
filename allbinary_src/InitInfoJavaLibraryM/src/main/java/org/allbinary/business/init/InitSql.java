@@ -387,7 +387,7 @@ public class InitSql
          try
          {            
             final String jdbcDriver = this.databaseConnectionInfoInterface.getJdbcDriver();
-            PreLogUtil.put(new StringBuilder().append("Loading DbConnnectionInfo: ")
+            PreLogUtil.put(new StringMaker().append("Loading DbConnnectionInfo: ")
                     .append(this.databaseConnectionInfoInterface.getClass().getName())
                     .append(" Driver: ").append(jdbcDriver).toString(), this.INIT_SQL, "initialize()");
             Class.forName(jdbcDriver).newInstance();

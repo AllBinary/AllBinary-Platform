@@ -22,6 +22,7 @@ import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
@@ -47,34 +48,34 @@ public class StreetAddress
 
    public StreetAddress(Node node) throws Exception
    {
-      Node nameNode = 
+      final Node nameNode = 
          DomSearchHelper.getNode(StreetAddressData.NAME, node.getChildNodes());
       this.name = DomNodeHelper.getTextNodeValue(nameNode);
       
-      Node streetNode = 
+      final Node streetNode = 
          DomSearchHelper.getNode(StreetAddressData.STREET, node.getChildNodes());
       this.street = DomNodeHelper.getTextNodeValue(streetNode);
 
-      Node cityNode = 
+      final Node cityNode = 
          DomSearchHelper.getNode(StreetAddressData.CITY, node.getChildNodes());
       this.city = DomNodeHelper.getTextNodeValue(cityNode);
 
-      Node stateNode = 
+      final Node stateNode = 
          DomSearchHelper.getNode(StreetAddressData.STATE, node.getChildNodes());
       this.state = DomNodeHelper.getTextNodeValue(stateNode);
 
-      Node codeNode = 
+      final Node codeNode = 
          DomSearchHelper.getNode(StreetAddressData.CODE, node.getChildNodes());
       this.code = DomNodeHelper.getTextNodeValue(codeNode);
 
-      Node countryNode = 
+      final Node countryNode = 
          DomSearchHelper.getNode(StreetAddressData.COUNTRY, node.getChildNodes());
       this.country = DomNodeHelper.getTextNodeValue(countryNode);
       
       this.log();
    }
 
-   public StreetAddress(StreetAddress streetAddress)
+   public StreetAddress(final StreetAddress streetAddress)
    {
       this.id = streetAddress.getId();
       this.name = streetAddress.getName();
@@ -87,7 +88,7 @@ public class StreetAddress
       this.log();      
    }
 
-   public StreetAddress(HttpServletRequest request)
+   public StreetAddress(final HttpServletRequest request)
    {
       this.setId(request.getParameter(StreetAddressData.ID));
       this.setName(request.getParameter(StreetAddressData.NAME));
@@ -100,8 +101,8 @@ public class StreetAddress
       this.log();      
    }
    
-   public StreetAddress(String name, String street, 
-      String city, String state, String code, String country)
+   public StreetAddress(final String name, final String street, 
+      final String city, final String state, final String code, final String country)
    {
       this.name = name;
       this.street = street;
@@ -113,7 +114,7 @@ public class StreetAddress
       this.log();      
    }
 
-   public StreetAddress(HashMap address)
+   public StreetAddress(final HashMap address)
    {
       this.id = (String) address.get(StreetAddressData.ID);
       this.name = (String) address.get(StreetAddressData.NAME);
@@ -143,7 +144,7 @@ public class StreetAddress
       }
    }
    
-   public void setId(String id)
+   public void setId(final String id)
    {
       this.id = id;
    }
@@ -260,7 +261,7 @@ public class StreetAddress
    
    public String validationInfo()
    {
-       StringBuilder stringBuffer = new StringBuilder();
+       final StringMaker stringBuffer = new StringMaker();
        
        stringBuffer.append("Address Failed To Validate - All fields must contain data.<br></br>");
       

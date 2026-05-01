@@ -1,5 +1,6 @@
 package org.allbinary.logic.communication.sql;
 
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
 /**
@@ -31,21 +32,21 @@ public class SqlTypeStrings
     public final String ELEVEN_SIZE = "(11)";
     public final String TWELVE_SIZE = "(12)";
     
-    public final String ONE_KB_CHAR_COLUMN = new StringBuilder()
+    public final String ONE_KB_CHAR_COLUMN = new StringMaker()
             .append(CommonSeps.getInstance().SPACE)
             .append(CHAR_COLUMN)
             .append("(1024)")
             .append(CommonSeps.getInstance().COMMA_SEP)
             .toString();
 
-    public final String MAX_CHAR_COLUMN = new StringBuilder()
+    public final String MAX_CHAR_COLUMN = new StringMaker()
             .append(CommonSeps.getInstance().SPACE)
             .append(CHAR_COLUMN)
             .append(MAX_SIZE)
             .append(CommonSeps.getInstance().COMMA_SEP)
             .toString();
 
-    public final String MAX_CHAR_COLUMN_NOT_NULL = new StringBuilder()
+    public final String MAX_CHAR_COLUMN_NOT_NULL = new StringMaker()
             .append(CommonSeps.getInstance().SPACE)
             .append(CHAR_COLUMN)
             .append(MAX_SIZE)
@@ -54,7 +55,7 @@ public class SqlTypeStrings
             .append(CommonSeps.getInstance().COMMA_SEP)
             .toString();
     
-    public final String SIXTY_CHAR_COLUMN_NOT_NULL = new StringBuilder()
+    public final String SIXTY_CHAR_COLUMN_NOT_NULL = new StringMaker()
             .append(CommonSeps.getInstance().SPACE)
             .append(CHAR_COLUMN)
             .append(SIXTY_SIZE)
@@ -62,7 +63,7 @@ public class SqlTypeStrings
             .append(CommonSeps.getInstance().COMMA_SEP)
             .toString();
 
-    public final String ONE_CHAR_COLUMN_NOT_NULL = new StringBuilder()
+    public final String ONE_CHAR_COLUMN_NOT_NULL = new StringMaker()
             .append(CommonSeps.getInstance().SPACE)
             .append(CHAR_COLUMN)
             .append(ONE_SIZE)
@@ -70,7 +71,7 @@ public class SqlTypeStrings
             .append(CommonSeps.getInstance().COMMA_SEP)
             .toString();
 
-    public final String SIX_CHAR_COLUMN_NOT_NULL = new StringBuilder()
+    public final String SIX_CHAR_COLUMN_NOT_NULL = new StringMaker()
             .append(CommonSeps.getInstance().SPACE)
             .append(CHAR_COLUMN)
             .append(SIX_SIZE)
@@ -78,7 +79,7 @@ public class SqlTypeStrings
             .append(CommonSeps.getInstance().COMMA_SEP)
             .toString();
     
-    public final String TWELVE_CHAR_COLUMN_NOT_NULL = new StringBuilder()
+    public final String TWELVE_CHAR_COLUMN_NOT_NULL = new StringMaker()
             .append(CommonSeps.getInstance().SPACE)
             .append(CHAR_COLUMN)
             .append(this.TWELVE_SIZE)

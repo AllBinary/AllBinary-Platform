@@ -26,7 +26,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 
 
     //private final CommonLabels commonLabels = CommonLabels.getInstance();
-    //private final StringBuilder stringBuilder = new StringBuilder();
+    //private final StringMaker stringBuilder = new StringMaker();
 
     protected final String RED = "red: ";
     protected final String GREEN = " green: ";

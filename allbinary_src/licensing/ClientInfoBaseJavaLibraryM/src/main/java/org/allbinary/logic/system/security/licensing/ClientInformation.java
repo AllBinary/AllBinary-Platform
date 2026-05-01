@@ -162,10 +162,12 @@ public class ClientInformation implements AbeClientInformationInterface
     @Override
     public Hashtable toHashtable()
     {
-        AbeClientInformationData abeClientInformationData = 
+        final AbeClientInformationData abeClientInformationData = 
             AbeClientInformationData.getInstance();
         
-        Hashtable clientInfoHashtable = new Hashtable();
+        final GenericOperatingSystem genericOperatingSystem = this.getOperatingSystemInterface();
+
+        final Hashtable clientInfoHashtable = new Hashtable();
         
         clientInfoHashtable.put(
                 abeClientInformationData.NAME, this.name);
@@ -177,20 +179,20 @@ public class ClientInformation implements AbeClientInformationInterface
                 abeClientInformationData.LICENSEID, this.getLicenseId());
         clientInfoHashtable.put(
                 abeClientInformationData.OSNAME, 
-                this.getOperatingSystemInterface().getName());
+                genericOperatingSystem.getName());
         
         clientInfoHashtable.put(abeClientInformationData.OSARCH, 
-                this.getOperatingSystemInterface().getArch());
+                genericOperatingSystem.getArch());
         
         clientInfoHashtable.put(abeClientInformationData.OSVERSION, 
-                this.getOperatingSystemInterface().getVersion());
+                genericOperatingSystem.getVersion());
         
         clientInfoHashtable.put(
                 abeClientInformationData.OS, 
-                this.getOperatingSystemInterface().toString());
+                genericOperatingSystem.toString());
 
-        HardwareInterface hardwareInterface = 
-            SystemHardwareFactory.getInstance().getInstance(getOperatingSystemInterface());
+        final HardwareInterface hardwareInterface = 
+            SystemHardwareFactory.getInstance().getInstance(genericOperatingSystem);
         
         String hardwareString = hardwareInterface.toString();
 
@@ -217,8 +219,8 @@ public class ClientInformation implements AbeClientInformationInterface
     @Override
     public boolean isLargerOrDifferentServerList(BasicArrayList list)
     {
-        int size = list.size() - 1;
-        int currentSize = this.licenseServers.size() - 1;
+        final int size = list.size() - 1;
+        final int currentSize = this.licenseServers.size() - 1;
 
         if (size > currentSize)
         {
@@ -227,10 +229,10 @@ public class ClientInformation implements AbeClientInformationInterface
 
         for (int index = size; index >= 0; index--)
         {
-            String newServerName = (String) list.objectArray[index];
+            final String newServerName = (String) list.objectArray[index];
             for (int index2 = currentSize; index2 >= 0; index2--)
             {
-                String nextOldServerName = (String) 
+                final String nextOldServerName = (String) 
                     this.licenseServers.objectArray[index];
 
                 if (newServerName.compareTo(nextOldServerName) != 0)
