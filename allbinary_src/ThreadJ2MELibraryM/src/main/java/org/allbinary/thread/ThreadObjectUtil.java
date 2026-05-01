@@ -1,5 +1,7 @@
 package org.allbinary.thread;
 
+import org.allbinary.TsUtil;
+
 public class ThreadObjectUtil
 {
     private static final ThreadObjectUtil instance = new ThreadObjectUtil();
@@ -25,6 +27,6 @@ public class ThreadObjectUtil
     public void waitObjectFor(Object object, long delay)
             throws Exception
     {
-        object.wait(delay);
+        TsUtil.getInstance().waitFor(object, delay);
     }
 }

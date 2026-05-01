@@ -90,7 +90,7 @@ public class ByteUtil
         return true;
     }
 
-    public boolean compare(final byte[] newByteArray, final int newSize, final byte[] oldByteArray, final int[] stats) {
+    public boolean compareWithStats(final byte[] newByteArray, final int newSize, final byte[] oldByteArray, final int[] stats) {
 
         if(newSize != oldByteArray.length) {
             stats[0] = -1;

@@ -13,7 +13,7 @@
  */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.TsUtil;
+import org.allbinary.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;

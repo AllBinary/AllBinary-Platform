@@ -14,7 +14,7 @@
 
 package org.allbinary.layer;
 
-import org.allbinary.logic.TsUtil;
+import org.allbinary.TsUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;

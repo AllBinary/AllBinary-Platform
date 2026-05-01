@@ -20,7 +20,7 @@ import org.allbinary.util.BasicArrayListD;
 
 public class ThreadPool
 {
-    public static int NORMAL_PRIORITY = 5; //5 = Thread.NORM_PRIORITY
+    public static final int NORMAL_PRIORITY = 5; //5 = Thread.NORM_PRIORITY
     
     protected final LogUtil logUtil = LogUtil.getInstance();
     

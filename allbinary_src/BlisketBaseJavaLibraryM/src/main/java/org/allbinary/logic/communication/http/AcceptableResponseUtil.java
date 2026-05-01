@@ -14,7 +14,7 @@
 package org.allbinary.logic.communication.http;
 
 import java.util.Vector;
-import org.allbinary.logic.TsUtil;
+import org.allbinary.TsUtil;
 
 public class AcceptableResponseUtil
 {

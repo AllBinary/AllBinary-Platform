@@ -1,6 +1,6 @@
 package org.allbinary.logic.math.permutations;
 
-import org.allbinary.logic.TsUtil;
+import org.allbinary.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.string.CommonSeps;

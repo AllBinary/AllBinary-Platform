@@ -26,6 +26,6 @@ public class CharArrayFactory
 
     public char[] getZeroCharArray()
     {
-        return zeroCharArray;
+        return this.zeroCharArray;
     }
 }

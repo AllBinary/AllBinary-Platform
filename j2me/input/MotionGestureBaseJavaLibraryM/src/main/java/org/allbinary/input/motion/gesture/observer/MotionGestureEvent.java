@@ -18,7 +18,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-import org.allbinary.logic.TsUtil;
+import org.allbinary.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;

@@ -69,7 +69,7 @@ public class RemoteHighScoresProcessor
 
       hashtable.put(
               displayInfoSingleton.ORIENTATION,
-              BooleanFactory.getInstance().toString(displayInfoSingleton.isPortrait()));
+              BooleanFactory.getInstance().toStringb(displayInfoSingleton.isPortrait()));
 
       hashtable.put(
               RemoteHighScoresData.getInstance().GAME_CONFIGURATION,

@@ -69,7 +69,7 @@ public class AndroidHardware implements HardwareInterface
             lineNumberReader = this.get(filePath);
 
         } catch (Exception e) {
-            this.logUtil.put("Hardware Data: " + this.toString(), this, commonStrings.INIT, e);
+            this.logUtil.put("Hardware Data: " + this.toString(), this, this.commonStrings.INIT, e);
             throw e;
         }
         finally
@@ -91,7 +91,7 @@ public class AndroidHardware implements HardwareInterface
 
         //if (lineNumberReader != null)
         //{
-        this.logUtil.putF("File Found", this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF("File Found", this, this.commonStrings.CONSTRUCTOR);
 
         String nextLine = lineNumberReader.readLine();
 

@@ -47,13 +47,13 @@ public class MusicThreadPool extends ThreadPool
     @Override
     protected void startTask(Runnable task)
     {
-        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
     @Override
     protected void completedTask(Runnable task)
     {
-        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
 }

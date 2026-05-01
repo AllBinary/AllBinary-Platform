@@ -14,7 +14,7 @@
 package org.allbinary.logic.math.permutations;
 
 import java.util.Arrays;
-import org.allbinary.logic.TsUtil;
+import org.allbinary.TsUtil;
 
 import org.allbinary.logic.util.visitor.Visitor;
 

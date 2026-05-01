@@ -11,7 +11,7 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.logic;
+package org.allbinary;
 
 /**
  *
@@ -30,5 +30,9 @@ public class TsUtil {
 
     public int hashCode(Object object) {
         return object.hashCode();
+    }
+
+    public void waitFor(Object object, final long timeoutMillis) throws InterruptedException {
+        object.wait(timeoutMillis);
     }
 }

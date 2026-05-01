@@ -25,7 +25,7 @@ public class ThreadPool
 {
     private static final String ROOT_NAME = "-PooledThread-";
 
-    public static int NORMAL_PRIORITY = Thread.NORM_PRIORITY;
+    public static final int NORMAL_PRIORITY = Thread.NORM_PRIORITY;
     
     protected final LogUtil logUtil = LogUtil.getInstance();
 

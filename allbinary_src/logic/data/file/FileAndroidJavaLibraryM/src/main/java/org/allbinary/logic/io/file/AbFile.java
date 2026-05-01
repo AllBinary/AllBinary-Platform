@@ -18,7 +18,7 @@ import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.net.URI;
-import org.allbinary.logic.TsUtil;
+import org.allbinary.TsUtil;
 
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringUtil;

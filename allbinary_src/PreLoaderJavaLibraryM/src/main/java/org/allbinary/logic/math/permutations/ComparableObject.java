@@ -13,7 +13,7 @@
  */
 package org.allbinary.logic.math.permutations;
 
-import org.allbinary.logic.TsUtil;
+import org.allbinary.TsUtil;
 
 /**
  *

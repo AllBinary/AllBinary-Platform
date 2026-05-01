@@ -33,7 +33,7 @@ public class BooleanFactory
     public final String YES = "yes";
     public final String NO = "no";
     
-    public String toString(boolean bool)
+    public String toStringb(boolean bool)
     {
         if(bool)
         {

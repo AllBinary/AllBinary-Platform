@@ -21,7 +21,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
-import org.allbinary.logic.TsUtil;
+import org.allbinary.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.PositionStrings;
