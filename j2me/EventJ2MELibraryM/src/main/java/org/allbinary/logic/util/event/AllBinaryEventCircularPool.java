@@ -32,7 +32,7 @@ extends BaseCircularPool
         int size = this.circularIndexUtil.getSize();
         for (int index = 0; index < size ; index++)
         {
-            OBJECT_ARRAY[index] = allBinaryEventObjectFactoryInterface.getInstance();
+            this.OBJECT_ARRAY[index] = allBinaryEventObjectFactoryInterface.getInstance();
         }
     }
 }

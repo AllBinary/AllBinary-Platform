@@ -10,68 +10,76 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.data.tree.dom;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
+import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.globals.URLGLOBALS;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.io.path.AbFilePath;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
 
-public class CustomUriResolver implements URIResolver
-{
+public class CustomUriResolver implements URIResolver {
+
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private String path;
-   private BasicUriResolver basicURIResolver;
+    private final URIResolverStrings uriResolverStrings = URIResolverStrings.getInstance();
 
-   public CustomUriResolver(String path, BasicUriResolver basicURIResolver)
-   {
-      this.path = path;
-      this.basicURIResolver = basicURIResolver;
-   }
+    private String path;
+    private BasicUriResolver basicURIResolver;
 
-   public Source resolve(String href, String base) throws TransformerException
-   {
-      try
-      {
-         final AbPath fileAbPath = (AbPath) 
-             new AbFilePath(this.path + AbPathData.getInstance().SEPARATOR + href);
+    public CustomUriResolver(String path, BasicUriResolver basicURIResolver) {
+        this.path = path;
+        this.basicURIResolver = basicURIResolver;
+    }
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
-         {
-            this.logUtil.putF(
-                    "attempt to use xsl:import: href=" + href +
-               "\nBase= " + base +
-               "\nNew path= " + fileAbPath.toString() +
-               "\nRequired Extension: " + this.basicURIResolver.getExtension(),
-               this, "resolve");
-         }
+    public Source resolve(String href, String base) throws TransformerException {
+        try {
+            final StringMaker stringBuffer = new StringMaker();
 
-         return new StreamSource(new CryptFileReader(
-            TransformInfoTemplateData.getInstance().UNCRYPTED_EXTENSION,
-            TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION).getInputStream(fileAbPath));
-      }
-      catch(TransformerException e)
-      {
-         throw e;
-      }
-      catch(Exception e)
-      {
-         throw new TransformerException(e);
-      }
-   }
+            stringBuffer.append(this.path);
+            stringBuffer.append(AbPathData.getInstance().SEPARATOR);
+            stringBuffer.append(href);
 
-   public String toString()
-   {
-      return this.path;
-   }
+            final AbPath fileAbPath = (AbPath) new AbFilePath(stringBuffer.toString());
+
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING)) {
+                stringBuffer.delete(0, stringBuffer.length());
+
+                stringBuffer.append(this.uriResolverStrings.ATTEMPT);
+                stringBuffer.append(href);
+                stringBuffer.append(this.uriResolverStrings.BASE);
+                stringBuffer.append(base);
+                stringBuffer.append(this.uriResolverStrings.NEW_PATH);
+                stringBuffer.append(fileAbPath.toString());
+                stringBuffer.append(this.uriResolverStrings.NOTE);
+                stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
+                stringBuffer.append(this.uriResolverStrings.URL_GLOBAL);
+                stringBuffer.append(this.uriResolverStrings.REQUIRED_EXTENSION);
+                stringBuffer.append(this.basicURIResolver.getExtension());
+            }
+
+            return new StreamSource(new CryptFileReader(
+                TransformInfoTemplateData.getInstance().UNCRYPTED_EXTENSION,
+                TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION).getInputStream(fileAbPath));
+        } catch (TransformerException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TransformerException(e);
+        }
+    }
+
+    public String toString() {
+        return this.path;
+    }
 }

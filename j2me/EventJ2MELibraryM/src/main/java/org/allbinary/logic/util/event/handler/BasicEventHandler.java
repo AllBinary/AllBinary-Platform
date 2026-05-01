@@ -175,7 +175,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, eventStrings.FIRE_EVENT, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.eventStrings.FIRE_EVENT, e);
             }
             index++;
         }
@@ -219,7 +219,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.TOSTRING, e);
             }
             index++;
         }
