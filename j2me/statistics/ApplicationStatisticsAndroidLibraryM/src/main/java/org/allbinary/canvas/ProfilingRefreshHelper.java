@@ -37,9 +37,9 @@ public class ProfilingRefreshHelper extends AndroidGameStatistics
     }
     
     @Override
-    public void init(View view)
+    public void initView(View view)
     {
-        super.init(view);
+        super.initView(view);
         this.frameProcessingTimeElapsed = this.getTimeDelayHelper().getStartTime();
 
         this.bestFrameProcessingTime = Integer.MAX_VALUE;

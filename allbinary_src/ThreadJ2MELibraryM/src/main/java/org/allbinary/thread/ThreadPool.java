@@ -15,7 +15,6 @@ package org.allbinary.thread;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
@@ -24,6 +23,7 @@ import org.allbinary.util.BasicArrayListUtil;
 public class ThreadPool
 {
     private static final String ROOT_NAME = "-PooledThread-";
+    //private static int threadPoolID;
 
     public static final int NORMAL_PRIORITY = Thread.NORM_PRIORITY;
     
@@ -41,8 +41,8 @@ public class ThreadPool
     private BasicArrayList taskQueue = BasicArrayListUtil.getInstance().getImmutableInstance();
     private int threadID;
     private int numThreads;
-
-    //private static int threadPoolID;
+    
+    protected boolean runningTask;
     
     public ThreadPool(final String poolName, final int numThreads, final int priority)
     {
@@ -62,7 +62,7 @@ public class ThreadPool
             PooledThread pooledThread;
             for (int i = 0; i < this.numThreads; i++)
             {
-                pooledThread = new PooledThread();
+                pooledThread = new PooledThread(this);
                 pooledThread.setPriority(this.priority);
                 pooledThread.start();
             }
@@ -115,7 +115,7 @@ public class ThreadPool
             }
             
 
-            notify();
+            this.notify();
         }
         
         }
@@ -137,7 +137,7 @@ public class ThreadPool
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
 
             this.taskQueue.add(task);
-            notify();
+            this.notify();
         }
         
         }
@@ -198,7 +198,7 @@ public class ThreadPool
             this.isAlive = false;
             //this.logUtil.putF("clear3", this, this.commonStrings.RUN);
             this.taskQueue.clear();
-            notifyAll();
+            this.notifyAll();
         }
 
         /*
@@ -252,71 +252,8 @@ public class ThreadPool
     {
     }
 
-    private boolean runningTask;
-
-    private class PooledThread extends Thread
-    {
-   
-        public PooledThread()
-        {
-            //super(ThreadPool.this, 
-            super(new StringMaker().append(poolName).append(ROOT_NAME).appendint(threadID++).toString());
-            final LogUtil logUtil = LogUtil.getInstance();
-            logUtil.putF(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
-        }
-
-        private final String INTERRUPT_EXCEPTION = "Exit InterruptedException";
-
-        @Override
-        public void run()
-        {
-
-            threadStarted();
-            
-            while (true)
-            //while (!isInterrupted())
-            {
-
-                Runnable task2 = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
-                try
-                {
-                    task2 = getTask();
-                    //this.logUtil.putF(task + " with Thread: " + this.toString(), this, commonStrings.RUN);
-                    runningTask = true;
-
-                    startTask(task2);
-
-                } catch (InterruptedException ex)
-                {
-                    final LogUtil logUtil = LogUtil.getInstance();
-                    logUtil.putF(INTERRUPT_EXCEPTION, this, commonStrings.RUN);
-                    break;
-                }
-
-                if (task2 == threadObjectUtil.NULL_PRIORITY_RUNNABLE)
-                {
-                    break;
-                }
-                /*
-                else
-                {
-                PreLogUtil.put("Running: ").append(task, this, commonStrings.RUN);
-                }
-                 */
-
-                try
-                {
-                    task2.run();
-                    completedTask(task2);
-                    runningTask = false;
-                } catch (Exception e)
-                {
-                    final LogUtil logUtil = LogUtil.getInstance();
-                    logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(task2)).toString(), this, commonStrings.RUN, e);
-                }
-            }
-
-            threadStopped();
-        }
+    public String createName() {
+        return new StringMaker().append(this.poolName).append(ThreadPool.ROOT_NAME).appendint(this.threadID++).toString();
     }
+    
 }

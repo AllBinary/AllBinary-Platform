@@ -27,19 +27,19 @@ public class AndroidGameStatistics extends BaseGameStatistics
 
     private long totalOnDraws;
 
-    private final String[] STRING_ARRAY = new String[14];
+    private final String[] ANDROID_STRING_ARRAY = new String[14];
     
     public AndroidGameStatistics()
     {
         final StringUtil stringUtil = StringUtil.getInstance();
         
-        for(int index = 0; index < this.STRING_ARRAY.length; index++)
+        for(int index = 0; index < this.ANDROID_STRING_ARRAY.length; index++)
         {
-            this.STRING_ARRAY[index] = stringUtil.EMPTY_STRING; 
+            this.ANDROID_STRING_ARRAY[index] = stringUtil.EMPTY_STRING; 
         }
     }
     
-    public void init(View view)
+    public void initView(View view)
     {
         super.init();
         this.view = new ViewWrapper(view);
@@ -72,24 +72,24 @@ public class AndroidGameStatistics extends BaseGameStatistics
         
         for(int index = 0; index < stringArray.length; index++)
         {
-            this.STRING_ARRAY[index] = stringArray[index];
+            this.ANDROID_STRING_ARRAY[index] = stringArray[index];
         }
         
-        long totalTime = getTimeDelayHelper().getElapsed(this.gameTickTimeDelayHelper.startTime);
+        long totalTime = this.getTimeDelayHelper().getElapsed(this.gameTickTimeDelayHelper.startTime);
         totalTime = (totalTime / 10000);
 
-        this.STRING_ARRAY[10] = this.TOTAL_ONDRAWS;
-        this.STRING_ARRAY[11] = Long.toString(this.totalOnDraws);
+        this.ANDROID_STRING_ARRAY[10] = this.TOTAL_ONDRAWS;
+        this.ANDROID_STRING_ARRAY[11] = Long.toString(this.totalOnDraws);
 
-        this.STRING_ARRAY[12] = this.ONDRAWS_RATE;
-        this.STRING_ARRAY[13] = Long.toString(this.totalOnDraws / totalTime);
+        this.ANDROID_STRING_ARRAY[12] = this.ONDRAWS_RATE;
+        this.ANDROID_STRING_ARRAY[13] = Long.toString(this.totalOnDraws / totalTime);
 
-        return this.STRING_ARRAY;
+        return this.ANDROID_STRING_ARRAY;
     }
 
     public String toString()
     {    	
-        long totalTime = getTimeDelayHelper().getElapsed(this.gameTickTimeDelayHelper.startTime);
+        long totalTime = this.getTimeDelayHelper().getElapsed(this.gameTickTimeDelayHelper.startTime);
         totalTime = (totalTime / 1000);
 
         if (totalTime > 0)
@@ -112,7 +112,7 @@ public class AndroidGameStatistics extends BaseGameStatistics
         }
         else
         {
-            return NOT;
+            return this.NOT;
         }
     }    
     
