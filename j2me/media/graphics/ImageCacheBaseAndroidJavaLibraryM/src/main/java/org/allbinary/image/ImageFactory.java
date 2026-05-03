@@ -38,12 +38,12 @@ public class ImageFactory {
     
     public Image createImage(final String caller, final int width, final int height) throws Exception
     {
-        return Image.createImage(width, height);
+        return Image.createImageWH(width, height);
     }
     
     public Image createImageFromInputStream(final Object key, final InputStream inputStream) throws Exception
     {
-        final Image image = Image.createImage(inputStream);
+        final Image image = Image.createImageFromInputStream(inputStream);
         //image.setName((String) key + image.getName());
         //this.logUtil.putF(image.getName(), this, "createImage");
         //image.init(image.getImage());
