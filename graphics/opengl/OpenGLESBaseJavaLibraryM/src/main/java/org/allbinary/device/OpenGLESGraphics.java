@@ -58,7 +58,7 @@ implements OpenGLSurfaceChangedInterface, GraphicsInterface
     }
 
     @Override    
-    public void setFont(final Font font, final FontDebugBase fontDebug) {
+    public void setFontDebug(final Font font, final FontDebugBase fontDebug) {
         throw new RuntimeException();
     }
 }

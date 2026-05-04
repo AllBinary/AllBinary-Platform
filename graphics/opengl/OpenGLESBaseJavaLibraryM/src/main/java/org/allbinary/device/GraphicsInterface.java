@@ -23,5 +23,5 @@ import org.allbinary.graphics.font.FontDebugBase;
  */
 public interface GraphicsInterface {
     
-    void setFont(final Font font, final FontDebugBase fontDebug);
+    void setFontDebug(final Font font, final FontDebugBase fontDebug);
 }
