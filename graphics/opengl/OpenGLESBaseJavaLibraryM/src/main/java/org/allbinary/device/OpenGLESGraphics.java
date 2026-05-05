@@ -23,7 +23,7 @@ implements OpenGLSurfaceChangedInterface, GraphicsInterface
         
     }
     
-    public void update(GL gl)
+    public void updateGL(GL gl)
     {
     }
 

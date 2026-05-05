@@ -23,7 +23,7 @@ implements OpenGLSurfaceChangedInterface, GraphicsInterface
         
     }
     
-    public void update(GL gl)
+    public void updateGL(GL gl)
     {
     }
 
@@ -57,8 +57,7 @@ implements OpenGLSurfaceChangedInterface, GraphicsInterface
         return this.gl;
     }
 
-    @Override    
-    public void setFont(final Font font, final FontDebugBase fontDebug) {
+    public void setFontDebug(final Font font, final FontDebugBase fontDebug) {
         throw new RuntimeException();
     }
 }
