@@ -84,7 +84,7 @@ public class BasicPersitance
     }
     
     public String getRecordId(final AbeClientInformationInterface abeClientInformation) {
-        return this.platformRecordIdUtil.getRecordId(abeClientInformation, recordId);
+        return this.platformRecordIdUtil.getRecordId(abeClientInformation, this.recordId);
     }
 
     public BasicArrayList getList()

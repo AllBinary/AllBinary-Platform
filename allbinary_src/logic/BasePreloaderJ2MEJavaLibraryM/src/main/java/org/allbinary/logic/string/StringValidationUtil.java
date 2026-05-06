@@ -45,7 +45,7 @@ public class StringValidationUtil
         {
             char digit = value.charAt(index);
 
-            if(!isNumber(digit) && digit != '.')
+            if(!this.isNumberFromChar(digit) && digit != '.')
             {
                 return false;
             }
@@ -62,7 +62,7 @@ public class StringValidationUtil
         return true;
     }
 
-    public boolean isNumber(char digit)
+    public boolean isNumberFromChar(char digit)
     {
         if (digit != '0'
             && digit != '1'
@@ -140,8 +140,8 @@ public class StringValidationUtil
     public boolean isEmpty(String string)
     {
         if (string != null
-                && string.compareTo(stringUtil.NULL_STRING) != 0
-                && string.compareTo(stringUtil.EMPTY_STRING) != 0)
+                && string.compareTo(this.stringUtil.NULL_STRING) != 0
+                && string.compareTo(this.stringUtil.EMPTY_STRING) != 0)
         {
             return false;
         } else

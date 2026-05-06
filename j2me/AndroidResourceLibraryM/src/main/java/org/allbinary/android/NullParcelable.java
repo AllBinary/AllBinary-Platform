@@ -14,6 +14,7 @@
 package org.allbinary.android;
 
 import android.os.Parcelable;
+import android.os.Parcel;
 
 /**
  *
@@ -29,7 +30,7 @@ public class NullParcelable implements Parcelable {
     }
     
     @Override
-    public void writeToParcel(android.os.Parcel dest, int flags) {
+    public void writeToParcel(Parcel dest, int flags) {
         
     }
 
