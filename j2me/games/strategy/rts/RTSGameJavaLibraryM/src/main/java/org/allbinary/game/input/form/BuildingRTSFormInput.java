@@ -21,7 +21,7 @@ import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.capital.Capital;
 import org.allbinary.game.layer.item.LayerInterfaceFactoryImageItem;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.media.audio.BuildingSound;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.string.CommonStrings;
@@ -180,7 +180,7 @@ public class BuildingRTSFormInput extends RTSFormInput
     public void processGameSpecific(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
-        final AllBinaryLayerManager layerManager, final CustomItem item, final int itemIndex)
+        final AllBinaryLayerManager layerManager, final ABCustomItem item, final int itemIndex)
         throws Exception
     {
         super.process(layerManager);
@@ -195,7 +195,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 this.getSelectedGeographicCellPosition());
     }
 
-    private boolean isDemoLocked(final CustomItem item)
+    private boolean isDemoLocked(final ABCustomItem item)
     {
         final LayerInterfaceFactoryImageItem factoryItem =
             (LayerInterfaceFactoryImageItem) item;
@@ -216,7 +216,7 @@ public class BuildingRTSFormInput extends RTSFormInput
 
     public void buildFromMotionInput(
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
-        final AllBinaryLayerManager layerManager, final CustomItem item, final int itemIndex)
+        final AllBinaryLayerManager layerManager, final ABCustomItem item, final int itemIndex)
         throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();

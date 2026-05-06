@@ -25,7 +25,7 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.CommandTextItem;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.graphics.form.item.CustomItemInterface;
 
 public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
@@ -34,7 +34,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     protected final Animation[] unSelectedAnimationArray = new Animation[16];
 
     public CommandCurrentSelectionForm(
-            final String title, final CustomItem[] items,
+            final String title, final ABCustomItem[] items,
             final Rectangle rectangle, final FormType formType, final int border, final boolean moveForSmallScreen,
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
             throws Exception
@@ -60,7 +60,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
 
-    private void update(final CustomItem[] items)
+    private void update(final ABCustomItem[] items)
     {        
         for(int index = items.length; --index >= 0;)
         {
@@ -68,7 +68,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
     
-    private void updateAt(final int index, final CustomItem item)
+    private void updateAt(final int index, final ABCustomItem item)
     {
         final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
         
@@ -123,7 +123,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     }
 
     @Override
-    public int append(final CustomItem item)
+    public int append(final ABCustomItem item)
     {
         int result = super.append(item);
 
@@ -146,13 +146,13 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     }
 
     @Override
-    public void insert(final int itemNum, final CustomItem item)
+    public void insert(final int itemNum, final ABCustomItem item)
     {
         super.insert(itemNum, item);
     }
 
     @Override
-    public void set(final int itemNum, final CustomItem item)
+    public void set(final int itemNum, final ABCustomItem item)
     {
         super.set(itemNum, item);
     }

@@ -5,7 +5,7 @@ import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.graphics.color.BasicColor;
 
-public class CustomImageItem extends CustomItem
+public class CustomImageItem extends ABCustomItem
 {
     protected int yOffset = 0;
 

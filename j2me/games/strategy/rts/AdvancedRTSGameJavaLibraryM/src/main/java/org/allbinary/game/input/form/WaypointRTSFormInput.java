@@ -26,7 +26,7 @@ import org.allbinary.game.layer.capital.Capital;
 import org.allbinary.game.layer.waypoint.WaypointCellPositionHistory;
 import org.allbinary.game.layer.waypoint.WaypointLayer;
 import org.allbinary.game.layer.waypoint.event.WaypointEventHandlerFactory;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
@@ -244,9 +244,9 @@ public class WaypointRTSFormInput extends RTSFormInput
 
     @Override
     public void processStickyGameSpecific(
-        final CollidableDestroyableDamageableLayer associatedRtsLayer,
-        final RTSPlayerLayerInterface rtsPlayerLayerInterface,
-        final AllBinaryLayerManager layerManager, CustomItem item, int index)
+            final CollidableDestroyableDamageableLayer associatedRtsLayer,
+            final RTSPlayerLayerInterface rtsPlayerLayerInterface,
+            final AllBinaryLayerManager layerManager, ABCustomItem item, int index)
         throws Exception
     {
         this.logUtil.putF("Set Sticking Item: " + item, this, "processSticky");

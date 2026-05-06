@@ -14,9 +14,9 @@
 package org.allbinary.game.layer.identification;
 
 import org.allbinary.game.identification.Group;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 
 public interface GroupItemArrayFactoryInterface {
-    CustomItem[] getInstance(Group groupInterface)
+    ABCustomItem[] getInstance(Group groupInterface)
         throws Exception;
 }

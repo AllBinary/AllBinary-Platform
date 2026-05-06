@@ -40,7 +40,7 @@ public class CommandTextItemArrayFactory
         this.visitorInterface = visitorInterface;
     }
 
-    public final CustomItem[] getInstance(Vector<Object> vector, 
+    public final ABCustomItem[] getInstance(Vector<Object> vector, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         int size = vector.size();
@@ -89,12 +89,12 @@ public class CommandTextItemArrayFactory
             }
         }
 
-        CustomItem[] textItemArray = new CustomItem[this.list.size()];
+        ABCustomItem[] textItemArray = new ABCustomItem[this.list.size()];
         
         int size2 = textItemArray.length;
         for (int index = 0; index < size2; index++)
         {
-            textItemArray[index] = (CustomItem) this.list.objectArray[index];
+            textItemArray[index] = (ABCustomItem) this.list.objectArray[index];
         }
 
         return textItemArray;

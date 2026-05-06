@@ -7,7 +7,7 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.font.MyFont;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.graphics.form.item.CustomItemInterface;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -19,7 +19,7 @@ import org.allbinary.logic.string.StringMaker;
 public class MultipleScrollSelectionHorizontalForm 
 extends ScrollSelectionForm
 {
-    public static MultipleScrollSelectionHorizontalForm createForm(final String title, final CustomItem[] items,
+    public static MultipleScrollSelectionHorizontalForm createForm(final String title, final ABCustomItem[] items,
                                                                    final Rectangle rectangle, final FormType formType, final int border,
                                                                    final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
             throws Exception
@@ -31,7 +31,7 @@ extends ScrollSelectionForm
 
     private final int backgroundColor = BasicColorFactory.getInstance().TRANSPARENT_GREY.intValue();
     
-    public MultipleScrollSelectionHorizontalForm(final String title, final CustomItem[] items, 
+    public MultipleScrollSelectionHorizontalForm(final String title, final ABCustomItem[] items, 
             final ItemPaintableFactory formPaintableFactory, 
             final Rectangle rectangle, final FormType formType, final int border, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)

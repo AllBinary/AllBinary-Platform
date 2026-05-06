@@ -41,7 +41,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.ScrollSelectionForm;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.graphics.paint.NullInitUpdatePaintable;
 import org.allbinary.input.motion.button.TouchButtonsBuilderFactory;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
@@ -181,7 +181,7 @@ implements BaseMotionGestureEventListener
             }
 
             rtsFormInput.setStickyItemSelected(false);
-            rtsFormInput.setSelectedStickyItem(CustomItem.NULL_CUSTOM_ITEM);
+            rtsFormInput.setSelectedStickyItem(ABCustomItem.NULL_CUSTOM_ITEM);
             rtsFormInput.setSelectedStickyItemIndex(-1);
 
             return true;

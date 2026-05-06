@@ -52,7 +52,7 @@ import org.allbinary.graphics.form.PaintableForm;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.graphics.form.ScrollSelectionFormNoneFactory;
 import org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.graphics.form.item.validation.AllCommandsVisitor;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
@@ -204,7 +204,7 @@ public class GameCommandCanvas
 
     public ScrollSelectionForm createForm() throws Exception {
         
-        final CustomItem[] items = new CommandTextItemArrayFactory(
+        final ABCustomItem[] items = new CommandTextItemArrayFactory(
                 new AllCommandsVisitor()).getInstance(
                 (Vector<Object>) this.getCommandStack(), 
                 this.backgroundBasicColor, this.foregroundBasicColor

@@ -17,12 +17,12 @@ import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.TouchFeatureFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 
 public class CommandCurrentSelectionFormFactory
 {
     public static ScrollSelectionForm getInstance(
-            final String title, final CustomItem[] items, 
+            final String title, final ABCustomItem[] items, 
             final Rectangle rectangle, final FormType formType, 
             final int border, final boolean moveForSmallScreen,
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor

@@ -19,7 +19,7 @@ import java.util.Hashtable;
 import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.item.LayerInterfaceFactoryImageItem;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.direction.DirectionFactory;
 import org.allbinary.game.identification.Group;
@@ -49,7 +49,7 @@ public class RTSFormInput
     private GeographicMapCellPosition selectedGeographicCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
     private boolean stickyItemSelected;
     private int selectedStickyItemIndex;
-    private CustomItem selectedStickyItem = CustomItem.NULL_CUSTOM_ITEM;
+    private ABCustomItem selectedStickyItem = ABCustomItem.NULL_CUSTOM_ITEM;
     
     public RTSFormInput(final Group[] groupInterfaceArray)
     {
@@ -95,7 +95,7 @@ public class RTSFormInput
             rtsPlayerLayerInterface.getCurrentScrollSelectionForm();
 
         //this.getItemAt(rtsPlayerLayerInterface, point);
-        final CustomItem item = scrollSelectionForm.get(index);
+        final ABCustomItem item = scrollSelectionForm.get(index);
         if (item == null)
         {
             return;
@@ -115,7 +115,7 @@ public class RTSFormInput
     public void processGameSpecific(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
-        final AllBinaryLayerManager layerManager, final CustomItem item, final int index)
+        final AllBinaryLayerManager layerManager, final ABCustomItem item, final int index)
         throws Exception
     {
     }
@@ -137,7 +137,7 @@ public class RTSFormInput
             rtsPlayerLayerInterface.getCurrentScrollSelectionForm();
 
         //this.getItemAt(rtsPlayerLayerInterface, point);
-        final CustomItem item = scrollSelectionForm.get(index);
+        final ABCustomItem item = scrollSelectionForm.get(index);
         if (item == null)
         {
             return false;
@@ -154,12 +154,12 @@ public class RTSFormInput
     public void processStickyGameSpecific(
         CollidableDestroyableDamageableLayer associatedRtsLayer,
         RTSPlayerLayerInterface rtsPlayerLayerInterface,
-        AllBinaryLayerManager layerManager, CustomItem item, int index)
+        AllBinaryLayerManager layerManager, ABCustomItem item, int index)
         throws Exception
     {
     }
 
-    protected CustomItem getItemAt(
+    protected ABCustomItem getItemAt(
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final GPoint point)
         throws Exception
@@ -186,7 +186,7 @@ public class RTSFormInput
     }
 
     protected CollidableDestroyableDamageableLayer getInstance(
-            final AllBinaryLayerManager layerManager, final CustomItem aItem, final GeographicMapCellPosition geographicMapCellPosition)
+            final AllBinaryLayerManager layerManager, final ABCustomItem aItem, final GeographicMapCellPosition geographicMapCellPosition)
         throws Exception
     {
         final LayerInterfaceFactoryImageItem item =
@@ -254,7 +254,7 @@ public class RTSFormInput
     /**
      * @return the selectedStickyItem
      */
-    public CustomItem getSelectedStickyItem()
+    public ABCustomItem getSelectedStickyItem()
     {
         return this.selectedStickyItem;
     }
@@ -262,7 +262,7 @@ public class RTSFormInput
     /**
      * @param selectedStickyItem the selectedStickyItem to set
      */
-    public void setSelectedStickyItem(CustomItem selectedStickyItem)
+    public void setSelectedStickyItem(ABCustomItem selectedStickyItem)
     {
         this.selectedStickyItem = selectedStickyItem;
     }

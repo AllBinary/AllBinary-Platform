@@ -14,7 +14,7 @@
 package org.allbinary.game.layer;
 
 import org.allbinary.game.input.RTSLayerFormFactory;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.form.ScrollSelectionForm;
@@ -33,7 +33,7 @@ public class AdvancedRTSLayerFormFactory extends RTSLayerFormFactory
         ScrollSelectionForm scrollSelectionForm = ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM;
         try
         {
-            final CustomItem[] items = itemArrayFactoryInterface.getItems();
+            final ABCustomItem[] items = itemArrayFactoryInterface.getItems();
 
             scrollSelectionForm = 
                 RTSScrollSelectionFormFactory.getInstance(label, items);

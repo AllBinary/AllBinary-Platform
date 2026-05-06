@@ -3,7 +3,7 @@ package org.allbinary.graphics.form;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
@@ -14,7 +14,7 @@ public class ABCustomForm extends CustomScreen
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    public ABCustomForm(String title, CustomItem[] items,
+    public ABCustomForm(String title, ABCustomItem[] items,
                         BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {
 
@@ -44,22 +44,22 @@ public class ABCustomForm extends CustomScreen
     {
     }
     
-    public int append(CustomItem item)
+    public int append(ABCustomItem item)
     {
         return -1;
     }
     
-    public void insert(int itemNum, CustomItem item)
+    public void insert(int itemNum, ABCustomItem item)
     {
     }
 
-    public void set(int itemNum, CustomItem item)
+    public void set(int itemNum, ABCustomItem item)
     {
     }
     
-    public CustomItem get(int itemNum) 
+    public ABCustomItem get(int itemNum) 
     {
-        return CustomItem.NULL_CUSTOM_ITEM;
+        return ABCustomItem.NULL_CUSTOM_ITEM;
     }
 
     public int getWidth()

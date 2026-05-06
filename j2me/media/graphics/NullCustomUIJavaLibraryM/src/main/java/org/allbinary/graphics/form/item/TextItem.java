@@ -25,8 +25,8 @@ implements CustomItemInterface
         
     }
 
-    public StringComponent getLabelStringComponent()
+    public ABStringComponent getLabelStringComponent()
     {
-        return StringComponent.NULL_STRING_COMPONENT;
+        return ABStringComponent.NULL_STRING_COMPONENT;
     }
 }

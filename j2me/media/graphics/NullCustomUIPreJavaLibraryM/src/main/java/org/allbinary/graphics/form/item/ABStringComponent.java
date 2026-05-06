@@ -3,9 +3,9 @@ package org.allbinary.graphics.form.item;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 
-public class StringComponent
+public class ABStringComponent
 {
-    public static final StringComponent NULL_STRING_COMPONENT = new StringComponent();
+    public static final ABStringComponent NULL_STRING_COMPONENT = new ABStringComponent();
     
     public BasicColor getBackgroundBasicColor() {
         return BasicColorFactory.getInstance().WHITE;

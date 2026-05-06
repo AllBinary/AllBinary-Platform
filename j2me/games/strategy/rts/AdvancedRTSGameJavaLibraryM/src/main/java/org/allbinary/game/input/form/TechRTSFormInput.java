@@ -19,7 +19,7 @@ import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.TechnologyRTSInterfaceImageItem;
 import org.allbinary.game.layer.capital.Capital;
 import org.allbinary.game.rts.technology.event.TechEventHandler;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.media.audio.BuildingSound;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.java.bool.BooleanFactory;
@@ -49,8 +49,7 @@ public class TechRTSFormInput extends RTSFormInput
 
     protected final GameNotificationEvent noMoneyGameNotificationEvent;
     
-    public TechRTSFormInput(
-            final Group[] groupInterface)
+    public TechRTSFormInput(final Group[] groupInterface)
     {
         super(groupInterface);        
 
@@ -81,10 +80,10 @@ public class TechRTSFormInput extends RTSFormInput
      
     @Override
     public void processGameSpecific(
-        final CollidableDestroyableDamageableLayer associatedRtsLayer,
-        final RTSPlayerLayerInterface rtsPlayerLayerInterface,
-        final AllBinaryLayerManager layerManager, 
-        final CustomItem item, final int itemIndex)
+            final CollidableDestroyableDamageableLayer associatedRtsLayer,
+            final RTSPlayerLayerInterface rtsPlayerLayerInterface,
+            final AllBinaryLayerManager layerManager,
+            final ABCustomItem item, final int itemIndex)
         throws Exception
     {
         super.process(layerManager);

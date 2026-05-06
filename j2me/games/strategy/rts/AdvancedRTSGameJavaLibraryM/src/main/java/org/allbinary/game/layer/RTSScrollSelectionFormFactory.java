@@ -13,7 +13,7 @@
  */
 package org.allbinary.game.layer;
 
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -26,7 +26,7 @@ import org.allbinary.input.motion.button.TouchButtonLocationHelper;
 public class RTSScrollSelectionFormFactory
 {
     public static MultipleScrollSelectionHorizontalForm getInstance(
-            final String formLabel, final CustomItem[] items)
+            final String formLabel, final ABCustomItem[] items)
     throws Exception
     {
         final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();

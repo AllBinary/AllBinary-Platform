@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.graphics.form.item.CustomItemInterface;
 
 public class ScrollCurrentSelectionForm 
@@ -31,7 +31,7 @@ extends ScrollSelectionForm
 
     private final boolean moveForSmallScreen;
 
-    public ScrollCurrentSelectionForm(final String title, final CustomItem[] items,
+    public ScrollCurrentSelectionForm(final String title, final ABCustomItem[] items,
             final ItemPaintableFactory formPaintableFactory, final Rectangle rectangle,
             final FormType formType, final int border, final boolean moveForSmallScreen,
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) 
@@ -107,7 +107,7 @@ extends ScrollSelectionForm
         {
             int totalHeight = 0;
             int size = this.size();
-            CustomItem item2;
+            ABCustomItem item2;
             for (int index = 0; index < size; index++)
             {
                 item2 = this.get(index);

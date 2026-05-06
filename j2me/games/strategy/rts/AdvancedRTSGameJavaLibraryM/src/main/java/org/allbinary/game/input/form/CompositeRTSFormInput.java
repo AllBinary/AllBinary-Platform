@@ -14,7 +14,7 @@
 package org.allbinary.game.input.form;
 
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
@@ -108,9 +108,9 @@ public class CompositeRTSFormInput extends RTSFormInput
 
     @Override
     public void processGameSpecific(
-        final CollidableDestroyableDamageableLayer associatedRtsLayer,
-        RTSPlayerLayerInterface rtsPlayerLayerInterface,
-        AllBinaryLayerManager layerManager, CustomItem item, int index)
+            final CollidableDestroyableDamageableLayer associatedRtsLayer,
+            RTSPlayerLayerInterface rtsPlayerLayerInterface,
+            AllBinaryLayerManager layerManager, ABCustomItem item, int index)
         throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -155,9 +155,9 @@ public class CompositeRTSFormInput extends RTSFormInput
 
     @Override
     public void processStickyGameSpecific(
-        final CollidableDestroyableDamageableLayer associatedRtsLayer,
-        RTSPlayerLayerInterface rtsPlayerLayerInterface,
-        AllBinaryLayerManager layerManager, CustomItem item, int index)
+            final CollidableDestroyableDamageableLayer associatedRtsLayer,
+            RTSPlayerLayerInterface rtsPlayerLayerInterface,
+            AllBinaryLayerManager layerManager, ABCustomItem item, int index)
         throws Exception
     {
         this.rtsFormInputArray[0].processStickyGameSpecific(
@@ -194,7 +194,7 @@ public class CompositeRTSFormInput extends RTSFormInput
      * @return the selectedStickyItem
      */
     @Override
-    public CustomItem getSelectedStickyItem()
+    public ABCustomItem getSelectedStickyItem()
     {
         return this.rtsFormInputArray[0].getSelectedStickyItem();
     }
@@ -203,7 +203,7 @@ public class CompositeRTSFormInput extends RTSFormInput
      * @param selectedStickyItem the selectedStickyItem to set
      */
     @Override
-    public void setSelectedStickyItem(CustomItem selectedStickyItem)
+    public void setSelectedStickyItem(ABCustomItem selectedStickyItem)
     {
         this.rtsFormInputArray[0].setSelectedStickyItem(selectedStickyItem);
     }

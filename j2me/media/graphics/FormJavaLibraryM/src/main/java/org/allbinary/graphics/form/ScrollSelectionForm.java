@@ -21,7 +21,7 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.graphics.form.item.CustomItemInterface;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -31,7 +31,7 @@ import org.allbinary.string.CommonSeps;
 
 public class ScrollSelectionForm extends PaintableForm
 {
-    private static ScrollSelectionForm createForm(final String title, final CustomItem[] items,
+    private static ScrollSelectionForm createForm(final String title, final ABCustomItem[] items,
                                                   final ItemPaintableFactory formPaintableFactory,
                                                   final Rectangle rectangle, final FormType formType, final int border,
                                                   final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
@@ -49,12 +49,10 @@ public class ScrollSelectionForm extends PaintableForm
         }
 
     }
-    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_FORM = ScrollSelectionForm.createForm(
-            StringUtil.getInstance().EMPTY_STRING, new CustomItem[0], ItemPaintableFactory.getInstance(), RectangleFactory.SINGLETON, FormTypeFactory.getInstance().NULL_FORM_TYPE, 0,
+    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_FORM = ScrollSelectionForm.createForm(StringUtil.getInstance().EMPTY_STRING, new ABCustomItem[0], ItemPaintableFactory.getInstance(), RectangleFactory.SINGLETON, FormTypeFactory.getInstance().NULL_FORM_TYPE, 0,
             BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
-    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_HORIZONTAL_FORM = ScrollSelectionForm.createForm(
-            StringUtil.getInstance().EMPTY_STRING,
-            new CustomItem[0],
+    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_HORIZONTAL_FORM = ScrollSelectionForm.createForm(StringUtil.getInstance().EMPTY_STRING,
+            new ABCustomItem[0],
             ItemPaintableFactory.getInstance(),
             RectangleFactory.SINGLETON,
             FormTypeFactory.getInstance().HORIZONTAL_FORM, 0,
@@ -71,7 +69,7 @@ public class ScrollSelectionForm extends PaintableForm
     protected ItemPaintable paintable = ItemPaintableFactory.getInstance();
 
     public ScrollSelectionForm(
-            final String title, final CustomItem[] items,
+            final String title, final ABCustomItem[] items,
             final ItemPaintableFactory formPaintableFactory,
             final Rectangle rectangle, final FormType formType, final int border,
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
@@ -94,13 +92,13 @@ public class ScrollSelectionForm extends PaintableForm
     }
 
     @Override
-    public int append(final CustomItem item)
+    public int append(final ABCustomItem item)
     {
         //((FormItemInterface) item).setOwner(this);
         return super.append(item);
     }
 
-    public CustomItem getSelectedItem(final GPoint point)
+    public ABCustomItem getSelectedItem(final GPoint point)
         throws Exception
     {
         int index = this.getSelectedIndex(point);
@@ -111,11 +109,11 @@ public class ScrollSelectionForm extends PaintableForm
         }
         else
         {
-            return CustomItem.NULL_CUSTOM_ITEM;
+            return ABCustomItem.NULL_CUSTOM_ITEM;
         }
     }
 
-    public int getItemIndex(final CustomItem item)
+    public int getItemIndex(final ABCustomItem item)
         throws Exception
     {
         final int size = this.size();

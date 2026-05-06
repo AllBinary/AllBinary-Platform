@@ -21,7 +21,7 @@ import org.allbinary.game.layer.item.LayerInterfaceFactoryImageItem;
 import org.allbinary.game.layer.item.RTSLayerTextAnimation;
 import org.allbinary.game.layer.resources.BasicGameResources;
 import org.allbinary.game.layer.waypoint.FlagGameResources;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.image.GameFeatureImageCacheFactory;
 
 import org.allbinary.string.CommonSeps;
@@ -44,7 +44,7 @@ implements ItemArraySingletonFactoryInterface
     
     private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
 
-    private static final CustomItem[] ITEMS = CustomItemUtil.getInstance().CUSTOM_ITEM_ARRAY;
+    private static final ABCustomItem[] ITEMS = CustomItemUtil.getInstance().CUSTOM_ITEM_ARRAY;
 
     private final BasicGameResources[] resources;
 
@@ -53,8 +53,8 @@ implements ItemArraySingletonFactoryInterface
         this.resources = resources;
     }
 
-    protected CustomItem createFlagItem(final FlagGameResources flagResources,
-        final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
+    protected ABCustomItem createFlagItem(final FlagGameResources flagResources,
+                                          final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
         throws Exception
     {
         String name = flagResources.NAME;
@@ -66,13 +66,13 @@ implements ItemArraySingletonFactoryInterface
         return this.createNamedFlagItem(flagResources, name, layerInterfaceFactoryInterface);
     }
 
-    protected CustomItem createNamedFlagItem(final FlagGameResources flagResources, final String name, final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface) throws Exception
+    protected ABCustomItem createNamedFlagItem(final FlagGameResources flagResources, final String name, final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface) throws Exception
     {
         final ImageCache IMAGE_CACHE = GameFeatureImageCacheFactory.getInstance();
         
         final Image image = IMAGE_CACHE.getWithKey(flagResources.RESOURCE_ICON);
         
-        final CustomItem item = new LayerInterfaceFactoryImageItem(
+        final ABCustomItem item = new LayerInterfaceFactoryImageItem(
                 name, image,
             ImageItem.LAYOUT_DEFAULT, flagResources.NAME, this.basicColor,
             new Animation[] {new RTSLayerTextAnimation(RTSGameStrings.getInstance().DRAGGABLE, image)},
@@ -115,7 +115,7 @@ implements ItemArraySingletonFactoryInterface
     */
 
     @Override
-    public CustomItem[] getItems() throws Exception
+    public ABCustomItem[] getItems() throws Exception
     {
         return UnitItemArrayFactory.ITEMS;
     }

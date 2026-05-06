@@ -22,5 +22,5 @@ public class CustomItemUtil
         return CustomItemUtil.instance;
     }
     
-    public final CustomItem[] CUSTOM_ITEM_ARRAY = new CustomItem[0];
+    public final ABCustomItem[] CUSTOM_ITEM_ARRAY = new ABCustomItem[0];
 }

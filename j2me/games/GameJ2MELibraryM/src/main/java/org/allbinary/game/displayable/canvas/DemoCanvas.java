@@ -80,7 +80,7 @@ import org.allbinary.graphics.form.FormTypeFactory;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.graphics.form.ScrollSelectionFormNoneFactory;
 import org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
@@ -362,7 +362,7 @@ public class DemoCanvas extends RunnableCanvas
         final CommandTextItemArrayFactory commandTextItemArrayFactory = 
             DemoLimitedCommandTextItemArrayFactory.getInstance().getCommandTextItemArrayFactory();
         
-        final CustomItem[] items = commandTextItemArrayFactory.getInstance(
+        final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(
             (Vector<Object>) this.getCommandStack(), 
             this.basicColorFactory.BLACK, this.basicColorFactory.WHITE);
 

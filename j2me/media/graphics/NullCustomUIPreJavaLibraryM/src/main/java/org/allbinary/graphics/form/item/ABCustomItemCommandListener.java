@@ -1,6 +1,6 @@
 package org.allbinary.graphics.form.item;
 
-public interface CustomItemCommandListener
+public interface ABCustomItemCommandListener
 {
 
 }

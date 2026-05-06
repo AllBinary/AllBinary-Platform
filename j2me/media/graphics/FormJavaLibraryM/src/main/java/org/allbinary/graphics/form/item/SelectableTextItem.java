@@ -34,7 +34,7 @@ extends TextItem
     @Override
     public void paint(Graphics graphics, int x, int y)
     {
-        StringComponent stringComponent = this.getLabelStringComponent();
+        ABStringComponent stringComponent = this.getLabelStringComponent();
         
         if(stringComponent != null)
         {

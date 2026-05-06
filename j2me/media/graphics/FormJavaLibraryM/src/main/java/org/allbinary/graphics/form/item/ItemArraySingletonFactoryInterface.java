@@ -15,5 +15,5 @@ package org.allbinary.graphics.form.item;
 
 public interface ItemArraySingletonFactoryInterface
 {
-    CustomItem[] getItems() throws Exception;
+    ABCustomItem[] getItems() throws Exception;
 }

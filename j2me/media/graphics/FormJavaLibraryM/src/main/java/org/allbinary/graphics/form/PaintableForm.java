@@ -6,13 +6,13 @@ import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.CanvasStrings;
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.logic.string.StringUtil;
 
 public class PaintableForm extends ABCustomForm
 {
     public static final PaintableForm NULL_PAINTABLE_FORM = new PaintableForm(
-    StringUtil.getInstance().EMPTY_STRING, new CustomItem[0], RectangleFactory.SINGLETON, 
+    StringUtil.getInstance().EMPTY_STRING, new ABCustomItem[0], RectangleFactory.SINGLETON, 
         FormTypeFactory.getInstance().NULL_FORM_TYPE, 
         BasicColorFactory.getInstance().BLACK, 
         BasicColorFactory.getInstance().WHITE);
@@ -26,7 +26,7 @@ public class PaintableForm extends ABCustomForm
     
     protected FormType formType = FormTypeFactory.getInstance().NULL_FORM_TYPE;
 
-    public PaintableForm(final String title, final CustomItem[] items, 
+    public PaintableForm(final String title, final ABCustomItem[] items, 
             final Rectangle rectangle, final FormType formType,
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {

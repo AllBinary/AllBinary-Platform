@@ -25,7 +25,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
-import org.allbinary.graphics.form.item.CustomGaugeItem;
+import org.allbinary.graphics.form.item.ABCustomGaugeItem;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.PaintableInterface;
@@ -56,7 +56,7 @@ public class ProgressCanvas extends RunnableCanvas
     private float value;
     private final float maxValue = 100.0f;
 
-    protected final CustomGaugeItem gauge;
+    protected final ABCustomGaugeItem gauge;
 
     private final String TEXT = commonStrings.LOADING;
     private String text = this.TEXT;
@@ -91,7 +91,7 @@ public class ProgressCanvas extends RunnableCanvas
         super(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
 
         this.backgroundBasicColor = backgroundBasicColor;
-        this.gauge = new CustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, (int) this.maxValue, 0, 
+        this.gauge = new ABCustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, (int) this.maxValue, 0,
                 backgroundBasicColor, foregroundBasicColor);
     }
 

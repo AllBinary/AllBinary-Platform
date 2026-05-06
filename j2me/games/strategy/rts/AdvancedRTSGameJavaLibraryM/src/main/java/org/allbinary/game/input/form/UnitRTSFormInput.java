@@ -12,6 +12,7 @@
  */
 package org.allbinary.game.input.form;
 
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.layer.AdvancedPlayerOwnedRTSLayers;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
@@ -22,7 +23,6 @@ import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.capital.Capital;
 import org.allbinary.game.layer.unit.UnitLayer;
 import org.allbinary.game.layer.waypoint.WorkWaypoint;
-import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.media.audio.BuildingSound;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
@@ -101,7 +101,7 @@ public class UnitRTSFormInput extends RTSFormInput
     public void processGameSpecific(final CollidableDestroyableDamageableLayer associatedRtsLayer,
                                     final RTSPlayerLayerInterface rtsPlayerLayerInterface,
                                     final AllBinaryLayerManager layerManager,
-                                    final CustomItem item, final int itemIndex) throws Exception
+                                    final ABCustomItem item, final int itemIndex) throws Exception
     {   
         super.process(layerManager);
    
