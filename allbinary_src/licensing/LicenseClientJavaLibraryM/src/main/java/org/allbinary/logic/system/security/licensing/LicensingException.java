@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-public class LicensingException extends java.lang.Exception
+public class LicensingException extends Exception
 {
     public static final long serialVersionUID = 1L;
     

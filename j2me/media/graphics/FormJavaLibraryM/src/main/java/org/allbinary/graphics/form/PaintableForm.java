@@ -7,11 +7,9 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.form.item.CustomItem;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.string.CommonStrings;
 
-public class PaintableForm extends CustomForm
+public class PaintableForm extends ABCustomForm
 {
     public static final PaintableForm NULL_PAINTABLE_FORM = new PaintableForm(
     StringUtil.getInstance().EMPTY_STRING, new CustomItem[0], RectangleFactory.SINGLETON, 

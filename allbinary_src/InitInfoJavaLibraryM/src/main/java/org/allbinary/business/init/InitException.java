@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.init;
 
-public class InitException extends java.lang.Exception
+public class InitException extends Exception
 {
    public InitException()
    {
