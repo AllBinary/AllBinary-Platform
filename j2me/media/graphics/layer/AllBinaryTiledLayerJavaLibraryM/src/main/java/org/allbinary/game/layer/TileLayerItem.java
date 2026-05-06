@@ -16,7 +16,7 @@ package org.allbinary.game.layer;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Screen;
 
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.graphics.form.item.CustomItemInterface;
 
 import org.allbinary.graphics.color.BasicColor;
@@ -25,7 +25,7 @@ import org.allbinary.graphics.color.BasicColor;
  *
  * @author user
  */
-public class TileLayerItem extends CustomItem implements CustomItemInterface
+public class TileLayerItem extends ABCustomItem implements CustomItemInterface
 {
     //private Screen owner;
 
