@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.ABCustomItem;
 
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
@@ -29,7 +29,7 @@ public class PreGameScrollSelectionForm
         extends ScrollCurrentSelectionForm
 {
     public PreGameScrollSelectionForm(String title, 
-            CustomItem[] items, 
+            ABCustomItem[] items, 
             ItemPaintableFactory formPaintableFactory,
             Rectangle rectangle,
             BasicColor backgroundBasicColor, 
