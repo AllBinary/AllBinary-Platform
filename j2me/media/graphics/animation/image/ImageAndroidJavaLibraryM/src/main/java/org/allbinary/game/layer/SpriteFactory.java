@@ -47,7 +47,7 @@ public class SpriteFactory implements SpriteFactoryInterface {
     public Sprite createSprite(final Image image, final int frameWidth, final int frameHeight) {
         
         //this.logUtil.putF(new StringMaker().append(image.getWidth()).append(commonSeps.COLON).append(image.getHeight()).append(commonSeps.FORWARD_SLASH).append(frameWidth).append(commonSeps.COLON).append(frameHeight).toString(), this, commonStrings.PROCESS);
-        return new Sprite(image, frameWidth, frameHeight);
+        return new Sprite(image, frameWidth, frameHeight, 0, 0);
     } 
 
 }
