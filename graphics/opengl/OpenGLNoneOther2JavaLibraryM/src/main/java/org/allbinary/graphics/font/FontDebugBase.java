@@ -8,15 +8,16 @@ import org.allbinary.logic.string.StringMaker;
  *
  * @author User
  */
+//OpenGLNoneOther2JavaLibrary
 public class FontDebugBase {
     
-    private static final FontDebugBase instance = new FontDebugBase();
+    private static final FontDebugBase instanceBase = new FontDebugBase();
 
     /**
      * @return the instance
      */
     public static FontDebugBase getInstance() {
-        return FontDebugBase.instance;
+        return FontDebugBase.instanceBase;
     }
     
     public final String SET_FONT = "setFont";

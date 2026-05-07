@@ -32,7 +32,8 @@ public class TsUtil {
         return object.hashCode();
     }
 
-    public void waitFor(Object object, final long timeoutMillis) throws InterruptedException {
+    public void waitFor(Object any, final long timeoutMillis) throws InterruptedException {
+        final Object object = (Object) any;
         object.wait(timeoutMillis);
     }
     
