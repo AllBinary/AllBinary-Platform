@@ -19,11 +19,12 @@ import javax.microedition.lcdui.Command;
 
 
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.string.CommonStrings;
 
 public class CommandUriAction
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private static final CommandUriAction instance = new CommandUriAction();
  

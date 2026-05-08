@@ -16,7 +16,7 @@ package org.allbinary.content;
 import javax.microedition.lcdui.Command;
 
 import org.allbinary.data.resource.ResourceUtil;
-import org.allbinary.logic.TsUtil;
+import org.allbinary.TsUtil;
 
 public class NotificationUtil
 {

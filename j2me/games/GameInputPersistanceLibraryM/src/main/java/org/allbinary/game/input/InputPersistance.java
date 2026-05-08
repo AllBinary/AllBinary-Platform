@@ -22,6 +22,7 @@ import java.util.Hashtable;
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 
+import org.allbinary.TsUtil;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.game.configuration.persistance.NullRecordComparator;
 import org.allbinary.game.configuration.persistance.NullRecordFilter;
@@ -37,6 +38,7 @@ import org.allbinary.util.HashtableUtil;
 
 public class InputPersistance extends BasicPersitance
 {
+    private final TsUtil tsUtil = TsUtil.getInstance();
 
     private final HashtableUtil hashtableUtil = HashtableUtil.getInstance();
 
@@ -79,7 +81,7 @@ public class InputPersistance extends BasicPersitance
             stringBuffer.delete(0, stringBuffer.length());
             this.logUtil.putF(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
 
-            recordAsBytes = recordStore.getRecord(id);
+            recordAsBytes = tsUtil.getRecord(recordStore, id);
             if(recordAsBytes != null) {
                 
                 //PreLogUtil.put("bytes in: " + ArrayUtil.getInstance().toString(recordAsBytes), this, METHOD_NAME);
