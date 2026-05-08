@@ -47,7 +47,7 @@ public class InputToGameKeyMapping extends InputMapping
 
     public InputToGameKeyMapping()
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         this.clear();
     }
@@ -111,7 +111,7 @@ public class InputToGameKeyMapping extends InputMapping
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput)).toString(), this, "InputToGameKeyMapping::remove");
         super.remove(input, mappedToInput);
-        this.set(input, gameKeyFactory.NONE);
+        this.set(input, this.gameKeyFactory.NONE);
     }
 
     private void set(Input input, Input mappedToInput)
@@ -186,7 +186,7 @@ public class InputToGameKeyMapping extends InputMapping
                 this.platformToGameKeyMapping[key] = gameKey;
             }
         } else {
-            PreLogUtil.putOE(new StringMaker().append(gameKey.toString()).append(CommonSeps.getInstance().COLON_SEP).appendint(key).toString(), this, commonStrings.INIT, new Exception());
+            PreLogUtil.putOE(new StringMaker().append(gameKey.toString()).append(CommonSeps.getInstance().COLON_SEP).appendint(key).toString(), this, this.commonStrings.INIT, new Exception());
         }
         //Still could have a negative key that is out of range
 
@@ -199,7 +199,7 @@ public class InputToGameKeyMapping extends InputMapping
         int smallestKey = 0;
         for(int index = this.mappedGameKeys.length; --index >= 0;)
         {
-            nextKey = canvas.getKeyCode(mappedGameKeys[index].getId());
+            nextKey = canvas.getKeyCode(this.mappedGameKeys[index].getId());
 
             if(nextKey < smallestKey)
             {
@@ -237,16 +237,16 @@ public class InputToGameKeyMapping extends InputMapping
                 this.negativePlatformToGameKeyMapping = negativePlatformToGameKeyMapping;
             }
 
-            for (int index = mappedGameKeys.length; --index >= 0;)
+            for (int index = this.mappedGameKeys.length; --index >= 0;)
             {
-                this.initGameKey(canvas, mappedGameKeys[index]);
+                this.initGameKey(canvas, this.mappedGameKeys[index]);
             }
 
             //PreLogUtil.put("Smallest GameKey: " + smallestKey, this, commonStrings.INIT);
         } catch (Throwable t)
         {
             //catch everything here little dangerous but I don't ever want to fail just because of failed mapping for j2me game keys
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, t);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, t);
         }
     }
 

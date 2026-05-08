@@ -24,8 +24,8 @@ public class ChangedGameFeatureListener extends BaseChangedGameFeatureListener
         return ChangedGameFeatureListener.gameFeatureListener;
     }
 
-    public boolean isChanged(GameConfiguration gameConfiguration)
+    public boolean isChangedGameConfiguration(GameConfiguration gameConfiguration)
     {
-        return list.contains(gameConfiguration);
+        return this.list.contains(gameConfiguration);
     }    
 }

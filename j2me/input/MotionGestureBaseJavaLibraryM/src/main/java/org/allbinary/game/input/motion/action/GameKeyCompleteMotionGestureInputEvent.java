@@ -57,7 +57,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
     {
         try
         {
-            this.setGameKey(inputToGameKeyMapping.getInstance(
+            this.setGameKey(this.inputToGameKeyMapping.getInstance(
                     this.getMotionGestureInput().getId()));
 
             this.setGameKeyEvent(this.gameKeyEventFactory.getInstanceForInput(this, getGameKey()));

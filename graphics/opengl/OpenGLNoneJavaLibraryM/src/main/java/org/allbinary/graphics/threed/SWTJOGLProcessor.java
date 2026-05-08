@@ -55,7 +55,7 @@ public class SWTJOGLProcessor implements Runnable {
         
     }
 
-    public void onSurfaceChanged(final Object event) {
+    public void onSurfaceChangedForEvent(final Object event) {
 
     }
    
@@ -63,7 +63,7 @@ public class SWTJOGLProcessor implements Runnable {
         
     }
     
-    public void onSurfaceChanged(final int width, final int height) {
+    public void onSurfaceChangedWH(final int width, final int height) {
         
     }
     

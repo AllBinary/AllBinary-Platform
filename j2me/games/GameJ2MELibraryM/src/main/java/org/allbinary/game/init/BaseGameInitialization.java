@@ -162,7 +162,7 @@ public class BaseGameInitialization implements GameInitializationInterface
         GameConfigurationCentral gameConfigurationCentral = 
             GameConfigurationCentral.getInstance();
 
-        if(changedGameFeatureListener.isChanged(
+        if(changedGameFeatureListener.isChangedGameConfiguration(
                 gameConfigurationCentral.SCALE))
         {
             return true;

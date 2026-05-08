@@ -119,7 +119,7 @@ public class GameConfiguration
         stringBuffer.append(" Default: ");
         stringBuffer.appendint(this.getDefaultValue().intValue());
         stringBuffer.append(" Modifiable: ");
-        stringBuffer.appendboolean(this.isModifiable());
+        stringBuffer.appendboolean(this.isModifiable().booleanValue());
 
         return stringBuffer.toString();
     }

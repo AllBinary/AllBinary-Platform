@@ -38,8 +38,8 @@ public class Features
 
     private Features()
     {
-        list = new BasicArrayListD();
-        defaultList = new BasicArrayListD();
+        this.list = new BasicArrayListD();
+        this.defaultList = new BasicArrayListD();
         
         this.init();
     }
@@ -95,7 +95,7 @@ public class Features
     {
         if (this.list.contains(gameFeature))
         {
-            this.logUtil.putF(commonStrings.START, this, commonStrings.REMOVE);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.REMOVE);
             this.list.remove(gameFeature);
             GameFeatureEventHandler.getInstance().fireEvent(
                     new GameFeatureEvent(gameFeature, gameFeature.toString()));
@@ -152,7 +152,7 @@ public class Features
         }
         catch (Exception e)
         {
-            PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
         }
     }
 
