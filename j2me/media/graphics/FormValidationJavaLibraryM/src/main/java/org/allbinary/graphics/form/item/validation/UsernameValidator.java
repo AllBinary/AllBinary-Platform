@@ -13,11 +13,11 @@
 */
 package org.allbinary.graphics.form.item.validation;
 
-import org.allbinary.graphics.form.item.TextFieldItem;
+import org.allbinary.graphics.form.item.ABTextFieldItem;
 
 public class UsernameValidator extends TextFieldItemValidator
 {
-    public UsernameValidator(TextFieldItem textFieldItem, int min, int max, boolean allowOnEmpty)
+    public UsernameValidator(ABTextFieldItem textFieldItem, int min, int max, boolean allowOnEmpty)
     {
         super(textFieldItem, min, max, allowOnEmpty);
     }

@@ -4,12 +4,12 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
 
-public class TextItem 
+public class ABTextItem
 extends CustomCustomItem 
-implements CustomItemInterface
+implements ABCustomItemInterface
 {
-    public TextItem(String label, int layout, String altText, 
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    public ABTextItem(String label, int layout, String altText,
+                      BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {
         super(label, backgroundBasicColor, foregroundBasicColor);
     }

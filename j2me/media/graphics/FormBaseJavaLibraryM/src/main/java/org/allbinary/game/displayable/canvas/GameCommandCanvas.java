@@ -15,6 +15,7 @@
 package org.allbinary.game.displayable.canvas;
 
 import java.util.Vector;
+
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.NullCommandListener;
@@ -146,7 +147,7 @@ public class GameCommandCanvas
     {
         try
         {
-            this.logUtil.putF(commonStrings.START, this, canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+            this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
             
             final Rectangle rectangle = this.createRectangle(this.menuForm.size());
 
@@ -159,7 +160,7 @@ public class GameCommandCanvas
         }
         catch(Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "onResize", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "onResize", e);
         }
     }
     
@@ -246,7 +247,7 @@ public class GameCommandCanvas
     @Override
     public void open()
     {
-        this.logUtil.putF(commonStrings.START, this, "open");
+        this.logUtil.putF(this.commonStrings.START, this, "open");
 
         BasicMotionGesturesHandler.getInstance().addListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().addListener(this.getMenuInputProcessor());
@@ -256,7 +257,7 @@ public class GameCommandCanvas
     @Override
     public void close() throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.CLOSE);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLOSE);
 
         BasicMotionGesturesHandler.getInstance().removeListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().removeListener(this.getMenuInputProcessor());
@@ -294,7 +295,7 @@ public class GameCommandCanvas
     @Override
     public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
-        this.logUtil.putF(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
+        this.logUtil.putF(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, this.gameInputStrings.KEY_PRESSED);
         this.addGameKeyEvent(keyCode, 0, false);
     }
 

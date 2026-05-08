@@ -8,7 +8,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.item.ABCustomItem;
-import org.allbinary.graphics.form.item.CustomItemInterface;
+import org.allbinary.graphics.form.item.ABCustomItemInterface;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 
@@ -76,10 +76,10 @@ extends ScrollSelectionForm
             final MyFont myFont = MyFont.getInstance();
             graphics.drawString(this.getTitle(), x, y - myFont.DEFAULT_CHAR_HEIGHT, 0);
 
-            CustomItemInterface item;
+            ABCustomItemInterface item;
             for (int index = start; index < size; index++)
             {
-                item = (CustomItemInterface) this.get(index);
+                item = (ABCustomItemInterface) this.get(index);
 
                 if (dx >= this.rectangle.getMaxX())
                 {

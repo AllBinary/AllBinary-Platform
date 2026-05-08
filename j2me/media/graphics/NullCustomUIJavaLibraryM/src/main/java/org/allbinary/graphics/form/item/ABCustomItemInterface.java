@@ -2,7 +2,7 @@ package org.allbinary.graphics.form.item;
 
 import javax.microedition.lcdui.Graphics;
 
-public interface CustomItemInterface
+public interface ABCustomItemInterface
 {
     int getMinimumWidth();
     int getMinimumHeight();

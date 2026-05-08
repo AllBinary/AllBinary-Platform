@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.form.item.validation;
 
-import org.allbinary.graphics.form.item.TextFieldItem;
+import org.allbinary.graphics.form.item.ABTextFieldItem;
 import org.allbinary.logic.control.validate.ValidatorBase;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -24,13 +24,13 @@ public class TextFieldItemValidator extends ValidatorBase
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final TextFieldItem textFieldItem;
+    private final ABTextFieldItem textFieldItem;
 
     private int min;
     private int max;
     private boolean allowOnEmpty;
 
-    public TextFieldItemValidator(TextFieldItem textFieldItem, int min, int max, boolean allowOnEmpty)
+    public TextFieldItemValidator(ABTextFieldItem textFieldItem, int min, int max, boolean allowOnEmpty)
     {
         this.textFieldItem = textFieldItem;
         

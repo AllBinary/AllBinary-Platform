@@ -57,7 +57,7 @@ public class CommandForm extends Form
            this.repaintProcessor.process();
 
        } catch (Exception e) {
-           this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+           this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
        }
       
    }
@@ -75,7 +75,7 @@ public class CommandForm extends Form
     @Override
     public void close() throws Exception
     {
-        this.logUtil.putF(this.commonStrings.START, this, commonStrings.CLOSE);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLOSE);
     }
 
     public void update() throws Exception {

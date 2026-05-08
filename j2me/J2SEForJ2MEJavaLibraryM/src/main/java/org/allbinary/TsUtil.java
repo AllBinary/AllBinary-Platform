@@ -31,7 +31,7 @@ public class TsUtil {
      * @return the instance
      */
     public static TsUtil getInstance() {
-        return instance;
+        return TsUtil.instance;
     }
 
     public int hashCode(Object object) {

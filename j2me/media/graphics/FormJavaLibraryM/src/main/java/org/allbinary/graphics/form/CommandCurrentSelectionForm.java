@@ -26,7 +26,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.CommandTextItem;
 import org.allbinary.graphics.form.item.ABCustomItem;
-import org.allbinary.graphics.form.item.CustomItemInterface;
+import org.allbinary.graphics.form.item.ABCustomItemInterface;
 
 public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
 {
@@ -158,7 +158,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     }
     
     @Override
-    public int paintItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
+    public int paintItem(final Graphics graphics, final int index, final ABCustomItemInterface item, final int x, final int y)
         throws Exception
     {
         this.selectedAnimationArray[index].paintXY(graphics, x, y);
@@ -166,7 +166,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     }
 
     @Override
-    public int paintUnselectedItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
+    public int paintUnselectedItem(final Graphics graphics, final int index, final ABCustomItemInterface item, final int x, final int y)
         throws Exception
     {
         this.unSelectedAnimationArray[index].paintXY(graphics, x, y);

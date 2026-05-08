@@ -19,7 +19,7 @@ import org.allbinary.graphics.color.ColorChangeListener;
 import org.allbinary.graphics.form.FormPaintable;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.graphics.form.item.ABStringComponent;
-import org.allbinary.graphics.form.item.TextItem;
+import org.allbinary.graphics.form.item.ABTextItem;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
@@ -70,7 +70,7 @@ implements ColorChangeListener
         
         for(int index = scrollSelectionForm.size() - 1; index >= 0; index--)
         {
-            TextItem item = (TextItem) scrollSelectionForm.get(index);
+            ABTextItem item = (ABTextItem) scrollSelectionForm.get(index);
             
             ABStringComponent stringComponent = item.getLabelStringComponent();
             

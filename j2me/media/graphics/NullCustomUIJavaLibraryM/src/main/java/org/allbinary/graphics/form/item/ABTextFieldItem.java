@@ -7,10 +7,10 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.visitor.Visitor;
 
-public class TextFieldItem extends TextItem
+public class ABTextFieldItem extends ABTextItem
 {
-    public TextFieldItem(Canvas canvas, Visitor visitor, String label, String value, int maxSize, int layout, String altText, 
-            final Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    public ABTextFieldItem(Canvas canvas, Visitor visitor, String label, String value, int maxSize, int layout, String altText,
+                           final Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {
         super(label, layout, altText, backgroundBasicColor, foregroundBasicColor);
     }

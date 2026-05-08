@@ -13,11 +13,11 @@
 */
 package org.allbinary.graphics.form.item.validation;
 
-import org.allbinary.graphics.form.item.TextFieldItem;
+import org.allbinary.graphics.form.item.ABTextFieldItem;
 
 public class PasswordValidator extends TextFieldItemValidator
 {
-    public PasswordValidator(TextFieldItem textFieldItem, int min, int max, boolean allowOnEmpty)
+    public PasswordValidator(ABTextFieldItem textFieldItem, int min, int max, boolean allowOnEmpty)
     {
         super(textFieldItem, min, max, allowOnEmpty);
     }

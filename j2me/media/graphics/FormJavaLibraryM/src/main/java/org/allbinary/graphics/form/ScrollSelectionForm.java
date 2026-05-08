@@ -22,7 +22,7 @@ import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.ABCustomItem;
-import org.allbinary.graphics.form.item.CustomItemInterface;
+import org.allbinary.graphics.form.item.ABCustomItemInterface;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.RectangleCollisionUtil;
@@ -119,8 +119,8 @@ public class ScrollSelectionForm extends PaintableForm
         final int size = this.size();
         for (int index = 0; index < size; index++)
         {
-            final CustomItemInterface nextItem = 
-                (CustomItemInterface) this.get(index);
+            final ABCustomItemInterface nextItem =
+                (ABCustomItemInterface) this.get(index);
 
             if(nextItem == item)
             {
@@ -155,14 +155,14 @@ public class ScrollSelectionForm extends PaintableForm
         stringBuffer.append(commonLabels.TOTAL_LABEL);
         stringBuffer.appendint(size);
         
-        this.logUtil.putF(stringBuffer.toString(), this, GET_SELECTED_INDEX);
+        this.logUtil.putF(stringBuffer.toString(), this, ScrollSelectionForm.GET_SELECTED_INDEX);
 
-        CustomItemInterface item;
+        ABCustomItemInterface item;
         int width;
         int height;
         for (int index = start; index < size; index++)
         {
-            item = (CustomItemInterface) this.get(index);
+            item = (ABCustomItemInterface) this.get(index);
 
             width = item.getMinimumWidth();
             height = item.getMinimumHeight();
@@ -205,7 +205,7 @@ public class ScrollSelectionForm extends PaintableForm
                 stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.appendint(index);
                 
-                this.logUtil.putF(stringBuffer.toString(), this, GET_SELECTED_INDEX);
+                this.logUtil.putF(stringBuffer.toString(), this, ScrollSelectionForm.GET_SELECTED_INDEX);
 
                 return index;
             }
@@ -309,13 +309,13 @@ public class ScrollSelectionForm extends PaintableForm
         //- halfBorder
         if (this.rectangleCollisionUtil.isInside(x, y - this.halfBorder, this.rectangle.getMaxX() + this.border, this.rectangle.getMaxY() + this.border,point.getX(), point.getY()))
         {
-            this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString(point)).append(INSIDE_FORM).toString(), this, IS_IN_FORM);
+            this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString(point)).append(ScrollSelectionForm.INSIDE_FORM).toString(), this, ScrollSelectionForm.IS_IN_FORM);
             return true;
         }
         return false;
     }
 
-    public int paintItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
+    public int paintItem(final Graphics graphics, final int index, final ABCustomItemInterface item, final int x, final int y)
         throws Exception
     {
         final int width = item.getMinimumWidth();
@@ -352,7 +352,7 @@ public class ScrollSelectionForm extends PaintableForm
 
     }
 
-    public int paintUnselectedItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
+    public int paintUnselectedItem(final Graphics graphics, final int index, final ABCustomItemInterface item, final int x, final int y)
         throws Exception
     {
         final int width = item.getMinimumWidth();
@@ -383,7 +383,7 @@ public class ScrollSelectionForm extends PaintableForm
 
     }
 
-    protected int getDiffX(final CustomItemInterface item)
+    protected int getDiffX(final ABCustomItemInterface item)
     {
         return 0;
     }
@@ -393,7 +393,7 @@ public class ScrollSelectionForm extends PaintableForm
      */
     public int getDx()
     {
-        return x;
+        return this.x;
     }
 
     /**
@@ -401,7 +401,7 @@ public class ScrollSelectionForm extends PaintableForm
      */
     public int getDy()
     {
-        return y;
+        return this.y;
     }
 
     public void setButtonBasicColor(final BasicColor buttonBasicColor)

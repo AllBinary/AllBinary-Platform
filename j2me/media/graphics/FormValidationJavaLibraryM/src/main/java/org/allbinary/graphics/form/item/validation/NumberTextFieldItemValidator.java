@@ -15,7 +15,7 @@ package org.allbinary.graphics.form.item.validation;
 
 import java.util.Vector;
 
-import org.allbinary.graphics.form.item.TextFieldItem;
+import org.allbinary.graphics.form.item.ABTextFieldItem;
 import org.allbinary.logic.control.validate.ValidatorBase;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
@@ -27,12 +27,12 @@ public class NumberTextFieldItemValidator extends ValidatorBase
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final TextFieldItem textFieldItem;
+    private final ABTextFieldItem textFieldItem;
     private final int min;
     private final int max;
     private final int maxChars;
     
-    public NumberTextFieldItemValidator(TextFieldItem textFieldItem, int maxChars, int min, int max)
+    public NumberTextFieldItemValidator(ABTextFieldItem textFieldItem, int maxChars, int min, int max)
     {
         this.textFieldItem = textFieldItem;
         

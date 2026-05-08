@@ -18,7 +18,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.form.item.ABCustomItem;
-import org.allbinary.graphics.form.item.CustomItemInterface;
+import org.allbinary.graphics.form.item.ABCustomItemInterface;
 
 public class ScrollCurrentSelectionForm 
 extends ScrollSelectionForm
@@ -67,10 +67,10 @@ extends ScrollSelectionForm
 
             int totalWidth = 0;
 
-            CustomItemInterface item;
+            ABCustomItemInterface item;
             for (int index = 0; index < size; index++)
             {
-                item = (CustomItemInterface) this.get(index);
+                item = (ABCustomItemInterface) this.get(index);
 
                 totalWidth += item.getMinimumWidth() + border;
             }
@@ -162,10 +162,10 @@ extends ScrollSelectionForm
             
             final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
 
-            CustomItemInterface item;
+            ABCustomItemInterface item;
             for (int index = 0; index < size; index++)
             {
-                item = (CustomItemInterface) this.get(index);
+                item = (ABCustomItemInterface) this.get(index);
 
                 int diffX = 0;
                 if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
@@ -225,7 +225,7 @@ extends ScrollSelectionForm
     }
 
     @Override
-    protected int getDiffX(CustomItemInterface item)
+    protected int getDiffX(ABCustomItemInterface item)
     {
         return ((this.maxWidth - item.getMinimumWidth()) >> 1);
     }

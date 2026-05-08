@@ -30,7 +30,7 @@ import org.allbinary.string.CommonSeps;
 
 public class CustomTextBox extends GameCommandCanvas
 {    
-    private final TextFieldItem textFieldItem;
+    private final ABTextFieldItem textFieldItem;
 
     public CustomTextBox(final CommandListener cmdListener, final String label, final String text, 
         final int maxSize, final int constraints,
@@ -41,7 +41,7 @@ public class CustomTextBox extends GameCommandCanvas
 
         final StringUtil stringUtil = StringUtil.getInstance();
         
-        final TextFieldItem textFieldItem = new TextFieldItem(
+        final ABTextFieldItem textFieldItem = new ABTextFieldItem(
             this, new TextItemVisitor(), stringUtil.EMPTY_STRING, 
             stringUtil.EMPTY_STRING, maxSize, 0, 
                 stringUtil.EMPTY_STRING,  font,
@@ -150,7 +150,7 @@ public class CustomTextBox extends GameCommandCanvas
         this.textFieldItem.paint(graphics, x, y);
     }
     
-    public TextFieldItem getTextFieldItem()
+    public ABTextFieldItem getTextFieldItem()
     {
         return this.textFieldItem;
     }

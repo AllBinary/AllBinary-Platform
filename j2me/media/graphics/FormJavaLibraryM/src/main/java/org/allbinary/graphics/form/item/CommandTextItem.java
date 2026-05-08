@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Command;
 
 import org.allbinary.graphics.color.BasicColor;
 
-public class CommandTextItem extends TextItem {
+public class CommandTextItem extends ABTextItem {
 
     private final Command command;
 

@@ -40,14 +40,16 @@ public class MyCanvas extends Canvas
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
     protected final StringUtil stringUtil = StringUtil.getInstance();
     protected final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-
+    
     private final String name;
     private final BasicArrayList childNameList;
     
     private final Stack<Object> commandStack;
     
+    private CommandListener commandListener = NullCommandListener.NULL_COMMAND_LISTENER;
+    
     //private boolean displayed;
-    private boolean isPaused;
+    private boolean paused;
 
 //    public MyCanvas()
 //    {
@@ -123,24 +125,22 @@ public class MyCanvas extends Canvas
             super.removeCommand((Command) this.commandStack.pop());
         }
     }
-    
-    private CommandListener listener = NullCommandListener.NULL_COMMAND_LISTENER;
 
     @Override
     public void setCommandListener(CommandListener l)
     {
         super.setCommandListener(l);
-        this.listener = l;
+        this.commandListener = l;
     }
 
     public CommandListener getCustomCommandListener()
     {
-        return this.listener;
+        return this.commandListener;
     }
 
     public synchronized boolean isPaused()
     {
-        return this.isPaused;
+        return this.paused;
     }
 
     public void removePauseCommand()
@@ -213,7 +213,7 @@ public class MyCanvas extends Canvas
 
     protected void setPaused(boolean isPaused)
     {
-        this.isPaused = isPaused;
+        this.paused = isPaused;
     }
 
     public void keyPressedByDevice(int keyCode, int deviceId)

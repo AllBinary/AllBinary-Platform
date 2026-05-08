@@ -16,7 +16,7 @@ package org.allbinary.game.layer.item;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.graphics.form.item.CustomImageItem;
+import org.allbinary.graphics.form.item.ABCustomImageItem;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.graphics.color.BasicColor;
@@ -26,7 +26,7 @@ import org.allbinary.layer.LayerInterfaceFactoryInterface;
  *
  * @author user
  */
-public class LayerInterfaceFactoryImageItem extends CustomImageItem
+public class LayerInterfaceFactoryImageItem extends ABCustomImageItem
 {
     private final Animation[] animationArray;
     private final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface;

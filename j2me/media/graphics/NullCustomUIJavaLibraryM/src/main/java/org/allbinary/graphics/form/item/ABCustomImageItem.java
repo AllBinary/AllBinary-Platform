@@ -5,11 +5,11 @@ import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.graphics.color.BasicColor;
 
-public class CustomImageItem extends ABCustomItem
+public class ABCustomImageItem extends ABCustomItem
 {
     protected int yOffset = 0;
 
-    public CustomImageItem(String label, Image image, int layout, String altText, BasicColor basicColor, int yOffset) throws Exception
+    public ABCustomImageItem(String label, Image image, int layout, String altText, BasicColor basicColor, int yOffset) throws Exception
     {
         super(label, basicColor, basicColor);
     }

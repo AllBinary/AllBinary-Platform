@@ -18,7 +18,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.color.BasicColor;
 
 public class SelectableTextItem 
-extends TextItem 
+extends ABTextItem
 {
     public SelectableTextItem(String label, int layout, String altText, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {

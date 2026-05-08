@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullCanvas;
 
-import org.allbinary.graphics.form.item.CustomImageItem;
+import org.allbinary.graphics.form.item.ABCustomImageItem;
 import org.allbinary.logic.java.character.CharArrayFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.font.MyFont;
@@ -27,7 +27,7 @@ import org.allbinary.logic.math.PrimitiveLongUtil;
  *
  * @author user
  */
-public class TechnologyRTSInterfaceImageItem extends CustomImageItem
+public class TechnologyRTSInterfaceImageItem extends ABCustomImageItem
 {
     private final MyFont myFont = MyFont.getInstance();
     
