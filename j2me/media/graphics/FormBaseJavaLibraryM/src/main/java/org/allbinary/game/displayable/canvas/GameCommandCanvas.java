@@ -81,10 +81,10 @@ public class GameCommandCanvas
     protected final BasicColor foregroundBasicColor;
     protected final BasicColor backgroundBasicColor;
 
-    private final InputToGameKeyMapping inputToGameKeyMapping = 
+    protected final InputToGameKeyMapping inputToGameKeyMapping =
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
 
-    private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+    protected final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
 
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     

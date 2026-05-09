@@ -53,9 +53,6 @@ implements InputMappingInterface
     protected final ColorFillBasePaintable colorFillPaintable;
     
     private final PersistentInputMapping inputMapping;
-    
-    private final InputToGameKeyMapping inputToGameKeyMapping = 
-        PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
 
     private final GameKey NONE = GameKeyFactory.getInstance().NONE;
     
