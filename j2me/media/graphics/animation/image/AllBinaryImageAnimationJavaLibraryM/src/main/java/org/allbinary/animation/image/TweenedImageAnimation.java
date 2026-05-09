@@ -110,7 +110,7 @@ public class TweenedImageAnimation extends IndexedAnimation //implements AutoClo
         int currentX = this.dx * frame; 
         int currentY = this.dy * frame;
 
-        graphics.drawImage(this.image, x + currentX, y + currentY, anchor);
+        graphics.drawImage(this.image, x + currentX, y + currentY, this.anchor);
     }
  
     public void close() throws Exception {
