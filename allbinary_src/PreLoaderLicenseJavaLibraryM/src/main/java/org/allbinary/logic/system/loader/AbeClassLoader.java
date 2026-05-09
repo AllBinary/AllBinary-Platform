@@ -50,12 +50,12 @@ public class AbeClassLoader extends ClassLoader
         
         //super();
         
-        this.PATH = org.allbinary.globals.URLGLOBALS.getWebappPath() + "WEB-INF/classes/";
+        AbeClassLoader.PATH = org.allbinary.globals.URLGLOBALS.getWebappPath() + "WEB-INF/classes/";
         
       /*
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
       {
-         this.logUtil.putF("Path: " + PATH, this,"AbeClassLoader(key)");
+         this.logUtil.putF("Path: " + AbeClassLoader.PATH, this,"AbeClassLoader(key)");
       }
        */
     }
@@ -68,11 +68,11 @@ public class AbeClassLoader extends ClassLoader
       //super();
       this.key = key;
     
-      this.PATH = allbinary.globals.URLGLOBALS.getWebappPath() + "WEB-INF/classes/";
+      AbeClassLoader.PATH = allbinary.globals.URLGLOBALS.getWebappPath() + "WEB-INF/classes/";
     
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
       {
-         this.logUtil.putF("Path: " + PATH, this,"AbeClassLoader(key)");
+         this.logUtil.putF("Path: " + AbeClassLoader.PATH, this,"AbeClassLoader(key)");
       }
    }
     */
@@ -211,7 +211,7 @@ public class AbeClassLoader extends ClassLoader
         String cname = StringUtil.getInstance().EMPTY_STRING;
         try
         {
-            cname = PATH + name.replace('.', AbPathData.getInstance().SEPARATORCHAR) + this.ENCRYPTED_EXTENSION;
+            cname = AbeClassLoader.PATH + name.replace('.', AbPathData.getInstance().SEPARATORCHAR) + this.ENCRYPTED_EXTENSION;
             
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
@@ -267,7 +267,7 @@ public class AbeClassLoader extends ClassLoader
       FileInputStream in = null;
       try
       {
-         String cname = PATH + name.replace('.', AbPathData.getInstance().SEPARATORCHAR) + ".class";
+         String cname = AbeClassLoader.PATH + name.replace('.', AbPathData.getInstance().SEPARATORCHAR) + ".class";
          in = new FileInputStream(cname);
        
          ByteArrayOutputStream buffer = new ByteArrayOutputStream();

@@ -60,7 +60,7 @@ public class AbPathUtilOld
          throw new Exception("Could not be a file path since its less that 4 characters");
       }
 
-      int beginIndex = filePath.length() - MIN;
+      int beginIndex = filePath.length() - AbPathUtilOld.MIN;
 
       String extension = filePath.substring(beginIndex + 1);
 
@@ -92,7 +92,7 @@ public class AbPathUtilOld
          throw new Exception("Could not be a file path since its less that 4 characters");
       }
 
-      int endIndex = filePath.length() - MIN;
+      int endIndex = filePath.length() - AbPathUtilOld.MIN;
 
       String pathWithoutExtension = filePath.substring(0, endIndex);
 
@@ -172,7 +172,7 @@ public class AbPathUtilOld
       //Convert \ to / I.E. from dos/windows file path to uri/unix path
       if(path.indexOf("\\") >= 0)
       {
-         path = path.replace('\\',abPathData.SEPARATORCHAR);
+         path = path.replace('\\',this.abPathData.SEPARATORCHAR);
       }
       
       /*

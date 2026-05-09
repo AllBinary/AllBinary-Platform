@@ -54,7 +54,7 @@ public class EditValidationStoreFrontView extends StoreFrontComponent implements
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate form",this,this.commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }

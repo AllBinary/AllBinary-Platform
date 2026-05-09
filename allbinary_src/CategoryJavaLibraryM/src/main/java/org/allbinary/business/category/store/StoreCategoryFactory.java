@@ -59,7 +59,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -114,7 +114,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }

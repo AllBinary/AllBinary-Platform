@@ -61,7 +61,7 @@ public class InputProbability
     {
         Hashtable hashtable = new Hashtable();
         
-        hashtable.put(INPUT_PROBABILITY, this);
+        hashtable.put(InputProbability.INPUT_PROBABILITY, this);
         
         return hashtable;
     }

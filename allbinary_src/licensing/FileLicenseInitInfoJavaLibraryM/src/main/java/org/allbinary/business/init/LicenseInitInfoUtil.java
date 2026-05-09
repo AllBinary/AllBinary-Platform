@@ -84,7 +84,7 @@ public class LicenseInitInfoUtil
             // if
             // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
-            this.logUtil.put("Command Failed: " + INITFILENAME, this, "write", e);
+            this.logUtil.put("Command Failed: " + this.INITFILENAME, this, "write", e);
             // }
             FileStreamFactory.getInstance().delete(
                     this.filePath, this.INITFILENAME);
@@ -166,7 +166,7 @@ public class LicenseInitInfoUtil
             }
             else
             {
-                throw new Exception("Could Not Load License InitInfo: " + INITFILENAME);
+                throw new Exception("Could Not Load License InitInfo: " + this.INITFILENAME);
             }
         }
         catch (Exception e)
@@ -176,7 +176,7 @@ public class LicenseInitInfoUtil
                 // if
                 // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER))
                 // {
-                this.logUtil.put("Command Failed: " + INITFILENAME, this, METHOD_NAME, e);
+                this.logUtil.put("Command Failed: " + this.INITFILENAME, this, METHOD_NAME, e);
                 // }
 
                 //Thread.currentThread().sleep(2000);
@@ -194,10 +194,10 @@ public class LicenseInitInfoUtil
                 // if
                 // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
                 // {
-                this.logUtil.put("LicenseInitInfo Read Retry: " + INITFILENAME, this, "readAgain()", e2);
+                this.logUtil.put("LicenseInitInfo Read Retry: " + this.INITFILENAME, this, "readAgain()", e2);
                 // }
             }
-            throw new Exception("LicenseInitInfo Read Error: " + INITFILENAME);
+            throw new Exception("LicenseInitInfo Read Error: " + this.INITFILENAME);
         }
     }
 

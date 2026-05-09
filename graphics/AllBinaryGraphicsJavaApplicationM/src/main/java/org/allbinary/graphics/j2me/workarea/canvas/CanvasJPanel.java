@@ -482,7 +482,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         int xRight = this.getWidth() - xAdjust;
         int yLower = this.getHeight() - yAdjust;
 
-        graphics.setColor(gridColor);
+        graphics.setColor(CanvasJPanel.gridColor);
 
         for (int value = yAdjust; value <= this.getHeight() - yAdjust; value += this.getYPixelsPerWorkAreaPixel())
         {
@@ -501,7 +501,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         {
             if (this.getGrid().isChanged)
             {
-                graphics.setColor(backgroundColor);
+                graphics.setColor(CanvasJPanel.backgroundColor);
                 graphics.fillRect(0, 0, getWidth(), getHeight());
 
                 if (this.getGrid().getZoom() > 2 && this.getGrid().isGridOn && this.getGrid().isGridPossible)
@@ -693,7 +693,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.KEY_PRESSED, e);
         }
 
         if (this.getSelectedTool() != null && this.getSelectedTool().isActive())

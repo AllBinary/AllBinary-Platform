@@ -71,7 +71,7 @@ public class WorkFlowRequestHelper extends ModifyTable
             //this.workFlowInterface.getStoreName();
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               this.logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
+               this.logUtil.put(this.commonStrings.EXCEPTION,this,"delete()",e);
             }
             throw new Exception(e);
          }
@@ -81,7 +81,7 @@ public class WorkFlowRequestHelper extends ModifyTable
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               this.logUtil.put(commonStrings.EXCEPTION, this, "delete()", e2);
+               this.logUtil.put(this.commonStrings.EXCEPTION, this, "delete()", e2);
             }
             return error;
          }         
@@ -109,7 +109,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          String error = "Failed to add User";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"add()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"add()",e);
          }
          return error;
       }
@@ -136,7 +136,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          String error = "Failed to update WorkFlow";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

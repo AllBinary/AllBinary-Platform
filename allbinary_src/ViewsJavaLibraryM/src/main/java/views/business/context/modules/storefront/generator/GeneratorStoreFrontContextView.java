@@ -64,7 +64,7 @@ public class GeneratorStoreFrontContextView extends HttpStoreComponentView
          //String error = "Failed To Generate StoreFront Context";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }

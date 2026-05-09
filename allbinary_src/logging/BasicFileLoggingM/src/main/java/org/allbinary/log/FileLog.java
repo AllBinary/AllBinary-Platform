@@ -61,7 +61,7 @@ public class FileLog
             raFile.seek(raFile.length());
             FileLog.fileOut = new BufferedWriter(new FileWriter(raFile.getFD()));
          }
-         boolean canWrite = logFile.canWrite();         
+         boolean canWrite = FileLog.logFile.canWrite();         
          return canWrite;
       }
       catch (Exception e)
@@ -138,7 +138,7 @@ public class FileLog
             }
          }
          
-         long length = logFile.length();
+         long length = FileLog.logFile.length();
          if (length > FileLog.logLength)
          {
             if (!(createLogFileBackup()) || createLogFile()==false)
@@ -160,7 +160,7 @@ public class FileLog
          FileLog.fileOut.write(message, 0, message.length());
          FileLog.fileOut.newLine();
          FileLog.fileOut.flush();
-         return new String(ORG_ALLBINARY + message);
+         return new String(FileLog.ORG_ALLBINARY + message);
       }
       catch (Exception e)
       {
@@ -193,7 +193,7 @@ public class FileLog
             }
          }
          
-         long length = logFile.length();
+         long length = FileLog.logFile.length();
          if (length > FileLog.logLength)
          {
             if (!(createLogFileBackup()) || createLogFile()==false)
@@ -212,7 +212,7 @@ public class FileLog
          FileLog.fileOut.newLine();
          FileLog.fileOut.flush();
          
-         return new String(ORG_ALLBINARY + message);
+         return new String(FileLog.ORG_ALLBINARY + message);
       }
       catch (Exception e)
       {

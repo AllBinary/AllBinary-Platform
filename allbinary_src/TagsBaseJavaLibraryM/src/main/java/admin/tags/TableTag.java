@@ -156,7 +156,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "create()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "create()", e);
             }
 
             return error;
@@ -181,7 +181,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "restore()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "restore()", e);
             }
 
             return error;
@@ -206,7 +206,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "backup()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "backup()", e);
             }
 
             return error;
@@ -228,7 +228,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "insert()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "insert()", e);
             }
             return error;
         }
@@ -249,7 +249,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "delete()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "delete()", e);
             }
             return error;
         }
@@ -276,7 +276,7 @@ public class TableTag extends PropertiesTag
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
-    this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+    this.logUtil.put(this.commonStrings.EXCEPTION,this,"view()",e);
     }
     return error;
     }
@@ -302,7 +302,7 @@ public class TableTag extends PropertiesTag
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
-    this.logUtil.put(commonStrings.EXCEPTION,this,"editPricing()",e);
+    this.logUtil.put(this.commonStrings.EXCEPTION,this,"editPricing()",e);
     }
     return error;
     }
@@ -323,7 +323,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "update()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "update()", e);
             }
             return error;
         }
@@ -345,20 +345,20 @@ public class TableTag extends PropertiesTag
                 stringBuffer.append(" Request URI: ");
                 stringBuffer.append(request.getRequestURI());
 
-                this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
+                this.logUtil.putF(stringBuffer.toString(), this, this.tagStrings.DO_START_TAG);
             }
 
             if (this.getTagRequestHelperFactoryInterface() != null)
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                 {
-                    this.logUtil.putF("TableTag RequestHelper: " + this.getTagRequestHelperFactoryInterface().getClass().getName(), this, tagStrings.DO_START_TAG);
+                    this.logUtil.putF("TableTag RequestHelper: " + this.getTagRequestHelperFactoryInterface().getClass().getName(), this, this.tagStrings.DO_START_TAG);
                 }
             } else
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                 {
-                this.logUtil.putF("TableTag RequestHelper: null", this, tagStrings.DO_START_TAG);
+                this.logUtil.putF("TableTag RequestHelper: null", this, this.tagStrings.DO_START_TAG);
                 }
             }
 
@@ -378,7 +378,7 @@ public class TableTag extends PropertiesTag
                     //object Holds InventoryRequestHelper because the multipart processing makes
                     //the request object work only once for getInputStream()
 
-                    if (this.getCommand().compareTo(commonStrings.INSERT) == 0 ||
+                    if (this.getCommand().compareTo(this.commonStrings.INSERT) == 0 ||
                             this.getCommand().compareTo(SqlStrings.getInstance().INSERT_INTO)==0 || 
                             this.getCommand().compareTo(commonStrings.DELETE) == 0 || 
                             this.getCommand().compareTo(commonStrings.UPDATE) == 0 ||
@@ -388,7 +388,7 @@ public class TableTag extends PropertiesTag
                             this.getPropertiesHashMap(), pageContext);
                     }
 
-                    if (this.getCommand().compareTo(commonStrings.INSERT) == 0 || 
+                    if (this.getCommand().compareTo(this.commonStrings.INSERT) == 0 || 
                             this.getCommand().compareTo(SqlStrings.getInstance().INSERT_INTO)==0) {
                         this.insert();
                     } else if (this.getCommand().compareTo(commonStrings.DELETE) == 0) {

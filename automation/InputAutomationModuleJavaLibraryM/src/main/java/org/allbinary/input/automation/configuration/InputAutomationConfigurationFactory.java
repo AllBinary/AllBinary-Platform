@@ -58,7 +58,7 @@ public class InputAutomationConfigurationFactory
             final List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList = 
                     InputAutomationConfigurationFactory.inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
             
-            logUtil.putF("isInstalled: " + inputAutomationConfiguration.isInstalled(), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
+            logUtil.putF("isInstalled: " + InputAutomationConfigurationFactory.inputAutomationConfiguration.isInstalled(), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
 
             final int size = inputAutomationModuleConfigurationList.size();
             InputAutomationModuleConfiguration inputAutomationModuleConfiguration;

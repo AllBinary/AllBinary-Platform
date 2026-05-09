@@ -112,7 +112,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
             (GeographicMapCompositeInterface) this.gameCanvas.getLayerManager();
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
-        this.scrollPlayerGameInput = new ScrollMapPlayerGameInput(geographicMapInterface, this.inputList, this.playerInputId);
+        this.scrollPlayerGameInput = new ScrollMapPlayerGameInput(geographicMapInterface, this.inputList, playerInputId);
         
         // this.currentPlayerGameInput = this.scrollPlayerGameInput;
 

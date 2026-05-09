@@ -95,7 +95,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
       this.inputAutomationModuleFactory = new InputAutomationModuleFactoryFactory(this);
 
-      (new JListSwingWorker(this.inputAutomationModuleJList, inputAutomationModuleFactory.getListModel())).execute();
+      (new JListSwingWorker(this.inputAutomationModuleJList, this.inputAutomationModuleFactory.getListModel())).execute();
 
       this.gameRobotJTabbedPane.setEnabledAt(1, false);
       this.gameRobotJTabbedPane.setSelectedIndex(0);

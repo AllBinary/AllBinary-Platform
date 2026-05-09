@@ -272,8 +272,8 @@ public class AllMotionRectangles extends MotionRectangles
             " pixelDeltasInTheSameRow.size(): " + pixelDeltasInTheSameRow.size(), this, "isPixelDeltaLikelyPartOfMotionRectangle");
          */
         
-        if(horizontalDistance < MAX_PIXEL_DISTANCE_THRESHOLD &&
-            verticalDistance < MAX_PIXEL_DISTANCE_THRESHOLD)
+        if(horizontalDistance < this.MAX_PIXEL_DISTANCE_THRESHOLD &&
+            verticalDistance < this.MAX_PIXEL_DISTANCE_THRESHOLD)
         {
             return true;
         }

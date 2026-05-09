@@ -71,7 +71,7 @@ public class TagWorkFlowFactory
                 stringBuffer.append("Failed To Get Instance: ");
                 stringBuffer.append(workFlowClassName);
                 stringBuffer.append("->");
-                stringBuffer.append(instance.getClass().getName());
+                stringBuffer.append(TagWorkFlowFactory.instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
@@ -89,7 +89,7 @@ public class TagWorkFlowFactory
                 stringBuffer.append("Failed To Get Instance: ");
                 stringBuffer.append(workFlowClassName);
                 stringBuffer.append("->");
-                stringBuffer.append(instance.getClass().getName());
+                stringBuffer.append(TagWorkFlowFactory.instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);

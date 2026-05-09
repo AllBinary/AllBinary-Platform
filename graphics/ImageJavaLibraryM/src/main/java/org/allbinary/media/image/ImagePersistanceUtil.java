@@ -301,7 +301,7 @@ public class ImagePersistanceUtil {
         {
             if (ios != null)
             {
-                this.logUtil.putF(ios.toString(), ios, commonStrings.CLOSE);
+                this.logUtil.putF(ios.toString(), ios, this.commonStrings.CLOSE);
                 ios.close();
             }
         } catch (Exception e)

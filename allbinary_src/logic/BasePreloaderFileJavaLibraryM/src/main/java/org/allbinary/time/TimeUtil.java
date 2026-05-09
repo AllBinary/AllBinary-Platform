@@ -87,13 +87,13 @@ public class TimeUtil
         String minuteString,
         String secondString)
     {
-        long time = calendar.getTimeInMillis();
+        long time = TimeUtil.calendar.getTimeInMillis();
 
         this.setExpirationCalendar(calendar,
             yearString, monthString, dayString,
             hourString, minuteString, secondString);
 
-        long timeDelta = calendar.getTimeInMillis();
+        long timeDelta = TimeUtil.calendar.getTimeInMillis();
 
         return timeDelta - time;
     }

@@ -158,7 +158,7 @@ public class StoreFrontsHelper extends BasicTable
                 StoreFrontData.getInstance().SELECTSTORENAME, 
                 StringUtil.getInstance().EMPTY_STRING);
 
-            storeSelect.addAttribute(CLASS, TEXT);
+            storeSelect.addAttribute(StoreFrontsHelper.CLASS, StoreFrontsHelper.TEXT);
 
             final int size = storeNamesVector.size();
             for (int index = 0; index < size; index++)

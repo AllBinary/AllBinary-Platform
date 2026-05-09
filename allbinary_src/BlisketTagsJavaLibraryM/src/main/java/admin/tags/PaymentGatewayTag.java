@@ -49,14 +49,14 @@ public class PaymentGatewayTag extends TableTag
       }
       catch(LicensingException e)
       {
-         this.logUtil.put("LicensingException",this,commonStrings.PROCESS,e);
+         this.logUtil.put("LicensingException",this,this.commonStrings.PROCESS,e);
          throw e;
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,this.commonStrings.PROCESS,e);
          }
          throw e;
       }

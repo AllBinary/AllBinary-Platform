@@ -58,7 +58,7 @@ public class NewCssValidationView extends CssCustomizerView implements Validatio
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate",this,this.commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }

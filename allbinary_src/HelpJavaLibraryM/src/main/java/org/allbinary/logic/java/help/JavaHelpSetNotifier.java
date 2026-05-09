@@ -35,8 +35,8 @@ public class JavaHelpSetNotifier
     {
         boolean isNotified = false;
         URL url = helpSet.getHelpSetURL();
-        int size = vector.size();
-        Object[] urlArray = vector.toArray();
+        int size = JavaHelpSetNotifier.vector.size();
+        Object[] urlArray = JavaHelpSetNotifier.vector.toArray();
         for (int i = 0; i < size; i++)
         {
             URL nextURL = (URL) urlArray[i];

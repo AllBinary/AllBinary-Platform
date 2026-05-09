@@ -56,7 +56,7 @@ public class CanvasTrimUtil {
             subBufferedImageArray[index] = bufferedImage.getSubimage(cutCanvasFromLeftReduction, cutCanvasFromTopReduction, 
                 bufferedImage.getWidth() - cutCanvasFromLeftReduction - cutCanvasFromRightReduction, bufferedImage.getHeight() - cutCanvasFromTopReduction - cutCanvasFromBottomReduction);
 
-            visitor.visit(subBufferedImageArray[index], stringUtil.EMPTY_STRING, index);
+            visitor.visit(subBufferedImageArray[index], this.stringUtil.EMPTY_STRING, index);
             
         }
         

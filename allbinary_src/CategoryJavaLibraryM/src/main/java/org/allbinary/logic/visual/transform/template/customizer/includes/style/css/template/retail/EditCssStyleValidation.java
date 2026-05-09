@@ -68,7 +68,7 @@ public class EditCssStyleValidation extends CssStyleValidation
 
       styleNode.appendChild(new ColorsView().toXmlNode(document));
 
-      int size = cssStyleElementVector.size();
+      int size = this.cssStyleElementVector.size();
       for (int i = 0; i < size; i++)
       {
          DomNodeInterface styleDomNodeInterface = (DomNodeInterface) cssStyleElementVector.get(i);

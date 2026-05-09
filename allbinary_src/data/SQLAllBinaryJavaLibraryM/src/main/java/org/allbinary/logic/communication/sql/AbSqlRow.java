@@ -92,11 +92,11 @@ public class AbSqlRow extends AbSqlColumn
                     columnValue = this.stringUtil.EMPTY_STRING;
                 } else
                 {
-                    columnValue = new Replace(sqlStrings.CLOSE_QUOTE, ESCAPE_QUOTES).all(columnValue);
+                    columnValue = new Replace(this.sqlStrings.CLOSE_QUOTE, this.ESCAPE_QUOTES).all(columnValue);
                 }
 
                 stringBuffer.append(this.getValue(columnValue));
-                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+                stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
                 if (i < size - 1)
                 {
@@ -104,19 +104,19 @@ public class AbSqlRow extends AbSqlColumn
                 }
             }
 
-            stringBuffer.append(sqlStrings.WHERE);
+            stringBuffer.append(this.sqlStrings.WHERE);
             stringBuffer.append(key);
-            stringBuffer.append(sqlStrings.EQUAL_QUOTE);
+            stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
 
             stringBuffer.append(this.getValue(value));
-            stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+            stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
             final String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, METHOD_UPDATE_WHERE);
+                this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_UPDATE_WHERE);
             }
         } catch (Exception e)
         {
@@ -148,7 +148,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.putF(this.COLUMN_NAME_LABEL + columnName, this, METHOD_UPDATE_WHERE);
+                    this.logUtil.putF(this.COLUMN_NAME_LABEL + columnName, this, this.METHOD_UPDATE_WHERE);
                 }
 
                 String columnValue = (String) updatedKeyValuePairs.get(columnName);
@@ -158,11 +158,11 @@ public class AbSqlRow extends AbSqlColumn
                     columnValue = this.stringUtil.EMPTY_STRING;
                 } else
                 {
-                    columnValue = new Replace(sqlStrings.CLOSE_QUOTE, this.ESCAPE_QUOTES).all(columnValue);
+                    columnValue = new Replace(this.sqlStrings.CLOSE_QUOTE, this.ESCAPE_QUOTES).all(columnValue);
                 }
 
                 stringBuffer.append(this.getValue(columnValue));
-                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+                stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
                 if (i < size - 1)
                 {
@@ -170,7 +170,7 @@ public class AbSqlRow extends AbSqlColumn
                 }
             }
 
-            stringBuffer.append(sqlStrings.WHERE);
+            stringBuffer.append(this.sqlStrings.WHERE);
 
             final Set set = whereKeyValuePairs.keySet();
             final Object[] keyArray2 = set.toArray();
@@ -182,14 +182,14 @@ public class AbSqlRow extends AbSqlColumn
                 //if(value!=null && value.compareTo("null")!=0)
                 {
                     stringBuffer.append(key);
-                    stringBuffer.append(sqlStrings.EQUAL_QUOTE);
+                    stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
 
                     stringBuffer.append(this.getValue(value));
-                    stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+                    stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
                     if (i < size2 - 1)
                     {
-                        stringBuffer.append(sqlStrings.AND);
+                        stringBuffer.append(this.sqlStrings.AND);
                     }
                 }
             }
@@ -199,7 +199,7 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, METHOD_UPDATE_WHERE);
+                this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_UPDATE_WHERE);
             }
         } catch (Exception e)
         {
@@ -218,11 +218,11 @@ public class AbSqlRow extends AbSqlColumn
         stringBuffer.append(this.sqlStrings.DELETE);
         stringBuffer.append(this.sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(sqlStrings.WHERE);
+        stringBuffer.append(this.sqlStrings.WHERE);
         stringBuffer.append(key);
-        stringBuffer.append(sqlStrings.EQUAL_QUOTE);
+        stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
         stringBuffer.append(value);
-        stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+        stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
         try
         {
@@ -318,7 +318,7 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, INSERT);
+                this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.INSERT);
             }
         } catch (Exception e)
         {
@@ -335,7 +335,7 @@ public class AbSqlRow extends AbSqlColumn
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(sqlStrings.WHERE);
+        stringBuffer.append(this.sqlStrings.WHERE);
 
         try
         {
@@ -350,14 +350,14 @@ public class AbSqlRow extends AbSqlColumn
                 final String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
-                stringBuffer.append(sqlStrings.EQUAL_QUOTE);
+                stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
 
                 stringBuffer.append(this.getValue(value));
-                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+                stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
                 if (index < size - 1)
                 {
-                    stringBuffer.append(sqlStrings.AND);
+                    stringBuffer.append(this.sqlStrings.AND);
                 }
             }
 
@@ -365,7 +365,7 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.putF(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, this.METHOD_GET_ROW);
+                this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, this.METHOD_GET_ROW);
             }
 
             final ResultSet rset = this.executeSQLStatement(sqlStatement);
@@ -416,7 +416,7 @@ public class AbSqlRow extends AbSqlColumn
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(sqlStrings.WHERE);
+        stringBuffer.append(this.sqlStrings.WHERE);
 
         try
         {
@@ -431,20 +431,20 @@ public class AbSqlRow extends AbSqlColumn
                 final String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
-                stringBuffer.append(sqlStrings.EQUAL_QUOTE);
+                stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
 
                 stringBuffer.append(this.getValue(value));
-                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+                stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
                 if (index < size - 1)
                 {
-                    stringBuffer.append(sqlStrings.AND);
+                    stringBuffer.append(this.sqlStrings.AND);
                 }
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-            	this.logUtil.putF(sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ROWS);
+            	this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ROWS);
             }
 
             stringBuffer.append(more);
@@ -495,7 +495,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.putF(sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ALL_ROWS);
+                this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ALL_ROWS);
             }
 
             final Vector rows = new Vector();
@@ -539,9 +539,9 @@ public class AbSqlRow extends AbSqlColumn
         StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(this.sqlStrings.SELECT_ALL);
-        stringBuffer.append(sqlStrings.FROM);
+        stringBuffer.append(this.sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(sqlStrings.WHERE);
+        stringBuffer.append(this.sqlStrings.WHERE);
 
         try
         {
@@ -555,14 +555,14 @@ public class AbSqlRow extends AbSqlColumn
                 String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
-                stringBuffer.append(sqlStrings.EQUAL_QUOTE);
+                stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
 
                 stringBuffer.append(this.getValue(value));
-                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+                stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
                 if (iter.hasNext() && likeKeysAndValues.size() == 0)
                 {
-                    stringBuffer.append(sqlStrings.AND);
+                    stringBuffer.append(this.sqlStrings.AND);
                 }
             }
 
@@ -578,11 +578,11 @@ public class AbSqlRow extends AbSqlColumn
                 stringBuffer.append(this.sqlStrings.LIKE_QUOTE);
 
                 stringBuffer.append(this.getValue(value));
-                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+                stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
                 if (iter.hasNext())
                 {
-                    stringBuffer.append(sqlStrings.AND);
+                    stringBuffer.append(this.sqlStrings.AND);
                 }
             }
 
@@ -590,7 +590,7 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.putF(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, "getRowsWhereLike");
+                this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, "getRowsWhereLike");
             }
 
             ResultSet rset = this.executeSQLStatement(sqlStatement);
@@ -637,7 +637,7 @@ public class AbSqlRow extends AbSqlColumn
         try
         {
             final Vector rows = new Vector();
-            stringBuffer.append(sqlStrings.WHERE);
+            stringBuffer.append(this.sqlStrings.WHERE);
             final Set set = whereKeyValuePairs.keySet();
             
             String key;
@@ -651,27 +651,27 @@ public class AbSqlRow extends AbSqlColumn
                 value = (String) whereKeyValuePairs.get(key);
 
                 stringBuffer.append(key);
-                stringBuffer.append(sqlStrings.EQUAL_QUOTE);
+                stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
                 stringBuffer.append(this.getValue(value));
-                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
-                stringBuffer.append(sqlStrings.AND);
+                stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
+                stringBuffer.append(this.sqlStrings.AND);
             }
 
             stringBuffer.append(betweenColumn);
             stringBuffer.append(this.sqlStrings.MORE_THAN_QUOTE);
             stringBuffer.append(smallest);
-            stringBuffer.append(sqlStrings.CLOSE_QUOTE);
-            stringBuffer.append(sqlStrings.AND);
+            stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
+            stringBuffer.append(this.sqlStrings.AND);
             stringBuffer.append(betweenColumn);
             stringBuffer.append(this.sqlStrings.LESS_THAN_QUOTE);
             stringBuffer.append(largest);
-            stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+            stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
             final String sqlStatement = stringBuffer.toString();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.putF(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, METHOD_GET_ROWS_WHERE_BETWEEN);
+                this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, this.METHOD_GET_ROWS_WHERE_BETWEEN);
             }
 
             final ResultSet rset = this.executeSQLStatement(sqlStatement);
@@ -697,7 +697,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, METHOD_GET_ROWS_WHERE_BETWEEN);
+                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, this.METHOD_GET_ROWS_WHERE_BETWEEN);
                 }
                 rows.add(result);
             }
@@ -722,22 +722,22 @@ public class AbSqlRow extends AbSqlColumn
         try
         {
             final Vector rows = new Vector();
-            stringBuffer.append(sqlStrings.WHERE);
+            stringBuffer.append(this.sqlStrings.WHERE);
             stringBuffer.append(betweenColumn);
             stringBuffer.append(this.sqlStrings.MORE_THAN_QUOTE);
             stringBuffer.append(smallest);
-            stringBuffer.append(sqlStrings.CLOSE_QUOTE);
-            stringBuffer.append(sqlStrings.AND);
+            stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
+            stringBuffer.append(this.sqlStrings.AND);
             stringBuffer.append(betweenColumn);
             stringBuffer.append(this.sqlStrings.LESS_THAN_QUOTE);
             stringBuffer.append(largest);
-            stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+            stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
             final String sqlStatement = stringBuffer.toString();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.putF(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, METHOD_GET_ROWS_WHERE_BETWEEN);
+                this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, this.METHOD_GET_ROWS_WHERE_BETWEEN);
             }
 
             final ResultSet rset = this.executeSQLStatement(sqlStatement);
@@ -762,7 +762,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, METHOD_GET_ROWS_WHERE_BETWEEN);
+                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, this.METHOD_GET_ROWS_WHERE_BETWEEN);
                 }
                 rows.add(result);
             }

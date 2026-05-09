@@ -62,7 +62,7 @@ public class ValidationTransformTag extends TransformTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.IS_VALID,e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,this.commonStrings.IS_VALID,e);
          }
          throw e;
       }
@@ -83,7 +83,7 @@ public class ValidationTransformTag extends TransformTag
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"validationInfo()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"validationInfo()",e);
          }
          throw e;
       }

@@ -28,7 +28,7 @@ public class FileItemUtil {
     public String getString(byte[] byteArray)
         throws Exception
     {
-        return new String(byteArray, DEFAULT_CHARSET);
+        return new String(byteArray, this.DEFAULT_CHARSET);
     }
 
     public String getString(FileItemStream fileItem)

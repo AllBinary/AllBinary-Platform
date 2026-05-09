@@ -43,6 +43,6 @@ public class CustomLoaderHelperFactory implements TagHelperFactoryInterface
    public Object getInstance(final AbeClientInformationInterface abeClientInformation) 
       throws LicensingException
    {
-      return HelperFactory.getInstance(abeClientInformation, FACTORYNAME, CLASSNAME);
+      return HelperFactory.getInstance(abeClientInformation, FACTORYNAME, CustomLoaderHelperFactory.CLASSNAME);
    }
 }

@@ -85,7 +85,7 @@ public class HtmlTable extends HtmlTag
    {
       final StringUtil stringUtil = StringUtil.getInstance();
       String result = stringUtil.EMPTY_STRING;
-      Object[] attributeKeys = otherAttributes.keySet().toArray();
+      Object[] attributeKeys = this.otherAttributes.keySet().toArray();
       result = this.before;
       result += this.START;
       result += " ";      

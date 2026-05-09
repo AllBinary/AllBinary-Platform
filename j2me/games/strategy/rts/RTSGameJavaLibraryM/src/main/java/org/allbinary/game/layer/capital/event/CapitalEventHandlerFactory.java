@@ -27,7 +27,7 @@ public class CapitalEventHandlerFactory {
     
     static
     {
-        CapitalEventHandlerFactory.capitalEventHandlerArray = new CapitalEventHandler[10];
+        capitalEventHandlerArray = new CapitalEventHandler[10];
         
         for(int index = CapitalEventHandlerFactory.capitalEventHandlerArray.length - 1; index >= 0; index--)
         {

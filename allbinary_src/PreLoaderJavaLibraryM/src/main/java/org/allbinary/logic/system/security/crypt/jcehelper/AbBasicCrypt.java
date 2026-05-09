@@ -79,7 +79,7 @@ public class AbBasicCrypt implements CryptInterface
       {         
          this.cipher.init(Cipher.ENCRYPT_MODE, secretKey);
          
-         byte[] ivArray = secretKey.getEncoded();
+         byte[] ivArray = this.secretKey.getEncoded();
          byte[] encrypted = this.cipher.doFinal(array);
          byte[] result = new byte[ivArray.length + encrypted.length];
 

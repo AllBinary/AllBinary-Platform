@@ -88,7 +88,7 @@ public class QuoteRequestHelper
          String error = "Failed to add QuoteRequest";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "add()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "add()", e);
          }
          return error;
       }
@@ -116,7 +116,7 @@ public class QuoteRequestHelper
          String error = "Failed to update QuoteRequest";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

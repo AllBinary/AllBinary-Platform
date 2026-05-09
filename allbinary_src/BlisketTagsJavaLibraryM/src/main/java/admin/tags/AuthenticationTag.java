@@ -93,7 +93,7 @@ public class AuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "changePassword()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "changePassword()", e);
             }
             return false;
         }
@@ -118,7 +118,7 @@ public class AuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "newPassword()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "newPassword()", e);
             }
             return false;
         }
@@ -143,7 +143,7 @@ public class AuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "invalidateSession()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "invalidateSession()", e);
             }
             return TagSupport.SKIP_BODY;
         }
@@ -168,7 +168,7 @@ public class AuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "isSessionOld()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "isSessionOld()", e);
             }
             return false;
         }
@@ -204,7 +204,7 @@ public class AuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "isRoleValid()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "isRoleValid()", e);
             }
             return false;
         }
@@ -230,7 +230,7 @@ public class AuthenticationTag extends CustomTagSupport
             String error = "Failed to set valid role";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "validRole()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "validRole()", e);
             }
             return error;
         }
@@ -256,7 +256,7 @@ public class AuthenticationTag extends CustomTagSupport
             String error = "Failed to set role invalid";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "invalidRole()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "invalidRole()", e);
             }
             return error;
         }
@@ -290,7 +290,7 @@ public class AuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "isAuthenticationSessionValid()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "isAuthenticationSessionValid()", e);
             }
             return false;
         }
@@ -326,7 +326,7 @@ public class AuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "processIfNewLogin()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "processIfNewLogin()", e);
             }
             return false;
         }
@@ -351,7 +351,7 @@ public class AuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "isSetToInvalidate()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "isSetToInvalidate()", e);
             }
             return false;
         }

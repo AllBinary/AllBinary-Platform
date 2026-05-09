@@ -54,7 +54,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append("Creating WorkFlow: ");
                 stringBuffer.append(workFlowClassName);
                 stringBuffer.append("->");
-                stringBuffer.append(instance.getClass().getName());
+                stringBuffer.append(StoreTagWorkFlowFactory.instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
@@ -84,7 +84,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append("Error Creating WorkFlow: ");
                 stringBuffer.append(workFlowClassName);
                 stringBuffer.append("->");
-                stringBuffer.append(instance.getClass().getName());
+                stringBuffer.append(StoreTagWorkFlowFactory.instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
@@ -102,7 +102,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append("Error Creating WorkFlow: ");
                 stringBuffer.append(workFlowClassName);
                 stringBuffer.append("->");
-                stringBuffer.append(instance.getClass().getName());
+                stringBuffer.append(StoreTagWorkFlowFactory.instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);

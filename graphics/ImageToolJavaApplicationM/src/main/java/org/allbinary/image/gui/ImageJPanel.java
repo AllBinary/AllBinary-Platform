@@ -40,7 +40,7 @@ public class ImageJPanel extends javax.swing.JPanel {
 
     public void paint(Graphics graphics) {
         if (!this.isDrawn) {
-            this.logUtil.putF(this.commonStrings.START, this, canvasStrings.PAINT);
+            this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.PAINT);
 
             graphics.drawImage(bufferedImage, 0, 0,
                     this.bufferedImage.getWidth(null),

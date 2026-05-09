@@ -52,7 +52,7 @@ public class UpdateValidationStoreFrontView extends StoreFrontComponent implemen
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate form",this,this.commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -69,7 +69,7 @@ public class UpdateValidationStoreFrontView extends StoreFrontComponent implemen
             stringBuffer.append(this.newStoreFrontInterface.validationInfo());
          }         
          
-         if(StoreFrontFactory.getInstance(newStoreFrontInterface.getName())==null)
+         if(StoreFrontFactory.getInstance(this.newStoreFrontInterface.getName())==null)
          {
             stringBuffer.append("Store does not exist<br>");
          }

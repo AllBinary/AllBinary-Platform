@@ -42,7 +42,7 @@ public class ValidationView extends ShippingAddressesView implements ValidationC
          return Boolean.FALSE;
       }
 
-      final int size = streetAddressList.size();
+      final int size = this.streetAddressList.size();
       for(int index = 0; index < size; index++)
       {
          StreetAddress streetAddress = (StreetAddress) streetAddressList.get(index);

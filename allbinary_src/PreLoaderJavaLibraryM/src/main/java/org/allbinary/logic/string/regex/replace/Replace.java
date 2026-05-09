@@ -157,7 +157,7 @@ public class Replace
       if(totalNumberOfReplaces > 0) {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
       {
-         this.logUtil.putF("Total Number Of Replaces: " + totalNumberOfReplaces, this, ALL);
+         this.logUtil.putF("Total Number Of Replaces: " + totalNumberOfReplaces, this, this.ALL);
       }
       }
       
@@ -225,7 +225,7 @@ public class Replace
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
       {
-         this.logUtil.putF("Total Number Of Replaces: " + totalNumberOfReplaces, this, ALL);
+         this.logUtil.putF("Total Number Of Replaces: " + totalNumberOfReplaces, this, this.ALL);
       }
       
       return replace;

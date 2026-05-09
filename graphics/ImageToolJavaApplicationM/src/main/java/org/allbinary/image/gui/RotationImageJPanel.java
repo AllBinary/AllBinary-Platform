@@ -144,7 +144,7 @@ public class RotationImageJPanel extends javax.swing.JPanel
          }
       });
 
-      this.totalAngleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { commonStrings.UP, commonStrings.DOWN, "-90", "90" }));
+      this.totalAngleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { this.commonStrings.UP, this.commonStrings.DOWN, "-90", "90" }));
       this.totalAngleJComboBox.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             totalAngleJComboBoxActionPerformed(evt);

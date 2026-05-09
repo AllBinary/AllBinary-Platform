@@ -102,7 +102,7 @@ public class BasketRequestHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"addItemToBasket()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"addItemToBasket()",e);
          }
          return Boolean.FALSE;
       }
@@ -127,7 +127,7 @@ public class BasketRequestHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"removeItemFromBasket()",e);
          }
          return Boolean.FALSE;
       }
@@ -148,7 +148,7 @@ public class BasketRequestHelper
             String nextId = BasicItemData.ID + new Integer(index).toString();
             String nextNum = BasicItemData.ITEMTOTALINBASKET + new Integer(index).toString();
             this.id = this.request.getParameter(nextId);
-            num = this.request.getParameter(nextNum);
+            this.num = this.request.getParameter(nextNum);
             index++;
          }
          */
@@ -163,7 +163,7 @@ public class BasketRequestHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"adjustBasket()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"adjustBasket()",e);
          }
          return Boolean.FALSE;
       }

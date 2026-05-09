@@ -201,7 +201,7 @@ public class OrderHelper
     {
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
-    this.logUtil.put(commonStrings.EXCEPTION,this,"authorizeOrder()",e);
+    this.logUtil.put(this.commonStrings.EXCEPTION,this,"authorizeOrder()",e);
     }
     return Boolean.FALSE;
     }

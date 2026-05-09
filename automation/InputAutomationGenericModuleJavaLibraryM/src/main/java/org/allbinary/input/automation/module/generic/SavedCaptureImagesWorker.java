@@ -57,7 +57,7 @@ public class SavedCaptureImagesWorker
         this.savedCaptureGenericProfileDataWorkerType = 
             savedCaptureGenericProfileDataWorkerType;
         this.screenScavangerRobot = new ScreenScavangerRobot();
-        index = ProcessingFrameIndexFactory.next();
+        SavedCaptureImagesWorker.index = ProcessingFrameIndexFactory.next();
     }
     
     public void setThread(Thread thread)throws Exception

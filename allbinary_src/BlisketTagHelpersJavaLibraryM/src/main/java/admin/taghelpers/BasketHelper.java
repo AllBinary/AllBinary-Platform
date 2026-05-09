@@ -72,7 +72,7 @@ public class BasketHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"isBasketEmpty()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"isBasketEmpty()",e);
          }
          return Boolean.TRUE;         
       }

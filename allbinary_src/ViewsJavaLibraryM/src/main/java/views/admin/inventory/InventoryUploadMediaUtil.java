@@ -470,7 +470,7 @@ public class InventoryUploadMediaUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
     {
-    this.logUtil.putF(commonStrings.END, this, "saveFiles()");
+    this.logUtil.putF(this.commonStrings.END, this, "saveFiles()");
     }
     return this.itemInterface;
     }

@@ -33,7 +33,7 @@ public class BasicArrayListPool extends AbstractArrayListPool
       int size = this.buffers.size();
       if(size > 0)
       {
-          return (CacheableInterface) buffers.removeAt(size - 1);
+          return (CacheableInterface) this.buffers.removeAt(size - 1);
       }
       else
       {
@@ -42,11 +42,11 @@ public class BasicArrayListPool extends AbstractArrayListPool
       
       /*
     if (pos < 0) {
-      buffers.add(this.cacheableInterfaceFactoryInterface.getInstance(key));
+      this.buffers.add(this.cacheableInterfaceFactoryInterface.getInstance(key));
       pos = 0;
     }
 
-    return (CacheableInterface) buffers.remove(pos--);
+    return (CacheableInterface) this.buffers.remove(pos--);
     */
   }
 

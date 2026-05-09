@@ -25,11 +25,11 @@ public class PointFactory
     
     public static Point getInstance(int x, int y)
     {
-        Point point = pointArray[x][y];
+        Point point = PointFactory.pointArray[x][y];
 
         if(point == null)
         {
-            point = pointArray[x][y] = new Point(x, y);
+            point = PointFactory.pointArray[x][y] = new Point(x, y);
         }
         
         return point;

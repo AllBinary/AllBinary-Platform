@@ -167,7 +167,7 @@ public class AbPath
       {
          stringBuffer.append(this.schema);
          //unix/networke schema sep
-         stringBuffer.append(NETWORK_SEP);
+         stringBuffer.append(AbPath.NETWORK_SEP);
          //TWB - Schema OS issue?
          //stringBuffer.append(FilePathData.SEPARATOR);
 

@@ -35,7 +35,7 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
 
     public ScreenCaptureImagesWorker() throws Exception {
         screenScavangerRobot = new ScreenScavangerRobot();
-        index = ProcessingFrameIndexFactory.next();
+        ScreenCaptureImagesWorker.index = ProcessingFrameIndexFactory.next();
     }
 
     public synchronized boolean isRunning() {

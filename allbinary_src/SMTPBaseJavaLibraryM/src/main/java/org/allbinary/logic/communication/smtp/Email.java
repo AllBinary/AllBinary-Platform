@@ -129,7 +129,7 @@ public class Email
       throws MessagingException
    {
       this.properties = new Properties();
-      this.properties.put(SMTP_HOST,server);
+      this.properties.put(Email.SMTP_HOST,server);
       
       try
       {
@@ -144,7 +144,7 @@ public class Email
             {
                this.logUtil.putF("Unable to get HostName so using fake", this, "init()");
             }
-            this.properties.put(SMTP_LOCAL_HOST, "FakeHostName");
+            this.properties.put(Email.SMTP_LOCAL_HOST, "FakeHostName");
          }
       }
       catch(Exception e)
@@ -154,12 +154,12 @@ public class Email
             this.logUtil.put("Continuing on Exception: Unable to get HostName", this, "init()", e);
          }
          
-         this.properties.put(SMTP_LOCAL_HOST, "FakeHostName");
+         this.properties.put(Email.SMTP_LOCAL_HOST, "FakeHostName");
       }
       
       if(this.isDebug)
       {
-         this.properties.put(DEBUG, "true");
+         this.properties.put(Email.DEBUG, "true");
       }
       
       Session session = Session.getInstance(this.properties, authenticator);
@@ -217,7 +217,7 @@ public class Email
       {
          HashMap hashMap = new HashMap();
          
-         hashMap.put(EmailData.SERVER, (String) this.properties.get(SMTP_HOST));
+         hashMap.put(EmailData.SERVER, (String) this.properties.get(Email.SMTP_HOST));
          
          Address[] addresses = this.msg.getFrom();
          if(addresses != null)
@@ -255,7 +255,7 @@ public class Email
             }
          }
          
-         hashMap.put(EmailData.SUBJECT, msg.getSubject());
+         hashMap.put(EmailData.SUBJECT, this.msg.getSubject());
          
          MimeMultipart mimeMultipart = (MimeMultipart) msg.getContent();
          

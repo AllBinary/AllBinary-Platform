@@ -75,7 +75,7 @@ public class InitInfoEntity extends InitSql
         try
         {
             HashMap keyAndValue = new HashMap();
-            keyAndValue.put(NOTHING, NOTHING);
+            keyAndValue.put(this.NOTHING, this.NOTHING);
             HashMap hashMap = getRow(keyAndValue);
             if (hashMap != null)
             {
@@ -104,7 +104,7 @@ public class InitInfoEntity extends InitSql
         try
         {
             HashMap keyAndValue = new HashMap();
-            keyAndValue.put(NOTHING, NOTHING);
+            keyAndValue.put(this.NOTHING, this.NOTHING);
             HashMap hashMap = getRow(keyAndValue);
             if (hashMap != null)
             {

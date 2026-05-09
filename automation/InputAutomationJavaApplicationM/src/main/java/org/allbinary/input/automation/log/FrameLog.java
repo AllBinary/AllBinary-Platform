@@ -73,13 +73,13 @@ public class FrameLog
         FileOutputStream fileOutputStream = 
             new FileOutputStream(new File(filePath));
         
-        fileOutputStream.write(frameBytes);
+        fileOutputStream.write(FrameLog.frameBytes);
         fileOutputStream.write(getFrame().toString().getBytes());
         fileOutputStream.write('\n');
-        fileOutputStream.write(info);
+        fileOutputStream.write(FrameLog.info);
         fileOutputStream.write(this.infoStringBuffer.toString().getBytes());
         fileOutputStream.write('\n');
-        fileOutputStream.write(actions);
+        fileOutputStream.write(FrameLog.actions);
         fileOutputStream.write(this.actionsStringBuffer.toString().getBytes());
         fileOutputStream.close();
     }   

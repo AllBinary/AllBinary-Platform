@@ -219,7 +219,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
              stringBuffer.append(" Number Of Children: ");
              stringBuffer.appendint(streetAddressNode.getChildNodes().getLength());
 
-            this.logUtil.putF(stringBuffer.toString(), this,commonStrings.IS_VALID);
+            this.logUtil.putF(stringBuffer.toString(), this,this.commonStrings.IS_VALID);
          }
 
          StreetAddress taxableStreetAddress = new StreetAddress(streetAddressNode);                  

@@ -68,7 +68,7 @@ public class EditValidationUserView extends UserView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate form",this,this.commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -88,7 +88,7 @@ public class EditValidationUserView extends UserView
             }
             
             this.user = UserEntityFactory.getInstance().getUser(this.userName);
-            if(user == null)
+            if(this.user == null)
             {
                stringBuffer.append("User does not exist.<br />");
                return stringBuffer.toString();

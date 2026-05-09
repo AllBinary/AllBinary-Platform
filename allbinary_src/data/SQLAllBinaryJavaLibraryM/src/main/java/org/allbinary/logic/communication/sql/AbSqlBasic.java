@@ -154,7 +154,7 @@ public class AbSqlBasic
             this.executeSQLStatement(this.sqlStrings.CREATE_DATABASE + databaseName);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.putF(this.DATABASE_CREATED_LABEL + databaseName, this, METHOD_CREATE);
+                this.logUtil.putF(this.DATABASE_CREATED_LABEL + databaseName, this, this.METHOD_CREATE);
             }
             return databaseName + this.sqlStrings.CREATE_RETURN;
         } catch (Exception e)

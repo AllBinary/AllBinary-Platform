@@ -48,7 +48,7 @@ public class PaymentGatewayPageData
 
         stringBuffer.append(location);
         stringBuffer.append("MakePayment");
-        stringBuffer.append(EXTENSION);
+        stringBuffer.append(PaymentGatewayPageData.EXTENSION);
 
         MAKEPAYMENT = stringBuffer.toString();
 
@@ -56,7 +56,7 @@ public class PaymentGatewayPageData
 
         stringBuffer.append(paymentMethodString);
         stringBuffer.append("Checkout");
-        stringBuffer.append(EXTENSION);
+        stringBuffer.append(PaymentGatewayPageData.EXTENSION);
 
         CHECKOUT = stringBuffer.toString();
 
@@ -64,7 +64,7 @@ public class PaymentGatewayPageData
 
         stringBuffer.append(paymentMethodString);
         stringBuffer.append("Shipping");
-        stringBuffer.append(EXTENSION);
+        stringBuffer.append(PaymentGatewayPageData.EXTENSION);
 
         SHIPPING = stringBuffer.toString();
 
@@ -74,7 +74,7 @@ public class PaymentGatewayPageData
 
         stringBuffer.append(paymentMethodString);
         stringBuffer.append("ShippingAddress");
-        stringBuffer.append(EXTENSION);
+        stringBuffer.append(PaymentGatewayPageData.EXTENSION);
 
         SHIPPINGADDRESS = stringBuffer.toString();
 
@@ -82,7 +82,7 @@ public class PaymentGatewayPageData
 
         stringBuffer.append(paymentMethodString);
         stringBuffer.append("ShippingAddressAction");
-        stringBuffer.append(EXTENSION);
+        stringBuffer.append(PaymentGatewayPageData.EXTENSION);
 
         SHIPPINGADDRESSACTION = stringBuffer.toString();
 
@@ -90,7 +90,7 @@ public class PaymentGatewayPageData
 
         stringBuffer.append(paymentMethodString);
         stringBuffer.append("BillingAddress");
-        stringBuffer.append(EXTENSION);
+        stringBuffer.append(PaymentGatewayPageData.EXTENSION);
 
         BILLINGADDRESS = stringBuffer.toString();
 
@@ -98,7 +98,7 @@ public class PaymentGatewayPageData
 
         stringBuffer.append(paymentMethodString);
         stringBuffer.append("Payment");
-        stringBuffer.append(EXTENSION);
+        stringBuffer.append(PaymentGatewayPageData.EXTENSION);
 
         PAYMENT = stringBuffer.toString();
 
@@ -106,7 +106,7 @@ public class PaymentGatewayPageData
 
         stringBuffer.append(paymentMethodString);
         stringBuffer.append("Authorize");
-        stringBuffer.append(EXTENSION);
+        stringBuffer.append(PaymentGatewayPageData.EXTENSION);
 
         AUTHORIZE = stringBuffer.toString();
 
@@ -114,7 +114,7 @@ public class PaymentGatewayPageData
 
         stringBuffer.append(paymentMethodString);
         stringBuffer.append("PaymentFinish");
-        stringBuffer.append(EXTENSION);
+        stringBuffer.append(PaymentGatewayPageData.EXTENSION);
 
         FINISH = stringBuffer.toString();
     }

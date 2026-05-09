@@ -50,7 +50,7 @@ public class WorkFlowHelper extends BasicTable
          String error = "Failed to drop view info table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,this.commonStrings.DROP,e);
          }
          return error;
       }
@@ -67,7 +67,7 @@ public class WorkFlowHelper extends BasicTable
          String error = "Failed to create workflow table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"create()",e);
          }
          return error;
       }
@@ -91,7 +91,7 @@ public class WorkFlowHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"restore()",e);
          }
          return error;
       }
@@ -115,7 +115,7 @@ public class WorkFlowHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"backup()",e);
          }
          return error;
       }

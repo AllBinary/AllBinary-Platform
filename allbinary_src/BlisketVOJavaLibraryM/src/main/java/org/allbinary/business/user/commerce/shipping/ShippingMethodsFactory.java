@@ -76,7 +76,7 @@ public class ShippingMethodsFactory
 	   stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
 	   stringBuffer.append(storeFrontInterface.getName());
 	   stringBuffer.append(sep);
-	   stringBuffer.append(this.SHIPPINGMETHODSFILEPATHSTRING);
+	   stringBuffer.append(ShippingMethodsFactory.SHIPPINGMETHODSFILEPATHSTRING);
        
       final AbPath abPath = (AbPath) new AbPath(stringBuffer.toString(), this.SHIPPINGMETHODSFILENAME);
 

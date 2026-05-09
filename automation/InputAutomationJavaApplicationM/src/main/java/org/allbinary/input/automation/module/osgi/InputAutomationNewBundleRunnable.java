@@ -105,7 +105,7 @@ public class InputAutomationNewBundleRunnable
             
             if(bundle != null)
             {
-                bundle.start(MODULES_START_LEVEL);
+                bundle.start(InputAutomationNewBundleRunnable.MODULES_START_LEVEL);
             }
         }
     }
@@ -141,7 +141,7 @@ public class InputAutomationNewBundleRunnable
                     String symbolicName = manifest.getMainAttributes().getValue(
                         Constants.BUNDLE_SYMBOLICNAME);
                     if(symbolicName != null)
-                        hashMap.put(symbolicName, new URL(FILE + file.getAbsolutePath()));
+                        hashMap.put(symbolicName, new URL(InputAutomationNewBundleRunnable.FILE + file.getAbsolutePath()));
                 }
             }
         }
@@ -156,12 +156,12 @@ public class InputAutomationNewBundleRunnable
         
         if(baseJarPath.startsWith(InputAutomationNewBundleRunnable.FILE))
         {
-            baseJarPath = baseJarPath.substring(FILE.length());
+            baseJarPath = baseJarPath.substring(InputAutomationNewBundleRunnable.FILE.length());
         }
         
         FileFilter jarFileFilter = BasicFileFilterUtil.getInstance(".jar");
         
-        String path = baseJarPath + INPUT_AUTMATION_MODULE_BUNDLE_JAR_PATH;
+        String path = baseJarPath + InputAutomationNewBundleRunnable.INPUT_AUTMATION_MODULE_BUNDLE_JAR_PATH;
         
         this.logUtil.putF("Path: " + path, this, "getJarModuleFileBasicArrayList");
         

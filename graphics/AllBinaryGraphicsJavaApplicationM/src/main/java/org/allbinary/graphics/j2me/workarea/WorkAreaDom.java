@@ -50,7 +50,7 @@ public class WorkAreaDom
             throw new Exception("Wrong Number of WorkAreas: " + numberOfworkAreas);
          }
          
-         this.canvasNodeList = DomHelper.getInstance().getChildrenWithoutTextNodes(this.FRAMES,workAreaNodeList.item(0).getChildNodes());
+         this.canvasNodeList = DomHelper.getInstance().getChildrenWithoutTextNodes(WorkAreaDom.FRAMES,workAreaNodeList.item(0).getChildNodes());
       }
       else
       {

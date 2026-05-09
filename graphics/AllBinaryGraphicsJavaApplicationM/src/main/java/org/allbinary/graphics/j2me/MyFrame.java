@@ -100,7 +100,7 @@ public class MyFrame extends javax.swing.JFrame
         this.mainJPanel = new javax.swing.JPanel();
         this.jTabbedPane = new javax.swing.JTabbedPane();
         this.statusJPanel = new javax.swing.JPanel();
-        statusJLabel = new javax.swing.JLabel();
+        MyFrame.statusJLabel = new javax.swing.JLabel();
         this.menuJMenuBar = new javax.swing.JMenuBar();
         this.fileJMenu = new javax.swing.JMenu();
         this.newJMenuItem = new javax.swing.JMenuItem();
@@ -221,8 +221,8 @@ public class MyFrame extends javax.swing.JFrame
 
         this.statusJPanel.setLayout(new java.awt.GridLayout(1, 0));
 
-        statusJLabel.setText("Status Bar");
-        this.statusJPanel.add(statusJLabel);
+        MyFrame.statusJLabel.setText("Status Bar");
+        this.statusJPanel.add(MyFrame.statusJLabel);
 
         getContentPane().add(this.statusJPanel, java.awt.BorderLayout.SOUTH);
 
@@ -573,7 +573,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     {
         try
         {
-            String newName = "graphic" + this.numberOfWorkAreas;
+            String newName = "graphic" + MyFrame.numberOfWorkAreas;
 
             Dimension dim = this.getSize();
 
@@ -614,7 +614,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
             this.logUtil.putF("Export: " + DomHelper.getInstance().toString(document), this, "exportJMenuItem1ActionPerformed");
 
-            this.xslHelper.export(file, this.TEMPLATE_EXPORT_PATH + "/" + this.JAVA_TEMPLATE, document);
+            this.xslHelper.export(file, MyFrame.TEMPLATE_EXPORT_PATH + "/" + this.JAVA_TEMPLATE, document);
         } catch (Exception e)
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))

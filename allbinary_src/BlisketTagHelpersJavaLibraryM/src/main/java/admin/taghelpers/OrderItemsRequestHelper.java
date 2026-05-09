@@ -68,7 +68,7 @@ public class OrderItemsRequestHelper
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
          }
          return error;         
       }
@@ -92,7 +92,7 @@ public class OrderItemsRequestHelper
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
          }
          return error;         
       }

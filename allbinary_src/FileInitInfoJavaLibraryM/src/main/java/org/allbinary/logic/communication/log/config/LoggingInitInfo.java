@@ -49,7 +49,7 @@ public class LoggingInitInfo
    {
       //PreLogUtil.put("Webapp Path: " + URLGLOBALS.getWebappPath(), "LoggingInitInfo", "getDoc");
       //PreLogUtil.put("Package: " + PACKAGE, "LoggingInitInfo", "getDoc");
-      final String path = URLGLOBALS.getWebappPath() + PACKAGE;
+      final String path = URLGLOBALS.getWebappPath() + LoggingInitInfo.PACKAGE;
       final AbPath FILEABPATH = new AbPath(path, INITFILENAME);
       //PreLogUtil.put("File Path: " + FILEABPATH, "LoggingInitInfo", "getDoc");
       

@@ -28,7 +28,7 @@ public class UserEmailEventNameData
    {
       this.eventHandlerName = eventHandlerName;
       this.initNextId();
-      this.userNameEvenNameHashMap.put(this.eventHandlerName, this);
+      UserEmailEventNameData.userNameEvenNameHashMap.put(this.eventHandlerName, this);
    }
    
    private synchronized void initNextId()
@@ -117,7 +117,7 @@ public class UserEmailEventNameData
    
    public boolean isEvent(String userEmailEventNameString)
    {
-      return this.userNameEvenNameHashMap.containsKey(userEmailEventNameString);
+      return UserEmailEventNameData.userNameEvenNameHashMap.containsKey(userEmailEventNameString);
    }
    
    public static synchronized UserEmailEventNameData getInstance(

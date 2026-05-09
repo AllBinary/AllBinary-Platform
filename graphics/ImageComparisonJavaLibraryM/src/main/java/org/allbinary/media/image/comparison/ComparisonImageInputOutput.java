@@ -74,7 +74,7 @@ public class ComparisonImageInputOutput implements ImageIOInterface
         final StringMaker filePathStringBuffer = new StringMaker();
         filePathStringBuffer.append(ImageOutputData.SAVE_PATH);
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
-        filePathStringBuffer.append(ROOT_NAME);
+        filePathStringBuffer.append(ComparisonImageInputOutput.ROOT_NAME);
         
         final StringMaker filePathStringBuffer1 = new StringMaker();
         filePathStringBuffer1.append(filePathStringBuffer.toString());

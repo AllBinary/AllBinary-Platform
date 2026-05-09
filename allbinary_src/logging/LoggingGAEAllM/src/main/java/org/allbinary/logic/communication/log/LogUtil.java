@@ -45,7 +45,7 @@ public class LogUtil {
        stringBuffer.append(LogData.ALLBINARY);
        stringBuffer.append(LogData.extension);
 
-       DEFAULT_PATH = stringBuffer.toString();
+       LogUtil.DEFAULT_PATH = stringBuffer.toString();
 
        LogUtil.init();
    }

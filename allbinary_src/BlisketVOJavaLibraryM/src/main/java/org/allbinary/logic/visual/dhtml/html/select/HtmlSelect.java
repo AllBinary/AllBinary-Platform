@@ -114,7 +114,7 @@ public class HtmlSelect extends HtmlTag
    {
       final StringUtil stringUtil = StringUtil.getInstance();
       String result = stringUtil.EMPTY_STRING;
-      Object[] attributeKeys = otherAttributes.keySet().toArray();
+      Object[] attributeKeys = this.otherAttributes.keySet().toArray();
       int attributeSize = attributeKeys.length;
       result = this.before;
       result += this.STARTSELECT;

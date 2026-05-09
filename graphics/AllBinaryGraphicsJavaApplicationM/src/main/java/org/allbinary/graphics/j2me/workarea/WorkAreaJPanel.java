@@ -360,15 +360,15 @@ public class WorkAreaJPanel
 
     public Document toDocument() throws Exception
     {
-        document = DomHelper.getInstance().createDocument();
+        WorkAreaJPanel.document = DomHelper.getInstance().createDocument();
 
-        Node workAreaNode = document.createElement(WorkAreaDom.WORKAREA);
+        Node workAreaNode = WorkAreaJPanel.document.createElement(WorkAreaDom.WORKAREA);
 
-        Node nameNode = document.createElement(WorkAreaDom.NAME);
-        Node nameTextNode = document.createTextNode(this.name);
+        Node nameNode = WorkAreaJPanel.document.createElement(WorkAreaDom.NAME);
+        Node nameTextNode = WorkAreaJPanel.document.createTextNode(this.name);
         nameNode.appendChild(nameTextNode);
 
-        Node framesNode = document.createElement(WorkAreaDom.FRAMES);
+        Node framesNode = WorkAreaJPanel.document.createElement(WorkAreaDom.FRAMES);
 
         final int size = this.canvasJPanelList.size();
         for (int index = 0; index < size; index++)
@@ -380,7 +380,7 @@ public class WorkAreaJPanel
         workAreaNode.appendChild(nameNode);
         workAreaNode.appendChild(framesNode);
 
-        document.appendChild(workAreaNode);
+        WorkAreaJPanel.document.appendChild(workAreaNode);
 
         return document;
     }

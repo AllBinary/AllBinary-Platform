@@ -113,7 +113,7 @@ public class DeleteFileValidationView
       {
          StringMaker stringBuffer = new StringMaker();
          
-         if(id == null || !StringValidationUtil.getInstance().isNumber(this.id))
+         if(this.id == null || !StringValidationUtil.getInstance().isNumber(this.id))
          {
             stringBuffer.append("Id is not valid.<br />");
          }

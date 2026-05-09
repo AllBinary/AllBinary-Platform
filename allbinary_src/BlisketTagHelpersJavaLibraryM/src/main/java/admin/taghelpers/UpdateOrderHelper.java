@@ -140,7 +140,7 @@ public class UpdateOrderHelper
          HashMap orderHashMap = new HashMap();
          HashMap whereHashMap = new HashMap();
 
-         orderHashMap.put(EntryData.getInstance().ID,entryId);
+         orderHashMap.put(EntryData.getInstance().ID,this.entryId);
          orderHashMap.put(OrderData.ID,this.orderId);         
          orderHashMap.put(UserData.USERNAME,userName);
          orderHashMap.put(StoreFrontData.getInstance().NAME,this.storeName);
@@ -178,7 +178,7 @@ public class UpdateOrderHelper
          orderHashMap.put(OrderHistoryData.TAX, this.tax);
          orderHashMap.put(OrderHistoryData.TOTAL,this.total);         
 
-         orderHashMap.put(EntryData.getInstance().SPECIAL,special);
+         orderHashMap.put(EntryData.getInstance().SPECIAL,this.special);
 
          orderHashMap.put(OrderData.CUSTOMERCOMMENT, this.userComment);
          orderHashMap.put(OrderData.CUSTOMERCANCELCOMMENT, this.userCancelComment);
@@ -200,7 +200,7 @@ public class UpdateOrderHelper
          String error = "Failed to update order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

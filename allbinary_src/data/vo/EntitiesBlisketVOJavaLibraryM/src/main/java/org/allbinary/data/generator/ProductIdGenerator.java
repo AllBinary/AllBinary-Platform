@@ -30,6 +30,6 @@ public class ProductIdGenerator extends UniqueIdGenerator
         stringBuffer.append(this.IDFILE);
         stringBuffer.append(UniqueIdGenerator.EXT);
 
-        super.setFile(stringBuffer.toString(), IDFILE);
+        super.setFile(stringBuffer.toString(), this.IDFILE);
     }
 }

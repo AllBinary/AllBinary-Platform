@@ -75,7 +75,7 @@ public class UpdateFileValidationView
                 InventoryEntity inventoryEntity =
                     InventoryEntityFactory.getInstance().getInventoryEntityInstance();
 
-                this.itemInterface = inventoryEntity.getItem(id);
+                this.itemInterface = inventoryEntity.getItem(this.id);
 
             } catch (MoneyException e)
             {

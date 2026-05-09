@@ -205,7 +205,7 @@ public class PathUtil
         if(path.indexOf("\\") >= 0)
         {
             //PreLogUtil.put("Adjusting Path: " + path, this, "adjust");
-            path = path.replace('\\', abPathData.SEPARATORCHAR);
+            path = path.replace('\\', this.abPathData.SEPARATORCHAR);
             //PreLogUtil.put("Adjusted Path: " + path, this, "adjust");
         }
         /*

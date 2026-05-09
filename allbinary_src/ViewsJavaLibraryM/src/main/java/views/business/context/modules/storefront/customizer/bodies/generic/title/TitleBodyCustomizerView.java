@@ -58,7 +58,7 @@ public class TitleBodyCustomizerView extends HttpStoreComponentView
          
          if(StringValidationUtil.getInstance().isEmpty(pageName))
          {
-        	 pageName = NAME;
+        	 pageName = TitleBodyCustomizerView.NAME;
          }
          
          return ModDomHelper.createNameValueNodes(document, PageData.getInstance().NAME, pageName);
@@ -78,7 +78,7 @@ public class TitleBodyCustomizerView extends HttpStoreComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

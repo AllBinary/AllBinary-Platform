@@ -25,8 +25,8 @@ public class PointHelper
 
     public static Point getCenterPoint(Rectangle rectangle)
     {
-        double x = rectangle.getX() + rectangle.getWidth()/two;
-        double y = rectangle.getY() + rectangle.getHeight()/two;
+        double x = rectangle.getX() + rectangle.getWidth()/PointHelper.two;
+        double y = rectangle.getY() + rectangle.getHeight()/PointHelper.two;
 
         return PointFactory.getInstance((int) x, (int) y);
     }

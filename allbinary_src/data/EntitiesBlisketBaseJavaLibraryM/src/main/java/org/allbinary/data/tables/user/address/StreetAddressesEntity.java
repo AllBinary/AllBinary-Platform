@@ -51,7 +51,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
         try
         {
             HashMap whereHashMap = new HashMap();
-            whereHashMap.put(UserData.USERNAME, userName);
+            whereHashMap.put(UserData.USERNAME, this.userName);
             whereHashMap.put(StreetAddressData.ID, (String) index.toString());
             super.deleteWhere(whereHashMap);
 
@@ -151,7 +151,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
         {
             Vector streetAddressVector = new Vector();
             HashMap keyAndValue = new HashMap();
-            keyAndValue.put(UserData.USERNAME, userName);
+            keyAndValue.put(UserData.USERNAME, this.userName);
             Vector addressList = super.getRows(keyAndValue);
 
             final int size = addressList.size();
@@ -184,7 +184,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
         {
             //Vector streetAddressVector = new Vector();
             HashMap keyAndValue = new HashMap();
-            keyAndValue.put(UserData.USERNAME, userName);
+            keyAndValue.put(UserData.USERNAME, this.userName);
             keyAndValue.put(StreetAddressData.ID, index.toString());
             HashMap addressHashMap = super.getRow(keyAndValue);
 
@@ -212,7 +212,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
             HashMap addressHashMap = new HashMap();
             HashMap updateKeyAndValue = new HashMap();
             updateKeyAndValue.put(StreetAddressData.DEFAULT, StreetAddressData.DEFAULT);
-            updateKeyAndValue.put(UserData.USERNAME, userName);
+            updateKeyAndValue.put(UserData.USERNAME, this.userName);
 
             addressHashMap = super.getRow(updateKeyAndValue);
             if(addressHashMap != null)
@@ -248,7 +248,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
             HashMap updateKeyAndValue = new HashMap();
             HashMap whereKeyAndValue = new HashMap();
 
-            whereKeyAndValue.put(UserData.USERNAME, userName);
+            whereKeyAndValue.put(UserData.USERNAME, this.userName);
 
             //remove old default value if it exist
             StreetAddress streetAddress = this.getDefault();

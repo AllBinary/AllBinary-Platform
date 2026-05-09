@@ -61,7 +61,7 @@ public class DeleteValidationUserView extends UserView
          if(UserName.getInstance().isValid(this.userName) == Boolean.TRUE)
          {
             this.user = UserEntityFactory.getInstance().getUser(this.userName);
-            if(user==null) return Boolean.FALSE;
+            if(this.user==null) return Boolean.FALSE;
          }
          else return Boolean.FALSE;
          
@@ -71,7 +71,7 @@ public class DeleteValidationUserView extends UserView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate form",this,this.commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -86,7 +86,7 @@ public class DeleteValidationUserView extends UserView
          if(UserName.getInstance().isValid(this.userName) == Boolean.TRUE)
          {
             this.user = UserEntityFactory.getInstance().getUser(this.userName);            
-            if(user==null) stringBuffer.append("User does not exist.<br />");
+            if(this.user==null) stringBuffer.append("User does not exist.<br />");
          }
          else stringBuffer.append("User Name is not valid.<br />");
          

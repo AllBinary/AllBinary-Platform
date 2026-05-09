@@ -142,7 +142,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          BasicOptionItemsEntityFactory.getInstance().getBasicOptionItemsEntityInstance().insert(values);
          
-         final String success = "Successfully inserted " + id + " into items table";
+         final String success = "Successfully inserted " + this.id + " into items table";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -156,7 +156,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"inserts()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"inserts()",e);
          }
          return error;
       }
@@ -182,7 +182,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"delete()",e);
          }
          return error;
       }
@@ -209,7 +209,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

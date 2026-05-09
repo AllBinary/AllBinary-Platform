@@ -543,7 +543,7 @@ public class FileUtil
             throw new Exception("Not a directory: " + file.getPath());
         }
 
-        BasicArrayList fileList = directory.search(file, true);
+        BasicArrayList fileList = this.directory.search(file, true);
 
         int size = fileList.size();
 

@@ -80,13 +80,13 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             final File file = ResourceUtil.getInstance().getContext().getFilesDir();
             final String path = file.getAbsolutePath() + CanvasStrings.getInstance().FONT_ATLAS;
-            this.logUtil.putF(path, this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(path, this, commonStrings.CONSTRUCTOR);
             final FileOutputStream fos = new FileOutputStream(path);
             final Bitmap bitmap = ((AndroidImageInterface) this.fontImage.openGLBitmap.getImage()).getBitmap();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.commonStrings.EXCEPTION, e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.EXCEPTION, e);
         }
     }
 
