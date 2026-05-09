@@ -68,7 +68,7 @@ public class AdjustedImageArrayRotationAnimation extends
     {
         super(imageArray, angleInfo, totalAngle, animationBehavior);
 
-        // this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        // this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         this.init(dx, dy);
     }

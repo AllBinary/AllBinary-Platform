@@ -38,7 +38,7 @@ public class LoadGameForm extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         this.update();
 

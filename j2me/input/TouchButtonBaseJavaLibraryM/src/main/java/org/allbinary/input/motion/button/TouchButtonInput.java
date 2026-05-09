@@ -40,7 +40,7 @@ public final class TouchButtonInput extends Input
         final InputFactory inputFactory = InputFactory.getInstance();
         inputFactory.add(this.getId(), this);
         
-        //this.logUtil.putF("Created", this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("Created", this, this.commonStrings.CONSTRUCTOR);
     }
 
     public void update(InputToGameKeyMapping inputToGameKeyMapping)

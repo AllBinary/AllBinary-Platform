@@ -51,7 +51,7 @@ public class CustomTextBox extends GameCommandCanvas
         
         this.textFieldItem = textFieldItem;
 
-        //this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.setTitle(label);
         
     }
@@ -117,7 +117,7 @@ public class CustomTextBox extends GameCommandCanvas
     @Override
     public void keyReleasedByDevice(final int keyCode, final int deviceId)
     {
-        // this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
+        // this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_RELEASED);
     }
 
     @Override

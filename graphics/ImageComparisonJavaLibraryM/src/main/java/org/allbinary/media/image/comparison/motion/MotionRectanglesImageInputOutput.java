@@ -192,7 +192,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
             //For test frame
             if(rectangle.x > 560 && rectangle.y > 330 && 
                rectangle.x < 600 && rectangle.y < 365)// && imageComparisonInfo.getFrameTwo() == 19)
-            this.logUtil.putF("TreasureRectangles: " + rectangle.toString(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("TreasureRectangles: " + rectangle.toString(), this, commonStrings.CONSTRUCTOR);
              */
         }
         

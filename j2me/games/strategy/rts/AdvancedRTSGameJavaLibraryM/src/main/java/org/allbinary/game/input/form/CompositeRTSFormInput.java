@@ -86,7 +86,7 @@ public class CompositeRTSFormInput extends RTSFormInput
 
         if (this.isStickyItemSelected() && associatedRtsLayer == null)
         {
-            //this.logUtil.putF(index +"<="+ this.itemIndex[0], this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(index +"<="+ this.itemIndex[0], this, this.commonStrings.CONSTRUCTOR);
 
             //Make sure your not drag and dropping units yet
             if(this.getSelectedStickyItemIndex() <= this.itemIndex[0])

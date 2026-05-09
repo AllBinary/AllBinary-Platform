@@ -123,7 +123,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
         //int width = allBinaryTiledLayer.getWidth();
 
-        //this.logUtil.putF(CommonLabels + allBinaryTiledLayer.getHeight() + commonStrings.SPACE + CommonLabels + width, this, commonStrings.INIT);
+        //this.logUtil.putF(CommonLabels + allBinaryTiledLayer.getHeight() + commonStrings.SPACE + CommonLabels + width, this, this.commonStrings.INIT);
 
         this.buildPathFindingNodes(
             geographicMapInterface,
@@ -133,7 +133,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         // String keys =
         // this.getPathFinder().getPathFindingNodeCostInfoFactoryInterface().getHashTable().toString();
         // this.logUtil.putF("All PathFindingNodeCostInfos in Hashtable: " +
-        // keys, this, commonStrings.INIT);
+        // keys, this, this.commonStrings.INIT);
     }
 
     private void buildPathFindingNodesForCellPosition(

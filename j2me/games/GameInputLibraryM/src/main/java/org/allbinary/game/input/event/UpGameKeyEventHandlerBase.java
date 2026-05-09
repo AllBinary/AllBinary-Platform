@@ -117,7 +117,7 @@ public class UpGameKeyEventHandlerBase extends BasicEventHandler
             }
             catch (Exception e)
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.TOSTRING, e);
             }
         }
         return stringBuffer.toString();

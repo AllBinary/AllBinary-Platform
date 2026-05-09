@@ -59,7 +59,7 @@ public class VectorCenterGenerator {
             }
         }
 
-        this.logUtil.putF("minX: " + this.minX + " minY: " + this.minY + " maxX: " + this.maxX + " maxY: " + this.maxY, this, commonStrings.GET_INSTANCE);
+        this.logUtil.putF("minX: " + this.minX + " minY: " + this.minY + " maxX: " + this.maxX + " maxY: " + this.maxY, this, this.commonStrings.GET_INSTANCE);
 
         this.setWidth(this.maxX - this.minX);
         this.setHeight(this.maxY - this.minY);
@@ -75,7 +75,7 @@ public class VectorCenterGenerator {
 
         final CommonLabels commonLabels = CommonLabels.getInstance();
         final String s = new StringMaker().append(commonLabels.WIDTH_LABEL).appendint(getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(getHeight()).append(" max: ").appendint(max).append(" middle: ").appendint(middle).toString();
-        this.logUtil.putF(s, this, commonStrings.GET_INSTANCE);
+        this.logUtil.putF(s, this, this.commonStrings.GET_INSTANCE);
 
         int currentMiddleX = this.minX + this.getWidth() / 2;
         int currentMiddleY = this.minY + this.getHeight() / 2;
@@ -88,7 +88,7 @@ public class VectorCenterGenerator {
     public void transform(HashMap hashMap) throws Exception {
 
         this.calculate(hashMap);
-        this.logUtil.putF(new StringMaker().append(" dx: ").appendint(this.dx).append(" dy: ").appendint(this.dy).toString(), this, commonStrings.GET_INSTANCE);
+        this.logUtil.putF(new StringMaker().append(" dx: ").appendint(this.dx).append(" dy: ").appendint(this.dy).toString(), this, this.commonStrings.GET_INSTANCE);
 
         final Object[] graphicItemArray = hashMap.keySet().toArray();
         final int size = graphicItemArray.length;
@@ -130,7 +130,7 @@ public class VectorCenterGenerator {
             }
 
         } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.GET_INSTANCE, e);
             throw e;
         }
     }

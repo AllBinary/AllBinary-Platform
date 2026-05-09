@@ -36,7 +36,7 @@ public class VertexAttributePointerVBOOpenGLProcessor extends ObjectThreedOpenGL
         
     public VertexAttributePointerVBOOpenGLProcessor()
     {
-        //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //PreLogUtil.put(commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
     }
 

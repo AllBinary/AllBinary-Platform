@@ -73,7 +73,7 @@ public class MusicManager {
 
     public void startNewSong()
     {
-        //PreLogUtil.put("startNewSong - Stop MusicService", this, commonStrings.PROCESS);
+        //PreLogUtil.put("startNewSong - Stop MusicService", this, this.commonStrings.PROCESS);
 
         if (this.nextSongSound == NoSound.getInstance()) {
             final Sound randomSongSound = (Sound) this.basicArrayListUtil.getRandom(this.songList);
@@ -84,7 +84,7 @@ public class MusicManager {
     }
     
     public void nextSong(final Sound nextSongSound, final int leftVolume, final int rightVolume) {
-        PreLogUtil.put(new StringMaker().append(NEXT_SONG).append(nextSongSound.getResource()).toString(), this, commonStrings.PROCESS);
+        PreLogUtil.put(new StringMaker().append(NEXT_SONG).append(nextSongSound.getResource()).toString(), this, this.commonStrings.PROCESS);
         this.nextSongSound = nextSongSound;
         this.reset();
         this.stopped = false;
@@ -128,8 +128,8 @@ public class MusicManager {
                 if(duration <= 0) {
                     //Handle HTML5 duration with media not playing
                     final String NO_DURATION_FOR = "No Duration for: ";
-                    //PreLogUtil.put(new StringMaker().append("nextSongSound duration: ").append(nextSongSound.getDuration()).toString(), this, commonStrings.PROCESS);
-                    PreLogUtil.put(new StringMaker().append(NO_DURATION_FOR).append(this.currentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
+                    //PreLogUtil.put(new StringMaker().append("nextSongSound duration: ").append(nextSongSound.getDuration()).toString(), this, this.commonStrings.PROCESS);
+                    PreLogUtil.put(new StringMaker().append(NO_DURATION_FOR).append(this.currentSongSound.getResource()).toString(), this, this.commonStrings.PROCESS);
                     this.currentSongSound.getPlayerP().addPlayerListener(playerListener);
                     this.noDuration = true;
                 }
@@ -141,11 +141,11 @@ public class MusicManager {
 
                                 if(endingCurrentSongSound == startingCurrentSongSound && endingCurrentSongSound.getPlayerP().getState() == Player.STARTED) {
 
-                                    PreLogUtil.put(new StringMaker().append(this.ALREADY_PLAYING).append(endingCurrentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
+                                    PreLogUtil.put(new StringMaker().append(this.ALREADY_PLAYING).append(endingCurrentSongSound.getResource()).toString(), this, this.commonStrings.PROCESS);
 
                                     //this.addPlayNextOnEnd(endingCurrentSongSound, startingCurrentSongSound);
 
-                                    PreLogUtil.put(new StringMaker().append(this.STOPPING).append(endingCurrentSongSound.getResource()).append(this.SONG).appendlong(duration).toString(), this, commonStrings.PROCESS);
+                                    PreLogUtil.put(new StringMaker().append(this.STOPPING).append(endingCurrentSongSound.getResource()).append(this.SONG).appendlong(duration).toString(), this, this.commonStrings.PROCESS);
                                     endingCurrentSongSound.getPlayerP().stop();
                                     //currentSongSound.getPlayerP().close();
                                     
@@ -153,13 +153,13 @@ public class MusicManager {
 
                                 } else {
                                     if(endingCurrentSongSound.getPlayerP().getState() == Player.STARTED) {
-                                        PreLogUtil.put(new StringMaker().append(this.STOPPING).append(endingCurrentSongSound.getResource()).append(this.SONG).appendlong(duration).toString(), this, commonStrings.PROCESS);
+                                        PreLogUtil.put(new StringMaker().append(this.STOPPING).append(endingCurrentSongSound.getResource()).append(this.SONG).appendlong(duration).toString(), this, this.commonStrings.PROCESS);
                                         //this.addPlayNextOnEnd(endingCurrentSongSound, startingCurrentSongSound);
                                         endingCurrentSongSound.getPlayerP().stop();
                                         
                                         this.waitForStateChange(endingCurrentSongSound, startingCurrentSongSound);
                                     } else {
-                                        PreLogUtil.put(new StringMaker().append(this.ALREADY_ENDED).append(this.PLAY).append(startingCurrentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
+                                        PreLogUtil.put(new StringMaker().append(this.ALREADY_ENDED).append(this.PLAY).append(startingCurrentSongSound.getResource()).toString(), this, this.commonStrings.PROCESS);
                                         if(AvianUtil.isAvian()) {
                                             endingCurrentSongSound.getPlayerP().stop();
                                             startingCurrentSongSound.getPlayerP().stop();
@@ -174,14 +174,14 @@ public class MusicManager {
 //                                    resource = endingCurrentSongSound.getResource();
 //                                }
 //
-//                                PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
+//                                PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.PROCESS, e);
 //                            }
 //                        }
 //                    }
 //                    );
 
                 } else {
-                    PreLogUtil.put(new StringMaker().append(this.PLAY).append(this.currentSongSound.getResource()).append(this.SONG).appendlong(duration).toString(), this, commonStrings.PROCESS);
+                    PreLogUtil.put(new StringMaker().append(this.PLAY).append(this.currentSongSound.getResource()).append(this.SONG).appendlong(duration).toString(), this, this.commonStrings.PROCESS);
                     //MusicThreadPool.getInstance().runTask(this.currentSongSound);
                     this.currentSongSound.getPlayerP().start();
                 }
@@ -192,7 +192,7 @@ public class MusicManager {
                 resource = this.currentSongSound.getResource();
             }
 
-            PreLogUtil.putOE(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.PROCESS, e);
         }
     }
 
@@ -200,11 +200,11 @@ public class MusicManager {
 //        endingCurrentSongSound.getPlayerP().addPlayerListener(new PlayerListener() {
 //            public void playerUpdate(Player player, String event, Object eventData) {
 //                try {
-//                    PreLogUtil.put(new StringMaker().append(event).append(commonSeps.SPACE).append(PLAY).append(startingCurrentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
+//                    PreLogUtil.put(new StringMaker().append(event).append(commonSeps.SPACE).append(PLAY).append(startingCurrentSongSound.getResource()).toString(), this, this.commonStrings.PROCESS);
 //                    startingCurrentSongSound.getPlayerP().start();
 //                    endingCurrentSongSound.getPlayerP().removePlayerListener(this);
 //                } catch (Exception e) {
-//                    PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+//                    PreLogUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
 //                }
 //            }
 //        });
@@ -212,11 +212,11 @@ public class MusicManager {
 
     private void waitForStateChange(final Sound endingCurrentSongSound, final Sound startingCurrentSongSound) throws Exception {
         while (endingCurrentSongSound.getPlayerP().getState() == Player.STARTED) {
-            PreLogUtil.put(this.WAITING_FOR_MEDIA_TO_END, this, commonStrings.PROCESS);
+            PreLogUtil.put(this.WAITING_FOR_MEDIA_TO_END, this, this.commonStrings.PROCESS);
             Thread.sleep(100);
         }
         
-        PreLogUtil.put(new StringMaker().append(this.playerStateUtil.convert(endingCurrentSongSound.getPlayerP().getState())).append(this.commonSeps.SPACE).append(this.PLAY).append(startingCurrentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
+        PreLogUtil.put(new StringMaker().append(this.playerStateUtil.convert(endingCurrentSongSound.getPlayerP().getState())).append(this.commonSeps.SPACE).append(this.PLAY).append(startingCurrentSongSound.getResource()).toString(), this, this.commonStrings.PROCESS);
         startingCurrentSongSound.getPlayerP().start();
     }
     
@@ -229,7 +229,7 @@ public class MusicManager {
 //                MusicThreadPool.getInstance().runTask(new ARunnable() {
 //                    public void run() {
 //                        try {
-                            PreLogUtil.put(new StringMaker().append(this.ENDING).append(currentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
+                            PreLogUtil.put(new StringMaker().append(this.ENDING).append(currentSongSound.getResource()).toString(), this, this.commonStrings.PROCESS);
                             currentSongSound.getPlayerP().stop();
 //                            //currentSongSound.getPlayerP().close();
 //                            //MusicManager.this.currentSongSound = NoSound.getInstance();
@@ -239,7 +239,7 @@ public class MusicManager {
 //                                resource = currentSongSound.getResource();
 //                            }
 //
-//                            PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
+//                            PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.PROCESS, e);
 //                        }
 //                    }
 //                }
@@ -248,7 +248,7 @@ public class MusicManager {
             }
             this.timeDelayHelper.setStartTime(0);
             
-            PreLogUtil.put(new StringMaker().append(commonStrings.END).append(StringUtil.getInstance().toString(currentSongSound)).toString(), this, commonStrings.END);
+            PreLogUtil.put(new StringMaker().append(commonStrings.END).append(StringUtil.getInstance().toString(currentSongSound)).toString(), this, this.commonStrings.END);
 
         } catch (Exception e) {
             String resource = StringUtil.getInstance().EMPTY_STRING;
@@ -256,7 +256,7 @@ public class MusicManager {
                 resource = currentSongSound.getResource();
             }
 
-            PreLogUtil.putOE(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.END, e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.END, e);
         }
     }
 }

@@ -100,14 +100,14 @@ public class LogoValidation extends Validation implements DomNodeInterface
             
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                this.logUtil.putF("LogoValidation", this, commonStrings.IS_VALID);
+                this.logUtil.putF("LogoValidation", this, this.commonStrings.IS_VALID);
             }
 
             if (!StringValidationUtil.getInstance().isValidRequired(this.logoAbPath.toString(), 0, 512))
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    this.logUtil.putF("logoPath is invalid: " + this.logoAbPath.toString(), this, commonStrings.IS_VALID);
+                    this.logUtil.putF("logoPath is invalid: " + this.logoAbPath.toString(), this, this.commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }
@@ -117,7 +117,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    this.logUtil.putF("logoFile is invalid: " + this.logoFile, this, commonStrings.IS_VALID);
+                    this.logUtil.putF("logoFile is invalid: " + this.logoFile, this, this.commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }
@@ -136,7 +136,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
                     {
                         this.logUtil.putF("Image File Is Not The Right Size. "
                             + fileData.MINIMAGEFILESIZE + "< > "
-                            + fileData.MAXIMAGEFILESIZE, this, commonStrings.IS_VALID);
+                            + fileData.MAXIMAGEFILESIZE, this, this.commonStrings.IS_VALID);
                     }
                     return Boolean.FALSE;
                 }
@@ -144,7 +144,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                this.logUtil.putF("Logo Validation: " + valid, this, commonStrings.IS_VALID);
+                this.logUtil.putF("Logo Validation: " + valid, this, this.commonStrings.IS_VALID);
             }
 
             return valid;
@@ -152,7 +152,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                this.logUtil.put("Failed to validate form", this, commonStrings.IS_VALID, e);
+                this.logUtil.put("Failed to validate form", this, this.commonStrings.IS_VALID, e);
             }
             return Boolean.FALSE;
         }

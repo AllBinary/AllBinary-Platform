@@ -53,7 +53,7 @@ public class RTSFormInput
     
     public RTSFormInput(final Group[] groupInterfaceArray)
     {
-        //this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         final int size = this.newUnconstructedRTSLayerInterfaceArray.length;
         for(int index = 0; index < size; index++) {
             this.newUnconstructedRTSLayerInterfaceArray[index] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
@@ -71,7 +71,7 @@ public class RTSFormInput
             this.hashtable.put(Group.ID, groupInterfaceArray);
         }
         
-        //this.logUtil.putF(commonStrings.END, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.CONSTRUCTOR);
     }
 
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {

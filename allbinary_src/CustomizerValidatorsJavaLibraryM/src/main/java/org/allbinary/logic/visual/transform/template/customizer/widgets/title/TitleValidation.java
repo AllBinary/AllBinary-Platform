@@ -47,7 +47,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.putF("TitleValidation", this, commonStrings.IS_VALID);
+            this.logUtil.putF("TitleValidation", this, this.commonStrings.IS_VALID);
          }
          
          Boolean valid = Boolean.TRUE;
@@ -59,7 +59,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.putF("TitleValidation: " + valid, this, commonStrings.IS_VALID);
+            this.logUtil.putF("TitleValidation: " + valid, this, this.commonStrings.IS_VALID);
          }
          
          return valid;
@@ -68,7 +68,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.put("Failed to validate form", this, commonStrings.IS_VALID, e);
+            this.logUtil.put("Failed to validate form", this, this.commonStrings.IS_VALID, e);
          }
          return Boolean.FALSE;
       }

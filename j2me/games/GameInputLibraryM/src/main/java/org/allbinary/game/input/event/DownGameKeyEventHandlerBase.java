@@ -115,7 +115,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
                 stringBuffer.append(LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface.toString());
             } catch (Exception e) {
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.TOSTRING, e);
             }
             index++;
         }

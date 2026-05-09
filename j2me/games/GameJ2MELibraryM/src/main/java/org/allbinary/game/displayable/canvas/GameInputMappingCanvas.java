@@ -70,7 +70,7 @@ implements InputMappingInterface
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 
-        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         if(helpPaintable == null)
         {
@@ -148,7 +148,7 @@ implements InputMappingInterface
     @Override
     public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
-        // this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_PRESSED);        
+        // this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_PRESSED);        
         this.addGameKeyEvent(keyCode, false);
 
         super.keyPressedByDevice(keyCode, 0);
@@ -185,7 +185,7 @@ implements InputMappingInterface
         stringBuffer.append(" Input: ");
         stringBuffer.append(this.stringUtil.toString(input));
         
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.PROCESS);
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.PROCESS);
         
         if (this.selectedGameKey != this.NONE)
         {
@@ -255,8 +255,8 @@ implements InputMappingInterface
     {
         final String METHOD_NAME = "addNewMapping";
             
-        //this.logUtil.putF(commonStrings.START_LABEL).append("Dissallow if ").append(input).append(" is in { ").append(AndroidKeyFactory.getInstance().MENU).append(" }", this, "addNewMapping");
-        this.logUtil.putF(commonStrings.START, this, METHOD_NAME);
+        //this.logUtil.putF(this.commonStrings.START_LABEL).append("Dissallow if ").append(input).append(" is in { ").append(AndroidKeyFactory.getInstance().MENU).append(" }", this, "addNewMapping");
+        this.logUtil.putF(this.commonStrings.START, this, METHOD_NAME);
 
         boolean isInputAlreadyMapped = this.inputMapping.getInputMapping().isMapped(input);
 

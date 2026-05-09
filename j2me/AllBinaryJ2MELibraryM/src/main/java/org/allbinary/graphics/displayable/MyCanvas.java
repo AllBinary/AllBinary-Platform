@@ -233,7 +233,7 @@ public class MyCanvas extends Canvas
     @Override
     protected void pointerDragged(int x, int y)
     {
-        //this.logUtil.putF(commonStrings.START, this, "pointerDragged");
+        //this.logUtil.putF(this.commonStrings.START, this, "pointerDragged");
         //PreLogUtil.put(commonStrings.START, this, "pointerDragged");
 
         this.touchME.pointerDragged(x, y);
@@ -242,7 +242,7 @@ public class MyCanvas extends Canvas
     @Override
     protected void pointerPressed(int x, int y)
     {
-        //this.logUtil.putF(commonStrings.START, this, "pointerPressed");
+        //this.logUtil.putF(this.commonStrings.START, this, "pointerPressed");
         //PreLogUtil.put(commonStrings.START, this, "pointerPressed");
 
         this.touchME.pointerPressed(x, y);
@@ -251,7 +251,7 @@ public class MyCanvas extends Canvas
     @Override
     protected void pointerReleased(int x, int y)
     {
-        //this.logUtil.putF(commonStrings.START, this, "pointerReleased");
+        //this.logUtil.putF(this.commonStrings.START, this, "pointerReleased");
         //PreLogUtil.put(commonStrings.START, this, "pointerReleased");
 
         this.touchME.pointerReleased(x, y);

@@ -45,7 +45,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
 
     public ReleaseControlledMotionGestureListener(CompleteMotionGestureListenerInterface signed)
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.signed = signed;
     }
 
@@ -120,7 +120,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
                 return;
             this.isMouseGestureOccurring = false;
             
-            //this.logUtil.putF(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "release");
+            //this.logUtil.putF(this.commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "release");
             this.signed.onMotionGestureCompleted(this.motionGestureCollection);
             //List is only compared and not referenced again so it is safe just to clear
             //TWB - Although this could be dangerous
@@ -135,7 +135,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
     @Override
     public void onMotionGestureEvent(MotionGestureEvent ev)
     {
-        //this.logUtil.putF(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "onMotionGestureEvent");
+        //this.logUtil.putF(this.commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "onMotionGestureEvent");
 
         //currentMotionGesture == TouchMotionGestureFactory.getInstance().NO_MOTION &&
         if (this.isMouseGestureOccurring == false)

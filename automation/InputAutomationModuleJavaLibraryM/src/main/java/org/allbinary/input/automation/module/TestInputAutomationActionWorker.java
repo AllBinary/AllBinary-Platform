@@ -51,7 +51,7 @@ public class TestInputAutomationActionWorker
     
     public void process() throws Exception
     {
-        this.logUtil.putF(this.commonStrings.START, this, commonStrings.PROCESS);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.PROCESS);
 
         //this.startCaptureWorkers();
 

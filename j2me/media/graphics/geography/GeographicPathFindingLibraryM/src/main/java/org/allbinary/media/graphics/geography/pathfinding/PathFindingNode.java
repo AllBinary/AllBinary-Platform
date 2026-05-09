@@ -35,7 +35,7 @@ public class PathFindingNode {
         /*
       if(this.getParent() == null)
       {
-         this.logUtil.putF("No Parent", this, commonStrings.CONSTRUCTOR);
+         this.logUtil.putF("No Parent", this, this.commonStrings.CONSTRUCTOR);
       }
          */
         if (this.geographicMapCellPosition == SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION) {

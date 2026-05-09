@@ -41,7 +41,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
     {
         this.gameOptionsForm = gameOptionsForm;
         
-        // this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        // this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         GameFeatureFactory gameFeatureFactory = 
             GameFeatureFactory.getInstance();

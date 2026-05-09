@@ -146,7 +146,7 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         final long yVector = (this.axisMathVectorUtil.calculateY(magnitude, angle) / this.velocityYBasicDecimal.getScaledFactorValue());
         final long zVector = (this.axisMathVectorUtil.calculateZ(magnitude, otherAngle) / this.velocityZBasicDecimal.getScaledFactorValue());
 
-        //this.logUtil.putF(this.toString(), this, commonStrings.ADD);
+        //this.logUtil.putF(this.toString(), this, this.commonStrings.ADD);
 
         // StringMaker stringBuffer = new StringMaker();
 
@@ -173,7 +173,7 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         final long yVector = (this.axisMathVectorUtil.calculateY(magnitude, angle) / this.velocityYBasicDecimal.getScaledFactorValue());
         final long zVector = (this.axisMathVectorUtil.calculateZ(magnitude, otherAngle) / this.velocityZBasicDecimal.getScaledFactorValue());
         
-        //this.logUtil.putF(this.toString(), this, commonStrings.ADD);
+        //this.logUtil.putF(this.toString(), this, this.commonStrings.ADD);
         this.velocityXBasicDecimal.addlong(xVector);
         this.velocityYBasicDecimal.addlong(yVector);
         this.velocityZBasicDecimal.addlong(zVector);

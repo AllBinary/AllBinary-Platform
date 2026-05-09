@@ -41,7 +41,7 @@ public class UpDownVectorAI extends BasicAI
    @Override
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
-      //this.logUtil.putF(commonStrings.START, this, commonStrings.PROCESS);
+      //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.PROCESS);
 
       int y = this.getOwnerLayerInterface().getHeight() * 270;
       

@@ -59,7 +59,7 @@ public class ImagePersistanceUtil {
     	  StreamUtil.getInstance().close(fileOutputStream);
       }
       
-      this.logUtil.putF("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
+      this.logUtil.putF("Wrote Image: " + file.getAbsolutePath(), this, this.commonStrings.SAVE);
    }
 
                         /*
@@ -178,7 +178,7 @@ public class ImagePersistanceUtil {
          */
     /*
     public void paint(Graphics graphics) {
-    this.logUtil.putF(commonStrings.START, this, canvasStrings.PAINT);
+    this.logUtil.putF(this.commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());
@@ -250,7 +250,7 @@ public class ImagePersistanceUtil {
          // Validate existence of writer.
          if (!iter.hasNext())
          {
-            this.logUtil.putF("Unable to save image to jpeg file type.", this, commonStrings.SAVE);
+            this.logUtil.putF("Unable to save image to jpeg file type.", this, this.commonStrings.SAVE);
             return;
          }
 
@@ -280,11 +280,11 @@ public class ImagePersistanceUtil {
 
          //poolInterface.add(iioImageCacheable);
 
-         this.logUtil.putF("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
+         this.logUtil.putF("Wrote Image: " + file.getAbsolutePath(), this, this.commonStrings.SAVE);
       }
       catch (Exception e)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.SAVE, e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.SAVE, e);
       }
       finally
       {
@@ -317,7 +317,7 @@ public class ImagePersistanceUtil {
          }
          catch (IOException e2)
          {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, commonStrings.SAVE, e2);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.SAVE, e2);
          }
       }
    }

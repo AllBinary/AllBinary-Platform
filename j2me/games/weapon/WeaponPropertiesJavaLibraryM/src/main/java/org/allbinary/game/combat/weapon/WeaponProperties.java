@@ -77,7 +77,7 @@ public class WeaponProperties extends SimpleWeaponProperties
             stringBuffer.append(" Dissipation: ");
             stringBuffer.append(dissipation);
 
-            PreLogUtil.put(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
+            PreLogUtil.put(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR);
             */
         }
     }

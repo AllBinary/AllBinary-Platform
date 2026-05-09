@@ -64,7 +64,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
             allBinaryGameLayerManager.getForegroundBasicColor());
 
-        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         this.colorFillPaintable = 
             ColorFillPaintableFactory.getInstance().getInstance(

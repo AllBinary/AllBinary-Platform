@@ -79,7 +79,7 @@ public class FeaturedResourceFactory
 //                        .append(commonStrings.INIT)
 //                        .append(CommonSeps.getInstance().SPACE)
 //                        .append(this.GAME_FEATURE_CONTROLLED)
-//                        .append(featureInterface.toString()).toString(), //                        this, commonStrings.INIT);
+//                        .append(featureInterface.toString()).toString(), //                        this, this.commonStrings.INIT);
                 featureInterface.init(level);
             }
         }
@@ -96,7 +96,7 @@ public class FeaturedResourceFactory
         stringBuffer.append(this.IMAGE_LABEL);
         stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS));
         
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
 
         if (features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS))
         {
@@ -111,7 +111,7 @@ public class FeaturedResourceFactory
             stringBuffer.append(this.SPRITE_FULL);
             stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.SPRITE_FULL_GRAPHICS));
 
-            this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+            this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
         }
     }
     
@@ -122,7 +122,7 @@ public class FeaturedResourceFactory
 
     public void add(GameFeatureControlledInterface featureInterface)
     {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(featureInterface)).toString(), this, commonStrings.ADD);
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(featureInterface)).toString(), this, this.commonStrings.ADD);
         
         this.list.add(featureInterface);
     }

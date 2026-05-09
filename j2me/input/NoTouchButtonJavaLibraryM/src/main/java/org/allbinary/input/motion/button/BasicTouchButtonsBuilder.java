@@ -37,7 +37,7 @@ public class BasicTouchButtonsBuilder
     {
         try
         {
-            this.logUtil.putF(commonStrings.START, this, commonStrings.GET_LIST);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.GET_LIST);
             
             final BasicArrayList list = new BasicArrayListD();
             
@@ -45,7 +45,7 @@ public class BasicTouchButtonsBuilder
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_LIST, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.GET_LIST, e);
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }

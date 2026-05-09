@@ -375,7 +375,7 @@ public class BasicProfileActionScriptCondition
         this.logUtil.putF(
             new StringMaker().append("Start - Processing ").appendint(
             this.getProfileActionProcessorInterfaceVector().size()).append(
-            " inputs").toString(), this, commonStrings.PROCESS);
+            " inputs").toString(), this, this.commonStrings.PROCESS);
         
         final Vector profileActionProcessorInterfaceVector = this.getProfileActionProcessorInterfaceVector();
         final int size = profileActionProcessorInterfaceVector.size();

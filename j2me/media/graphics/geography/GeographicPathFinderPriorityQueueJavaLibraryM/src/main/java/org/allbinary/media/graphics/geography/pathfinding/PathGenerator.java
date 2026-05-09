@@ -98,7 +98,7 @@ public class PathGenerator implements PathGeneratorInterface
     {
         //int (((tiledLayer.getRows() + tiledLayer.getColumns()) * 3) >> 2); //maxPathSize
 
-        //PreLogUtil.put(commonStrings.START, this, commonStrings.CREATE);
+        //PreLogUtil.put(commonStrings.START, this, this.commonStrings.CREATE);
         //PreLogUtil.put(Memory.getInfo(), this, "create0");
         //timeDelayHelper.setStartTime();
 

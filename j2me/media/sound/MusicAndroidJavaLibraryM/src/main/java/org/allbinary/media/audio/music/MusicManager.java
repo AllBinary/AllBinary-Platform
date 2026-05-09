@@ -54,7 +54,7 @@ public class MusicManager
 
     public MusicManager(final Class musicServiceClass, final BasicArrayList songList)
     {
-        PreLogUtil.put(this.commonStateStrings.CONTEXT + this.resourceUtil.getContext(), this, commonStrings.CONSTRUCTOR);
+        PreLogUtil.put(this.commonStateStrings.CONTEXT + this.resourceUtil.getContext(), this, this.commonStrings.CONSTRUCTOR);
         
         this.musicServiceClass = musicServiceClass;
         this.currentIntent = new Intent(this.resourceUtil.getContext(), musicServiceClass);
@@ -64,7 +64,7 @@ public class MusicManager
 
     public void nextSong(Sound nextSongSound, final int leftVolume, final int rightVolume) {
         
-        //PreLogUtil.put(NEXT_SONG, this, commonStrings.PROCESS);
+        //PreLogUtil.put(NEXT_SONG, this, this.commonStrings.PROCESS);
         
         if(nextSongSound == null) {
             nextSongSound = NoSound.getInstance();
@@ -108,7 +108,7 @@ public class MusicManager
 
             final long duration = (long) sound.getDuration();
 
-            PreLogUtil.put(new StringMaker().append(this.PLAY).append(sound.getResource()).append(this.FOR).appendlong(duration).toString(), this, commonStrings.PROCESS);
+            PreLogUtil.put(new StringMaker().append(this.PLAY).append(sound.getResource()).append(this.FOR).appendlong(duration).toString(), this, this.commonStrings.PROCESS);
         }
     }
 
@@ -116,8 +116,8 @@ public class MusicManager
     {
         try
         {
-            //PreLogUtil.put("startNewSong - Stop MusicService", this, commonStrings.PROCESS);
-            //PreLogUtil.put(Memory.getInfo(), this, commonStrings.PROCESS);
+            //PreLogUtil.put("startNewSong - Stop MusicService", this, this.commonStrings.PROCESS);
+            //PreLogUtil.put(Memory.getInfo(), this, this.commonStrings.PROCESS);
 
             this.resourceUtil.getContext().stopService(this.currentIntent);
 
@@ -131,7 +131,7 @@ public class MusicManager
             final long duration = (long) this.currentSongSound.getDuration();
 					//18000;
 
-            PreLogUtil.put(new StringMaker().append(this.PLAY).append(this.currentSongSound.getResource()).append(this.FOR).appendlong(duration).toString(), this, commonStrings.PROCESS);
+            PreLogUtil.put(new StringMaker().append(this.PLAY).append(this.currentSongSound.getResource()).append(this.FOR).appendlong(duration).toString(), this, this.commonStrings.PROCESS);
 
             this.timeDelayHelper.delay = (int) duration;
 
@@ -139,7 +139,7 @@ public class MusicManager
             this.currentIntent.putExtra(this.musicStrings.LEFT_VOLUME, leftVolume);
             this.currentIntent.putExtra(this.musicStrings.RIGHT_VOLUME, rightVolume);
 
-            //PreLogUtil.put("startNewSong - Start MusicService", this, commonStrings.PROCESS);
+            //PreLogUtil.put("startNewSong - Start MusicService", this, this.commonStrings.PROCESS);
             this.resourceUtil.getContext().startService(this.currentIntent);
         } catch (Exception e)
         {
@@ -149,14 +149,14 @@ public class MusicManager
                 resource = this.currentSongSound.getResource();
             }
 
-            PreLogUtil.putOE(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.PROCESS, e);
         }
     }
 
     public void stop()
             throws Exception
     {
-        //PreLogUtil.put(STOP_MUSIC_SERVICE, this, commonStrings.PROCESS);
+        //PreLogUtil.put(STOP_MUSIC_SERVICE, this, this.commonStrings.PROCESS);
         this.resourceUtil.getContext().stopService(this.currentIntent);
     }
     

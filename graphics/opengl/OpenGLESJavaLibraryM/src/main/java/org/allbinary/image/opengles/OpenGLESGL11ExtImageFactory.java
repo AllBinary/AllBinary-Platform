@@ -33,7 +33,7 @@ public class OpenGLESGL11ExtImageFactory extends OpenGLImageFactory
     public Image getInstance(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
     {
-        //PreLogUtil.put(image.getName(), this, commonStrings.GET_INSTANCE);
+        //PreLogUtil.put(image.getName(), this, this.commonStrings.GET_INSTANCE);
         return new OpenGLESGL11ExtImage(image, bitmapFactory, textureFactory);
     }
     

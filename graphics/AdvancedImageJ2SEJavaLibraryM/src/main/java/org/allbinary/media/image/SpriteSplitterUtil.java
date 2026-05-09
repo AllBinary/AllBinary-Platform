@@ -73,7 +73,7 @@ public class SpriteSplitterUtil {
         for (int index = 0; index < bufferedImageArray.length; index++) {
 
             bufferedImage = bufferedImageArray[index];
-            this.logUtil.putF(spriteType, this, commonStrings.RUN);
+            this.logUtil.putF(spriteType, this, this.commonStrings.RUN);
 
             if(spriteType == this.HORIZONTAL_SPRITE) {
 
@@ -85,8 +85,8 @@ public class SpriteSplitterUtil {
                 
                 generatedBufferedImageArray = new BufferedImage[rows][columns];
                 
-                this.logUtil.putF("Processing Individual Cells columns: " + columns + " rows: " + rows, this, commonStrings.RUN);
-                this.logUtil.putF("Processing Individual Cells cellHeight: " + cellHeight + " cellWidth: " + cellWidth, this, commonStrings.RUN);
+                this.logUtil.putF("Processing Individual Cells columns: " + columns + " rows: " + rows, this, this.commonStrings.RUN);
+                this.logUtil.putF("Processing Individual Cells cellHeight: " + cellHeight + " cellWidth: " + cellWidth, this, this.commonStrings.RUN);
 
                 final ImageUtil imageUtil = ImageUtil.getInstance();
 
@@ -109,7 +109,7 @@ public class SpriteSplitterUtil {
                     }
                 }
 
-                this.logUtil.putF("Processing Rows from Cells", this, commonStrings.RUN);
+                this.logUtil.putF("Processing Rows from Cells", this, this.commonStrings.RUN);
                 
                 final ImageUnifierProperties imageUnifierProperties = new ImageUnifierProperties();
                 
@@ -206,7 +206,7 @@ public class SpriteSplitterUtil {
                 
                 generatedBufferedImageArray = new BufferedImage[rows][columns];
 
-                this.logUtil.putF("Processing Individual Cells for each Direction", this, commonStrings.RUN);
+                this.logUtil.putF("Processing Individual Cells for each Direction", this, this.commonStrings.RUN);
                 
                 String nameEnding = null;
                 int x = 0;
@@ -236,7 +236,7 @@ public class SpriteSplitterUtil {
                     Integer.valueOf(cellWidth - (2 * widthReduction)) + increaseWidth,Integer.valueOf(cellHeight - (2 * heightReduction) + increaseHeight));
                 imageUnifierProperties.setImageUnifierCell(imageUnifierCell);
                 
-                this.logUtil.putF("Processing Rows from Cells for each Direction", this, commonStrings.RUN);
+                this.logUtil.putF("Processing Rows from Cells for each Direction", this, this.commonStrings.RUN);
                 
                 for(int index2 = 0; index2 < rows; index2++) {
                     y = cellHeight * index2;

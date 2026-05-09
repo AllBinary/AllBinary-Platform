@@ -79,7 +79,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.CONSTRUCTOR, e);
             throw e;
         }
     }
@@ -140,7 +140,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CLOSE, e);
         }
     }
 
@@ -149,7 +149,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
     {
         try
         {
-            // this.logUtil.putF(commonStrings.START, this, CommonStrings.getInstance());
+            // this.logUtil.putF(this.commonStrings.START, this, CommonStrings.getInstance());
 
             if(this.mediaPlayer.isPlaying()) {
                 this.mediaPlayer.pause();
@@ -163,7 +163,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
                     new MediaPlayer.OnCompletionListener(){
                         public void onCompletion(MediaPlayer mp)
                         {
-                            this.logUtil.putF(commonStrings.START, this, "onComplete())");
+                            this.logUtil.putF(this.commonStrings.START, this, "onComplete())");
                             AndroidMediaPlayerWrapper.this.update(PlayerListener.END_OF_MEDIA);
                         }
                     });
@@ -173,7 +173,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.START_METHOD_NAME, e);
         }
     }
 
@@ -194,7 +194,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
 
     public void update(String event)
     {
-        this.logUtil.putF("LineEvent: " + event, this, commonStrings.UPDATE);
+        this.logUtil.putF("LineEvent: " + event, this, this.commonStrings.UPDATE);
 
         int size = this.listenersList.size();
         for (int index = 0; index < size; index++)

@@ -72,7 +72,7 @@ public class ImageCopyUtil
             throws Exception
     {
         //final CommonLabels commonLabels = CommonLabels.getInstance();
-        //this.logUtil.putF(commonLabels + originalImage.getWidth() + commonLabels + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.commonLabels + originalImage.getWidth() + commonLabels + originalImage.getHeight(), this, this.commonStrings.CONSTRUCTOR);
         
         int newWidth = (int) (originalImage.getWidth() * canvasScale);
         int newHeight = (int) (originalImage.getHeight() * canvasScale);
@@ -87,7 +87,7 @@ public class ImageCopyUtil
             }
         }
         
-        //this.logUtil.putF("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("newWidth: " + newWidth + " newHeight: " + newHeight, this, this.commonStrings.CONSTRUCTOR);
         
         final Image image = this.imageCreationUtil.getInstance(newWidth, newHeight);
 
@@ -96,7 +96,7 @@ public class ImageCopyUtil
             final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
             final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
             //final CommonLabels commonLabels = CommonLabels.getInstance();
-            //this.logUtil.putF("deltas" + commonLabels + halfWidthDelta + commonLabels + halfHeightDelta, this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF("deltas" + commonLabels + halfWidthDelta + commonLabels + halfHeightDelta, this, this.commonStrings.CONSTRUCTOR);
             final Graphics graphics = image.getGraphics();
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
             //this.basicSetColorUtil.setBasicColorP(graphics, BasicColorFactory.getInstance().YELLOW);

@@ -71,7 +71,7 @@ extends ImageBaseRotationAnimation
         this.twoImages[0] = image;
         this.twoImages[1] = ImageCopyUtil.getInstance().createImage(image);
 
-        //this.logUtil.putF(this.toString(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.toString(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     @Override
@@ -148,7 +148,7 @@ extends ImageBaseRotationAnimation
     @Override
     public void setFrame(final int index)
     {
-        //this.logUtil.putF(commonLabels.INDEX_LABEL + index, this, "setRotation");
+        //this.logUtil.putF(this.commonLabels.INDEX_LABEL + index, this, "setRotation");
 
         final int currentFrame = this.circularIndexUtil.getIndex();
         //this.logUtil.putF("currentFrame: " + currentFrame, this, "setRotation");

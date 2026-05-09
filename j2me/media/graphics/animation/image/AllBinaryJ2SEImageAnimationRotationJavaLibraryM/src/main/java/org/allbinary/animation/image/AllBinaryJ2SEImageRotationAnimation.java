@@ -85,7 +85,7 @@ public class AllBinaryJ2SEImageRotationAnimation
         this.twoImages[0] = image;
         this.twoImages[1] = ImageCopyUtil.getInstance().createImageForRotation(image);
         
-        //this.logUtil.putF(this.toString(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.toString(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     @Override
@@ -185,7 +185,7 @@ public class AllBinaryJ2SEImageRotationAnimation
     @Override
     public void setFrame(final int index)
     {
-        //this.logUtil.putF(commonLabels.INDEX_LABEL + index, this, "setRotation");
+        //this.logUtil.putF(this.commonLabels.INDEX_LABEL + index, this, "setRotation");
 
         //final int currentFrame = this.circularIndexUtil.getIndex();
         //this.logUtil.putF("currentFrame: " + currentFrame, this, "setRotation");

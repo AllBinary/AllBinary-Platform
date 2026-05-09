@@ -44,14 +44,14 @@ public class PlayerQueue
             {
                 //final String message = "Adding: ").append(sound.getResource();
                 
-                //this.logUtil.putF(new StringMaker().append("Adding: ").append(sound.getResource()).toString(), this, commonStrings.ADD);
+                //this.logUtil.putF(new StringMaker().append("Adding: ").append(sound.getResource()).toString(), this, this.commonStrings.ADD);
 
                 this.list.add(sound);
             }
         }
         catch (Exception e)
         {
-            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.ADD);
+            PreLogUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.ADD);
         }
     }
 
@@ -70,7 +70,7 @@ public class PlayerQueue
                 if (sound != null)
                 {
                     //final String message = "Playing: ").append(sound.getResource();
-                    //this.logUtil.putF(new StringMaker().append("Playing: ").append(sound.getResource()).toString(), this, commonStrings.PROCESS);
+                    //this.logUtil.putF(new StringMaker().append("Playing: ").append(sound.getResource()).toString(), this, this.commonStrings.PROCESS);
 
                     //For BB only
                     //SoundThreadPool.getInstance().runTask(sound);
@@ -117,7 +117,7 @@ public class PlayerQueue
             }
             */
             
-            PreLogUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resource).toString(), this, commonStrings.PROCESS);
+            PreLogUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resource).toString(), this, this.commonStrings.PROCESS);
 
             return false;
         }

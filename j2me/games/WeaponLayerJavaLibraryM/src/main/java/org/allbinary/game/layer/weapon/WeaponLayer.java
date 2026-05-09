@@ -207,7 +207,7 @@ implements TickableInterface
     {
         //final GameStrings gameStrings = GameStrings.getInstance();
         
-        //this.logUtil.putF(commonStrings.START, this, gameStrings.PROCESS_TICK);
+        //this.logUtil.putF(this.commonStrings.START, this, gameStrings.PROCESS_TICK);
 
         if (this.isExhausted() && !this.isDestroyed())
         {
@@ -409,7 +409,7 @@ implements TickableInterface
     @Override
     public void paint(Graphics graphics)
     {
-        // this.logUtil.putF(commonStrings.START, this, canvasStrings.PAINT);
+        // this.logUtil.putF(this.commonStrings.START, this, canvasStrings.PAINT);
 
         ViewPosition viewPosition = this.getViewPosition();
         // int viewX = viewPosition.getX();

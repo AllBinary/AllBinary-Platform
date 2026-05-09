@@ -28,7 +28,7 @@ public class HighScoreCommandsBaseFactory {
     {
         if(J2MEUtil.isJ2ME())
         {
-            //this.logUtil.putF(commonStrings.START).append("J2ME", this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(this.commonStrings.START).append("J2ME", this, this.commonStrings.CONSTRUCTOR);
             
             //TWB - Hackish but it is better than a whole new library
             this.HIGH_SCORE_COMMANDS = new Command[] 
@@ -38,7 +38,7 @@ public class HighScoreCommandsBaseFactory {
         }
         else
         {
-            //this.logUtil.putF(commonStrings.START).append("not J2ME", this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(this.commonStrings.START).append("not J2ME", this, this.commonStrings.CONSTRUCTOR);
 
             this.HIGH_SCORE_COMMANDS = HIGH_SCORE_COMMANDS;
         }

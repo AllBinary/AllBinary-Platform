@@ -56,7 +56,7 @@ public class TextAnimation extends IndexedAnimation
         final int height = this.getHeight();
         final int size = this.textArrayP.length;
         for(int index = 0; index < size; index++) {
-            //this.logUtil.putF(new StringMaker().append(textArray[index]).append(CommonSeps.getInstance().SPACE).append(x).append(CommonSeps.getInstance().SPACE).append(y).toString(), this, commonStrings.PROCESS);
+            //this.logUtil.putF(new StringMaker().append(textArray[index]).append(CommonSeps.getInstance().SPACE).append(x).append(CommonSeps.getInstance().SPACE).append(y).toString(), this, this.commonStrings.PROCESS);
             graphics.drawString(this.textArrayP[index], x, y + (index * height), anchor);
             //graphics.drawString(textArray[index], x + WIDTH, y + (index * height) + HEIGHT, anchor);
         }
@@ -78,7 +78,7 @@ public class TextAnimation extends IndexedAnimation
                 if (index < 0) {
                     endIndex = text.length();
                 }
-                //this.logUtil.putF(new StringMaker().append("startIndex: ").append(startIndex).append(" endIndex: ").append(endIndex).toString(), this, commonStrings.PROCESS);
+                //this.logUtil.putF(new StringMaker().append("startIndex: ").append(startIndex).append(" endIndex: ").append(endIndex).toString(), this, this.commonStrings.PROCESS);
                 list.add(text.substring(startIndex, endIndex));
                 if (index < 0) {
                     break;

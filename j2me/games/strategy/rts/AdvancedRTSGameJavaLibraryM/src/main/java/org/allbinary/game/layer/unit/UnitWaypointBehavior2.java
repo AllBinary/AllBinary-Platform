@@ -637,7 +637,7 @@ extends UnitWaypointBehavior
             /*
             if(this.getOwnerAdvancedRTSGameLayer().isSelected())
             {
-                this.logUtil.putF(commonStrings.START, this, "selected: processTargeting");
+                this.logUtil.putF(this.commonStrings.START, this, "selected: processTargeting");
             }
             */
             

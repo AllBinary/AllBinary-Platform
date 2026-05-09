@@ -43,13 +43,13 @@ public class LazyProgressCanvas extends ProgressCanvas {
     public void end()
     {
         try {
-            this.logUtil.putF(commonStrings.START, this, commonStrings.END_METHOD_NAME);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.END_METHOD_NAME);
             this.endActual();
             this.paintable = GAUGE_PAINTABLE;
             ImageCacheFactory.getInstance().runTask();
             ImageCacheFactory.getInstance().progressEnded();
         } catch(Exception e) {
-            this.logUtil.putF(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME);
+            this.logUtil.putF(this.commonStrings.EXCEPTION, this, this.commonStrings.END_METHOD_NAME);
         }
     }
     
@@ -60,7 +60,7 @@ public class LazyProgressCanvas extends ProgressCanvas {
     public void endFromInitialLazyLoadingComplete()
     {
         super.endFromInitialLazyLoadingComplete();
-        //this.logUtil.putF(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE);
+        //this.logUtil.putF(this.commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE);
         this.paintable = NullPaintable.getInstance();
     }
     

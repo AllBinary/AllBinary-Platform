@@ -55,7 +55,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 
     public int processInput(final int key) throws Exception
     {
-        //this.logUtil.putF(commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
+        //this.logUtil.putF(this.commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
 
         //4,8,KEY_STAR
         if (key == Canvas.KEY_STAR)
@@ -141,7 +141,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
         throws Exception
     {
-        //this.logUtil.putF(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
+        //this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
 
         if(motionGestureEvent == null)
         {

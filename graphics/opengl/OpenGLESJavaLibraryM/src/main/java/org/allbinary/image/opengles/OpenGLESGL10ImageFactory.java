@@ -35,7 +35,7 @@ public class OpenGLESGL10ImageFactory extends OpenGLImageFactory
     public Image getInstance(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
     {
-        //PreLogUtil.put("opengl " + image.getName(), this, commonStrings.GET_INSTANCE);
+        //PreLogUtil.put("opengl " + image.getName(), this, this.commonStrings.GET_INSTANCE);
         return new OpenGLESGL10Image(image, bitmapFactory, textureFactory);
     }
     

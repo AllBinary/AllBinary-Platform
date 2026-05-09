@@ -67,7 +67,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
             rectangle,
             x, y, new TileLayerPositionIntoViewPosition());
 
-        //this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         this.setCollidableInferface(new CollidableWaypointBehavior(this, true));
         

@@ -460,7 +460,7 @@ public class TransformInfoObjectConfig
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.putF("DOM Document error", this, commonStrings.TOSTRING);
+            this.logUtil.putF("DOM Document error", this, this.commonStrings.TOSTRING);
          }
          return null;
       }

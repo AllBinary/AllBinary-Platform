@@ -63,14 +63,14 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
          super.deleteWhere(StoreFrontData.getInstance().NAME,value);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            this.logUtil.putF(this.commonStrings.SUCCESS, this, commonStrings.delete);
+            this.logUtil.putF(this.commonStrings.SUCCESS, this, this.commonStrings.delete);
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
+            this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.delete, e);
          }
       }
    }

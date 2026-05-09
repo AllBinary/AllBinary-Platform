@@ -93,7 +93,7 @@ public class CssElementView implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.putF(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, this.commonStrings.CONSTRUCTOR);
          }
          
          //Nodes with CssElementData.NAME

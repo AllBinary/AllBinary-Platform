@@ -90,15 +90,15 @@ public class CustomTextAnimationFactory
     @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
 //        this.scaleProperties = scaleProperties;
-//        this.logUtil.putF(new StringMaker().append("setInitialSize - Font size: ").append(this.scaleProperties.scaleHeight).toString(), this, commonStrings.PROCESS);
+//        this.logUtil.putF(new StringMaker().append("setInitialSize - Font size: ").append(this.scaleProperties.scaleHeight).toString(), this, this.commonStrings.PROCESS);
 //        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleProperties.scaleHeight);
 //        final CommonLabels commonLabels = CommonLabels.getInstance();
-//        this.logUtil.putF(new StringMaker().append("setInitialSize - Font size: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
+//        this.logUtil.putF(new StringMaker().append("setInitialSize - Font size: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, this.commonStrings.PROCESS);
     }
 
     public int getWidth() {
 //        final CommonLabels commonLabels = CommonLabels.getInstance();
-//        this.logUtil.putF(new StringMaker().append("getWidth - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
+//        this.logUtil.putF(new StringMaker().append("getWidth - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, this.commonStrings.PROCESS);
         return this.font.stringWidth(this.text);
     }
 

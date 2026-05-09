@@ -168,7 +168,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                   org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
-               this.logUtil.putF("Creating GenericStoreTransformInfoObjectConfig", this, commonStrings.GET_INSTANCE);
+               this.logUtil.putF("Creating GenericStoreTransformInfoObjectConfig", this, this.commonStrings.GET_INSTANCE);
             }
             
             return (TransformInfoObjectConfigInterface)
@@ -180,7 +180,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                   org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
-               this.logUtil.putF("Creating TransformInfoObjectConfig", this, commonStrings.GET_INSTANCE);
+               this.logUtil.putF("Creating TransformInfoObjectConfig", this, this.commonStrings.GET_INSTANCE);
             }
             
             return (TransformInfoObjectConfigInterface)

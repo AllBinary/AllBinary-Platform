@@ -71,7 +71,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                this.logUtil.putF("Started Validation", this, commonStrings.IS_VALID);
+                this.logUtil.putF("Started Validation", this, this.commonStrings.IS_VALID);
             }
 
             Boolean isValid = Boolean.TRUE;
@@ -99,7 +99,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     stringBuffer.appendint(componentVector.size());
                     stringBuffer.append(" Components");
 
-                    this.logUtil.putF(stringBuffer.toString(), this, commonStrings.IS_VALID);
+                    this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
                 }
 
                 for(int index = 0; index < size; index++)
@@ -111,7 +111,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                     {
                         this.logUtil.putF("Setting Template Component with ViewName: "
-                            + transformInfoName, this, commonStrings.IS_VALID);
+                            + transformInfoName, this, this.commonStrings.IS_VALID);
                     }
 
                     TransformInterface componentInterface =
@@ -173,7 +173,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                         stringBuffer.append("\n Now Pointing To View Name: ");
                         stringBuffer.append(newViewName);
 
-                        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.IS_VALID);
+                        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
                     }
 
                     templateViewObjectConfig.set(newViewName);
@@ -188,7 +188,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                         stringBuffer.append("\n with ObjectConfig: ");
                         stringBuffer.append(templateViewObjectConfig.toString());
 
-                        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.IS_VALID);
+                        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
                     }
 
                     componentInterface.getTransformInfoInterface().setObjectConfigInterface(
@@ -204,7 +204,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                this.logUtil.put("Failed to validate", this, commonStrings.IS_VALID, e);
+                this.logUtil.put("Failed to validate", this, this.commonStrings.IS_VALID, e);
             }
             return Boolean.FALSE;
         }

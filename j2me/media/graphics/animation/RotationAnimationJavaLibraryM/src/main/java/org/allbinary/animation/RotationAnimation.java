@@ -108,7 +108,7 @@ public class RotationAnimation
     @Override
     public void setFrameByDirection(final Direction direction)
     {
-        //this.logUtil.putF(commonStrings.START, this, "setFrame");
+        //this.logUtil.putF(this.commonStrings.START, this, "setFrame");
 
         /*
         DirectionFactory directionFactory = DirectionFactory.getInstance();

@@ -42,8 +42,8 @@ public class Replace
       
 //      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
 //      {
-//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR);
-//         //this.logUtil.putF("Replacers: key=" + key + " value=" + value, this, commonStrings.CONSTRUCTOR);
+//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
+//         //this.logUtil.putF("Replacers: key=" + key + " value=" + value, this, this.commonStrings.CONSTRUCTOR);
 //      }
    }
 
@@ -54,8 +54,8 @@ public class Replace
       
 //      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
 //      {
-//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR);
-//         //this.logUtil.putF("Replacers: key=" + key + " value=" + value, this, commonStrings.CONSTRUCTOR);
+//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
+//         //this.logUtil.putF("Replacers: key=" + key + " value=" + value, this, this.commonStrings.CONSTRUCTOR);
 //      }
    }
        
@@ -65,7 +65,7 @@ public class Replace
       
 //      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE_INFO))
 //      {
-//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR);
+//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
 //      }
    }
    

@@ -209,7 +209,7 @@ public class InitDbCrypted extends AbDatabaseManagement
         {
             StringMaker stringBuffer = new StringMaker();
 
-            this.logUtil.putF(commonStrings.START, this, this.METHOD_ADD_TABLES);
+            this.logUtil.putF(this.commonStrings.START, this, this.METHOD_ADD_TABLES);
 
             stringBuffer.append(UserEntityFactory.getInstance().createTable());
 

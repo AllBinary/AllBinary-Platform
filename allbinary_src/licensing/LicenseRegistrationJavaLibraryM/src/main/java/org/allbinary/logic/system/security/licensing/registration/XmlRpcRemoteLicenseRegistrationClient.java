@@ -61,7 +61,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             stringBuffer.append(SEP);
             stringBuffer.append(server);
             
-            this.logUtil.putF(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, commonStrings.GET);
+            this.logUtil.putF(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, this.commonStrings.GET);
             
             // }
 
@@ -82,7 +82,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Client Info: \n" + hashtable.toString());
-            this.logUtil.putF(CLIENT_INFO + hashtable.toString(), this, commonStrings.GET);
+            this.logUtil.putF(CLIENT_INFO + hashtable.toString(), this, this.commonStrings.GET);
             // }
 
             /*
@@ -105,7 +105,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Result: \n" + result.toString());
-            this.logUtil.putF(RESULT + result.toString(), this, commonStrings.GET);
+            this.logUtil.putF(RESULT + result.toString(), this, this.commonStrings.GET);
             // }
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
@@ -129,7 +129,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("IOException Trying Other Servers");
-            this.logUtil.putF(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, commonStrings.GET);
+            this.logUtil.putF(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, this.commonStrings.GET);
             // }
 
             if(!e.getMessage().startsWith(HOST_NOT_RESOLVED))
@@ -149,7 +149,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             //Can't log this since that is what the log is using
             //String message = LogFormatUtil.get(error, stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, e);
             //System.out.println(message);
-            this.logUtil.put(SERVER_REPORTED_ERROR, this, commonStrings.GET, e);
+            this.logUtil.put(SERVER_REPORTED_ERROR, this, this.commonStrings.GET, e);
             // }
             return this.tryAnother(object);
         } catch (Exception e)
@@ -158,7 +158,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             // {
             //String message = LogFormatUtil.get(error, stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, e);
             //System.out.println(message);
-            this.logUtil.put(UNKNOWN_ERROR, this, commonStrings.GET, e);
+            this.logUtil.put(UNKNOWN_ERROR, this, this.commonStrings.GET, e);
             // }
             return this.tryAnother(object);
         }

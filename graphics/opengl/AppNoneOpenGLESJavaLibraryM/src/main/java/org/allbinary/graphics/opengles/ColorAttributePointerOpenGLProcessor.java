@@ -36,7 +36,7 @@ public class ColorAttributePointerOpenGLProcessor extends ObjectThreedOpenGLProc
     
     public ColorAttributePointerOpenGLProcessor()
     {
-        //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //PreLogUtil.put(commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
     }
 
     @Override

@@ -49,16 +49,16 @@ public class AllBinaryTiledLayer extends Layer
         
         this.setLayerWidth(width);
         this.setLayerHeight(height);
-        //this.logUtil.putF("TiledLayer: w: " + width + " h: " + height, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("TiledLayer: w: " + width + " h: " + height, this, this.commonStrings.CONSTRUCTOR);
         super.setPosition(0, 0, 0);
-        //this.logUtil.putF("TiledLayer: x: " + this.x + " y: " + this.y, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("TiledLayer: x: " + this.x + " y: " + this.y, this, this.commonStrings.CONSTRUCTOR);
 
         this.cellWidth = cellWidth;
         this.cellHeight = cellHeight;
         
         this.halfWidth = (this.getWidth() >> 1);
         this.halfHeight = (this.getHeight() >> 1);
-        //this.logUtil.putF("TiledLayer: hw: " + this.halfWidth + " hh: " + this.halfHeight, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("TiledLayer: hw: " + this.halfWidth + " hh: " + this.halfHeight, this, this.commonStrings.CONSTRUCTOR);
         
         this.halfCellWidth = (cellWidth >> 1);
         this.halfCellHeight = (cellHeight >> 1);

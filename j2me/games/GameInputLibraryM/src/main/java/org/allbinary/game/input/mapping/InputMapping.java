@@ -106,7 +106,7 @@ public class InputMapping
     
     public void add(final Input input, final Input mappedToInput)
     {
-        //this.logUtil.putF(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputMapping::add");
+        //this.logUtil.putF(this.commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputMapping::add");
         BasicArrayList list = this.getMappedInput(input);
         if(!list.contains(mappedToInput))
         {

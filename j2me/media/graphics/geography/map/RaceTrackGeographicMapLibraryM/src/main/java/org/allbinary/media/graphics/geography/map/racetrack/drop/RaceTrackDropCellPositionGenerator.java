@@ -86,7 +86,7 @@ public class RaceTrackDropCellPositionGenerator
     public void update(final AllBinaryGameLayerManager allBinaryGameLayerManager,
             final BasicGeographicMap geographicMapInterface) throws Exception
     {
-        //PreLogUtil.put(commonStrings.START, this, commonStrings.UPDATE);
+        //PreLogUtil.put(commonStrings.START, this, this.commonStrings.UPDATE);
         
         this.init();
 
@@ -144,8 +144,8 @@ public class RaceTrackDropCellPositionGenerator
         }
 
         int size = this.list.size();
-        //PreLogUtil.put("Initial Dropping: " + size, this, commonStrings.UPDATE);
-        //this.logUtil.putF("Initial Dropping: " + size, this, commonStrings.UPDATE);
+        //PreLogUtil.put("Initial Dropping: " + size, this, this.commonStrings.UPDATE);
+        //this.logUtil.putF("Initial Dropping: " + size, this, this.commonStrings.UPDATE);
 
         //this.drop(allBinaryLayerManager, (size >> 1));
 

@@ -112,7 +112,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.GET, e);
             }
             return null;
         }

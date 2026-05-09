@@ -52,7 +52,7 @@ public class PooledThread extends Thread {
             Runnable task2 = this.threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             try {
                 task2 = this.threadPool.getTask();
-                //this.logUtil.putF(task + " with Thread: " + this.toString(), this, commonStrings.RUN);
+                //this.logUtil.putF(task + " with Thread: " + this.toString(), this, this.commonStrings.RUN);
                 this.threadPool.runningTask = true;
 
                 this.threadPool.startTask(task2);
@@ -69,7 +69,7 @@ public class PooledThread extends Thread {
             /*
                 else
                 {
-                PreLogUtil.put("Running: ").append(task, this, commonStrings.RUN);
+                PreLogUtil.put("Running: ").append(task, this, this.commonStrings.RUN);
                 }
              */
 

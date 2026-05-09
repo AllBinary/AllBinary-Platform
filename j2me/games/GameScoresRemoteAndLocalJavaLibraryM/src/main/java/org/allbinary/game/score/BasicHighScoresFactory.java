@@ -64,7 +64,7 @@ public class BasicHighScoresFactory extends HighScoresBase
                 
                 final LogUtil logUtil = LogUtil.getInstance();
                 try {
-                    logUtil.putF(commonStrings.START, this, FETCH);
+                    logUtil.putF(BasicHighScoresFactory.this.commonStrings.START, this, FETCH);
 
                     highScoresArray[0] = RecordStoreHighScores.getInstance(abeClientInformation, gameInfo,
                         TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
@@ -86,7 +86,7 @@ public class BasicHighScoresFactory extends HighScoresBase
                             softwareInformation, gameInfo2,
                             WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE, preload);
 
-                    logUtil.putF(commonStrings.END, this, FETCH);
+                    logUtil.putF(BasicHighScoresFactory.this.commonStrings.END, this, FETCH);
 
                     LastFetchHighScoresFactory.getInstance().highScoresArray = highScoresArray;
                     highScoresResultsListener.setHighScoresArray(highScoresArray);

@@ -103,7 +103,7 @@ public class BasicColor
         stringBuffer.append(" b: ");
         stringBuffer.append(this.blueComponent);
         
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR);
         */
     }
 
@@ -149,7 +149,7 @@ public class BasicColor
 //        stringBuffer.append(" b: ");
 //        stringBuffer.append(this.blueComponent);
 //
-//        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
+//        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR);
 //        */
 //    }
     

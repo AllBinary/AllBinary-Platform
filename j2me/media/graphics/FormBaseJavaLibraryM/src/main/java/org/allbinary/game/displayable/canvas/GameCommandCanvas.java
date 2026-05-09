@@ -302,7 +302,7 @@ public class GameCommandCanvas
     @Override
     public void keyReleasedByDevice(final int keyCode, final int deviceId)
     {
-        //this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
+        //this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_RELEASED);
         this.removeGameKeyEvent(keyCode, deviceId, false);
     }
 

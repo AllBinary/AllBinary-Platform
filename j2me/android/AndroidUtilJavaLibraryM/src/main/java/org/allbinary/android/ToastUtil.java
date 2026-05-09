@@ -33,8 +33,8 @@ public class ToastUtil {
                     final LogUtil logUtil = LogUtil.getInstance();
 	            try
 	            {
-	            	//logUtil.putF("Trying to Toast: "+ string, this, commonStrings.RUN);
-	            	//PreLogUtil.put("Trying to Toast: "+ string, this, commonStrings.RUN);
+	            	//logUtil.putF("Trying to Toast: "+ string, this, this.commonStrings.RUN);
+	            	//PreLogUtil.put("Trying to Toast: "+ string, this, this.commonStrings.RUN);
 	                
 	                Toast.makeText(context, string, time).show();
 	            }

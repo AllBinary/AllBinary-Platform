@@ -634,7 +634,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))
             {
-                this.guiLog.put(commonStrings.EXCEPTION, this, commonStrings.SAVE, e);
+                this.guiLog.put(this.commonStrings.EXCEPTION, this, this.commonStrings.SAVE, e);
             }
         }
     }

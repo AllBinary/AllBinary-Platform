@@ -41,7 +41,7 @@ public class HighScore
         this.score = score;
         this.scoreString = Long.toString(this.score);
         
-        //this.logUtil.putF(this.toString(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.toString(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     public int getId()

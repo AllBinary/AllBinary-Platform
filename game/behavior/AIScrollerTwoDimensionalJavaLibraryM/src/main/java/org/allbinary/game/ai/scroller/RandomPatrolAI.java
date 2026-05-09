@@ -44,7 +44,7 @@ public class RandomPatrolAI extends BasePatrolAI
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
     throws Exception
     {
-        // this.logUtil.putF(commonStrings.START, this, commonStrings.PROCESS);
+        // this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.PROCESS);
 
         super.update();
 
@@ -52,8 +52,8 @@ public class RandomPatrolAI extends BasePatrolAI
 
         if (this.changedDirection)
         {
-            // this.logUtil.putF("Fire", this, commonStrings.PROCESS);
-            // PreLogUtil.put("Fire", this, commonStrings.PROCESS);
+            // this.logUtil.putF("Fire", this, this.commonStrings.PROCESS);
+            // PreLogUtil.put("Fire", this, this.commonStrings.PROCESS);
             super.processKeyAI(Canvas.KEY_NUM1);
 
             this.updateRandomDistance();

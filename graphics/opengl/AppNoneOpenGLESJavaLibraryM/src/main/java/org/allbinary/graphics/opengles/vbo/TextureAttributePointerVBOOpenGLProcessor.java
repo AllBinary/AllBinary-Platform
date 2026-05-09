@@ -36,7 +36,7 @@ public class TextureAttributePointerVBOOpenGLProcessor extends ObjectThreedOpenG
     
     public TextureAttributePointerVBOOpenGLProcessor()
     {
-        //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //PreLogUtil.put(commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
     }
 
     @Override

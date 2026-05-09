@@ -65,7 +65,7 @@ public class LayerProcessor implements LayerProcessorInterface
         int size = layerManager.getSize();
         for (int index = 0; index < size; index++)
         {
-            //this.logUtil.putF(commonStrings.TOTAL_LABEL + layerManager.getSize(), this, commonStrings.PROCESS);
+            //this.logUtil.putF(this.commonStrings.TOTAL_LABEL + layerManager.getSize(), this, this.commonStrings.PROCESS);
             this.processAt(allBinaryLayerManager, (AllBinaryLayer) layerManager.getLayerAt(index), index);
         }
     }

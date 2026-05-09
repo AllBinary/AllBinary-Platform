@@ -82,7 +82,7 @@ public class PathFindingNodeCostInfoFactory
         // [goingToFromGeographicMapCellPosition.getId().intValue()];
         //if(pathFindingNodeCostInfo == null)
         //{
-        // this.logUtil.putF("Unable to get PathFindingNodeCostInfo: " + pathFindingNodeCostInfoKey, this, commonStrings.GET_INSTANCE);
+        // this.logUtil.putF("Unable to get PathFindingNodeCostInfo: " + pathFindingNodeCostInfoKey, this, this.commonStrings.GET_INSTANCE);
         //}
         //return pathFindingNodeCostInfo;
         return this.pathFindingNodeCostInfoAdjacencyList[geographicMapCellPosition.getId()][goingToFromGeographicMapCellPosition.getId()];

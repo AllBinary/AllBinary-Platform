@@ -177,7 +177,7 @@ public class ImageModifierUtil {
             imageArray[index] = image2;
 
         } catch (Exception e) {
-            this.logUtil.putF(commonStrings.EXCEPTION_LABEL + resourceCallbackStrings.DONE, this, resourceCallbackStrings.HANDLE_IMAGE);
+            this.logUtil.putF(this.commonStrings.EXCEPTION_LABEL + resourceCallbackStrings.DONE, this, resourceCallbackStrings.HANDLE_IMAGE);
         }
     }
     

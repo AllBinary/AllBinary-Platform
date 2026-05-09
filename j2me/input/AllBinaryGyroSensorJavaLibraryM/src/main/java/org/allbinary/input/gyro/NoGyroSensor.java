@@ -24,7 +24,7 @@ implements AllBinarySensorListener
 
     public NoGyroSensor()
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
     }
  
     @Override

@@ -328,7 +328,7 @@ implements BaseMotionGestureEventListener
     @Override
     public void processMotionInput(final AllBinaryLayerManager layerManager) throws Exception
     {
-        //this.logUtil.putF(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
+        //this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
 
         if (this.getMotionGestureInputList().size() > 0)
         {

@@ -40,7 +40,7 @@ public class Sounds
 
     public void init() throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
 
         final CommonLabels commonLabels = CommonLabels.getInstance();        
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -70,7 +70,7 @@ public class Sounds
                 stringBuffer.append(this.soundStrings.SOUND);
                 stringBuffer.append(soundInterface.getClass().getName());
 
-                this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+                this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
                 
                 soundInterface.init();
                 
@@ -80,7 +80,7 @@ public class Sounds
 
         this.soundsFactoryInterface.setInitialized(true);
         
-        this.logUtil.putF(commonStrings.END, this, commonStrings.INIT);
+        this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.INIT);
     }
 
     public void stopAll() throws Exception

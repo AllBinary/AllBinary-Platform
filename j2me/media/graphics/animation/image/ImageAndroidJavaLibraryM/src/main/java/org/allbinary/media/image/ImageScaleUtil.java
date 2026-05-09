@@ -82,7 +82,7 @@ public class ImageScaleUtil
         final AndroidImageInterface originalAndroidImage = (AndroidImageInterface) originalImage;
         final Bitmap originalBitmap = originalAndroidImage.getBitmap();
 
-        //this.logUtil.putF(CommonLabels.getInstance().COLON_SEP + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, commonStrings.CREATE_IMAGE);
+        //this.logUtil.putF(CommonLabels.getInstance().COLON_SEP + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, this.commonStrings.CREATE_IMAGE);
 
         final int width = (int) (originalBitmap.getWidth() * scaleX);
         final int height = (int) (originalBitmap.getHeight() * scaleY);
@@ -103,7 +103,7 @@ public class ImageScaleUtil
         }
         
         if (alreadyAvailable) {
-            //this.logUtil.putF("Using existing scaled image at: " + index, this, commonStrings.CREATE_IMAGE);
+            //this.logUtil.putF("Using existing scaled image at: " + index, this, this.commonStrings.CREATE_IMAGE);
             return (Image) this.scaledImageBasicArrayList.get(index);
         } else {
             final Image scaledImage = this.getScaledImage(imageCache, originalImage, scaleX, scaleY, width, height, cached);

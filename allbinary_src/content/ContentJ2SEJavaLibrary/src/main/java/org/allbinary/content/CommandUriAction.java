@@ -62,7 +62,7 @@ public class CommandUriAction
         }
         catch (Exception e)
         {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
         }
     }
     

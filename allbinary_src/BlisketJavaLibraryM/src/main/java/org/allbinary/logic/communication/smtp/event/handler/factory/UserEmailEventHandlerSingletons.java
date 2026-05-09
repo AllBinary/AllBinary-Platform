@@ -45,7 +45,7 @@ public class UserEmailEventHandlerSingletons {
 
     private UserEmailEventHandlerSingletons() {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-            this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -55,7 +55,7 @@ public class UserEmailEventHandlerSingletons {
         UserInterface userInterface)
         throws Exception {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-            this.logUtil.putF(this.commonStrings.START, this, commonStrings.GET_INSTANCE);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.GET_INSTANCE);
         }
 
         UserEmailEventHandler userEmailEventHandler = (UserEmailEventHandler) this.userEmailEventHandlerHashMap.get(
@@ -63,7 +63,7 @@ public class UserEmailEventHandlerSingletons {
 
         if (userEmailEventHandler == null) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-                this.logUtil.putF("Creating New Named UserEmailEventHandler", this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF("Creating New Named UserEmailEventHandler", this, this.commonStrings.GET_INSTANCE);
             }
 
             //Create New Handler and add listeners
@@ -81,7 +81,7 @@ public class UserEmailEventHandlerSingletons {
             return newUserEmailEventHandler;
         } else {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-                this.logUtil.putF("Returning existing UserEmailEventHandler", this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF("Returning existing UserEmailEventHandler", this, this.commonStrings.GET_INSTANCE);
             }
 
             //Return existing event Handler

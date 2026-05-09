@@ -118,12 +118,12 @@ public class TouchButtonRecognizer
     {
         if(TouchScreenFactory.getInstance().isMultiTouch())
         {
-            //PreLogUtil.put("Multitouch Release Helper", this, commonStrings.CONSTRUCTOR);
+            //PreLogUtil.put("Multitouch Release Helper", this, this.commonStrings.CONSTRUCTOR);
             this.releaseHelper = new MultitouchReleaseHelper(this);
         }
         else
         {
-            //PreLogUtil.put("Singletouch Release Helper", this, commonStrings.CONSTRUCTOR);
+            //PreLogUtil.put("Singletouch Release Helper", this, this.commonStrings.CONSTRUCTOR);
             this.releaseHelper = new ReleaseHelper(this);
         }
         

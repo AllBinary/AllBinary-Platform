@@ -62,7 +62,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    this.logUtil.putF("Invalid AdminCommand=" + command, this, commonStrings.IS_VALID);
+                    this.logUtil.putF("Invalid AdminCommand=" + command, this, this.commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }
@@ -71,7 +71,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    this.logUtil.putF("BasicItem is not valid", this, commonStrings.IS_VALID);
+                    this.logUtil.putF("BasicItem is not valid", this, this.commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }
@@ -93,7 +93,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    this.logUtil.putF("Category Does Not Exist: " + fullCategory, this, commonStrings.IS_VALID);
+                    this.logUtil.putF("Category Does Not Exist: " + fullCategory, this, this.commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }
@@ -128,7 +128,7 @@ public class UpdateFileValidationView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                this.logUtil.put("Exception in validation", this, commonStrings.IS_VALID, e);
+                this.logUtil.put("Exception in validation", this, this.commonStrings.IS_VALID, e);
             }
 
             return Boolean.FALSE;
@@ -231,7 +231,7 @@ public class UpdateFileValidationView
                     stringBuffer.append(">");
                     stringBuffer.appendint(fileData.MAXIMAGEFILESIZE);
 
-                    this.logUtil.putF(stringBuffer.toString(), this, commonStrings.IS_VALID);
+                    this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }

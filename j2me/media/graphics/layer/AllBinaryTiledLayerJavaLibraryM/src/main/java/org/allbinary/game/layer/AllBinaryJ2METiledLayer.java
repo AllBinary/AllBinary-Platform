@@ -94,7 +94,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     final Font font2 = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, 4);
     public void paintDebug(final Graphics graphics)
     {
-        //this.logUtil.putF(commonStrings.START, this, "paint");
+        //this.logUtil.putF(this.commonStrings.START, this, "paint");
         final Font font = graphics.getFont();
 
         graphics.setFont(this.font2);

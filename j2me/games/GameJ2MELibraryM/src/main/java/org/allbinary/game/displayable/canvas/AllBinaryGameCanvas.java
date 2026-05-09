@@ -365,7 +365,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public void processSleep() throws Exception
     {
-        //this.logUtil.putF(commonStrings.START, this, PROCESS_SLEEP);
+        //this.logUtil.putF(this.commonStrings.START, this, PROCESS_SLEEP);
 
         super.processSleep();
 
@@ -388,7 +388,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void initPopupMenu() throws Exception
     {
-        //this.logUtil.putF("initPopupMenu", this, commonStrings.PROCESS);
+        //this.logUtil.putF("initPopupMenu", this, this.commonStrings.PROCESS);
 
         final Features features = Features.getInstance();
 
@@ -397,7 +397,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         if (features.isFeature(this.touchFeatureFactory.TOUCH_ENABLED))
         {
-            //this.logUtil.putF("initPopupMenu - touch", this, commonStrings.PROCESS);
+            //this.logUtil.putF("initPopupMenu - touch", this, this.commonStrings.PROCESS);
 
             this.setOpenMenuPaintable(new BasicPopupMenuPaintable(
                     popupMenuRectangle,
@@ -413,7 +413,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         try
         {
-            //this.logUtil.putF("initMenu", this, commonStrings.PROCESS);
+            //this.logUtil.putF("initMenu", this, this.commonStrings.PROCESS);
             this.menuBehavior.initMenu(this);
 
         }
@@ -425,7 +425,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void initMenu2() throws Exception
     {
-        //this.logUtil.putF("initMenu - not bot", this, commonStrings.PROCESS);
+        //this.logUtil.putF("initMenu - not bot", this, this.commonStrings.PROCESS);
 
         this.closeMenu();
 
@@ -457,21 +457,21 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final Features features = Features.getInstance();
 
         if (features.isFeature(this.touchFeatureFactory.TOUCH_ENABLED)) {
-            //this.logUtil.putF("initMenu - touch", this, commonStrings.PROCESS);
+            //this.logUtil.putF("initMenu - touch", this, this.commonStrings.PROCESS);
             this.mainMenuInputProcessor = new PopupCommandFormInputProcessor(
                     new BasicArrayListD(), -1, this, scrollSelectionForm,
                     (PopupMenuInputProcessor) this.getPopupMenuInputProcessor());
         } else {
-            //this.logUtil.putF("initMenu - no touch", this, commonStrings.PROCESS);
+            //this.logUtil.putF("initMenu - no touch", this, this.commonStrings.PROCESS);
         }
 
         this.setMenuInputProcessor(this.getPopupMenuInputProcessor());
 
         if (scrollSelectionForm != ScrollSelectionFormNoneFactory.getInstance()) {
-            //this.logUtil.putF("initMenu - scroll", this, commonStrings.PROCESS);
+            //this.logUtil.putF("initMenu - scroll", this, this.commonStrings.PROCESS);
             this.setFormPaintable(new FormPaintable(scrollSelectionForm));
         } else {
-            //this.logUtil.putF("initMenu - no scroll", this, commonStrings.PROCESS);
+            //this.logUtil.putF("initMenu - no scroll", this, this.commonStrings.PROCESS);
         }
 
         this.closeMenu();
@@ -522,7 +522,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public synchronized void pause()
     {
     	//final String METHOD_NAME = "pause";
-        //this.logUtil.putF(commonStrings.START, this, METHOD_NAME);
+        //this.logUtil.putF(this.commonStrings.START, this, METHOD_NAME);
         // PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
 
         this.gameBehavior.pause(this);
@@ -535,13 +535,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         System.gc();
 
-        //this.logUtil.putF(commonStrings.END, this, METHOD_NAME);
+        //this.logUtil.putF(this.commonStrings.END, this, METHOD_NAME);
     }
 
     @Override
     public synchronized void unPause()
     {
-        this.logUtil.putF(commonStrings.START, this, gameStrings.UNPAUSE);
+        this.logUtil.putF(this.commonStrings.START, this, gameStrings.UNPAUSE);
         // PreLogUtil.put(commonStrings.START, this, gameStrings.UNPAUSE);
 
         this.closeMenu();
@@ -574,7 +574,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void popupMenu2() throws Exception
     {
-        //this.logUtil.putF(commonStrings.START, this, "popupMenu");
+        //this.logUtil.putF(this.commonStrings.START, this, "popupMenu");
 
         this.primaryPlayerQueue.add(SelectSound.getInstance());
 
@@ -588,7 +588,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public void toggleMenu() throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, this.gameStrings.TOGGLE_MENU);
+        this.logUtil.putF(this.commonStrings.START, this, this.gameStrings.TOGGLE_MENU);
 
         if (this.getMenuPaintable() == this.getOpenMenuPaintable())
         {
@@ -613,7 +613,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void closeMenu2()
     {
-        //this.logUtil.putF(commonStrings.START, this, "closeMenu");
+        //this.logUtil.putF(this.commonStrings.START, this, "closeMenu");
 
         this.setMenuPaintable(this.getOpenMenuPaintable());
 
@@ -665,7 +665,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         if (!buffered)
         {
             final String BUFF_MESSAGE = "XXX Not Buffering Causes Concurrency Issues XXX";
-            this.logUtil.putF(BUFF_MESSAGE, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(BUFF_MESSAGE, this, this.commonStrings.CONSTRUCTOR);
 
             // this.processPaintable = new GameCanvasPaintHelper(this);
         }
@@ -676,7 +676,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
 
         //this.logUtil.putF(
-        //"isDoubleBuffered: ").append(this.isBuffered()).append("isDoubleBuffered: ").append(this.isDoubleBuffered(), //this, commonStrings.CONSTRUCTOR);
+        //"isDoubleBuffered: ").append(this.isBuffered()).append("isDoubleBuffered: ").append(this.isDoubleBuffered(), //this, this.commonStrings.CONSTRUCTOR);
 
         this.setGameInputProcessor(Processor.getInstance());
 
@@ -1003,7 +1003,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void processGameOver() throws Exception
     {
         PreLogUtil.put(commonStrings.START, this, this.gameStrings.SET_GAME_OVER);
-        // this.logUtil.putF(commonStrings.START, this, this.gameStrings.SET_GAME_OVER);
+        // this.logUtil.putF(this.commonStrings.START, this, this.gameStrings.SET_GAME_OVER);
 
         this.setGameOver(true);
 
@@ -1138,7 +1138,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void cleanupGame() throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, this.commonStrings.CLEANUP);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLEANUP);
 
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.addNormalPortion(10, "Cleaning Up");
@@ -1283,7 +1283,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void loadState() throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.LOAD);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.LOAD);
         Hashtable hashtable = this.getLoadStateHashtable();
 
         if (hashtable != null && hashtable.size() > 0)
@@ -1472,7 +1472,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void processPlayingGame() throws Exception
     {
-        //this.logUtil.putF(commonStrings.START, this, "processPlayingGame");
+        //this.logUtil.putF(this.commonStrings.START, this, "processPlayingGame");
 
         /*
          * if(this.hasRepeatEvents()) { this.setRepeated(true); }
@@ -1556,10 +1556,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         } else {
             if (features.isDefault(this.openGLFeatureFactory.OPENGL)) {
                 final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
-                //this.logUtil.putF("waiting for OpenGL to update:" + openGLImageSpecificFactory.updating, this, commonStrings.RUN);
+                //this.logUtil.putF("waiting for OpenGL to update:" + openGLImageSpecificFactory.updating, this, this.commonStrings.RUN);
                 while (openGLImageSpecificFactory.updating) {
                     Thread.sleep(this.YIELD_SLEEP);
-                    //this.logUtil.putF("waiting for OpenGL to update", this, commonStrings.RUN);
+                    //this.logUtil.putF("waiting for OpenGL to update", this, this.commonStrings.RUN);
                 }
             }
         }
@@ -1570,7 +1570,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         try
         {
-            this.logUtil.putF(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
 
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             progressCanvas.addNormalPortion(50, "Game Thread");
@@ -1602,11 +1602,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             this.gameBehavior.run(this);
 
-            this.logUtil.putF(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
     }
 
@@ -1621,11 +1621,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 //                    try {
 //                        run3();
 //                    } catch (Exception e) {
-//                        this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+//                        this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
 //                    }
 //                }
 //            };
-//            this.logUtil.putF("Set SWT Thread and assign runnable: " + runnable, this, commonStrings.RUN);
+//            this.logUtil.putF("Set SWT Thread and assign runnable: " + runnable, this, this.commonStrings.RUN);
 //
 //            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
 //            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
@@ -1641,11 +1641,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             if (features.isDefault(this.openGLFeatureFactory.OPENGL_AS_GAME_THREAD) || J2MEUtil.isHTML()) {
             
             if (features.isDefault(this.openGLFeatureFactory.OPENGL_AS_GAME_THREAD)) {
-                this.logUtil.putF(this.openGLFeatureFactory.OPENGL_AS_GAME_THREAD.getName(), this, commonStrings.RUN);
+                this.logUtil.putF(this.openGLFeatureFactory.OPENGL_AS_GAME_THREAD.getName(), this, this.commonStrings.RUN);
             }
 
             if (J2MEUtil.isHTML()) {
-                this.logUtil.putF(GraphicsStrings.getInstance().HTML, this, commonStrings.RUN);
+                this.logUtil.putF(GraphicsStrings.getInstance().HTML, this, this.commonStrings.RUN);
             }
 
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
@@ -1656,7 +1656,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             OpenGLThreadUtil.getInstance().onResume();
         } else if (features.isDefault(this.openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS)) {
 
-            this.logUtil.putF(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS.getName(), this, commonStrings.RUN);
+            this.logUtil.putF(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS.getName(), this, this.commonStrings.RUN);
 
             OpenGLThreadUtil.getInstance().onResume();
 
@@ -1677,9 +1677,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
                     synchronized (this)
                     {
-                        // PreLogUtil.put("Wait", this, commonStrings.RUN);
+                        // PreLogUtil.put("Wait", this, this.commonStrings.RUN);
                         this.threadObjectUtil.waitObject(this);
-                        // PreLogUtil.put("Notified", this, commonStrings.RUN);
+                        // PreLogUtil.put("Notified", this, this.commonStrings.RUN);
                     }
 
                     currentDisplayableFactory.clearRunnable();
@@ -1693,7 +1693,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 }
              */
         } else {
-            this.logUtil.putF("this thread", this, commonStrings.RUN);
+            this.logUtil.putF("this thread", this, this.commonStrings.RUN);
 
             while (this.isRunning()) {
                 this.run3();

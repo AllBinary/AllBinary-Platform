@@ -86,7 +86,7 @@ public class DemoGameMidlet extends GameMidlet
     @Override
     public synchronized void setDemo() throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, "setDemo");
+        this.logUtil.putF(this.commonStrings.START, this, "setDemo");
 
         ////TWB - Loading Feature Change - Can remove remark after testing
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -100,7 +100,7 @@ public class DemoGameMidlet extends GameMidlet
     public synchronized void createGame() throws Exception
     {
         final String CREATE_GAME = "createGame";
-        this.logUtil.putF(commonStrings.START, this, CREATE_GAME);
+        this.logUtil.putF(this.commonStrings.START, this, CREATE_GAME);
 
         ////TWB - Loading Feature Change - Can remove remark after testing
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -111,7 +111,7 @@ public class DemoGameMidlet extends GameMidlet
 
         PrimaryThreadPool.getInstance().runTask(new CreateGameRunnable(this, hashtable));
 
-        this.logUtil.putF(commonStrings.END, this, CREATE_GAME);
+        this.logUtil.putF(this.commonStrings.END, this, CREATE_GAME);
     }
 
     public boolean isReady()

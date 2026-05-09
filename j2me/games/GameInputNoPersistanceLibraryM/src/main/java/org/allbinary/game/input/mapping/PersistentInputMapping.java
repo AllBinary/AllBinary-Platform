@@ -99,7 +99,7 @@ public class PersistentInputMapping
     public void init(final AbeClientInformationInterface abeClientInformation) 
     throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
         //Write out the default mappings and reload if something went wrong
         //This could happen if file is not deleted between versions and something changed
         try
@@ -108,8 +108,8 @@ public class PersistentInputMapping
         }
         catch(Exception e)
         {
-            //this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
-            PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            //this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
             //inputPersistance.deleteAll(abeClientInformation);
             this.inputPersistance.deleteRecoreStore(abeClientInformation);
             this.setDefault(abeClientInformation);
@@ -151,7 +151,7 @@ public class PersistentInputMapping
         stringBuffer.append(" to: ");
         stringBuffer.appendint(totalMappedTo);
         
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
     }
 
     public void setInputMappingEventListenerInterface(

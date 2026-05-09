@@ -52,7 +52,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.putF("Started Validation", this, commonStrings.IS_VALID);
+            this.logUtil.putF("Started Validation", this, this.commonStrings.IS_VALID);
          }
          
          Boolean isValid = this.body.isValid();

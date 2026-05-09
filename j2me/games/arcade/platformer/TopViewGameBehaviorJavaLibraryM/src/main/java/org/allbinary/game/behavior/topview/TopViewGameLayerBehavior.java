@@ -47,7 +47,7 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
     }
 
     public void land(final VelocityProperties velocityProperties) {
-        //this.logUtil.putF(commonStrings.START, this, "land");
+        //this.logUtil.putF(this.commonStrings.START, this, "land");
         velocityProperties.getVelocityYBasicDecimalP().setint(0);
         this.landReset();
         // Takes a long time - unknown
@@ -66,19 +66,19 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
 
             if(this.gravityActionIndex < this.maxGravityActionIndex) {
                 final int acceleration2 = -acceleration.getForward() * accelerationMultiplier;
-                //this.logUtil.putF("Jump: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
-                //this.logUtil.putF("Acceleration: " + acceleration2, this, commonStrings.UP);
+                //this.logUtil.putF("Jump: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, this.commonStrings.UP);
+                //this.logUtil.putF("Acceleration: " + acceleration2, this, this.commonStrings.UP);
                 velocityProperties.getVelocityYBasicDecimalP().addint(acceleration2);
-                //this.logUtil.putF("Jumping: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
+                //this.logUtil.putF("Jumping: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, this.commonStrings.UP);
                 velocityProperties.limitXYToForwardAndReverseMaxVelocity();
 
                 // this.getVelocityProperties().addVelocity(this.acceleration.getForward(), angle);
                 this.gravityActionIndex++;
             } else {
-                //this.logUtil.putF("Jump peaked", this, commonStrings.UP);
+                //this.logUtil.putF("Jump peaked", this, this.commonStrings.UP);
             }
         } else {
-            //this.logUtil.putF("Jump over", this, commonStrings.UP);
+            //this.logUtil.putF("Jump over", this, this.commonStrings.UP);
         }
 
         if (this.isJumpAction) {

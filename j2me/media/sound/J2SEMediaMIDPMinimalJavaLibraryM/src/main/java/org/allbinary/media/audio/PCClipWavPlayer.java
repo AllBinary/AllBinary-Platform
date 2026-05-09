@@ -54,7 +54,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
             clip = this.create(audioInputStream);
 
             if(clip == null) {
-                this.logUtil.put("Clip was null", this, commonStrings.CONSTRUCTOR, new Exception());
+                this.logUtil.put("Clip was null", this, this.commonStrings.CONSTRUCTOR, new Exception());
                 throw new RuntimeException();
             }
 
@@ -62,7 +62,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
         }
         
         this.audioInputStream = audioInputStream;

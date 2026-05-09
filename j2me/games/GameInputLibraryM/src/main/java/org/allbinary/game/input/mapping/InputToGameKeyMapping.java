@@ -101,7 +101,7 @@ public class InputToGameKeyMapping extends InputMapping
     public void add(Input input, Input mappedToInput)
     {
         //PreLogUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
-        //this.logUtil.putF(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
+        //this.logUtil.putF(this.commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
         super.add(input, mappedToInput);
         this.set(input, mappedToInput);
     }
@@ -190,7 +190,7 @@ public class InputToGameKeyMapping extends InputMapping
         }
         //Still could have a negative key that is out of range
 
-        //PreLogUtil.put(gameKey.toString() + CommonSeps.getInstance().COLON_SEP + key, this, commonStrings.INIT);
+        //PreLogUtil.put(gameKey.toString() + CommonSeps.getInstance().COLON_SEP + key, this, this.commonStrings.INIT);
     }
 
     private int getSmallestCanvasGameKeyCode(Canvas canvas) throws Exception
@@ -242,7 +242,7 @@ public class InputToGameKeyMapping extends InputMapping
                 this.initGameKey(canvas, this.mappedGameKeys[index]);
             }
 
-            //PreLogUtil.put("Smallest GameKey: " + smallestKey, this, commonStrings.INIT);
+            //PreLogUtil.put("Smallest GameKey: " + smallestKey, this, this.commonStrings.INIT);
         } catch (Throwable t)
         {
             //catch everything here little dangerous but I don't ever want to fail just because of failed mapping for j2me game keys

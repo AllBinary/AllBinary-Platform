@@ -45,7 +45,7 @@ public class BasicProfileActionScriptInput
     {
         super(label, node);
         
-        this.logUtil.putF(commonStrings.START + label, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START + label, this, this.commonStrings.CONSTRUCTOR);
         
         final Node actionNode = DomSearchHelper.getNode(
             GenericProfileActionScriptInputData.TYPE,
@@ -75,7 +75,7 @@ public class BasicProfileActionScriptInput
     {
         super(label);
         
-        this.logUtil.putF(commonStrings.START + label, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START + label, this, this.commonStrings.CONSTRUCTOR);
         
         final InputRobotFactory inputRobotFactory = InputRobotFactory.getInstance();
         final Hashtable hashtable = (Hashtable) inputRobotFactory.get();

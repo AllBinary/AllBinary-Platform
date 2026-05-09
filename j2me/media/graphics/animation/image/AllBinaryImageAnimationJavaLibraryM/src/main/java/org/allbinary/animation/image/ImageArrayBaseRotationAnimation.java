@@ -44,7 +44,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         
         super(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
 
-        //this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         this.originalImageArray = originalImageArray;
         this.setImageArray(this.imageModifierUtil.getImageArray(originalImageArray));

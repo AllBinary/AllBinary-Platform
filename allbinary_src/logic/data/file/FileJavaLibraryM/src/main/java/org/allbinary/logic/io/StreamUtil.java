@@ -68,7 +68,7 @@ public class StreamUtil {
         /*
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
         {
-        this.logUtil.putF("Total Bytes Written: " + total, this, commonStrings.GET);
+        this.logUtil.putF("Total Bytes Written: " + total, this, this.commonStrings.GET);
         }
          */
         return outputStream;

@@ -106,7 +106,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
     }
     /*
     public void paint(Graphics graphics) {
-    this.logUtil.putF(commonStrings.START, this, canvasStrings.PAINT);
+    this.logUtil.putF(this.commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());

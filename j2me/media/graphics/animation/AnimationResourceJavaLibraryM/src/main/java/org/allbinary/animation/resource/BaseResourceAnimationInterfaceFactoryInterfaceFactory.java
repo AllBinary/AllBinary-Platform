@@ -72,7 +72,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
             final BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface)
             throws Exception
     {
-        //PreLogUtil.put(resource, this, commonStrings.ADD);
+        //PreLogUtil.put(resource, this, this.commonStrings.ADD);
 
         if (this.hashtable.containsKey((Object) resource))
         {

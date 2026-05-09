@@ -43,7 +43,7 @@ extends InitUpdatePaintable
     {
         try
         {
-            //this.logUtil.putF(commonStrings.START, this, commonStrings.UPDATE);
+            //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.UPDATE);
             //this.gameNotificationHud.processTick();
         }
         catch(Exception e)

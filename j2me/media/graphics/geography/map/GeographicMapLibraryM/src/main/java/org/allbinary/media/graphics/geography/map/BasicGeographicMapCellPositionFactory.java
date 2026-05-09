@@ -60,10 +60,10 @@ public class BasicGeographicMapCellPositionFactory
 
         for (int column = 0; column < columns; column++)
         {
-            // this.logUtil.putF("Initializing Column: ").append(col, this, commonStrings.INIT);
+            // this.logUtil.putF("Initializing Column: ").append(col, this, this.commonStrings.INIT);
             for (int row = 0; row < rows; row++)
             {
-                // this.logUtil.putF("Initializing Row: ").append(row, this, commonStrings.INIT);
+                // this.logUtil.putF("Initializing Row: ").append(row, this, this.commonStrings.INIT);
                 // GeographicMapCellPosition cellPosition =
                 this.createInstance(column, row, width, height);
             }
@@ -87,10 +87,10 @@ public class BasicGeographicMapCellPositionFactory
             GeographicMapCellPosition cellPosition;
         for (int column = 0; column < columns; column++)
         {
-            // this.logUtil.putF("Initializing Column: ").append(col, this, commonStrings.INIT);
+            // this.logUtil.putF("Initializing Column: ").append(col, this, this.commonStrings.INIT);
             for (int row = 0; row < rows; row++)
             {
-                // this.logUtil.putF("Initializing Row: ").append(row, this, commonStrings.INIT);
+                // this.logUtil.putF("Initializing Row: ").append(row, this, this.commonStrings.INIT);
                 cellPosition = this.getAt(column, row);
                 geographicMapCelPositionFactoryInitVisitorInterface.visit(tiledLayer, cellPosition);
             }

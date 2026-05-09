@@ -106,7 +106,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     public void collideInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
-        // this.logUtil.putF(commonStrings.START, this, damageUtil.COLLIDE);
+        // this.logUtil.putF(this.commonStrings.START, this, damageUtil.COLLIDE);
         
         //this.slow();
         

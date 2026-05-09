@@ -56,7 +56,7 @@ public class EditValidationView extends WorkFlowView implements ValidationCompon
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.putF("WorkFlow does not exist.", this, commonStrings.IS_VALID);
+               this.logUtil.putF("WorkFlow does not exist.", this, this.commonStrings.IS_VALID);
             }
             return Boolean.FALSE;
          }

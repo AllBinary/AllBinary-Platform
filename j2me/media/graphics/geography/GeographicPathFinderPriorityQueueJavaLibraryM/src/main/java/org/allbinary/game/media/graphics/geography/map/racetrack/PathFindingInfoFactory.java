@@ -57,7 +57,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
     
     private PathFindingInfoFactory()
     {
-        //PreLogUtil.put("Using Dynamic Path Finding", this, commonStrings.GET_INSTANCE);
+        //PreLogUtil.put("Using Dynamic Path Finding", this, this.commonStrings.GET_INSTANCE);
         
         this.pathFindingInfo = new PathFindingInfo(new PathFindingNodeCostInfoFactory(PathFindingInfoFactory.MAX), new BasicArrayListS(1), new BasicArrayListS(1));
         
@@ -100,7 +100,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
         //int width = allBinaryTiledLayer.getWidth();
 
-        //this.logUtil.putF(SpacialStrings + allBinaryTiledLayer.getHeight() + commonStrings.SPACE + SpacialStrings + width, this, commonStrings.INIT);
+        //this.logUtil.putF(SpacialStrings + allBinaryTiledLayer.getHeight() + commonStrings.SPACE + SpacialStrings + width, this, this.commonStrings.INIT);
 
         this.buildPathFindingNodes(
             geographicMapInterface,
@@ -110,7 +110,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         // String keys =
         // this.getPathFinder().getPathFindingNodeCostInfoFactoryInterface().getHashTable().toString();
         // this.logUtil.putF("All PathFindingNodeCostInfos in Hashtable: " +
-        // keys, this, commonStrings.INIT);
+        // keys, this, this.commonStrings.INIT);
     }
 
     private void buildPathFindingNodesForCellPosition(

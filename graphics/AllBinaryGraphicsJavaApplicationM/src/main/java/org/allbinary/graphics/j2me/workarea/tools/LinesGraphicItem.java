@@ -71,7 +71,7 @@ public class LinesGraphicItem implements GraphicItemInterface
       this.active = true;
       } catch (Exception e)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
       }            
       
    }

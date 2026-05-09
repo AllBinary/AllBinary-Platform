@@ -469,7 +469,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
         	 stringBuffer.append(this.toDate);
         	 stringBuffer.append(")");
 
-        	 this.logUtil.putF(stringBuffer.toString(), this, commonStrings.IS_VALID);
+        	 this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.IS_VALID);
          }
          
          return isValid;
@@ -479,7 +479,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("Exception in validation", this, commonStrings.IS_VALID, e);
+            this.logUtil.put("Exception in validation", this, this.commonStrings.IS_VALID, e);
          }
          return Boolean.FALSE;
       }

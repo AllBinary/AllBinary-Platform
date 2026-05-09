@@ -85,7 +85,7 @@ public class HighScoreNamePersistanceSingleton
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
 
-        this.logUtil.putF(new StringMaker().append("Deleting: ").appendint(deleteId).toString(), this, commonStrings.delete);
+        this.logUtil.putF(new StringMaker().append("Deleting: ").appendint(deleteId).toString(), this, this.commonStrings.delete);
 
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -95,7 +95,7 @@ public class HighScoreNamePersistanceSingleton
             throw e;
         } finally {
             if(recordStore != null) {
-                PreLogUtil.put("Closing RecordStore", this, commonStrings.delete);
+                PreLogUtil.put("Closing RecordStore", this, this.commonStrings.delete);
                 recordStore.closeRecordStore();
             }
         }
@@ -131,7 +131,7 @@ public class HighScoreNamePersistanceSingleton
                 {
                     final int id = recordEnum.nextRecordId();
 
-                    this.logUtil.putF(new StringMaker().append(LOADING_ID).appendint(id).toString(), this, commonStrings.LOAD);
+                    this.logUtil.putF(new StringMaker().append(LOADING_ID).appendint(id).toString(), this, this.commonStrings.LOAD);
 
                     recordAsBytes = recordStore.getRecord(id);
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
@@ -150,15 +150,15 @@ public class HighScoreNamePersistanceSingleton
         } catch (Exception e)
         {
             this.save(abeClientInformation, gameInfo, this.name);
-            this.logUtil.putF(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, commonStrings.LOAD);
+            this.logUtil.putF(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, this.commonStrings.LOAD);
         } finally {
             try {
                 if (recordStore != null) {
-                    PreLogUtil.put("Closing RecordStore", this, commonStrings.LOAD);
+                    PreLogUtil.put("Closing RecordStore", this, this.commonStrings.LOAD);
                     recordStore.closeRecordStore();
                 }
             } catch(RecordStoreException e) {
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.LOAD, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.LOAD, e);
             }
         }
 
@@ -170,7 +170,7 @@ public class HighScoreNamePersistanceSingleton
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try
         {
-            this.logUtil.putF(new StringMaker().append("Saving: ").append(name).toString(), this, commonStrings.SAVE);
+            this.logUtil.putF(new StringMaker().append("Saving: ").append(name).toString(), this, this.commonStrings.SAVE);
 
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -188,15 +188,15 @@ public class HighScoreNamePersistanceSingleton
             
         } catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.SAVE, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.SAVE, e);
         } finally {
             try {
                 if (recordStore != null) {
-                    PreLogUtil.put("Closing RecordStore", this, commonStrings.SAVE);
+                    PreLogUtil.put("Closing RecordStore", this, this.commonStrings.SAVE);
                     recordStore.closeRecordStore();
                 }
             } catch(RecordStoreException e) {
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.SAVE, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.SAVE, e);
             }
         }
 

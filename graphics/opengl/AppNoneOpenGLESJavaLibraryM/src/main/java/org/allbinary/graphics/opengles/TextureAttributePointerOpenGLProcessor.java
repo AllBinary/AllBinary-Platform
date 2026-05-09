@@ -36,7 +36,7 @@ public class TextureAttributePointerOpenGLProcessor extends ObjectThreedOpenGLPr
     
     public TextureAttributePointerOpenGLProcessor()
     {
-        //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //PreLogUtil.put(commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
     }
 

@@ -48,7 +48,7 @@ extends BaseGameInitialization
 
         if (!this.isGameInitialized() && level == resourceLoadingLevelFactory.LOAD_ALL.getLevel())
         {
-            //PreLogUtil.put("Game Init", this, commonStrings.INIT);
+            //PreLogUtil.put("Game Init", this, this.commonStrings.INIT);
 
             this.setGameInitialized(true);
 

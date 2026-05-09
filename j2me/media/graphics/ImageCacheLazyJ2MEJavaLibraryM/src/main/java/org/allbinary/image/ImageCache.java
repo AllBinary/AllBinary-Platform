@@ -95,13 +95,13 @@ public class ImageCache extends ImageCacheBase {
         public void process() {
 
             final int size = gdResources.currentLayoutRequiredTotal;;
-            //if(size != 0) this.logUtil.putF("totalLoaded: " + totalLoaded, this, commonStrings.RUN);
+            //if(size != 0) this.logUtil.putF("totalLoaded: " + totalLoaded, this, this.commonStrings.RUN);
             if (size == 0) {
-                //this.logUtil.putF(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN);
+                //this.logUtil.putF(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, this.commonStrings.RUN);
                 final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                 progressCanvas.endIfPaintedSinceStart();
             } else if (totalLoaded > size / 12) {
-                //this.logUtil.putF(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN);
+                //this.logUtil.putF(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, this.commonStrings.RUN);
                 final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                 progressCanvas.endIfPaintedSinceStart();
                 endProcessor = new NotHTMLEndProcessor();
@@ -116,18 +116,18 @@ public class ImageCache extends ImageCacheBase {
         public void process() {
             final LogUtil logUtil = LogUtil.getInstance();
             final boolean isHTML = J2MEUtil.isHTML();
-            //logUtil.putF(new StringMaker().append("isHTML: ").append(isHTML).toString(), this, commonStrings.RUN);
+            //logUtil.putF(new StringMaker().append("isHTML: ").append(isHTML).toString(), this, this.commonStrings.RUN);
             if (isHTML) {
                 processor = Processor.getInstance();
                 endProcessor = new HTMLEndProcessor();
             } else {
-                //logUtil.putF("Setting processor", this, commonStrings.RUN);
+                //logUtil.putF("Setting processor", this, this.commonStrings.RUN);
                 processor = new NotHTMLProcessor();
                 endProcessor = new NotHTMLEndProcessor();
                 try {
                     runTask();
                 } catch (Exception e) {
-                    logUtil.putF(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME);
+                    logUtil.putF(this.commonStrings.EXCEPTION, this, this.commonStrings.END_METHOD_NAME);
                 }
             }
         }
@@ -149,7 +149,7 @@ public class ImageCache extends ImageCacheBase {
     public void waitForLoadNow() throws Exception {
         if(this.firstTime) {
             
-            //this.logUtil.putF(commonStrings.START, this, "waitForLoadNow");
+            //this.logUtil.putF(this.commonStrings.START, this, "waitForLoadNow");
             final ABToGBUtil abToGBUtil = ABToGBUtil.getInstance();
             final AllBinaryGameCanvas abCanvas = (AllBinaryGameCanvas) abToGBUtil.abCanvas;
             while (this.loadNowList.isEmpty() && (!abCanvas.isInitialized() || (abCanvas.isInitialized() && this.hasAnyLazyAnimationFactories)) && !this.progressEnded) {
@@ -183,18 +183,18 @@ public class ImageCache extends ImageCacheBase {
 
                     } else {
                         lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadAfterList.get(0);
-                        //this.logUtil.putF("loadAfterList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
+                        //this.logUtil.putF("loadAfterList: " + lazyImageRotationAnimation, this, this.commonStrings.RUN);
                         if (this.loadImageForLazyAnimation(lazyImageRotationAnimation)) {
-                            //this.logUtil.putF("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN);
+                            //this.logUtil.putF("Loaded associated Animation for Game Layer that is painted", this, this.commonStrings.RUN);
                             this.loadAfterList.remove(lazyImageRotationAnimation);
                         }
                     }
 
                 } else {
                     lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadSoonList.get(0);
-                    //this.logUtil.putF("loadSoonList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
+                    //this.logUtil.putF("loadSoonList: " + lazyImageRotationAnimation, this, this.commonStrings.RUN);
                     if (this.loadImageForLazyAnimation(lazyImageRotationAnimation)) {
-                        //this.logUtil.putF("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN);
+                        //this.logUtil.putF("Loaded associated Animation for Game Layer that is painted", this, this.commonStrings.RUN);
                         this.loadSoonList.remove(lazyImageRotationAnimation);
                     }
                 }
@@ -204,30 +204,30 @@ public class ImageCache extends ImageCacheBase {
             lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadNowList.get(0);
         }
         if(this.loadImageForLazyAnimation(lazyImageRotationAnimation)) {
-            //this.logUtil.putF(new StringMaker().append("loadNowList loaded: ").append(this.totalLoaded).append(" i:").append(this.loadList.size()).toString(), this, commonStrings.RUN);
+            //this.logUtil.putF(new StringMaker().append("loadNowList loaded: ").append(this.totalLoaded).append(" i:").append(this.loadList.size()).toString(), this, this.commonStrings.RUN);
             //final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
-            //this.logUtil.putF("loadNowList loaded: " + image.getName(), this, commonStrings.RUN);
+            //this.logUtil.putF("loadNowList loaded: " + image.getName(), this, this.commonStrings.RUN);
             synchronized (this.lock) {
                 this.loadNowList.remove(lazyImageRotationAnimation);
             }
 
             if (lazyImageRotationAnimation.layoutIndex != 0) {
                 final BasicArrayList list = this.getAssociated(lazyImageRotationAnimation);
-                //this.logUtil.putF("loadNowList list: " + list, this, commonStrings.RUN);
+                //this.logUtil.putF("loadNowList list: " + list, this, this.commonStrings.RUN);
                 synchronized (this.lock) {
                     final int size = list.size();
                     if(size > 0) {
-                        //this.logUtil.putF("addAssociated: " + size, this, commonStrings.RUN);
+                        //this.logUtil.putF("addAssociated: " + size, this, this.commonStrings.RUN);
                         this.loadSoonList.addAllList(list);
                     }
                 }
             }
 
-            //this.logUtil.putF("should end progress? " + this.loadNowList.size(), this, commonStrings.RUN);
+            //this.logUtil.putF("should end progress? " + this.loadNowList.size(), this, this.commonStrings.RUN);
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             final boolean isHTML = J2MEUtil.isHTML();
             if (this.loadNowList.isEmpty() && (!isHTML || this.firstTime)) {
-                //this.logUtil.putF("end progress", this, commonStrings.RUN);
+                //this.logUtil.putF("end progress", this, this.commonStrings.RUN);
                 progressCanvas.endFromInitialLazyLoadingComplete();
             } else {
                 if(this.totalLoaded % 10 == 0) {
@@ -251,24 +251,24 @@ public class ImageCache extends ImageCacheBase {
         while (!this.loadList.isEmpty() || !this.loadNowList.isEmpty()) {
 
             this.loadImageForAnimations();
-            //this.logUtil.putF("load image", this, commonStrings.RUN);
+            //this.logUtil.putF("load image", this, this.commonStrings.RUN);
             this.loadNextImage();
         }
     }
     
     public void loadImageForAnimations() throws Exception {
         while (!this.loadNowList.isEmpty()) {
-            //this.logUtil.putF("load lazy animation image", this, commonStrings.RUN);
+            //this.logUtil.putF("load lazy animation image", this, this.commonStrings.RUN);
             this.loadImageForAnimation();
         }
     }
     
     public void loadRemainingAnimations() throws Exception {
-        //this.logUtil.putF("load remaining lazy animations", this, commonStrings.RUN);
+        //this.logUtil.putF("load remaining lazy animations", this, this.commonStrings.RUN);
         while (!this.loadAfterList.isEmpty() || !this.loadNowList.isEmpty()) {
             
             while (!this.loadNowList.isEmpty()) {
-                //this.logUtil.putF("load lazy animation image", this, commonStrings.RUN);
+                //this.logUtil.putF("load lazy animation image", this, this.commonStrings.RUN);
                 this.loadImageForAnimation();
             }
 
@@ -289,7 +289,7 @@ public class ImageCache extends ImageCacheBase {
         final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
         
         if(this.loadImage(image)) {
-            //this.logUtil.putF(new StringMaker().append("processing loaded resource: ").append(lazyImageRotationAnimation).toString(), this, commonStrings.RUN);
+            //this.logUtil.putF(new StringMaker().append("processing loaded resource: ").append(lazyImageRotationAnimation).toString(), this, this.commonStrings.RUN);
             lazyImageRotationAnimation.setRealAnimation();
             return true;
         }
@@ -311,7 +311,7 @@ public class ImageCache extends ImageCacheBase {
 
         if (image.isReady()) {
             
-            //this.logUtil.putF(new StringMaker().append("already loaded resource image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+            //this.logUtil.putF(new StringMaker().append("already loaded resource image: ").append(image).append(image.getName()).toString(), this, this.commonStrings.RUN);
             return true;
             
         } else {
@@ -320,20 +320,20 @@ public class ImageCache extends ImageCacheBase {
                 //HTML only
                 if(image.setReady()) {
                     this.totalLoaded++;
-                    //this.logUtil.putF(new StringMaker().append("setReady resource HTML5 image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+                    //this.logUtil.putF(new StringMaker().append("setReady resource HTML5 image: ").append(image).append(image.getName()).toString(), this, this.commonStrings.RUN);
                     return true;
                 }
             } else {
-                //this.logUtil.putF(new StringMaker().append("attempt loading resource image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+                //this.logUtil.putF(new StringMaker().append("attempt loading resource image: ").append(image).append(image.getName()).toString(), this, this.commonStrings.RUN);
                 final String key = image.getName();
                 final Image image2 = this.creatImage(key);
                 if (image2.isReady()) {
-                    //this.logUtil.putF(new StringMaker().append("setImage resource Now image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+                    //this.logUtil.putF(new StringMaker().append("setImage resource Now image: ").append(image).append(image.getName()).toString(), this, this.commonStrings.RUN);
                     this.init(image, image2);
                     return true;
                 } else {
                     //HTML only
-                    //this.logUtil.putF(new StringMaker().append("setImage resource HTML5 image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+                    //this.logUtil.putF(new StringMaker().append("setImage resource HTML5 image: ").append(image).append(image.getName()).toString(), this, this.commonStrings.RUN);
                     image.setImage(image2.getImage());
                 }
             }
@@ -343,9 +343,9 @@ public class ImageCache extends ImageCacheBase {
     }
 
     protected void init(final Image image, final Image image2) throws Exception {
-        //this.logUtil.putF(new StringMaker().append("loading resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN);
+        //this.logUtil.putF(new StringMaker().append("loading resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, this.commonStrings.RUN);
         image.init(image2.getImage());
-        //this.logUtil.putF(new StringMaker().append("loaded resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN);
+        //this.logUtil.putF(new StringMaker().append("loaded resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, this.commonStrings.RUN);
     }
 
     protected Image creatImage(final String key) throws Exception {
@@ -363,15 +363,15 @@ public class ImageCache extends ImageCacheBase {
         if (image == NullCanvas.NULL_IMAGE) {
             volume += width * height;
             if (volume > 32000) {
-                //this.logUtil.putF(new StringMaker().append("Image for: ").append(caller).toString(), this, commonStrings.GET);
+                //this.logUtil.putF(new StringMaker().append("Image for: ").append(caller).toString(), this, this.commonStrings.GET);
                 System.gc();
                 //System.gc();
                 volume = 0;
-                //this.logUtil.putF(Memory.getInfo(), this, commonStrings.GET);
+                //this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
             }
 
             image = this.createImage(caller, width, height);
-            //this.logUtil.putF(new StringMaker().append("Image: ").append(image.getName()).toString(), this, commonStrings.GET);
+            //this.logUtil.putF(new StringMaker().append("Image: ").append(image.getName()).toString(), this, this.commonStrings.GET);
 
             if (nextIndex > widths.length - 1) {
                 if (foundIndex == -1) {
@@ -404,15 +404,15 @@ public class ImageCache extends ImageCacheBase {
             //throw new RuntimeException(new StringMaker().append("Image resource is not available for key: ").append(key).toString());
             //}
             try {
-                //this.logUtil.putF(Memory.getInfo(), this, commonStrings.GET);
+                //this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
                 image = this.createImageFromInputStream(key, inputStream);
             } catch (Exception e) {
-                this.logUtil.put("Exception: Trying Again After GC", this, commonStrings.GET, e);
+                this.logUtil.put("Exception: Trying Again After GC", this, this.commonStrings.GET, e);
 
-                this.logUtil.putF(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, commonStrings.GET);
+                this.logUtil.putF(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, this.commonStrings.GET);
                 System.gc();
                 System.gc();
-                this.logUtil.putF(Memory.getInfo(), this, commonStrings.GET);
+                this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
                 Thread.sleep(100);
                 image = this.createImageFromInputStream(key, inputStream);
             }
@@ -426,8 +426,8 @@ public class ImageCache extends ImageCacheBase {
         }
 
 //        final CommonLabels commonLabels = CommonLabels.getInstance();
-//        this.logUtil.putF(commonLabels.WIDTH_LABEL + image.getWidth() + commonLabels.HEIGHT_LABEL + image.getHeight(), this, commonStrings.CONSTRUCTOR);
-//        this.logUtil.putF(key + " = " + image.toString(), this, commonStrings.CONSTRUCTOR);
+//        this.logUtil.putF(this.commonLabels.WIDTH_LABEL + image.getWidth() + commonLabels.HEIGHT_LABEL + image.getHeight(), this, this.commonStrings.CONSTRUCTOR);
+//        this.logUtil.putF(key + " = " + image.toString(), this, this.commonStrings.CONSTRUCTOR);
         return image;
     }
 
@@ -440,7 +440,7 @@ public class ImageCache extends ImageCacheBase {
                 return index;
             }
         }
-        this.logUtil.putF(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key)).toString(), this, commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key)).toString(), this, this.commonStrings.RUN);
         throw new RuntimeException();
     }
 
@@ -453,7 +453,7 @@ public class ImageCache extends ImageCacheBase {
         for(int index = 0; index < size; index++) {
             //if(((String) key).compareTo(resourceStringArray[index]) == 0) {
             if(key == resourceStringArray[index]) {
-                //this.logUtil.putF(new StringMaker().append("create now: ").append(key).toString(), this, commonStrings.RUN);
+                //this.logUtil.putF(new StringMaker().append("create now: ").append(key).toString(), this, this.commonStrings.RUN);
                 return this.creatImage((String) key);
             }
         }
@@ -467,7 +467,7 @@ public class ImageCache extends ImageCacheBase {
         final Image image = this.createImageLater((String) key, width, height);
 
         synchronized (this.lock) {
-            //this.logUtil.putF(new StringMaker().append("add: ").append(image.getName()).append(index).toString(), this, commonStrings.RUN);
+            //this.logUtil.putF(new StringMaker().append("add: ").append(image.getName()).append(index).toString(), this, this.commonStrings.RUN);
             this.loadList.add(image);
         }
 
@@ -504,7 +504,7 @@ public class ImageCache extends ImageCacheBase {
     
     public void add(final LazyImageRotationAnimation lazyImageRotationAnimation) {
         synchronized (this.lock) {
-            //this.logUtil.putF("adding to loadAfterList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
+            //this.logUtil.putF("adding to loadAfterList: " + lazyImageRotationAnimation, this, this.commonStrings.RUN);
             //this.loadImageAfterList.add(lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage());
             this.loadAfterList.add(lazyImageRotationAnimation);
         }
@@ -514,10 +514,10 @@ public class ImageCache extends ImageCacheBase {
             //final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
 //            if (image.getImage() != null) {
 //                try {
-//                    this.logUtil.putF("animation image is already loaded: " + image.getName(), this, commonStrings.RUN);
+//                    this.logUtil.putF("animation image is already loaded: " + image.getName(), this, this.commonStrings.RUN);
 //                    lazyImageRotationAnimation.setRealAnimation();
 //                } catch (Exception e) {
-//                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+//                    this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
 //                }
 //            } else {
 
@@ -525,7 +525,7 @@ public class ImageCache extends ImageCacheBase {
                 
             } else {
 
-                //this.logUtil.putF(new StringMaker().append("loadNowList insert: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+                //this.logUtil.putF(new StringMaker().append("loadNowList insert: ").append(image).append(image.getName()).toString(), this, this.commonStrings.RUN);
             synchronized (this.lock) {
                 this.loadNowList.add(lazyImageRotationAnimation);
                 this.loadAfterList.remove(lazyImageRotationAnimation);
@@ -535,9 +535,9 @@ public class ImageCache extends ImageCacheBase {
 //                    this.loadImageAfterList.remove(indexOfImage);
 //                    final LazyImageRotationAnimation lazyImageRotationAnimation2 = (LazyImageRotationAnimation) this.loadAfterList.remove(indexOfImage);
 //                    if(lazyImageRotationAnimation2 == lazyImageRotationAnimation) {
-//                        this.logUtil.putF(new StringMaker().append("insert resource: ").append(lazyImageRotationAnimation2).toString(), this, commonStrings.RUN);
+//                        this.logUtil.putF(new StringMaker().append("insert resource: ").append(lazyImageRotationAnimation2).toString(), this, this.commonStrings.RUN);
 //                    } else {
-//                        this.logUtil.putF(new StringMaker().append("insert duplicate resource: ").append(lazyImageRotationAnimation2).toString(), this, commonStrings.RUN);
+//                        this.logUtil.putF(new StringMaker().append("insert duplicate resource: ").append(lazyImageRotationAnimation2).toString(), this, this.commonStrings.RUN);
 //                    }
 //                    this.loadNowList.add(lazyImageRotationAnimation2);
 //                }
@@ -556,12 +556,12 @@ public class ImageCache extends ImageCacheBase {
     }    
 
     public void runTask() throws Exception {
-        //this.logUtil.putF(commonStrings.START + this.processor, this, "runTask");
+        //this.logUtil.putF(this.commonStrings.START + this.processor, this, "runTask");
         this.processor.process();
     }
     
     public void initProgress() {
-        //this.logUtil.putF("reset totalFrames", this, commonStrings.RUN);
+        //this.logUtil.putF("reset totalFrames", this, this.commonStrings.RUN);
         
         if(this.firstTime) {
             this.firstTime = false;

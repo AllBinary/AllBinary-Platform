@@ -51,7 +51,7 @@ public class FileUtil2 {
         try {
             inputStream = new AbFileInputStream(file);
         } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.ADD, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.ADD, e);
         }
 
         return SimpleFileUtil.getInstance().loadFileAsList(inputStream, max, byteArray1);

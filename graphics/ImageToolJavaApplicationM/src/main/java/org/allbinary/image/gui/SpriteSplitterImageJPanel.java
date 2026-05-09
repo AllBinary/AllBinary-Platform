@@ -389,7 +389,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
    @Override
    public void visit(final BufferedImage generatedBufferedImage, final String name, final int index) throws IOException {
        
-       this.logUtil.putF(commonStrings.VISIT, this, commonStrings.VISIT);
+       this.logUtil.putF(this.commonStrings.VISIT, this, this.commonStrings.VISIT);
        
        this.result = generatedBufferedImage;
        //ImageJ2SERotationUtil.getInstance().createSpriteImage(
@@ -409,7 +409,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
        final boolean isWritten = 
                ImageIO.write((RenderedImage) SpriteSplitterImageJPanel.this.result, imageStrings.PNG, file);
 
-       this.logUtil.putF(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").appendboolean(isWritten).toString(), this, commonStrings.RUN);
+       this.logUtil.putF(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").appendboolean(isWritten).toString(), this, this.commonStrings.RUN);
    }
    
 }

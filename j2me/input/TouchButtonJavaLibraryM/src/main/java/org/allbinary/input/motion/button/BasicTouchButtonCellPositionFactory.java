@@ -56,7 +56,7 @@ public class BasicTouchButtonCellPositionFactory
 
     public BasicTouchButtonCellPositionFactory()
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         final TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
 

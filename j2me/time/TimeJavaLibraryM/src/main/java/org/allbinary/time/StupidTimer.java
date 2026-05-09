@@ -30,7 +30,7 @@ public class StupidTimer
         boolean tookTooLong = false;
 
         final String WAITING_FOR = "Waiting for: ";
-        //this.logUtil.putF(WAITING_FOR).append(visitorInterface, this, commonStrings.VISIT);
+        //this.logUtil.putF(WAITING_FOR).append(visitorInterface, this, this.commonStrings.VISIT);
         PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(StringUtil.getInstance().toString(visitorInterface)).toString(), this, this.commonStrings.VISIT);
 
         int index = 0;

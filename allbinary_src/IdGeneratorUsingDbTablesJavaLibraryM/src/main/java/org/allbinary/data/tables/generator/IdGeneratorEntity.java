@@ -91,11 +91,11 @@ public class IdGeneratorEntity extends AbSqlBean
 
             super.deleteWhere(this.NAME, value);
 
-            this.logUtil.putF(this.commonStrings.SUCCESS, this, commonStrings.delete);
+            this.logUtil.putF(this.commonStrings.SUCCESS, this, this.commonStrings.delete);
 
         } catch (Exception e) {
 
-            this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
+            this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.delete, e);
         }
     }
     

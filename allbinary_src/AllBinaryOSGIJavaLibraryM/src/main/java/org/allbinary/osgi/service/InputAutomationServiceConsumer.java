@@ -47,12 +47,12 @@ public class InputAutomationServiceConsumer
     public void process()
     throws Exception
     {
-        this.logUtil.putF(this.commonStrings.START, this, commonStrings.PROCESS);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.PROCESS);
         
         final Vector vector = this.osgiServiceUtil.getServicesObjectVector(
             this.getBundleContext(), this.getServiceReferences());
         
-        this.logUtil.putF("Processing " + vector.size() + " Services", this, commonStrings.PROCESS);
+        this.logUtil.putF("Processing " + vector.size() + " Services", this, this.commonStrings.PROCESS);
         final int size = vector.size();
         OSGIServiceInterface osgiServiceInterface;
         for(int index = 0; index < size; index++)

@@ -32,7 +32,7 @@ public class GeographicMapCellType
    
    public GeographicMapCellType(final int type, final int reset)
    {
-       //this.logUtil.putF(Integer.toString(type), this, commonStrings.CONSTRUCTOR);
+       //this.logUtil.putF(Integer.toString(type), this, this.commonStrings.CONSTRUCTOR);
       this.type = type;
       if(type != Integer.MIN_VALUE) {
           //final CommonStrings commonStrings = CommonStrings.getInstance();

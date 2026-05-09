@@ -264,7 +264,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
             this.healthBar = NullPaintable.getInstance();
         }
 
-        //this.logUtil.putF("Direction: " + direction, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("Direction: " + direction, this, this.commonStrings.CONSTRUCTOR);
 
         this.decalAnimation = (RotationAnimation)
             decalAnimationInterfaceFactoryInterface.getInstance(0);
@@ -550,11 +550,11 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final BasicArrayList geographicMapCellPositionBasicArrayList) throws Exception
     {
 
-        // this.logUtil.putF("Adding " + size + " path nodes for Tracking", this, commonStrings.INIT);
+        // this.logUtil.putF("Adding " + size + " path nodes for Tracking", this, this.commonStrings.INIT);
 
         geographicMapCellHistory.trackAll(geographicMapCellPositionBasicArrayList);
 
-        //this.logUtil.putF("geographicMapCellHistory: " + geographicMapCellHistory.getTracked().toString(), this, commonStrings.INIT);
+        //this.logUtil.putF("geographicMapCellHistory: " + geographicMapCellHistory.getTracked().toString(), this, this.commonStrings.INIT);
     }
 
     @Override
@@ -1394,7 +1394,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     public void setDestroyed(final boolean destroyed)
         throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, "setDestroyed");
+        this.logUtil.putF(this.commonStrings.START, this, "setDestroyed");
         super.setDestroyed(destroyed);
 
         if (this.isDestroyed())

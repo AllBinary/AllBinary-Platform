@@ -76,7 +76,7 @@ public class MotionGestureRecognizer
     public boolean processPressedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //this.logUtil.putF(commonStrings.START_LABEL + current.toString(), this, "processPressedMotionEvent");
+        //this.logUtil.putF(this.commonStrings.START_LABEL + current.toString(), this, "processPressedMotionEvent");
         //PreLogUtil.put(commonStrings.START, this, "processPressedMotionEvent");
 
         this.intermediate = this.origin;
@@ -99,7 +99,7 @@ public class MotionGestureRecognizer
     public boolean processReleasedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //this.logUtil.putF(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
+        //this.logUtil.putF(this.commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
 
         /*
          * if(this.touchButtonRecognizer.processTouchButtonInput(UpGameKeyEventHandler
@@ -265,7 +265,7 @@ public class MotionGestureRecognizer
     public boolean processMovedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //this.logUtil.putF(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
+        //this.logUtil.putF(this.commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
 
         final MotionGestureEvent event =
             this.motionEventCircularPool.getInstance(

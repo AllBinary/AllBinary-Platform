@@ -71,10 +71,10 @@ public class CommandTextItemArrayFactory
             if (command.getPriority() < priorityLimit)
             {
                 //this.logUtil.putF("Label: "
-                  //      + command.getLabel(), this, commonStrings.GET_INSTANCE);
+                  //      + command.getLabel(), this, this.commonStrings.GET_INSTANCE);
 
                 //PreLogUtil.put("Label: "
-                  //      + command.getLabel(), this, commonStrings.GET_INSTANCE);
+                  //      + command.getLabel(), this, this.commonStrings.GET_INSTANCE);
                 
                 Boolean aBoolean = (Boolean) this.visitorInterface.visit(command);
                 if(aBoolean.booleanValue())

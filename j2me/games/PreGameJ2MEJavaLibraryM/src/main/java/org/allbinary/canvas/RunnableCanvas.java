@@ -69,7 +69,7 @@ public class RunnableCanvas extends MyCanvas
     //Empty method for overriding 
     public void initCommands(CommandListener cmdListener)
     {
-        this.logUtil.putF(commonStrings.NOT_IMPLEMENTED, this, "initCommands");
+        this.logUtil.putF(this.commonStrings.NOT_IMPLEMENTED, this, "initCommands");
     }
 
     public boolean isMainCanvas()
@@ -248,8 +248,8 @@ public class RunnableCanvas extends MyCanvas
     //private final String GAME_SLEEP = "game sleep";
     public void processSleep() throws Exception
     {
-        //this.logUtil.putF(PAUSE_SLEEP + this.pauseWait, this, commonStrings.PROCESS);
-        //this.logUtil.putF(PAUSE_SLEEP + System.currentTimeMillis(), this, commonStrings.PROCESS);
+        //this.logUtil.putF(PAUSE_SLEEP + this.pauseWait, this, this.commonStrings.PROCESS);
+        //this.logUtil.putF(PAUSE_SLEEP + System.currentTimeMillis(), this, this.commonStrings.PROCESS);
         Thread.sleep(this.pauseWait);
     }
 
@@ -260,7 +260,7 @@ public class RunnableCanvas extends MyCanvas
     
     public void processGameSleep(long sleep) throws Exception
     {
-        //this.logUtil.putF(GAME_SLEEP + sleep, this, commonStrings.PROCESS);
+        //this.logUtil.putF(GAME_SLEEP + sleep, this, this.commonStrings.PROCESS);
         Thread.sleep(sleep);
     }
     
@@ -269,7 +269,7 @@ public class RunnableCanvas extends MyCanvas
     private final String PROCESS_LOOP_SLEEP = "processLoopSleep";
     public void processLoopSleep() throws Exception
     {
-        //this.logUtil.putF(commonStrings.START, this, PROCESS_LOOP_SLEEP);
+        //this.logUtil.putF(this.commonStrings.START, this, PROCESS_LOOP_SLEEP);
         
         this.runnableCanvasRefreshHelper.process();
         

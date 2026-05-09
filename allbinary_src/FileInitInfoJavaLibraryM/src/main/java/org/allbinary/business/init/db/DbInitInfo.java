@@ -200,20 +200,20 @@ public class DbInitInfo extends DbConnectionInfo
                     StreamUtil.getInstance().close(iData);
                 }
 
-                //PreLogUtil.put("Host: " + this.getHost(), this, commonStrings.LOAD);
+                //PreLogUtil.put("Host: " + this.getHost(), this, this.commonStrings.LOAD);
             }else
             {
                 this.hasRead = false;
                 if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
                 {
-                    PreLogUtil.put("Not a File - Failed Loading: " + FILEABPATH.toString(), this, commonStrings.LOAD);
+                    PreLogUtil.put("Not a File - Failed Loading: " + FILEABPATH.toString(), this, this.commonStrings.LOAD);
                 }
             }
         }catch(Exception e)
         {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                PreLogUtil.putOE("Failed Loading: " + FILEABPATH.toString(), this, commonStrings.LOAD, e);
+                PreLogUtil.putOE("Failed Loading: " + FILEABPATH.toString(), this, this.commonStrings.LOAD, e);
             }
         }
     }

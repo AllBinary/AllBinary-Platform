@@ -43,7 +43,7 @@ public class AbeLicenseClient
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
          //{
-            this.logUtil.putF(commonStrings.START, this,commonStrings.GET);
+            this.logUtil.putF(this.commonStrings.START, this,commonStrings.GET);
          //}
 
          final XmlRpcAbeClient xmlRpcAbeLicenseClient =
@@ -85,7 +85,7 @@ public class AbeLicenseClient
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
          //{
-            this.logUtil.putF(commonStrings.END, this, commonStrings.GET);
+            this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.GET);
          //}
          
          return abeLicenseInterface;
@@ -94,7 +94,7 @@ public class AbeLicenseClient
       {     
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
          //{
-            //this.logUtil.put("Unknown License Retrieval Failure", this, commonStrings.GET, e);
+            //this.logUtil.put("Unknown License Retrieval Failure", this, this.commonStrings.GET, e);
          //}
          throw e;
       }

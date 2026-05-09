@@ -51,7 +51,7 @@ extends CompleteMotionGestureInputEventListener
             GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = 
                 (GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent;
 
-            //this.logUtil.putF(commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
+            //this.logUtil.putF(this.commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
             //PreLogUtil.put(commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
             
             GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();

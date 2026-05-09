@@ -52,7 +52,7 @@ public class TestInputAutomationCaptureWorker
     {
         super(inputAutomationActionInterface);
         
-        this.logUtil.putF(this.MESSAGE, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.MESSAGE, this, this.commonStrings.CONSTRUCTOR);
         
         this.setGenericProfileActions(genericProfileActions);
     }
@@ -99,7 +99,7 @@ public class TestInputAutomationCaptureWorker
     
     public void process() throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.PROCESS);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.PROCESS);
         
         this.startDataWorkers();
         this.processDataWorkerResults();

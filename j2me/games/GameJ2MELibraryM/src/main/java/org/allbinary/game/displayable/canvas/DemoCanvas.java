@@ -202,7 +202,7 @@ public class DemoCanvas extends RunnableCanvas
 
         this.overlayPaintable = overlayPaintable;
 
-        //PreLogUtil.put("New Demo Canvas", this, commonStrings.CONSTRUCTOR);
+        //PreLogUtil.put("New Demo Canvas", this, this.commonStrings.CONSTRUCTOR);
 
         this.highScoresFactoryInterface = highScoresFactoryInterface;
 
@@ -344,7 +344,7 @@ public class DemoCanvas extends RunnableCanvas
 
     public void mediaInit() throws Exception
     {
-        //this.logUtil.putF(commonStrings.START, this, "mediaInit");
+        //this.logUtil.putF(this.commonStrings.START, this, "mediaInit");
         AllBinaryMediaManager.init(EarlySoundsFactory.getInstance());
     }
 
@@ -437,14 +437,14 @@ public class DemoCanvas extends RunnableCanvas
     @Override
     public void keyPressedByDevice(int keyCode, int deviceId)
     {
-        // this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_PRESSED);
+        // this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_PRESSED);
         this.addGameKeyEvent(keyCode, false);
     }
 
     @Override
     public void keyReleasedByDevice(int keyCode, int deviceId)
     {
-        // this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
+        // this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_RELEASED);
         this.removeGameKeyEvent(keyCode, false);
     }
     private boolean isSingleKeyRepeatableProcessing =
@@ -701,11 +701,11 @@ public class DemoCanvas extends RunnableCanvas
 
             if (!this.demoGameRunnable.isRunning() && this.gameCanvas.isInitialized())
             {
-                //PreLogUtil.put("Reset", this, commonStrings.RUN);
+                //PreLogUtil.put("Reset", this, this.commonStrings.RUN);
                 this.getSpecialAnimationInterface().reset();
             }
             
-            //PreLogUtil.put("isComplete: ").append(this.getSpecialAnimationInterface().isComplete(), this, commonStrings.RUN);
+            //PreLogUtil.put("isComplete: ").append(this.getSpecialAnimationInterface().isComplete(), this, this.commonStrings.RUN);
         }
         else if (this.state == 1)
         {
@@ -765,11 +765,11 @@ public class DemoCanvas extends RunnableCanvas
     protected void start() throws Exception
     {
         final AllBinaryGameCanvas gameCanvas = this.gameCanvas;
-        PreLogUtil.put(new StringMaker().append("Game Thread in DemoCanvas: ").append(this.stringUtil.toString(gameCanvas)).toString(), this, commonStrings.START);
+        PreLogUtil.put(new StringMaker().append("Game Thread in DemoCanvas: ").append(this.stringUtil.toString(gameCanvas)).toString(), this, this.commonStrings.START);
 
         //Clear static pause behavior for SWT
 //        if(SWTUtil.isSWT) {
-//            this.logUtil.putF("Set SWT Thread and assign runnable: " + NullRunnable.getInstance(), this, commonStrings.START);
+//            this.logUtil.putF("Set SWT Thread and assign runnable: " + NullRunnable.getInstance(), this, this.commonStrings.START);
 //
 //            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
 //            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
@@ -782,9 +782,9 @@ public class DemoCanvas extends RunnableCanvas
         this.gameCanvas.setThread(this.canvasThread);
 
         //PreLogUtil.put("Game Thread Priority: ").append(
-        //      canvasThread.getPriority(), this, commonStrings);
+        //      canvasThread.getPriority(), this, this.commonStrings);
         //this.logUtil.putF(
-        //      "Game Thread Priority: ").append(canvasThread.getPriority(), this, commonStrings);
+        //      "Game Thread Priority: ").append(canvasThread.getPriority(), this, this.commonStrings);
 
         this.threadFactoryUtil.start(this.canvasThread);
 
@@ -793,7 +793,7 @@ public class DemoCanvas extends RunnableCanvas
             this.setWait(this.getTempWait());
         }
 
-        //PreLogUtil.put(commonStrings.END, this, commonStrings);
+        //PreLogUtil.put(commonStrings.END, this, this.commonStrings);
     }
 
     public void preDemoProcess()
@@ -840,13 +840,13 @@ public class DemoCanvas extends RunnableCanvas
             if (this.gameCanvas != NullGameCanvas.getInstance()
                 && this.gameCanvas.isGameOver())
             {
-                //PreLogUtil.put("Restarting Game Demo", this, commonStrings.PROCESS);
+                //PreLogUtil.put("Restarting Game Demo", this, this.commonStrings.PROCESS);
 
                 this.stopGameDemo();
 
                 int randomLevel = this.getNextRandom();
                 
-                //PreLogUtil.put("Restarting Game Demo at Level: ").append(randomLevel, this, commonStrings.PROCESS);
+                //PreLogUtil.put("Restarting Game Demo at Level: ").append(randomLevel, this, this.commonStrings.PROCESS);
                 
                 GameInfo gameInfo =
                     this.gameCanvas.getLayerManager().getGameInfo();
@@ -862,8 +862,8 @@ public class DemoCanvas extends RunnableCanvas
             {
                 if (!this.demoGameRunnable.isRunning())
                 {
-                    //this.logUtil.putF("Starting Game Demo", this, commonStrings.PROCESS);
-                    //PreLogUtil.put("Starting Game Demo", this, commonStrings.PROCESS);
+                    //this.logUtil.putF("Starting Game Demo", this, this.commonStrings.PROCESS);
+                    //PreLogUtil.put("Starting Game Demo", this, this.commonStrings.PROCESS);
 
                     this.startDemoGame();
                     
@@ -936,7 +936,7 @@ public class DemoCanvas extends RunnableCanvas
 
         //if(runningTimeDelayHelper.isTime())
         //{
-            //this.logUtil.putF(commonStrings.RUNNING, this, commonStrings.RUN);
+            //this.logUtil.putF(this.commonStrings.RUNNING, this, this.commonStrings.RUN);
         //}
 
         //Viewer Game is initialized and and
@@ -965,7 +965,7 @@ public class DemoCanvas extends RunnableCanvas
     @Override
     public void run()
     {
-        this.logUtil.putF(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
+        this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
 
         try
         {
@@ -1004,11 +1004,11 @@ public class DemoCanvas extends RunnableCanvas
 //                        try {
 //                            run3();
 //                        } catch (Exception e) {
-//                            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+//                            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
 //                        }
 //                    }
 //                };
-//                this.logUtil.putF("Set SWT Thread and assign runnable: " + runnable, this, commonStrings.RUN);
+//                this.logUtil.putF("Set SWT Thread and assign runnable: " + runnable, this, this.commonStrings.RUN);
 //
 //                final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
 //                final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
@@ -1077,10 +1077,10 @@ public class DemoCanvas extends RunnableCanvas
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
 
-        this.logUtil.putF(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
+        this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
     }
 
     public void run3() throws Exception {
@@ -1143,7 +1143,7 @@ public class DemoCanvas extends RunnableCanvas
             progressCanvas.start();
         }
 
-        this.logUtil.putF("Demo End", this, commonStrings.RUN);
+        this.logUtil.putF("Demo End", this, this.commonStrings.RUN);
 
         this.close();
         DisplayChangeEventHandler.getInstance().removeListener(this);

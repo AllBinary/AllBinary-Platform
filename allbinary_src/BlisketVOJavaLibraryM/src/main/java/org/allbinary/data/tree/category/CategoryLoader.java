@@ -40,7 +40,7 @@ public class CategoryLoader
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            this.logUtil.putF(commonStrings.START, this, "CategoryLoader(CategoryFactoryInterface categoryFactoryInterface)");
+            this.logUtil.putF(this.commonStrings.START, this, "CategoryLoader(CategoryFactoryInterface categoryFactoryInterface)");
         }
     }
 
@@ -114,7 +114,7 @@ public class CategoryLoader
     {
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
     {
-    this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
+    this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.GET, e);
     }
     return null;
     }
@@ -133,7 +133,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.GET, e);
             }
             return null;
         }
@@ -201,7 +201,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.GET, e);
             }
             return null;
         }
@@ -221,7 +221,7 @@ public class CategoryLoader
     {
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
     {
-    this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
+    this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.GET, e);
     }
     return null;
     }
@@ -238,7 +238,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.GET, e);
             }
             return null;
         }
@@ -260,7 +260,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.GET, e);
             }
             return null;
         }
@@ -295,7 +295,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.GET, e);
             }
             return null;
         }
@@ -329,7 +329,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.GET, e);
             }
             return null;
         }

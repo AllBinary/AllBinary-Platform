@@ -64,18 +64,18 @@ public class LicenseServerInitFileUtil
             final String filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
             LicenseInitInfoUtil.getInstance().setFilePath(StringUtil.getInstance().EMPTY_STRING);
 
-            //PreLogUtil.put("SecurityManager = " + System.getSecurityManager(), this, commonStrings.INIT);
+            //PreLogUtil.put("SecurityManager = " + System.getSecurityManager(), this, this.commonStrings.INIT);
 
             if (FileFactory.getInstance().isFile(filePath))
             {
-                this.logUtil.putF("Using Existing License File", this, commonStrings.INIT);
+                this.logUtil.putF("Using Existing License File", this, this.commonStrings.INIT);
             } else
             {
                 this.write();
             }
         } catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
         }
     }
 
@@ -90,7 +90,7 @@ public class LicenseServerInitFileUtil
 
             final InputStream inputStream = resourceUtil.getResourceAsStream(filePath);
 
-            this.logUtil.putF("Writing Default License File", this, commonStrings.INIT);
+            this.logUtil.putF("Writing Default License File", this, this.commonStrings.INIT);
 
             final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
 
@@ -110,12 +110,12 @@ public class LicenseServerInitFileUtil
                 index++;
             }
 
-            this.logUtil.putF("Wrote Bytes: " + index, this, commonStrings.INIT);
+            this.logUtil.putF("Wrote Bytes: " + index, this, this.commonStrings.INIT);
 
             fileOutputStream.flush();
         } catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
         } finally
         {
             StreamUtil.getInstance().close(fileOutputStream);

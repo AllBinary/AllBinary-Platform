@@ -66,14 +66,14 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            this.logUtil.putF(commonStrings.START, this, commonStrings.START_METHOD_NAME);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.START_METHOD_NAME);
             super.start();
             // this.midletActivity.startProgressActivity();
             this.progressActivity.runOnUiThread(this.showTitleProgressBarRunnable);
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.START_METHOD_NAME, e);
         }
 
     }
@@ -83,14 +83,14 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            this.logUtil.putF(commonStrings.START, this, commonStrings.END_METHOD_NAME);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.END_METHOD_NAME);
             this.progressActivity.runOnUiThread(this.dismissTitleProgressBarRunnable);
             // this.progressActivity = null;
             super.end();
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.END_METHOD_NAME, e);
         }
 
     }
@@ -100,7 +100,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            //this.logUtil.putF(commonStrings.START, this, ADD_PORTION);
+            //this.logUtil.putF(this.commonStrings.START, this, ADD_PORTION);
 
             super.addPortion(value, text, index);
             this.portion = value;
@@ -117,7 +117,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            //this.logUtil.putF(commonStrings.START, this, ADD_PORTION);
+            //this.logUtil.putF(this.commonStrings.START, this, ADD_PORTION);
 
             super.addNormalPortion(value, text);
             this.portion = value;
@@ -170,7 +170,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
             }
         }
     }
@@ -188,7 +188,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
             }
         }
     }
@@ -206,7 +206,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
             }
         }
     }
@@ -223,7 +223,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
             }
         }
     }

@@ -147,7 +147,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
              * this.addForRemoval(gameKeyEvent); }
              */
 
-            //this.logUtil.putF(commonStrings.START, this, "processInput - GameKeyEvent source: ").append(gameKeyEvent.getSourceId());
+            //this.logUtil.putF(this.commonStrings.START, this, "processInput - GameKeyEvent source: ").append(gameKeyEvent.getSourceId());
             // this.logUtil.put("commonStrings.START_LABEL).append("Canvas." +
             // CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
             if(gameKeyEvent.getSourceId() != this.MOTION_GESTURE_SOURCE_ID)

@@ -57,7 +57,7 @@ public class AndroidHardware implements HardwareInterface
             throw new Exception("Not Enough Data For A Valid License On Linux");
         }
 
-        //this.logUtil.putF("Hardware Data: " + this.toString(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("Hardware Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     private void init(final String filePath) throws Exception
@@ -76,7 +76,7 @@ public class AndroidHardware implements HardwareInterface
         {
             if (lineNumberReader != null)
             {
-                //this.logUtil.putF("closing", this, commonStrings.INIT);
+                //this.logUtil.putF("closing", this, this.commonStrings.INIT);
                 lineNumberReader.close();
             }
         }
@@ -98,7 +98,7 @@ public class AndroidHardware implements HardwareInterface
         //Get to the first line with Bus info
         //lineNumberReader != null && 
         while (nextLine != null) {
-            //this.logUtil.putF("Found Hardware Device: " + componentInterfaceVector.size(), this, commonStrings.INIT);
+            //this.logUtil.putF("Found Hardware Device: " + componentInterfaceVector.size(), this, this.commonStrings.INIT);
 
             nextLine = lineNumberReader.readLine();
             this.componentInterfaceVector.add(new UnknownHardware(nextLine));
@@ -107,7 +107,7 @@ public class AndroidHardware implements HardwareInterface
         /*
             else
             {
-                this.logUtil.putF("Could not load File", this, commonStrings.INIT);
+                this.logUtil.putF("Could not load File", this, this.commonStrings.INIT);
             }
          */
 

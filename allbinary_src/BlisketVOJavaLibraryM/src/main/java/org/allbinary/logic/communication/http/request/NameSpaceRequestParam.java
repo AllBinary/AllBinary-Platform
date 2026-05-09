@@ -230,7 +230,7 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.putF("\nNameSpace Param: " + stringBuffer.toString(), this, commonStrings.TOSTRING);
+         this.logUtil.putF("\nNameSpace Param: " + stringBuffer.toString(), this, this.commonStrings.TOSTRING);
       }
       
       return stringBuffer.toString();

@@ -36,7 +36,7 @@ public class ColorAttributePointerVBOOpenGLProcessor extends ObjectThreedOpenGLP
 
     public ColorAttributePointerVBOOpenGLProcessor()
     {
-        //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //PreLogUtil.put(commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
     }
 

@@ -142,21 +142,21 @@ public class AllBinaryLayerManager extends LayerManager
         
         int size = this.basicLayerProcessorArray.length;
         
-        //this.logUtil.putF(commonStrings.START + size, this, commonStrings.PROCESS);
+        //this.logUtil.putF(this.commonStrings.START + size, this, this.commonStrings.PROCESS);
         
         for (int index = 0; index < size; index++)
         {
             layerProcessorInterface = this.basicLayerProcessorArray[index];
 
             //this.logUtil.putF(layerProcessorInterface.getClass().getName() + CommonSeps.getInstance().SPACE + CommonLabels.getInstance().TOTAL_LABEL + 
-            //        layerProcessorInterface.getLayerManager().getSize(), this, commonStrings.PROCESS);
+            //        layerProcessorInterface.getLayerManager().getSize(), this, this.commonStrings.PROCESS);
 
             // if(index != damageIndex)
             layerProcessorInterface.process(this);
             // else
             // {
             // this.logUtil.putF("Processing BasicLayerProcessor: " +
-            // layerProcessorInterface.getClass().getName(), this, commonStrings.PROCESS);
+            // layerProcessorInterface.getClass().getName(), this, this.commonStrings.PROCESS);
             // layerProcessorInterface.processConcurrent(this);
             // }
         }

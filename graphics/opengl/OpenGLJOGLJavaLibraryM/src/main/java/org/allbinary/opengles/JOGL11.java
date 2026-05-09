@@ -51,7 +51,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
     {
         super(gl, gl2);
 
-        //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, commonStrings.CONSTRUCTOR);
+        //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, this.commonStrings.CONSTRUCTOR);
         this.gl11 = getJOGLGL();
     }
 

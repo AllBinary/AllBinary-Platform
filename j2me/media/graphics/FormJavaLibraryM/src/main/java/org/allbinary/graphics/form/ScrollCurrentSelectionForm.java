@@ -145,7 +145,7 @@ extends ScrollSelectionForm
             }
         } else
         {
-            this.logUtil.putF(formTypeFactory.UNK, this, commonStrings.INIT);
+            this.logUtil.putF(formTypeFactory.UNK, this, this.commonStrings.INIT);
         }
     }
 

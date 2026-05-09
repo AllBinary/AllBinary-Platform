@@ -29,7 +29,7 @@ public class J2MEGameInputMapping extends PersistentInputMapping
     @Override
     public void init(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
 
         J2MEKeyFactory.getInstance().init();
 

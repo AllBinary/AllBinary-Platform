@@ -59,7 +59,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
    @Override
    public void minX()
    {
-      //this.logUtil.putF(commonStrings.START, this, "minX");
+      //this.logUtil.putF(this.commonStrings.START, this, "minX");
       //this.refract();
       if(this.velocityInterface.getVelocityXBasicDecimalP().getUnscaled() < 0)
       this.velocityInterface.getVelocityXBasicDecimalP().multiplyint(-1);
@@ -69,7 +69,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
    @Override
    public void maxX()
    {
-      //this.logUtil.putF(commonStrings.START, this, "maxX");
+      //this.logUtil.putF(this.commonStrings.START, this, "maxX");
       //this.refract();
       if(this.velocityInterface.getVelocityXBasicDecimalP().getUnscaled() > 0)
       this.velocityInterface.getVelocityXBasicDecimalP().multiplyint(-1);
@@ -79,7 +79,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
    @Override
    public void minY()
    {
-      //this.logUtil.putF(commonStrings.START, this, "minY");
+      //this.logUtil.putF(this.commonStrings.START, this, "minY");
       //this.refract();
       if(this.velocityInterface.getVelocityYBasicDecimalP().getUnscaled() < 0)
       this.velocityInterface.getVelocityYBasicDecimalP().multiplyint(-1);
@@ -90,7 +90,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
    @Override
    public void maxY()
    {
-      //this.logUtil.putF(commonStrings.START, this, "maxY");
+      //this.logUtil.putF(this.commonStrings.START, this, "maxY");
       //this.refract();
       if(this.velocityInterface.getVelocityYBasicDecimalP().getUnscaled() > 0)
       this.velocityInterface.getVelocityYBasicDecimalP().multiplyint(-1);

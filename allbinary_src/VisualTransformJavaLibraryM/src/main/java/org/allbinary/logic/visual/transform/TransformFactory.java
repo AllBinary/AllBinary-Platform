@@ -53,7 +53,7 @@ public class TransformFactory {
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                this.logUtil.putF("Creating Transform: " + viewName,this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF("Creating Transform: " + viewName,this, this.commonStrings.GET_INSTANCE);
             }
 
             TransformInfoHttpInterface ownerTransformInfoHttpInterface =
@@ -110,7 +110,7 @@ public class TransformFactory {
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                this.logUtil.putF("Creating Transform: " + propertiesHashMap.get(transformInfoData.NAME),this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF("Creating Transform: " + propertiesHashMap.get(transformInfoData.NAME),this, this.commonStrings.GET_INSTANCE);
             }
 
             final TransformInfoEntity transformInfoEntity =
@@ -152,7 +152,7 @@ public class TransformFactory {
                 stringBuffer.append((String) propertiesHashMap.get(TransformInfoData.getInstance().NAME));
                 stringBuffer.append("->TransformFactory");
 
-                this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(stringBuffer.toString(), this, this.commonStrings.GET_INSTANCE, e);
             }
             throw e;
         }

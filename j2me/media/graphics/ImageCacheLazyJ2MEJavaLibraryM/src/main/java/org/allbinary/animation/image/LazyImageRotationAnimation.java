@@ -93,7 +93,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
                     animation = NULL_INDEX_ANIMATION;
                 } catch (Exception e) {
                     final LogUtil logUtil = LogUtil.getInstance();
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+                    logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
                 }
 
             }
@@ -105,7 +105,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
                     animation = NULL_INDEX_ANIMATION;
                 } catch (Exception e) {
                     final LogUtil logUtil = LogUtil.getInstance();
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+                    logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
                 }
                 
             }

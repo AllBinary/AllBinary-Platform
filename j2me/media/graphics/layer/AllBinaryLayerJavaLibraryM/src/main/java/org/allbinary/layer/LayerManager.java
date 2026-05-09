@@ -20,7 +20,7 @@ public class LayerManager
 
     public LayerManager(final LayerManagerLoggingBase layerManagerLogging)
     {
-        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         this.layerManagerLogging = layerManagerLogging;
     }
@@ -104,7 +104,7 @@ public class LayerManager
     	{
             //if(this.isFirst) {
                 //this.isFirst = false;
-                //this.logUtil.putF(commonStrings.START, this, PAINT);
+                //this.logUtil.putF(this.commonStrings.START, this, PAINT);
             //}
             
         Layer comp;
@@ -113,7 +113,7 @@ public class LayerManager
                 //if(this.list.size() > 0) {
                     //this.isFirst = false;
                 //}
-                //this.logUtil.putF(commonStrings.START, this, "size: " + this.list.size());
+                //this.logUtil.putF(this.commonStrings.START, this, "size: " + this.list.size());
             //}
         
         for (int index = this.list.size(); --index >= 0;)

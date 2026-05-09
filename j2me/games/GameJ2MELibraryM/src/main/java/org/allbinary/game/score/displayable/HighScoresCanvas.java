@@ -86,7 +86,7 @@ public class HighScoresCanvas extends GameCommandCanvas
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 
-        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         this.highScoresPaintable = paintable;
 
@@ -112,7 +112,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         if(this.highScoresHelper.getHighScoresArray() == NoHighScoresFactory.getInstance().NO_HIGH_SCORES) {
             this.setPaintable(this.waitPaintable);
         } else {
-            this.logUtil.putF("Show HighScores that are already loaded", this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("Show HighScores that are already loaded", this, this.commonStrings.CONSTRUCTOR);
             this.updateCommand(this.currentCommand);
             this.setPaintable(this.getHighScoresPaintable());
         }
@@ -146,7 +146,7 @@ public class HighScoresCanvas extends GameCommandCanvas
             }
         });
         
-        //this.logUtil.putF(commonStrings.END, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.CONSTRUCTOR);
     }
 
     @Override
@@ -201,7 +201,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);
         }
     }
 
@@ -217,7 +217,7 @@ public class HighScoresCanvas extends GameCommandCanvas
             if (highScoresArray != null) {
                 this.logUtil.putF(new StringMaker().append(commonStrings.START).appendint(highScoresArray.length).toString(), this, "setHighScoresArray");
             } else {
-                this.logUtil.putF(commonStrings.START, this, "setHighScoresArray");
+                this.logUtil.putF(this.commonStrings.START, this, "setHighScoresArray");
             }
 
             this.highScoresHelper.setHighScoresArray(highScoresArray);
@@ -226,13 +226,13 @@ public class HighScoresCanvas extends GameCommandCanvas
             this.setPaintable(this.getHighScoresPaintable());
             
         } catch(Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);
         }
     }
 
     public void updateCommand(Command command) throws Exception
     {
-        this.logUtil.putF(new StringMaker().append(commonStrings.START).append(this.stringUtil.toString(command)).toString(), this, commonStrings.UPDATE);
+        this.logUtil.putF(new StringMaker().append(commonStrings.START).append(this.stringUtil.toString(command)).toString(), this, this.commonStrings.UPDATE);
 
         final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
@@ -241,7 +241,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         {
             final int index = highScoreCommandsFactory.getIndex(command);
             
-            //this.logUtil.putF(commonStrings.START).append(index, this, commonStrings.UPDATE);
+            //this.logUtil.putF(this.commonStrings.START).append(index, this, this.commonStrings.UPDATE);
             
             int nextIndex = index + 1;
 

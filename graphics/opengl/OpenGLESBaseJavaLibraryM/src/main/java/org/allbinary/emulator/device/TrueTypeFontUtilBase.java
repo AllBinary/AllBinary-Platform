@@ -70,7 +70,7 @@ public class TrueTypeFontUtilBase {
         //This needs to initialize after scale and in the OpenGL thread when running JOGL.
         if(!AndroidUtil.isAndroid()) MyFont.getInstance();
         
-        //this.logUtil.putF(Integer.toString(scale), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(Integer.toString(scale), this, this.commonStrings.CONSTRUCTOR);
         
         this.CELLS_PER_ROW = 16; //13;
         this.fontSize = (20 + 6) * this.scale; //currentFont.getSize() + 6;
@@ -86,7 +86,7 @@ public class TrueTypeFontUtilBase {
 //            .append(" textureSize: ").append(textureSize)
 //            .append(" actualCellsPerRow: ").append(actualCellsPerRow)
 //            //.append(" extraCellsPerRow: ").append(extraCellsPerRow)
-//            .toString(), this, commonStrings.CONSTRUCTOR);
+//            .toString(), this, this.commonStrings.CONSTRUCTOR);
 
 //        final StringMaker stringMaker = new StringMaker();
 //        for(short index = 0; index < this.pattern.length(); index++) {
@@ -98,7 +98,7 @@ public class TrueTypeFontUtilBase {
 //            stringMaker.append('0').append('x').append(Integer.toHexString(charArray[index])).append(',');
 //        }
 //        
-//        this.logUtil.putF(stringMaker.toString(), this, commonStrings.CONSTRUCTOR);
+//        this.logUtil.putF(stringMaker.toString(), this, this.commonStrings.CONSTRUCTOR);
     }
     
     public int getAsTextureSize(int textureSize)

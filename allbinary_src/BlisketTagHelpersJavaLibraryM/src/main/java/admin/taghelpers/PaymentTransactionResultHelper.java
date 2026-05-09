@@ -40,7 +40,7 @@ public class PaymentTransactionResultHelper extends BasicTable
          String success = new TransactionResultEntity().dropTable();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.putF(success, this, commonStrings.DROP);
+            this.logUtil.putF(success, this, this.commonStrings.DROP);
          }
          return success;
       }

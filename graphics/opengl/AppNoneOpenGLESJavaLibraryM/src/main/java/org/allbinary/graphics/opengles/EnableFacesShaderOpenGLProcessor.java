@@ -18,7 +18,7 @@ public class EnableFacesShaderOpenGLProcessor extends ObjectThreedOpenGLProcesso
     
     public EnableFacesShaderOpenGLProcessor()
     {
-        //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //PreLogUtil.put(commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
     }
 

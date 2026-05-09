@@ -57,7 +57,7 @@ public class GameKeyEventHandler
     public void addListenerForPlayer(
             EventListenerInterface eventListenerInterface, int playerInputId)
     {
-        this.logUtil.putF(eventListenerInterface.toString(), this, commonStrings.ADD_LISTENER);
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.ADD_LISTENER);
         //ForcedLogUtil.log(eventListenerInterface.toString(), this);
         
         this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
@@ -69,7 +69,7 @@ public class GameKeyEventHandler
     public void addListener(
             EventListenerInterface eventListenerInterface)
     {
-        this.logUtil.putF(eventListenerInterface.toString(), this, commonStrings.ADD_LISTENER);
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.ADD_LISTENER);
         //ForcedLogUtil.log(eventListenerInterface.toString(), this);
         
         this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
@@ -81,13 +81,13 @@ public class GameKeyEventHandler
     public void removeListener(
             EventListenerInterface eventListenerInterface)
     {
-        this.logUtil.putF(eventListenerInterface.toString(), this, commonStrings.REMOVE_LISTENER);
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.REMOVE_LISTENER);
         //ForcedLogUtil.log(eventListenerInterface.toString(), this);
         
         this.pressGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
         this.upGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
         this.downGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
         
-        //this.logUtil.putF(commonStrings.END, this, commonStrings.REMOVE_LISTENER);
+        //this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.REMOVE_LISTENER);
     }
 }

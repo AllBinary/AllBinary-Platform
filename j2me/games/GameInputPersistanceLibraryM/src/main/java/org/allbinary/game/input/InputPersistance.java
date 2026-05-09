@@ -165,7 +165,7 @@ public class InputPersistance extends BasicPersitance
 
         final StringMaker stringBuffer = new StringMaker();
         PreLogUtil.put(stringBuffer.append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
-        //this.logUtil.putF("Saving: ").append(hashtable, this, commonStrings.SAVE);
+        //this.logUtil.putF("Saving: ").append(hashtable, this, this.commonStrings.SAVE);
 
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -204,7 +204,7 @@ public class InputPersistance extends BasicPersitance
                 outputStream.writeUTF(inputIdAsString);
                 
                 //final String string = stringBuffer.toString();
-                //PreLogUtil.put(string, this, commonStrings.SAVE);
+                //PreLogUtil.put(string, this, this.commonStrings.SAVE);
                 
                 //stringBuffer.append("Save Mapping from: ");
                 //stringBuffer.append(input.toString());
@@ -213,14 +213,14 @@ public class InputPersistance extends BasicPersitance
                 
                 //this.logUtil.putF("Save Mapping from: "
                 //     ).append(input.toString()).append(" to: "
-                  //   ).append(gameActionInput.toString(), this, commonStrings.SAVE);
+                  //   ).append(gameActionInput.toString(), this, this.commonStrings.SAVE);
             }
         }
 
         //TWB - new String(byte[]).getBytes() is not working correctly for Avain
         //savedGameBytes = byteArrayOutputStream.toString().getBytes();
         savedGameBytes = byteArrayOutputStream.toByteArray();
-        //PreLogUtil.put("bytes out: " + ArrayUtil.getInstance().toString(savedGameBytes), this, commonStrings.SAVE);
+        //PreLogUtil.put("bytes out: " + ArrayUtil.getInstance().toString(savedGameBytes), this, this.commonStrings.SAVE);
 
         recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
 

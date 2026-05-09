@@ -32,8 +32,8 @@ public class BaseMusicService extends Service
     public IBinder onBind(final Intent intent)
     {
         //Toast.makeText(this, "Music Bind", Toast.LENGTH_LONG).show();
-        //PrelogUtil.putF(commonStrings.START, this, "onBind");
-        this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.BIND);
+        //PrelogUtil.putF(this.commonStrings.START, this, "onBind");
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStateStrings.BIND);
 
         //songId = intent.getIntExtra("SONG", AndroidResources.raw.angels_we_have_heard);
         return null;
@@ -44,8 +44,8 @@ public class BaseMusicService extends Service
     {
         //Toast.makeText(this, "Music Service Created", Toast.LENGTH_LONG).show();
 
-        this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.CREATE);
-        //PrelogUtil.putF(commonStrings.START, this, "onCreate");		
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStateStrings.CREATE);
+        //PrelogUtil.putF(this.commonStrings.START, this, "onCreate");		
     }
 
     @Override
@@ -53,12 +53,12 @@ public class BaseMusicService extends Service
     {
         //Toast.makeText(this, "Music Service Stopped", Toast.LENGTH_LONG).show();
 
-        this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.DESTROY);
-        //PrelogUtil.putF(commonStrings.START, this, "onDestroy");
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStateStrings.DESTROY);
+        //PrelogUtil.putF(this.commonStrings.START, this, "onDestroy");
 
         if (this.player != NullAndroidCanvas.NULL_MEDIA_PLAYER)
         {
-            this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.PAUSE);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStateStrings.PAUSE);
             this.player.stop();
             this.player.reset();
             this.player.release();
@@ -69,7 +69,7 @@ public class BaseMusicService extends Service
     {
         if (this.player != NullAndroidCanvas.NULL_MEDIA_PLAYER)
         {
-            this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.PAUSE);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStateStrings.PAUSE);
             this.player.pause();
         }
     }
@@ -77,7 +77,7 @@ public class BaseMusicService extends Service
     public void resume() {
 
         if (this.player != NullAndroidCanvas.NULL_MEDIA_PLAYER && !this.player.isPlaying()) {
-            this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.RESUME);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStateStrings.RESUME);
             this.player.start();
         }
     }
@@ -97,8 +97,8 @@ public class BaseMusicService extends Service
 
         this.onStartCommandIntent(intent);
 
-        //PrelogUtil.putF(commonStrings.START, this, "onStart");
-        this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.START);
+        //PrelogUtil.putF(this.commonStrings.START, this, "onStart");
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStateStrings.START);
     }
 
     @Override
@@ -110,13 +110,13 @@ public class BaseMusicService extends Service
 
     public void onStartCommandIntent(final Intent intent)
     {
-        //PrelogUtil.putF(commonStrings.START, this, "onStartCommand");
-        this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.ON_START_COMMAND);
+        //PrelogUtil.putF(this.commonStrings.START, this, "onStartCommand");
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStateStrings.ON_START_COMMAND);
 
         final MusicStrings musicStrings = MusicStrings.getInstance();
         if(intent != null) {
             final int command = intent.getIntExtra(commonStateStrings.ON_START_COMMAND, -1);
-            this.logUtil.putF(CommonLabels.getInstance().COMMAND_LABEL + command, this, commonStateStrings.ON_START_COMMAND);
+            this.logUtil.putF(CommonLabels.getInstance().COMMAND_LABEL + command, this, this.commonStateStrings.ON_START_COMMAND);
             if(command == 1) {
                 this.pause();
                 return;
@@ -138,7 +138,7 @@ public class BaseMusicService extends Service
 
             if(this.player != NullAndroidCanvas.NULL_MEDIA_PLAYER && this.player.isPlaying()) {
                 final MediaPlayer player = this.player;
-                this.logUtil.putF(this.ALREADY_PLAYING, this, commonStateStrings.ON_START_COMMAND);
+                this.logUtil.putF(this.ALREADY_PLAYING, this, this.commonStateStrings.ON_START_COMMAND);
                 final Runnable runnable = new ARunnable() {
 
                     @Override

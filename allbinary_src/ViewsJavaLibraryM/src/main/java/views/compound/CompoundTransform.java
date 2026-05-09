@@ -50,7 +50,7 @@ public class CompoundTransform extends AbTransformer
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.putF("\nObjectConfig: \n" + objectConfig.toString(), this, commonStrings.CONSTRUCTOR);
+         this.logUtil.putF("\nObjectConfig: \n" + objectConfig.toString(), this, this.commonStrings.CONSTRUCTOR);
       }
 
       InputStream templateInputStream = objectConfig.createInputStream();

@@ -174,7 +174,7 @@ public class DisplayInfoSingleton
                     aLastHeight = (int) (aLastHeight * this.displayRatio);
                     this.scalableListener.scale((float) this.ratio);
                 } else {
-                    //this.logUtil.putF("Reset scaling", this, commonStrings.UPDATE);
+                    //this.logUtil.putF("Reset scaling", this, this.commonStrings.UPDATE);
                     this.ratio = 1.0f;
                     this.scalableListener.scale((float) this.ratio);
                 }
@@ -188,7 +188,7 @@ public class DisplayInfoSingleton
                     aLastHeight = (int) (aLastHeight * this.displayRatio);
                     this.scalableListener.scale((float) this.ratio);
                 } else {
-                    //this.logUtil.putF("Reset scaling", this, commonStrings.UPDATE);
+                    //this.logUtil.putF("Reset scaling", this, this.commonStrings.UPDATE);
                     this.ratio = 1.0f;
                     this.scalableListener.scale((float) this.ratio);
                 }
@@ -256,7 +256,7 @@ public class DisplayInfoSingleton
 
     public void add(final String reason)
     {
-        //PreLogUtil.putF("Display Change Event").append(this.toString(), this, commonStrings.UPDATE);
+        //PreLogUtil.putF("Display Change Event").append(this.toString(), this, this.commonStrings.UPDATE);
         final StringMaker stringMaker = new StringMaker();
         this.logUtil.putF(stringMaker.append(this.REASON).append(reason).toString(), this, this.FIRE_METHOD_NAME);
         stringMaker.delete(0, stringMaker.length());
@@ -330,11 +330,11 @@ public class DisplayInfoSingleton
 
                 if(operatingSystemInterface.isScalable())
                 {
-                    //this.logUtil.putF("Found Scalable OS", this, commonStrings.UPDATE);
+                    //this.logUtil.putF("Found Scalable OS", this, this.commonStrings.UPDATE);
                     
                     if(this.isPortraitWH(aLastWidth, aLastHeight))
                     {
-                        //this.logUtil.putF("Found Portrait Orientation", this, commonStrings.UPDATE);
+                        //this.logUtil.putF("Found Portrait Orientation", this, this.commonStrings.UPDATE);
                         
                         if(aLastHeight > this.scaleLargestTo)
                         {
@@ -347,7 +347,7 @@ public class DisplayInfoSingleton
                             aLastHeight = (int) (aLastHeight * this.displayRatio);
                             this.scalableListener.scale((float) this.ratio);
                         } else {
-                            //this.logUtil.putF("Reset scaling", this, commonStrings.UPDATE);
+                            //this.logUtil.putF("Reset scaling", this, this.commonStrings.UPDATE);
                             this.ratio = 1.0f;
                             this.scalableListener.scale((float) this.ratio);
                         }
@@ -366,7 +366,7 @@ public class DisplayInfoSingleton
                             aLastHeight = (int) (aLastHeight * this.displayRatio);
                             this.scalableListener.scale((float) this.ratio);
                         } else {
-                            //this.logUtil.putF("Reset scaling", this, commonStrings.UPDATE);
+                            //this.logUtil.putF("Reset scaling", this, this.commonStrings.UPDATE);
                             this.ratio = 1.0f;
                             this.scalableListener.scale((float) this.ratio);
                         }

@@ -132,7 +132,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
     {
         try
         {
-            this.logUtil.putF(commonStrings.START, this, "onDisplayChangeEvent");
+            this.logUtil.putF(this.commonStrings.START, this, "onDisplayChangeEvent");
 
             this.getRTSLayerInfoPaintable().update();
         }
