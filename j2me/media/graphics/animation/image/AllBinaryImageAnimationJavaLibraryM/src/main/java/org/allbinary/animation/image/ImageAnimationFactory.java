@@ -54,7 +54,7 @@ public class ImageAnimationFactory extends BaseImageAnimationFactory {
     public Animation getInstance(final int instanceId) throws Exception
     {
         //final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
-        Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
+        Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
             this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final OpenGLUtil openGLUtil = OpenGLUtil.getInstance();
@@ -67,7 +67,7 @@ public class ImageAnimationFactory extends BaseImageAnimationFactory {
 
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             
-            animationFactoryImageScaleUtil.processAdjust(this);
+            this.animationFactoryImageScaleUtil.processAdjust(this);
             
             return new AdjustedImageAnimation(scaledImage, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
 
