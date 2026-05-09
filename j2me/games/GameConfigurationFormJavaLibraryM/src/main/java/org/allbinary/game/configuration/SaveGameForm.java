@@ -29,8 +29,8 @@ public class SaveGameForm extends CommandForm
                                          BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
             throws Exception
     {
-        FORM = new SaveGameForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
-        return FORM;
+        SaveGameForm.FORM = new SaveGameForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+        return SaveGameForm.FORM;
     }
 
     public static CommandForm getInstance()

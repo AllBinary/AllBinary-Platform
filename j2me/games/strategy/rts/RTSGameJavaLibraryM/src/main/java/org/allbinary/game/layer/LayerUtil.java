@@ -31,7 +31,7 @@ public class LayerUtil
         final PositionStrings positionStrings = PositionStrings.getInstance();
         final StringMaker stringBuffer = new StringMaker();
         
-        stringBuffer.append(HASHTABLE);
+        stringBuffer.append(LayerUtil.HASHTABLE);
         stringBuffer.append(StringUtil.getInstance().toString(hashtable));
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.X_LABEL);

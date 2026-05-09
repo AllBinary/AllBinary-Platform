@@ -366,7 +366,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         {
             layerInterface.construct(rtsPlayerLayerInterface);
             
-            newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+            this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
 
             capital.removeMoney(cost);
 
@@ -472,7 +472,7 @@ public class WaypointRTSFormInput extends RTSFormInput
     private void addWayPoint(final WaypointLayer layerInterface)
         throws Exception
     {
-        final AdvancedRTSGameLayer stickyAssociatedAdvandedRtsLayer = (AdvancedRTSGameLayer) stickyAssociatedRtsLayer;
+        final AdvancedRTSGameLayer stickyAssociatedAdvandedRtsLayer = (AdvancedRTSGameLayer) this.stickyAssociatedRtsLayer;
         //Currently only one waypoint owned per layer
         final BasicArrayList list = stickyAssociatedAdvandedRtsLayer.getWaypointBehavior().getOwnedWaypointList();
 

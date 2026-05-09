@@ -62,7 +62,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
 
             final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
 
-            final int DEFAULT_CHAR_HEIGHT = myFont.DEFAULT_CHAR_HEIGHT;
+            final int DEFAULT_CHAR_HEIGHT = this.myFont.DEFAULT_CHAR_HEIGHT;
 
             productivityHud = new NumberStringHud(
                 "Productivity:", 999,
@@ -123,7 +123,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
         this.healthHud.paint(graphics);
         this.maxHealthHud.paint(graphics);
 
-        this.getAnimationInterface().paintXY(graphics, this.imageX, y);
+        this.getAnimationInterface().paintXY(graphics, this.imageX, this.y);
     }
 
     @Override

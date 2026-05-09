@@ -67,14 +67,14 @@ public class HelpPaintable extends Paintable
         graphics.setColor(this.basicColor.intValue());
         
         final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
-        graphics.drawString(this.title, halfWidth - beginWidth, charHeight, anchor);
+        graphics.drawString(this.title, halfWidth - beginWidth, charHeight, this.anchor);
 
         final int size = this.inputInfo.length;
         for (int index = 0; index < size; index++)
         {
             beginWidth = (graphics.getFont().stringWidth(this.inputInfo[index]) >> 1);
 
-            graphics.drawString(this.inputInfo[index], halfWidth - beginWidth, (index + 3) * charHeight, anchor);
+            graphics.drawString(this.inputInfo[index], halfWidth - beginWidth, (index + 3) * charHeight, this.anchor);
         }
     }
 }

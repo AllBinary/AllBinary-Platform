@@ -51,21 +51,21 @@ public class UnitGameResources extends BasicGameResources
 
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(ROOT);
-        stringBuffer.append(DESTROY);
+        stringBuffer.append(UnitGameResources.DESTROY);
         stringBuffer.append(string);
         stringBuffer.append(sizeString);
 
         this.RESOURCE_DESTROY = stringBuffer.toString();
         
         stringBuffer.delete(0, stringBuffer.length());
-        stringBuffer.append(ICON);
+        stringBuffer.append(UnitGameResources.ICON);
         stringBuffer.append(ROOT);
 
         this.RESOURCE_ICON_ANIMATION = stringBuffer.toString();
 
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(ROOT);
-        stringBuffer.append(ICON);
+        stringBuffer.append(UnitGameResources.ICON);
         stringBuffer.append(string);
         stringBuffer.append(this.ICON_SIZE);
 
@@ -73,7 +73,7 @@ public class UnitGameResources extends BasicGameResources
 
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(ROOT);
-        stringBuffer.append(ICON_BUILD);
+        stringBuffer.append(UnitGameResources.ICON_BUILD);
         stringBuffer.append(string);
         stringBuffer.append(this.ICON_SIZE);
 

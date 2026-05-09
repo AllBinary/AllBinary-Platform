@@ -33,9 +33,9 @@ public class BufferedGameCanvasPaintHelper extends ProcessPaintable
     private Image previousImage = NullCanvas.NULL_IMAGE;
 
     private final CircularIndexUtil circularIndexUtil = 
-        CircularIndexUtil.createInstance(MAX_IMAGES);
+        CircularIndexUtil.createInstance(BufferedGameCanvasPaintHelper.MAX_IMAGES);
     private final CircularIndexUtil drawCircularIndexUtil = 
-        CircularIndexUtil.createInstanceAt(MAX_IMAGES - 1, MAX_IMAGES);
+        CircularIndexUtil.createInstanceAt(BufferedGameCanvasPaintHelper.MAX_IMAGES - 1, BufferedGameCanvasPaintHelper.MAX_IMAGES);
     
     public BufferedGameCanvasPaintHelper(AllBinaryGameCanvas gameCanvas)
     throws Exception
@@ -47,7 +47,7 @@ public class BufferedGameCanvasPaintHelper extends ProcessPaintable
 
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
-        for (int index = 0; index < MAX_IMAGES; index++)
+        for (int index = 0; index < BufferedGameCanvasPaintHelper.MAX_IMAGES; index++)
         {
             this.offScreenImage[index] = GameFeatureImageCacheFactory.getInstance().get(
                     this, displayInfo.getLastWidth(), displayInfo.getLastHeight());

@@ -30,7 +30,7 @@ public class LifePickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFac
    public static void init()
       throws Exception
    {
-      pickedUpLayerInterfaceFactoryInterface = new LifePickedUpLayerInterfaceFactory();
+      LifePickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new LifePickedUpLayerInterfaceFactory();
    }
    
    private LifeLayerCircularStaticPool pool = 

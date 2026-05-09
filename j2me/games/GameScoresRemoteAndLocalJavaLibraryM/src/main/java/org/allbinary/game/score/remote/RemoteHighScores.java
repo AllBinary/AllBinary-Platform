@@ -72,7 +72,7 @@ public class RemoteHighScores extends HighScores {
         final String heading, final String columnTwoHeading, final Boolean isAscending, final boolean preload) {
         final LogUtil logUtil = LogUtil.getInstance();
         try {
-            HighScores highScores = (HighScores) hashTable.get(gameInfo);
+            HighScores highScores = (HighScores) RemoteHighScores.hashTable.get(gameInfo);
 
             if (highScores == null) {
                 highScores = new RemoteHighScores(

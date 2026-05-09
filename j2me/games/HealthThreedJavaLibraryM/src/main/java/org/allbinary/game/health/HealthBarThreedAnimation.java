@@ -70,9 +70,9 @@ extends HealthBarAnimation
 
     private void updateSize()
     {
-    	Number3dBufferList number3dBufferList = this.rectangle.getVertices().getPointsOnFacesNumber3dBufferList();
+    	final Number3dBufferList number3dBufferList = this.rectangle.getVertices().getPointsOnFacesNumber3dBufferList();
 
-        int width = x2;
+        int width = this.x2;
         int height = this.thickness * 2;
     	
     	int segsH = 1;
@@ -133,17 +133,17 @@ extends HealthBarAnimation
         private static int test = -60;
         private static final TimeDelayHelper timer = new TimeDelayHelper(1000);
         
-        if(timer.isTime())
+        if(HealthBarThreedAnimation.timer.isTime())
         {
-        	if(test <= 60)
+        	if(HealthBarThreedAnimation.test <= 60)
         	{
-        		test++;
+        		HealthBarThreedAnimation.test++;
         	}
         	else
         	{
-        		test = -60;
+        		HealthBarThreedAnimation.test = -60;
         	}
-        	PreLogUtil.put(Integer.toString(test), this, this.toString());
+        	PreLogUtil.put(Integer.toString(HealthBarThreedAnimation.test), this, this.toString());
         } 
      */
 
@@ -159,7 +159,7 @@ extends HealthBarAnimation
     /*
     for (int index = 0; index < this.thickness; index++)
     {
-        graphics.drawLine(x, y - this.index, x + x2, y - this.index);
+        graphics.drawLine(x, y - this.index, x + this.x2, y - this.index);
     }
     */
     

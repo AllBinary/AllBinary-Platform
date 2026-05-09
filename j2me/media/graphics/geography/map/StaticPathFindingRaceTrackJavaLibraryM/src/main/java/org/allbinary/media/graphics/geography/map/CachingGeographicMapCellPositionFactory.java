@@ -40,7 +40,7 @@ public class CachingGeographicMapCellPositionFactory extends
             cellPositionCanBeNull = this.geographicMapCellPositionFactoryInterface.getInstance(
                 this.geographicMapInterface, i_column, i_row,
                             this.getColumns(), this.getRows(), width, height);
-            geographicMapCellPositionArray[i_row][i_column] = (GeographicMapCellPosition) cellPositionCanBeNull;
+            this.geographicMapCellPositionArray[i_row][i_column] = (GeographicMapCellPosition) cellPositionCanBeNull;
 
             hashtable.put(cellPositionKey, cellPositionCanBeNull);
         }

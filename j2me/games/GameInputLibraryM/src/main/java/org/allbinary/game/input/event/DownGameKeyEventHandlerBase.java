@@ -102,7 +102,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(super.toString());
-        stringBuffer.append(TOTAL_LISTENERS);
+        stringBuffer.append(DownGameKeyEventHandlerBase.TOTAL_LISTENERS);
         stringBuffer.appendint(this.list.size());
 
         EventListenerInterface eventListenerInterface;
@@ -112,7 +112,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
             try {
                 eventListenerInterface = (EventListenerInterface) this.list.get(index);
 
-                stringBuffer.append(LISTENER_LABEL);
+                stringBuffer.append(DownGameKeyEventHandlerBase.LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface.toString());
             } catch (Exception e) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.TOSTRING, e);

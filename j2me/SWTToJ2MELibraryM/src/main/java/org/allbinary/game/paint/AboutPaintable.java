@@ -63,7 +63,7 @@ public class AboutPaintable extends Paintable
 
         int beginWidth = (font.stringWidth(this.ABOUT) >> 1);
         
-        graphics.drawString(this.ABOUT, halfWidth - beginWidth, 2 * charHeight, anchor);
+        graphics.drawString(this.ABOUT, halfWidth - beginWidth, 2 * charHeight, this.anchor);
         
         int infoSize = this.info.length;
         for(int index = 0; index < infoSize; index++)

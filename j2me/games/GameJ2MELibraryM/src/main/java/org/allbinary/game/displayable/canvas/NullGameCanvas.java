@@ -46,7 +46,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
         final NullGameCanvas nullGameCanvas = new NullGameCanvas(gameLayerManager);
         
         nullGameCanvas.setInitialized(true);
-        nullGameCanvas.setTitle(NO_GAME);
+        nullGameCanvas.setTitle(NullGameCanvas.NO_GAME);
 
         return nullGameCanvas;
     }

@@ -324,7 +324,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final Hashtable hashtable = new Hashtable();
         hashtable.put(Group.ID, this.getGroupInterface());
         hashtable.put(Layer.ID, this);
-        hashtable.put(AllBinaryGameLayerManager.ID, allBinaryGameLayerManagerP);
+        hashtable.put(AllBinaryGameLayerManager.ID, this.allBinaryGameLayerManagerP);
         
         this.setWaypointBehavior(
                 new UnitWaypointBehavior2(
@@ -385,7 +385,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             this.sensorGeographicMapCellPositionList.add(
                     currentGeographicMapCellPosition);
 
-            final int sensorRange = weaponRange * SENSOR_RANGE_MULTIPLIER;
+            final int sensorRange = this.weaponRange * UnitLayer.SENSOR_RANGE_MULTIPLIER;
 
             final GeographicMapCompositeInterface geographicMapCompositeInterface
                 = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
@@ -581,7 +581,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "onMovement", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "onMovement", e);
         }
     }
 
@@ -621,13 +621,13 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 AdjustedCircleAnimation.createW(
                     this.weaponRange, this.weaponRange, this.getWidth(), this.basicColorFactory.GREEN);
 
-        final int sensorRange = weaponRange * SENSOR_RANGE_MULTIPLIER;
+        final int sensorRange = this.weaponRange * UnitLayer.SENSOR_RANGE_MULTIPLIER;
         
         this.initSensorRangeAnimation =
                 AdjustedCircleAnimation.createW(
                     sensorRange, sensorRange, this.getWidth(), this.basicColorFactory.RED);
 
-        this.getUnitWaypointBehavior().initRange(weaponRange);
+        this.getUnitWaypointBehavior().initRange(this.weaponRange);
 
         this.fireTimeHelper.delay = ((int) weaponProperties.getReloadTime());
 
@@ -678,7 +678,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                     ExplosionBasicSound.getInstance());
 
                 this.shakeListener.onSmallShakeEvent();
-                vibration.vibrate(duration, 0, 0);
+                this.vibration.vibrate(this.duration, 0, 0);
 
                 // this.delayMovementTimeHelper.setStartTime();
                 this.setReadyForExplosion(true);
@@ -933,7 +933,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
         int targetAngle = 270 - NoDecimalTrigTable.antiTan(dx, dy);
 
-        if (partialPositionList.contains(
+        if (UnitLayer.partialPositionList.contains(
             this.getUnitWaypointBehavior().getLastPathGeographicMapCellPosition()))
         {
             if (this.getUnitWaypointBehavior().isWaypointListEmptyOrOnlyTargets())
@@ -1212,7 +1212,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
             if(this.showMoreCaptionStates && !this.captionAnimationHelper.isShowing())
             {
-                this.captionAnimationHelper.update(MOVE, this.basicColorFactory.GREEN);
+                this.captionAnimationHelper.update(UnitLayer.MOVE, this.basicColorFactory.GREEN);
             }
 
             this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.UP));
@@ -1415,17 +1415,17 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                     if (damage < 100)
                     {
                         this.shakeListener.onSmallShakeEvent();
-                        vibration.vibrate(duration, 0, 0);
+                        this.vibration.vibrate(this.duration, 0, 0);
                     }
                     else if (damage < 1000)
                     {
                         this.shakeListener.onMediumShakeEvent();
-                        vibration.vibrate(duration * 2, 0, 0);
+                        this.vibration.vibrate(this.duration * 2, 0, 0);
                     }
                     else if (damage < 3000)
                     {
                         this.shakeListener.onLargeShakeEvent();
-                        vibration.vibrate(duration * 4, 0, 0);
+                        this.vibration.vibrate(this.duration * 4, 0, 0);
                     }
                 }
             }

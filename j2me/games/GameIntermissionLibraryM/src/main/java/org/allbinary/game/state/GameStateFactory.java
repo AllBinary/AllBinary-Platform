@@ -23,6 +23,6 @@ public class GameStateFactory
    
    public synchronized static GameState getInstance(String name)
    {
-      return new GameState(name, index++);
+      return new GameState(name, GameStateFactory.index++);
    }
 }

@@ -18,6 +18,6 @@ public class PartInterfaceUtil
     private static final PartInterface[] SINGLETON = new PartInterface[0];
     public static final PartInterface[] getZeroArray()
     {
-        return SINGLETON;
+        return PartInterfaceUtil.SINGLETON;
     }
 }

@@ -84,7 +84,7 @@ public class RemoteHighScoresSubmissionProcessor
             {
                 final Hashtable resultHashtable = (Hashtable) new XmlRpcRemoteHighScoresClient(
                         abeClientInformation, "highscoresubmissionservicessl.php",
-                        "HighScoreSubmissionService.process").get(hashtable, noCrypt);
+                        "HighScoreSubmissionService.process").get(hashtable, this.noCrypt);
 
                 remoteHighScores.update(resultHashtable);
             }

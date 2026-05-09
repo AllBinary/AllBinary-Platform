@@ -1135,7 +1135,7 @@ public class DemoCanvas extends RunnableCanvas
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         final Features features = Features.getInstance();
         
-        this.baseGameStatistics.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
+        this.baseGameStatistics.add(new StringMaker().append(DemoCanvas.BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
         this.baseGameStatistics.init();
         
         if (features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))

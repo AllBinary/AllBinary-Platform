@@ -30,6 +30,6 @@ public class FinalPositionRaceTrackFactory
 
    public synchronized static void reset()
    {
-      index = FIRST_POSITION;
+      FinalPositionRaceTrackFactory.index = FinalPositionRaceTrackFactory.FIRST_POSITION;
    }
 }

@@ -136,8 +136,8 @@ public class MusicManager
             this.timeDelayHelper.delay = (int) duration;
 
             this.currentIntent.putExtra(this.musicStrings.SONG_EXTRA, this.resourceUtil.getResourceId(this.currentSongSound.getResource()).intValue());
-            this.currentIntent.putExtra(this.musicStrings.LEFT_VOLUME, leftVolume);
-            this.currentIntent.putExtra(this.musicStrings.RIGHT_VOLUME, rightVolume);
+            this.currentIntent.putExtra(this.musicStrings.LEFT_VOLUME, this.leftVolume);
+            this.currentIntent.putExtra(this.musicStrings.RIGHT_VOLUME, this.rightVolume);
 
             //PreLogUtil.put("startNewSong - Start MusicService", this, this.commonStrings.PROCESS);
             this.resourceUtil.getContext().startService(this.currentIntent);
@@ -149,7 +149,7 @@ public class MusicManager
                 resource = this.currentSongSound.getResource();
             }
 
-            PreLogUtil.putOE(commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.PROCESS, e);
+            PreLogUtil.putOE(this.commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.PROCESS, e);
         }
     }
 

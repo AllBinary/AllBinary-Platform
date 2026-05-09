@@ -31,7 +31,7 @@ public class CellPositionFactory
 
    public static CellPositionFactory getInstance()
    {
-      return SINGLETON;
+      return CellPositionFactory.SINGLETON;
    }
 
    private CellPositionFactory()

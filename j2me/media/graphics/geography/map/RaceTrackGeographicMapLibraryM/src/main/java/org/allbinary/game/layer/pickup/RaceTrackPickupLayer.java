@@ -66,7 +66,7 @@ public class RaceTrackPickupLayer extends PickupLayer
    super.paint(graphics);
    
    graphics.setColor(BasicColor.AQUA.intValue());
-   graphics.drawArc(x - 3, y - 3, width + 6, height + 6, 0, Angle.THREE_SIXTY);
+   graphics.drawArc(this.x - 3, y - 3, width + 6, height + 6, 0, Angle.THREE_SIXTY);
    }
     */
 }

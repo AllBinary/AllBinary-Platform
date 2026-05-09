@@ -65,11 +65,11 @@ public class BasicPopupMenuPaintable extends Paintable
         /*
         if(AppletUtil.isAppletLoader(this))
         {
-            this.label = NAME + " Esc";
+            this.label = BasicPopupMenuPaintable.NAME + " Esc";
         }
         else
         {
-            this.label = NAME + " *";
+            this.label = BasicPopupMenuPaintable.NAME + " *";
         }
  */
         this.label = BasicPopupMenuPaintable.NAME;
@@ -114,7 +114,7 @@ public class BasicPopupMenuPaintable extends Paintable
 
         final MyFont myFont = MyFont.getInstance();
 
-        int heightOffset = rectangle.getHeight() - (myFont.DEFAULT_CHAR_HEIGHT * NAME.length());
+        int heightOffset = rectangle.getHeight() - (myFont.DEFAULT_CHAR_HEIGHT * BasicPopupMenuPaintable.NAME.length());
 
         if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
             heightOffset -= myFont.DEFAULT_CHAR_HEIGHT + 2;

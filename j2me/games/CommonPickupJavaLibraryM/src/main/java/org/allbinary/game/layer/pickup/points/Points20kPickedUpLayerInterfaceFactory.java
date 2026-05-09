@@ -31,7 +31,7 @@ public class Points20kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfa
    public static void init()
       throws Exception
    {
-      pickedUpLayerInterfaceFactoryInterface = new Points20kPickedUpLayerInterfaceFactory();
+      Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new Points20kPickedUpLayerInterfaceFactory();
    }
    
    private PointsLayerCircularStaticPool pool = 

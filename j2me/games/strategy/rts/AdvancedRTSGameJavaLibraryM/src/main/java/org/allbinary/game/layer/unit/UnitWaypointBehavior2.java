@@ -128,7 +128,7 @@ extends UnitWaypointBehavior
         if (this.waypointPathRunnable.isRunning())
         {
             //thread is done
-            if (waypointPathsListP != UnitWaypointBehavior2.runningWaypointPathList)
+            if (this.waypointPathsListP != UnitWaypointBehavior2.runningWaypointPathList)
             {
                 this.waypointPathRunnable.setRunning(false);
 
@@ -312,7 +312,7 @@ extends UnitWaypointBehavior
             this.canInsertWaypoint(0, this.currentTargetLayerInterfaceP))
         {
             final GeographicMapCellPosition geographicMapCellPosition =
-                associatedAdvancedRTSGameLayer.getCurrentGeographicMapCellPosition();
+                this.associatedAdvancedRTSGameLayer.getCurrentGeographicMapCellPosition();
 
             final PathFindingLayerInterface pathFindingLayerInterface = ((PathFindingLayerInterface) this.currentTargetLayerInterfaceP);
             final WaypointBase waypoint = pathFindingLayerInterface.getWaypointBehavior().getWaypoint();
@@ -406,7 +406,7 @@ extends UnitWaypointBehavior
              */
             {
                 final GeographicMapCellPosition geographicMapCellPosition =
-                    associatedAdvancedRTSGameLayer.getCurrentGeographicMapCellPosition();
+                    this.associatedAdvancedRTSGameLayer.getCurrentGeographicMapCellPosition();
 
                 if (this.isTrackingWaypoint())
                 {
@@ -667,8 +667,8 @@ extends UnitWaypointBehavior
 
                 final GPoint point = this.nextUnvisitedPathGeographicMapCellPosition.getMidPoint();
 
-                dx = associatedAdvancedRTSGameLayer.getXP() + associatedAdvancedRTSGameLayer.getHalfWidth() - point.getX();
-                dy = associatedAdvancedRTSGameLayer.getYP() + associatedAdvancedRTSGameLayer.getHalfHeight() - point.getY();
+                dx = this.associatedAdvancedRTSGameLayer.getXP() + this.associatedAdvancedRTSGameLayer.getHalfWidth() - point.getX();
+                dy = this.associatedAdvancedRTSGameLayer.getYP() + this.associatedAdvancedRTSGameLayer.getHalfHeight() - point.getY();
                 
                 this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processTargeting(this.associatedAdvancedRTSGameLayer, dx, dy);
             }
@@ -727,13 +727,13 @@ extends UnitWaypointBehavior
     private void setWaypointPath(final AdvancedRTSGameLayer waypointLayer)
         throws Exception
     {
-        if (waypointPathsListP.size() != 0)
+        if (this.waypointPathsListP.size() != 0)
         {
             this.setCurrentTargetLayerInterface(waypointLayer);
             final int MAX = Integer.MAX_VALUE;
             this.setCurrentTargetDistance(MAX);
 
-            this.setRandomGeographicMapCellHistory(waypointPathsListP);
+            this.setRandomGeographicMapCellHistory(this.waypointPathsListP);
         }
         else
         {
@@ -752,7 +752,7 @@ extends UnitWaypointBehavior
         final AdvancedRTSGameLayer waypointLayer)
         throws Exception
     {
-        setWaypointPathsList(runningWaypointPathList);
+        setWaypointPathsList(UnitWaypointBehavior2.runningWaypointPathList);
 
         if (this.waypointPathRunnable.isRunning())
         {
@@ -845,14 +845,14 @@ extends UnitWaypointBehavior
 
         if (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
         {
-            stringBuffer.append(TARGET_LAYER);
-            stringBuffer.append(commonSeps.SPACE);
+            stringBuffer.append(UnitWaypointBehavior2.TARGET_LAYER);
+            stringBuffer.append(this.commonSeps.SPACE);
             stringBuffer.append(this.currentTargetLayerInterfaceP.getName());
 
             stringBuffer.append(" with ");
 
-            stringBuffer.append(TARGET_DISTANCE);
-            stringBuffer.append(commonSeps.SPACE);
+            stringBuffer.append(UnitWaypointBehavior2.TARGET_DISTANCE);
+            stringBuffer.append(this.commonSeps.SPACE);
             stringBuffer.appendint(getCurrentTargetDistance());
         }
 

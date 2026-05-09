@@ -110,7 +110,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(super.toString());
-        stringBuffer.append(TOTAL_LISTENERS);
+        stringBuffer.append(UpKeyEventHandlerBase.TOTAL_LISTENERS);
         stringBuffer.appendint(this.list.size());
 
         for (int index = 0; index < this.list.size(); index++)
@@ -120,7 +120,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
                 EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
                     this.list.get(index);
 
-                stringBuffer.append(LISTENER_LABEL);
+                stringBuffer.append(UpKeyEventHandlerBase.LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface.toString());
             }
             catch (Exception e)

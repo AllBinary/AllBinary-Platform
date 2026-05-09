@@ -112,7 +112,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
             (GeographicMapCompositeInterface) this.gameCanvas.getLayerManager();
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
-        this.scrollPlayerGameInput = new ScrollMapPlayerGameInput(geographicMapInterface, this.inputList, playerInputId);
+        this.scrollPlayerGameInput = new ScrollMapPlayerGameInput(geographicMapInterface, this.inputList, this.playerInputId);
         
         // this.currentPlayerGameInput = this.scrollPlayerGameInput;
 
@@ -138,7 +138,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         }
         catch(Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e);
         }
     }
 
@@ -222,7 +222,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.PROCESS_INPUT, e);
         }
     }
 

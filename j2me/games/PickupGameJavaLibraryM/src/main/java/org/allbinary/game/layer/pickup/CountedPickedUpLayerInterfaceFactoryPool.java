@@ -39,6 +39,6 @@ public class CountedPickedUpLayerInterfaceFactoryPool
     
     public static void init()
     {
-        SINGLETON = new CountedPickedUpLayerInterfaceFactoryPool();
+        CountedPickedUpLayerInterfaceFactoryPool.SINGLETON = new CountedPickedUpLayerInterfaceFactoryPool();
     }
 }

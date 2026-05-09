@@ -379,7 +379,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         {
             layerInterface.construct(rtsPlayerLayerInterface);
 
-            newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+            this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
 
             capital.removeMoney(cost);
 

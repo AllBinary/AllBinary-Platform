@@ -212,7 +212,7 @@ public class BuildingLayer
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "onMovement", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "onMovement", e);
         }        
     }
 
@@ -269,7 +269,7 @@ public class BuildingLayer
                     ExplosionBasicSound.getInstance());
 
                 this.shakeListener.onSmallShakeEvent();
-                vibration.vibrate(duration, 0, 0);
+                this.vibration.vibrate(this.duration, 0, 0);
 
                 this.timeDelayHelper.setStartTimeTNT();
                 this.setReadyForExplosion(true);
@@ -543,17 +543,17 @@ public class BuildingLayer
                     if (damage < 100)
                     {
                         this.shakeListener.onSmallShakeEvent();
-                        vibration.vibrate(duration, 0, 0);
+                        this.vibration.vibrate(this.duration, 0, 0);
                     }
                     else if (damage < 1000)
                     {
                         this.shakeListener.onMediumShakeEvent();
-                        vibration.vibrate(duration * 2, 0, 0);
+                        this.vibration.vibrate(this.duration * 2, 0, 0);
                     }
                     else if (damage < 3000)
                     {
                         this.shakeListener.onLargeShakeEvent();
-                        vibration.vibrate(duration * 4, 0, 0);
+                        this.vibration.vibrate(this.duration * 4, 0, 0);
                     }
                 }
             }

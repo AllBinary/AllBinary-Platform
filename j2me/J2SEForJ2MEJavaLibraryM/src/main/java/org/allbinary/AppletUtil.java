@@ -27,7 +27,7 @@ public class AppletUtil
 
     public static void setApplet()
     {
-        applet = true;
+        AppletUtil.applet = true;
     }
     //private static final String APPLET1 = "Applet".toLowerCase();
     //private static final String APPLET = "sun.plugin.security.PluginClassLoader".toLowerCase();

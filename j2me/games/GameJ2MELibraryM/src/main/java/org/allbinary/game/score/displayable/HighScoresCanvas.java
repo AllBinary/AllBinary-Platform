@@ -57,7 +57,7 @@ public class HighScoresCanvas extends GameCommandCanvas
             HighScoreCommandsFactory.getInstance();
     
     private final SimpleTextPaintable waitPaintable = new SimpleTextPaintable(
-            commonStrings.PLEASE_WAIT_FOR_SERVER, 
+            this.commonStrings.PLEASE_WAIT_FOR_SERVER, 
             BasicColorFactory.getInstance().WHITE);
 
     private final HighScoresPaintable highScoresPaintable;
@@ -215,7 +215,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     {
         try {
             if (highScoresArray != null) {
-                this.logUtil.putF(new StringMaker().append(commonStrings.START).appendint(highScoresArray.length).toString(), this, "setHighScoresArray");
+                this.logUtil.putF(new StringMaker().append(this.commonStrings.START).appendint(highScoresArray.length).toString(), this, "setHighScoresArray");
             } else {
                 this.logUtil.putF(this.commonStrings.START, this, "setHighScoresArray");
             }
@@ -232,7 +232,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     public void updateCommand(Command command) throws Exception
     {
-        this.logUtil.putF(new StringMaker().append(commonStrings.START).append(this.stringUtil.toString(command)).toString(), this, this.commonStrings.UPDATE);
+        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.stringUtil.toString(command)).toString(), this, this.commonStrings.UPDATE);
 
         final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();

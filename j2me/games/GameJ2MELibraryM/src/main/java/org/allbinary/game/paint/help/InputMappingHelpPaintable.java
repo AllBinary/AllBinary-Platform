@@ -66,7 +66,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
     
         this.gameInputMappingArray = gameInputMappingArray;
         
-        this.update(NONE, NONE);
+        this.update(this.NONE, this.NONE);
         
         if(backgroundBasicColor == this.basicColorFactory.WHITE ||
             basicColor == this.basicColorFactory.WHITE)
@@ -157,17 +157,17 @@ public class InputMappingHelpPaintable extends HelpPaintable
             {
                 if(keyList.size() == 2)
                 {
-                    stringBuffer.append(AND);
+                    stringBuffer.append(InputMappingHelpPaintable.AND);
                 }
                 else
                 {
                     if(index + 2 == keyList.size())
                     {
-                        stringBuffer.append(MORE_THAN_TWO_IN_LIST_AND);
+                        stringBuffer.append(InputMappingHelpPaintable.MORE_THAN_TWO_IN_LIST_AND);
                     }
                     else
                     {
-                        stringBuffer.append(SEP);
+                        stringBuffer.append(InputMappingHelpPaintable.SEP);
                     }
                 }
             }
@@ -207,7 +207,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
 
         graphics.setColor(this.basicColor.intValue());
         
-        graphics.drawString(this.title, halfWidth - beginWidth, charHeight, anchor);
+        graphics.drawString(this.title, halfWidth - beginWidth, charHeight, this.anchor);
 
         final String[] inputInfo = this.inputInfo;
         int size = inputInfo.length;
@@ -246,7 +246,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
 
             graphics.setColor(this.actionBasicColor[index].intValue());
 
-            graphics.drawString(actionString, halfWidth - beginWidth + deltaX, y, anchor);
+            graphics.drawString(actionString, halfWidth - beginWidth + deltaX, y, this.anchor);
             
             //For same line action and mappings
             deltaX += font.stringWidth(actionString);
@@ -259,7 +259,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
                 input = (Input) list.objectArray[index2];
 
                 graphics.setColor(this.inputBasicColorArray[index][index2].intValue());
-                graphics.drawString(input.getName(), halfWidth - beginWidth + deltaX, y, anchor);
+                graphics.drawString(input.getName(), halfWidth - beginWidth + deltaX, y, this.anchor);
 
                 deltaX += font.stringWidth(input.getName());
 
@@ -269,17 +269,17 @@ public class InputMappingHelpPaintable extends HelpPaintable
                 {
                     if(list.size() == 2)
                     {
-                        sep = AND;
+                        sep = InputMappingHelpPaintable.AND;
                     }
                     else
                     {
                         if(index2 + 2 == list.size())
                         {
-                            sep = MORE_THAN_TWO_IN_LIST_AND;
+                            sep = InputMappingHelpPaintable.MORE_THAN_TWO_IN_LIST_AND;
                         }
                         else
                         {
-                            sep = SEP;
+                            sep = InputMappingHelpPaintable.SEP;
                         }
                     }
                 }
@@ -287,7 +287,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
                 if(sep != EMPTY_STRING)
                 {
                     graphics.setColor(this.basicColor.intValue());
-                    graphics.drawString(sep, halfWidth - beginWidth + deltaX, y, anchor);
+                    graphics.drawString(sep, halfWidth - beginWidth + deltaX, y, this.anchor);
                     deltaX += font.stringWidth(sep);
                 }
             }

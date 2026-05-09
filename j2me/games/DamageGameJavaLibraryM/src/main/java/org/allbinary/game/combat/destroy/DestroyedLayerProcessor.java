@@ -32,7 +32,7 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
 
     public static void init()
     {
-        DESTROYED_LAYER_PROCESSOR = new DestroyedLayerProcessor();
+        DestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR = new DestroyedLayerProcessor();
     }
 
     public static BasicLayerProcessor getInstance()

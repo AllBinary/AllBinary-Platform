@@ -48,9 +48,9 @@ public class Group implements GroupInterface
       
       final StringMaker stringBuffer = new StringMaker();
 
-      stringBuffer.append(GROUP_NAME_LABEL);
+      stringBuffer.append(Group.GROUP_NAME_LABEL);
       stringBuffer.append(this.name);
-      stringBuffer.append(ID_LABEL);
+      stringBuffer.append(Group.ID_LABEL);
       stringBuffer.appendshort(this.teamId);
 
       this.string = stringBuffer.toString();

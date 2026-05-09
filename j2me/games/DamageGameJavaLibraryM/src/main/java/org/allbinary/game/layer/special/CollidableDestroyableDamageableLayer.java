@@ -370,7 +370,7 @@ PickupCompositeInterface, SpecialGameInputInterface
         */
         
         stringBuffer.append(commonSeps.NEW_LINE);
-        stringBuffer.append(READYFOREXPLOSION);
+        stringBuffer.append(CollidableDestroyableDamageableLayer.READYFOREXPLOSION);
         stringBuffer.appendboolean(this.readyForExplosion);
 
         stringBuffer.append(commonSeps.NEW_LINE);

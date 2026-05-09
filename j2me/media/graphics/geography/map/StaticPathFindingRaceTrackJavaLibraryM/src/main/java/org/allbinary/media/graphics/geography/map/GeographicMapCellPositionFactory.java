@@ -35,7 +35,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
         final CommonStrings commonStrings = CommonStrings.getInstance();
         final AllBinaryTiledLayer allBinaryTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
 
-        Object geographicMapCellPositionFactoryCanBeNull = hashtable.get(allBinaryTiledLayer.getDataId());
+        Object geographicMapCellPositionFactoryCanBeNull = GeographicMapCellPositionFactory.hashtable.get(allBinaryTiledLayer.getDataId());
 
         if (geographicMapCellPositionFactoryCanBeNull == null)
         {

@@ -102,7 +102,7 @@ public class UpGameKeyEventHandlerBase extends BasicEventHandler
         final int size = this.list.size();
         
         stringBuffer.append(super.toString());
-        stringBuffer.append(TOTAL_LISTENERS);
+        stringBuffer.append(UpGameKeyEventHandlerBase.TOTAL_LISTENERS);
         stringBuffer.appendint(size);
 
         for (int index = 0; index < size; index++)
@@ -112,7 +112,7 @@ public class UpGameKeyEventHandlerBase extends BasicEventHandler
                 EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
                     this.list.get(index);
 
-                stringBuffer.append(LISTENER_LABEL);
+                stringBuffer.append(UpGameKeyEventHandlerBase.LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface.toString());
             }
             catch (Exception e)

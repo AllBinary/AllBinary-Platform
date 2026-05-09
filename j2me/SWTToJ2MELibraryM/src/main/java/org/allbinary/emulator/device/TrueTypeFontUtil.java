@@ -308,7 +308,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
                 //this.logUtil.putF("character: " + characterArray[0], this, commonStrings.START);
                 final int shortPatternIndex = this.shortPattern.indexOf(characterArray[0]);
                 //this.logUtil.putF("shortPatternIndex: " + shortPatternIndex, this, commonStrings.START);
-                final int w = (int) (widthFloatArray[shortPatternIndex] / 75) + 19;
+                final int w = (int) (this.widthFloatArray[shortPatternIndex] / 75) + 19;
 //                this.logUtil.putF(new StringMaker().append('w').append(CommonSeps.getInstance().SPACE).append(characterArray[0]).append(w).append(';')
 //                    //.append(_characterWidth[index])
 //                    .append(bounds.getMaxX())

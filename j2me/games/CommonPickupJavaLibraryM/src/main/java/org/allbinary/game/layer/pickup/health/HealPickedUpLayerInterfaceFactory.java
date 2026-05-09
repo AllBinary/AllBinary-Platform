@@ -30,7 +30,7 @@ public class HealPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFac
    public static void init()
       throws Exception
    {
-      pickedUpLayerInterfaceFactoryInterface =
+      HealPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface =
          new HealPickedUpLayerInterfaceFactory();
    }
 

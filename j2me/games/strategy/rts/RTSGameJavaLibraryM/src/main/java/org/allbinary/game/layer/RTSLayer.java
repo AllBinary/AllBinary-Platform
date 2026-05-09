@@ -182,7 +182,7 @@ public class RTSLayer
         this.rtsFormInput = rtsFormInput;        
 
         //this.setPosition(x - this.getWidth() / 2, y - this.getHeight() / 2);
-        this.setPosition(x, y, z);
+        this.setPosition(x, y, this.z);
 
         this.verticleBuildAnimationInterface =
             (IndexedAnimation) verticleBuildAnimationInterfaceFactoryInterface.getInstance(0);
@@ -317,7 +317,7 @@ public class RTSLayer
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "processTick", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "processTick", e);
         }
     }
 

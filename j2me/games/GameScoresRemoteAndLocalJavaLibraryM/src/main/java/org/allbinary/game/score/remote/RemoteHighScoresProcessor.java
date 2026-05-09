@@ -78,7 +78,7 @@ public class RemoteHighScoresProcessor
       if(XmlRpcAbeClient.isOnline)
       {
           Hashtable resultHashtable = (Hashtable) new XmlRpcRemoteHighScoresClient(abeClientInformation,
-                  "highscoresservicessl.php", "HighScoresService.process").get(hashtable, noCrypt);
+                  "highscoresservicessl.php", "HighScoresService.process").get(hashtable, this.noCrypt);
 
           remoteHighScores.update(resultHashtable);
       }

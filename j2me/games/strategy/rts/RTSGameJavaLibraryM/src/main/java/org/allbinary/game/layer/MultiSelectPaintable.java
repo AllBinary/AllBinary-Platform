@@ -102,7 +102,7 @@ extends SelectionHudPaintable
                 this.getPrimitiveLongUtil().getCurrentTotalDigits(), 
                 this.textX + this.totalWidth, y, 0);
         
-        final int textLine2Y = (y + myFont.DEFAULT_CHAR_HEIGHT);
+        final int textLine2Y = (this.y + this.myFont.DEFAULT_CHAR_HEIGHT);
         graphics.drawString(this.rootNamesString, 
                 this.textX, textLine2Y, 0);
     }
