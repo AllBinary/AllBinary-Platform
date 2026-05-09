@@ -90,7 +90,7 @@ implements CompleteMotionGestureInputEventListenerInterface
             //Ignore Release only motionGesture
             if(motionGestureInput == touchMotionGestureFactory.RELEASED)
             {
-                this.logUtil.putF(this.RELEASE, this, METHOD_NAME);
+                this.logUtil.putF(this.RELEASE, this, this.METHOD_NAME);
                 this.released = true;
                 return;
             }
@@ -99,20 +99,20 @@ implements CompleteMotionGestureInputEventListenerInterface
             //if(previousMotionGestureInput == motionGestureInput && !this.timeHelper.isTime())
             if(motionGestureInput == TouchMotionGestureFactory.getInstance().NO_MOTION && !this.timeHelper.isTimeTNT())
             {
-                this.logUtil.putF(this.FAST_REPEAT, this, METHOD_NAME);
+                this.logUtil.putF(this.FAST_REPEAT, this, this.METHOD_NAME);
                 return;
             }
 
             //if(motionGestureInput != TouchMotionGestureFactory.getInstance().TOUCH && !released)
             if(!this.released)
             {
-                this.logUtil.putF(this.IGNORE, this, METHOD_NAME);
+                this.logUtil.putF(this.IGNORE, this, this.METHOD_NAME);
                 return;
             }
             
             this.released = false;
             
-            this.logUtil.putF(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString(motionGestureInput)).toString(), this, METHOD_NAME);
+            this.logUtil.putF(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString(motionGestureInput)).toString(), this, this.METHOD_NAME);
             
             this.inputMappingInterface.process(gameKey, motionGestureInput);
         }

@@ -142,7 +142,7 @@ public class AllBinaryHTMLImageRotationAnimationFactory
     
     public Animation getInstance(final int instanceId) throws Exception
     {
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
+        final Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
             this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
@@ -153,7 +153,7 @@ public class AllBinaryHTMLImageRotationAnimationFactory
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
   
             //this.logUtil.putF(new StringMaker().append(PositionStrings.getInstance().DX_LABEL).append((float) this.animationFactoryInitializationVisitor.dx).append(PositionStrings.getInstance().DY_LABEL).append((float) this.animationFactoryInitializationVisitor.dy).toString(), this, "getInstance");
-            animationFactoryImageScaleUtil.processAdjust(this);
+            this.animationFactoryImageScaleUtil.processAdjust(this);
             
             return new AllBinaryAdjustedHTMLImageRotationAnimation(
                 scaledImage, copyOfScaledImage,

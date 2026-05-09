@@ -115,7 +115,7 @@ public class BaseMusicService extends Service
 
         final MusicStrings musicStrings = MusicStrings.getInstance();
         if(intent != null) {
-            final int command = intent.getIntExtra(commonStateStrings.ON_START_COMMAND, -1);
+            final int command = intent.getIntExtra(this.commonStateStrings.ON_START_COMMAND, -1);
             this.logUtil.putF(CommonLabels.getInstance().COMMAND_LABEL + command, this, this.commonStateStrings.ON_START_COMMAND);
             if(command == 1) {
                 this.pause();

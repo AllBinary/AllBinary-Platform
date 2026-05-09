@@ -85,7 +85,7 @@ extends ImageBaseRotationAnimation
         final PlaynMutableImage htmlImage = (PlaynMutableImage) image;
         final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
         final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
-        canvasSurface.translate(originalImage.getWidth() / 2, originalImage.getHeight() / 2);
+        canvasSurface.translate(this.originalImage.getWidth() / 2, this.originalImage.getHeight() / 2);
         return canvasSurface;
     }
 
@@ -165,7 +165,7 @@ extends ImageBaseRotationAnimation
     
     public void paintXY(Graphics graphics, int x, int y)
     {
-        graphics.drawImage(this.imageToShow, x, y, anchor);
+        graphics.drawImage(this.imageToShow, x, y, this.anchor);
     }
     
 }

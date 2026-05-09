@@ -102,7 +102,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
 
         graphics.setColor(this.foregroundColor);
         
-        graphics.drawString(this.TITLE, halfWidth - beginWidth, charHeight, anchor);
+        graphics.drawString(this.TITLE, halfWidth - beginWidth, charHeight, this.anchor);
 
         //int startIndex = this.helpPaintable.getInputInfo().length + 5;
 

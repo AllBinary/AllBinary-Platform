@@ -46,7 +46,7 @@ public class PointsUtil
                     /*
                     stringBuffer.append("{");
                     stringBuffer.append(newPoints[index][index2][0]);
-                    stringBuffer.append(commonStrings.COMMA_SEP);
+                    stringBuffer.append(this.commonStrings.COMMA_SEP);
                     stringBuffer.append(newPoints[index][index2][1]);
                     stringBuffer.append("}, ");
                     */

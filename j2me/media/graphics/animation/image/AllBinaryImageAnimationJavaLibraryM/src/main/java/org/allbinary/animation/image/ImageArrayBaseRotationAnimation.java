@@ -125,7 +125,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
     @Override    
     public void paintXY(final Graphics graphics, final int x, final int y)
     {
-        graphics.drawImage(this.currentImage, x, y, anchor);
+        graphics.drawImage(this.currentImage, x, y, this.anchor);
     }
     
     public void close() throws Exception {

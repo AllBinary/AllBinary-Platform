@@ -72,7 +72,7 @@ public class CustomItemJ2MEComposite extends CustomItem implements CustomItemInt
 
     public void setItemCommandListener(CustomItemCommandListener l)
     {
-        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
 
     public void setLabel(String label)

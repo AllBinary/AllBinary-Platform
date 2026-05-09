@@ -71,7 +71,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
             /*
             try
             {
-                PreLogUtil.put("Waiting for Image Ready: " + image.toString(), this, METHOD_NAME);
+                PreLogUtil.put("Waiting for Image Ready: " + image.toString(), this, this.METHOD_NAME);
                 Thread.sleep(120);
             }
             catch(Exception e)

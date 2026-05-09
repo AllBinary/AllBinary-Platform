@@ -41,7 +41,7 @@ public class ReleaseTouchInputToGameKeyEventAction extends GameKeyCompleteMotion
         try
         {
             this.setGameKey(this.NONE);
-            this.setGameKeyEvent(GameKeyEventFactory.getInstance().getInstanceForInput(this, NONE));
+            this.setGameKeyEvent(GameKeyEventFactory.getInstance().getInstanceForInput(this, this.NONE));
 
         }
         catch (Exception e)

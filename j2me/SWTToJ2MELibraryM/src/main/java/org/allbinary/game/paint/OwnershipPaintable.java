@@ -71,7 +71,7 @@ public class OwnershipPaintable extends Paintable
         //final int COPYRIGHT_Y = 3 * myFont.DEFAULT_CHAR_HEIGHT;
         final int COPYRIGHT_Y = 2 * myFont.DEFAULT_CHAR_HEIGHT;
         
-        graphics.drawString(this.COPYRIGHT, halfWidth - beginWidth, height - COPYRIGHT_Y, anchor);
+        graphics.drawString(this.COPYRIGHT, halfWidth - beginWidth, height - COPYRIGHT_Y, this.anchor);
 
         /*
         beginWidth = (font.stringWidth(COMPANY) >> 1);

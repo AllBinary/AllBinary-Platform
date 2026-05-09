@@ -111,7 +111,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "processTick", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "processTick", e);
         }
     }
 

@@ -46,7 +46,7 @@ public class HighScoreTextBox extends CustomTextBox
     private final HighScoreUtil highScoreUtil;
 
     private final Paintable pleaseWait = 
-        new SimpleTextPaintable(commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
+        new SimpleTextPaintable(this.commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
     
     //private final HighScoresResultsListener highScoresResultsListener;
     

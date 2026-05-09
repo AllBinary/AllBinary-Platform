@@ -40,7 +40,7 @@ extends BaseImageAnimationFactory
 
     	if(this.lastImage != NullCanvas.NULL_IMAGE)
     	{
-            final AndroidImageInterface androidImageInterface = (AndroidImageInterface) lastImage;
+            final AndroidImageInterface androidImageInterface = (AndroidImageInterface) this.lastImage;
             androidImageInterface.getBitmap().recycle();
     	}
 

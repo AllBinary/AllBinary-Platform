@@ -88,7 +88,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
             stringBuffer.append(this.CURRENT_TARGET_NOT_AVAILABLE);
             stringBuffer.appendboolean((waypointBehaviorBase.getCurrentTargetLayerInterface() == null));
 
-            this.logUtil.putF(stringBuffer.toString(), this, PROCESS_POSSIBLE_TARGET);
+            this.logUtil.putF(stringBuffer.toString(), this, this.PROCESS_POSSIBLE_TARGET);
         }
 
     }

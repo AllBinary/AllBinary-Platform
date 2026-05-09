@@ -113,7 +113,7 @@ public class ImageArrayAnimation extends IndexedAnimation
     @Override
     public void paintXY(Graphics graphics, int x, int y)
     {
-        graphics.drawImage(this.imageArray[this.circularIndexUtil.getIndex()], x, y, anchor);
+        graphics.drawImage(this.imageArray[this.circularIndexUtil.getIndex()], x, y, this.anchor);
 
         /*
          * for(int index = 0; index < NUMBER_OF_FRAMES; index++) {

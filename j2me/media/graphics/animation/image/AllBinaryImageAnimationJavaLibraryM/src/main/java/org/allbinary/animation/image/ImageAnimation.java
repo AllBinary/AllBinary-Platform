@@ -83,7 +83,7 @@ public class ImageAnimation extends IndexedAnimation //implements AutoCloseable
     @Override
     public void paintXY(Graphics graphics, int x, int y)
     {
-        graphics.drawImage(this.image, x, y, anchor);
+        graphics.drawImage(this.image, x, y, this.anchor);
     }
     
     /**

@@ -60,7 +60,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
     @Override
     public void paintXY(final Graphics graphics, final int x, final int y)
     {
-        graphics.drawImage(this.image, x, y, anchor);
+        graphics.drawImage(this.image, x, y, this.anchor);
     }
 
     /**

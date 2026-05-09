@@ -181,17 +181,17 @@ public class GameMidlet extends ProgressMidlet
 
     protected void setDemo() throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     protected void createGame() throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     protected void mediaShutdown() throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public void stopAll()
@@ -210,7 +210,7 @@ public class GameMidlet extends ProgressMidlet
 
     protected void pauseAppBackground(final boolean background)
     {
-        this.logUtil.putF(this.commonStrings.START, this, PAUSE_APP_BACKGROUND);
+        this.logUtil.putF(this.commonStrings.START, this, this.PAUSE_APP_BACKGROUND);
         //PreLogUtil.put(commonStrings.START, this, PAUSE_APP_BACKGROUND);
         
         if (this.allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
@@ -225,7 +225,7 @@ public class GameMidlet extends ProgressMidlet
         }
         else
         {
-            this.logUtil.putF("<<<<<< Null", this, PAUSE_APP_BACKGROUND);
+            this.logUtil.putF("<<<<<< Null", this, this.PAUSE_APP_BACKGROUND);
         }
         
         AllBinarySensorManager.getInstance().shutdown();
@@ -242,7 +242,7 @@ public class GameMidlet extends ProgressMidlet
     
     protected void unPauseAppBackground(boolean background)
     {
-        this.logUtil.putF(this.commonStrings.START, this, UN_PAUSE_APP_BACKGROUND);
+        this.logUtil.putF(this.commonStrings.START, this, this.UN_PAUSE_APP_BACKGROUND);
         //PreLogUtil.put(commonStrings.START, this, UN_PAUSE_APP_BACKGROUND);
 
         AllBinarySensorManager.getInstance().init();
@@ -262,7 +262,7 @@ public class GameMidlet extends ProgressMidlet
         }
         else
         {
-            this.logUtil.putF("<<<<<< Null", this, UN_PAUSE_APP_BACKGROUND);
+            this.logUtil.putF("<<<<<< Null", this, this.UN_PAUSE_APP_BACKGROUND);
         }
     }
     
@@ -319,11 +319,11 @@ public class GameMidlet extends ProgressMidlet
             super.destroyApp(true);
 
             //this.logUtil.putF(this.commonStrings.END, this, METHOD_NAME);
-            PreLogUtil.put(commonStrings.END, this, METHOD_NAME);
+            PreLogUtil.put(this.commonStrings.END, this, METHOD_NAME);
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, METHOD_NAME, e);
         }
         this.logUtil.putF(this.commonStrings.END, this, METHOD_NAME);
     }
@@ -370,7 +370,7 @@ public class GameMidlet extends ProgressMidlet
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "startApp", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "startApp", e);
             this.destroyApp(false);
             //TWB - Only remove from context when multiple midlets share the same emulator
             notifyDestroyed();
@@ -443,7 +443,7 @@ public class GameMidlet extends ProgressMidlet
                     if (this.gameStartTimeHelper.isTimeTNT())
                     {
                         if(command == gameCommandsFactory.START_COMMAND && this.isDemoLoading()) {
-                            this.logUtil.putF("Trying to Start Game Before Loading Complete", this, midletStrings.COMMAND_ACTION);
+                            this.logUtil.putF("Trying to Start Game Before Loading Complete", this, this.midletStrings.COMMAND_ACTION);
                         } else {
                             this.startedBefore = true;
                             this.createGame();
@@ -452,12 +452,12 @@ public class GameMidlet extends ProgressMidlet
                     }
                     else
                     {
-                        this.logUtil.putF("Starting Game Too Often", this, midletStrings.COMMAND_ACTION);
+                        this.logUtil.putF("Starting Game Too Often", this, this.midletStrings.COMMAND_ACTION);
                     }
                 }
                 else
                 {
-                    this.logUtil.putF("Already in playing state", this, COMMAND_ACTION);
+                    this.logUtil.putF("Already in playing state", this, this.COMMAND_ACTION);
                 }
 
             }
@@ -669,12 +669,12 @@ public class GameMidlet extends ProgressMidlet
 
                 final StringMaker stringBuffer = new StringMaker();
                 stringBuffer.append("Close isFullScreen/change: ");
-                stringBuffer.appendboolean(isFullScreen);
-                stringBuffer.appendboolean(this.fullScreenUtil.isScreenChange(isFullScreen));
+                stringBuffer.appendboolean(this.isFullScreen);
+                stringBuffer.appendboolean(this.fullScreenUtil.isScreenChange(this.isFullScreen));
                 stringBuffer.append(" isResized: ");
                 stringBuffer.appendboolean(this.isResized());
 
-                PreLogUtil.put(stringBuffer.toString(), this, COMMAND_ACTION);
+                PreLogUtil.put(stringBuffer.toString(), this, this.COMMAND_ACTION);
 
                 //Restart canvas if screen change
                 if(this.isResized() ||
@@ -695,7 +695,7 @@ public class GameMidlet extends ProgressMidlet
                     GamePersistanceSingleton.getInstance();
                 
                 keyValuePersistance.clear();
-                keyValuePersistance.loadAll(abeClientInformation);
+                keyValuePersistance.loadAll(this.abeClientInformation);
 
                 if(this.getLoadGameForm() == CommandForm.NULL_COMMAND_FORM)
                 {
@@ -747,9 +747,9 @@ public class GameMidlet extends ProgressMidlet
                     final KeyValuePersistance keyValuePersistance = 
                         GamePersistanceSingleton.getInstance();
                     
-                    keyValuePersistance.delete(abeClientInformation, index);
+                    keyValuePersistance.delete(this.abeClientInformation, index);
                     keyValuePersistance.clear();
-                    keyValuePersistance.loadAllSize(abeClientInformation, 1);
+                    keyValuePersistance.loadAllSize(this.abeClientInformation, 1);
                     this.getLoadGameForm().update();
                 }
             }
@@ -766,7 +766,7 @@ public class GameMidlet extends ProgressMidlet
                 
                 this.pauseAppBackground(false);
                 //String name = ((SaveGameForm) this.getSaveGameForm()).getText();
-                keyValuePersistance.save(abeClientInformation, this.getCurrentStateHashtable());
+                keyValuePersistance.save(this.abeClientInformation, this.getCurrentStateHashtable());
 
                 //this.setDisplay((Displayable) allbinaryGameCanvasRunnableInterface);
 
@@ -774,7 +774,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == HighScoreUtil.SUBMIT_TEXTBOX_COMMAND)
             {
-                this.logUtil.putF("Submitted Score", this, COMMAND_ACTION);
+                this.logUtil.putF("Submitted Score", this, this.COMMAND_ACTION);
 
                 if (displayable instanceof HighScoreTextBox) {
                     final HighScoreTextBox menuListener = (HighScoreTextBox) displayable;
@@ -828,7 +828,7 @@ public class GameMidlet extends ProgressMidlet
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, midletStrings.COMMAND_ACTION, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.midletStrings.COMMAND_ACTION, e);
             if (command != GameCommandsFactory.getInstance().EXIT_COMMAND)
             {
                 this.exit(false);
@@ -892,7 +892,7 @@ public class GameMidlet extends ProgressMidlet
     {
         //Paintable[] paintableArray = {this.getHelpPaintable()}; 
         //return new BasicPaintablesCanvas(this, this.createGameLayerManager(), paintableArray);
-        return new GameInputMappingCanvas(abeClientInformation, this, this.createGameLayerManager(), this.getHelpPaintable());
+        return new GameInputMappingCanvas(this.abeClientInformation, this, this.createGameLayerManager(), this.getHelpPaintable());
     }
 
     //You can override this with your own Canvas
@@ -905,12 +905,12 @@ public class GameMidlet extends ProgressMidlet
     protected HelpPaintable getHelpPaintable()
         throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     protected HighScoresCanvas createHighScoresCanvas() throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public void startGameCanvasRunnableInterface() throws Exception
@@ -934,7 +934,7 @@ public class GameMidlet extends ProgressMidlet
 
     protected void stopGameCanvasRunnableInterface() throws Exception
     {
-        this.logUtil.putF(this.commonStrings.START, this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+        this.logUtil.putF(this.commonStrings.START, this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
 
         GameNotificationEventHandler.getInstance().removeAllListeners();
         ColorChangeEventHandler.getInstance().removeAllListeners();
@@ -948,12 +948,12 @@ public class GameMidlet extends ProgressMidlet
             this.allbinaryGameCanvasRunnableInterface;
         if (gameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
         {
-            this.logUtil.putF("Set Running False", this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+            this.logUtil.putF("Set Running False", this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
             gameCanvasRunnableInterface.setRunning(false);
         }
         else
         {
-            this.logUtil.putF("StopGame - Could Not Stop", this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+            this.logUtil.putF("StopGame - Could Not Stop", this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
         }
 
         // Wait for the thread to end then continue
@@ -970,7 +970,7 @@ public class GameMidlet extends ProgressMidlet
         }
         
 
-        this.logUtil.putF(this.commonStrings.END, this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+        this.logUtil.putF(this.commonStrings.END, this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
     }
 
     public GameCanvasRunnableInterface getGameCanvasRunnableInterface()
@@ -1022,7 +1022,7 @@ public class GameMidlet extends ProgressMidlet
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.SAVE);
 
         final Hashtable hashtable = this.getCurrentStateHashtable();
-        GamePersistanceSingleton.getInstance().save(abeClientInformation, hashtable);
+        GamePersistanceSingleton.getInstance().save(this.abeClientInformation, hashtable);
     }
 
     @Override

@@ -30,7 +30,7 @@ extends RTSPlayerGameInputProcessor
     public void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
     throws Exception
     {
-        rtsPlayerGameInput.addForRemoval(gameKeyEvent);
+        this.rtsPlayerGameInput.addForRemoval(gameKeyEvent);
     }
 
 }

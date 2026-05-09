@@ -36,10 +36,10 @@ public class ImageMiniMapLayer extends MiniMapLayer
     @Override
     protected void init() throws Exception
     {
-        int aWidth = allBinaryTiledLayer.getWidth();
-        int aHeight = allBinaryTiledLayer.getHeight();
+        int aWidth = this.allBinaryTiledLayer.getWidth();
+        int aHeight = this.allBinaryTiledLayer.getHeight();
 
-        this.image = PaintableToImageUtil.getImage(allBinaryTiledLayer, aWidth, aHeight);
+        this.image = PaintableToImageUtil.getImage(this.allBinaryTiledLayer, aWidth, aHeight);
     }
     
     private int anchor = Anchor.TOP_LEFT;
@@ -47,7 +47,7 @@ public class ImageMiniMapLayer extends MiniMapLayer
     @Override
     public void paint(Graphics graphics)
     {
-        graphics.drawImage(this.image, x, y, anchor);
+        graphics.drawImage(this.image, x, y, this.anchor);
         this.paintDots(graphics);
     }
 }

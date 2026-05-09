@@ -50,7 +50,7 @@ public class FullScreenPaintable extends Paintable
 
         final MyFont myFont = MyFont.getInstance();
         final int Y = 4 * myFont.DEFAULT_CHAR_HEIGHT;
-        graphics.drawString(this.FULLSCREEN_TEXT, halfWidth - beginWidth, height - Y, anchor);
+        graphics.drawString(this.FULLSCREEN_TEXT, halfWidth - beginWidth, height - Y, this.anchor);
     }
 
 }
