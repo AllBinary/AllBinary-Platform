@@ -7,6 +7,6 @@ public interface ABCustomItemInterface
     int getMinimumWidth();
     int getMinimumHeight();
     String getLabel();
-    void paint(Graphics graphics, int x, int y);
+    void paintXY(Graphics graphics, int x, int y);
     void paintUnselected(Graphics graphics, int x, int y);
 }

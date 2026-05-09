@@ -49,9 +49,9 @@ public class LayerInterfaceFactoryImageItem extends ABCustomImageItem
     }
 
     @Override    
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
-        super.paint(graphics, x, y);
+        super.paintXY(graphics, x, y);
         
         //-yOffset
         for(int index = this.animationArray.length; --index >= 0;)

@@ -80,7 +80,7 @@ public class TileLayerItem extends ABCustomItem implements ABCustomItemInterface
 
     //protected void paint(Graphics g, int w, int h);
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
         //int layout = this.getLayout();
 

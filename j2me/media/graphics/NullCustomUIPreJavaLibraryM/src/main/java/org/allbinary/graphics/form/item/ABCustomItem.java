@@ -20,11 +20,15 @@ public class ABCustomItem
     {
     }
     
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
         
     }
-    
+
+    public void paintUnselected(Graphics graphics, int x, int y) {
+
+    }
+
     public boolean isFocusable()
     {
         return false;

@@ -32,7 +32,7 @@ extends ABTextItem
     }
     
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
         ABStringComponent stringComponent = this.getLabelStringComponent();
         

@@ -116,7 +116,7 @@ public class MapSelectionGameInputProcessor extends Processor
 
                     SecondaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
 
-                    this.preGameSelectorPaintable.getPreGameSelectionForm().processInput(key);
+                    this.preGameSelectorPaintable.getPreGameSelectionForm().processInputKey(key);
 
                     break;
 

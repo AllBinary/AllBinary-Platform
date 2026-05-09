@@ -147,7 +147,7 @@ public class CustomTextBox extends GameCommandCanvas
     
     public void paintXY(final Graphics graphics, final int x, final int y)
     {   
-        this.textFieldItem.paint(graphics, x, y);
+        this.textFieldItem.paintXY(graphics, x, y);
     }
     
     public ABTextFieldItem getTextFieldItem()

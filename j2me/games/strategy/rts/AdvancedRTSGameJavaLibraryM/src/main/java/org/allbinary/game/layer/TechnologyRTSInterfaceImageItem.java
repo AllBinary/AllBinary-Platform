@@ -113,9 +113,9 @@ public class TechnologyRTSInterfaceImageItem extends ABCustomImageItem
     }
 
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
-        super.paint(graphics, x, y);
+        super.paintXY(graphics, x, y);
 
         int xa = x + 2;
         graphics.drawString(this.COST, xa, y + this.adjustedCostLabelY, 0);

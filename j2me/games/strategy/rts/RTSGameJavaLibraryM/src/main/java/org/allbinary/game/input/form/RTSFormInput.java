@@ -182,7 +182,7 @@ public class RTSFormInput
         final ScrollSelectionForm scrollSelectionForm =
             rtsPlayerLayerInterface.getCurrentScrollSelectionForm();
 
-        return scrollSelectionForm.getSelectedIndex(point);
+        return scrollSelectionForm.getSelectedIndexForPoint(point);
     }
 
     protected CollidableDestroyableDamageableLayer getInstance(

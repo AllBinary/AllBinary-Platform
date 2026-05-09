@@ -22,7 +22,6 @@ import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.ABCustomItem;
-import org.allbinary.graphics.form.item.ABCustomItemInterface;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.RectangleCollisionUtil;
@@ -101,7 +100,7 @@ public class ScrollSelectionForm extends PaintableForm
     public ABCustomItem getSelectedItem(final GPoint point)
         throws Exception
     {
-        int index = this.getSelectedIndex(point);
+        int index = this.getSelectedIndexForPoint(point);
 
         if (index != -1)
         {
@@ -119,8 +118,7 @@ public class ScrollSelectionForm extends PaintableForm
         final int size = this.size();
         for (int index = 0; index < size; index++)
         {
-            final ABCustomItemInterface nextItem =
-                (ABCustomItemInterface) this.get(index);
+            final ABCustomItem nextItem = (ABCustomItem) this.get(index);
 
             if(nextItem == item)
             {
@@ -137,7 +135,7 @@ public class ScrollSelectionForm extends PaintableForm
 
     private static final String GET_SELECTED_INDEX = "getSelectedIndex";
     
-    public int getSelectedIndex(final GPoint point) throws Exception
+    public int getSelectedIndexForPoint(final GPoint point) throws Exception
     {
         final int start = this.getStartIndex();
         final int size = this.size();
@@ -157,12 +155,12 @@ public class ScrollSelectionForm extends PaintableForm
         
         this.logUtil.putF(stringBuffer.toString(), this, ScrollSelectionForm.GET_SELECTED_INDEX);
 
-        ABCustomItemInterface item;
+        ABCustomItem item;
         int width;
         int height;
         for (int index = start; index < size; index++)
         {
-            item = (ABCustomItemInterface) this.get(index);
+            item = this.get(index);
 
             width = item.getMinimumWidth();
             height = item.getMinimumHeight();
@@ -236,7 +234,7 @@ public class ScrollSelectionForm extends PaintableForm
         return -1;
     }
 
-    public int processInput(final int gameKeyCode) throws Exception
+    public int processInputKey(final int gameKeyCode) throws Exception
     {
         //this.logUtil.putF("Start - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
         //PreLogUtil.put("Start - Selected " commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
@@ -307,7 +305,7 @@ public class ScrollSelectionForm extends PaintableForm
         //this.logUtil.putF(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, IS_IN_FORM);
 
         //- halfBorder
-        if (this.rectangleCollisionUtil.isInside(x, y - this.halfBorder, this.rectangle.getMaxX() + this.border, this.rectangle.getMaxY() + this.border,point.getX(), point.getY()))
+        if (this.rectangleCollisionUtil.isInside(this.x, this.y - this.halfBorder, this.rectangle.getMaxX() + this.border, this.rectangle.getMaxY() + this.border,point.getX(), point.getY()))
         {
             this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString(point)).append(ScrollSelectionForm.INSIDE_FORM).toString(), this, ScrollSelectionForm.IS_IN_FORM);
             return true;
@@ -315,7 +313,7 @@ public class ScrollSelectionForm extends PaintableForm
         return false;
     }
 
-    public int paintItem(final Graphics graphics, final int index, final ABCustomItemInterface item, final int x, final int y)
+    public int paintItem(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y)
         throws Exception
     {
         final int width = item.getMinimumWidth();
@@ -323,7 +321,7 @@ public class ScrollSelectionForm extends PaintableForm
         
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
-        item.paint(graphics, x, y);
+        item.paintXY(graphics, x, y);
         
         graphics.setColor(this.getButtonBasicColor().intValue());
         
@@ -352,7 +350,7 @@ public class ScrollSelectionForm extends PaintableForm
 
     }
 
-    public int paintUnselectedItem(final Graphics graphics, final int index, final ABCustomItemInterface item, final int x, final int y)
+    public int paintUnselectedItem(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y)
         throws Exception
     {
         final int width = item.getMinimumWidth();
@@ -383,7 +381,7 @@ public class ScrollSelectionForm extends PaintableForm
 
     }
 
-    protected int getDiffX(final ABCustomItemInterface item)
+    protected int getDiffX(final ABCustomItem item)
     {
         return 0;
     }

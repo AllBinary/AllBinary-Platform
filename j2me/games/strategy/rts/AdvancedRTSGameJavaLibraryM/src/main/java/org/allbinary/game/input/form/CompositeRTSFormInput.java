@@ -82,7 +82,7 @@ public class CompositeRTSFormInput extends RTSFormInput
         ScrollSelectionForm scrollSelectionForm =
             rtsPlayerLayerInterface.getCurrentScrollSelectionForm();
 
-        int index = scrollSelectionForm.getSelectedIndex(point);
+        int index = scrollSelectionForm.getSelectedIndexForPoint(point);
 
         if (this.isStickyItemSelected() && associatedRtsLayer == null)
         {

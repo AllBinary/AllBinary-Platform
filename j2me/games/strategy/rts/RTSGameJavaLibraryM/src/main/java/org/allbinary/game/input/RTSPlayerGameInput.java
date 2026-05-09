@@ -145,13 +145,13 @@ public class RTSPlayerGameInput extends PlayerGameInput
     protected void left()
     throws Exception
     {
-        this.rtsPlayerLayerInterface.getCurrentScrollSelectionForm().processInput(Canvas.LEFT);
+        this.rtsPlayerLayerInterface.getCurrentScrollSelectionForm().processInputKey(Canvas.LEFT);
     }
 
     protected void right()
     throws Exception
     {
-        this.rtsPlayerLayerInterface.getCurrentScrollSelectionForm().processInput(Canvas.RIGHT);
+        this.rtsPlayerLayerInterface.getCurrentScrollSelectionForm().processInputKey(Canvas.RIGHT);
     }
 
     public void initInputProcessors()

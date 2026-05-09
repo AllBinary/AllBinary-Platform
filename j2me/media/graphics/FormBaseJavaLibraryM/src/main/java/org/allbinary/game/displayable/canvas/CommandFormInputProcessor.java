@@ -75,7 +75,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
          PrimaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
 
-         this.form.processInput(key);
+         this.form.processInputKey(key);
 
          return 1;
       } // else if (GameKeyUtil.isNonDirectionKey(key))
@@ -215,7 +215,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          final GPoint point = motionGestureEvent.getCurrentPoint();
          if (this.form.isInForm(point))
          {
-            final int index = this.form.getSelectedIndex(point);
+            final int index = this.form.getSelectedIndexForPoint(point);
 
             if (index != -1)
             {
