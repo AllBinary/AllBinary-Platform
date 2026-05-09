@@ -162,7 +162,7 @@ public class ImageModifierUtil {
             }
 
         } else {
-            this.logUtil.putF(resourceCallbackStrings.NULL + image.isMutable(), this, resourceCallbackStrings.HANDLE_IMAGE);
+            this.logUtil.putF(this.resourceCallbackStrings.NULL + image.isMutable(), this, this.resourceCallbackStrings.HANDLE_IMAGE);
         }
         
     }

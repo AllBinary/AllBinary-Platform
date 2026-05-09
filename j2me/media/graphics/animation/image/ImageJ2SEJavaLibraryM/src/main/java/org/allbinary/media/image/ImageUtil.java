@@ -227,7 +227,7 @@ public class ImageUtil
       {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-      LogUtil.put("Draw Did Not Finish Yet.  Must Wait.... :-< Retry: " + numberOfRetries, "ImageUtil", CREATE_BUFFERED_IMAGE);
+      LogUtil.put("Draw Did Not Finish Yet.  Must Wait.... :-< Retry: " + numberOfRetries, "ImageUtil", this.CREATE_BUFFERED_IMAGE);
       }
       
       Thread.currentThread().sleep(1000);
@@ -247,7 +247,7 @@ public class ImageUtil
       {
       //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       //{
-      LogUtil.put("Draw Was Complete", "ImageUtil", CREATE_BUFFERED_IMAGE);
+      LogUtil.put("Draw Was Complete", "ImageUtil", this.CREATE_BUFFERED_IMAGE);
       //}
       }
        */

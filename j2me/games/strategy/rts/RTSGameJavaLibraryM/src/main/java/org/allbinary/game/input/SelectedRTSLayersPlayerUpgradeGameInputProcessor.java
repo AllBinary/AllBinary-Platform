@@ -31,6 +31,6 @@ extends SelectedRTSLayersPlayerGameInputProcessor
     public void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
     throws Exception
     {
-        selectedRTSLayersPlayerGameInput.upgrade();
+        this.selectedRTSLayersPlayerGameInput.upgrade();
     }    
 }
