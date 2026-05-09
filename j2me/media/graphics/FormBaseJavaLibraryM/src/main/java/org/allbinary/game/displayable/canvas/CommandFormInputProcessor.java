@@ -100,7 +100,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       final Command command = commandCurrentSelectionForm.getSelectedCommand();
 
       //"Command: "
-      this.logUtil.putF(command.toString(), this, PROCESS_COMMAND);
+      this.logUtil.putF(command.toString(), this, this.PROCESS_COMMAND);
 
       final Features features = Features.getInstance();
       final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
@@ -174,7 +174,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          }
       } catch (Exception e)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.PROCESS_INPUT, e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.PROCESS_INPUT, e);
          
          return -1;
       }
@@ -195,7 +195,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          this.processMotionInput(motionGestureEvent);
       }
 
-      motionGestureEventList.clear();
+      this.motionGestureEventList.clear();
 
       return lastIndex;
    }
@@ -243,7 +243,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
          if(this.hasPressed) {
              if (!this.doubleClickTimeHelper.isTimeTNT()) {
-                 this.logUtil.putF("Double Press", this, gameInputStrings.PROCESS_MOTION_INPUT);
+                 this.logUtil.putF("Double Press", this, this.gameInputStrings.PROCESS_MOTION_INPUT);
                  this.processCommand();
              }
 

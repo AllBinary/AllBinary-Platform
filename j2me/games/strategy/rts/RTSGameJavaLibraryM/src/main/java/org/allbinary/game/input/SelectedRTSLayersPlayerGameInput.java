@@ -279,7 +279,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
 
         } catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.PROCESS_INPUT, e);
         }
     }
 

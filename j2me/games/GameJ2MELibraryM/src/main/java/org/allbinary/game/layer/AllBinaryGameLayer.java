@@ -132,7 +132,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 
         //this.logUtil.putF("viewX: ").append(viewX).append(" viewY: ").append(viewY, this, canvasStrings.PAINT);
 
-        this.basicSetColorUtil.setBasicColorP(graphics, RED);
+        this.basicSetColorUtil.setBasicColorP(graphics, this.RED);
 
         graphics.drawRect(viewX, viewY, this.getWidth(), this.getHeight());
         //this.getViewPosition().getX2() - viewX,

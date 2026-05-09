@@ -69,7 +69,7 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
             if (!hasSolidBlock) {
                 //this.logUtil.putF(new StringMaker().append("Not on Block: ").append(geographicMapCellPosition).append(" cellType: ").append(cellType).toString(), this, "gravity");
 
-                this.gravityUtil.process(velocityProperties, gravityUtil.GAME_GRAVITY_VELOCITY);
+                this.gravityUtil.process(velocityProperties, this.gravityUtil.GAME_GRAVITY_VELOCITY);
 
                 velocityProperties.limitXYToForwardAndReverseMaxVelocity();
                 this.gravity();

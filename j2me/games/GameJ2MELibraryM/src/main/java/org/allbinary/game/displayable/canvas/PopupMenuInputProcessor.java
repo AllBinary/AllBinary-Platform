@@ -55,7 +55,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 
     public int processInput(final int key) throws Exception
     {
-        //this.logUtil.putF(this.commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
+        //this.logUtil.putF(this.commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, this.gameInputStrings.);
 
         //4,8,KEY_STAR
         if (key == Canvas.KEY_STAR)
@@ -114,7 +114,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e);
             return -1;
         }
     }
@@ -133,7 +133,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
             this.processMotionInput(motionGestureEvent);
         }
 
-        motionGestureEventList.clear();
+        this.motionGestureEventList.clear();
 
         return lastIndex;
     }
@@ -145,7 +145,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 
         if(motionGestureEvent == null)
         {
-            this.logUtil.putF("Exception: Bug", this, gameInputStrings.PROCESS_MOTION_INPUT);
+            this.logUtil.putF("Exception: Bug", this, this.gameInputStrings.PROCESS_MOTION_INPUT);
             return;
         }
         
@@ -158,7 +158,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         {
             GPoint point = motionGestureEvent.getCurrentPoint();
             
-            //PreLogUtil.put(new StringMaker().append("Rect: ").append(rectangle.toString()).append(CommonSeps.getInstance().SPACE).append(point.toString()).toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
+            //PreLogUtil.put(new StringMaker().append("Rect: ").append(rectangle.toString()).append(CommonSeps.getInstance().SPACE).append(point.toString()).toString(), this, this.gameInputStrings.PROCESS_MOTION_INPUT);
             
             GPoint rectPoint = this.rectangle.getPoint();
             if (this.rectangleCollisionUtil.isInside(
@@ -170,7 +170,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
             {
                 if (this.clickTimeHelper.isTimeTNT())
                 {
-                    //PreLogUtil.put("Toggle Menu: ").append(motionGestureInput.toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
+                    //PreLogUtil.put("Toggle Menu: ").append(motionGestureInput.toString(), this, this.gameInputStrings.PROCESS_MOTION_INPUT);
 
                     final AllBinaryGameCanvas gameCanvas = (AllBinaryGameCanvas) this.getCanvas();
                     gameCanvas.toggleMenu();

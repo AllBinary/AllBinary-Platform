@@ -39,7 +39,7 @@ public class HealthBarTwodAnimation extends HealthBarAnimation
         /*
         for (int index = 0; index < this.thickness; index++)
         {
-            graphics.drawLine(x, y - index, x + x2, y - index);
+            graphics.drawLine(x, y - index, x + this.x2, y - index);
         }
         */
     }

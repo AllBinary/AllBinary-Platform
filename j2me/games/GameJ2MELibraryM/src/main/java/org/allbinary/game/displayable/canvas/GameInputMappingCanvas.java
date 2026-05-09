@@ -294,9 +294,9 @@ implements InputMappingInterface
 
             stringBuffer.append("Start GameKey: ");
             stringBuffer.append("Remove Key Mapping: GameKey: ");
-            stringBuffer.append(stringUtil.toString(this.selectedGameKey));
+            stringBuffer.append(this.stringUtil.toString(this.selectedGameKey));
             stringBuffer.append(" Input: ");
-            stringBuffer.append(stringUtil.toString(this.selectedInput));
+            stringBuffer.append(this.stringUtil.toString(this.selectedInput));
             
             this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
 
@@ -314,7 +314,7 @@ implements InputMappingInterface
     {
         this.inputMapping.setDefault(this.abeClientInformation);
                 //(InputToGameKeyMapping) PlatformInputMappingFactory.getInstance());
-        this.helpPaintable.update(NONE, NONE);
+        this.helpPaintable.update(this.NONE, this.NONE);
         this.repaintBehavior.onChangeRepaint(this);
     }
     

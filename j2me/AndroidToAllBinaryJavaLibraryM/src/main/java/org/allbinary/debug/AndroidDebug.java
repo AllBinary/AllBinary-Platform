@@ -28,7 +28,7 @@ public class AndroidDebug implements DebugInterface
         this.setStartTime(System.currentTimeMillis());
         //To get the trace log Use: adb pull /sdcard/trace.trace ./tmp
         //traceview G:\mnt\tmp\trace
-        Debug.startMethodTracing("trace", bufferSize);
+        Debug.startMethodTracing("trace", this.bufferSize);
         this.setRunning(true);
     }
 

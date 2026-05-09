@@ -56,10 +56,10 @@ public class DefaultGameInitializationListener
         final CommonStrings commonStrings = CommonStrings.getInstance();
         try
         {
-            this.logUtil.putF(this.commonStrings.START, this, ON_GAME_INITIALIZED);
+            this.logUtil.putF(commonStrings.START, this, ON_GAME_INITIALIZED);
 
             while(!this.swtJOGLProcessor.isHolderCreated()) {
-                this.logUtil.putF(this.commonStrings.UPDATE, this, ON_GAME_INITIALIZED);
+                this.logUtil.putF(commonStrings.UPDATE, this, ON_GAME_INITIALIZED);
                 Thread.sleep(20);
             }
             
@@ -76,7 +76,7 @@ public class DefaultGameInitializationListener
         }
         catch (Exception e)
         {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, ON_GAME_INITIALIZED, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, ON_GAME_INITIALIZED, e);
         }
     }
 }

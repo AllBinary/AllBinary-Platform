@@ -37,7 +37,7 @@ public class BasicInputMappingHelpPaintable extends HelpPaintable
     
         this.gameInputMappingArray = gameInputMappingArray;
         
-        this.update(NONE, NONE);
+        this.update(this.NONE, this.NONE);
     }
     
     public void update(final GameKey selectedGameKey, final Input selectedInput)
