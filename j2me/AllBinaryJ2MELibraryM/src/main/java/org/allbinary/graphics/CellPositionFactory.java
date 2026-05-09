@@ -55,7 +55,7 @@ public class CellPositionFactory
       stringBuffer.append(" rows: ");
       stringBuffer.appendint(rows);
       
-      this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
+      this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
       
       for (int column = 0; column < columns; column++)
       {
@@ -78,7 +78,7 @@ public class CellPositionFactory
       catch (Exception e)
       {
           final CommonStrings commonStrings = CommonStrings.getInstance();
-         this.logUtil.put(new StringMaker().append("columns: ").appendint(this.getColumns()).append(" rows: ").appendint(this.getRows()).append(" col: ").appendint(i_column).append(" row: ").appendint(i_row).toString(), this, this.commonStrings.GET_INSTANCE, e);
+         this.logUtil.put(new StringMaker().append("columns: ").appendint(this.getColumns()).append(" rows: ").appendint(this.getRows()).append(" col: ").appendint(i_column).append(" row: ").appendint(i_row).toString(), this, commonStrings.GET_INSTANCE, e);
          return this.NONE;
       }
    }

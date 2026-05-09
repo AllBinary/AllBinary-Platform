@@ -53,7 +53,7 @@ public class GameOptionsFormFactory
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
             return CommandForm.NULL_COMMAND_FORM;
         }
 
