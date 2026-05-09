@@ -238,7 +238,7 @@ public class DemoCanvas extends RunnableCanvas
         {
             //MyFont.getInstance().update();
 
-            this.logUtil.putF(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+            this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
 
             final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
             
@@ -253,7 +253,7 @@ public class DemoCanvas extends RunnableCanvas
         }
         catch(Exception e) 
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
         }
     }
     
@@ -351,7 +351,7 @@ public class DemoCanvas extends RunnableCanvas
     @Override
     public void itemStateChanged(Item item)
     {
-        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
     
     protected void initMenu()
@@ -370,7 +370,7 @@ public class DemoCanvas extends RunnableCanvas
         
         final Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
 
-        PreLogUtil.put(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).toString(), this, "initMenu");
+        PreLogUtil.put(new StringMaker().append(this.commonLabels.START_LABEL).append(this.displayInfoSingleton.toString()).toString(), this, "initMenu");
         
         final ScrollSelectionForm scrollSelectionForm = CommandCurrentSelectionFormFactory.getInstance(
                     StringUtil.getInstance().EMPTY_STRING, 
@@ -577,7 +577,7 @@ public class DemoCanvas extends RunnableCanvas
     @Override
     public boolean isGameOver()
     {
-        this.logUtil.putF(new StringMaker().append(commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
+        this.logUtil.putF(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
         return false;
     }
 
@@ -687,7 +687,7 @@ public class DemoCanvas extends RunnableCanvas
     
     protected void updateDemoState()
     {
-        PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, SET_STATE);
+        PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, this.SET_STATE);
         //this.logUtil.putF("Current Demo State: ").append(this.getState(), this, SET_STATE);
 
         this.getBasicGameDemoPaintable().setState(this.state);
@@ -723,24 +723,24 @@ public class DemoCanvas extends RunnableCanvas
 
     protected int getNextRandom() throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     protected AllBinaryGameLayerManager createGameLayerManager(int randomValue)
         throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     protected GameCanvasRunnableInterface createRunnable(int randomLevel)
         throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     protected void create() throws Exception
     {
-        PreLogUtil.put(commonStrings.START, this, "create");
+        PreLogUtil.put(this.commonStrings.START, this, "create");
 
         this.highScoresPaintable = NullPaintable.getInstance();
 
@@ -903,7 +903,7 @@ public class DemoCanvas extends RunnableCanvas
     {
         final String METHOD_NAME = "showGamePaintable";
                 
-        PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
+        PreLogUtil.put(this.commonStrings.START, this, METHOD_NAME);
         
         final boolean isDefault = J2MEUtil.isHTML();
         if (this.gameCanvas != NullGameCanvas.getInstance() && 
@@ -1122,7 +1122,7 @@ public class DemoCanvas extends RunnableCanvas
             }            
         } catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, SET_RUNNING, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, SET_RUNNING, e);
         }        
     }
     

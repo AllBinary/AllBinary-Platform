@@ -194,12 +194,12 @@ public class RecordStoreHighScores extends HighScores
         }
         catch (RecordStoreException e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "removeLowestHighScore", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "removeLowestHighScore", e);
             // throw e;
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "removeLowestHighScore", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "removeLowestHighScore", e);
             // throw e;
         } finally {
             try {
@@ -286,15 +286,15 @@ public class RecordStoreHighScores extends HighScores
         }
         catch (RecordStoreException e)
         {
-            this.logUtil.put(commonStrings.UNKNOWN, this, this.commonStrings.LOAD, e);
+            this.logUtil.put(this.commonStrings.UNKNOWN, this, this.commonStrings.LOAD, e);
         }
         catch (IOException e)
         {
-            this.logUtil.put(commonStrings.UNKNOWN, this, this.commonStrings.LOAD, e);
+            this.logUtil.put(this.commonStrings.UNKNOWN, this, this.commonStrings.LOAD, e);
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.UNKNOWN, this, this.commonStrings.LOAD, e);
+            this.logUtil.put(this.commonStrings.UNKNOWN, this, this.commonStrings.LOAD, e);
         } finally {
             try {
                 if (recordStore != null) {

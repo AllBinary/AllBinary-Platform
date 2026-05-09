@@ -107,7 +107,7 @@ public class RunnableCanvas extends MyCanvas
             }
         }
 
-        this.logUtil.putF(new StringMaker().append(this.IS_RUNNING).appendboolean(this.running).toString(), this, SET_RUNNING);
+        this.logUtil.putF(new StringMaker().append(this.IS_RUNNING).appendboolean(this.running).toString(), this, this.SET_RUNNING);
     }
 
     protected final String SET_RUNNING = "setRunning";
@@ -145,7 +145,7 @@ public class RunnableCanvas extends MyCanvas
             }
             
             
-            this.logUtil.putF(stringBuffer.toString(), this, IS_RUNNING);
+            this.logUtil.putF(stringBuffer.toString(), this, this.IS_RUNNING);
             return false;
         }
     }
@@ -189,7 +189,7 @@ public class RunnableCanvas extends MyCanvas
             this.stopWaiting();
         } catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "showNotify", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "showNotify", e);
         }
     }
 
@@ -232,7 +232,7 @@ public class RunnableCanvas extends MyCanvas
 
         } catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "waitUntilDisplayed", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "waitUntilDisplayed", e);
         }
             */        
     }
@@ -277,13 +277,13 @@ public class RunnableCanvas extends MyCanvas
         
         if(this.isPaused() && this.isRunning() && !this.isSingleThread()) {
             final StringMaker stringMaker = new StringMaker();
-            this.logUtil.putF(stringMaker.append(this.START_PAUSE).appendlong(System.currentTimeMillis()).append(this.PAUSE_SLEEP).appendlong(this.pauseWait).toString(), this, PROCESS_LOOP_SLEEP);
+            this.logUtil.putF(stringMaker.append(this.START_PAUSE).appendlong(System.currentTimeMillis()).append(this.PAUSE_SLEEP).appendlong(this.pauseWait).toString(), this, this.PROCESS_LOOP_SLEEP);
             while (this.isPaused() && this.isRunning() && !this.isSingleThread()) {
                 this.processSleep();
 
                 if (!this.isPausable()) {
                     stringMaker.delete(0, stringMaker.length());
-                    this.logUtil.putF(stringMaker.append(this.END_PAUSE).appendlong(System.currentTimeMillis()).toString(), this, PROCESS_LOOP_SLEEP);
+                    this.logUtil.putF(stringMaker.append(this.END_PAUSE).appendlong(System.currentTimeMillis()).toString(), this, this.PROCESS_LOOP_SLEEP);
                     return;
                 }
             }

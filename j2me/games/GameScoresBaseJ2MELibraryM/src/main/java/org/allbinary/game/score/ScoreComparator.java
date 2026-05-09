@@ -61,15 +61,15 @@ public class ScoreComparator
       }
       catch (EOFException e)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, "matches", e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, "matches", e);
       }
       catch (IOException e)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, "matches", e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, "matches", e);
       }
       catch (Exception e)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, "matches", e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, "matches", e);
       }
       return (this.searchName.equals(name));
    }

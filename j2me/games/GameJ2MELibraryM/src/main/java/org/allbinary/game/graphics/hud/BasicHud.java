@@ -176,7 +176,7 @@ public class BasicHud //implements DisplayChangeEventListener
        catch(Exception e)
        {
            final CommonStrings commonStrings = CommonStrings.getInstance();
-           this.logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+           this.logUtil.put(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
        }
    }
    

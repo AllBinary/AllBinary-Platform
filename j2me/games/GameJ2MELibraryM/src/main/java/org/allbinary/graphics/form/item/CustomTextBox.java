@@ -91,7 +91,7 @@ public class CustomTextBox extends GameCommandCanvas
     {
         try {
 
-            this.logUtil.putF(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
+            this.logUtil.putF(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, this.gameInputStrings.KEY_PRESSED);
 
             final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
 

@@ -192,7 +192,7 @@ public class MusicManager {
                 resource = this.currentSongSound.getResource();
             }
 
-            PreLogUtil.putOE(commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.PROCESS, e);
+            PreLogUtil.putOE(this.commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.PROCESS, e);
         }
     }
 
@@ -248,7 +248,7 @@ public class MusicManager {
             }
             this.timeDelayHelper.setStartTime(0);
             
-            PreLogUtil.put(new StringMaker().append(commonStrings.END).append(StringUtil.getInstance().toString(currentSongSound)).toString(), this, this.commonStrings.END);
+            PreLogUtil.put(new StringMaker().append(this.commonStrings.END).append(StringUtil.getInstance().toString(currentSongSound)).toString(), this, this.commonStrings.END);
 
         } catch (Exception e) {
             String resource = StringUtil.getInstance().EMPTY_STRING;
@@ -256,7 +256,7 @@ public class MusicManager {
                 resource = currentSongSound.getResource();
             }
 
-            PreLogUtil.putOE(commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.END, e);
+            PreLogUtil.putOE(this.commonStrings.EXCEPTION_LABEL + resource, this, this.commonStrings.END, e);
         }
     }
 }

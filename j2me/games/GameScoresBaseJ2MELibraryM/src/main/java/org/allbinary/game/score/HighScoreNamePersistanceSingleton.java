@@ -77,7 +77,7 @@ public class HighScoreNamePersistanceSingleton
     }
     
     private String getRecordId(final AbeClientInformationInterface abeClientInformation) {
-        return this.platformRecordIdUtil.getRecordId(abeClientInformation, RECORD_ID);
+        return this.platformRecordIdUtil.getRecordId(abeClientInformation, this.RECORD_ID);
     }
     
     public void delete(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final int deleteId) throws Exception
@@ -150,7 +150,7 @@ public class HighScoreNamePersistanceSingleton
         } catch (Exception e)
         {
             this.save(abeClientInformation, gameInfo, this.name);
-            this.logUtil.putF(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, this.commonStrings.LOAD);
+            this.logUtil.putF(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, this.commonStrings.LOAD);
         } finally {
             try {
                 if (recordStore != null) {

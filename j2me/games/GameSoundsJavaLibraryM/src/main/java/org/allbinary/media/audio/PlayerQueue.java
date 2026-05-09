@@ -117,7 +117,7 @@ public class PlayerQueue
             }
             */
             
-            PreLogUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resource).toString(), this, this.commonStrings.PROCESS);
+            PreLogUtil.put(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(resource).toString(), this, this.commonStrings.PROCESS);
 
             return false;
         }

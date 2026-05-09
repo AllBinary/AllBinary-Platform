@@ -52,14 +52,14 @@ public class DemoGameMidlet extends GameMidlet
     public GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface()
             throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     protected GameCanvasRunnableInterface createGameCanvasRunnable(
             AllBinaryGameLayerManager allBinaryGameLayerManager)
             throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
     
     protected GameCanvasRunnableInterface createGameCanvasRunnableInterface()

@@ -232,7 +232,7 @@ public class StartCanvas extends RunnableCanvas
         }
         catch(Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
         }
     }
     
@@ -330,7 +330,7 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public void itemStateChanged(Item item)
     {
-        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
     
     protected void initMenu()
@@ -549,7 +549,7 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public boolean isGameOver()
     {
-        this.logUtil.putF(new StringMaker().append(commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
+        this.logUtil.putF(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
         return false;
     }
 
@@ -655,7 +655,7 @@ public class StartCanvas extends RunnableCanvas
     
     protected void updateDemoState()
     {
-        PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, SET_STATE);
+        PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, this.SET_STATE);
         //this.logUtil.putF("Current Demo State: ").append(this.getState(), this, SET_STATE);
 
         this.getBasicGameDemoPaintable().setState(this.state);
@@ -692,19 +692,19 @@ public class StartCanvas extends RunnableCanvas
 
     protected int getNextRandom() throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     protected AllBinaryGameLayerManager createGameLayerManager(int randomValue)
         throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     protected GameCanvasRunnableInterface createRunnable(int randomLevel)
         throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     protected void createCanvas() throws Exception
@@ -1026,7 +1026,7 @@ public class StartCanvas extends RunnableCanvas
             }
         } catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, SET_RUNNING, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, SET_RUNNING, e);
         }        
     }
     

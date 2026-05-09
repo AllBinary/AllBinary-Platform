@@ -112,26 +112,26 @@ PickupCompositeInterface, SpecialGameInputInterface
     @Override
     public void damage(final int damage, final int damageType) throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     @Override
     public int getDamage(final int damageType) throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     @Override
     public boolean isDestroyed() throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     /*
     private void setDestroyed(boolean destroyed) 
     throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
     */
     
@@ -374,7 +374,7 @@ PickupCompositeInterface, SpecialGameInputInterface
         stringBuffer.appendboolean(this.readyForExplosion);
 
         stringBuffer.append(commonSeps.NEW_LINE);
-        stringBuffer.append(commonStrings.INIT);
+        stringBuffer.append(this.commonStrings.INIT);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.X_LABEL);
         stringBuffer.appendint(this.initX);
