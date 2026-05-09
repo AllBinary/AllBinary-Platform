@@ -127,7 +127,7 @@ public class ImageCache extends ImageCacheBase {
                 try {
                     runTask();
                 } catch (Exception e) {
-                    logUtil.putF(this.commonStrings.EXCEPTION, this, this.commonStrings.END_METHOD_NAME);
+                    logUtil.putF(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME);
                 }
             }
         }

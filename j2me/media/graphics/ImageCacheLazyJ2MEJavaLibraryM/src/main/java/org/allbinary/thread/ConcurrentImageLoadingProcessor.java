@@ -57,7 +57,7 @@ public class ConcurrentImageLoadingProcessor extends BaseImageLoadingProcessor {
 //            logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
             } catch (Exception e) {
                 this.setRunning(false);
-                logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
 
