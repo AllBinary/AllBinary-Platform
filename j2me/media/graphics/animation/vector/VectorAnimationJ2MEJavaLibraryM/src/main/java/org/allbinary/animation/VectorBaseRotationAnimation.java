@@ -105,7 +105,7 @@ public class VectorBaseRotationAnimation
     @Override
     public void paintXY(final Graphics graphics, final int x, final int y)
     {
-        this.basicSetColorUtil.setBasicColorP(graphics, basicColor);
+        this.basicSetColorUtil.setBasicColorP(graphics, this.basicColor);
 
         try
         {
@@ -148,7 +148,7 @@ public class VectorBaseRotationAnimation
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "paintVectors", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "paintVectors", e);
         }
     }
     

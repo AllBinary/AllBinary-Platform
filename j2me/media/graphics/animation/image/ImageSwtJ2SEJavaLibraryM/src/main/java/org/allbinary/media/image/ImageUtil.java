@@ -162,7 +162,7 @@ public class ImageUtil {
         if (!scale && allowTranslate) {
             dx = (newWidth - width) / 2;
             dy = (newHeight - height) / 2;
-            this.logUtil.putF(new StringMaker().append("Translate dx: ").appendfloat(dx).append(" dy: ").appendfloat(dy).toString(), this, CREATE_BUFFERED_IMAGE);
+            this.logUtil.putF(new StringMaker().append("Translate dx: ").appendfloat(dx).append(" dy: ").appendfloat(dy).toString(), this, this.CREATE_BUFFERED_IMAGE);
 
 //          if (newWidth < width) {
 //              final double translate = -(width - newWidth);

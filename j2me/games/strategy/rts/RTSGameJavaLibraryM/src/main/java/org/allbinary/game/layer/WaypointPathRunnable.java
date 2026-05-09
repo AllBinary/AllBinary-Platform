@@ -38,13 +38,13 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
         {
             //this.logUtil.putF("", this, "run");
                 
-            pathFindingLayer.getWaypointRunnableLogHelper().start(pathFindingLayer);
+            this.pathFindingLayer.getWaypointRunnableLogHelper().start(this.pathFindingLayer);
 
             final WaypointBehaviorBase waypointBehavior = 
-                pathFindingLayer.getWaypointBehavior();
+                this.pathFindingLayer.getWaypointBehavior();
             
             final GeographicMapCellPosition geographicMapCellPosition = 
-                pathFindingLayer.getCurrentGeographicMapCellPosition();
+                this.pathFindingLayer.getCurrentGeographicMapCellPosition();
             
             if (geographicMapCellPosition == null) {
                 throw new Exception("Should never be running here");
@@ -55,7 +55,7 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
                     geographicMapCellPosition)
                 );
 
-            pathFindingLayer.getWaypointRunnableLogHelper().end(pathFindingLayer);
+            this.pathFindingLayer.getWaypointRunnableLogHelper().end(this.pathFindingLayer);
             
             //this.actuallyRunning = false;
             

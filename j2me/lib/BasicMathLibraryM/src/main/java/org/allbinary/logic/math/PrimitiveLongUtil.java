@@ -71,7 +71,7 @@ public class PrimitiveLongUtil
             return PrimitiveLongUtil.UNK;
         }
         
-        stringBuffer.delete(0, stringBuffer.length());
+        this.stringBuffer.delete(0, this.stringBuffer.length());
         int div = this.powerOfTen;
         int lastValue = 0;
         while(div >= 1)
@@ -79,13 +79,13 @@ public class PrimitiveLongUtil
             int digit = (int) (value - lastValue) / div;
             if(digit >= 0 && digit < 10)
             {
-                if(digit == 0 && stringBuffer.length() == 0)
+                if(digit == 0 && this.stringBuffer.length() == 0)
                 {
                  
                 }
                 else
                 {
-                    stringBuffer.append(NUMBER_STRING_ARRAY[digit]);
+                    this.stringBuffer.append(NUMBER_STRING_ARRAY[digit]);
                 }
                 lastValue += digit * div;
             }

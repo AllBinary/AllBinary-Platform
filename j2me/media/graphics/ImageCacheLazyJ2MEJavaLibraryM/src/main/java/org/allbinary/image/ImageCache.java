@@ -231,7 +231,7 @@ public class ImageCache extends ImageCacheBase {
                 progressCanvas.endFromInitialLazyLoadingComplete();
             } else {
                 if(this.totalLoaded % 10 == 0) {
-                    progressCanvas.addNormalPortion(1, LOAD_IMAGE_FOR_ANIMATION);
+                    progressCanvas.addNormalPortion(1, this.LOAD_IMAGE_FOR_ANIMATION);
                 }
             }
             
@@ -361,29 +361,29 @@ public class ImageCache extends ImageCacheBase {
         Image image = this.getFromAvailable(foundIndex, width, height);
 
         if (image == NullCanvas.NULL_IMAGE) {
-            volume += width * height;
-            if (volume > 32000) {
+            this.volume += width * height;
+            if (this.volume > 32000) {
                 //this.logUtil.putF(new StringMaker().append("Image for: ").append(caller).toString(), this, this.commonStrings.GET);
                 System.gc();
                 //System.gc();
-                volume = 0;
+                this.volume = 0;
                 //this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
             }
 
             image = this.createImage(caller, width, height);
             //this.logUtil.putF(new StringMaker().append("Image: ").append(image.getName()).toString(), this, this.commonStrings.GET);
 
-            if (nextIndex > widths.length - 1) {
+            if (this.nextIndex > this.widths.length - 1) {
                 if (foundIndex == -1) {
-                    foundIndex = nextIndex;
+                    foundIndex = this.nextIndex;
 
-                    widths[nextIndex] = width;
-                    heights[nextIndex] = height;
+                    this.widths[this.nextIndex] = width;
+                    this.heights[this.nextIndex] = height;
 
                     nextIndex++;
                 }
 
-                listOfList[foundIndex].add(image);
+                this.listOfList[foundIndex].add(image);
 
             }
 

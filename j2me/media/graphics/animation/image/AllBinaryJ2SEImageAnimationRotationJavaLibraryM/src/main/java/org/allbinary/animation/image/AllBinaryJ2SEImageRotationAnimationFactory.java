@@ -159,7 +159,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
         
         final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
         final Image canvasImage = this.getCanvasImage();
-        Image scaledImage = animationFactoryImageScaleUtil.createImage(canvasImage, this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        Image scaledImage = this.animationFactoryImageScaleUtil.createImage(canvasImage, this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final OpenGLUtil openGLUtil = OpenGLUtil.getInstance();
         scaledImage = openGLUtil.add(scaledImage);
         //final Image image = imageCopyUtil.createImage(this.image);
@@ -168,7 +168,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
 
             //this.logUtil.putF(new StringMaker().append(PositionStrings.getInstance().DX_LABEL).append((float) this.animationFactoryInitializationVisitor.dx).append(PositionStrings.getInstance().DY_LABEL).append((float) this.animationFactoryInitializationVisitor.dy).toString(), this, "getInstance");
-            animationFactoryImageScaleUtil.processAdjust(this);
+            this.animationFactoryImageScaleUtil.processAdjust(this);
 
             return new AllBinaryAdjustedJ2SEImageRotationAnimation(
                 scaledImage, copyOfScaledImage,

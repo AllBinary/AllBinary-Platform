@@ -58,8 +58,8 @@ public class UpgradableRTSLayerHudPaintable
 
         final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
 
-        this.costY = (y + CommonButtons.getInstance().STANDARD_BUTTON_SIZE);
-        this.costY1 = (y + CommonButtons.getInstance().STANDARD_BUTTON_SIZE - (charHeight));
+        this.costY = (this.y + CommonButtons.getInstance().STANDARD_BUTTON_SIZE);
+        this.costY1 = (this.y + CommonButtons.getInstance().STANDARD_BUTTON_SIZE - (charHeight));
         /*
          * probably not needed anymore
         if(!AndroidUtil.isAndroid())
@@ -67,7 +67,7 @@ public class UpgradableRTSLayerHudPaintable
             this.costY1 = this.costY;
         } else
         {
-            this.costY1 = (y + TouchButtonInput.STANDARD_BUTTON_SIZE - (charHeight));
+            this.costY1 = (this.y + TouchButtonInput.STANDARD_BUTTON_SIZE - (charHeight));
         }
         */
 
@@ -165,7 +165,7 @@ public class UpgradableRTSLayerHudPaintable
         // graphics.drawString(this.downGradeCost, 98, 70 + ((size + 2) *
         // myFont.DEFAULT_CHAR_HEIGHT), 0);
 
-        this.getAnimationInterface().paintXY(graphics, this.imageX, y);
+        this.getAnimationInterface().paintXY(graphics, this.imageX, this.y);
     }
     
     public void setRtsLayer(RTSLayer rtsLayer)

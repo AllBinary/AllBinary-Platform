@@ -139,13 +139,13 @@ public class AllBinaryArrayImageRotationAnimationFactory
         final int size = scaledImageArray.length;
         final Image image = this.getImage();
         for(int index = 0; index < size; index++) {
-            scaledImageArray[index] = animationFactoryImageScaleUtil.createImage(image, image.getWidth(), image.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+            scaledImageArray[index] = this.animationFactoryImageScaleUtil.createImage(image, image.getWidth(), image.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         }
         
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             
             //this.logUtil.putF(new StringMaker().append(PositionStrings.getInstance().DX_LABEL).append((float) this.animationFactoryInitializationVisitor.dx).append(PositionStrings.getInstance().DY_LABEL).append((float) this.animationFactoryInitializationVisitor.dy).toString(), this, "getInstance");
-            animationFactoryImageScaleUtil.processAdjust(this);
+            this.animationFactoryImageScaleUtil.processAdjust(this);
             
             return new AdjustedImageArrayRotationAnimation(
                 scaledImageArray,

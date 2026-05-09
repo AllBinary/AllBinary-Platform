@@ -144,7 +144,7 @@ public class VectorExplosionGenerator
 
             if (type == this.ROTATION)
             {
-                sectionBasicArrayList = randomRotationFactory.getInstanceList(sectionBasicArrayList, howMuch);
+                sectionBasicArrayList = this.randomRotationFactory.getInstanceList(sectionBasicArrayList, howMuch);
             }
 
             int size = sectionBasicArrayList.size();

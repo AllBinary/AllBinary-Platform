@@ -42,7 +42,7 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
     public void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
-            CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
+            CustomGPoint point = (CustomGPoint) GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance();
 
             point.setX(x);
             point.setY(y);
@@ -55,7 +55,7 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
     public void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
-        CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
+        CustomGPoint point = (CustomGPoint) GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance();
 
         point.setX(x);
         point.setY(y);
@@ -68,7 +68,7 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
     public void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
-        CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
+        CustomGPoint point = (CustomGPoint) GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance();
 
         point.setX(x);
         point.setY(y);

@@ -34,14 +34,14 @@ public class MotionEventFactory implements AllBinaryEventObjectFactoryInterface
     {
         this.source = source;
         this.id = id;
-        index = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
+        MotionEventFactory.index = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
     }
     
     @Override
     public AllBinaryEventObject getInstance()
     {   
         final InputFactory inputFactory = InputFactory.getInstance();
-        final Input input = inputFactory.getInstanceById(index++);
+        final Input input = inputFactory.getInstanceById(MotionEventFactory.index++);
         //this.logUtil.putF("Input: " + input, this, this.commonStrings.GET_INSTANCE);
         
         if(input == inputFactory.NO_INPUT) {

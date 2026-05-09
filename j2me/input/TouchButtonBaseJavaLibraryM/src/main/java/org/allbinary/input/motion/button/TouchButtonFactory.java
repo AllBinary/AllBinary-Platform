@@ -38,7 +38,7 @@ public class TouchButtonFactory
     public void defaultList()
     {
         this.list = this.LIST;
-        this.toggle(false, LIST);
+        this.toggle(false, this.LIST);
     }
 
     private boolean saved = false;

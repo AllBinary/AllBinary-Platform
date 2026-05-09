@@ -63,13 +63,13 @@ public class ImageCache extends ImageCacheBase
 
         if (image == NullCanvas.NULL_IMAGE)
         {
-            volume += width * height;
-            if (volume > 32000)
+            this.volume += width * height;
+            if (this.volume > 32000)
             {
                 //this.logUtil.putF(new StringMaker().append("Image for: ").append(caller).toString(), this, this.commonStrings.GET);
                 System.gc();
                 //System.gc();
-                volume = 0;
+                this.volume = 0;
                 //this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
             }
 
@@ -78,17 +78,17 @@ public class ImageCache extends ImageCacheBase
 
             final int[] widths = this.widths;
             
-            if(nextIndex > widths.length - 1) {
+            if(this.nextIndex > widths.length - 1) {
                 if (foundIndex == -1) {
-                    foundIndex = nextIndex;
+                    foundIndex = this.nextIndex;
 
-                    widths[nextIndex] = width;
-                    heights[nextIndex] = height;
+                    widths[this.nextIndex] = width;
+                    this.heights[this.nextIndex] = height;
 
                     nextIndex++;
                 }
 
-                listOfList[foundIndex].add(image);
+                this.listOfList[foundIndex].add(image);
 
             }
             

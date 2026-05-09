@@ -51,20 +51,20 @@ public class FullTouchButton extends TouchButton
         try
         {
             final PointFactory pointFactory = PointFactory.getInstance();
-            final int x = this.rawRectangle.getWidth() * cellPositionP.getColumn();
-            final int y = this.rawRectangle.getHeight() * cellPositionP.getRow();
+            final int x = this.rawRectangle.getWidth() * this.cellPositionP.getColumn();
+            final int y = this.rawRectangle.getHeight() * this.cellPositionP.getRow();
 
             this.rectangleP = new Rectangle(pointFactory.createXY(x, y),
-                    this.rawRectangle.getWidth() + (2 * xBorder), this.rawRectangle.getHeight() + (2 * yBorder));
+                    this.rawRectangle.getWidth() + (2 * this.xBorder), this.rawRectangle.getHeight() + (2 * this.yBorder));
             
             final GPoint point = this.rectangleP.getPoint();
-            this.animationX = point.getX() + xBorder;
-            this.animationY = point.getY() + yBorder;
-            this.hintAnimationY = animationY - this.rectangleP.getHeight() >> 1;
+            this.animationX = point.getX() + this.xBorder;
+            this.animationY = point.getY() + this.yBorder;
+            this.hintAnimationY = this.animationY - this.rectangleP.getHeight() >> 1;
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "updateRectangle", e);
         }
     }
 

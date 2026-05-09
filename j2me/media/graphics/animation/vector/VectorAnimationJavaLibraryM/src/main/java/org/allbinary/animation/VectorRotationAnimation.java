@@ -38,7 +38,7 @@ public class VectorRotationAnimation
    @Override
    public void setFrameByDirection(final Direction direction)
    {
-      Angle angle = directionUtil.getFrameAngle(direction);
+      Angle angle = this.directionUtil.getFrameAngle(direction);
       this.adjustFrameToAngle(angle);
    }
 
@@ -58,7 +58,7 @@ public class VectorRotationAnimation
    @Override
    public void adjustFrame(final short newAngle)
    {
-      this.setFrame(frameUtil.getFrameForAngle(newAngle, (int) this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
+      this.setFrame(this.frameUtil.getFrameForAngle(newAngle, (int) this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
    }
 
    @Override

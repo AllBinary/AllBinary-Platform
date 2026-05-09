@@ -71,7 +71,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     public void setFrameByDirection(Direction direction)
     {
         //this.logUtil.putF(this.commonStrings.START, this, "setFrame");
-        Angle angle = directionUtil.getFrameAngle(direction);
+        Angle angle = this.directionUtil.getFrameAngle(direction);
         this.adjustFrameToAngle(angle);
     }
 

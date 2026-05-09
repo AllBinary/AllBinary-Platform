@@ -98,7 +98,7 @@ public class ImageCopyUtil
             //final CommonLabels commonLabels = CommonLabels.getInstance();
             //this.logUtil.putF("deltas" + commonLabels + halfWidthDelta + commonLabels + halfHeightDelta, this, this.commonStrings.CONSTRUCTOR);
             final Graphics graphics = image.getGraphics();
-            graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
+            graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, this.anchor);
             //this.basicSetColorUtil.setBasicColorP(graphics, BasicColorFactory.getInstance().YELLOW);
             //graphics.drawRect(halfWidthDelta, halfHeightDelta, originalImage.getWidth(), originalImage.getHeight());
             //this.basicSetColorUtil.setBasicColorP(graphics, BasicColorFactory.getInstance().WHITE);

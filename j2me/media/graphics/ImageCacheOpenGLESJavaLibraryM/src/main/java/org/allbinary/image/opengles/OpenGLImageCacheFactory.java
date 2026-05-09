@@ -22,7 +22,7 @@ public class OpenGLImageCacheFactory
     /*
     public static void init(GL10 gl)
     {
-        ((OpenGLImageCache) IMAGE_CACHE).setGl(gl);
+        ((OpenGLImageCache) OpenGLImageCacheFactory.IMAGE_CACHE).setGl(gl);
     }
     */
 
@@ -38,9 +38,9 @@ public class OpenGLImageCacheFactory
     public static void init()
     {
         /*        
-        if(IMAGE_CACHE == null)
+        if(OpenGLImageCacheFactory.IMAGE_CACHE == null)
         {
-            IMAGE_CACHE = new ImageCache();
+            OpenGLImageCacheFactory.IMAGE_CACHE = new ImageCache();
         }
         */
     }

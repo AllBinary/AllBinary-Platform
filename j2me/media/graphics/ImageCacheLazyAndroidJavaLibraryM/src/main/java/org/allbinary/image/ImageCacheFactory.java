@@ -29,9 +29,9 @@ public class ImageCacheFactory
     public static void init()
     {
         /*        
-        if(IMAGE_CACHE == null)
+        if(ImageCacheFactory.IMAGE_CACHE == null)
         {
-            IMAGE_CACHE = new ImageCache();
+            ImageCacheFactory.IMAGE_CACHE = new ImageCache();
         }
         */
     }

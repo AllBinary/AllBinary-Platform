@@ -57,7 +57,7 @@ public class LogUtil {
         final String message = this.logFormatUtil.getS(
             className, functionName, specialMessage);
 
-        System.out.print(this.LOG_SUCCESS);
+        System.out.print(LogUtil.LOG_SUCCESS);
         System.out.println(message);
     }
 
@@ -78,7 +78,7 @@ public class LogUtil {
         final String message = this.logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
-        System.out.print(this.LOG_SUCCESS);
+        System.out.print(LogUtil.LOG_SUCCESS);
         System.out.println(message);
     }
 }

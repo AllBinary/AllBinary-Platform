@@ -31,7 +31,7 @@ public class Direction
         this.value = value;
         this.frameFactor = frameFactor;
 
-        directionArray[value] = this;
+        Direction.directionArray[value] = this;
     }
 
     public static Direction getInstance(int direction)

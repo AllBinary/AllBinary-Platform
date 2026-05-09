@@ -58,7 +58,7 @@ public class ImageCompleteUtil {
             /*
             try
             {
-                PreLogUtil.put("Waiting for Image: " + image.getName(), this, ISREADY);
+                PreLogUtil.put("Waiting for Image: " + image.getName(), this, this.ISREADY);
                 Thread.sleep(120);
             }
             catch(Exception e)
@@ -75,7 +75,7 @@ public class ImageCompleteUtil {
         if(!image.isReady()) {
             image.init(image.getImage());
             if(!image.isReady()) {
-                PreLogUtil.put("Waiting for Not Ready Image: " + image.getName(), this, ISREADY);
+                PreLogUtil.put("Waiting for Not Ready Image: " + image.getName(), this, this.ISREADY);
             }
         }
         

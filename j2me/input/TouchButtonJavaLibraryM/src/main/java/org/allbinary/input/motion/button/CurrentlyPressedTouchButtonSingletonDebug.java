@@ -101,7 +101,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     {
         TouchButtonInput touchButtonInput = super.removeAt(index);
 
-        this.listString = list.toString();
+        this.listString = this.list.toString();
         this.string = new StringMaker().append(this.listString).append(this.append).toString();
         
         return touchButtonInput;
@@ -112,7 +112,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     { 
         boolean isRemoved = super.remove(touchButtonInput);
 
-        this.listString = list.toString();
+        this.listString = this.list.toString();
         this.string = new StringMaker().append(this.listString).append(this.append).toString();
 
         return isRemoved;
@@ -122,7 +122,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     public void add(TouchButtonInput touchButtonInput)
     {
         super.add(touchButtonInput);
-        this.listString = list.toString();
+        this.listString = this.list.toString();
         this.string = new StringMaker().append(this.listString).append(this.append).toString();
     }
     

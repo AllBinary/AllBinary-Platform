@@ -56,8 +56,8 @@ extends ScrollSelectionForm
             
             final int start = this.getStartIndex();
             final int size = this.size();
-            int dx = x;
-            final int dy = y;
+            int dx = this.x;
+            final int dy = this.y;
 
             if(J2MEUtil.isJ2ME())
             {
@@ -86,14 +86,14 @@ extends ScrollSelectionForm
                         
                     } else {
                         this.logged = true;
-                        PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").appendint(this.rectangle.getMaxX()).toString(), this, canvasStrings.PAINT);
+                        PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").appendint(this.rectangle.getMaxX()).toString(), this, this.canvasStrings.PAINT);
                     }
                     //break;
                 }
                 
                 if (this.formType == formTypeFactory.HORIZONTAL_FORM)
                 {
-                    int dx2 = this.paintItem(graphics, index, item, dx, dy) + border;
+                    int dx2 = this.paintItem(graphics, index, item, dx, dy) + this.border;
                     this.paintable.paint(graphics, index, dx, dy);
                     dx = dx2;
                 } else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
@@ -112,7 +112,7 @@ extends ScrollSelectionForm
             }
         } catch (Exception e)
         {
-            PreLogUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT);
+            PreLogUtil.put(this.commonStrings.EXCEPTION, this, this.canvasStrings.PAINT);
             //this.logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
         }
     }

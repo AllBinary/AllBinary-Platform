@@ -75,7 +75,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             param.add(hashtable);
             // KeySpecFactory.DES,
-            Object result = xmlRpcClient.execute(this.getRemoteMethod(), param, noCrypt);
+            Object result = xmlRpcClient.execute(this.getRemoteMethod(), param, this.noCrypt);
 
             /*
              * this could return without trying all servers if(result==null) {

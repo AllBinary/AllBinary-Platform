@@ -58,8 +58,8 @@ extends ScrollSelectionForm
 
         if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {
-            this.dx = x - 30 + (this.rectangle.getWidth() >> 1);
-            this.dy = y;
+            this.dx = this.x - 30 + (this.rectangle.getWidth() >> 1);
+            this.dy = this.y;
         } else if (this.formType == formTypeFactory.HORIZONTAL_FORM)
         {
             int size = this.size();
@@ -71,10 +71,10 @@ extends ScrollSelectionForm
             {
                 item = this.get(index);
 
-                totalWidth += item.getMinimumWidth() + border;
+                totalWidth += item.getMinimumWidth() + this.border;
             }
 
-            this.dx = x + (this.rectangle.getWidth() >> 1) - (totalWidth >> 1);
+            this.dx = this.x + (this.rectangle.getWidth() >> 1) - (totalWidth >> 1);
 
             /*
             int maxHeight = 0;
@@ -90,7 +90,7 @@ extends ScrollSelectionForm
             }
             */
 
-            this.dy = y + (this.rectangle.getHeight() >> 1);
+            this.dy = this.y + (this.rectangle.getHeight() >> 1);
 
             // Special handling for small screens to keep menu out of title
             // animation
@@ -115,7 +115,7 @@ extends ScrollSelectionForm
                     this.maxWidth = item2.getMinimumWidth();
                 }
 
-                totalHeight += item2.getMinimumHeight() + border;
+                totalHeight += item2.getMinimumHeight() + this.border;
             }
 
             this.dx = ((this.rectangle.getWidth() - this.maxWidth) / 2);
@@ -126,7 +126,7 @@ extends ScrollSelectionForm
                 // FormItemInterface item = (FormItemInterface) this.get(0);
                 // dy = y - 30 + ((this.rectangle.getHeight() -
                 // item.getMinimumHeight()) / 2);
-                this.dy = y + ((this.rectangle.getHeight() - totalHeight) / 2);
+                this.dy = this.y + ((this.rectangle.getHeight() - totalHeight) / 2);
 
                 // Special handling for small screens to keep menu out of title
                 // animation
@@ -141,7 +141,7 @@ extends ScrollSelectionForm
             } else
             {
                 // dy = y - 30 + ((this.rectangle.getHeight()) >> 1);
-                this.dy = y;
+                this.dy = this.y;
             }
         } else
         {
@@ -219,7 +219,7 @@ extends ScrollSelectionForm
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.canvasStrings.PAINT, e);
         }
     }
 

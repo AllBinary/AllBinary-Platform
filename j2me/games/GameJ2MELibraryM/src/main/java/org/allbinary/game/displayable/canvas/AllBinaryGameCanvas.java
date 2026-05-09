@@ -321,7 +321,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
         catch(Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
         }
     }
 
@@ -485,7 +485,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "initMenu", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "initMenu", e);
         }
 
     }
@@ -906,7 +906,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             final String itemLabel = item.getLabel();
 
-            this.logUtil.putF(new StringMaker().append(commonLabels.ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged");
+            this.logUtil.putF(new StringMaker().append(this.commonLabels.ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged");
 
             if (item instanceof ChoiceGroup)
             {
@@ -1239,13 +1239,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         //if (this.gameCanvasStartListener != null)
         if (this.getCustomCommandListener() == NullCommandListener.NULL_COMMAND_LISTENER)
         {
-            this.logUtil.putF("Show Game Paintable in DemoCanvas Thread", this, BUILD_GAME);
+            this.logUtil.putF("Show Game Paintable in DemoCanvas Thread", this, this.BUILD_GAME);
 
             this.gameCanvasStartListener.showGamePaintable();
         }
         else
         {
-            this.logUtil.putF("No GameCanvasStartListener", this, BUILD_GAME);
+            this.logUtil.putF("No GameCanvasStartListener", this, this.BUILD_GAME);
         }
 
         this.colorFillPaintable.setBasicColorP(this.gameLayerManager.getBackgroundBasicColor());

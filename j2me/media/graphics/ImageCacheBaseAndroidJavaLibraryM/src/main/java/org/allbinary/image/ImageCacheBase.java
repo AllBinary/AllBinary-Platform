@@ -146,12 +146,12 @@ public class ImageCacheBase
         final StringMaker stringBuffer = new StringMaker(); 
         for (int index = this.nextIndex - 1; index >= 0; index--)
         {
-            final int width = widths[index];
-            final int height = heights[index];
+            final int width = this.widths[index];
+            final int height = this.heights[index];
 
-            final int total = listOfList[index].size();
+            final int total = this.listOfList[index].size();
 
-            final int totalAvailable = availableListOfList[index].size();
+            final int totalAvailable = this.availableListOfList[index].size();
 
             stringBuffer.append(" w: ");
             stringBuffer.appendint(width);

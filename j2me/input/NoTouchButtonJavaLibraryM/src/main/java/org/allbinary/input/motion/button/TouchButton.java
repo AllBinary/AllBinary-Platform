@@ -67,7 +67,7 @@ public class TouchButton extends Paintable
     @Override
     public void paint(Graphics graphics)
     {
-        this.animationInterface.paintXY(graphics, animationX, animationY);
+        this.animationInterface.paintXY(graphics, animationX, this.animationY);
         //graphics.drawRect(point.getX() + 4, point.getY() + 4, 
           //      rectangle.getMaxX() - 4, rectangle.getMaxY() - 4);
     }

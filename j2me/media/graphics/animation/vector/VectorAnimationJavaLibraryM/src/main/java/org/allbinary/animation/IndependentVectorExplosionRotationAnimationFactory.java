@@ -57,7 +57,7 @@ public class IndependentVectorExplosionRotationAnimationFactory implements
             frame = rotationAnimationInterface.getFrame();
         }
         int[][][] points = this.vectorExplosionGenerator.getInstance(
-                this.framePoints[frame], 6, vectorExplosionGenerator.ROTATION);
+                this.framePoints[frame], 6, this.vectorExplosionGenerator.ROTATION);
 
         return this.vectorAnimationFactoryInterface.getInstance(points, this.basicColor);
     }

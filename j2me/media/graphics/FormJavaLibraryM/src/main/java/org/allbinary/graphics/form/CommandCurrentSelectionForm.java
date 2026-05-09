@@ -80,19 +80,19 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         //TWB - Adjust gap between menu items rectangles
         int adjustedBorder = 3;
             
-        int offset = -(halfBorder + adjustedBorder);
+        int offset = -(this.halfBorder + adjustedBorder);
 
         if (J2MEUtil.isJ2ME())
         {
             this.selectedAnimationArray[index] = new RectangleAdjustedAnimation(
-                    width + border - adjustedBorder,
-                    height + border - adjustedBorder, 
+                    width + this.border - adjustedBorder,
+                    height + this.border - adjustedBorder, 
                     offset, offset, selectedButtonColor);
         } else
         {
             this.selectedAnimationArray[index] = new RectangleFilledAdjustedAnimation(
-                    width + border - adjustedBorder,
-                    height + border - adjustedBorder, 
+                    width + this.border - adjustedBorder,
+                    height + this.border - adjustedBorder, 
                     offset, offset, selectedButtonColor);
         }
 
@@ -102,14 +102,14 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         if (J2MEUtil.isJ2ME())
         {
             this.unSelectedAnimationArray[index] = new RectangleAdjustedAnimation(
-                    width + border - adjustedBorder,
-                    height + border - adjustedBorder, 
+                    width + this.border - adjustedBorder,
+                    height + this.border - adjustedBorder, 
                     offset, offset, buttonColor);
         } else
         {
             this.unSelectedAnimationArray[index] = new RectangleFilledAdjustedAnimation(
-                    width + border - adjustedBorder,
-                    height + border - adjustedBorder, 
+                    width + this.border - adjustedBorder,
+                    height + this.border - adjustedBorder, 
                     offset, offset, buttonColor);
         }
     }

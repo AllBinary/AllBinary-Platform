@@ -36,7 +36,7 @@ public class MineCountedPickedUpLayerInterfaceFactory
 
     public static void init() throws Exception
     {
-        pickedUpLayerInterfaceFactoryInterface = new MineCountedPickedUpLayerInterfaceFactory();
+        MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new MineCountedPickedUpLayerInterfaceFactory();
     }
 
     private MineCountedPickedUpLayerInterfaceFactory() throws Exception
