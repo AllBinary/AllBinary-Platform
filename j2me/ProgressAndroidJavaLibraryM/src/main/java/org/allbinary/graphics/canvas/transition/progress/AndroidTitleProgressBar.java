@@ -170,7 +170,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
@@ -188,7 +188,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
@@ -206,7 +206,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
@@ -223,7 +223,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
