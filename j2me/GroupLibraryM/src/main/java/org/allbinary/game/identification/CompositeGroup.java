@@ -50,7 +50,7 @@ public class CompositeGroup
         stringBuffer.append(TO_LABEL);
         stringBuffer.append(StringUtil.getInstance().toString(this.groupInterface));
         
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.ADD);
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.ADD);
         
         this.list.add(groupInterface);
     }

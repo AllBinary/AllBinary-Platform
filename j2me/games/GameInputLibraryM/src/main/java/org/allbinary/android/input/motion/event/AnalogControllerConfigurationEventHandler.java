@@ -74,7 +74,7 @@ public class AnalogControllerConfigurationEventHandler extends BasicEventHandler
             }
             catch (Exception e)
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 

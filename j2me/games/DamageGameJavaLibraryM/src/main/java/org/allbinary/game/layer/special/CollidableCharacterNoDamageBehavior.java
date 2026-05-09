@@ -55,6 +55,6 @@ extends CollidableDestroyableDamageableBehavior
         throws Exception
     {
         //this.logUtil.putF("collideInterface", this, damageUtil.COLLIDE);
-        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
 }

@@ -70,7 +70,7 @@ public class PlayerGameInput extends GameInput
    
    public synchronized void onDownKey(final Integer gameKeyEvent)
    {
-       PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_DOWN_GAME_KEY);
+       PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, this.gameInputStrings.ON_DOWN_GAME_KEY);
    }
    
    @Override

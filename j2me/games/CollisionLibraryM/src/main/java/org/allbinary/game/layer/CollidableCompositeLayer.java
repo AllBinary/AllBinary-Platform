@@ -61,7 +61,7 @@ implements CollidableInterfaceCompositeInterface
 
     public ArtificialIntelligenceInterface getArtificialIntelligenceInterface()
     {
-        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
         return ArtificialIntelligence.getInstance();
     }
     

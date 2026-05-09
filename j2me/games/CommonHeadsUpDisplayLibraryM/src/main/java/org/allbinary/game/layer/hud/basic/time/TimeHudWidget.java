@@ -80,7 +80,7 @@ public class TimeHudWidget extends BasicHud
 
     public void paint(Graphics graphics)
     {
-        super.paintDX(graphics, TIME_CHAR_ARRAY, 0, TIME_CHAR_ARRAY.length, string, 0, totalDigits, offset);
+        super.paintDX(graphics, TIME_CHAR_ARRAY, 0, TIME_CHAR_ARRAY.length, string, 0, totalDigits, this.offset);
         // super.paint(graphics, TIME_STRING, string, offset);
     }
 

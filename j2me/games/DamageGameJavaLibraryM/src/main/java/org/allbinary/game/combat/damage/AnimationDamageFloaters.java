@@ -104,7 +104,7 @@ public class AnimationDamageFloaters extends DamageFloaters
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             final CanvasStrings canvasStrings = CanvasStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
         }
     }
 }

@@ -109,7 +109,7 @@ public class PersistentInputMapping
         catch(Exception e)
         {
             //this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
-            PreLogUtil.putOE(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
             this.inputPersistance.deleteRecoreStore(abeClientInformation);
             //inputPersistance.deleteAll(abeClientInformation);
             this.setDefault(abeClientInformation);
