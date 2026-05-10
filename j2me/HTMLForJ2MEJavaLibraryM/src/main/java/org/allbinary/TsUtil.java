@@ -17,6 +17,7 @@ import javax.microedition.rms.InvalidRecordIDException;
 import javax.microedition.rms.RecordStore;
 import javax.microedition.rms.RecordStoreException;
 import javax.microedition.rms.RecordStoreNotOpenException;
+
 import org.allbinary.logic.NullUtil;
 
 /**
@@ -57,17 +58,5 @@ public class TsUtil {
         return data.length < 1 ? NullUtil.getInstance().NULL_BYTE_ARRAY : data;
 
     }
-    
-//    public void drawTextC(final Canvas g, final char[] text, final int index, final int count, final float x, final float y, final Paint paint) {
-//        g.drawText(text, index, count, x, y, paint);
-//    }
-//
-//    public  void drawText(final Canvas g, final String text, final float x, final float y, final Paint paint) {
-//        g.drawText(text, x, y, paint);
-//    }
-//
-//    public  void drawTextO(final Canvas g, final String text, final int start, final int end, final float x, final float y, final Paint paint) {
-//        g.drawText(text, start, end, x, y, paint);
-//    }
-    
+        
 }
