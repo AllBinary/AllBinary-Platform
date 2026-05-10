@@ -19,6 +19,7 @@ import org.allbinary.logic.NullUtil;
  *
  * @author User
  */
+//PlatformNullImageJavaLibrary
 public class PlatformImage {
 
     public Object getImage(final Object graphicsSurface2) {

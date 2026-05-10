@@ -25,15 +25,15 @@ public class MyCommandsFactory
         return MyCommandsFactory.instance;
     }
 
-    public final Command NO_COMMAND = new Command(StringUtil.getInstance().EMPTY_STRING, -1, -1);
+    public final Command NO_COMMAND = new Command(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, -1, -1);
     
-    public final Command GAUGE_CHANGE = new Command("GAUGE_CHANGE", Command.ITEM, 1);
+    public final Command GAUGE_CHANGE = new Command("GAUGE_CHANGE", StringUtil.getInstance().EMPTY_STRING, Command.ITEM, 1);
 
     // general commands
-    public final Command SET_DISPLAYABLE = new Command("Display", Command.SCREEN, 2);
+    public final Command SET_DISPLAYABLE = new Command("Display", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
 
-    public final Command PAUSE_COMMAND = new Command("Pause", Command.SCREEN, 0);
-    public final Command RESUME_COMMAND = new Command("Resume", Command.SCREEN, 0);
+    public final Command PAUSE_COMMAND = new Command("Pause", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 0);
+    public final Command RESUME_COMMAND = new Command("Resume", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 0);
 
     protected MyCommandsFactory()
     {

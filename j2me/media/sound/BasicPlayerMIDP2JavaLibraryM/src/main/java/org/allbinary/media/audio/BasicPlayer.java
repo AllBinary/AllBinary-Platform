@@ -23,6 +23,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
+//BasicPlayerMIDP2JavaLibrary
 public class BasicPlayer implements Player, TimeBaseInterface, Controllable2
 {
    public static String CONTROL_TYPE = "ToneControl";

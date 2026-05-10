@@ -33,9 +33,9 @@ public class LocalPlayerInputIdFactory {
 
     private LocalPlayerInputIdFactory() {
 
-        for(int index = deviceIdToplayerId.length - 1; index >= 0; index--)
+        for(int index = this.deviceIdToplayerId.length - 1; index >= 0; index--)
         {
-            deviceIdToplayerId[index] = -1;
+            this.deviceIdToplayerId[index] = -1;
         }
     }
 
@@ -86,7 +86,7 @@ public class LocalPlayerInputIdFactory {
 
         AnalogLocationInputFactory.getInstance().addPlayer(this.totalDevicesMapped);
 
-        totalDevicesMapped++;
+        this.totalDevicesMapped++;
 
         this.logUtil.putF(new StringMaker().append("Added DeviceId: ").appendint(deviceId).append(" at: ").appendint(index).append(" Total: ").appendint(this.totalDevicesMapped).toString(), this, "getPlayerForDevice");
         //At some point add Ouya and other special mapping here and return it instead of the internal mapping

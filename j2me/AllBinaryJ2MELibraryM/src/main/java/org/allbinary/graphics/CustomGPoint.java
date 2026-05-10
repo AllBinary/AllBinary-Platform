@@ -25,9 +25,9 @@ public class CustomGPoint extends GPoint
         return new CustomGPoint(x, y, 3);
     }
 
-    private int x;
-    private int y;
-    private int z;
+    private int cx;
+    private int cy;
+    private int cz;
 
     public CustomGPoint(int x, int y, int z)
     {
@@ -36,34 +36,34 @@ public class CustomGPoint extends GPoint
     
     public void setX(int x)
     {
-        this.x = x;
+        this.cx = x;
     }
 
     @Override
     public int getX()
     {
-        return this.x;
+        return this.cx;
     }
 
     public void setY(int y)
     {
-        this.y = y;
+        this.cy = y;
     }
 
     @Override
     public int getY()
     {
-        return this.y;
+        return this.cy;
     }
 
     public void setZ(int z)
     {
-        this.z = z;
+        this.cz = z;
     }
 
     @Override
     public int getZ()
     {
-        return this.z;
+        return this.cz;
     }
 }

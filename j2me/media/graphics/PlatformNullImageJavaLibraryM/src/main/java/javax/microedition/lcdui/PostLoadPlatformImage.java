@@ -17,6 +17,7 @@ package javax.microedition.lcdui;
  *
  * @author User
  */
+//PlatformNullImageJavaLibrary
 public class PostLoadPlatformImage extends PlatformImage {
 
     private static final PostLoadPlatformImage instance = new PostLoadPlatformImage();

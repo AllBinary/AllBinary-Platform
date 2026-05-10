@@ -36,6 +36,7 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 
+//GameInputPersistanceLibrary
 public class InputPersistance extends BasicPersitance
 {
     private final TsUtil tsUtil = TsUtil.getInstance();

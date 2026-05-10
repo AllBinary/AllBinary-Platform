@@ -6,7 +6,7 @@ public class ActivityFractureControllerUtilFactory
 {
     public static final AndroidKeyFactory getInstance()
     {
-        int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
+        final int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
         
         //VERSION_CODES.DONUT
         if(SDK_VERSION <= 8)

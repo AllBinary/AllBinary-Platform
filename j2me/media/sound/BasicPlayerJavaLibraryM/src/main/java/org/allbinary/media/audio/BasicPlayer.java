@@ -23,6 +23,7 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
+//BasicPlayerJavaLibrary
 public class BasicPlayer implements Player, Controllable2
 {
    protected final CommonStrings commonStrings = CommonStrings.getInstance();

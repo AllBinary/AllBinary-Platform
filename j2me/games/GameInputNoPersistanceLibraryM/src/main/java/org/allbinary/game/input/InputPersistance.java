@@ -29,6 +29,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 
+//GameInputNoPersistanceLibrary
 public class InputPersistance extends BasicPersitance
 {
     private final HashtableUtil hashtableUtil = HashtableUtil.getInstance();

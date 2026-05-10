@@ -15,8 +15,8 @@ package org.allbinary.game.input.mapping;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
-import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 
+import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputPersistance;
 import org.allbinary.game.input.mapping.event.InputMappingEvent;
@@ -30,6 +30,7 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.EnumerationUtil;
 
+//GameInputPersistanceLibrary
 public class PersistentInputMapping
 {
     public static final PersistentInputMapping NULL_PERSISTENT_INPUT_MAPPING = new PersistentInputMapping(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
