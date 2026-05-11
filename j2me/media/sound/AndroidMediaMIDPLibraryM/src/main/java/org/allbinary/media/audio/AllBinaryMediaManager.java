@@ -26,6 +26,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 
+//AndroidMediaMIDPLibrary
 public class AllBinaryMediaManager
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -64,7 +65,7 @@ public class AllBinaryMediaManager
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        logUtil.putF(commonString.START, THIS, commonString.INIT);
+        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, commonString.INIT);
 
         AllBinaryMediaManager.shutdown(soundsFactoryInterface);
 
@@ -74,7 +75,7 @@ public class AllBinaryMediaManager
 
         new Sounds(soundsFactoryInterface).init();
 
-        logUtil.putF(commonString.END, THIS, commonString.INIT);
+        logUtil.putF(commonString.END, AllBinaryMediaManager.THIS, commonString.INIT);
     }
 
     static void shutdown(final SoundsFactoryInterface soundsFactoryInterface)
@@ -82,7 +83,7 @@ public class AllBinaryMediaManager
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        logUtil.putF(commonString.START, THIS, "shutdown");
+        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, "shutdown");
 
         if (soundsFactoryInterface.isInitialized())
         {
@@ -131,7 +132,7 @@ public class AllBinaryMediaManager
             soundsFactoryInterface.setInitialized(false);
             AllBinaryMediaManager.mostUsedTotal = 0;
         }
-        logUtil.putF(commonString.START, THIS, "shutdown");
+        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, "shutdown");
     }
 
     public static Player createPlayer(String resource) throws Exception
@@ -160,7 +161,7 @@ public class AllBinaryMediaManager
 
     }
 
-    public static Player createPlayer(InputStream stream, String type)
+    public static Player createPlayerFromInputStream(InputStream stream, String type)
             throws IOException, MediaException
     {
         // TWB not in Android .9

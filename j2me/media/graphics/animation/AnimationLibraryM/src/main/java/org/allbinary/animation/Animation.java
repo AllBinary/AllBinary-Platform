@@ -36,7 +36,7 @@ OpenGLSurfaceChangedInterface
     protected int changeColorP;
     public int alphaP;
 
-    protected Animation()
+    public Animation()
     {
         //this.setBasicColorP(BasicColor.WHITE);
     }
