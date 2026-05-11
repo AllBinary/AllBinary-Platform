@@ -43,11 +43,11 @@ public class ResourceLoadingLevelFactory
     
     public String getLevelString(int level)
     {
-        for(int index = 0; index < RESOURCE_LOADING_LEVEL_ARRAY.length; index++)
+        for(int index = 0; index < this.RESOURCE_LOADING_LEVEL_ARRAY.length; index++)
         {
-            if(level == RESOURCE_LOADING_LEVEL_ARRAY[index].getLevel())
+            if(level == this.RESOURCE_LOADING_LEVEL_ARRAY[index].getLevel())
             {
-                return RESOURCE_LOADING_LEVEL_ARRAY[index].getName();
+                return this.RESOURCE_LOADING_LEVEL_ARRAY[index].getName();
             }
         }
         return Integer.toString(level);

@@ -17,6 +17,7 @@ import javax.microedition.media.Control;
 import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
 import javax.microedition.media.PlayerListener;
+import javax.microedition.media.TimeBase;
 import org.allbinary.logic.string.StringUtil;
 
 import org.allbinary.string.CommonStrings;
@@ -30,12 +31,13 @@ public class BasicPlayer implements Player, Controllable2
 
    public static String CONTROL_TYPE = "ToneControl";
    
-   private int state;
-
-   private int loopCount;
-   //private TimeBase timeBase;
-
    protected final BasicArrayList listenersList = new BasicArrayListD();
+   
+   //private TimeBase timeBase;
+   
+   protected int state;
+
+   protected int loopCount;
    
    public BasicPlayer()
    {

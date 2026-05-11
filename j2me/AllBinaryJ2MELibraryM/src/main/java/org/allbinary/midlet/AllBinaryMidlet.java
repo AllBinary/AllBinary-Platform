@@ -31,8 +31,8 @@ import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.NullCanvas;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.midlet.MIDletStateChangeException;
-import org.allbinary.logic.NullUtil;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -60,7 +60,7 @@ implements CommandListener
     private final String SETTING_NO_TITLE = "Setting: No Title, Display: ";
     
     private Hashtable hashtable = new Hashtable();
-    private boolean destroyed;
+    private boolean midletDestroyed;
 
     public AllBinaryMidlet()
     {
@@ -99,12 +99,12 @@ implements CommandListener
 
     public void setDestroyed(boolean destroyed)
     {
-        this.destroyed = destroyed;
+        this.midletDestroyed = destroyed;
     }
 
     public boolean isDestroyed()
     {
-        return this.destroyed;
+        return this.midletDestroyed;
     }
 
     @Override

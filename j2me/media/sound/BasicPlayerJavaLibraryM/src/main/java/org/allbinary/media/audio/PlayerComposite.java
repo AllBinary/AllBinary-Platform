@@ -201,11 +201,12 @@ public class PlayerComposite implements Controllable, Player
     @Override
     public Control[] getControls()
     {
-        return this.getControls();
+        throw new RuntimeException();
+        //return ;
     }
 
     public void setVolume(final int leftVolume, final int rightVolume) {
-        final Controllable2 controllable2 = ((Controllable2) this.player);
+        final Controllable2 controllable2 = ((Controllable2) /*TS as unknown*/ this.player);
         controllable2.setVolume(leftVolume, rightVolume);
     }
     

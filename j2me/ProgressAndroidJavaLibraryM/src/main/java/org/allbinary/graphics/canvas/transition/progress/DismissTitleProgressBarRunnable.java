@@ -39,7 +39,7 @@ public class DismissTitleProgressBarRunnable extends ProgressRunnable
     {
         try
         {
-            this.midletActivity.onDismissProgress(ZOOM_OUT_AND_IN);
+            this.midletActivity.onDismissProgress(this.ZOOM_OUT_AND_IN);
         }
         catch (Exception e)
         {

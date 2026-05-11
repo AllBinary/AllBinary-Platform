@@ -186,11 +186,13 @@ public class PlayerComposite implements Controllable, Player
 
     public Control[] getControls()
     {
-        return this.getControls();
+        throw new RuntimeException();
+        //return ;
     }
 
     public void setVolume(final int leftVolume, final int rightVolume) {
-        ((Controllable2) this.player).setVolume(leftVolume, rightVolume);
+        final Controllable2 controllable2 = ((Controllable2) /*TS as unknown*/ this.player);
+        controllable2.setVolume(leftVolume, rightVolume);
     }
     
     public Player getPlayerP()

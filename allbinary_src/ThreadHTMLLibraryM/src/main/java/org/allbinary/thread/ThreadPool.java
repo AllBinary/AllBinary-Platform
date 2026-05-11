@@ -125,7 +125,7 @@ public class ThreadPool
                 }
             }
             
-            if(lowerPriorityRunnable == this.threadObjectUtil.NULL_PRIORITY_RUNNABLE || lowerPriorityRunnable == this.NULL_RUNNABLE) {
+            if(lowerPriorityRunnable == this.threadObjectUtil.NULL_PRIORITY_RUNNABLE) {
                 this.taskQueue.add(task);
             } else {
                 //this.logUtil.putF(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);

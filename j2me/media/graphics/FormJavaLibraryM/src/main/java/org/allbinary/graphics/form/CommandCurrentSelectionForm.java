@@ -117,7 +117,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     public Command getSelectedCommand()
     {
         final int index = super.getSelectedIndex();
-        final CommandTextItem commandTextItem = (CommandTextItem) this.get(index);
+        final CommandTextItem commandTextItem = (CommandTextItem) /*TS as unknown*/ this.get(index);
         return commandTextItem.getCommand();
     }
 

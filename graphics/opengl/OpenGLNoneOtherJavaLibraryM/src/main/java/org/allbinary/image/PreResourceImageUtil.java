@@ -34,7 +34,7 @@ public class PreResourceImageUtil
         return image;
     }
 
-    public void update(GL gl, Image image)
+    public void updateGL(GL gl, Image image)
     {
     }
     

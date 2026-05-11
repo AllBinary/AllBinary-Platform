@@ -69,7 +69,7 @@ public class ChoiceGroupImageUtil
             final int size = imageArray.length;
             for(int index = 0; index < size; index++)
             {
-                preResourceImageUtil.update(gl, imageArray[index]);
+                preResourceImageUtil.updateGL(gl, imageArray[index]);
             }
         }
         

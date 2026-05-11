@@ -28,7 +28,7 @@ public class ImageFactory {
      * @return the instance
      */
     public static ImageFactory getInstance() {
-        return instance;
+        return ImageFactory.instance;
     }
     
     public Image createImageUrl(final String url) throws Exception
