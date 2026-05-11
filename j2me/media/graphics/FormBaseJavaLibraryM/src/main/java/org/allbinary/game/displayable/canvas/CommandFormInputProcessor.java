@@ -265,7 +265,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
     {
         return new StringMaker()
                 .append(super.toString())
-                .append(NAME_LABEL)
+                .append(this.NAME_LABEL)
                 .append(this.form.toString())
                 .toString();
     }

@@ -26,7 +26,7 @@ public class MediaPlayerUtil
         return MediaPlayerUtil.instance;
     }
     
-    public void wait(MediaPlayer mediaPlayer) throws Exception
+    public void waitForMediaPlayer(MediaPlayer mediaPlayer) throws Exception
     {
         final String MESSAGE = "Not Stopped Waiting";
         final String METHOD_NAME = "wait";

@@ -110,7 +110,7 @@ public class AllBinaryMediaManager
                             {
                                 androidMediaPlayerWrapper = (AndroidMediaPlayerWrapper) player2;
 
-                                MediaPlayerUtil.getInstance().wait(androidMediaPlayerWrapper.getMediaPlayer());
+                                MediaPlayerUtil.getInstance().waitForMediaPlayer(androidMediaPlayerWrapper.getMediaPlayer());
                             }
                             else
                             {

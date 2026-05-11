@@ -43,7 +43,7 @@ public class ImageCache extends ImageCacheBase
     public Image get(final String caller, final int width, final int height)
     throws Exception
     {        
-        int foundIndex = this.getIndex(width, height);
+        int foundIndex = this.getIndexWH(width, height);
         Image image = this.getFromAvailable(foundIndex, width, height);
 
         if (image == NullCanvas.NULL_IMAGE)
@@ -68,7 +68,7 @@ public class ImageCache extends ImageCacheBase
                 this.widths[this.nextIndex] = width;
                 this.heights[this.nextIndex] = height;
 
-                nextIndex++;
+                this.nextIndex++;
             }
 
             this.listOfList[foundIndex].add(image);

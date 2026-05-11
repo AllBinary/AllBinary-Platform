@@ -80,7 +80,7 @@ public class ImageCacheBase
         this.logUtil.putF(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll");
     }
 
-    protected int getIndex(final int width, final int height)
+    protected int getIndexWH(final int width, final int height)
     {
         int foundIndex = -1;
         

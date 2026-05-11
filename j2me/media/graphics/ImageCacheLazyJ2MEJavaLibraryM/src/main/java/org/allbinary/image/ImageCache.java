@@ -114,22 +114,7 @@ public class ImageCache extends ImageCacheBase {
     private class FirstProcessor extends Processor {
         
         public void process() {
-            final LogUtil logUtil = LogUtil.getInstance();
-            final boolean isHTML = J2MEUtil.isHTML();
-            //logUtil.putF(new StringMaker().append("isHTML: ").append(isHTML).toString(), this, this.commonStrings.RUN);
-            if (isHTML) {
-                processor = Processor.getInstance();
-                endProcessor = new HTMLEndProcessor();
-            } else {
-                //logUtil.putF("Setting processor", this, this.commonStrings.RUN);
-                processor = new NotHTMLProcessor();
-                endProcessor = new NotHTMLEndProcessor();
-                try {
-                    runTask();
-                } catch (Exception e) {
-                    logUtil.putF(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME);
-                }
-            }
+            ImageCache.this.firstProcess();
         }
 
     }
@@ -139,6 +124,25 @@ public class ImageCache extends ImageCacheBase {
     
     public ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
+    }
+
+    public void firstProcess() {
+        final LogUtil logUtil = LogUtil.getInstance();
+        final boolean isHTML = J2MEUtil.isHTML();
+        //logUtil.putF(new StringMaker().append("isHTML: ").append(isHTML).toString(), this, this.commonStrings.RUN);
+        if (isHTML) {
+            this.processor = Processor.getInstance();
+            this.endProcessor = new HTMLEndProcessor();
+        } else {
+            //logUtil.putF("Setting processor", this, this.commonStrings.RUN);
+            this.processor = new NotHTMLProcessor();
+            this.endProcessor = new NotHTMLEndProcessor();
+            try {
+                runTask();
+            } catch (Exception e) {
+                logUtil.putF(this.commonStrings.EXCEPTION, this, this.commonStrings.END_METHOD_NAME);
+            }
+        }
     }
 
     //AllBinaryRendererBase3
@@ -357,7 +361,7 @@ public class ImageCache extends ImageCacheBase {
 
     public Image get(final String caller, final int width, final int height)
         throws Exception {
-        int foundIndex = this.getIndex(width, height);
+        int foundIndex = this.getIndexWH(width, height);
         Image image = this.getFromAvailable(foundIndex, width, height);
 
         if (image == NullCanvas.NULL_IMAGE) {
@@ -380,7 +384,7 @@ public class ImageCache extends ImageCacheBase {
                     this.widths[this.nextIndex] = width;
                     this.heights[this.nextIndex] = height;
 
-                    nextIndex++;
+                    this.nextIndex++;
                 }
 
                 this.listOfList[foundIndex].add(image);

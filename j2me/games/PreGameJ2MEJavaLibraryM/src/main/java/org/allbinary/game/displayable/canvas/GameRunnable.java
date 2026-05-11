@@ -20,7 +20,7 @@ public class GameRunnable implements Runnable
 
     public final int WAIT = 240;
     public final int FAST = 60;
-    public long wait = (long) this.WAIT;
+    public long waitInMillis = (long) this.WAIT;
     
     public GameRunnable() {
         
@@ -35,6 +35,6 @@ public class GameRunnable implements Runnable
     public void processLoopSleep()
     throws Exception
     {
-        Thread.sleep(this.wait);
+        Thread.sleep(this.waitInMillis);
     }
 }
