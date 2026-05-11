@@ -148,8 +148,9 @@ public class ResourceUtil
         // AssetManager assetManager = resources.getAssets();
         // InputStream inputStream = assetManager.open(resourcePath);
         final Integer integer = (Integer) this.hashMap.get(resource);
-        int id = integer.intValue();
-        final InputStream inputStream = ((Resources) this.resources).openRawResource(id);
+        final int id = integer.intValue();
+        final Resources resources = ((Resources) this.resources);
+        final InputStream inputStream = resources.openRawResource(id);
 
         if (inputStream != null)
         {
