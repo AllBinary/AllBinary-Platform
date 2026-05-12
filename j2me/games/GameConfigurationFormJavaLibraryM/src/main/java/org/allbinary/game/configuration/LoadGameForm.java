@@ -16,6 +16,7 @@ package org.allbinary.game.configuration;
 import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Item;
 import javax.microedition.lcdui.NullCanvas;
 import javax.microedition.lcdui.StringItem;
 
@@ -71,7 +72,7 @@ public class LoadGameForm extends CommandForm
         }
         else
         {
-            this.append(new StringItem("No Saved Games", StringUtil.getInstance().EMPTY_STRING, StringItem.PLAIN));
+            this.append(new StringItem("No Saved Games", StringUtil.getInstance().EMPTY_STRING, Item.PLAIN));
             this.areChoices = false;
         }
 
