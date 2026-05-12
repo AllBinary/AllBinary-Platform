@@ -20,6 +20,7 @@ import javax.microedition.lcdui.Image;
  *
  * @author User
  */
+//ImageCacheBaseAndroidJavaLibrary
 public class ImageFactory {
 
     private static final ImageFactory instance = new ImageFactory();

@@ -23,6 +23,7 @@ import org.allbinary.game.configuration.persistance.GameDifficultyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class GameDifficultyOptions extends CommandForm
@@ -30,8 +31,8 @@ public class GameDifficultyOptions extends CommandForm
     
     private final BasicArrayList list;
 
-    public GameDifficultyOptions(CommandListener commandListener, String title, BasicArrayList list,
-            BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
+    public GameDifficultyOptions(final CommandListener commandListener, final String title, final BasicArrayList list,
+            final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor)
             throws Exception
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
@@ -64,16 +65,16 @@ public class GameDifficultyOptions extends CommandForm
     
     public void save() throws Exception
     {
-        GameDifficultyFactory gameDifficultyFactory =
+        final GameDifficultyFactory gameDifficultyFactory =
             GameDifficultyFactory.getInstance();
         
         gameDifficultyFactory.setLevel(this.getSelectedId());
     }
     
     @Override
-    public void initCommands(CommandListener cmdListener)
+    public void initCommands(final CommandListener cmdListener)
     {
-        GameCommandsFactory gameCommandsFactory = 
+        final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
         
         this.removeAllCommands();
@@ -92,9 +93,9 @@ public class GameDifficultyOptions extends CommandForm
         super.update();
     }
 
-    private void add(BasicArrayList list, String name, int option)
+    private void add(final BasicArrayList list, final String name, final int option)
     {
-        ChoiceGroup choiceGroup = this.getChoiceGroup(list, name, option);
+        final ChoiceGroup choiceGroup = this.getChoiceGroup(list, name, option);
 
         if (list.size() > 0)
         {
@@ -104,12 +105,12 @@ public class GameDifficultyOptions extends CommandForm
         this.append(choiceGroup);
     }
 
-    private ChoiceGroup getChoiceGroup(BasicArrayList list, String name, int option)
+    private ChoiceGroup getChoiceGroup(final BasicArrayList list, final String name, final int option)
     {
         final String METHOD_NAME = "addChoiceGroup";
         final String NAME = "Adding Choice: ";
 
-        ChoiceGroup choiceGroup = new ChoiceGroup(name, option);
+        final ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullCanvas.NULL_IMAGE_ARRAY);
 
         int size = list.size();
         for (int index = 0; index < size; index++)
@@ -123,15 +124,15 @@ public class GameDifficultyOptions extends CommandForm
         return choiceGroup;
     }
 
-    public void setSelectedId(int id)
+    public void setSelectedId(final int id)
     {
-        ChoiceGroup choiceGroup = (ChoiceGroup) this.get(0);
+        final ChoiceGroup choiceGroup = (ChoiceGroup) this.get(0);
         choiceGroup.setSelectedIndex(id, true);
     }
     
     public int getSelectedId()
     {
-        ChoiceGroup choiceGroup = (ChoiceGroup) this.get(0);
+        final ChoiceGroup choiceGroup = (ChoiceGroup) this.get(0);
         return choiceGroup.getSelectedIndex();
     }
 

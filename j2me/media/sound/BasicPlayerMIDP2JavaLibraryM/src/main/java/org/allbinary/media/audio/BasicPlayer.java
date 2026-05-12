@@ -33,9 +33,9 @@ public class BasicPlayer implements Player, TimeBaseInterface, Controllable2
    
    private TimeBase timeBase;
    
-   protected int state;
+   protected int stateP;
 
-   protected int loopCount;
+   protected int loopCountP;
 
    public BasicPlayer()
    {
@@ -76,12 +76,12 @@ public class BasicPlayer implements Player, TimeBaseInterface, Controllable2
 
    public int getState()
    {
-      return this.state;
+      return this.stateP;
    }
 
    public synchronized void setState(int state)
    {
-      this.state = state;
+      this.stateP = state;
    }
 
    public long getDuration()
@@ -118,12 +118,12 @@ public class BasicPlayer implements Player, TimeBaseInterface, Controllable2
       
    public synchronized void setLoopCount(int count)
    {
-      this.loopCount = count;
+      this.loopCountP = count;
    }
    
    protected int getLoopCount()
    {
-      return this.loopCount;
+      return this.loopCountP;
    }
 
    public synchronized long setMediaTime(long now) throws MediaException

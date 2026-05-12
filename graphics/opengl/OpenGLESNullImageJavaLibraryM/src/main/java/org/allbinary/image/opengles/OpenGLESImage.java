@@ -25,6 +25,7 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
+//OpenGLESNullImageJavaLibrary
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
 {

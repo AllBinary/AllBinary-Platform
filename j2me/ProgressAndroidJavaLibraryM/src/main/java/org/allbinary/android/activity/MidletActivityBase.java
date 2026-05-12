@@ -16,7 +16,6 @@ package org.allbinary.android.activity;
 import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 
 import org.allbinary.android.GenericMotionEventVerifyInterface;
 import org.allbinary.game.configuration.event.GameFeatureEvent;
@@ -76,11 +75,6 @@ public class MidletActivityBase extends Activity
         throw new RuntimeException();
     }
     
-    @Override
-    public WindowManager getWindowManager() {
-        throw new RuntimeException();
-    }
-
     @Override
     public void setKeyInputView(View keyInputView) {
         

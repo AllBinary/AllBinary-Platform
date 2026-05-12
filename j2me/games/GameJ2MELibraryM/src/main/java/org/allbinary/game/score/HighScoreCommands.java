@@ -14,6 +14,7 @@
 package org.allbinary.game.score;
 
 import javax.microedition.lcdui.Command;
+import org.allbinary.logic.string.StringUtil;
 
 public class HighScoreCommands
 {
@@ -27,8 +28,8 @@ public class HighScoreCommands
         return HighScoreCommands.instance;
     }
 
-    public final Command DISPLAY = new Command("Scores", Command.SCREEN, 1);
+    public final Command DISPLAY = new Command("Scores", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
 
-    public final Command PERSONAL = new Command("Personal", Command.SCREEN, 1);
-    public final Command WORLD = new Command("World", Command.SCREEN, 1);
+    public final Command PERSONAL = new Command("Personal", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    public final Command WORLD = new Command("World", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
 }

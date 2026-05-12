@@ -39,10 +39,10 @@ public class LicenseRegistrationTextBox
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     public static final Command DISPLAY_COMMAND = 
-        new Command("Register", Command.SCREEN, 3);
+        new Command("Register", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 3);
     
     public static final Command SUBMIT_COMMAND = 
-        new Command("Submit", Command.SCREEN, 3);
+        new Command("Submit", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 3);
 
     private final Paintable pleaseWaitPaintable = new SimpleTextPaintable(
             commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);

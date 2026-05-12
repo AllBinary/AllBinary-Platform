@@ -33,6 +33,7 @@ import org.allbinary.game.paint.help.HelpPaintable;
 import org.allbinary.game.paint.help.InputMappingHelpPaintable;
 import org.allbinary.graphics.paint.ProcessPaintable;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 
@@ -45,8 +46,8 @@ implements InputMappingInterface
     public static final String NAME = "GameInputMappingCanvas";
     
     //Input Mapping
-    public static final Command DISPLAY  = new Command("Controls", Command.SCREEN, 2);
-    public static final Command DEFAULT  = new Command("Default", Command.SCREEN, 2);
+    public static final Command DISPLAY  = new Command("Controls", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 2);
+    public static final Command DEFAULT  = new Command("Default", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 2);
     
     private final InputMappingHelpPaintable helpPaintable;
     

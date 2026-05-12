@@ -14,12 +14,14 @@
 package org.allbinary.image;
 
 import java.io.InputStream;
+
 import javax.microedition.lcdui.Image;
 
 /**
  *
  * @author User
  */
+//ImageCacheBaseJavaLibrary - J2ME
 public class ImageFactory {
 
     private static final ImageFactory instance = new ImageFactory();

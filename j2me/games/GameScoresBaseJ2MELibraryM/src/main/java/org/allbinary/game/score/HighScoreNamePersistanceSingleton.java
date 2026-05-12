@@ -21,6 +21,7 @@ import java.io.DataOutputStream;
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 import javax.microedition.rms.RecordStoreException;
+import org.allbinary.TsUtil;
 
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.configuration.persistance.NullRecordComparator;
@@ -40,7 +41,6 @@ import org.allbinary.util.BasicArrayListD;
 
 public class HighScoreNamePersistanceSingleton
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static HighScoreNamePersistanceSingleton SINGLETON = new HighScoreNamePersistanceSingleton();
 
@@ -49,6 +49,10 @@ public class HighScoreNamePersistanceSingleton
         return HighScoreNamePersistanceSingleton.SINGLETON;
     }
 
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    private final TsUtil tsUtil = TsUtil.getInstance();
+        
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
     
@@ -133,7 +137,7 @@ public class HighScoreNamePersistanceSingleton
 
                     this.logUtil.putF(new StringMaker().append(LOADING_ID).appendint(id).toString(), this, this.commonStrings.LOAD);
 
-                    recordAsBytes = recordStore.getRecord(id);
+                    recordAsBytes = this.tsUtil.getRecord(recordStore, id);
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
                     inputStream = new DataInputStream(byteArrayInputStream);
 

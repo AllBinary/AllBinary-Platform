@@ -36,7 +36,7 @@ public class EnumerationUtil {
     }
 
     public Object nextElement(final Enumeration enumeration) {
-        return enumeration.hasMoreElements();
+        return enumeration.nextElement();
     }
 
 }

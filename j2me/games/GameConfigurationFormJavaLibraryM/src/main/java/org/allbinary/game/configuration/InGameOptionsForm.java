@@ -22,14 +22,14 @@ import org.allbinary.game.configuration.feature.GameFeatureFormUtil;
 import org.allbinary.game.configuration.feature.InGameFeatureChoiceGroups;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class InGameOptionsForm extends CommandForm
 {
 
-    public static final Command DISPLAY  = new Command("Options In Game", Command.SCREEN, 1);
-    public static final Command SAVE  = new Command("Save", Command.SCREEN, 1);
-    public static final Command DEFAULT  = new Command("Default", Command.SCREEN, 1);
+    public static final Command DISPLAY  = new Command("Options In Game", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 1);
+    public static final Command SAVE  = new Command("Save", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 1);
+    public static final Command DEFAULT  = new Command("Default", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 1);
     
     InGameOptionsForm(CommandListener commandListener, String title,
             BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)

@@ -17,7 +17,6 @@ import javax.microedition.media.Control;
 import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
 import javax.microedition.media.PlayerListener;
-import javax.microedition.media.TimeBase;
 import org.allbinary.logic.string.StringUtil;
 
 import org.allbinary.string.CommonStrings;
@@ -35,9 +34,9 @@ public class BasicPlayer implements Player, Controllable2
    
    //private TimeBase timeBase;
    
-   protected int state;
+   protected int stateP;
 
-   protected int loopCount;
+   protected int loopCountP;
    
    public BasicPlayer()
    {
@@ -85,12 +84,12 @@ public class BasicPlayer implements Player, Controllable2
    @Override
    public int getState()
    {
-      return this.state;
+      return this.stateP;
    }
 
    public synchronized void setState(int state)
    {
-      this.state = state;
+      this.stateP = state;
    }
 
    @Override
@@ -135,12 +134,12 @@ public class BasicPlayer implements Player, Controllable2
    @Override
    public synchronized void setLoopCount(int count)
    {
-      this.loopCount = count;
+      this.loopCountP = count;
    }
 
    protected int getLoopCount()
    {
-      return this.loopCount;
+      return this.loopCountP;
    }
 
    @Override

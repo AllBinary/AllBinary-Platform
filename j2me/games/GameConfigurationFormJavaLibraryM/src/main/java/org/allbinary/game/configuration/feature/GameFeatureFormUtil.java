@@ -24,6 +24,7 @@ import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 
@@ -42,7 +43,7 @@ public class GameFeatureFormUtil
     {
         final StringMaker stringMaker = new StringMaker();
         
-        final ChoiceGroup choiceGroup = new ChoiceGroup(name, option);
+        final ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullCanvas.NULL_IMAGE_ARRAY);
 
         final BasicArrayList list = (BasicArrayList) hashtable.get((Object) name);
 

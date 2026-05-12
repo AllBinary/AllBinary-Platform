@@ -24,14 +24,13 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.draw.DrawStringUtil;
 import org.allbinary.graphics.font.MyFont;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 
 public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
 {
 
-    public static final Command DISPLAY  = new Command("Help", Command.SCREEN, 1);
-    public static final Command CLOSE  = new Command("Close", Command.SCREEN, 1);
+    public static final Command DISPLAY  = new Command("Help", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    public static final Command CLOSE  = new Command("Close", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
 
     public static final String NAME = "GameInputMappingInstructionsCanvas";
     

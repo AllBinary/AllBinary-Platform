@@ -32,8 +32,8 @@ public class LoadGameForm extends CommandForm
 
     private boolean areChoices;
     
-    public LoadGameForm(CommandListener commandListener, String title,
-            BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
+    public LoadGameForm(final CommandListener commandListener, final String title,
+            final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor)
             throws Exception
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
@@ -46,9 +46,9 @@ public class LoadGameForm extends CommandForm
     }
 
     @Override
-    public void initCommands(CommandListener cmdListener)
+    public void initCommands(final CommandListener cmdListener)
     {
-        GameCommandsFactory gameCommandsFactory = 
+        final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
         
         this.removeAllCommands();
@@ -62,7 +62,7 @@ public class LoadGameForm extends CommandForm
     @Override
     public void update() throws Exception
     {
-        BasicArrayList list = GamePersistanceSingleton.getInstance().getIds();
+        final BasicArrayList list = GamePersistanceSingleton.getInstance().getIds();
         this.deleteAll();
         if (list.size() > 0)
         {
@@ -71,14 +71,14 @@ public class LoadGameForm extends CommandForm
         }
         else
         {
-            this.append(new StringItem("No Saved Games", StringUtil.getInstance().EMPTY_STRING));
+            this.append(new StringItem("No Saved Games", StringUtil.getInstance().EMPTY_STRING, StringItem.PLAIN));
             this.areChoices = false;
         }
 
         super.update();
     }
 
-    private void add(BasicArrayList list, String name, int option)
+    private void add(final BasicArrayList list, final String name, final int option)
     {
         ChoiceGroup choiceGroup = this.getChoiceGroup(list, name, option);
 
@@ -90,17 +90,18 @@ public class LoadGameForm extends CommandForm
         this.append(choiceGroup);
     }
 
-    private ChoiceGroup getChoiceGroup(BasicArrayList list, String name, int option)
+    private ChoiceGroup getChoiceGroup(final BasicArrayList list, final String name, final int option)
     {
         final String METHOD_NAME = "getChoiceGroup";
+        final String ADDING_CHOICE = "Adding Choice: ";
         
-        ChoiceGroup choiceGroup = new ChoiceGroup(name, option);
+        final ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullCanvas.NULL_IMAGE_ARRAY);
 
-        int size = list.size();
+        final int size = list.size();
         for (int index = 0; index < size; index++)
         {
             Object object = list.objectArray[index];
-            this.logUtil.putF(new StringMaker().append("Adding Choice: ").append(object.toString()).toString(), this, METHOD_NAME);
+            this.logUtil.putF(new StringMaker().append(ADDING_CHOICE).append(object.toString()).toString(), this, METHOD_NAME);
 
             choiceGroup.append(object.toString(), NullCanvas.NULL_IMAGE);
         }
@@ -111,7 +112,7 @@ public class LoadGameForm extends CommandForm
     {
         if (this.areChoices)
         {
-            ChoiceGroup choiceGroup = (ChoiceGroup) this.get(0);
+            final ChoiceGroup choiceGroup = (ChoiceGroup) this.get(0);
             return choiceGroup.getSelectedIndex();
         }
         else

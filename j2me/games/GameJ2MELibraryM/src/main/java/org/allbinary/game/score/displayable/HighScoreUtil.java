@@ -37,7 +37,7 @@ public class HighScoreUtil implements HighScoresResultsListener
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     public static final Command SUBMIT_TEXTBOX_COMMAND = 
-        new Command("Submit", Command.SCREEN, 1);
+        new Command("Submit", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
 
     private final HighScoresFactoryInterface highScoresFactoryInterface;
     private HighScores[] highScoresArray;

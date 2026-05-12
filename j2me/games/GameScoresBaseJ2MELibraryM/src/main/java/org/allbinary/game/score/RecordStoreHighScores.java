@@ -24,6 +24,7 @@ import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 import javax.microedition.rms.RecordStoreException;
 import javax.microedition.rms.RecordStoreNotFoundException;
+import org.allbinary.TsUtil;
 
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.configuration.persistance.NullRecordComparator;
@@ -41,12 +42,15 @@ import org.allbinary.util.BasicArrayListD;
 
 public class RecordStoreHighScores extends HighScores
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final Hashtable hashTable = new Hashtable();
 
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
+    
+    private final TsUtil tsUtil = TsUtil.getInstance();
     
     //_HighScores
     private final String RECORD_ID = "_HS";
@@ -170,7 +174,7 @@ public class RecordStoreHighScores extends HighScores
             {
                 final int id = recordEnum.nextRecordId();
 
-                recordAsBytes = recordStore.getRecord(id);
+                recordAsBytes = this.tsUtil.getRecord(recordStore, id);
                 if(recordAsBytes != null) {
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
                     inputStream = new DataInputStream(byteArrayInputStream);
@@ -237,7 +241,7 @@ public class RecordStoreHighScores extends HighScores
                 final int id = recordEnum.nextRecordId();
                 //this.logUtil.putF("id: " + id, this, this.commonStrings.LOAD);
 
-                recordAsBytes = recordStore.getRecord(id);
+                recordAsBytes = this.tsUtil.getRecord(recordStore, id);
                 
                 //this.logUtil.putF("recordAsBytes: " + recordAsBytes, this, this.commonStrings.LOAD);
                 
