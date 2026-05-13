@@ -34,7 +34,7 @@ extends SimpleWeaponLayer
     {
     	if(this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
     	{
-			this.getCollidableInferface().collide(this);
+			this.getCollidableInferface().collide(this, this);
 			this.totalDamage = this.getInitDamage() + 1;
 			
 			//PreLogUtil.put("Self Destructing", this, GameStrings.getInstance().PROCESS_TICK);

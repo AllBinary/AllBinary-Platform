@@ -16,6 +16,7 @@ package org.allbinary.game.layer;
 import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.collision.CollidableBaseBehavior;
+import org.allbinary.game.collision.CollidableBaseBehaviorFactory;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
 import org.allbinary.graphics.Rectangle;
@@ -46,16 +47,16 @@ implements CollidableInterfaceCompositeInterface
     
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
+    private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance().create();
 
     public CollidableCompositeLayer(
             final String name, final Rectangle layerInfo, final ViewPosition viewPosition,
-            final CollidableBaseBehavior collidableInferface)
+            final CollidableBaseBehaviorFactory collidableBaseBehaviorFactory)
     {
         super(name, layerInfo, viewPosition);
 
-        if(collidableInferface != CollidableNeverCollideBehaviorFactory.getInstance()) {
-            this.setCollidableInferface(collidableInferface);
+        if(collidableBaseBehaviorFactory != CollidableNeverCollideBehaviorFactory.getInstance()) {
+            this.setCollidableInferface(collidableBaseBehaviorFactory.create());
         }
     }
 

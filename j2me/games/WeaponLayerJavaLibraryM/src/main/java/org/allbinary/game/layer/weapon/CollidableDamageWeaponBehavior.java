@@ -33,9 +33,9 @@ extends CollidableDestroyableDamageableBehavior
     private boolean collided;
     protected CollisionHelper collisionHelper;
     
-    public CollidableDamageWeaponBehavior(CollidableCompositeLayer ownerLayer, boolean collidable)
+    public CollidableDamageWeaponBehavior(boolean collidable)
     {
-        super(ownerLayer, collidable);
+        super(collidable);
         
         this.setCollided(false);
         this.setCollidable(true);
@@ -52,14 +52,14 @@ extends CollidableDestroyableDamageableBehavior
 
     // TODO TWB Special Super Efficient Collision Processing
     @Override
-    public boolean isCollision(CollidableCompositeLayer collisionLayer)
+    public boolean isCollision(final CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer)
     {
        if (this.collisionHelper.isCollidable(collisionLayer))
        {
-          if (this.ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0])
+          if (ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0])
           {
               //this.logUtil.putF("isCollision: " + this.getGroupInterface().getGroupName() + "==" + collisionLayer.getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
-              return super.isCollision(collisionLayer);
+              return super.isCollision(ownerLayer, collisionLayer);
           }
        }
        return false;
@@ -67,27 +67,27 @@ extends CollidableDestroyableDamageableBehavior
 
     // TODO TWB Special Super Efficient Collision Processing
     @Override
-    public void collide(CollidableCompositeLayer collisionLayer)
+    public void collide(final CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer)
             throws Exception
     {
        //this.logUtil.putF(this.getName() + " collided with " + collisionLayer.getName(), this, damageUtil.COLLIDE);
-       super.collide(collisionLayer);
+       super.collide(ownerLayer, collisionLayer);
        this.collided = true;
     }
 
     private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
     
     @Override
-    public boolean isCollisionInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public boolean isCollisionInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        if (this.collisionHelper.isCollidable((CollidableCompositeLayer) collidableInterfaceCompositeInterface))
        {
           final AllBinaryLayer layerInterface = (AllBinaryLayer) collidableInterfaceCompositeInterface;
 
           //this.logUtil.putF("isCollision: " + this.getGroupInterface().getGroupName() + "==" + layerInterface.getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
-          if (this.ownerLayer.getGroupInterface()[0] != layerInterface.getGroupInterface()[0])
+          if (ownerLayer.getGroupInterface()[0] != layerInterface.getGroupInterface()[0])
           {
-             if (this.layerCollisionUtil.isCollision(this.ownerLayer, layerInterface))
+             if (this.layerCollisionUtil.isCollision(ownerLayer, layerInterface))
              {
                 return true;
              }
@@ -97,12 +97,12 @@ extends CollidableDestroyableDamageableBehavior
     }
 
     @Override
-    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
        //this.logUtil.putF(this.commonStrings.START, this, damageUtil.COLLIDE);
        // if (collidableInterfaceCompositeInterface was instance of DamageableInterface) {
-       this.damageUtil.process((DamageableInterface) this.ownerLayer, (DamageableInterface) collidableInterfaceCompositeInterface);
+       this.damageUtil.process((DamageableInterface) ownerLayer, (DamageableInterface) collidableInterfaceCompositeInterface);
        this.collided = true;
     // }
     }

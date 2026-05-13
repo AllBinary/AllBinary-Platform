@@ -25,18 +25,18 @@ extends CollidableBaseBehavior
 
     protected final DamageUtil damageUtil = DamageUtil.getInstance();
     
-    public CollidableDestroyableDamageableBehavior(final CollidableCompositeLayer ownerLayer, final boolean collidable)
+    public CollidableDestroyableDamageableBehavior(final boolean collidable)
     {
-        super(ownerLayer, collidable);
+        super(collidable);
     }
     
     // TODO TWB Special Super Efficient Collision Processing
     @Override
-    public boolean isCollision(final CollidableCompositeLayer collisionLayer)
+    public boolean isCollision(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collisionLayer)
     {
-        if (this.ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0])
+        if (ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0])
         {
-            return super.isCollision(collisionLayer);
+            return super.isCollision(ownerLayer, collisionLayer);
         }
         return false;
     }
@@ -44,16 +44,16 @@ extends CollidableBaseBehavior
     // TODO TWB Special Super Efficient Collision Processing
     //public void collide(CollidableDestroyableDamageableTeamLayer collisionLayer)
     @Override
-    public void collide(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
+    public void collide(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collidableInterfaceCompositeInterface)
             throws Exception
     {
-        final CollidableDestroyableDamageableLayer ownerCollidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) this.ownerLayer;
+        final CollidableDestroyableDamageableLayer ownerCollidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) ownerLayer;
         final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) collidableInterfaceCompositeInterface;
         ownerCollidableDestroyableDamageableLayer.damage(collidableDestroyableDamageableLayer.getDamage(0), 0);
     }
 
     @Override
-    public boolean isCollisionInterface(final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public boolean isCollisionInterface(final CollidableCompositeLayer ownerLayer, final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
         ForcedLogUtil.log("No Longer Used", this);
         return false;
@@ -75,7 +75,7 @@ extends CollidableBaseBehavior
     }
     
     @Override
-    public void collideInterface(final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(final CollidableCompositeLayer ownerLayer, final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
         ForcedLogUtil.log("No Longer Used", this);

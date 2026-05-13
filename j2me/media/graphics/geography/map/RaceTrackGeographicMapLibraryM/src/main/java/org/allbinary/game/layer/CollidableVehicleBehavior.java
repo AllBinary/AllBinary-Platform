@@ -28,13 +28,13 @@ extends CollidableDestroyableDamageableBehavior
 
     protected long totalImpactVelocity = 0;
     
-    public CollidableVehicleBehavior(final CollidableCompositeLayer ownerLayer, final boolean collidable)
+    public CollidableVehicleBehavior(final boolean collidable)
     {
-        super(ownerLayer, collidable);
+        super(collidable);
     }
 
     @Override
-    public void collide(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
+    public void collide(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collidableInterfaceCompositeInterface)
     throws Exception
     {
         //Don't process non-weapon pickups if dead - Should even collisions occur if dead.
@@ -42,25 +42,25 @@ extends CollidableDestroyableDamageableBehavior
         //if (this.getHealthInterface().isAlive())
 
         final CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();
-        final CollisionType collisionType = collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
+        final CollisionType collisionType = collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(ownerLayer);
 
         if (collisionType == collisionTypeFactory.PICKUP)
         {
-            final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) this.ownerLayer);
+            final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) ownerLayer);
             collidableDestroyableDamageableLayer.getPickupBehavior().doPickupLayer((PickedUpLayerInterface) collidableInterfaceCompositeInterface);
         }
         else if (collisionType == collisionTypeFactory.COLLISION)
         {
-            super.collide(collidableInterfaceCompositeInterface);
+            super.collide(ownerLayer, collidableInterfaceCompositeInterface);
         }
         else
         {
-            this.collideVehicle((VehiclePropertiesCompositeInterface) collidableInterfaceCompositeInterface);
+            this.collideVehicle(ownerLayer, (VehiclePropertiesCompositeInterface) collidableInterfaceCompositeInterface);
         }
     }
 
     @Override
-    public void collideInterface(final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(final CollidableCompositeLayer ownerLayer, final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
         ForcedLogUtil.log("Don't Use Interface Version It Is Slower", this);
         //this.collide((VehicleLayer) collidableInterfaceCompositeInterface);
@@ -69,10 +69,10 @@ extends CollidableDestroyableDamageableBehavior
     private long halfImpactVelocityX;
     private long halfImpactVelocityY;
 
-    protected void collideVehicle(final VehiclePropertiesCompositeInterface vehiclePropertiesCompositeInterface)
+    protected void collideVehicle(final CollidableCompositeLayer ownerLayer, final VehiclePropertiesCompositeInterface vehiclePropertiesCompositeInterface)
     {
         final VehiclePropertiesCompositeInterface ownerVehicleLayerInterface = 
-            ((VehiclePropertiesCompositeInterface) this.ownerLayer);
+            ((VehiclePropertiesCompositeInterface) ownerLayer);
         
         final VehicleProperties ownerVehicleProperties = ownerVehicleLayerInterface.getVehicleProperties();
         final VehicleProperties vehicleProperties = vehiclePropertiesCompositeInterface.getVehicleProperties();

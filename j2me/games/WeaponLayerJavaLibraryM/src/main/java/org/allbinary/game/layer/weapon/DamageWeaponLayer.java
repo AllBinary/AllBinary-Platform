@@ -50,6 +50,6 @@ public class DamageWeaponLayer extends WeaponLayer
     {
         super(name, remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
         
-        this.setCollidableInferface(new CollidableDamageWeaponBehavior(this, true));
+        this.setCollidableInferface(new CollidableDamageWeaponBehavior(true));
     }
 }

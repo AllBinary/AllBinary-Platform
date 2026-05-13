@@ -38,24 +38,24 @@ extends CollidableRTSBehavior
 
     private final LayerPartialCellPositionsUtil layerPartialCellPositionsUtil = LayerPartialCellPositionsUtil.getInstance();
 
-    public CollidableUnitBehavior(final CollidableCompositeLayer ownerLayer, final boolean collidable)
+    public CollidableUnitBehavior(final boolean collidable)
     {
-        super(ownerLayer, collidable);
+        super(collidable);
     }
     
     //Collision with RTSLayers or other none damage game objects
     @Override
-    protected void collideNone(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
+    protected void collideNone(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collidableInterfaceCompositeInterface)
         throws Exception
     {
         //this.logUtil.putF(CommonLabels.getInstance().START + collidableInterface.getName(), this, "collideNone");
         
-        this.chase(collidableInterfaceCompositeInterface);        
+        this.chase(ownerLayer, collidableInterfaceCompositeInterface);        
         
         final AdvancedRTSGameLayer rtsLayer = (AdvancedRTSGameLayer) collidableInterfaceCompositeInterface;
         if (rtsLayer.getType() == UnitLayer.getStaticType())
         {
-            this.collideUnit((UnitLayer) rtsLayer);
+            this.collideUnit(ownerLayer, (UnitLayer) rtsLayer);
         }
     }
 
@@ -67,6 +67,7 @@ extends CollidableRTSBehavior
             final LogUtil logUtil = LogUtil.getInstance();
             try
             {
+                final CollidableCompositeLayer ownerLayer = (CollidableCompositeLayer) object;
                 if (this.getList().size() > 0)
                 {
                     ///logUtil.putF("steering", this, "visit");
@@ -74,7 +75,7 @@ extends CollidableRTSBehavior
                     final CollidableCompositeLayer allbinaryLayer = 
                         (CollidableCompositeLayer) this.getList().get(0);
                     
-                    boolean clear = CollidableUnitBehavior.this.steer(allbinaryLayer);
+                    boolean clear = CollidableUnitBehavior.this.steer(ownerLayer, allbinaryLayer);
 
                     if (clear)
                     {
@@ -95,15 +96,14 @@ extends CollidableRTSBehavior
         }
 
     }
-    private final SimpleSteeringVisitor simpleSteeringVisitor = 
-        new SimpleSteeringVisitor();
+    private final SimpleSteeringVisitor simpleSteeringVisitor = new SimpleSteeringVisitor();
     
-    private boolean steer(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
+    private boolean steer(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collidableInterfaceCompositeInterface)
     throws Exception
     {        
         //this.logUtil.putF("Unit: " + collidableInterface.getName(), this, "chase");
     
-        final UnitLayer ownerUnitLayer = (UnitLayer) this.ownerLayer;
+        final UnitLayer ownerUnitLayer = (UnitLayer) ownerLayer;
         
         final UnitLayer unitLayer = (UnitLayer) collidableInterfaceCompositeInterface;
     
@@ -130,7 +130,7 @@ extends CollidableRTSBehavior
     
     //Stops the normal turning for paths and target and changes to chase mode
     //This allows units to go around other units that it collides with
-    private void chase(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
+    private void chase(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collidableInterfaceCompositeInterface)
     throws Exception
     {
         //this.logUtil.putF(CommonLabels.getInstance().START + collidableInterface.getName(), this, "chase");
@@ -143,7 +143,7 @@ extends CollidableRTSBehavior
                 this.simpleSteeringVisitor.getList().add(collidableInterfaceCompositeInterface);
             }
 
-            final UnitLayer ownerUnitLayer = (UnitLayer) this.ownerLayer;
+            final UnitLayer ownerUnitLayer = (UnitLayer) ownerLayer;
             final BasicArrayList list = ownerUnitLayer.getUnitWaypointBehavior().getSteeringVisitorList();
             
             if(!list.contains(this.simpleSteeringVisitor))
@@ -161,9 +161,9 @@ extends CollidableRTSBehavior
         */
     }
     
-    protected void collideUnit(final UnitLayer unitLayer) throws Exception
+    protected void collideUnit(final CollidableCompositeLayer ownerLayer, final UnitLayer unitLayer) throws Exception
     {
-        final UnitLayer ownerUnitLayer = (UnitLayer) this.ownerLayer;
+        final UnitLayer ownerUnitLayer = (UnitLayer) ownerLayer;
 
         final BasicArrayList partialPositionList = UnitLayer.getPartialpositionlist();
         
@@ -188,23 +188,23 @@ extends CollidableRTSBehavior
         final TiledLayerUtil tiledLayerUtil = TiledLayerUtil.getInstance();
         final AllBinaryTiledLayer tiledLayer = basicGeographicMap.getAllBinaryTiledLayer();
 
-        if (this.ownerLayer.getXP() < unitLayer.getXP() &&
-            this.ownerLayer.getX2() > unitLayer.getXP())
+        if (ownerLayer.getXP() < unitLayer.getXP() &&
+            ownerLayer.getX2() > unitLayer.getXP())
         {
-            final int diff = this.ownerLayer.getWidth() + 1;
+            final int diff = ownerLayer.getWidth() + 1;
 
             this.layerPartialCellPositionsUtil.getAllDXY(
-                    basicGeographicMap, this.ownerLayer, -diff, 0, partialPositionList);
+                    basicGeographicMap, ownerLayer, -diff, 0, partialPositionList);
             
             if (!dropCellPositionHistory.anyCellPositionWithDrop(partialPositionList))
             {
                 int x = unitLayer.getXP() - diff;
-                int y = this.ownerLayer.getYP();
+                int y = ownerLayer.getYP();
 
-                x = tiledLayerUtil.keepOnMapX(tiledLayer, x, this.ownerLayer.getWidth());
-                y = tiledLayerUtil.keepOnMapY(tiledLayer, y, this.ownerLayer.getHeight());
+                x = tiledLayerUtil.keepOnMapX(tiledLayer, x, ownerLayer.getWidth());
+                y = tiledLayerUtil.keepOnMapY(tiledLayer, y, ownerLayer.getHeight());
 
-                this.ownerLayer.setPosition(x, y, this.ownerLayer.getZP());
+                ownerLayer.setPosition(x, y, ownerLayer.getZP());
             }
 
             this.layerPartialCellPositionsUtil.getAllDXY(
@@ -224,24 +224,24 @@ extends CollidableRTSBehavior
             }
         }
 
-        if (this.ownerLayer.getYP() < unitLayer.getYP() &&
-            this.ownerLayer.getY2() > unitLayer.getYP())
+        if (ownerLayer.getYP() < unitLayer.getYP() &&
+            ownerLayer.getY2() > unitLayer.getYP())
         {
-            int diff = this.ownerLayer.getHeight() + 1;
+            int diff = ownerLayer.getHeight() + 1;
 
             this.layerPartialCellPositionsUtil.getAllDXY(
                     basicGeographicMap,
-                this.ownerLayer, 0, -diff, partialPositionList);
+                ownerLayer, 0, -diff, partialPositionList);
 
             if (!dropCellPositionHistory.anyCellPositionWithDrop(partialPositionList))
             {
-                int x = this.ownerLayer.getXP();
+                int x = ownerLayer.getXP();
                 int y = unitLayer.getYP() - diff;
 
-                x = tiledLayerUtil.keepOnMapX(tiledLayer, x, this.ownerLayer.getWidth());
-                y = tiledLayerUtil.keepOnMapY(tiledLayer, y, this.ownerLayer.getHeight());
+                x = tiledLayerUtil.keepOnMapX(tiledLayer, x, ownerLayer.getWidth());
+                y = tiledLayerUtil.keepOnMapY(tiledLayer, y, ownerLayer.getHeight());
 
-                this.ownerLayer.setPosition(x, y, this.ownerLayer.getZP());
+                ownerLayer.setPosition(x, y, ownerLayer.getZP());
             }
 
             this.layerPartialCellPositionsUtil.getAllDXY(

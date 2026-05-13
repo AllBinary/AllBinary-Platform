@@ -14,39 +14,36 @@
 package org.allbinary.game.collision;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
-import org.allbinary.graphics.RectangleFactory;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.view.ViewPosition;
 
 public class CollidableNeverCollideBehavior extends CollidableBaseBehavior
 {    
 
     CollidableNeverCollideBehavior(boolean isCollidable)
     {
-        super(new CollidableCompositeLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPosition.getInstanceD(), CollidableNeverCollideBehaviorFactory.getInstance()), isCollidable);
+        super(isCollidable);
     }
     
     @Override
-    public boolean isCollision(CollidableCompositeLayer allbinaryCollidableLayer)
+    public boolean isCollision(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer allbinaryCollidableLayer)
     {
        return false;
     }
 
     @Override
-    public void collide(CollidableCompositeLayer allbinaryCollidableLayer)
+    public void collide(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer allbinaryCollidableLayer)
        throws Exception
     {
        // this.setPickedUp();
     }
 
     @Override
-    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        // this.setPickedUp();
     }
     
     @Override
-    public boolean isCollisionInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public boolean isCollisionInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        return false;
     }

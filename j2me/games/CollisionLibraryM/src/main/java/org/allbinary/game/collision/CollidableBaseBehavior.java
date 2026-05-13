@@ -29,13 +29,11 @@ implements CollidableInterface
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
+    //TWB - move to CollidableCompositeLayer
     private boolean collidable = true;
-
-    protected final CollidableCompositeLayer ownerLayer;
     
-    public CollidableBaseBehavior(CollidableCompositeLayer ownerLayer, boolean collidable)
+    public CollidableBaseBehavior(final boolean collidable)
     {
-        this.ownerLayer = ownerLayer;
         this.collidable = collidable;
     }
     
@@ -56,14 +54,14 @@ implements CollidableInterface
 
     // If visible and a collidable object then
     @Override
-    public boolean isCollidable()
+    public boolean isCollidable(final CollidableCompositeLayer ownerLayer)
     {
         return this.collidable;
     }
 
     // TODO TWB Special Super Efficient Collision Processing
     @Override
-    public void collide(CollidableCompositeLayer allbinaryCollidableLayer)
+    public void collide(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer allbinaryCollidableLayer)
             throws Exception
     {
         throw new Exception(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(CommonLabels.getInstance().COLON_SEP).append(this.getClass().getName()).toString());
@@ -73,9 +71,9 @@ implements CollidableInterface
     
     // TODO TWB Special Super Efficient Collision Processing
     @Override
-    public boolean isCollision(CollidableCompositeLayer collisionLayer)
+    public boolean isCollision(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collisionLayer)
     {
-        return this.layerCollisionUtil.isCollision(this.ownerLayer, collisionLayer);
+        return this.layerCollisionUtil.isCollision(ownerLayer, collisionLayer);
         /*
         if ()
         {
@@ -91,9 +89,9 @@ implements CollidableInterface
         */
     }
 
-    public boolean isCollisionInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public boolean isCollisionInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
-        return this.layerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface);
+        return this.layerCollisionUtil.isCollision(ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface);
         /*
         if ()
         {
@@ -103,7 +101,7 @@ implements CollidableInterface
         */
     }
 
-    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);

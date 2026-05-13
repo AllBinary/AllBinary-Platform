@@ -44,7 +44,7 @@ public class PickupLayer
       super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition);
 
       //this.setCollidableInferface(new CollidableAlwaysPickupNeverCollideBehavior(this, true));
-      this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance());
+      this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance().create());
       
       this.setLayerWidth(10);
       this.setLayerHeight(10);

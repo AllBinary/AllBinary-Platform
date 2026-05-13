@@ -69,7 +69,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
 
         //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
-        this.setCollidableInferface(new CollidableWaypointBehavior(this, true));
+        this.setCollidableInferface(new CollidableWaypointBehavior(true));
         
         this.getWaypointBehavior().setWaypoint(new Waypoint(this, AttackSound.getInstance()));
         

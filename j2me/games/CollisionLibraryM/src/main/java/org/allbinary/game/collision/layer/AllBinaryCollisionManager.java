@@ -15,6 +15,7 @@ package org.allbinary.game.collision.layer;
 
 import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
+import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.layer.LayerManager;
 
 public class AllBinaryCollisionManager
@@ -95,12 +96,12 @@ public class AllBinaryCollisionManager
        CollidableBaseBehavior collidableBase2 = collidableInterfaceCompositeInterface2.getCollidableInferface();
        CollidableBaseBehavior collidableBase = collidableInterfaceCompositeInterface.getCollidableInferface();
        
-      if(collidableBase2.isCollidable())
+      if(collidableBase2.isCollidable((CollidableCompositeLayer) collidableInterfaceCompositeInterface))
       {
-         if(collidableBase.isCollisionInterface(collidableInterfaceCompositeInterface2))
+         if(collidableBase.isCollisionInterface((CollidableCompositeLayer) collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2))
          {
-             collidableBase.collideInterface(collidableInterfaceCompositeInterface2);
-             collidableBase2.collideInterface(collidableInterfaceCompositeInterface);
+             collidableBase.collideInterface((CollidableCompositeLayer) collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2);
+             collidableBase2.collideInterface((CollidableCompositeLayer) collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface);
          }
       }
    }

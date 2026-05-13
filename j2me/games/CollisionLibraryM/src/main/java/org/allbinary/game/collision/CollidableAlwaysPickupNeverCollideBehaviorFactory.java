@@ -13,13 +13,21 @@
 */
 package org.allbinary.game.collision;
 
-public class CollidableAlwaysPickupNeverCollideBehaviorFactory
+public class CollidableAlwaysPickupNeverCollideBehaviorFactory extends CollidableBaseBehaviorFactory
 {
-    private static final CollidableAlwaysPickupNeverCollideBehavior instance = 
-        new CollidableAlwaysPickupNeverCollideBehavior();
+    private static final CollidableAlwaysPickupNeverCollideBehaviorFactory instance2 = new CollidableAlwaysPickupNeverCollideBehaviorFactory();
+
+    /**
+     * @return the instance2
+     */
+    public static CollidableAlwaysPickupNeverCollideBehaviorFactory getInstance() {
+        return CollidableAlwaysPickupNeverCollideBehaviorFactory.instance2;
+    }
     
-    public static CollidableAlwaysPickupNeverCollideBehavior getInstance()
+    private final CollidableAlwaysPickupNeverCollideBehavior instance = new CollidableAlwaysPickupNeverCollideBehavior();
+    
+    public CollidableBaseBehavior create()
     {
-        return CollidableAlwaysPickupNeverCollideBehaviorFactory.instance;
+        return this.instance;
     }
 }

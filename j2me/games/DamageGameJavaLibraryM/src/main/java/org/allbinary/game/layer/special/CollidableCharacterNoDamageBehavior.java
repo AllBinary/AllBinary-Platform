@@ -25,22 +25,22 @@ extends CollidableDestroyableDamageableBehavior
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    public CollidableCharacterNoDamageBehavior(CollidableCompositeLayer ownerLayer, boolean collidable)
+    public CollidableCharacterNoDamageBehavior(boolean collidable)
     {
-        super(ownerLayer, collidable);
+        super(collidable);
     }
 
     @Override
-    public void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
+    public void collide(final CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface)
     throws Exception
     {
         //this.logUtil.putF("collidableLayer", this, damageUtil.COLLIDE);        
         final CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();
-        final CollisionType collisionType = collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
+        final CollisionType collisionType = collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(ownerLayer);
 
         if (collisionType == collisionTypeFactory.PICKUP)
         {
-            final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) this.ownerLayer;
+            final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) ownerLayer;
             collidableDestroyableDamageableLayer.getPickupBehavior().doPickupLayer((PickedUpLayerInterface) collidableInterfaceCompositeInterface);
         }
         else
@@ -51,7 +51,7 @@ extends CollidableDestroyableDamageableBehavior
     }
 
     @Override
-    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
         throws Exception
     {
         //this.logUtil.putF("collideInterface", this, damageUtil.COLLIDE);

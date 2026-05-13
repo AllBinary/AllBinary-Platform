@@ -22,28 +22,28 @@ public class CollidableRTSBehavior
     extends CollidableDestroyableDamageableBehavior {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    public CollidableRTSBehavior(final CollidableCompositeLayer ownerLayer, final boolean collidable) {
-        super(ownerLayer, collidable);
+    public CollidableRTSBehavior(final boolean collidable) {
+        super(collidable);
     }
 
     //public void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
     //public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     @Override
-    public boolean isCollision(final CollidableCompositeLayer collidableInterfaceCompositeInterface) {
+    public boolean isCollision(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collidableInterfaceCompositeInterface) {
         final CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();
         final CollisionType collisionType =
-            collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
+            collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(ownerLayer);
 
         // this.logUtil.putF("collisionType: ").append(
         // collisionType.toString(), this, damageUtil.COLLIDE);
         if (collisionType == collisionTypeFactory.PICKUP) {
         } else if (collisionType == collisionTypeFactory.COLLISION) {
-            return super.isCollision(collidableInterfaceCompositeInterface);
+            return super.isCollision(ownerLayer, collidableInterfaceCompositeInterface);
         } else {
-            if (collidableInterfaceCompositeInterface.getX2() <= this.ownerLayer.getXP()
-                || collidableInterfaceCompositeInterface.getY2() <= this.ownerLayer.getYP()
-                || collidableInterfaceCompositeInterface.getYP() >= this.ownerLayer.getY2()
-                || collidableInterfaceCompositeInterface.getXP() >= this.ownerLayer.getX2()) {
+            if (collidableInterfaceCompositeInterface.getX2() <= ownerLayer.getXP()
+                || collidableInterfaceCompositeInterface.getY2() <= ownerLayer.getYP()
+                || collidableInterfaceCompositeInterface.getYP() >= ownerLayer.getY2()
+                || collidableInterfaceCompositeInterface.getXP() >= ownerLayer.getX2()) {
                 return false;
             } else {
                 /*
@@ -67,11 +67,11 @@ public class CollidableRTSBehavior
     }
 
     @Override
-    public void collide(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
+    public void collide(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collidableInterfaceCompositeInterface)
         throws Exception {
         final CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();
         final CollisionType collisionType =
-            collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
+            collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(ownerLayer);
 
         //this.logUtil.putF("collisionType: ").append(collisionType.toString(), this, damageUtil.COLLIDE);
         if (collisionType == collisionTypeFactory.PICKUP) {
@@ -79,13 +79,13 @@ public class CollidableRTSBehavior
             //Enemy weapons cause damage on collision
             //this.logUtil.putF(this.getName()).append(" collided with ").append(((CollidableDestroyableDamageableLayer) collidableInterface).getName(), this, damageUtil.IS_COLLISION);
             //this.logUtil.putF("isCollision: ").append(this.getGroupInterface().getGroupName()).append("==").append(((CollidableDestroyableDamageableLayer) collidableInterface).getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
-            super.collide(collidableInterfaceCompositeInterface);
+            super.collide(ownerLayer, collidableInterfaceCompositeInterface);
         } else {
-            this.collideNone(collidableInterfaceCompositeInterface);
+            this.collideNone(ownerLayer, collidableInterfaceCompositeInterface);
         }
     }
 
-    protected void collideNone(final CollidableCompositeLayer collidableInterface)
+    protected void collideNone(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collidableInterface)
         throws Exception {
     }
 }

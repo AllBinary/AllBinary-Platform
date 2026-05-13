@@ -39,6 +39,6 @@ public class SimpleWeaponLayer extends WeaponLayer
     {
         super(name, remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
         
-        this.setCollidableInferface(new CollidableWeaponBehavior(this, true));
+        this.setCollidableInferface(new CollidableWeaponBehavior(true));
     }
 }

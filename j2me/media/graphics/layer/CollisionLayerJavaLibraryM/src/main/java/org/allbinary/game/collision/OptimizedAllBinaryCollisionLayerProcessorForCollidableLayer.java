@@ -41,7 +41,7 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
         //this.logUtil.putF(this.commonStrings.START + layerInterface.toString(), this, this.commonStrings.PROCESS);
         //this.logUtil.putF(collidableInterfaceCompositeInterface.toString(), this, this.commonStrings.START);
         
-        if (collidableBase.isCollidable())
+        if (collidableBase.isCollidable(collidableInterfaceCompositeInterface))
         {
 
             final LayerManager layerManager = this.getLayerManager();
@@ -61,10 +61,10 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
                 //this.logUtil.putF(layerInterface.toString(), this, this.commonStrings.START);
                 //this.logUtil.putF(collidableInterfaceCompositeInterface2.toString(), this, this.commonStrings.PROCESS);
 
-                if (collidableBase2.isCollidable() && collidableBase.isCollision(collidableInterfaceCompositeInterface2))
+                if (collidableBase2.isCollidable(collidableInterfaceCompositeInterface) && collidableBase.isCollision(collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2))
                 {
-                    collidableBase.collide(collidableInterfaceCompositeInterface2);
-                    collidableBase2.collide(collidableInterfaceCompositeInterface);
+                    collidableBase.collide(collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2);
+                    collidableBase2.collide(collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface);
                 }
             }
 

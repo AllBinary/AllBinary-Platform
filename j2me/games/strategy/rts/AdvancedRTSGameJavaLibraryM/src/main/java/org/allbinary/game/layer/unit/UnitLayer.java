@@ -233,7 +233,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
             proceduralAnimationInterfaceFactoryInterface, rectangle, 
             x, y, viewPosition);
 
-        this.setCollidableInferface(new CollidableUnitBehavior(this, true));        
+        this.setCollidableInferface(new CollidableUnitBehavior(true));        
 
         this.waypointLayerInterfaceFactoryInterface = waypointLayerInterfaceFactoryInterface;
         
@@ -1180,7 +1180,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             {
                 final SteeringVisitor steeringVisitor = (SteeringVisitor) list.get(index);
                 
-                final Object object = steeringVisitor.visit(NullUtil.getInstance().NULL_OBJECT);
+                final Object object = steeringVisitor.visit(this);
                 
                 if(object == null)
                 {

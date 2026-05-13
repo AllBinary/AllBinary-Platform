@@ -21,33 +21,33 @@ import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 public class CollidableWaypointBehavior
 extends CollidableRTSBehavior 
 {
-    public CollidableWaypointBehavior(CollidableCompositeLayer ownerLayer, boolean collidable)
+    public CollidableWaypointBehavior(boolean collidable)
     {
-        super(ownerLayer, collidable);
+        super(collidable);
     }
 
     //public void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
     //public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     @Override
-    public boolean isCollision(CollidableCompositeLayer collisionLayer)
+    public boolean isCollision(final CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer)
     {
         return false;
     }
 
     @Override
-    public void collide(CollidableCompositeLayer collisionLayer)
+    public void collide(final CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer)
             throws Exception
     {
     }
 
     @Override
-    public boolean isCollisionInterface(CollidableInterfaceCompositeInterface collidableInterface)
+    public boolean isCollisionInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterface)
     {
         return false;
     }
 
     @Override
-    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterface)
+    public void collideInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterface)
             throws Exception
     {
     }

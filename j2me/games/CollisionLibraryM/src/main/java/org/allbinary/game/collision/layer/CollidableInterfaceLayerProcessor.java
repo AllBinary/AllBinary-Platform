@@ -14,6 +14,7 @@
 package org.allbinary.game.collision.layer;
 
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
+import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerProcessor;
@@ -28,13 +29,15 @@ public class CollidableInterfaceLayerProcessor extends LayerProcessor {
     public void processAt(AllBinaryLayerManager allBinaryLayerManager,
                           AllBinaryLayer layerInterface, int index)
         throws Exception {
+
         //no physics here - just destroy them
         CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface =
             (CollidableInterfaceCompositeInterface) layerInterface;
-        if (collidableInterfaceCompositeInterface.getCollidableInferface().isCollidable()) {
+        if (collidableInterfaceCompositeInterface.getCollidableInferface().isCollidable((CollidableCompositeLayer) collidableInterfaceCompositeInterface)) {
             AllBinaryCollisionManager.getInstance().process(
                 this.getLayerManager(), collidableInterfaceCompositeInterface, index);
         }
+
     }
 
     @Override
