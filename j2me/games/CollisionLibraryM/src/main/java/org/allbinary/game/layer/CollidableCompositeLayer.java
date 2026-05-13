@@ -47,7 +47,7 @@ implements CollidableInterfaceCompositeInterface
     
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance().create();
+    private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance().createBehavior();
 
     public CollidableCompositeLayer(
             final String name, final Rectangle layerInfo, final ViewPosition viewPosition,
@@ -56,7 +56,7 @@ implements CollidableInterfaceCompositeInterface
         super(name, layerInfo, viewPosition);
 
         if(collidableBaseBehaviorFactory != CollidableNeverCollideBehaviorFactory.getInstance()) {
-            this.setCollidableInferface(collidableBaseBehaviorFactory.create());
+            this.setCollidableInferface(collidableBaseBehaviorFactory.createBehavior());
         }
     }
 

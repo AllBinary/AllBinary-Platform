@@ -26,8 +26,9 @@ public class CollidableNeverCollideBehaviorFactory extends CollidableBaseBehavio
     }
     
     private final CollidableNeverCollideBehavior instance = new CollidableNeverCollideBehavior(false);
-    
-    public CollidableBaseBehavior create()
+
+    @Override
+    public CollidableBaseBehavior createBehavior()
     {
         return this.instance;
     }

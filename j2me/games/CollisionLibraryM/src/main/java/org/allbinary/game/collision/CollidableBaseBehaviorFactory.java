@@ -19,7 +19,8 @@ package org.allbinary.game.collision;
  */
 public class CollidableBaseBehaviorFactory implements CollidableBaseBehaviorFactoryInterface {
     
-    public CollidableBaseBehavior create() {
+    @Override
+    public CollidableBaseBehavior createBehavior() {
         throw new RuntimeException();
     }
     

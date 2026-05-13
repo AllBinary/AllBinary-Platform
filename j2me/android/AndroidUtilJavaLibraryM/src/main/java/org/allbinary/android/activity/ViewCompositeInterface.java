@@ -14,14 +14,13 @@
 package org.allbinary.android.activity;
 
 import android.view.View;
-import android.view.WindowManager;
 
 public interface ViewCompositeInterface
 {
     View getRootView();
     View getView();
     
-    WindowManager getWindowManager();
+    //WindowManager getWindowManager();
     
     void runOnUiThread(Runnable action);
 }

@@ -25,8 +25,9 @@ public class CollidableAlwaysPickupNeverCollideBehaviorFactory extends Collidabl
     }
     
     private final CollidableAlwaysPickupNeverCollideBehavior instance = new CollidableAlwaysPickupNeverCollideBehavior();
-    
-    public CollidableBaseBehavior create()
+
+    @Override
+    public CollidableBaseBehavior createBehavior()
     {
         return this.instance;
     }

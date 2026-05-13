@@ -19,6 +19,6 @@ package org.allbinary.game.collision;
  */
 public interface CollidableBaseBehaviorFactoryInterface {
     
-    CollidableBaseBehavior create();
+    CollidableBaseBehavior createBehavior();
     
 }
