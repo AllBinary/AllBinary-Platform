@@ -15,7 +15,7 @@ package org.allbinary.animation.transition;
 
 public interface AnimationListenerInterface
 {
-    void onAnimationStart();
-    void onAnimationEnd();
-    void onAnimationRepeat();
+    void onPlatformAnimationStart();
+    void onPlatformAnimationEnd();
+    void onPlatformAnimationRepeat();
 }

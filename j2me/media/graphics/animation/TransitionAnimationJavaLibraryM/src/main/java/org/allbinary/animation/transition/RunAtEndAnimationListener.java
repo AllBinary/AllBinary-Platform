@@ -22,15 +22,15 @@ public class RunAtEndAnimationListener implements AnimationListenerInterface
     }
     
     @Override
-    public void onAnimationStart() {
+    public void onPlatformAnimationStart() {
     }
 
     @Override
-    public void onAnimationEnd() {
+    public void onPlatformAnimationEnd() {
     }
 
     @Override
-    public void onAnimationRepeat() {
+    public void onPlatformAnimationRepeat() {
     }
 
 }
