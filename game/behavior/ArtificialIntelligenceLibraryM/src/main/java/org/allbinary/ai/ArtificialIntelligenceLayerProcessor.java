@@ -29,8 +29,7 @@ public class ArtificialIntelligenceLayerProcessor extends LayerProcessor
                           int index) throws Exception
     {
 
-        ArtificialIntelligenceCompositeInterface artificialIntelligenceCompositeInterface = 
-            (ArtificialIntelligenceCompositeInterface) layerInterface;
+        ArtificialIntelligenceCompositeInterface artificialIntelligenceCompositeInterface = /*TS as unknown*/ (ArtificialIntelligenceCompositeInterface) layerInterface;
 
         artificialIntelligenceCompositeInterface.getArtificialIntelligenceInterface().processAI(
                 allBinaryLayerManager);

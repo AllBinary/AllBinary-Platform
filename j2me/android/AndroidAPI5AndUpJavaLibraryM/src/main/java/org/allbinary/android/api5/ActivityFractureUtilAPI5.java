@@ -25,11 +25,11 @@ public class ActivityFractureUtilAPI5 extends ActivityFractureUtilAPI1
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final ActivityFractureUtilAPI5 instance = new ActivityFractureUtilAPI5();
+    private static final ActivityFractureUtilAPI5 instance5 = new ActivityFractureUtilAPI5();
 
     public static ActivityFractureUtilAPI5 getInstance()
     {
-        return ActivityFractureUtilAPI5.instance;
+        return ActivityFractureUtilAPI5.instance5;
     }
 
     //PackageManager
