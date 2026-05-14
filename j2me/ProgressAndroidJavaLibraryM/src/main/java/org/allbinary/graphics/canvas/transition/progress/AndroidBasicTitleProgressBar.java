@@ -78,7 +78,7 @@ implements DisplayChangeEventListener
         super(title, backgroundBasicColor, foregroundBasicColor);
         this.init();
         
-        DisplayChangeEventHandler.getInstance().addListener(this);
+        DisplayChangeEventHandler.getInstance().addListenerInterface(this);
         
         final int size = this.IMAGE.length;
         for(int index = 0; index < size; index++) {

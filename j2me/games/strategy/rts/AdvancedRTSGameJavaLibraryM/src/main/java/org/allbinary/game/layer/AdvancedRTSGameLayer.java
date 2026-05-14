@@ -192,7 +192,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
 
         this.initVisibility(rtsPlayerLayerInterface);
         
-        BuildingEventHandler.getInstance().addListener(
+        BuildingEventHandler.getInstance().addListenerInterface(
                 this.getWaypointBehavior().getWaypoint());
     }
 

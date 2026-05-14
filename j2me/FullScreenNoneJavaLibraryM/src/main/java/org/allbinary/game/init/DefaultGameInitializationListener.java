@@ -38,7 +38,7 @@ public class DefaultGameInitializationListener
 
         gameInitializedEventHandler.removeAllListeners();
 
-        gameInitializedEventHandler.addListener(
+        gameInitializedEventHandler.addListenerInterface(
             (GameInitializedListenerInterface) this);
     }
 

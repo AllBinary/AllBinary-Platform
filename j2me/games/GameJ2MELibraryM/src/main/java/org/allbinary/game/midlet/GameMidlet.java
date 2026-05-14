@@ -165,7 +165,7 @@ public class GameMidlet extends ProgressMidlet
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.init(this);
 
-        GameFeatureEventHandler.getInstance().addListener(
+        GameFeatureEventHandler.getInstance().addListenerInterface(
                 ChangedGameFeatureListener.getInstance());
 
         GamePersistanceSingleton.getInstance().clear();

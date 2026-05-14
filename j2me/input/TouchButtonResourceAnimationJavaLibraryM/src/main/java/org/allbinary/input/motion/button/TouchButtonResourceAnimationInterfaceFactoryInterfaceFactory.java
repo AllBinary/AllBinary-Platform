@@ -111,7 +111,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        imageCompleteUtil.waitFor(touchButtonBlankResourceImage, touchButtonBlankResource.RESOURCE);
+        imageCompleteUtil.waitForImage(touchButtonBlankResourceImage, touchButtonBlankResource.RESOURCE);
 
         this.add(touchButtonBlankResource.RESOURCE,
                 OneRowSpriteIndexedAnimationFactory.createFactory(
@@ -121,7 +121,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        imageCompleteUtil.waitFor(touchButtonGenericActionResourceImage, touchButtonGenericActionResource.RESOURCE);
+        imageCompleteUtil.waitForImage(touchButtonGenericActionResourceImage, touchButtonGenericActionResource.RESOURCE);
 
         this.add(touchButtonGenericActionResource.RESOURCE,
                 OneRowSpriteIndexedAnimationFactory.createFactory(
@@ -131,7 +131,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        imageCompleteUtil.waitFor(touchButtonStartResourceImage, touchButtonStartResource.RESOURCE);
+        imageCompleteUtil.waitForImage(touchButtonStartResourceImage, touchButtonStartResource.RESOURCE);
 
         this.add(touchButtonStartResource.RESOURCE,
                 OneRowSpriteIndexedAnimationFactory.createFactory(
@@ -139,7 +139,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        imageCompleteUtil.waitFor(touchButtonUpResourceImage, touchButtonUpResource.RESOURCE);
+        imageCompleteUtil.waitForImage(touchButtonUpResourceImage, touchButtonUpResource.RESOURCE);
 
         this.add(touchButtonUpResource.RESOURCE,
                 OneRowSpriteIndexedAnimationFactory.createFactory(
@@ -149,7 +149,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        imageCompleteUtil.waitFor(touchButtonDownResourceImage, touchButtonDownResource.RESOURCE);
+        imageCompleteUtil.waitForImage(touchButtonDownResourceImage, touchButtonDownResource.RESOURCE);
 
         this.add(touchButtonDownResource.RESOURCE,
                 OneRowSpriteIndexedAnimationFactory.createFactory(
@@ -159,7 +159,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        imageCompleteUtil.waitFor(touchButtonTurnLeftResourceImage, touchButtonTurnLeftResource.RESOURCE);
+        imageCompleteUtil.waitForImage(touchButtonTurnLeftResourceImage, touchButtonTurnLeftResource.RESOURCE);
 
         this.add(touchButtonTurnLeftResource.RESOURCE,
                 OneRowSpriteIndexedAnimationFactory.createFactory(
@@ -169,7 +169,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        imageCompleteUtil.waitFor(touchButtonTurnRightResourceImage, touchButtonTurnRightResource.RESOURCE);
+        imageCompleteUtil.waitForImage(touchButtonTurnRightResourceImage, touchButtonTurnRightResource.RESOURCE);
 
         this.add(touchButtonTurnRightResource.RESOURCE,
                 OneRowSpriteIndexedAnimationFactory.createFactory(
@@ -179,7 +179,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        imageCompleteUtil.waitFor(touchButtonStrafeLeftResourceImage, touchButtonStrafeLeftResource.RESOURCE);
+        imageCompleteUtil.waitForImage(touchButtonStrafeLeftResourceImage, touchButtonStrafeLeftResource.RESOURCE);
 
         this.add(touchButtonStrafeLeftResource.RESOURCE,
                 OneRowSpriteIndexedAnimationFactory.createFactory(
@@ -189,7 +189,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        imageCompleteUtil.waitFor(touchButtonStrafeRightResourceImage, touchButtonStrafeRightResource.RESOURCE);
+        imageCompleteUtil.waitForImage(touchButtonStrafeRightResourceImage, touchButtonStrafeRightResource.RESOURCE);
 
         this.add(touchButtonStrafeRightResource.RESOURCE,
                 OneRowSpriteIndexedAnimationFactory.createFactory(

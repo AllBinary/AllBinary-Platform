@@ -46,7 +46,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     }
     
     @Override
-    public void waitFor(final Image image, final String name)
+    public void waitForImage(final Image image, final String name)
             throws Exception
     {
         this.timeDelayHelper.setStartTimeTNT();

@@ -50,7 +50,7 @@ public class PacePatrolAI extends BasePatrolAI
     {
         super(hashtable, ownerLayerInterface, gameInput);
 
-        TrackingEventHandler.getInstance().addListener(this);
+        TrackingEventHandler.getInstance().addListenerInterface(this);
 
         this.trackingList = new BasicArrayListD();
     }

@@ -21,13 +21,13 @@ import org.eclipse.swt.widgets.Display;
  */
 public class SWTRunnableProcessor extends SWTProcessor {
     
-    private static final SWTRunnableProcessor instance = new SWTRunnableProcessor();
+    private static final SWTRunnableProcessor instanceR = new SWTRunnableProcessor();
 
     /**
      * @return the instance
      */
     public static SWTRunnableProcessor getInstance() {
-        return SWTRunnableProcessor.instance;
+        return SWTRunnableProcessor.instanceR;
     }
     
     private SWTRunnableProcessor() {

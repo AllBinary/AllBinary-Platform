@@ -51,7 +51,7 @@ implements CompleteMotionGestureInputEventListenerInterface
     {
         this.inputMappingInterface = inputMappingInterface;
         
-        CompleteMotionGestureInputEventHandler.getInstance().addListener(
+        CompleteMotionGestureInputEventHandler.getInstance().addListenerInterface(
                 this);
      
         this.touchButtonsPaintable = new TouchButtonsMappingPaintable(

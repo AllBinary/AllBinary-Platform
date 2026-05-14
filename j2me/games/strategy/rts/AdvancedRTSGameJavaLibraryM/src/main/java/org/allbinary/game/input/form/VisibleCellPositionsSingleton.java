@@ -54,8 +54,8 @@ public class VisibleCellPositionsSingleton
 
     private VisibleCellPositionsSingleton()
     {
-        LocalPlayerBuildingEventHandler.getInstance().addListener(this);
-        ScrollMapEventHandler.getInstance().addListener(this);
+        LocalPlayerBuildingEventHandler.getInstance().addListenerInterface(this);
+        ScrollMapEventHandler.getInstance().addListenerInterface(this);
     }
     
     public void init(SimpleTiledLayer simpleTiledLayer)

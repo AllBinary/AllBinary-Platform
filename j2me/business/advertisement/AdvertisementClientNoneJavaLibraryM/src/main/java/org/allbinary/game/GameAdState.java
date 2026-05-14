@@ -26,7 +26,7 @@ public class GameAdState extends GameAdStateBase implements VirtualKeyboardEvent
     {   
         super(adConfiguration);
 
-        VirtualKeyboardEventHandler.getInstance().addListener(this);
+        VirtualKeyboardEventHandler.getInstance().addListenerInterface(this);
     }
 
     @Override

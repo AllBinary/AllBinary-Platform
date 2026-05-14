@@ -201,7 +201,7 @@ public class StartCanvas extends RunnableCanvas
 
         //this.demoGameRunnable = new DemoGameStartupRunnable(this);
         
-        DisplayChangeEventHandler.getInstance().addListener(this);
+        DisplayChangeEventHandler.getInstance().addListenerInterface(this);
     }
 
     @Override
@@ -378,7 +378,7 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public void open()
     {
-        BasicMotionGesturesHandler.getInstance().addListener(this.getMenuInputProcessor());
+        BasicMotionGesturesHandler.getInstance().addListenerInterface(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().addListener(this.getMenuInputProcessor());
     }
 

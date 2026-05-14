@@ -98,7 +98,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         }
     }
     
-    public synchronized void addListener(
+    public synchronized void addListenerInterface(
             EventListenerInterface eventListenerInterface)
         {
 

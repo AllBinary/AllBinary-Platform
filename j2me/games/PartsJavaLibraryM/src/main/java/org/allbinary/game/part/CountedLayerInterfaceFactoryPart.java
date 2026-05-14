@@ -80,8 +80,7 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
       this.totalString = this.primitiveLongUtil.getCharArray(total);
       final MyFont font = MyFont.getInstance();
       //this.setTotalStringWidth(font.stringWidth(totalString));
-      this.setXOffset(
-              font.charsWidth(totalString, 0, this.primitiveLongUtil.getCurrentTotalDigits()) + (font.getSize() >> 1)
+      this.setXOffset(font.charsWidth(this.totalString, 0, this.primitiveLongUtil.getCurrentTotalDigits()) + (font.getSize() >> 1)
       );
    }
 

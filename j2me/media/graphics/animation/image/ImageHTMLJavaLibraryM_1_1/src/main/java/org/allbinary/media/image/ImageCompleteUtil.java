@@ -37,7 +37,7 @@ public class ImageCompleteUtil {
     
     protected final String ISREADY = "isReady";
     
-    public void waitFor(Image image, String name)
+    public void waitForImage(Image image, String name)
         throws Exception {
     }
     

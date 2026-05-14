@@ -53,7 +53,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         for (int index = 0; index < size; index++)
         {
             eventListenerInterface = (EventListenerInterface) vector.get(index);
-            this.addListener(eventListenerInterface);
+            this.addListenerInterface(eventListenerInterface);
         }
     }
 
@@ -78,7 +78,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     }
 
     @Override
-    public void addListener(final EventListenerInterface eventListenerInterface)
+    public void addListenerInterface(final EventListenerInterface eventListenerInterface)
     {
 
         /*

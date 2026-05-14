@@ -19,7 +19,7 @@ import org.allbinary.util.BasicArrayList;
 
 public interface BasicEventHandlerInterface
 {
-   void addListener(EventListenerInterface eventListenerInterface);
+   void addListenerInterface(EventListenerInterface eventListenerInterface);
 
    void addListeners(BasicArrayList basicArrayList);
 

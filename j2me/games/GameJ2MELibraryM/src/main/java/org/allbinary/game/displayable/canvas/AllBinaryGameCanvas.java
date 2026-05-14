@@ -285,7 +285,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.initMenu();
 
-        DisplayChangeEventHandler.getInstance().addListener(this);
+        DisplayChangeEventHandler.getInstance().addListenerInterface(this);
 
     }
 
@@ -581,7 +581,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.setMenuPaintable(this.getFormPaintable());
         this.setMenuInputProcessor(this.mainMenuInputProcessor);
 
-        this.basicMotionGesturesHandler.addListener(this.mainMenuInputProcessor);
+        this.basicMotionGesturesHandler.addListenerInterface(this.mainMenuInputProcessor);
         this.gameKeyEventHandler.addListener(this.mainMenuInputProcessor);
     }
 
@@ -626,7 +626,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public void open()
     {
-        this.basicMotionGesturesHandler.addListener(this.menuInputProcessor);
+        this.basicMotionGesturesHandler.addListenerInterface(this.menuInputProcessor);
         this.gameKeyEventHandler.addListener(this.menuInputProcessor);
     }
 

@@ -64,7 +64,7 @@ extends GameNotificationHud
 
         final GameNotificationEventHandler gameNotificationEventHandler  = GameNotificationEventHandler.getInstance();
         gameNotificationEventHandler.removeAllListeners();
-        gameNotificationEventHandler.addListener(this);
+        gameNotificationEventHandler.addListenerInterface(this);
     }
 
     @Override

@@ -113,7 +113,7 @@ implements BaseMotionGestureEventListener
                     basicColorFactory.PINK,
                     BooleanFactory.getInstance().FALSE);            
         
-        BasicMotionGesturesHandler.getInstance().addListener(this);
+        BasicMotionGesturesHandler.getInstance().addListenerInterface(this);
     }
     
     @Override

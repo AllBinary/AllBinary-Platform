@@ -26,7 +26,7 @@ public class ImageCompleteUtil {
         return ImageCompleteUtil.instance;
     }
 
-    public void waitFor(Image image, String name)
+    public void waitForImage(Image image, String name)
         throws Exception {
     }
 }

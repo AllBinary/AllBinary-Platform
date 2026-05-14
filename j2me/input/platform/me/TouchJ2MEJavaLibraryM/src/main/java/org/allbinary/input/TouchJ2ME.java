@@ -36,7 +36,7 @@ public class TouchJ2ME
         BasicMotionGesturesHandler motionGesturesHandler =
             this.motionRecognizer.getMotionGestureRecognizer().getMotionGesturesHandler();
 
-        motionGesturesHandler.addListener(
+        motionGesturesHandler.addListenerInterface(
             new GameMotionGestureListener(
             MotionGestureReceiveInterfaceFactory.getInstance()));
     }

@@ -249,9 +249,9 @@ public class GameCommandCanvas
     {
         this.logUtil.putF(this.commonStrings.START, this, "open");
 
-        BasicMotionGesturesHandler.getInstance().addListener(this.getMenuInputProcessor());
+        BasicMotionGesturesHandler.getInstance().addListenerInterface(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().addListener(this.getMenuInputProcessor());
-        DisplayChangeEventHandler.getInstance().addListener(this);
+        DisplayChangeEventHandler.getInstance().addListenerInterface(this);
     }
     
     @Override

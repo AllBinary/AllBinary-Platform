@@ -96,7 +96,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         this.velocityInterface = velocityInterfaceCompositeInterface
                 .getVelocityProperties();
 
-        DestroyedEventHandler.getInstance().addListener(this);
+        DestroyedEventHandler.getInstance().addListenerInterface(this);
 
         this.init();
     }
@@ -129,7 +129,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         this.dive = false;
         // this.targeting = true;
         this.directionOfTarget = DirectionFactory.getInstance().NOT_BORDERED_WITH;
-        TrackingEventHandler.getInstance().addListener(this);
+        TrackingEventHandler.getInstance().addListenerInterface(this);
     }
 
     private void target(AllBinaryLayerManager allBinaryLayerManager)

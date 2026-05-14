@@ -100,7 +100,6 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.Layer;
 import org.allbinary.layer.LayerInterfaceFactoryInterface;
-import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.math.BasicDecimal;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.math.AngleFactory;
@@ -352,12 +351,12 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     {
         super.construct(rtsPlayerLayerInterface);        
 
-        TrackingEventHandler.getInstance().addListener(this);
+        TrackingEventHandler.getInstance().addListenerInterface(this);
 
         WaypointEventHandlerFactory.getInstance(
-            this.getGroupInterface()[0]).addListener(this.getUnitWaypointBehavior());
+            this.getGroupInterface()[0]).addListenerInterface(this.getUnitWaypointBehavior());
 
-        BuildingEventHandler.getInstance().addListener(this);
+        BuildingEventHandler.getInstance().addListenerInterface(this);
 
         this.getUnitWaypointBehavior().setCurrentPathGeographicMapCellPosition(
                 this.getCurrentGeographicMapCellPosition());

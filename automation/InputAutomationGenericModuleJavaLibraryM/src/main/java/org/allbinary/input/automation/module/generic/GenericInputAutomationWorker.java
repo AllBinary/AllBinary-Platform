@@ -82,13 +82,13 @@ public class GenericInputAutomationWorker
             this.logUtil.putF("Adding Listener: " + genericProfileDataWorkerType, this, this.commonStrings.CONSTRUCTOR);
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.COMPARISON)
             {
-                this.getCaptureWorker().addListener(
+                this.getCaptureWorker().addListenerInterface(
                     this.getImageComparisonWorker());
             }
             else
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.MOTION)
             {
-                this.getImageComparisonWorker().addListener(
+                this.getImageComparisonWorker().addListenerInterface(
                     this.getMotionRectanglesWorker());
             }
         }

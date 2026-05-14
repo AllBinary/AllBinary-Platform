@@ -37,7 +37,7 @@ implements ColorChangeListener
         super(mainDemoStatePaintable, ownershipPaintable, helpPaintableInterface);
     
         this.setColor(basicColor);
-        ColorChangeEventHandler.getInstance().addListener(this);
+        ColorChangeEventHandler.getInstance().addListenerInterface(this);
     }
 
     @Override

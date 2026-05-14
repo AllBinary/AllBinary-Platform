@@ -43,7 +43,7 @@ public class ImageCompleteUtil
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(18000);
     private final TimeDelayHelper allTimeDelayHelper = new TimeDelayHelper(120000);
     
-    public void waitFor(Image image, String name)
+    public void waitForImage(Image image, String name)
             throws Exception
     {
         this.timeDelayHelper.setStartTime();
