@@ -54,7 +54,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
 
     }
 
-    public Image getFontBitmap(final GL10 gl, final String filename, final int cellSize, final BasicColor basicColor) {
+    public Image getFontBitmapGL(final GL10 gl, final String filename, final int cellSize, final BasicColor basicColor) {
         throw new RuntimeException();    
     }
 

@@ -39,7 +39,7 @@ public class SimpleGravityVelocityMovement
    public void process(AllBinaryGameLayer layer)
    throws Exception
    {
-      this.gravityUtil.process(this.getVelocityProperties(), gravityUtil.GAME_GRAVITY_VELOCITY);
+      this.gravityUtil.process(this.getVelocityProperties(), this.gravityUtil.GAME_GRAVITY_VELOCITY);
       super.process(layer);
    }
 }

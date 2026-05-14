@@ -77,7 +77,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         this.widthScale = (this.scale == 2) ? 1.2f : 1f;
     }
 
-    public Image getFontBitmap(final GL10 gl, final String filename, final int cellSize, final BasicColor basicColor) {
+    public Image getFontBitmapGL(final GL10 gl, final String filename, final int cellSize, final BasicColor basicColor) {
         try {
             if(this.fontImage == OpenGLESImage.NULL_OPENGL_IMAGE) {
                 
@@ -121,7 +121,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         //final CommonStrings commonStrings = CommonStrings.getInstance();
         //this.logUtil.putF(commonStrings.START, this, "saveFontAtlasAsFile");
         
-        final Image image = this.getFontBitmap2(null, cellSize, BasicColorFactory.getInstance().WHITE);
+        final Image image = this.getFontBitmap(null, cellSize, BasicColorFactory.getInstance().WHITE);
         final ImageLoader imageLoader = new ImageLoader();
         final ImageData imageData = ((SwtMutableImage) image).image.getImageData();
         imageData.transparentPixel = imageData.getPixel(0, 0);
@@ -129,7 +129,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         imageLoader.save(CommonSeps.getInstance().PERIOD + CanvasStrings.getInstance().FONT_ATLAS, SWT.IMAGE_PNG);            
     }    
     
-    public Image getFontBitmap2(final String filename, final int cellSize, final BasicColor basicColor)
+    public Image getFontBitmap(final String filename, final int cellSize, final BasicColor basicColor)
     {
         //TODO: Draw all Text on SWT Image.
         

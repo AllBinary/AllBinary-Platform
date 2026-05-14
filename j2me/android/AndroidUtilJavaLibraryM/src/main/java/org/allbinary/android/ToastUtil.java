@@ -36,7 +36,7 @@ public class ToastUtil {
 	            	//logUtil.putF("Trying to Toast: "+ string, this, this.commonStrings.RUN);
 	            	//PreLogUtil.put("Trying to Toast: "+ string, this, this.commonStrings.RUN);
 	                
-	                Toast.makeText(context, string, time).show();
+	                Toast.makeText(context, this.string, time).show();
 	            }
 	            catch(Exception e)
 	            {

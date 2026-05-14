@@ -40,7 +40,7 @@ public class AndroidServicesUtil {
  
     private static final AndroidServicesUtil instance = new AndroidServicesUtil();
     
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    //private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final ResourceUtil resourceUtil = ResourceUtil.getInstance();
     
     private final int SERVICE_LIMIT_MAX = 1000;
@@ -50,8 +50,8 @@ public class AndroidServicesUtil {
     private final String SERVICE_NOT_FOUND_RUNNING = "Service not found Running: ";
     
     public boolean isServiceRunning(String name) {
-        final ActivityManager activityManager = (ActivityManager) resourceUtil.getContext().getSystemService(Context.ACTIVITY_SERVICE);
-        final List<RunningServiceInfo> runningServicesList = activityManager.getRunningServices(SERVICE_LIMIT_MAX);
+        final ActivityManager activityManager = (ActivityManager) this.resourceUtil.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        final List<RunningServiceInfo> runningServicesList = activityManager.getRunningServices(this.SERVICE_LIMIT_MAX);
 
         ActivityManager.RunningServiceInfo runningServiceInfo;
         ComponentName serviceComponent;
@@ -69,7 +69,7 @@ public class AndroidServicesUtil {
             }
         }
 
-        this.logUtil.putF(SERVICE_NOT_FOUND_RUNNING + name, this, IS_SERVICE_RUNNING);
+        this.logUtil.putF(this.SERVICE_NOT_FOUND_RUNNING + name, this, this.IS_SERVICE_RUNNING);
         return false;
     }
     

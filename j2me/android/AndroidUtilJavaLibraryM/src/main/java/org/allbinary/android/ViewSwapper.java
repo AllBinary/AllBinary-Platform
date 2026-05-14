@@ -37,7 +37,7 @@ public class ViewSwapper
 
     public void setMainView(int id)
     {
-        ViewGroup viewGroup = (ViewGroup) this.activity.findViewById(this.rootViewId);
+        final ViewGroup viewGroup = (ViewGroup) /*TS as unknown*/ this.activity.findViewById(this.rootViewId);
 
         if (id != this.currentMainViewId)
         {
