@@ -18,7 +18,7 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 
 public interface BasicEventHandlerInterface
 {
-   void addListener(EventListenerInterface eventListenerInterface);
+   void addListenerInterface(EventListenerInterface eventListenerInterface);
 
    //void addListeners(BasicArrayList basicArrayList);
 

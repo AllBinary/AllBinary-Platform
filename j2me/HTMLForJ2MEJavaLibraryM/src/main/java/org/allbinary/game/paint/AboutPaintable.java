@@ -22,7 +22,7 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.Paintable;
 
-//J2MEForJ2ME
+//HTMLForJ2ME
 public class AboutPaintable extends Paintable
 {
     
