@@ -105,7 +105,7 @@ public class BaseMusicService extends Service
     public int onStartCommand(final Intent intent, final int flags, final int startId)
     {
         this.onStartCommandIntent(intent);
-        return this.START_STICKY;
+        return Service.START_STICKY;
     }
 
     public void onStartCommandIntent(final Intent intent)

@@ -57,6 +57,9 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     private final DirectionalInterface directionalInterface;
     private final BasicVelocityProperties velocityInterface;
 
+    private final int[] directionToKeyMap =
+    { Canvas.LEFT, Canvas.DOWN, Canvas.UP, Canvas.RIGHT, };
+    
     private boolean initialDropped;
     private boolean dive;
     // private boolean targeting;
@@ -439,9 +442,6 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
      * stringBuffer.append(" Direction: "); stringBuffer.append(this.direction);
      * return stringBuffer.toString(); }
      */
-
-    private static final int[] directionToKeyMap =
-    { Canvas.LEFT, Canvas.DOWN, Canvas.UP, Canvas.RIGHT, };
 
     public void setLastDirection(Direction lastDirection)
     {
