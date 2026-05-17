@@ -1026,7 +1026,7 @@ public class StartCanvas extends RunnableCanvas
             }
         } catch (Exception e)
         {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, SET_RUNNING, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.SET_RUNNING, e);
         }        
     }
     
@@ -1038,7 +1038,7 @@ public class StartCanvas extends RunnableCanvas
     {
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         
-        this.baseGameStatistics.add(new StringMaker().append(StartCanvas.BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());    
+        this.baseGameStatistics.add(new StringMaker().append(StartCanvas.BOT_GAME_STATS).append(this.baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());    
         this.baseGameStatistics.init();
         
         if (this.features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))

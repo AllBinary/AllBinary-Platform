@@ -78,8 +78,8 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
             size2 = charArray.length;
             size3 = charArray2.length;
 
-            graphics.drawChars(charArray, 0, size2, 0, yArray[index], 0);
-            graphics.drawChars(charArray2, 0, size3, size2 * myFont.defaultStringWidth(2), yArray[index + 1], 0);
+            graphics.drawChars(charArray, 0, size2, 0, this.yArray[index], 0);
+            graphics.drawChars(charArray2, 0, size3, size2 * myFont.defaultStringWidth(2), this.yArray[index + 1], 0);
         }
     }
 }

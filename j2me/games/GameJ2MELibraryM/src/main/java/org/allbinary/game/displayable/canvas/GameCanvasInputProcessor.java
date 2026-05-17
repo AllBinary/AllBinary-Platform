@@ -93,7 +93,7 @@ extends InputProcessor
                 this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
 
-            final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getAtNoThrow(keyCode);
+            final Integer keyCodeAsInteger = this.smallIntegerSingletonFactory.getAtNoThrow(keyCode);
             this.downKeyEventHandler.fireEvent(keyCodeAsInteger);
             this.downKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(keyCodeAsInteger);
 

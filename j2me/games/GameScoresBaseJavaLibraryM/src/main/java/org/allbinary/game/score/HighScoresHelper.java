@@ -63,7 +63,7 @@ public class HighScoresHelper extends HighScoresHelperBase
     @Override
     public boolean isAnyHighScores()
     {
-        if(highScoresArrayP.length < 1)
+        if(this.highScoresArrayP.length < 1)
         {
             //PreLogUtil.put("No Scores", this, "isAnyHighScores");
             return false;
@@ -75,9 +75,9 @@ public class HighScoresHelper extends HighScoresHelperBase
         
         //PreLogUtil.put("Searching Scores", this, "isAnyHighScores");
         
-        for(int index = highScoresArrayP.length - 1; index >= 0; index--)
+        for(int index = this.highScoresArrayP.length - 1; index >= 0; index--)
         {
-            highScores = highScoresArrayP[index];
+            highScores = this.highScoresArrayP[index];
             
             if(highScores.getTotal() > 0)
             {

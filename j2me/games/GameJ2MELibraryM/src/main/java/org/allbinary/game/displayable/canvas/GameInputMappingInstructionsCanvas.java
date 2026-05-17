@@ -59,7 +59,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     public GameInputMappingInstructionsCanvas(CommandListener commandListener,
             AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception
     {
-        super(commandListener, NAME, 
+        super(commandListener, GameInputMappingInstructionsCanvas.NAME, 
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
             allBinaryGameLayerManager.getForegroundBasicColor());
 
@@ -105,7 +105,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
 
         //int startIndex = this.helpPaintable.getInputInfo().length + 5;
 
-        this.drawStringUtil.drawCenterStrings(graphics, instructions,
+        this.drawStringUtil.drawCenterStrings(graphics, this.instructions,
                 displayInfo.getLastWidth(), halfWidth, 3 * charHeight);
 
         super.paint(graphics);

@@ -97,7 +97,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     @Override
     public void adjustFrame(short angle)
     {
-        this.setFrame(frameUtil.getFrameForAngle(angle,
+        this.setFrame(this.frameUtil.getFrameForAngle(angle,
                 (int) this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
     }
 }

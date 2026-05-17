@@ -45,7 +45,7 @@ implements AnimationInterfaceFactoryInterface
     public Animation getInstance(final int instanceId) throws Exception
     {
         if (this.dx != 0 || this.dy != 0) {
-            return new AdjustedImageArrayAnimation(this.imageArray, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return new AdjustedImageArrayAnimation(this.imageArray, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             return new ImageArrayAnimation(this.imageArray, AnimationBehavior.getInstance());
         }

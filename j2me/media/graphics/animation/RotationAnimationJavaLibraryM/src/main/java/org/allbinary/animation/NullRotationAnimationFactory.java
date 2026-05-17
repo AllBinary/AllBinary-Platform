@@ -45,13 +45,13 @@ ProceduralAnimationInterfaceFactoryInterface
    @Override
    public Animation getInstance(final int instanceId)
    {
-       return NULL_ANIMATION;
+       return this.NULL_ANIMATION;
    }
    
    @Override
    public Animation getInstanceAnimation(Animation animationInterface) throws Exception
    {
-       return NULL_ANIMATION;
+       return this.NULL_ANIMATION;
    }
 
    @Override

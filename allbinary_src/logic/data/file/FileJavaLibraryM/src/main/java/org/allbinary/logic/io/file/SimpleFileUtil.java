@@ -150,7 +150,7 @@ public class SimpleFileUtil {
             byteArray = this.streamUtil.getByteArray(inputStream, outputStream2, byteArray1);
             this.streamUtil.close(inputStream);
         } catch (Exception e) {
-            streamUtil.close(inputStream);
+            this.streamUtil.close(inputStream);
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.ADD, e);
         }
 

@@ -451,7 +451,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
         if (value < 4)
         {
-            super.setLastKey(directionToKeyMap[value]);
+            super.setLastKey(this.directionToKeyMap[value]);
         }
     }
 

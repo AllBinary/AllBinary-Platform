@@ -52,29 +52,29 @@ public class DirectionFactory
         CommonSeps commonSeps = CommonSeps.getInstance();
         
         this.UP_LEFT = new Direction("UP LEFT", 
-                stringBuffer.append(UP.getOtherName()).
+                stringBuffer.append(this.UP.getOtherName()).
                 append(commonSeps.SPACE).
-                append(LEFT.getOtherName()).toString(), 4, 0);
+                append(this.LEFT.getOtherName()).toString(), 4, 0);
 
         stringBuffer.delete(0, stringBuffer.length());
         
         this.UP_RIGHT = new Direction("UP RIGHT", 
-                stringBuffer.append(UP.getOtherName()).
+                stringBuffer.append(this.UP.getOtherName()).
                         append(commonSeps.SPACE).
-                        append(RIGHT.getOtherName()).toString(), 5, 0);
+                        append(this.RIGHT.getOtherName()).toString(), 5, 0);
         
         stringBuffer.delete(0, stringBuffer.length());
         
         this.DOWN_LEFT = new Direction("DOWN LEFT", 
-                stringBuffer.append(DOWN.getOtherName()).
+                stringBuffer.append(this.DOWN.getOtherName()).
                 append(commonSeps.SPACE).
-                append(LEFT.getOtherName()).toString(), 6, 0);
+                append(this.LEFT.getOtherName()).toString(), 6, 0);
         
         stringBuffer.delete(0, stringBuffer.length());
         
         this.DOWN_RIGHT = new Direction("DOWN RIGHT", 
-                stringBuffer.append(DOWN.getOtherName()).
+                stringBuffer.append(this.DOWN.getOtherName()).
                 append(commonSeps.SPACE).
-                append(RIGHT.getOtherName()).toString(), 7, 0);
+                append(this.RIGHT.getOtherName()).toString(), 7, 0);
     }
 }

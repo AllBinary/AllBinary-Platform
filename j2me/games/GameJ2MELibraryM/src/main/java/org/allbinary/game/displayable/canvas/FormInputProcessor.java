@@ -62,10 +62,10 @@ extends InputProcessor
         {
             PreLogUtil.put(
                     new StringMaker()
-                            .append(inputFactory.KEY_CODE_LABEL)
+                            .append(this.inputFactory.KEY_CODE_LABEL)
                             .appendint(keyCode)
                             .append(CommonSeps.getInstance().SPACE)
-                            .append(inputFactory.DEVICE_ID_LABEL)
+                            .append(this.inputFactory.DEVICE_ID_LABEL)
                             .appendint(deviceId)
                             .toString()
                     , this, this.gameInputStrings.KEY_PRESSED);
@@ -103,13 +103,13 @@ extends InputProcessor
                 
                 PreLogUtil.put(
                     new StringMaker()
-                        .append(inputFactory.KEY_CODE_LABEL)
+                        .append(this.inputFactory.KEY_CODE_LABEL)
                         .appendint(keyCode)
                         .append(CommonSeps.getInstance().SPACE)
-                        .append(inputFactory.DEVICE_ID_LABEL)
+                        .append(this.inputFactory.DEVICE_ID_LABEL)
                         .appendint(deviceId)
                         .toString(),
-                     this, gameInputStrings.KEY_RELEASED);
+                     this, this.gameInputStrings.KEY_RELEASED);
           
                 final GameKey gameKey = GameKeyFactory.getInstance().KEY_NUM0;
                 final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput((GameKeyEventSourceInterface) canvas, gameKey);

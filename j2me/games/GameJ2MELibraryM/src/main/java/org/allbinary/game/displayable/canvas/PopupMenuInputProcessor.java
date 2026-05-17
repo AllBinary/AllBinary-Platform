@@ -165,7 +165,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
                 rectPoint.getX(),
                 rectPoint.getY(),
                 //fudge the edge of the button since touch screen calibration may suck
-                rectangle.getMaxX() + 20, rectangle.getMaxY(),
+                this.rectangle.getMaxX() + 20, this.rectangle.getMaxY(),
                 point.getX(), point.getY()))
             {
                 if (this.clickTimeHelper.isTimeTNT())

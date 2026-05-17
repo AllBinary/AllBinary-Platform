@@ -89,7 +89,7 @@ public class TimeUtil
     {
         long time = TimeUtil.calendar.getTimeInMillis();
 
-        this.setExpirationCalendar(calendar,
+        this.setExpirationCalendar(TimeUtil.calendar,
             yearString, monthString, dayString,
             hourString, minuteString, secondString);
 

@@ -14,9 +14,8 @@
 package org.allbinary.image.opengles;
 
 import javax.microedition.lcdui.Image;
-import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.string.CommonStrings;
 
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 

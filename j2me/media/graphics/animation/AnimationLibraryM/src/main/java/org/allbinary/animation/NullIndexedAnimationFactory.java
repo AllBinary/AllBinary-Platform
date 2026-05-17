@@ -41,14 +41,14 @@ public class NullIndexedAnimationFactory implements
    @Override
    public Animation getInstance(final int instanceId) throws Exception
    {
-	   return NULL_ANIMATION;
+	   return this.NULL_ANIMATION;
    }
    
    @Override
    public Animation getInstanceAnimation(final Animation animationInterface)
        throws Exception
    {
-       return NULL_ANIMATION;
+       return this.NULL_ANIMATION;
    }
    
    @Override

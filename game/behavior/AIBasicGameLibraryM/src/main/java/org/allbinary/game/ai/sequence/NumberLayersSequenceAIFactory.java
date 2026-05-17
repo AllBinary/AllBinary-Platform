@@ -20,9 +20,9 @@ import org.allbinary.layer.AllBinaryLayer;
 public class NumberLayersSequenceAIFactory
 {
 
-    public ArtificialIntelligenceInterface getInstance(int numberOfEnemiesLeft,
-          ArtificialIntelligenceInterface[] artificialIntelligenceInterface, 
-          AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+    public ArtificialIntelligenceInterface getInstance(final int numberOfEnemiesLeft,
+          final ArtificialIntelligenceInterface[] artificialIntelligenceInterface, 
+          final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
     {
         return new NumberLayersSequenceAI(numberOfEnemiesLeft, artificialIntelligenceInterface, ownerLayerInterface, gameInput);
     }

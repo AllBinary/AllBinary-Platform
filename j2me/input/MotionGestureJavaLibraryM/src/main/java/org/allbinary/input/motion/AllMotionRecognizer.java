@@ -61,7 +61,7 @@ public class AllMotionRecognizer extends MotionRecognizer
         // Only if touch buttons are not in processing can a gesture start
         if (!this.touchButtonProcessing)
         {
-            final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
+            final CustomGPoint point = (CustomGPoint) AllMotionRecognizer.pointCircularPool.getNextInstance();
 
             point.setX(x);
             point.setY(y);
@@ -86,7 +86,7 @@ public class AllMotionRecognizer extends MotionRecognizer
         
         if (!this.touchButtonProcessing)
         {
-            final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
+            final CustomGPoint point = (CustomGPoint) AllMotionRecognizer.pointCircularPool.getNextInstance();
 
             point.setX(x);
             point.setY(y);
@@ -119,7 +119,7 @@ public class AllMotionRecognizer extends MotionRecognizer
 
         if (!this.touchButtonProcessing)
         {
-            final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
+            final CustomGPoint point = (CustomGPoint) AllMotionRecognizer.pointCircularPool.getNextInstance();
 
             point.setX(x);
             point.setY(y);
@@ -138,7 +138,7 @@ public class AllMotionRecognizer extends MotionRecognizer
             this.lastX = x;
             this.lastY = y;
             
-            final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
+            final CustomGPoint point = (CustomGPoint) AllMotionRecognizer.pointCircularPool.getNextInstance();
 
             point.setX(x);
             point.setY(y);

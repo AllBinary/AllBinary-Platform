@@ -34,7 +34,7 @@ public class MineLayer extends SimpleWeaponLayer
    public MineLayer(ViewPosition viewPosition)
            throws Exception
    {
-      super(NAME, RemoteInfo.REMOTE_INFO, -1,
+      super(MineLayer.NAME, RemoteInfo.REMOTE_INFO, -1,
               NoMovementFactory.getInstance().getMovmentInstance(),
               //new BasicConstantVelocityMovement(SPEED),
               FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(

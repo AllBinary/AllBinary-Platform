@@ -81,7 +81,7 @@ public class OpenGLConfiguration
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this,
+            this.logUtil.put(this.commonStrings.EXCEPTION, this,
                     this.commonStrings.CONSTRUCTOR, e);
         }
     }

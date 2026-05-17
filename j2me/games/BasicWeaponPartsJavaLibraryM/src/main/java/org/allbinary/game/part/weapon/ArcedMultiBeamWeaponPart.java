@@ -59,7 +59,7 @@ public class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
               (this.total - 1) / this.TOTAL_ANGLE
               );
       final short minAngle = (short) (
-              angle - ((increment * total) >> 1)
+              angle - ((increment * this.total) >> 1)
               );
       
       int next = 0;

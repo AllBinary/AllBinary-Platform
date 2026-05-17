@@ -58,7 +58,7 @@ public class WeakCrypt
         try
         {
             //this.key = key;
-            this.abCrypt.init(keys[key]);
+            this.abCrypt.init(WeakCrypt.keys[key]);
             
         } catch (Exception e)
         {

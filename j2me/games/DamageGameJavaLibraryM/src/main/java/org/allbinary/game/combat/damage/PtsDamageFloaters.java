@@ -114,7 +114,7 @@ public class PtsDamageFloaters extends DamageFloaters
                 //graphics.drawString(this.lastDamageString[index],
                 graphics.drawChars(this.lastDamageString[index], 
                         0, this.lastDamageStringSizeArray[index], 
-                        x - myRandomFactory.getNextInt(delta), y - delta, 0);
+                        x - this.myRandomFactory.getNextInt(delta), y - delta, 0);
                 PtsDamageFloaters.basicColorArrayIndexer.next();
             }
             this.lastDamage[index] = 0;

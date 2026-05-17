@@ -51,7 +51,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         private final BasicColor BLACK = BasicColorFactory.getInstance().BLACK;
         
         public void paint(Graphics graphics) {
-            basicSetColorUtil.setBasicColorP(graphics, BLACK);
+            AllBinaryGameLayer.this.basicSetColorUtil.setBasicColorP(graphics, this.BLACK);
         }
     } : NullPaintable.getInstance();
 

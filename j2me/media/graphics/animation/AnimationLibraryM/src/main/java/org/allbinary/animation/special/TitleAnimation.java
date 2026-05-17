@@ -202,7 +202,7 @@ public class TitleAnimation extends SpecialAnimation
         if(this.widthP != Integer.MIN_VALUE)
         {
             //x = ((graphics.getClipWidth() - this.width) / 2);
-            x = ((displayInfoSingleton.getLastWidth() - this.widthP) / 2);
+            x = ((this.displayInfoSingleton.getLastWidth() - this.widthP) / 2);
         }
         
         int deltaX;

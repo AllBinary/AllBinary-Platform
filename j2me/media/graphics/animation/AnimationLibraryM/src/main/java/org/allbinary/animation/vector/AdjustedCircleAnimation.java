@@ -80,6 +80,6 @@ public class AdjustedCircleAnimation
                graphics, this.getBasicColorP(), this.getColor());
       
       graphics.drawArc(x + this.xAdjustment, y + this.yAdjustment,
-          this.width, this.height, 0, TOTAL_ANGLE);
+          this.width, this.height, 0, this.TOTAL_ANGLE);
    }
 }

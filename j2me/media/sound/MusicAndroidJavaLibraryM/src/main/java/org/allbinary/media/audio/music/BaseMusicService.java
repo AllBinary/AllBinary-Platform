@@ -83,7 +83,7 @@ public class BaseMusicService extends Service
     }
 
     public void start() {
-        player = MediaPlayer.create(this, songId);
+        this.player = MediaPlayer.create(this, this.songId);
         this.player.setVolume(((float) this.leftVolume) / 100.0f, ((float) this.rightVolume) / 100.0f);
         this.player.setLooping(false);
 
@@ -105,7 +105,7 @@ public class BaseMusicService extends Service
     public int onStartCommand(final Intent intent, final int flags, final int startId)
     {
         this.onStartCommandIntent(intent);
-        return START_STICKY;
+        return this.START_STICKY;
     }
 
     public void onStartCommandIntent(final Intent intent)
@@ -144,9 +144,11 @@ public class BaseMusicService extends Service
                     @Override
                     public void run() {
                         final LogUtil logUtil = LogUtil.getInstance();
+                        final CommonStrings commonStrings = CommonStrings.getInstance();
+                        final CommonStateStrings commonStateStrings = CommonStateStrings.getInstance();
                         try {
                             while(player.isPlaying()) {
-                                logUtil.putF(WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND);
+                                logUtil.putF(BaseMusicService.this.WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND);
                                 Thread.sleep(1200);
                             }
                             onStartCommandIntent(intent);

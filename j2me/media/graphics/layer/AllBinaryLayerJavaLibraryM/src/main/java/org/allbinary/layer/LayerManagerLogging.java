@@ -59,7 +59,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
     
     @Override
     public void appendAt(final AllBinaryLayer layerInterface, final int index) {
-        this.stringBuilder.delete(0, stringBuilder.length());
+        this.stringBuilder.delete(0, this.stringBuilder.length());
         this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.APPEND_).append(layerInterface.getName()).append(this._AT_).appendint(index).toString(), this, this.APPEND);
     }
     
@@ -103,7 +103,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
     }
     
     private void log(final LayerManager layerManager) {
-        this.stringBuilder.delete(0, stringBuilder.length());
+        this.stringBuilder.delete(0, this.stringBuilder.length());
         final int size = layerManager.getSize();
         final CommonSeps commonSeps = CommonSeps.getInstance();
         this.stringBuilder.append(Integer.toHexString(TsUtil.getInstance().hashCode(layerManager))).append(commonSeps.COLON_SEP);
@@ -119,7 +119,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
 
     @Override
     public void clear() {
-        this.stringBuilder.delete(0, stringBuilder.length());
+        this.stringBuilder.delete(0, this.stringBuilder.length());
         this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.CLEAR).toString(), this, this.CLEAR);
     }
 }

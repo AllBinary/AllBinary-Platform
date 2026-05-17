@@ -212,7 +212,7 @@ public class RecordStoreHighScores extends HighScores
                     recordStore.closeRecordStore();
                 }
             } catch(RecordStoreException e) {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "removeLowestHighScore", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "removeLowestHighScore", e);
             }
         }
     }

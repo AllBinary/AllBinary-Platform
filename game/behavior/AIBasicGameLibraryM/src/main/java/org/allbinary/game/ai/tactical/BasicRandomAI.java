@@ -70,12 +70,12 @@ public class BasicRandomAI extends BasicAI
 
                 this.i_random = this.myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
 
-                int size = keyArray.length;
+                int size = this.keyArray.length;
                 Integer[] likelyhoodIntegerKeyArray;
 
                 for (int index = 0; index < size; index++)
                 {
-                    int key = keyArray[index];
+                    int key = this.keyArray[index];
 
                     likelyhoodIntegerKeyArray = likelyhoodIntegerArray[key];
 

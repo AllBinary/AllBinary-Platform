@@ -15,7 +15,6 @@ package org.allbinary.logic.system.security.licensing;
 
 import java.util.Hashtable;
 
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.registration.RegistrationConfiguration;
 import org.allbinary.string.CommonSeps;

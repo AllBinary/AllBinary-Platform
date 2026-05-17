@@ -118,7 +118,7 @@ implements CompleteMotionGestureInputEventListenerInterface
         }
         catch (Exception e)
         {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, METHOD_NAME, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_NAME, e);
         }
     }
 

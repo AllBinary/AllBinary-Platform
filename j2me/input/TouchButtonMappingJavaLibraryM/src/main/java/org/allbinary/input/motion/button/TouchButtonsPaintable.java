@@ -42,7 +42,7 @@ public class TouchButtonsPaintable extends Paintable
     @Override    
     public void paint(Graphics graphics)
     {
-        BasicArrayList list = touchButtonFactory.getList();
+        final BasicArrayList list = this.touchButtonFactory.getList();
 
         //PreLogUtil.put("List " + commonStrings.TOTAL_LABEL + list.size(), this, canvasStrings.PAINT);
 

@@ -132,7 +132,7 @@ public class TestingInputSingleton
             gameKeyEvent = ((GameKeyEvent) list.objectArray[index]);
             key = gameKeyEvent.getKey();
 
-            inputProcessorArray[key].processEvent(allbinaryLayerManager, GameKeyEvent.NONE);
+            this.inputProcessorArray[key].processEvent(allbinaryLayerManager, GameKeyEvent.NONE);
         }
     }
     

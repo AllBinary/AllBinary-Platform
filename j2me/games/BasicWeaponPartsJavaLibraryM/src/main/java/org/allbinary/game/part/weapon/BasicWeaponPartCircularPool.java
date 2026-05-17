@@ -32,7 +32,7 @@ public class BasicWeaponPartCircularPool
    public void init(
            final BasicWeaponPartFactoryInterface basicWeaponPartFactoryInterface)
            throws Exception {
-       basicWeaponPart = basicWeaponPartFactoryInterface.getInstance();
+       this.basicWeaponPart = basicWeaponPartFactoryInterface.getInstance();
        /*
       for (int index = 0; index < MAX; index++) {
          VECTOR_GRAPHIC_ARRAY[index] = basicWeaponPartFactoryInterface.getInstance();

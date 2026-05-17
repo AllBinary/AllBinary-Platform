@@ -38,7 +38,7 @@ public class GroupFactory {
    {
       Group group = (Group) this.list.objectArray[this.index];
       //this.logUtil.putF(new StringMaker().append("group: ").append(group).append(" index: ").append(index).toString(), this, "getNextGroup");
-      index++;
+      this.index++;
       return group;
    }
 

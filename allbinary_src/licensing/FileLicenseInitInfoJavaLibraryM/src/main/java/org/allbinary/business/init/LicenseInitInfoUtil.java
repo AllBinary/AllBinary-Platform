@@ -131,7 +131,7 @@ public class LicenseInitInfoUtil
 
             final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
             
-            final AbFileInputStream iFile = fileStreamFactory.getFileInputStreamInstance(this.filePath, INITFILENAME);
+            final AbFileInputStream iFile = fileStreamFactory.getFileInputStreamInstance(this.filePath, this.INITFILENAME);
 
             if (iFile != null)
             {

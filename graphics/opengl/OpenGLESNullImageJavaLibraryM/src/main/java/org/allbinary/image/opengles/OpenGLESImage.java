@@ -40,10 +40,11 @@ implements OpenGLSurfaceChangedInterface
 
     public final PlatformBitmapBase openGLBitmap;
     
+    public final OpenGLESImageProperties openGLESImageProperties = new OpenGLESImageProperties();
+
     public OpenGLESImageProcessor imageProcessor = OpenGLESImageProcessor.getInstance();
     public OpenGLESImageTranslate openGLESImageTranslate = OpenGLESImageTranslate.getInstance();
     
-    public final OpenGLESImageProperties openGLESImageProperties = new OpenGLESImageProperties();
     
     public OpenGLESImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)

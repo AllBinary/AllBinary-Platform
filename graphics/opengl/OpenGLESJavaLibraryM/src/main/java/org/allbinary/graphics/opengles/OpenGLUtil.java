@@ -55,7 +55,7 @@ public class OpenGLUtil {
             }
 
         } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e);
         }
     }
 
@@ -79,7 +79,7 @@ public class OpenGLUtil {
             OpenGLLogUtil.getInstance().logError(gl);
 
         } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e);
         }
     }
     
@@ -110,7 +110,7 @@ public class OpenGLUtil {
 
     public Image add(final Image image) {
 
-        final Image encapsulateImage = preResourceImageUtil.encapsulate(image);
+        final Image encapsulateImage = this.preResourceImageUtil.encapsulate(image);
         if (encapsulateImage != image) {
 
 //            final Thread thread = Thread.currentThread();

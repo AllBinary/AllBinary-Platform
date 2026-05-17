@@ -43,7 +43,7 @@ public class SequenceAI extends ArrayAI
    {
       this.index++;
       
-      ArtificialIntelligenceInterface artificialIntelligenceInterface = 
+      final ArtificialIntelligenceInterface artificialIntelligenceInterface = 
           this.getSelectedArtificialIntelligenceInterface();
       if(artificialIntelligenceInterface.getId() == ArtificialIntelligenceTransitionInterface.ID)
       {

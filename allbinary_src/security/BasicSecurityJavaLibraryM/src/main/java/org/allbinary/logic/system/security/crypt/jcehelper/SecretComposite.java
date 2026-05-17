@@ -15,7 +15,7 @@ package org.allbinary.logic.system.security.crypt.jcehelper;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
-import org.allbinary.logic.NullUtil;
+
 import org.allbinary.logic.java.byteutil.ByteUtil;
 
 /**
@@ -45,7 +45,7 @@ public class SecretComposite extends BaseSecretComposite {
 
    @Override
    public byte[] decrypt(byte[] array) throws Exception {
-       this.cipher.init(Cipher.DECRYPT_MODE, secretKey);         
+       this.cipher.init(Cipher.DECRYPT_MODE, this.secretKey);         
        return this.mutilate(this.cipher.doFinal(array));
    }
    

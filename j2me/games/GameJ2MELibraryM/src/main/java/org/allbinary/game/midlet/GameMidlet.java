@@ -678,7 +678,7 @@ public class GameMidlet extends ProgressMidlet
 
                 //Restart canvas if screen change
                 if(this.isResized() ||
-                   this.fullScreenUtil.isScreenChange(isFullScreen))
+                   this.fullScreenUtil.isScreenChange(this.isFullScreen))
                 {
                     //PreLogUtil.put("Resized/Changed", this, midletStrings.COMMAND_ACTION);
 

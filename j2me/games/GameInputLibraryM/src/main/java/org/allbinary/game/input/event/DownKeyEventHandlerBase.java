@@ -75,7 +75,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownKey(eventObject);
             } catch (Exception e) {
-                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -107,7 +107,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownKeyEvent(eventObject);
             } catch (Exception e) {
-                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 

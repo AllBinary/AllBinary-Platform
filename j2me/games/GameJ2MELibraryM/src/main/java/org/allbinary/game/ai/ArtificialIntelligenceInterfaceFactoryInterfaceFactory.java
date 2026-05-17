@@ -27,7 +27,7 @@ public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
 
    public void clear()
    {
-       list = new BasicArrayListD();
+       this.list = new BasicArrayListD();
    }
    
    public static ArtificialIntelligenceInterfaceFactoryInterfaceFactory getInstance()

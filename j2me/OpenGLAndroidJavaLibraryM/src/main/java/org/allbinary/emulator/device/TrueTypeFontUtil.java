@@ -92,18 +92,18 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
 
     public Image getFontBitmapGL(final GL10 gl, final String filename, final int cellSize, final BasicColor basicColor) {
         if (this.fontImage == OpenGLESImage.NULL_OPENGL_IMAGE) {
-            final int cellsPerRow2 = CELLS_PER_ROW * 2;
-            final int cellsPerRow3 = CELLS_PER_ROW * 3;
-            final int cellsPerRow4 = CELLS_PER_ROW * 4;
-            final int cellsPerRow5 = CELLS_PER_ROW * 5;
-            final int cellsPerRow6 = CELLS_PER_ROW * 6;
-            final int cellsPerRow7 = CELLS_PER_ROW * 7;
+            final int cellsPerRow2 = this.CELLS_PER_ROW * 2;
+            final int cellsPerRow3 = this.CELLS_PER_ROW * 3;
+            final int cellsPerRow4 = this.CELLS_PER_ROW * 4;
+            final int cellsPerRow5 = this.CELLS_PER_ROW * 5;
+            final int cellsPerRow6 = this.CELLS_PER_ROW * 6;
+            final int cellsPerRow7 = this.CELLS_PER_ROW * 7;
 
             final Typeface typeface = Typeface.DEFAULT;
                 //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
 
             //Must make bitmap as texture for GL so it must be as a texture size.
-            final int textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
+            final int textureSize = this.getAsTextureSize(this.CELLS_PER_ROW * cellSize);
 
             final Bitmap bitmap = Bitmap.createBitmap(
                 //cellsPerRow * cellSize, 8 * cellSize,
@@ -130,18 +130,18 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
             final Rect bounds = new Rect();
             int x;
             int y;
-            for (int index = 0; index < size; index++) {
-                characterArray[0] = pattern.charAt(index);
-                paint.getTextBounds(characterArray, 0, 1, bounds);
-                _characterWidth[index] = bounds.right;
+            for (int index = 0; index < this.size; index++) {
+                this.characterArray[0] = this.pattern.charAt(index);
+                paint.getTextBounds(this.characterArray, 0, 1, bounds);
+                this._characterWidth[index] = bounds.right;
                 if (bounds.bottom - bounds.top > biggestHeight) {
                     biggestHeight = bounds.bottom - bounds.top;
                 }
-                x = (index % CELLS_PER_ROW) * cellSize;
+                x = (index % this.CELLS_PER_ROW) * cellSize;
                 x += (cellSize >> 1);
-                x -= (_characterWidth[index] >> 1);
+                x -= (this._characterWidth[index] >> 1);
                 y = 0;
-                if (index >= CELLS_PER_ROW) {
+                if (index >= this.CELLS_PER_ROW) {
                     y += cellSize;
                 }
                 if (index >= cellsPerRow2) {
@@ -164,7 +164,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
                 }
                 y += cellSize;
                 y -= (cellSize >> 2);
-                canvas.drawText(characterArray, 0, 1, (float) x - 3, (float) y - 6, paint);
+                canvas.drawText(this.characterArray, 0, 1, (float) x - 3, (float) y - 6, paint);
             }
             canvas.save();
 
@@ -189,66 +189,66 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
         paint.setARGB(255, 255, 255, 255);
 
         final Rect bounds = new Rect();
-        for (int index = 0; index < size; index++) {
-            characterArray[0] = pattern.charAt(index);
-            paint.getTextBounds(characterArray, 0, 1, bounds);
+        for (int index = 0; index < this.size; index++) {
+            this.characterArray[0] = this.pattern.charAt(index);
+            paint.getTextBounds(this.characterArray, 0, 1, bounds);
 
-            if (index < lastCapIndex) {
-                if (characterArray[0] == '1') {
-                    _characterWidth[index] = bounds.right + 3;
-                } else if (characterArray[0] == 'J' || characterArray[0] == 'V'
-                    || characterArray[0] == '2' || characterArray[0] == '9'
-                    || characterArray[0] == 'I' || characterArray[0] == 'N'
-                    || characterArray[0] == 'U') {
-                    _characterWidth[index] = bounds.right + 1;
-                } else if (characterArray[0] == '4' || characterArray[0] == 'C' || characterArray[0] == 'E'
-                        || characterArray[0] == 'O') {
-                    _characterWidth[index] = bounds.right - 2;
-                } else if (characterArray[0] == 'B'
-                        || characterArray[0] == 'D'
-                        || characterArray[0] == 'G'
-                        || characterArray[0] == 'H'
-                        || characterArray[0] == 'T'
-                        || characterArray[0] == 'W') {
-                    _characterWidth[index] = bounds.right - 3;
-                } else if (characterArray[0] == 'A' || characterArray[0] == 'Q' || characterArray[0] == 'R') {
-                    _characterWidth[index] = bounds.right - 5;
-                } else if (characterArray[0] == 'M') {
-                    _characterWidth[index] = bounds.right - 6;
-                } else if (characterArray[0] == 'm') {
-                    _characterWidth[index] = bounds.right - 8;
+            if (index < this.lastCapIndex) {
+                if (this.characterArray[0] == '1') {
+                    this._characterWidth[index] = bounds.right + 3;
+                } else if (this.characterArray[0] == 'J' || this.characterArray[0] == 'V'
+                    || this.characterArray[0] == '2' || this.characterArray[0] == '9'
+                    || this.characterArray[0] == 'I' || this.characterArray[0] == 'N'
+                    || this.characterArray[0] == 'U') {
+                    this._characterWidth[index] = bounds.right + 1;
+                } else if (this.characterArray[0] == '4' || this.characterArray[0] == 'C' || this.characterArray[0] == 'E'
+                        || this.characterArray[0] == 'O') {
+                    this._characterWidth[index] = bounds.right - 2;
+                } else if (this.characterArray[0] == 'B'
+                        || this.characterArray[0] == 'D'
+                        || this.characterArray[0] == 'G'
+                        || this.characterArray[0] == 'H'
+                        || this.characterArray[0] == 'T'
+                        || this.characterArray[0] == 'W') {
+                    this._characterWidth[index] = bounds.right - 3;
+                } else if (this.characterArray[0] == 'A' || this.characterArray[0] == 'Q' || this.characterArray[0] == 'R') {
+                    this._characterWidth[index] = bounds.right - 5;
+                } else if (this.characterArray[0] == 'M') {
+                    this._characterWidth[index] = bounds.right - 6;
+                } else if (this.characterArray[0] == 'm') {
+                    this._characterWidth[index] = bounds.right - 8;
                 } else {
-                    _characterWidth[index] = bounds.right;
+                    this._characterWidth[index] = bounds.right;
                 }
 
             } else {
-                if (characterArray[0] == ' ') {
-                    _characterWidth[index] = bounds.right + 10;
-                } else if (characterArray[0] == 'l' || characterArray[0] == 'i'
-                    || characterArray[0] == 'j' || characterArray[0] == '.'
-                    || characterArray[0] == '!' || characterArray[0] == '|') {
-                    _characterWidth[index] = bounds.right + 6;
-                } else if (characterArray[0] == 'f' || characterArray[0] == 't'
-                        || characterArray[0] == 'u' || characterArray[0] == 'v') {
-                    _characterWidth[index] = bounds.right + 1;
-                } else if (characterArray[0] == 'r') {
-                    _characterWidth[index] = bounds.right + 2;
-                } else if (characterArray[0] == 'a' || characterArray[0] == 'b'
-                        || characterArray[0] == 'g'
-                        || characterArray[0] == 'u') {
-                    _characterWidth[index] = bounds.right - 1;
-                } else if (characterArray[0] == 'o' || characterArray[0] == 'e') {
-                    _characterWidth[index] = bounds.right - 2;
-                } else if (characterArray[0] == 'm') {
-                    _characterWidth[index] = bounds.right - 7;
+                if (this.characterArray[0] == ' ') {
+                    this._characterWidth[index] = bounds.right + 10;
+                } else if (this.characterArray[0] == 'l' || this.characterArray[0] == 'i'
+                    || this.characterArray[0] == 'j' || this.characterArray[0] == '.'
+                    || this.characterArray[0] == '!' || this.characterArray[0] == '|') {
+                    this._characterWidth[index] = bounds.right + 6;
+                } else if (this.characterArray[0] == 'f' || this.characterArray[0] == 't'
+                        || this.characterArray[0] == 'u' || this.characterArray[0] == 'v') {
+                    this._characterWidth[index] = bounds.right + 1;
+                } else if (this.characterArray[0] == 'r') {
+                    this._characterWidth[index] = bounds.right + 2;
+                } else if (this.characterArray[0] == 'a' || this.characterArray[0] == 'b'
+                        || this.characterArray[0] == 'g'
+                        || this.characterArray[0] == 'u') {
+                    this._characterWidth[index] = bounds.right - 1;
+                } else if (this.characterArray[0] == 'o' || this.characterArray[0] == 'e') {
+                    this._characterWidth[index] = bounds.right - 2;
+                } else if (this.characterArray[0] == 'm') {
+                    this._characterWidth[index] = bounds.right - 7;
                 } else {
-                    _characterWidth[index] = bounds.right;
+                    this._characterWidth[index] = bounds.right;
                 }
             }
         }
 
-        _characterWidth[0] = (fontSize >> 1) - 2;
+        this._characterWidth[0] = (fontSize >> 1) - 2;
 
-        return _characterWidth;
+        return this._characterWidth;
     }
 }

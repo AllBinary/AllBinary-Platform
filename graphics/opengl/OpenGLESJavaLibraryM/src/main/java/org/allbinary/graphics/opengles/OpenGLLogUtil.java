@@ -76,7 +76,7 @@ public class OpenGLLogUtil
             stringBuffer.append(image.toString());
             
             //ForcedLogUtil.log(stringBuffer.toString(), this);
-            PreLogUtil.put(stringBuffer.toString(), this, LOG_ERROR);
+            PreLogUtil.put(stringBuffer.toString(), this, this.LOG_ERROR);
         }
     }
 }

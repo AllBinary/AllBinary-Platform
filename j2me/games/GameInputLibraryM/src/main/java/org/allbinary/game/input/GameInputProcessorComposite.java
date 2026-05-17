@@ -53,8 +53,8 @@ public class GameInputProcessorComposite extends PlayerGameInput
     {
         return new StringMaker()
                 .append(super.toString())
-                .append(NAME_LABEL)
-                .append(name)
+                .append(this.NAME_LABEL)
+                .append(this.name)
                 .toString();
     }
 }

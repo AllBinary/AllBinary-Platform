@@ -102,6 +102,6 @@ public class HighScoreUtil implements HighScoresResultsListener
     public void submit(final MyCanvas myCanvas)
     {
         final CommandListener commandListener = myCanvas.getCustomCommandListener();
-        commandListener.commandAction(SUBMIT_TEXTBOX_COMMAND, myCanvas);
+        commandListener.commandAction(this.SUBMIT_TEXTBOX_COMMAND, myCanvas);
     }
 }

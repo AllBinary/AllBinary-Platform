@@ -71,12 +71,12 @@ implements ColorChangeListener
         graphics.drawString(heading, (width >> 1) - topScoresWidth, charHeight, this.anchor);
 
         graphics.drawString(this.highScores.getColumnOneHeading(), 10,
-                charHeight * 3, anchor);
+                charHeight * 3, this.anchor);
 
         String columnTwoHeading = this.highScores.getColumnTwoHeading();
         int columnTwoHeadingWidth = graphics.getFont().stringWidth(columnTwoHeading);
         graphics.drawString(columnTwoHeading, width - 10 - columnTwoHeadingWidth,
-                charHeight * 3, anchor);
+                charHeight * 3, this.anchor);
 
         int index = 4;
 
@@ -108,11 +108,11 @@ implements ColorChangeListener
             // this.highScoresHashTable.get(enumeration.nextElement());
 
             graphics.drawString(highScore.getName(), 10, 
-                    charHeight * index, anchor);
+                    charHeight * index, this.anchor);
 
             graphics.drawString(highScore.getScoreString(), 
                     width - 10 - largestSecondColumnWidth, 
-                    charHeight * index, anchor);
+                    charHeight * index, this.anchor);
 
             index++;
             vectorIndex++;

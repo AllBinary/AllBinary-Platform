@@ -24,7 +24,7 @@ public class CountedPickedUpLayerInterfaceFactoryPool
     
     private CountedPickedUpLayerInterfaceFactoryPool()
     {
-        list = new BasicArrayListD();
+        this.list = new BasicArrayListD();
     }
     
     public BasicArrayList getList()

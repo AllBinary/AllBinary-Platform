@@ -39,7 +39,7 @@ public class GLUtil
     private final int BYTES_PER_FLOAT = 4;
         
     public FloatBuffer makeFloatBuffer3(float p_a, float p_b, float p_c) {
-        final ByteBuffer b = ByteBuffer.allocateDirect(3 * BYTES_PER_FLOAT);
+        final ByteBuffer b = ByteBuffer.allocateDirect(3 * this.BYTES_PER_FLOAT);
         b.order(ByteOrder.nativeOrder());
         final FloatBuffer buffer = b.asFloatBuffer();
         buffer.put(p_a);
@@ -50,7 +50,7 @@ public class GLUtil
     }
 
     public FloatBuffer makeFloatBuffer4(float p_a, float p_b, float p_c, float p_d) {
-        final ByteBuffer b = ByteBuffer.allocateDirect(4 * BYTES_PER_FLOAT);
+        final ByteBuffer b = ByteBuffer.allocateDirect(4 * this.BYTES_PER_FLOAT);
         b.order(ByteOrder.nativeOrder());
         final FloatBuffer buffer = b.asFloatBuffer();
         buffer.put(p_a);
@@ -62,7 +62,7 @@ public class GLUtil
     }
 
     public FloatBuffer makeFloatBuffer(final ByteBuffer byteBuffer) {
-        final ByteBuffer b = ByteBuffer.allocateDirect(byteBuffer.limit() * BYTES_PER_FLOAT);
+        final ByteBuffer b = ByteBuffer.allocateDirect(byteBuffer.limit() * this.BYTES_PER_FLOAT);
         b.order(ByteOrder.nativeOrder());
         final FloatBuffer buffer = b.asFloatBuffer();
         int unsigned;

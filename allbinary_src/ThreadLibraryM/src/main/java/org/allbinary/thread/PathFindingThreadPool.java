@@ -13,8 +13,6 @@
 */
 package org.allbinary.thread;
 
-import org.allbinary.logic.communication.log.LogUtil;
-
 //This is mainly for network communications.
 public class PathFindingThreadPool extends ThreadPool
 {

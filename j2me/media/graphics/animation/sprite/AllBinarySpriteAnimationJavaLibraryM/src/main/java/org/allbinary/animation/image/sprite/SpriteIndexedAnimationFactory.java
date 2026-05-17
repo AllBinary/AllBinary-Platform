@@ -88,7 +88,7 @@ public class SpriteIndexedAnimationFactory
     @Override
     public Animation getInstance(final int instanceId) throws Exception {
         
-        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), 
+        final Sprite sprite = this.animationFactorySpriteScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
             this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 

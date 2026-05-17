@@ -150,7 +150,7 @@ public class MotionGestureRecognizer
         int minimumMotionGesture = MotionGestureConfigurationFactory
                 .getInstance().getMinimumMotionGesture();
         if (this.j2seMath.abs((float) this.line.getDeltaX()) < minimumMotionGesture
-                && this.j2seMath.abs((float) line.getDeltaY()) < minimumMotionGesture)
+                && this.j2seMath.abs((float) this.line.getDeltaY()) < minimumMotionGesture)
         {
             this.intermediate = current;
             return;

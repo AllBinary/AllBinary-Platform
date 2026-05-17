@@ -67,13 +67,13 @@ extends ScrollSelectionForm
             {
                 graphics.setColor(this.backgroundColor);
 
-                graphics.fillRect(x, y,
+                graphics.fillRect(this.x, this.y,
                     this.rectangle.getWidth(),
                     this.rectangle.getHeight());
             }
             
             final MyFont myFont = MyFont.getInstance();
-            graphics.drawString(this.getTitle(), x, y - myFont.DEFAULT_CHAR_HEIGHT, 0);
+            graphics.drawString(this.getTitle(), this.x, this.y - myFont.DEFAULT_CHAR_HEIGHT, 0);
 
             ABCustomItem item;
             for (int index = start; index < size; index++)

@@ -33,7 +33,7 @@ public class TopToBottomImageAnimationFactory
     @Override
     public Animation getInstance(final int instanceId) throws Exception {
         
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
+        final Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
             this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         

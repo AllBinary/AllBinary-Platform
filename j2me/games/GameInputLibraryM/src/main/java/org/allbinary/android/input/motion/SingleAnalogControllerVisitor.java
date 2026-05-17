@@ -28,7 +28,7 @@ public class SingleAnalogControllerVisitor
 
     @Override
     public void process(final AllBinaryLayerManager allbinaryLayerManager, final AnalogLocationInputProcessor analogLocationInputProcessor) {
-        final AnalogLocationInput analogLocationInput = AnalogLocationInputFactory.getInstance().getInstanceForPlayer(playerInputId);
+        final AnalogLocationInput analogLocationInput = AnalogLocationInputFactory.getInstance().getInstanceForPlayer(this.playerInputId);
         analogLocationInputProcessor.process(allbinaryLayerManager, analogLocationInput);
     }
 }

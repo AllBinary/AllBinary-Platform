@@ -162,7 +162,7 @@ public class BasicPopupMenuPaintable extends Paintable
 
        this.basicSetColorUtil.setBasicColorP(graphics, this.foregroundBasicColor);
        
-       this.drawStringUtil.paintVerticle(graphics, label, x + this.BORDER, y + this.offset, 0);
+       this.drawStringUtil.paintVerticle(graphics, this.label, x + this.BORDER, y + this.offset, 0);
        graphics.drawRect(x, y, width, height);
    }
    

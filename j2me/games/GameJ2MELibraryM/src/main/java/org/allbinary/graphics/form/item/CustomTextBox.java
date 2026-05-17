@@ -64,7 +64,7 @@ public class CustomTextBox extends GameCommandCanvas
     private final InputFactory inputFactory = InputFactory.getInstance();
 
     public void onEvent(final int keyCode, final int deviceId, final boolean repeated) {
-        this.logUtil.putF(new StringMaker().append(commonStrings.START).appendint(keyCode).toString(), this, "onEvent");
+        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).appendint(keyCode).toString(), this, "onEvent");
         this.keyPressedByDevice(keyCode, deviceId);
     }
     
@@ -110,7 +110,7 @@ public class CustomTextBox extends GameCommandCanvas
             }
             
         } catch(Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.KEY_PRESSED, e);
         }
     }
 

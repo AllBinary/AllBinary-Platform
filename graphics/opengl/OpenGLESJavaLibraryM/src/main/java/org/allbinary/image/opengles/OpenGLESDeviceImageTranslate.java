@@ -29,14 +29,14 @@ public class OpenGLESDeviceImageTranslate extends OpenGLESImageTranslate {
     @Override
     public void translate(final GL10 gl, final OpenGLESImage openGLESImage, final float x, final float y) {
         
-        openGLESImage.imageProcessor.translate(gl, translateX + (openGLESImage.openGLESImageProperties.scaleX * x), translateY + (openGLESImage.openGLESImageProperties.scaleY * y));
+        openGLESImage.imageProcessor.translate(gl, this.translateX + (openGLESImage.openGLESImageProperties.scaleX * x), this.translateY + (openGLESImage.openGLESImageProperties.scaleY * y));
         
     }
 
     @Override
     public void translate2(final GL10 gl, final OpenGLESImage openGLESImage) {
         
-        openGLESImage.imageProcessor.translate(gl, translateX2, translateY2);
+        openGLESImage.imageProcessor.translate(gl, this.translateX2, this.translateY2);
         
     }    
     

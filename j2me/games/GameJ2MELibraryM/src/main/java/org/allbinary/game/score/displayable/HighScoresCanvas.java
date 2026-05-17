@@ -20,7 +20,6 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.J2MEUtil;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.commands.GameCommandsFactory;
-import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.displayable.canvas.GameCommandCanvas;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.paint.ColorFillBasePaintable;
@@ -42,6 +41,7 @@ import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.ARunnable;
 import org.allbinary.thread.SecondaryThreadPool;
 
@@ -121,19 +121,20 @@ public class HighScoresCanvas extends GameCommandCanvas
             @Override
             public void run() {
                 
+                final CommonStrings commonStrings = CommonStrings.getInstance();
                 final LogUtil logUtil = LogUtil.getInstance();
                 try {
                     final boolean isHTML = J2MEUtil.isHTML();
                     if (!isHTML) {
-                        while (!hasPainted) {
+                        while (!HighScoresCanvas.this.hasPainted) {
                         }
-                        hasPainted = false;
+                        HighScoresCanvas.this.hasPainted = false;
                     }
                     final StringMaker stringMaker = new StringMaker();
                     logUtil.putF(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
-                    repaintBehavior.onChangeRepaint(HighScoresCanvas.this);
+                    HighScoresCanvas.this.repaintBehavior.onChangeRepaint(HighScoresCanvas.this);
                     if (!isHTML) {
-                        while (!hasPainted) {
+                        while (!HighScoresCanvas.this.hasPainted) {
                         }
                     }
                     stringMaker.delete(0, stringMaker.length());
@@ -239,7 +240,7 @@ public class HighScoresCanvas extends GameCommandCanvas
                 
         if (this.highScoreCommandsFactory.isHighScoreCommand(command))
         {
-            final int index = highScoreCommandsFactory.getIndex(command);
+            final int index = this.highScoreCommandsFactory.getIndex(command);
             
             //this.logUtil.putF(this.commonStrings.START).append(index, this, this.commonStrings.UPDATE);
             
@@ -262,7 +263,7 @@ public class HighScoresCanvas extends GameCommandCanvas
             {
                 this.removeAllCommands();
                 this.addCommand(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS);
-                this.addCommand(highScoreCommandsFactory.HIGH_SCORE_COMMANDS[nextIndex]);
+                this.addCommand(this.highScoreCommandsFactory.HIGH_SCORE_COMMANDS[nextIndex]);
             }
         }
 

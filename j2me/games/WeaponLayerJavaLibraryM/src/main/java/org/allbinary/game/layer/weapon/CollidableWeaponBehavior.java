@@ -111,7 +111,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
         
         // if (collidableInterfaceCompositeInterface was instance of
         // DamageableInterface) {
-        damageUtil.process((DamageableInterface) ownerLayer,
+        this.damageUtil.process((DamageableInterface) ownerLayer,
                 (DamageableInterface) collidableInterfaceCompositeInterface);
         this.collided = true;
         // }

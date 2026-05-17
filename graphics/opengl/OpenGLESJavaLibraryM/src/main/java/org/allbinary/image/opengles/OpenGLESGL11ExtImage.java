@@ -24,7 +24,6 @@ import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.opengles.OpenGLLogUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
@@ -72,7 +71,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         }
         catch(Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "onResize", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "onResize", e);
         }
     }
     
@@ -99,7 +98,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
 
             this.textureFactory.load(gl11, GL10.GL_TEXTURE_2D, 0, this, 0, true);
             
-            gl11.glTexParameteriv(GL10.GL_TEXTURE_2D, GL11Ext.GL_TEXTURE_CROP_RECT_OES, rectangle, 0);
+            gl11.glTexParameteriv(GL10.GL_TEXTURE_2D, GL11Ext.GL_TEXTURE_CROP_RECT_OES, this.rectangle, 0);
 
             gl11.glDisable(GL10.GL_TEXTURE_2D);
 
@@ -111,7 +110,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
     {
         gl.glEnable(GL10.GL_TEXTURE_2D);
         
-        gl.glBindTexture(GL10.GL_TEXTURE_2D, openGLESImageProperties.textureID);
+        gl.glBindTexture(GL10.GL_TEXTURE_2D, this.openGLESImageProperties.textureID);
         
         //glDrawTexiOES
         ((GL11Ext) gl).glDrawTexfOES(x, this.a - y, z, this.getWidth(), this.getHeight());

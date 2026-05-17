@@ -67,7 +67,7 @@ implements InputMappingInterface
         final AllBinaryGameLayerManager allBinaryGameLayerManager,
         final HelpPaintable helpPaintable) throws Exception
     {
-        super(commandListener, NAME,
+        super(commandListener, GameInputMappingCanvas.NAME,
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 

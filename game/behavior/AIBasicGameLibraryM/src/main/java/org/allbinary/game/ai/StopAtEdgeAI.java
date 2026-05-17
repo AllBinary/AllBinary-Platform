@@ -22,30 +22,30 @@ import org.allbinary.layer.AllBinaryLayerManager;
 
 public class StopAtEdgeAI extends BasicAI
 {
-   public StopAtEdgeAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+   public StopAtEdgeAI(final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
    {
       super(ownerLayerInterface, gameInput);
    }
 
    @Override
-   public void processAI(AllBinaryLayerManager allBinaryLayerManager)
+   public void processAI(final AllBinaryLayerManager allBinaryLayerManager)
            throws Exception
    {
-       AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
+       final AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
        
        final VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = 
            ((VelocityInterfaceCompositeInterface) ownerLayerInterface);
        final BasicVelocityProperties velocityProperties = velocityInterfaceCompositeInterface.getVelocityProperties();
        
-      int x = ownerLayerInterface.getXP();
-      int y = ownerLayerInterface.getYP();
-      int x2 = ownerLayerInterface.getX2();
-      int y2 = ownerLayerInterface.getY2();
+      final int x = ownerLayerInterface.getXP();
+      final int y = ownerLayerInterface.getYP();
+      final int x2 = ownerLayerInterface.getX2();
+      final int y2 = ownerLayerInterface.getY2();
       
-      int width = ownerLayerInterface.getWidth();
-      int height = ownerLayerInterface.getHeight();
+      final int width = ownerLayerInterface.getWidth();
+      final int height = ownerLayerInterface.getHeight();
       
-      DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+      final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
       if (x2 + velocityProperties.getVelocityXBasicDecimalP().getScaled() > displayInfo.getLastWidth())
       {
           ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y, ownerLayerInterface.getZP());

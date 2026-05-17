@@ -29,11 +29,11 @@ extends BaseCircularPool
     {
         this.circularIndexUtil = CircularIndexUtil.createInstance(total);
 
-        OBJECT_ARRAY = new AllBinaryLayer[total];
+        this.OBJECT_ARRAY = new AllBinaryLayer[total];
 
         for (int localIndex = 0; localIndex < total; localIndex++)
         {
-            OBJECT_ARRAY[localIndex] = allbinaryLayerFactoryInterface.getInstance();
+            this.OBJECT_ARRAY[localIndex] = allbinaryLayerFactoryInterface.getInstance();
         }
     }
 }
