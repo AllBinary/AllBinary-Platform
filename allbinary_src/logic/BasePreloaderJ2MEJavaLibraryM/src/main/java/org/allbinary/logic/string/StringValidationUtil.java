@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.string;
 
+import org.allbinary.TsUtil;
+
 public class StringValidationUtil
 {
     private static final StringValidationUtil instance = new StringValidationUtil();
@@ -23,6 +25,7 @@ public class StringValidationUtil
     }
 
     private final StringUtil stringUtil = StringUtil.getInstance();
+    private final TsUtil tsUtil = TsUtil.getInstance();
     
     private StringValidationUtil()
     {
@@ -123,7 +126,7 @@ public class StringValidationUtil
     {
         if (value != null)
         {
-            if (value.compareTo(this.stringUtil.NULL_STRING) == 0 || value.length() < min || value.length() > max)
+            if (this.tsUtil.compareTo(value, this.stringUtil.NULL_STRING) == 0 || value.length() < min || value.length() > max)
             {
                 return false;
             }
@@ -140,8 +143,8 @@ public class StringValidationUtil
     public boolean isEmpty(String string)
     {
         if (string != null
-                && string.compareTo(this.stringUtil.NULL_STRING) != 0
-                && string.compareTo(this.stringUtil.EMPTY_STRING) != 0)
+                && this.tsUtil.compareTo(string, this.stringUtil.NULL_STRING) != 0
+                && this.tsUtil.compareTo(string, this.stringUtil.EMPTY_STRING) != 0)
         {
             return false;
         } else

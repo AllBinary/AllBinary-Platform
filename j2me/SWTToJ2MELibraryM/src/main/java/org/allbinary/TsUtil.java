@@ -17,6 +17,7 @@ import javax.microedition.rms.InvalidRecordIDException;
 import javax.microedition.rms.RecordStore;
 import javax.microedition.rms.RecordStoreException;
 import javax.microedition.rms.RecordStoreNotOpenException;
+
 import org.allbinary.logic.NullUtil;
 
 /**
@@ -56,6 +57,10 @@ public class TsUtil {
 
         return data.length < 1 ? NullUtil.getInstance().NULL_BYTE_ARRAY : data;
 
+    }
+
+    public int compareTo(final String a, final String b) {
+        return a.compareTo(b);
     }
 
     public boolean matchIgnoreCase(final String a, final String b) {

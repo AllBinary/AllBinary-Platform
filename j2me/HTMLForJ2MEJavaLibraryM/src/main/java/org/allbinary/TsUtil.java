@@ -59,6 +59,10 @@ public class TsUtil {
 
     }
 
+    public int compareTo(final String a, final String b) {
+        return a.compareTo(b);
+    }
+    
     public boolean matchIgnoreCase(final String a, final String b) {
         return a.equalsIgnoreCase(b);
     }

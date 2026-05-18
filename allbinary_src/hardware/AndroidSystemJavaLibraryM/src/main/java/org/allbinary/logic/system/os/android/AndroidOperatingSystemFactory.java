@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.system.os.android;
 
+import org.allbinary.TsUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.os.NoOperatingSystem;
@@ -36,6 +37,8 @@ public class AndroidOperatingSystemFactory {
         return AndroidOperatingSystemFactory.instance;
     }
 
+    private final TsUtil tsUtil = TsUtil.getInstance();
+    
     private AndroidOperatingSystemFactory()
     {
     }
@@ -48,7 +51,7 @@ public class AndroidOperatingSystemFactory {
             final SystemProperties systemProperties = SystemProperties.getInstance();
             String osName = systemProperties.getName();
 
-            if(osName.compareTo(OperatingSystems.getInstance().ANDROID)==0)
+            if(this.tsUtil.compareTo(osName, OperatingSystems.getInstance().ANDROID)==0)
             {
                 GenericOperatingSystem = new AndroidOS();
             }

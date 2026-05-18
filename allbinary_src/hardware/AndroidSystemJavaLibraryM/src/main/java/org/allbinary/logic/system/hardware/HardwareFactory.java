@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.system.hardware;
 
+import org.allbinary.TsUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.hardware.android.AndroidHardware;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
@@ -30,6 +31,8 @@ public class HardwareFactory
         return HardwareFactory.instance;
     }
 
+    private final TsUtil tsUtil = TsUtil.getInstance();
+    
     private HardwareFactory()
     {
     }
@@ -38,7 +41,7 @@ public class HardwareFactory
     {
         try
         {
-            if (os.getName().compareTo(OperatingSystems.getInstance().ANDROID) == 0)
+            if (this.tsUtil.compareTo(os.getName(), OperatingSystems.getInstance().ANDROID) == 0)
             {
                 return new AndroidHardware();
             }

@@ -17,6 +17,7 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 import javax.microedition.lcdui.ChoiceGroup;
+import org.allbinary.TsUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -36,6 +37,7 @@ public class GameFeatureUtil
         return GameFeatureUtil.instance;
     }
 
+    private final TsUtil tsUtil = TsUtil.getInstance();
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
     
     public final String ON_GAME_FEATURE_CHANGE = "onGameFeatureChange";
@@ -182,7 +184,7 @@ public class GameFeatureUtil
         {
             name = (String) this.enumerationUtil.nextElement(enumeration);
 
-            if (itemLabel.compareTo(name) == 0)
+            if (this.tsUtil.compareTo(itemLabel, name) == 0)
             {
                 return true;
             }

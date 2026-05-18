@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.java.bool;
 
+import org.allbinary.TsUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 
 public class BooleanUtil
@@ -26,6 +27,8 @@ public class BooleanUtil
     {
         return BooleanUtil.instance;
     }
+    
+    private final TsUtil tsUtil = TsUtil.getInstance();
     
     private BooleanUtil()
     {
@@ -43,10 +46,10 @@ public class BooleanUtil
         final String booleanStringLowerCase = booleanString.toLowerCase();
 
         //compareToIgnoreCase is probably faster
-        if (booleanStringLowerCase.compareTo(booleanFactory.TRUE_STRING) == 0)
+        if (this.tsUtil.compareTo(booleanStringLowerCase, booleanFactory.TRUE_STRING) == 0)
         {
             return true;
-        } else if(booleanStringLowerCase.compareTo(booleanFactory.FALSE_STRING) == 0) {
+        } else if(this.tsUtil.compareTo(booleanStringLowerCase, booleanFactory.FALSE_STRING) == 0) {
             return false;
         } else { 
             throw new Exception("Invalid booleanString - Must be true or false"); 
