@@ -63,7 +63,7 @@ implements ColorChangeListener
         int width = this.displayInfoSingleton.getLastWidth();
         int height = this.displayInfoSingleton.getLastHeight();
 
-        graphics.setColor(getBasicColorP().intValue());
+        graphics.setColor(this.getBasicColorP().intValue());
 
         String heading = this.highScores.getHeading();
 

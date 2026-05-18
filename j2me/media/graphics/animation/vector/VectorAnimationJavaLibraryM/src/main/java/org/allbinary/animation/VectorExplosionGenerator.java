@@ -52,7 +52,7 @@ public class VectorExplosionGenerator
             points[index][0] = point.getX();
             points[index][1] = point.getY();
         }
-        return createListFromPoints(list, points, howMuch, type);
+        return this.createListFromPoints(list, points, howMuch, type);
     }
 
     public int[][][] getInstance(final int[][] points, final int howMuch, final VectorExplosionType type) throws Exception
@@ -75,7 +75,7 @@ public class VectorExplosionGenerator
         {
             final BasicArrayList pointsBasicArrayList = new BasicArrayListS(howMuch);
 
-            pointsBasicArrayList.add(createPointsBasicArrayList(points));
+            pointsBasicArrayList.add(this.createPointsBasicArrayList(points));
 
             int frameIndex = 0;
 

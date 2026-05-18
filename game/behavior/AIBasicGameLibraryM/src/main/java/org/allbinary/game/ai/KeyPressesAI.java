@@ -50,7 +50,7 @@ public class KeyPressesAI extends BasicAI {
    }
 
    public void toggle() throws Exception {
-      if (isOn()) {
+      if (this.isOn()) {
          this.setOn(false);
       } else {
          this.setOn(true);

@@ -373,7 +373,7 @@ public class GameMidlet extends ProgressMidlet
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "startApp", e);
             this.destroyApp(false);
             //TWB - Only remove from context when multiple midlets share the same emulator
-            notifyDestroyed();
+            this.notifyDestroyed();
         }
     }
     

@@ -125,7 +125,7 @@ public class NumberStringHud extends BasicHud
        //int offset2 = 0;
        int len2 = this.valueTotalDigits;
 
-       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
+       this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
 
        graphics.drawChars(charArray, 0, //offset, 
                len, x, y, 0);

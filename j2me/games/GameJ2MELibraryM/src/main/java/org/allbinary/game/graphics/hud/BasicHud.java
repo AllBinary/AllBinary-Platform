@@ -235,15 +235,15 @@ public class BasicHud //implements DisplayChangeEventListener
 
    public void paintSSO(Graphics graphics, String string, String string2, int offset)
    {
-       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
+       this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
 
       graphics.drawString(string,
               this.x, //getHudGraphicsPosition().getPoint().getX().intValue(),
-              getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
+              this.getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
               this.hudGraphicsPosition.getAnchor());
       graphics.drawString(string2,
               this.x + offset, //getHudGraphicsPosition().getPoint().getX().intValue() + offset,
-              getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
+              this.getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
               this.hudGraphicsPosition.getAnchor());
    }
 
@@ -252,11 +252,11 @@ public class BasicHud //implements DisplayChangeEventListener
       graphics.setColor(this.getColor());
       graphics.drawString(string,
               this.x + offset, //getHudGraphicsPosition().getPoint().getX().intValue() + offset,
-              getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
+              this.getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
               this.hudGraphicsPosition.getAnchor());
       graphics.drawString(string2,
               this.x + offset2, //getHudGraphicsPosition().getPoint().getX().intValue() + offset,
-              getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
+              this.getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
               this.hudGraphicsPosition.getAnchor());
    }
 
@@ -265,7 +265,7 @@ public class BasicHud //implements DisplayChangeEventListener
                         char[] charArray2, int offset2, int len2,
                         int xOffset, int xOffset2)
    {
-       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
+       this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
        
        int y = this.getY();
        
@@ -287,7 +287,7 @@ public class BasicHud //implements DisplayChangeEventListener
                        char[] charArray2, int offset2, int len2,
                        int xOffset)
    {
-       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
+       this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
 
        int y = this.getY();
        
@@ -306,7 +306,7 @@ public class BasicHud //implements DisplayChangeEventListener
    
    public void paintOffsetAndLength(Graphics graphics, char[] charArray, int offset, int len)
    {
-       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
+       this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
 
        int y = this.getY();
        
@@ -321,7 +321,7 @@ public class BasicHud //implements DisplayChangeEventListener
    
    public void paint(Graphics graphics, String string)
    {
-       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
+       this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
 
        int y = this.getY() + this.offsetY;
        

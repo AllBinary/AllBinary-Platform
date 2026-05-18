@@ -55,7 +55,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         final PointFactory pointFactory = PointFactory.getInstance();
         final BasicArrayList list = this.getList();
         final int scale = GameConfigurationCentral.getInstance().SCALE.getValue().intValue();
-        final int size = getList().size();
+        final int size = this.getList().size();
         for (int index = 0; index < size; index++)
         {
             final FeatureResourceAnimationInterfaceFactoryInterface featureInterface = 
@@ -100,7 +100,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
 
         final BasicArrayList list = this.getList();
         final BasicArrayList resourceTypeAvailableList = new BasicArrayListD();
-        int size = getList().size();
+        int size = this.getList().size();
         FeatureResourceAnimationInterfaceFactoryInterface featureInterface;
         BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface;
         for (int index = 0; index < size; index++)

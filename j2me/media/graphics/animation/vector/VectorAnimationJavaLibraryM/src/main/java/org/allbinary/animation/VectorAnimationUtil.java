@@ -39,7 +39,7 @@ public class VectorAnimationUtil
         for (int index = 0; index < size; index++)
         {
             nextBasicArrayList = (BasicArrayList) vector.objectArray[index];
-            framePoints = toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
+            framePoints = this.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
 
             for (int pointIndex = 0; pointIndex < framePoints.length; pointIndex++)
             {
@@ -60,7 +60,7 @@ public class VectorAnimationUtil
         for (int index = 0; index < size; index++)
         {
             nextBasicArrayList = (BasicArrayList) vector.objectArray[index];
-            framePoints = toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
+            framePoints = this.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
             points[index] = new int[framePoints.length][2];
             for (int pointIndex = 0; pointIndex < framePoints.length; pointIndex++)
             {

@@ -14,7 +14,6 @@
 package org.allbinary.game.input.event;
 
 import org.allbinary.game.input.PlayerGameInput;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;

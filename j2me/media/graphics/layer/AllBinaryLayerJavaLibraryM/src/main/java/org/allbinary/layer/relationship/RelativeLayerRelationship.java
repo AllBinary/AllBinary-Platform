@@ -14,11 +14,9 @@
 package org.allbinary.layer.relationship;
 
 import org.allbinary.graphics.GPoint;
-import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListUtil;
 
 public class RelativeLayerRelationship 
    extends RelativeRelationship

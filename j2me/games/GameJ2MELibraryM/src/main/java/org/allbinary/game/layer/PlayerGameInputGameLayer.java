@@ -21,7 +21,6 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.view.StaticViewPosition;

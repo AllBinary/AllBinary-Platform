@@ -52,7 +52,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
         
         final Integer[] keys = this.keys;
         final int size = keys.length;
-        if (isOn())
+        if (this.isOn())
         {
             for (int index = 0; index < size; index++)
             {

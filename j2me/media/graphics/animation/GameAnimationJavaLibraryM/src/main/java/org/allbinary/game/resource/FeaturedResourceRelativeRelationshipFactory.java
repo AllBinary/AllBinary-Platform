@@ -43,7 +43,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
       throws Exception
    {
        final BasicArrayList featureReleaseList = this.getList();
-      int size = getList().size();
+      int size = this.getList().size();
       for (int index = 0; index < size; index++)
       {
          ResourceRelativeRelationshipFactoryInterface featureInterface = (ResourceRelativeRelationshipFactoryInterface) featureReleaseList.objectArray[index];

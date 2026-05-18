@@ -151,7 +151,7 @@ public class BaseMusicService extends Service
                                 logUtil.putF(BaseMusicService.this.WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND);
                                 Thread.sleep(1200);
                             }
-                            onStartCommandIntent(intent);
+                            BaseMusicService.this.onStartCommandIntent(intent);
                         } catch(Exception e) {
                             logUtil.put(commonStrings.EXCEPTION, this, commonStateStrings.ON_START_COMMAND, e);
                         }

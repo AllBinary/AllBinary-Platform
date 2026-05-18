@@ -77,7 +77,7 @@ public class VectorRotationGenerator
             int index = 0;
             while (index < totalAngle)
             {
-                pointsBasicArrayList.add(getListAtAngle(width, height, pointBasicArrayList, this.angleFactory.getAt(index)));
+                pointsBasicArrayList.add(this.getListAtAngle(width, height, pointBasicArrayList, this.angleFactory.getAt(index)));
                 index += angleIncrement;
             }
 

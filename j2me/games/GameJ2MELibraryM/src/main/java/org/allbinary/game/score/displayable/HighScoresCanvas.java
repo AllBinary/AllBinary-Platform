@@ -139,7 +139,7 @@ public class HighScoresCanvas extends GameCommandCanvas
                     }
                     stringMaker.delete(0, stringMaker.length());
                     logUtil.putF(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
-                    executeUpdate();
+                    HighScoresCanvas.this.executeUpdate();
                 } catch (Exception e) {
                     logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }

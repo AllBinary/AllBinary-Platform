@@ -82,8 +82,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
             final int x, final int y, final int z) {
             //PreLogUtil.put(this.commonStrings.START + "Texture", this, "drawRegion");
 
-            final int imageWidth = getWidth();
-            final int imageHeight = getHeight();
+            final int imageWidth = OpenGLESGL10Image.this.getWidth();
+            final int imageHeight = OpenGLESGL10Image.this.getHeight();
             
 //            regionRectangleFloatArray[0] = x;
 //            regionRectangleFloatArray[7] = viewHeight - y;
@@ -269,8 +269,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
         public void draw(final GL10 gl, final int x, final int y, final int z) {
             //PreLogUtil.put(commonStrings.START + "Texture", this, "draw");
 
-            final int width = getWidth();
-            final int height = getHeight();
+            final int width = OpenGLESGL10Image.this.getWidth();
+            final int height = OpenGLESGL10Image.this.getHeight();
             
 //            regionRectangleFloatArray[0] = x;
 //            regionRectangleFloatArray[7] = displayInfoSingleton.getLastHeight() - y;

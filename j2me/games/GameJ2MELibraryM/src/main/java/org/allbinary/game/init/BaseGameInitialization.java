@@ -92,9 +92,9 @@ public class BaseGameInitialization implements GameInitializationInterface
             
             this.setInitialized(true);
 
-            this.initKey(getPortion());
+            this.initKey(this.getPortion());
 
-            this.initKeyMapping(abeClientInformation, getPortion());
+            this.initKeyMapping(abeClientInformation, this.getPortion());
 
             GameKeyEventFactory.getInstance().init();
 

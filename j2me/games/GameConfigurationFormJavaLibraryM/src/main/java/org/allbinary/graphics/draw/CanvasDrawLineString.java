@@ -37,7 +37,7 @@ public class CanvasDrawLineString {
 
         //Font font = graphics.getFont();
         //graphics.setFont(Font.getFont(font.getFace(), font.getStyle(), Font.SIZE_LARGE));
-        this.drawStringUtil.drawCenterString(graphics, string, 0, string.length(), x,
+        this.drawStringUtil.drawCenterString(graphics, string, 0, string.length(), this.x,
             this.y + (line * myFont.DEFAULT_CHAR_HEIGHT));
         //graphics.setFont(font);
     }

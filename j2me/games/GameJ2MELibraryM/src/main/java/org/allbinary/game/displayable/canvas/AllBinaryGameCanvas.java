@@ -839,7 +839,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         final Features features = Features.getInstance();
         if (features.isFeature(this.touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS)) {
-            if (this.gameLayerManager.getGameInfo().getCurrentLevel() - getStartLevel() == 1) {
+            if (this.gameLayerManager.getGameInfo().getCurrentLevel() - this.getStartLevel() == 1) {
                 this.setTouchPaintableP(NullPaintable.getInstance());
             }
         }
@@ -1007,10 +1007,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.setGameOver(true);
 
-        removePauseCommand();
+        this.removePauseCommand();
         this.setGameState(AllBinaryGameCanvas.SHOW_END_RESULT_GAME_STATE);
 
-        this.setEndGamePaintable(getEndGameStatePaintable());
+        this.setEndGamePaintable(this.getEndGameStatePaintable());
         /*
          * if (gameOver) { this.setEndGamePaintable(endGameStatePaintable); }
          * else { this.setEndGamePaintable(NullPaintable.getInstance()); }

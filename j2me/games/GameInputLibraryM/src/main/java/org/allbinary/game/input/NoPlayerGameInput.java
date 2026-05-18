@@ -14,7 +14,6 @@
 package org.allbinary.game.input;
 
 import org.allbinary.game.input.event.GameKeyEvent;
-import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 /**
