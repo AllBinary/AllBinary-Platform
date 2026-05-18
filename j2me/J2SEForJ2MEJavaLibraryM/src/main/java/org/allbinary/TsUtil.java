@@ -58,4 +58,8 @@ public class TsUtil {
 
     }
 
+    public boolean equalsIgnoreCase(final String a, final String b) {
+        return a.equalsIgnoreCase(b);
+    }
+    
 }

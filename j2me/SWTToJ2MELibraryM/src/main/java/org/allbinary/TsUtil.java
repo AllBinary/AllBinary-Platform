@@ -57,5 +57,9 @@ public class TsUtil {
         return data.length < 1 ? NullUtil.getInstance().NULL_BYTE_ARRAY : data;
 
     }
-        
+
+    public boolean equalsIgnoreCase(final String a, final String b) {
+        return a.equalsIgnoreCase(b);
+    }
+    
 }
