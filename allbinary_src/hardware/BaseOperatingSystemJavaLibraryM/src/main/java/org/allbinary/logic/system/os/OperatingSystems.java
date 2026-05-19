@@ -29,6 +29,7 @@ public class OperatingSystems
    public final String WINDOWS_XP = "Windows XP";
 
    public final String ANDROID = this.LINUX;
+   public final String HARMONY = "Harmony"; //HongMeng Kernel
    
    private OperatingSystems()
    {
