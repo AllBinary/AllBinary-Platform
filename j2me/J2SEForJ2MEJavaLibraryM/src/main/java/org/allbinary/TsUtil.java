@@ -13,6 +13,8 @@
  */
 package org.allbinary;
 
+import javax.microedition.lcdui.Displayable;
+import javax.microedition.lcdui.Form;
 import javax.microedition.rms.InvalidRecordIDException;
 import javax.microedition.rms.RecordStore;
 import javax.microedition.rms.RecordStoreException;
@@ -66,5 +68,13 @@ public class TsUtil {
     public boolean matchIgnoreCase(final String a, final String b) {
         return a.equalsIgnoreCase(b);
     }
-    
+
+    public boolean isItemListener(Displayable owner) {
+        if (owner instanceof Form) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
