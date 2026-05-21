@@ -14,7 +14,7 @@
 package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.image.GameFeatureImageCacheFactory;
 
@@ -28,7 +28,7 @@ import org.microemu.android.device.AndroidImageInterface;
 public class AllBinaryScreenRelationalImageAnimationInterfaceFactory
 extends BaseImageAnimationFactory
 {
-    private Image lastImage = NullCanvas.NULL_IMAGE;
+    private Image lastImage = NullImage.NULL_IMAGE;
 
     public AllBinaryScreenRelationalImageAnimationInterfaceFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception
@@ -38,7 +38,7 @@ extends BaseImageAnimationFactory
         
     	//Image image = this.getImage();
 
-    	if(this.lastImage != NullCanvas.NULL_IMAGE)
+    	if(this.lastImage != NullImage.NULL_IMAGE)
     	{
             final AndroidImageInterface androidImageInterface = (AndroidImageInterface) this.lastImage;
             androidImageInterface.getBitmap().recycle();

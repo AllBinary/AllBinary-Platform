@@ -18,7 +18,7 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.image.ImageCache;
@@ -119,7 +119,7 @@ public class ImageScaleUtil
     private Image getScaledImage(final ImageCache imageCache, final Image originalImage, 
             final float scaleX, final float scaleY, final int width, final int height, final boolean cached) throws Exception {
         
-        Image image = NullCanvas.NULL_IMAGE;
+        Image image = NullImage.NULL_IMAGE;
         
         if(cached)
         {

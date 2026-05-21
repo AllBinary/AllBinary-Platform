@@ -15,7 +15,7 @@ package org.allbinary.graphics.canvas.transition.progress;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import android.app.Activity;
 import org.allbinary.AndroidUtil;
@@ -65,7 +65,7 @@ implements DisplayChangeEventListener
 
     private final Image[] IMAGE = new Image[4];
 
-    private Image image = NullCanvas.NULL_IMAGE;
+    private Image image = NullImage.NULL_IMAGE;
 
     private Animation animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
     
@@ -82,7 +82,7 @@ implements DisplayChangeEventListener
         
         final int size = this.IMAGE.length;
         for(int index = 0; index < size; index++) {
-            this.IMAGE[index] = NullCanvas.NULL_IMAGE;
+            this.IMAGE[index] = NullImage.NULL_IMAGE;
         }
     }
 
@@ -361,11 +361,11 @@ implements DisplayChangeEventListener
     throws Exception
     {
         final Image image = this.image;
-        if (image != NullCanvas.NULL_IMAGE)
+        if (image != NullImage.NULL_IMAGE)
         {
             if (Features.getInstance().isFeature(MainFeatureFactory.getInstance().FULL_SCREEN))
             {
-                if (this.IMAGE[index] == NullCanvas.NULL_IMAGE)
+                if (this.IMAGE[index] == NullImage.NULL_IMAGE)
                 {
                     this.IMAGE[index] = ImageScaleUtil.getInstance().createImage2(
                             ImageCacheFactory.getInstance(), image,
@@ -376,7 +376,7 @@ implements DisplayChangeEventListener
             else
             {
                 int nextIndex = index + 1;
-                if (this.IMAGE[nextIndex] == NullCanvas.NULL_IMAGE)
+                if (this.IMAGE[nextIndex] == NullImage.NULL_IMAGE)
                 {
                     this.IMAGE[nextIndex] = ImageScaleUtil.getInstance().createImage2(
                             ImageCacheFactory.getInstance(), image,
@@ -398,7 +398,7 @@ implements DisplayChangeEventListener
         int size = this.IMAGE.length;
         for(int index = 0; index < size; index++)
         {
-            if(this.IMAGE[index] != NullCanvas.NULL_IMAGE)
+            if(this.IMAGE[index] != NullImage.NULL_IMAGE)
             {
                 this.IMAGE[index] = preResourceImageUtil.encapsulate(this.IMAGE[index]);
             }
@@ -421,7 +421,7 @@ implements DisplayChangeEventListener
         int size = this.IMAGE.length;
         for(int index = 0; index < size; index++)
         {
-            if(this.IMAGE[index] != NullCanvas.NULL_IMAGE)
+            if(this.IMAGE[index] != NullImage.NULL_IMAGE)
             {
                 preResourceImageUtil.update(graphics, this.IMAGE[index]);
             }
@@ -430,7 +430,7 @@ implements DisplayChangeEventListener
     
     private Image getImage(int index) throws Exception
     {
-        Image image = NullCanvas.NULL_IMAGE;
+        Image image = NullImage.NULL_IMAGE;
 
         if (Features.getInstance().isFeature(MainFeatureFactory.getInstance().FULL_SCREEN))
         {     

@@ -16,7 +16,7 @@ package org.allbinary.image.opengles;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 import javax.microedition.lcdui.OpenGLESPostLoadPlatformImage;
 import javax.microedition.lcdui.PostLoadImageProcessor;
 
@@ -35,7 +35,7 @@ public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
 {
     public static final OpenGLESImage NULL_OPENGL_IMAGE = new OpenGLESImage(
-        NullCanvas.NULL_IMAGE, PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY, PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY);
+        NullImage.NULL_IMAGE, PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY, PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY);
     
     protected final LogUtil logUtil = LogUtil.getInstance();
 

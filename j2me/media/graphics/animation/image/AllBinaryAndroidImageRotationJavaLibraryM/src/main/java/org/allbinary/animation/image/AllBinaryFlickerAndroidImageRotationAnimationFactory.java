@@ -14,7 +14,7 @@
 package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
@@ -33,7 +33,7 @@ public class AllBinaryFlickerAndroidImageRotationAnimationFactory
 //        return new AllBinaryFlickerAndroidImageRotationAnimationFactory(image, width, height, (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), animationBehaviorFactory);
 //    }
     
-    private Image image = NullCanvas.NULL_IMAGE;
+    private Image image = NullImage.NULL_IMAGE;
 
     private final short angleIncrement;
     protected final AnimationBehaviorFactory animationBehaviorFactory;

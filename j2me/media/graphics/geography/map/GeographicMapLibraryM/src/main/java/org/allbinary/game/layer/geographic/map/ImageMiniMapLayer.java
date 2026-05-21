@@ -15,7 +15,7 @@ package org.allbinary.game.layer.geographic.map;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.image.PaintableToImageUtil;
@@ -24,7 +24,7 @@ import org.allbinary.view.ViewPosition;
 
 public class ImageMiniMapLayer extends MiniMapLayer
 {
-    private Image image = NullCanvas.NULL_IMAGE;
+    private Image image = NullImage.NULL_IMAGE;
 
     // private
     public ImageMiniMapLayer(BasicGeographicMap geographicMapInterface,

@@ -14,7 +14,7 @@
 package org.allbinary.media.graphics.geography.map.racetrack;
 
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.graphics.CellPosition;
 import org.allbinary.logic.NullUtil;
@@ -23,8 +23,8 @@ public class RaceTrackData
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private Image tileSetImage = NullCanvas.NULL_IMAGE;
-    private Image miniTileSetImage = NullCanvas.NULL_IMAGE;
+    private Image tileSetImage = NullImage.NULL_IMAGE;
+    private Image miniTileSetImage = NullImage.NULL_IMAGE;
     private int cellWidth = 0;
     private int cellHeight = 0;
     private int miniCellWidth = 0;

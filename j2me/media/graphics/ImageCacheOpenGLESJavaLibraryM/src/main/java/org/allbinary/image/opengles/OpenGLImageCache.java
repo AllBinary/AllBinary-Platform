@@ -17,7 +17,7 @@ import java.io.InputStream;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 import org.allbinary.device.NullGL10;
 
 import org.allbinary.graphics.opengles.renderer.AllBinaryRendererBase3;
@@ -91,7 +91,7 @@ public class OpenGLImageCache extends ImageCache
         
         //this.logUtil.putF("opengl: createImageD: " + image.getName(), this, this.commonStrings.CREATE);
         synchronized(this.lock) {
-            if(image != NullCanvas.NULL_IMAGE) {
+            if(image != NullImage.NULL_IMAGE) {
                 this.list.add(image);
             }
         }
@@ -112,7 +112,7 @@ public class OpenGLImageCache extends ImageCache
 
         //this.logUtil.putF("opengl: createImage: " + image.getName(), this, this.commonStrings.CREATE);
         synchronized(this.lock) {
-            if(image != NullCanvas.NULL_IMAGE) {
+            if(image != NullImage.NULL_IMAGE) {
                 this.list.add(image);
             }
         }

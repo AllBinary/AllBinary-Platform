@@ -17,7 +17,7 @@ import java.io.InputStream;
 import java.util.Hashtable;
 
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -64,7 +64,7 @@ public class ImageCacheBase
     protected Image getImage(final Object resourceId) {
        final Object imageCanBeNull =  this.hashtable.get(resourceId);
        if(imageCanBeNull == null) {
-           return NullCanvas.NULL_IMAGE;
+           return NullImage.NULL_IMAGE;
        }
            
        return (Image) imageCanBeNull;
@@ -109,7 +109,7 @@ public class ImageCacheBase
                 return (Image) list.removeAt(list.size() - 1);
             }
         }
-        return NullCanvas.NULL_IMAGE;
+        return NullImage.NULL_IMAGE;
     }
     
 //    public Image get(final Object object, final int width, final int height)
