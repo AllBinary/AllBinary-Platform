@@ -79,6 +79,17 @@ public class LogUtil {
         this.put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
         
     }
+
+    //ActualPlatform
+    public void putFS(
+        final String specialMessage,
+        final String className,
+        final String functionName) {
+        
+        this.putS(specialMessage, className, functionName, NullUtil.getInstance().NULL_OBJECT);
+        
+    }
+    
     
     //private final static String LOG_SUCCESS = "org.allbinary: ";
     //ActualPlatform
@@ -113,6 +124,32 @@ public class LogUtil {
         }
     }
 
+    //ActualPlatform
+    public void putS(
+        final String specialMessage,
+        final String className,
+        final String functionName,
+        final Object exception) {
+        try {
+
+            final String message = this.logFormatUtil.getS(
+                className, functionName, specialMessage);
+            //className, functionName, specialMessage, exception);
+
+            if (exception != null) {
+                //logger.warning(message);
+                //logger.severe(message);
+                this.logger.log(Level.SEVERE, message, exception);
+            } else {
+                //Change this back to warning when I get a stable version of gaefv without massive warnings
+                this.logger.log(Level.INFO, message);
+                //logger.log(Level.WARNING, message);
+                //logger.info(message);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
     /*
    static String getFilePatternPath()
    {

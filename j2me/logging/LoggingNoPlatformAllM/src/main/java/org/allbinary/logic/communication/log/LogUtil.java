@@ -41,6 +41,15 @@ public class LogUtil {
         
     }
 
+    public void putF(
+        final String specialMessage,
+        final String className,
+        final String functionName) {
+        
+        throw new RuntimeException();
+        
+    }
+    
     public void put(
         final String specialMessage,
         final Object object,

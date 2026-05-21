@@ -68,6 +68,11 @@ public class LogUtil {
     public void putF(final String specialMessage, final Object object, final String functionName) {
         
     }
+
+    //ActualPlatform
+    public void putF(final String specialMessage, final String className, final String functionName) {
+        
+    }
     
     //ActualPlatform
     public void put(final String specialMessage, final Object object, final String functionName, final Object exception) {
@@ -82,7 +87,7 @@ public class LogUtil {
                 return;
             }
 
-            if (this.isFirstException || this.timeDelayHelper.isTime()) {
+            if (this.isFirstException || this.timeDelayHelper.isTimeTNT()) {
 
                 String className = CommonStrings.getInstance().EMPTY;
                 this.isFirstException = false;

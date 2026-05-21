@@ -61,6 +61,19 @@ public class LogUtil {
         System.out.println(message);
     }
 
+    //ActualPlatform
+    public void putFS(
+        final String specialMessage,
+        final String className,
+        final String functionName) {
+
+        final String message = this.logFormatUtil.getS(
+            className, functionName, specialMessage);
+
+        System.out.print(this.LOG_SUCCESS);
+        System.out.println(message);
+    }
+    
     private final String LOG_SUCCESS = "org.allbinary: ";
 
     //ActualPlatform

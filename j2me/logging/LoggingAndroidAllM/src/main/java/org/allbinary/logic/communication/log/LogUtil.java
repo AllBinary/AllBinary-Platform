@@ -51,6 +51,10 @@ public class LogUtil {
     public void putF(final String specialMessage, final Object object, String functionName) {
         this.put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
+
+    public void putFS(final String specialMessage, final String string, String functionName) {
+        this.putS(specialMessage, string, functionName, NullUtil.getInstance().NULL_OBJECT);
+    }
     
     //ActualPlatform
     public void put(final String specialMessage, final Object object, String functionName, Object exception) {
@@ -70,6 +74,33 @@ public class LogUtil {
       }
          */
         className = new String(new StringMaker().append(object.getClass().getName()).append(this.commonSeps.COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
+
+        final String message = this.logFormatUtil.get(
+            className, functionName, specialMessage, exception);
+
+        android.util.Log.i(this.LABEL, message);
+        //android.util.Log.i(className, message);
+        //android.util.Log.i(className, LOGGING_LABEL + message);
+    }
+
+    //ActualPlatform
+    public void putS(final String specialMessage, final String string, String functionName, Object exception) {
+
+        String className = this.LABEL;
+        /*
+      if(object != null && object.getClass().getName() != null)
+      {
+         className = new String(object.getClass().getName());
+      }
+         */
+
+ /*
+      if(exception == null && specialMessage.indexOf(this.commonStrings.EXCEPTION) < 0)
+      {
+          return;
+      }
+         */
+        className = new String(new StringMaker().append(string).append(this.commonSeps.COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(string))).toString());
 
         final String message = this.logFormatUtil.get(
             className, functionName, specialMessage, exception);

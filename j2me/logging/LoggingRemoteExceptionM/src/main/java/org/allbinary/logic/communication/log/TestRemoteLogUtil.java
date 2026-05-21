@@ -33,7 +33,7 @@ public class TestRemoteLogUtil {
         
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.put(commonStrings.EXCEPTION, "Test", "TestClass", new Exception("Pretend Exception"));
+        logUtil.put(commonStrings.EXCEPTION, "Test", "TestClass", new Exception("Pretend Exception"));
     }
     
     /**

@@ -62,6 +62,22 @@ public class LogUtil
     }
 
     //ActualPlatform
+    public void putFS(
+        String specialMessage,
+        final String className,
+        String functionName)
+    {
+//        String className = CommonStrings.getInstance().EMPTY;
+//
+//        if (object.getClass().getName() != null)
+//        {
+//            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
+//        }
+
+        FileLog.put(specialMessage, className, functionName);
+    }
+    
+    //ActualPlatform
     public void put(
         String specialMessage,
         Object object,

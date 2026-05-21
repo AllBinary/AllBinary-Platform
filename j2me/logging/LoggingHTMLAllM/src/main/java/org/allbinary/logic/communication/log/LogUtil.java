@@ -69,6 +69,25 @@ public class LogUtil {
     }
 
     //ActualPlatform
+    public void putFS(
+        final String specialMessage,
+        final String className,
+        final String functionName) {
+
+//        String className = EMPTY;
+//        if (object.getClass().getName() != null)
+//        {
+//            className = new String(object.getClass().getName());
+//        }
+        final String message = this.logFormatUtil.getS(
+            className, functionName, specialMessage);
+
+        PlayN.log().debug(this.LOG_SUCCESS + message);
+        //System.out.print(LOG_SUCCESS);
+        //System.out.println(message);
+    }
+    
+    //ActualPlatform
     public void put(
         final String specialMessage,
         final Object object,

@@ -59,6 +59,13 @@ public class LogUtil {
     }
 
     //ActualPlatform
+    public void putFS(
+        final String specialMessage,
+        final String className,
+        final String functionName) {
+    }
+
+    //ActualPlatform
     public void put(
         final String specialMessage,
         final Object object,
