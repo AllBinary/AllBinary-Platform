@@ -16,7 +16,7 @@ package org.allbinary.image;
 import java.io.InputStream;
 
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.gd.resource.GDResources;
@@ -61,7 +61,7 @@ public class ImageCache extends ImageCacheBase
         int foundIndex = this.getIndexWH(width, height);
         Image image = this.getFromAvailable(foundIndex, width, height);
 
-        if (image == NullCanvas.NULL_IMAGE)
+        if (image == NullImage.NULL_IMAGE)
         {
             this.volume += width * height;
             if (this.volume > 32000)
@@ -102,7 +102,7 @@ public class ImageCache extends ImageCacheBase
     {
         Image image = this.getImage(key);
 
-        if (image == NullCanvas.NULL_IMAGE)
+        if (image == NullImage.NULL_IMAGE)
         {
             final ResourceUtil resourceUtil = ResourceUtil.getInstance();
             final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);

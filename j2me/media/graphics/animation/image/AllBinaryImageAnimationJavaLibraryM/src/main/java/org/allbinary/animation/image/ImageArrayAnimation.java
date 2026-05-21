@@ -15,7 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
@@ -27,7 +27,7 @@ public class ImageArrayAnimation extends IndexedAnimation
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private Image[] imageArray = NullCanvas.NULL_IMAGE_ARRAY;
+    private Image[] imageArray = NullImage.NULL_IMAGE_ARRAY;
 
     // private int totalAngle;
     private int totalFrames;

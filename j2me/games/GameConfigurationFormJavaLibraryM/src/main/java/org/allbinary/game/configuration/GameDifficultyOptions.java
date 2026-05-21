@@ -16,7 +16,7 @@ package org.allbinary.game.configuration;
 import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GameDifficultyFactory;
@@ -110,7 +110,7 @@ public class GameDifficultyOptions extends CommandForm
         final String METHOD_NAME = "addChoiceGroup";
         final String NAME = "Adding Choice: ";
 
-        final ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullCanvas.NULL_IMAGE_ARRAY);
+        final ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullImage.NULL_IMAGE_ARRAY);
 
         int size = list.size();
         for (int index = 0; index < size; index++)
@@ -119,7 +119,7 @@ public class GameDifficultyOptions extends CommandForm
 
             this.logUtil.putF(new StringMaker().append(NAME).append(object.toString()).toString(), this, METHOD_NAME);
 
-            choiceGroup.append(object.toString(), NullCanvas.NULL_IMAGE);
+            choiceGroup.append(object.toString(), NullImage.NULL_IMAGE);
         }
         return choiceGroup;
     }

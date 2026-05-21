@@ -15,7 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.DisposalUtil;
 import org.allbinary.animation.AnimationBehavior;
@@ -176,9 +176,9 @@ public class AllBinaryJ2SEImageRotationAnimation
     private void updateImage() {
 
         this.imageRotationUtil.rotateImage(this.originalImageArray[0], this.twoImages[this.bufferedImageIndex], this.angleInfo.getAngle() + 90);
-        this.alphaProcessor.updateAlpha(this.imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.alphaP);
-        this.setColorProcessor.updateColor(this.imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.basicColor);
-        this.changeColorProcessor.updateColor(this.imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColorP);
+        this.alphaProcessor.updateAlpha(this.imageModifierUtil, NullImage.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.alphaP);
+        this.setColorProcessor.updateColor(this.imageModifierUtil, NullImage.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.basicColor);
+        this.changeColorProcessor.updateColor(this.imageModifierUtil, NullImage.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColorP);
         this.swap();
     }
 

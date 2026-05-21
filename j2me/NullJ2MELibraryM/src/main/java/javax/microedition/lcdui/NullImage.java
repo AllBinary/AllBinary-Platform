@@ -1,6 +1,6 @@
 /*
  * AllBinary Open License Version 1
- * Copyright (c) 2022 AllBinary
+ * Copyright (c) 2025 AllBinary
  * 
  * By agreeing to this license you and any business entity you represent are
  * legally bound to the AllBinary Open License Version 1 legal agreement.
@@ -11,18 +11,15 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.platform.graphics;
-
-import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullImage;
+package javax.microedition.lcdui;
 
 /**
  *
  * @author User
  */
-public class PlatformBitmapBase {
-    
-    public Image getImage() {
-        return NullImage.NULL_IMAGE;
-    }
+public class NullImage {
+
+    public static final Image[] NULL_IMAGE_ARRAY = new Image[0];
+    public static final Image NULL_IMAGE = new Image();
+
 }

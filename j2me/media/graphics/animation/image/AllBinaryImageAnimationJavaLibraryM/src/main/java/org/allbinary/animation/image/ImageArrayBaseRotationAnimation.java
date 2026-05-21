@@ -15,7 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.DisposalUtil;
 import org.allbinary.animation.AnimationBehavior;
@@ -33,7 +33,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
     private final Image[] originalImageArray;
-    private Image[] imageArray = NullCanvas.NULL_IMAGE_ARRAY;
+    private Image[] imageArray = NullImage.NULL_IMAGE_ARRAY;
 
     private Image currentImage;
     

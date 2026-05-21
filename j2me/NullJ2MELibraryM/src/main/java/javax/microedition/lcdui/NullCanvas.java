@@ -4,8 +4,6 @@ import java.util.Stack;
 
 public class NullCanvas extends Canvas 
 {
-    public static final Image[] NULL_IMAGE_ARRAY = new Image[0];
-    public static final Image NULL_IMAGE = new Image();
     public static final NullCanvas NULL_CANVAS = new NullCanvas();
     
     public NullCanvas()

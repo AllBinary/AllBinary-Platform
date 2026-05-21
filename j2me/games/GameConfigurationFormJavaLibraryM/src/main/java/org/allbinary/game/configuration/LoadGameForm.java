@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Item;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 import javax.microedition.lcdui.StringItem;
 
 import org.allbinary.game.commands.GameCommandsFactory;
@@ -96,7 +96,7 @@ public class LoadGameForm extends CommandForm
         final String METHOD_NAME = "getChoiceGroup";
         final String ADDING_CHOICE = "Adding Choice: ";
         
-        final ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullCanvas.NULL_IMAGE_ARRAY);
+        final ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullImage.NULL_IMAGE_ARRAY);
 
         final int size = list.size();
         for (int index = 0; index < size; index++)
@@ -104,7 +104,7 @@ public class LoadGameForm extends CommandForm
             Object object = list.objectArray[index];
             this.logUtil.putF(new StringMaker().append(ADDING_CHOICE).append(object.toString()).toString(), this, METHOD_NAME);
 
-            choiceGroup.append(object.toString(), NullCanvas.NULL_IMAGE);
+            choiceGroup.append(object.toString(), NullImage.NULL_IMAGE);
         }
         return choiceGroup;
     }

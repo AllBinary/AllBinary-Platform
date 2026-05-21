@@ -23,7 +23,7 @@ import org.allbinary.logic.NullUtil;
 public class PlatformImage {
 
     public Object getImage(final Object graphicsSurface2) {
-        return NullCanvas.NULL_IMAGE;
+        return NullImage.NULL_IMAGE;
     }
 
     public int getSurfaceWidth(final Object graphicsSurface2, final int width) {

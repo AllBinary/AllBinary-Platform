@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.MyCanvas;
@@ -30,7 +31,7 @@ public class BufferedGameCanvasPaintHelper extends ProcessPaintable
     // Buffering Magic
     private final static int MAX_IMAGES = 4;
     private final Image offScreenImage[] = new Image[BufferedGameCanvasPaintHelper.MAX_IMAGES];
-    private Image previousImage = NullCanvas.NULL_IMAGE;
+    private Image previousImage = NullImage.NULL_IMAGE;
 
     private final CircularIndexUtil circularIndexUtil = 
         CircularIndexUtil.createInstance(BufferedGameCanvasPaintHelper.MAX_IMAGES);

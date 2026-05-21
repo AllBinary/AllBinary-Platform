@@ -14,7 +14,7 @@
 package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
@@ -32,7 +32,7 @@ import org.allbinary.vector.VectorInfo;
 public class VectorToImageArrayRotationAnimationFactory 
     extends BaseImageAnimationFactory
 {
-    private Image[] imageArray = NullCanvas.NULL_IMAGE_ARRAY;
+    private Image[] imageArray = NullImage.NULL_IMAGE_ARRAY;
 
     private int angleIncrement;
 

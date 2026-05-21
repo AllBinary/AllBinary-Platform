@@ -14,7 +14,7 @@
 package org.allbinary.platform.graphics;
 
 import javax.microedition.lcdui.Image;
-import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullImage;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 
@@ -38,6 +38,6 @@ public class PlatformBitmapBase {
     }
 
     public Image getImage() {
-        return NullCanvas.NULL_IMAGE;
+        return NullImage.NULL_IMAGE;
     }
 }
