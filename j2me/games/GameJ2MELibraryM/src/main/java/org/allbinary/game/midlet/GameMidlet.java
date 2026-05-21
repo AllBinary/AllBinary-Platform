@@ -423,14 +423,14 @@ public class GameMidlet extends ProgressMidlet
                 //TWB - Handle exit for android differently
                 if(GameMidletEventHandler.getInstance().getEventListenerInterfaceListP().size() == 0)
                 {
-                    this.exit(true);
+                    this.exitProgress(true);
                 }
                 
                 GameMidletEventHandler.getInstance().fireEvent(new DemoGameMidletEvent(this, DemoGameMidletStateFactory.getInstance().NONE));
             }
             else if (command == gameCommandsFactory.EXIT_WITHOUT_PROGRESS_COMMAND)
             {
-                this.exit(false);
+                this.exitProgress(false);
             }
             else if (command == gameCommandsFactory.START_COMMAND ||
                 command == gameCommandsFactory.RESTART_COMMAND ||
@@ -831,7 +831,7 @@ public class GameMidlet extends ProgressMidlet
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.midletStrings.COMMAND_ACTION, e);
             if (command != GameCommandsFactory.getInstance().EXIT_COMMAND)
             {
-                this.exit(false);
+                this.exitProgress(false);
             }
         }
     }

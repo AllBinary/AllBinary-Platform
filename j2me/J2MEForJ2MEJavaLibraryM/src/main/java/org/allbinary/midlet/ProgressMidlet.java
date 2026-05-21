@@ -33,7 +33,7 @@ public class ProgressMidlet extends AllBinaryMidlet
     public void preInit() {
     }
     
-    protected void exit(boolean isProgress)
+    protected void exitProgress(boolean isProgress)
     {
 
         final Processor processor = MidletExitProcessorFactory.getInstance().getExitInstance(this);
