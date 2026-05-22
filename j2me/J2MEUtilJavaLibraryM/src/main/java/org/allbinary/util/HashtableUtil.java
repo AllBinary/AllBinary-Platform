@@ -15,7 +15,6 @@ package org.allbinary.util;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
-import org.allbinary.logic.NullUtil;
 
 public class HashtableUtil
 {
