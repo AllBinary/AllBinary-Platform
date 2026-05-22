@@ -69,6 +69,10 @@ public class TsUtil {
         return a.equalsIgnoreCase(b);
     }
 
+    public ClassLoader getClassLoader(final Object object) {
+        return object.getClass().getClassLoader();
+    }
+    
     public boolean isItemListener(Displayable owner) {
         if (owner instanceof Form) {
             return true;

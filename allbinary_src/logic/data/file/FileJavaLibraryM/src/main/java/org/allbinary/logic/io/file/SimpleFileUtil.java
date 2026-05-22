@@ -24,7 +24,6 @@ import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
@@ -133,10 +132,10 @@ public class SimpleFileUtil {
     private final StreamUtil streamUtil = StreamUtil.getInstance();
     
     public BasicArrayList loadFileAsList(final InputStream inputStream, final int max, final byte[] byteArray1) {
-        return this.loadFileAsList(inputStream, max, byteArray1, 0);
+        return this.loadFileAsListReturnLine(inputStream, max, byteArray1, 0);
     }
     
-    public BasicArrayList loadFileAsList(final InputStream inputStream, final int max, final byte[] byteArray1, final int includeReturnLine) {
+    public BasicArrayList loadFileAsListReturnLine(final InputStream inputStream, final int max, final byte[] byteArray1, final int includeReturnLine) {
 
         final BasicArrayList stringList = new BasicArrayListD();
         
