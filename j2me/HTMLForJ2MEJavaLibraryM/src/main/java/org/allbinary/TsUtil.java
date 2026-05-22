@@ -65,11 +65,11 @@ public class TsUtil {
         return a.compareTo(b);
     }
     
-    public boolean matchIgnoreCase(final String a, final String b) {
+    public boolean equalIgnoreCase(final String a, final String b) {
         return a.equalsIgnoreCase(b);
     }
 
-    public ClassLoader getClassLoader(final Object object) {
+    public ClassLoader getClassClassLoader(final Object object) {
         return object.getClass().getClassLoader();
     }
     
