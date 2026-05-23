@@ -14,6 +14,7 @@
 package org.allbinary.util;
 
 import java.util.Enumeration;
+import java.util.Set;
 
 /**
  *
@@ -39,4 +40,21 @@ public class EnumerationUtil {
         return enumeration.nextElement();
     }
 
+    public Object[] getAsArray(final Set set)
+    {
+        return set.toArray();
+    }
+    
+    public Object[] getAsArray(final Enumeration enumeration)
+    {
+        final BasicArrayList basicArrayList = new BasicArrayListD();
+
+        while (this.hasMoreElements(enumeration))
+        {
+            basicArrayList.add(this.nextElement(enumeration));
+        }
+
+        return basicArrayList.toArray();
+    }
+    
 }

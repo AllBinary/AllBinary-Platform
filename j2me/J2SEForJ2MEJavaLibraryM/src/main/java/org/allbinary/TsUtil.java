@@ -73,6 +73,14 @@ public class TsUtil {
         return object.getClass().getClassLoader();
     }
     
+    public int toNumber(final char value) {
+        return value;
+    }
+
+    public int toNumber(final int value) {
+        return value;
+    }
+    
     public boolean isItemListener(Displayable owner) {
         if (owner instanceof Form) {
             return true;

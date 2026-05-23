@@ -35,7 +35,7 @@ public class CapturedImageInputOutput implements ImageIOInterface {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         
         final BufferedImageFrameCacheable capturedBufferedImageCacheable
-                = ((BufferedImageFrameCacheable) (Object) ((AutomaticCacheInterface) CapturedBufferedImagesCacheSingleton.getInstance()).get(frame));
+                = ((BufferedImageFrameCacheable) ((AutomaticCacheInterface) CapturedBufferedImagesCacheSingleton.getInstance()).get(frame));
         this.logUtil.putF(("Saving: "
                 + capturedBufferedImageCacheable.toString()), this, commonStrings.SAVE);
         this.save(capturedBufferedImageCacheable.getBufferedImage(), frame);
