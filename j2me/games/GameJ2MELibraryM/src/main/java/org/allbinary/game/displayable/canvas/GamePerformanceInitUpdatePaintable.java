@@ -54,7 +54,7 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
     public void update()
     {
         //baseRefreshHelperStringArray = GameStatisticsFactory.getInstance().toStringArray();
-        this.baseRefreshHelperCharArray = GameStatisticsFactory.getInstance().toCharArray();
+        this.baseRefreshHelperCharArray = GameStatisticsFactory.getInstance().to2DCharArray();
     }
 
     private final int RED = BasicColorFactory.getInstance().RED.intValue();

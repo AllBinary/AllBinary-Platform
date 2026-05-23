@@ -125,7 +125,7 @@ public class BaseGameStatistics
 
     private final PrimitiveLongSingleton primitiveLongSingleton = PrimitiveLongSingleton.getInstance();
     
-    public char[][] toCharArray()
+    public char[][] to2DCharArray()
     {
         long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);
         totalTime = (totalTime >> this.DEFAULT_SCALE_FACTOR);
