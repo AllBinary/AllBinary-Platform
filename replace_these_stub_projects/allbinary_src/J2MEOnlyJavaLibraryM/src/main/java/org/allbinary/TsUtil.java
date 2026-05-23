@@ -45,7 +45,7 @@ public class TsUtil {
         final Object object = (Object) any;
         object.wait(timeoutMillis);
     }
-        
+
     public byte[] getRecord(final Object object, final int recordId) 
         throws RecordStoreNotOpenException, InvalidRecordIDException, RecordStoreException {
         final RecordStore recordStore = (RecordStore) object;
@@ -74,7 +74,7 @@ public class TsUtil {
     }
     
     public int toNumber(final char value) {
-        return value;
+        return (int) value;
     }
 
     public int toNumber(final int value) {

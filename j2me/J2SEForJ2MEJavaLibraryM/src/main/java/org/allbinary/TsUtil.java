@@ -74,7 +74,7 @@ public class TsUtil {
     }
     
     public int toNumber(final char value) {
-        return value;
+        return (int) value;
     }
 
     public int toNumber(final int value) {

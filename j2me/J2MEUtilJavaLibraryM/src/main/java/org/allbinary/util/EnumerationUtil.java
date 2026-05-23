@@ -42,7 +42,8 @@ public class EnumerationUtil {
 
     public Object[] getAsArray(final Set set)
     {
-        return set.toArray();
+        final Object[] objectArray = set.toArray();
+        return objectArray;
     }
     
     public Object[] getAsArray(final Enumeration enumeration)
