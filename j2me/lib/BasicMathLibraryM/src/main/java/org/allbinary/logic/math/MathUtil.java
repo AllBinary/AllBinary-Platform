@@ -1,5 +1,8 @@
 package org.allbinary.logic.math;
 
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
+
 /**
  *
  * @author user
@@ -40,6 +43,23 @@ public class MathUtil
         } while (accumulated > result);
         return accumulated;
     }
+
+    private final int ACCURACY = 100; //1000
+    public double sqrtd(int x) {
+        if (x == 0) {
+            return (double) 0.0f;
+        }
+        if (x < 0) {
+            return (double) -1.0f;
+        }
+
+        double result = (double) x;
+        for (int index = 0; index < ACCURACY; index++) {
+            result = (result + (x / result)) / 2;
+        }
+
+        return result;
+    }
     
     public int abs(int value) {
         return (value < 0) ? -value : value;
@@ -57,15 +77,18 @@ public class MathUtil
         return (value >= value2) ? value : value2;
     }
     
-    /*
-    public static void main(String[] args)
-    {
-        int result;
-        for(int i = 100000000; i >= 0; i=i/2)
-        {
-            result = MathUtil.getInstance().sqrt(i);
-            System.out.println(i + " = " + result);
-        }
-    }
-    */
+//    public static void main(String[] args)
+//    {
+//        final CommonSeps commonSeps = CommonSeps.getInstance();
+//        final MathUtil mathUtil = MathUtil.getInstance();
+//        final StringMaker stringMaker = new StringMaker();
+//        int result;
+//        for(int i = 100000000; i > 0; i=i/2)
+//        {
+//            result = mathUtil.sqrt(i);
+//            stringMaker.delete(0, stringMaker.length());
+//            System.out.println(stringMaker.appendint(i).append(commonSeps.EQUALS).appendint(result).append(commonSeps.COLON).append(Double.toString(mathUtil.sqrtd(i))).append(commonSeps.COLON).append(Double.toString(Math.sqrt(i))).toString());
+//        }
+//    }
+
 }
