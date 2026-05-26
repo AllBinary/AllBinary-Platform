@@ -37,7 +37,7 @@ public class TransformInfoPropertiesDocument
    
    public TransformInfoPropertiesDocument(final String filePath) throws Exception
    {
-      final AbFile xmlFile = new AbFile(filePath);
+      final AbFile xmlFile = AbFile.createAbFile(filePath);
       this.document = DomDocumentFileHelper.createDocument(xmlFile);
    }
    

@@ -64,7 +64,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
    public synchronized void setFile(String filePathName, String name) throws Exception
    {
        //uniqueIdFile=filePathName;
-       this.newFile = new AbFile(filePathName);
+       this.newFile = AbFile.createAbFile(filePathName);
    }
    
    public synchronized String getNext() throws IOException

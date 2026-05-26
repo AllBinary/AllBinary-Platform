@@ -32,7 +32,7 @@ public class HttpFilePermissionsUtil {
     public void create(AbPath path)
         throws Exception
     {
-        AbFile file = new AbFile(path);
+        AbFile file = AbFile.createAbFile(path);
 
         if(!file.isFile())
         {

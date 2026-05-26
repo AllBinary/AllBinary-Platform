@@ -54,7 +54,7 @@ public class ZipFileUtil
     {
         try
         {
-            final AbFile zipFile = new AbFile(outFilename);
+            final AbFile zipFile = AbFile.createAbFile(outFilename);
 
             if (zipFile.exists())
             {
@@ -146,7 +146,7 @@ public class ZipFileUtil
                 {
                 } else
                 {
-                    AbFile entryFile = new AbFile(path + entryName);
+                    AbFile entryFile = AbFile.createAbFile(path + entryName);
 
                     stringBuffer.delete(0, stringBuffer.length());
 

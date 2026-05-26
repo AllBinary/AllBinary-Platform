@@ -162,7 +162,7 @@ public class BasicTransformer extends AbTransformer {
                     stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
                     stringBuffer.append(transformInfoTemplateData.ENCRYPTED_EXTENSION);
 
-                    final AbFile encFile = new AbFile(stringBuffer.toString());
+                    final AbFile encFile = AbFile.createAbFile(stringBuffer.toString());
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                         this.logUtil.putF(
@@ -187,7 +187,7 @@ public class BasicTransformer extends AbTransformer {
                         return;
                     } else {
                         final AbFile file =
-                            new AbFile(this.getTransformInfoInterface().getTemplateFilePath());
+                            AbFile.createAbFile(this.getTransformInfoInterface().getTemplateFilePath());
 
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                             this.logUtil.putF(
@@ -224,7 +224,7 @@ public class BasicTransformer extends AbTransformer {
                     stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
                     stringBuffer.append(transformInfoTemplateData.ENCRYPTED_EXTENSION);
 
-                    final AbFile file = new AbFile(stringBuffer.toString());
+                    final AbFile file = AbFile.createAbFile(stringBuffer.toString());
 
                     if (file.isFile()) {
                         this.setEncryptedTemplateFileAsInputStream(file);

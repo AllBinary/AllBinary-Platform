@@ -52,7 +52,7 @@ public class WeblisketFinder
         {
             this.logUtil.putF(this.commonStrings.START, this, "findAll");
 
-            return this.subDirectory.search(WeblisketFinder.KEY, new AbFile(path));
+            return this.subDirectory.search(WeblisketFinder.KEY, AbFile.createAbFile(path));
         } catch (Exception e)
         {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "findAll", e);

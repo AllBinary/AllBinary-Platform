@@ -44,7 +44,7 @@ public class VisitorFileFilter
       //System.out.println("End Accept");
       return isFileAcceptable || file.isDirectory();
        
-      //return this.accept(new AbFile(file));
+      //return this.accept(AbFile.createAbFile(file));
    }
 
    public boolean accept(AbFile file)

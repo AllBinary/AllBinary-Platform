@@ -34,7 +34,7 @@ public class FileStreamFactory
         throws Exception
     {
         AbPath FILEABPATH = new AbPath(path, fileName);
-        AbFile file = new AbFile(FILEABPATH);
+        AbFile file = AbFile.createAbFile(FILEABPATH);
         return new AbFileInputStream(file);
     }
 
@@ -42,7 +42,7 @@ public class FileStreamFactory
         throws Exception
     {
         AbPath FILEABPATH = new AbPath(path, fileName);
-        AbFile file = new AbFile(FILEABPATH);
+        AbFile file = AbFile.createAbFile(FILEABPATH);
 
         if (file.exists())
         {
@@ -57,7 +57,7 @@ public class FileStreamFactory
         throws Exception
     {
         AbPath FILEABPATH = new AbPath(path, fileName);
-        AbFile file = new AbFile(FILEABPATH);
+        AbFile file = AbFile.createAbFile(FILEABPATH);
         file.delete();
     }
 }

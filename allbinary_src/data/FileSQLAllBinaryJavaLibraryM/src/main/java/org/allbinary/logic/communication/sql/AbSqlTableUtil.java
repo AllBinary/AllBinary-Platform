@@ -102,7 +102,7 @@ public class AbSqlTableUtil
 
             AbPath backupFilePath = new AbPath(backupPath, fileName);
 
-            AbFile backupFile = new AbFile(backupFilePath);
+            AbFile backupFile = AbFile.createAbFile(backupFilePath);
 
             if (backupFile.exists())
             {
@@ -157,7 +157,7 @@ public class AbSqlTableUtil
             }
 
             Directory.create(backupAbPath);
-            AbFile backupFileBak = new AbFile(backupAbPath.toFileSystemString());
+            AbFile backupFileBak = AbFile.createAbFile(backupAbPath.toFileSystemString());
 
             backupFileBak.createNewFile();
 
@@ -303,7 +303,7 @@ public class AbSqlTableUtil
                 }
             }
 
-            AbFile backupFile = new AbFile(path, tableName + this.EXTENSION);
+            AbFile backupFile = AbFile.createAbFile(path, tableName + this.EXTENSION);
 
             BufferedLineReader bufferedLineReader = new BufferedLineReader(backupFile);
 

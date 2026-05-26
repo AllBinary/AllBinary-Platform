@@ -112,7 +112,7 @@ public class DbInitInfo extends DbConnectionInfo
         final AbPath FILEABPATH = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE, this.initFileName);
         try
         {
-            final AbFile newFile = new AbFile(FILEABPATH);
+            final AbFile newFile = AbFile.createAbFile(FILEABPATH);
 
             newFile.createNewFile();
 
@@ -161,7 +161,7 @@ public class DbInitInfo extends DbConnectionInfo
                 = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE, this.initFileName);
         try
         {
-            final AbFile file = new AbFile(FILEABPATH);
+            final AbFile file = AbFile.createAbFile(FILEABPATH);
             if(file.isFile())
             {
                 final AbFileInputStream iFile = new AbFileInputStream(file);

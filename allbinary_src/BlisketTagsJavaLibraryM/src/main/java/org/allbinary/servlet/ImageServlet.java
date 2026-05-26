@@ -51,7 +51,7 @@ public class ImageServlet extends HttpServlet
         	BlisketServletUtil.getInstance().init(request);
 
             final String requestURI = request.getRequestURI();
-            final AbFile file = new AbFile(URLGLOBALS.getWebappPath() + requestURI);
+            final AbFile file = AbFile.createAbFile(URLGLOBALS.getWebappPath() + requestURI);
 
             inputStream = CloudStreamUtil.getInstance().getFileLocal(file);
             final ByteArrayOutputStream outputStream = new ByteArrayOutputStream(8000);

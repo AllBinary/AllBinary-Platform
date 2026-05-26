@@ -233,7 +233,7 @@ public class FileUtil
         {
             AbPath outPath = this.fixPath(file, path, realPath, cloud);
 
-            AbFile outFile = new AbFile(outPath);
+            AbFile outFile = AbFile.createAbFile(outPath);
 
             //if (!isInCloud(outFile))
             //{
@@ -536,7 +536,7 @@ public class FileUtil
         AbPath fromDirectoryAbPath, AbPath toDirectoryAbPath, boolean overwriteNewer, boolean overwriteAll, int current, int total)
         throws Exception
     {
-        AbFile file = new AbFile(fromDirectoryAbPath);
+        AbFile file = AbFile.createAbFile(fromDirectoryAbPath);
 
         if (!file.isDirectory())
         {
@@ -612,7 +612,7 @@ public class FileUtil
 
                 //this.logUtil.putF(stringBuffer.toString(), this, "copyDirectoryPortion");
 
-                AbFile toFile = new AbFile(new AbPath(newPath));
+                AbFile toFile = AbFile.createAbFile(new AbPath(newPath));
 
                 this.copyFile(nextFile, toFile, overwriteNewer, overwriteAll);
             }
@@ -671,10 +671,10 @@ public class FileUtil
                 AbFile file = fileArray[index];
                 if (file.isFile())
                 {
-                    this.copyFile(file, new AbFile(newDirectoryAbPath.toString(), file.getName()));
+                    this.copyFile(file, AbFile.createAbFile(newDirectoryAbPath.toString(), file.getName()));
                 } else if (file.isDirectory())
                 {
-                    this.copyDirectory(file, new AbFile(newDirectoryAbPath));
+                    this.copyDirectory(file, AbFile.createAbFile(newDirectoryAbPath));
                 } else
                 {
                     throw new Exception("File Copy Error");
@@ -738,8 +738,8 @@ public class FileUtil
                 throw new Exception("Cannot Copy To A Null Location");
             }
 
-            AbFile fromLocationFile = new AbFile(fromAbPath);
-            AbFile toLocationFile = new AbFile(to);
+            AbFile fromLocationFile = AbFile.createAbFile(fromAbPath);
+            AbFile toLocationFile = AbFile.createAbFile(to);
 
             //copy single file
             if (fromLocationFile.isFile())
@@ -747,7 +747,7 @@ public class FileUtil
                 if (toLocationFile.isDirectory())
                 {
                     //keep the same file
-                    AbFile file = new AbFile(
+                    AbFile file = AbFile.createAbFile(
                         toLocationFile, fromLocationFile.getName());
 
                     this.copyFile(fromLocationFile, file);
@@ -800,7 +800,7 @@ public class FileUtil
                         AbFile file = fileArray[index];
                         if (file.isFile())
                         {
-                            AbFile aFile = new AbFile(
+                            AbFile aFile = AbFile.createAbFile(
                                 toLocationFile, file.getName());
 
                             this.copyFile(file, aFile);

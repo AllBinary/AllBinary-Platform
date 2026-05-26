@@ -54,7 +54,7 @@ public class MathUtil
         }
 
         double result = (double) x;
-        for (int index = 0; index < ACCURACY; index++) {
+        for (int index = 0; index < this.ACCURACY; index++) {
             result = (result + (x / result)) / 2;
         }
 

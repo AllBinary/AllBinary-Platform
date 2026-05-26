@@ -47,7 +47,7 @@ public class LogoImageFileUtil
            throw new Exception("Unable to save file to non creatable directory");
         }
 
-        final AbFile originalImageFile = new AbFile(
+        final AbFile originalImageFile = AbFile.createAbFile(
             this.imageFileAbPath.toString() + this.fileName);
 
         originalImageFile.createNewFile();

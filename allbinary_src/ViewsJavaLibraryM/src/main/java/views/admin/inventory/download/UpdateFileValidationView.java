@@ -120,7 +120,7 @@ public class UpdateFileValidationView
                 this.itemInterface.getCategory()).toString();
             //storeFrontInterface.getCategoryPath()
 
-            AbFile categoryFile = new AbFile(fullCategory);
+            AbFile categoryFile = AbFile.createAbFile(fullCategory);
             if (!categoryFile.isDirectory())
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
@@ -325,7 +325,7 @@ public class UpdateFileValidationView
                 this.logUtil.putF("Category: " + fullCategory, this, "validationInfo()");
             }
 
-            AbFile categoryFile = new AbFile(fullCategory);
+            AbFile categoryFile = AbFile.createAbFile(fullCategory);
             if (!categoryFile.isDirectory())
             {
                 stringBuffer.append("Category ");

@@ -27,17 +27,17 @@ public class FileFactory {
 
     public AbFile getInstance(String filePath) throws Exception
     {
-        return new AbFile(filePath, false);
+        return AbFile.createAbFile(filePath, false);
     }
 
     public AbFile getInstance(AbFile file, String childFilePath) throws Exception
     {
-        return new AbFile(file, childFilePath);
+        return AbFile.createAbFile(file, childFilePath);
     }
 
     public boolean isFile(String path) throws Exception
     {
-        AbFile file = new AbFile(path);
+        AbFile file = AbFile.createAbFile(path);
         if (file.exists())
         {
             return true;

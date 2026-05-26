@@ -165,7 +165,7 @@ public class DownloadableInventoryItemView
 
         final String fullPath = this.getItemFilePath();
         //Make inventory item resource directory if not already there
-        final AbFile itemResourceFile = new AbFile(fullPath);
+        final AbFile itemResourceFile = AbFile.createAbFile(fullPath);
         itemResourceFile.mkdir();
 
         final StringMaker stringBuffer = new StringMaker();
@@ -175,7 +175,7 @@ public class DownloadableInventoryItemView
 
         this.logUtil.putF("FileName: " + fileName, this, "processFile()");
 
-        final AbFile file = new AbFile(stringBuffer.toString());
+        final AbFile file = AbFile.createAbFile(stringBuffer.toString());
 
         this.logUtil.putF(file.getPath(), this, "processFiles()");
 
@@ -193,7 +193,7 @@ public class DownloadableInventoryItemView
         
         final String fullPath = this.getItemFilePath();
 
-        //AbFile itemResourceFile = new AbFile(fullPath);
+        //AbFile itemResourceFile = AbFile.createAbFile(fullPath);
 
         final StringMaker stringBuffer = new StringMaker();
 
@@ -202,7 +202,7 @@ public class DownloadableInventoryItemView
 
         this.logUtil.putF("FileName: " + fileName, this, "unzip()");
 
-        final AbFile file = new AbFile(stringBuffer.toString());
+        final AbFile file = AbFile.createAbFile(stringBuffer.toString());
 
         this.logUtil.putF(file.getPath(), this, "unzip()");
 

@@ -79,7 +79,7 @@ public class InventoryUploadMediaUtil
         
         String fullPath = stringBuffer.toString();
 
-        AbFile imageDirectoryFile = new AbFile(fullPath);
+        AbFile imageDirectoryFile = AbFile.createAbFile(fullPath);
         if (!imageDirectoryFile.isDirectory())
         {
             throw new Exception("Unable to save file to non existant directory");
@@ -92,7 +92,7 @@ public class InventoryUploadMediaUtil
         stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
         stringBuffer.append(mediaData.getName());
         
-        AbFile originalImageFile = new AbFile(stringBuffer.toString());
+        AbFile originalImageFile = AbFile.createAbFile(stringBuffer.toString());
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
@@ -215,19 +215,19 @@ public class InventoryUploadMediaUtil
                 {
                     //Create Multiple files without resizing
 
-                    AbFile smallImageFile = new AbFile(this.itemInterface.getSmallImage());
+                    AbFile smallImageFile = AbFile.createAbFile(this.itemInterface.getSmallImage());
                     smallImageFile.createNewFile();
 
                     fileUtil.write(new ByteArrayInputStream(byteArray), smallImageFile);
                     //fileItemUtil.write(fileItem, smallImageFile);
 
-                    AbFile mediumImageFile = new AbFile(this.itemInterface.getMediumImage());
+                    AbFile mediumImageFile = AbFile.createAbFile(this.itemInterface.getMediumImage());
                     smallImageFile.createNewFile();
 
                     fileUtil.write(new ByteArrayInputStream(byteArray), mediumImageFile);
                     //fileItemUtil.write(fileItem, mediumImageFile);
 
-                    AbFile largeImageFile = new AbFile(this.itemInterface.getSmallImage());
+                    AbFile largeImageFile = AbFile.createAbFile(this.itemInterface.getSmallImage());
                     largeImageFile.createNewFile();
 
                     fileUtil.write(new ByteArrayInputStream(byteArray), largeImageFile);
@@ -301,13 +301,13 @@ public class InventoryUploadMediaUtil
     //storeFrontInterface.getCategoryPath() +
     itemInterface.getCategory();
 
-    AbFile imageDirectoryFile = new AbFile(fullPath);
+    AbFile imageDirectoryFile = AbFile.createAbFile(fullPath);
     if(!imageDirectoryFile.isDirectory())
     {
     throw new Exception("Unable to save file to non existant directory");
     }
 
-    AbFile originalImageFile = new AbFile(fullPath + fileName +
+    AbFile originalImageFile = AbFile.createAbFile(fullPath + fileName +
     AbPathData.getInstance().EXTENSION_SEP + mediaData.getName());
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
@@ -448,19 +448,19 @@ public class InventoryUploadMediaUtil
     this.itemInterface.setLargeImage(newImageFileName);
 
     AbFile smallImageFile =
-    new AbFile(this.itemInterface.getSmallImage());
+    AbFile.createAbFile(this.itemInterface.getSmallImage());
     smallImageFile.createNewFile();
 
     fileItemUtil.write(fileItem, smallImageFile);
 
     AbFile mediumImageFile =
-    new AbFile(this.itemInterface.getMediumImage());
+    AbFile.createAbFile(this.itemInterface.getMediumImage());
     smallImageFile.createNewFile();
 
     fileItemUtil.write(fileItem, mediumImageFile);
 
     AbFile largeImageFile =
-    new AbFile(this.itemInterface.getSmallImage());
+    AbFile.createAbFile(this.itemInterface.getSmallImage());
     largeImageFile.createNewFile();
 
     fileItemUtil.write(fileItem, largeImageFile);

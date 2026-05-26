@@ -37,10 +37,10 @@ public class SimpleTransform {
     public String transform() throws Exception
     {
         final AbFileLocalInputStream inputStream =
-            new AbFileLocalInputStream(new AbFile(this.xsltFilePath));
+            new AbFileLocalInputStream(AbFile.createAbFile(this.xsltFilePath));
 
         final Document document = DomDocumentHelper.create(
-            new AbFileLocalInputStream(new AbFile(this.dataFilePath)));
+            new AbFileLocalInputStream(AbFile.createAbFile(this.dataFilePath)));
 
         final String result = XslHelper.getInstance().translate(
             new StreamSource(inputStream),

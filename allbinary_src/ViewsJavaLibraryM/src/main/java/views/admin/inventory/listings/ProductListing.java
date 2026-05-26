@@ -113,7 +113,7 @@ public class ProductListing implements ProductListingInterface
             this.logUtil.putF("Creating File: " + file, this, "generateAll()");
         }
 
-        AbFile newFile = new AbFile(file);
+        AbFile newFile = AbFile.createAbFile(file);
         if (newFile.exists())
         {
             newFile.delete();

@@ -50,7 +50,7 @@ public class MediaUtil
             this.logUtil.putF("Image Properties: " + hashMap.toString(), this, "saveImageFile()");
         }
 
-        final AbFile imageFile = new AbFile(category + newImageFileName);
+        final AbFile imageFile = AbFile.createAbFile(category + newImageFileName);
         imageFile.createNewFile();
 
         final ImageUtil imageUtil = ImageUtil.getInstance();

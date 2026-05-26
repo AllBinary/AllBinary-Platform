@@ -154,7 +154,7 @@ public class LogConfig
         stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
         stringBuffer.append(this.getFileName());
 
-        AbFile file = new AbFile(stringBuffer.toString());
+        AbFile file = AbFile.createAbFile(stringBuffer.toString());
 
         Document document = DomDocumentHelper.create(
             new AbFileLocalInputStream(file));

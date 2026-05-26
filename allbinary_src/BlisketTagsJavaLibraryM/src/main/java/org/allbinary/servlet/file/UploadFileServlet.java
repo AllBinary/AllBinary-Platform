@@ -153,7 +153,7 @@ public class UploadFileServlet extends HttpServlet
                     filePath = filePath + this.fileName;
                 }
 
-                AbFile file = new AbFile(URLGLOBALS.getWebappPath() + filePath);
+                AbFile file = AbFile.createAbFile(URLGLOBALS.getWebappPath() + filePath);
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                 {

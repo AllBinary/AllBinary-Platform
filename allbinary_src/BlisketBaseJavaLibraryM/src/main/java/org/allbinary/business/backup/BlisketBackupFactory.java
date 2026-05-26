@@ -50,7 +50,7 @@ public class BlisketBackupFactory
     {
         AbPath path = new AbPath(pathString);
 
-        AbFile file = new AbFile(path);
+        AbFile file = AbFile.createAbFile(path);
 
         return this.directory.search(file, true);
     }

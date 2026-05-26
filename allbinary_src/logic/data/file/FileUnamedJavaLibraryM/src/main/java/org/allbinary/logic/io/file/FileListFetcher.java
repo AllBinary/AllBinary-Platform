@@ -44,7 +44,7 @@ public class FileListFetcher
         {
             
 
-            final BasicArrayList files = this.subDirectory.search(new AbFile(path));
+            final BasicArrayList files = this.subDirectory.search(AbFile.createAbFile(path));
             return files;
 
         } catch (Exception e)
@@ -68,7 +68,7 @@ public class FileListFetcher
                     new DirectoryOrIncludeFileExtensionBooleanFileVisitor(
                             includeExtensionBasicArrayList));
 
-            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, new AbFile(path));
+            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, AbFile.createAbFile(path));
             return files;
 
         } catch (Exception e)
@@ -89,7 +89,7 @@ public class FileListFetcher
                     new DirectoryOrIncludeFileExtensionBooleanFileVisitor(
                             includeExtensionBasicArrayList));
 
-            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, new AbFile(path));
+            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, AbFile.createAbFile(path));
             return files;
 
         } catch (Exception e)
@@ -110,7 +110,7 @@ public class FileListFetcher
                     new DirectoryOrIncludeFileExtensionBooleanFileVisitor(
                             includeExtensionBasicArrayList, pathIncludes));
 
-            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, new AbFile(path));
+            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, AbFile.createAbFile(path));
             return files;
 
         } catch (Exception e)
@@ -128,7 +128,7 @@ public class FileListFetcher
             final VisitorFileFilter visitorFileFilter = new VisitorFileFilter(
                     new DirectoryBooleanFileVisitor());
 
-            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, new AbFile(path));
+            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, AbFile.createAbFile(path));
             return files;
 
         } catch (Exception e)

@@ -88,7 +88,7 @@ public class UpdateFileValidationView
 
             String fullCategory = stringBuffer.toString();
 
-            AbFile categoryFile = new AbFile(fullCategory);
+            AbFile categoryFile = AbFile.createAbFile(fullCategory);
             if (!categoryFile.isDirectory())
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))

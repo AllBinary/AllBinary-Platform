@@ -80,7 +80,7 @@ public class DownloadFileServlet extends HttpServlet
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
 
-            AbFile file = new AbFile(URLGLOBALS.getWebappPath() + filePath);
+            AbFile file = AbFile.createAbFile(URLGLOBALS.getWebappPath() + filePath);
 
             if (!file.exists())
             {

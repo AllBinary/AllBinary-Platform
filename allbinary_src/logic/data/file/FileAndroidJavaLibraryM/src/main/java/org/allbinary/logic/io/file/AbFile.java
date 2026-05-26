@@ -25,38 +25,38 @@ import org.allbinary.logic.string.StringUtil;
 
 public class AbFile implements AbFileInterface
 {
-    public static final AbFile NULL_FILE = new AbFile(StringUtil.getInstance().EMPTY_STRING, false);
+    public static final AbFile NULL_FILE = AbFile.createAbFile(StringUtil.getInstance().EMPTY_STRING, false);
     
     private final File file;
 
-    AbFile(String filePath, boolean unknown)
+    public static AbFile createAbFile(AbFile file, String childPathName) throws Exception
     {
-        this.file = new File(filePath);
+        return new AbFile(new File(file.getFile(), childPathName));
     }
 
-    protected AbFile(File file) throws Exception
+    public static AbFile createAbFile(String filePath) throws Exception
+    {
+        return new AbFile(new File(new AbPath(filePath).toFileSystemString()));
+    }
+
+    public static AbFile createAbFile(String filePath, String fileName) throws Exception
+    {
+        return new AbFile(new File(new AbPath(filePath).toFileSystemString(), fileName));
+    }
+
+    public static AbFile createAbFile(AbPath abPath) 
+    {
+        return new AbFile(new File(abPath.toFileSystemString()));
+    }
+    
+    public static AbFile createAbFile(String filePath, boolean unknown)
+    {
+        return new AbFile(new File(filePath));
+    }
+
+    protected AbFile(File file)
     {
         this.file = file;
-    }
-
-    public AbFile(AbFile file, String childPathName) throws Exception
-    {
-        this.file = new File(file.getFile(), childPathName);
-    }
-
-    public AbFile(String filePath) throws Exception
-    {
-        this.file = new File(new AbPath(filePath).toFileSystemString());
-    }
-
-    public AbFile(String filePath, String fileName) throws Exception
-    {
-        this.file = new File(new AbPath(filePath).toFileSystemString(), fileName);
-    }
-
-    public AbFile(AbPath abPath)
-    {
-        this.file = new File(abPath.toFileSystemString());
     }
 
     /**

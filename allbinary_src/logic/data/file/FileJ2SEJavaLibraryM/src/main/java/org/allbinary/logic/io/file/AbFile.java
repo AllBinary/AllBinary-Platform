@@ -25,38 +25,38 @@ import org.allbinary.logic.string.StringUtil;
 
 public class AbFile implements AbFileInterface
 {
-    public static final AbFile NULL_FILE = new AbFile(StringUtil.getInstance().EMPTY_STRING, false);
+    public static final AbFile NULL_FILE = AbFile.createAbFile(StringUtil.getInstance().EMPTY_STRING, false);
     
    private final File file;
 
-   AbFile(final String filePath, final boolean unknown)
+   public static AbFile createAbFile(final AbFile file, final String childPathName) throws Exception
    {
-      this.file = new File(filePath);
+      return new AbFile(new File(file.getFile(), childPathName));
    }
 
-   AbFile(final File file) throws Exception
+   public static AbFile createAbFile(final String filePath) throws Exception
+   {
+      return new AbFile(new File(new AbPath(filePath).toFileSystemString()));
+   }
+
+   public static AbFile createAbFile(final String filePath, final String fileName) throws Exception
+   {
+      return new AbFile(new File(new AbPath(filePath).toFileSystemString(), fileName));
+   }
+
+   public static AbFile createAbFile(final AbPath abPath)
+   {
+      return new AbFile(new File(abPath.toFileSystemString()));
+   }
+       
+   public static AbFile createAbFile(final String filePath, final boolean unknown) 
+   {
+      return new AbFile(new File(filePath));
+   }
+
+   AbFile(final File file) 
    {
       this.file = file;
-   }
-
-   public AbFile(final AbFile file, final String childPathName) throws Exception
-   {
-      this.file = new File(file.getFile(), childPathName);
-   }
-
-   public AbFile(final String filePath) throws Exception
-   {
-      this.file = new File(new AbPath(filePath).toFileSystemString());
-   }
-
-   public AbFile(final String filePath, final String fileName) throws Exception
-   {
-      this.file = new File(new AbPath(filePath).toFileSystemString(), fileName);
-   }
-
-   public AbFile(final AbPath abPath)
-   {
-      this.file = new File(abPath.toFileSystemString());
    }
 
    /**

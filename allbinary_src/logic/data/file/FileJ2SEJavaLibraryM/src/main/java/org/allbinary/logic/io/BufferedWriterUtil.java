@@ -32,7 +32,7 @@ public class BufferedWriterUtil {
 
     public void overwrite(final String path, final String data) throws Exception
     {
-        final AbFile abFile = new AbFile(path);
+        final AbFile abFile = AbFile.createAbFile(path);
         if(abFile.exists()) {
             abFile.delete();
         }

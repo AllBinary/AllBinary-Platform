@@ -1087,7 +1087,7 @@ public class StoreFront implements StoreFrontInterface
             final int installTotal = (total * 93) / 100;
             if (current < viewTotal)
             {
-                final AbFile file = new AbFile(fromSpecialDirectoryAbPath);
+                final AbFile file = AbFile.createAbFile(fromSpecialDirectoryAbPath);
 
                 if (file.isDirectory())
                 {
@@ -1135,7 +1135,7 @@ public class StoreFront implements StoreFrontInterface
         final StringMaker stringBuffer = new StringMaker();
         /*
         AbFile rootCategoryAbFile =
-        new AbFile(new AbPath(fromDirectoryAbPath.toString(),
+        AbFile.createAbFile(new AbPath(fromDirectoryAbPath.toString(),
         CategoryData.ROOTCATEGORY + AbPathData.EXTENSION_SEP +
         CategoryData.UNCRYPTED_EXTENSION);
          */
