@@ -31,6 +31,7 @@ import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.io.path.PathUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
@@ -59,7 +60,7 @@ public class RootStoreCategoryProperties
    public RootStoreCategoryProperties(final TransformInfoInterface transformInfoInterface) throws Exception
    {
       this.transformInfoInterface = transformInfoInterface;
-      this.abPath = new AbPath();
+      this.abPath = AbPath.createAbPath();
       this.category = CategoryData.getInstance().ROOTCATEGORY;
       this.isRealRoot = true;
       this.initPath();
@@ -92,7 +93,7 @@ public class RootStoreCategoryProperties
       this.transformInfoInterface = transformInfoInterface;
       final String categoryPath = CategoryUtil.getNameFromNode(node);
 
-      this.abPath = new AbPath(categoryPath);
+      this.abPath = new AbPath(categoryPath, StringUtil.getInstance().EMPTY_STRING);
       this.category = PathUtil.getInstance().getNameFromPath(categoryPath);
       
       if(StringValidationUtil.getInstance().isEmpty(this.category))
@@ -114,7 +115,7 @@ public class RootStoreCategoryProperties
          new String((String) categoryPropertiesHashMap.get(
             CategoryData.getInstance().NAME));
 
-      this.abPath = new AbPath(categoryPath);
+      this.abPath = new AbPath(categoryPath, StringUtil.getInstance().EMPTY_STRING);
       this.category = PathUtil.getInstance().getNameFromPath(categoryPath);
       
       if(StringValidationUtil.getInstance().isEmpty(this.category))
@@ -143,9 +144,9 @@ public class RootStoreCategoryProperties
       final HttpServletRequest httpServletRequest = (HttpServletRequest)
          transformInfoHttpStoreInterface.getPageContext().getRequest();
 
-      this.webAppAbPath = new AbPath(httpServletRequest.getContextPath() + postPath);
+      this.webAppAbPath = new AbPath(httpServletRequest.getContextPath() + postPath, StringUtil.getInstance().EMPTY_STRING);
 
-      this.setRootFilePath(new AbPath(URLGLOBALS.getMainPath() + postPath));
+      this.setRootFilePath(new AbPath(URLGLOBALS.getMainPath() + postPath, StringUtil.getInstance().EMPTY_STRING));
    }
 
    public boolean isRealRoot()

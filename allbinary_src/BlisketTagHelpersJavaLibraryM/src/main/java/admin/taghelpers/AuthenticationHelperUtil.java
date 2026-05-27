@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.http.file.upload.HttpFilePermissions;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonLabels;
 
 public class AuthenticationHelperUtil
@@ -46,7 +47,7 @@ public class AuthenticationHelperUtil
 
         int endIndex = HttpRequestUtil.getInstance().getLastSeparatorIndex(filePath);
 
-        AbPath fullPath = new AbPath(URLGLOBALS.getWebappPath() + filePath.substring(0, endIndex));
+        AbPath fullPath = new AbPath(URLGLOBALS.getWebappPath() + filePath.substring(0, endIndex), StringUtil.getInstance().EMPTY_STRING);
 
         HttpFilePermissions downloadFilePermissions = new HttpFilePermissions(fullPath);
 

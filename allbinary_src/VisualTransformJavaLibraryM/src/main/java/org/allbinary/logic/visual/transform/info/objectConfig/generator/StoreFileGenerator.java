@@ -67,7 +67,7 @@ public class StoreFileGenerator
         stringBuffer.append(weblisketSession.getStoreName());
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-        AbPath abPath = new AbPath(stringBuffer.toString());
+        AbPath abPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
         //1. Use requested file name output
         String fileName =

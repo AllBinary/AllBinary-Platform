@@ -28,5 +28,5 @@ public class AbPathUtil {
         return AbPathUtil.instance;
     }
     
-    public final AbPath NO_ABPATH = new AbPath();
+    public final AbPath NO_ABPATH = AbPath.createAbPath();
 }

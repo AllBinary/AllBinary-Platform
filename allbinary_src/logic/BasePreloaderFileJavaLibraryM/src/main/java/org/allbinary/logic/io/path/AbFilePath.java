@@ -13,18 +13,20 @@
 */
 package org.allbinary.logic.io.path;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class AbFilePath extends AbPath
 {
    public AbFilePath(String aPath) throws Exception
    {
-      super();
+      super(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
       
       final PathUtil abPathUtil = PathUtil.getInstance();
       
       this.schema = this.getSchema(aPath);
       this.setName(abPathUtil.getNameFromPath(aPath));
       this.setPath(abPathUtil.adjust(
-         this.getPath(abPathUtil.removeNameFromPath(aPath).toString()))
+         this.getPathFromPath(abPathUtil.removeNameFromPath(aPath).toString()))
          );
       //this.port = AbPathUtil.getPort(aPath);
    }

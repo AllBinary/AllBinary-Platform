@@ -31,6 +31,7 @@ package org.allbinary.input.automation.configuration;
     import org.allbinary.logic.io.file.FileUtil;
     import org.allbinary.logic.io.file.FileWrapperUtil;
     import org.allbinary.logic.io.path.AbPath;
+    import org.allbinary.logic.string.StringUtil;
     import org.w3c.dom.Document;
 
 //name="inputAutomationConfiguration", 
@@ -191,8 +192,8 @@ public class InputAutomationConfiguration
     {
         Document document = DomDocumentHelper.create();; 
         File file = new File(FILENAME);
-        FileUtil.getInstance().copy(new AbPath(file.getAbsolutePath()),
-            new AbPath(file.getAbsolutePath() + ".bak.xml"));
+        FileUtil.getInstance().copy(new AbPath(file.getAbsolutePath(), StringUtil.getInstance().EMPTY_STRING),
+            new AbPath(file.getAbsolutePath() + ".bak.xml", StringUtil.getInstance().EMPTY_STRING));
         
         JAXBContext jaxbContext = 
             JAXBContext.newInstance(InputAutomationConfiguration.class);

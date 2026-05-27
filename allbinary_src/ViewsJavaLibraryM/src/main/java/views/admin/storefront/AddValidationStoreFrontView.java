@@ -25,6 +25,7 @@ import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -68,7 +69,7 @@ public class AddValidationStoreFrontView extends HttpContextView
             valid = Boolean.FALSE;
          }
 
-         if(AbFile.createAbFileFromAbPath(new AbPath(this.getStoreViewsPath())).isFile())
+         if(AbFile.createAbFileFromAbPath(new AbPath(this.getStoreViewsPath(), StringUtil.getInstance().EMPTY_STRING)).isFile())
          {
              valid = Boolean.FALSE;
          }
@@ -112,7 +113,7 @@ public class AddValidationStoreFrontView extends HttpContextView
             stringBuffer.append("Store name already used<br/>");
          }
 
-         if(AbFile.createAbFileFromAbPath(new AbPath(this.getStoreViewsPath())).isFile())
+         if(AbFile.createAbFileFromAbPath(new AbPath(this.getStoreViewsPath(), StringUtil.getInstance().EMPTY_STRING)).isFile())
          {
              stringBuffer.append("Store name clashes with template name<br/>");
          }

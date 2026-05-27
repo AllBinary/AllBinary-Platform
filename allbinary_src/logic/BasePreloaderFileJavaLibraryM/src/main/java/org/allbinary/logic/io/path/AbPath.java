@@ -22,43 +22,29 @@ import org.allbinary.string.CommonSeps;
 
 public class AbPath
 {
+   public static final AbPath createAbPath() {
+      try {
+         final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+         return new AbPath(EMPTY_STRING, EMPTY_STRING);
+      } catch (Exception ex) {
+         throw new RuntimeException();
+      }
+   }
+
     private final CommonSeps commonSeps = CommonSeps.getInstance();
     private final AbPathData abPathData = AbPathData.getInstance();
-    
-   protected String schema = StringUtil.getInstance().EMPTY_STRING;
-   private String path = StringUtil.getInstance().EMPTY_STRING;
-   //private int port;
-   protected String nameP = StringUtil.getInstance().EMPTY_STRING;
-   
-   private boolean hasSchema = false;
-   private int numberOfSeps = 0;
-   
+
    private final PathUtil abPathUtil = PathUtil.getInstance();
-   
-   public AbPath()
-   {
-      this.init();
-   }
-   
    private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+
+   protected String schema = this.EMPTY_STRING;
+   private String path = this.EMPTY_STRING;
+   //private int port;
+   protected String nameP = this.EMPTY_STRING;
    
-   public AbPath(String aPath) throws Exception
-   {
-       final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
-       
-      if(!stringValidationUtil.isEmpty(aPath))
-      {
-         this.schema = this.getSchema(aPath);
-         this.nameP = this.EMPTY_STRING;
-         this.path = this.abPathUtil.adjustEnd(this.abPathUtil.adjust(this.getPath(aPath)));
-         //this.port = AbPathUtil.getPort(aPath);
-      }
-      else
-      {
-         this.init();
-      }
-   }
-   
+   private boolean hasSchemaP = false;
+   private int numberOfSeps = 0;
+
    public AbPath(String aPath, String name) throws Exception
    {
        final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
@@ -68,7 +54,7 @@ public class AbPath
          this.schema = this.getSchema(aPath);
          //this.name = AbPathUtil.getName(aPath);
          this.nameP = name;
-         this.path = this.abPathUtil.adjustEnd(this.abPathUtil.adjust(this.getPath(aPath)));
+         this.path = this.abPathUtil.adjustEnd(this.abPathUtil.adjust(this.getPathFromPath(aPath)));
          //this.port = AbPathUtil.getPort(aPath);
       }
       else
@@ -95,19 +81,19 @@ public class AbPath
       int beginIndex = aPath.indexOf(this.commonSeps.COLON);
       if(beginIndex >= 0)
       {
-         this.hasSchema = true;
+         this.hasSchemaP = true;
          return aPath.substring(0, beginIndex);
       }
-      this.hasSchema = false;
+      this.hasSchemaP = false;
       return this.EMPTY_STRING;
    }
    
    public boolean hasSchema()
    {
-      return this.hasSchema;
+      return this.hasSchemaP;
    }
    
-   public String getPath(String aPath) throws Exception
+   public String getPathFromPath(String aPath) throws Exception
    {
        final FilePathData filePathData = FilePathData.getInstance();
 

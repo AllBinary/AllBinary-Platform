@@ -36,6 +36,7 @@ import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.io.path.PathUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.CompositeTransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
@@ -85,8 +86,7 @@ public class ThemeValidation
    {
       this.transformInfoInterface = transformInfoInterface;
 
-      AbPath categoryThemeAbPath = 
-         new AbPath((String) hashMap.get(ThemeData.getInstance().PATH));
+      AbPath categoryThemeAbPath = new AbPath((String) hashMap.get(ThemeData.getInstance().PATH), StringUtil.getInstance().EMPTY_STRING);
 
       final PathUtil pathUtil = PathUtil.getInstance();
       this.categoryAbPath = pathUtil.removeNameFromPath(categoryThemeAbPath.toString());
@@ -169,9 +169,7 @@ public class ThemeValidation
    
    private void init(StoreThemeCategoryInterface storeThemeCategoryInterface) throws Exception
    {
-      this.fileAbPath = new AbPath(
-	 storeThemeCategoryInterface.getRootFilePath().toString() + 
-         this.categoryAbPath.toString());
+      this.fileAbPath = new AbPath(storeThemeCategoryInterface.getRootFilePath().toString() + this.categoryAbPath.toString(), StringUtil.getInstance().EMPTY_STRING);
 
       this.webAppAbPath = storeThemeCategoryInterface.getWebAppPath();
    }

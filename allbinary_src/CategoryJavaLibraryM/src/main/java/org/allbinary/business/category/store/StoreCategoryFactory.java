@@ -22,6 +22,7 @@ import org.allbinary.business.category.properties.CategoryPropertiesFactoryInter
 import org.allbinary.business.category.properties.root.store.RootStoreCategoryPropertiesFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Node;
 
@@ -102,7 +103,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
                new RootStoreCategoryPropertiesFactory(
                   this.transformInfoInterface, node);
 
-         AbPath categoryPath = new AbPath(CategoryUtil.getNameFromNode(node));
+         AbPath categoryPath = new AbPath(CategoryUtil.getNameFromNode(node), StringUtil.getInstance().EMPTY_STRING);
 
          int level = CategoryUtil.getPathLevel(categoryPath);
 

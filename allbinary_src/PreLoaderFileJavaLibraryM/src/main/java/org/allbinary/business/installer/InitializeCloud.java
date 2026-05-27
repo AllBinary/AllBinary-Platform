@@ -22,6 +22,7 @@ import org.allbinary.logic.io.file.FileUtil;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class InitializeCloud
@@ -49,13 +50,13 @@ public class InitializeCloud
                 stringBuffer.append(cloud);
                 stringBuffer.append(PATH_GLOBALS.getInstance().DATA_PATH);
 
-                AbPath path = new AbPath(stringBuffer.toString());
+                AbPath path = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 //stringBuffer.append(PATH_GLOBALS.getInstance().DATA_PATH);
 
-                AbPath realPath = new AbPath(stringBuffer.toString());
+                AbPath realPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
                 //Using cloud file search currently causes problems when trying to output new file
                 AbFile file = AbFile.createAbFileFromAbPath(path);

@@ -18,6 +18,7 @@ import org.allbinary.logic.io.file.FilePathData;
 import org.allbinary.logic.io.path.AbFilePath;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 
 //Used to correct user input for paths
@@ -219,7 +220,7 @@ public class AbPathUtilOld
 
       if(endIndex < 0)
       {
-         return new AbPath();
+         return AbPath.createAbPath();
       }
 
       //if the last char is sep then use the last token as the name
@@ -230,7 +231,7 @@ public class AbPathUtilOld
       else
       {
          String categoryName = categoryPath.substring(0, endIndex);
-         return new AbPath(categoryName);
+         return new AbPath(categoryName, StringUtil.getInstance().EMPTY_STRING);
       }
    }
 }

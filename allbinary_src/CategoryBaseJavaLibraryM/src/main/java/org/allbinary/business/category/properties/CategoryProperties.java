@@ -25,6 +25,7 @@ import org.allbinary.logic.communication.sql.AbSqlData;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
@@ -143,7 +144,7 @@ public class CategoryProperties implements CategoryPropertiesInterface
       {
          this.logUtil.putF("path = " + pathStringBuffer.toString(), this, "getPath");
       }
-      return new AbPath(pathStringBuffer.toString());
+      return new AbPath(pathStringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
    }
    
    public String getFileName()

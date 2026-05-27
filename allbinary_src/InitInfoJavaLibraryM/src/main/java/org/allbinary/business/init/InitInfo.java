@@ -20,6 +20,7 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.java.bool.BooleanUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class InitInfo
 {
@@ -123,8 +124,8 @@ public class InitInfo
       try
       {
          this.testing = (String) hashMap.get(this.TESTING);
-         this.mainPath = new AbPath((String) hashMap.get(this.MAINPATH));
-         this.testHtmlPath = new AbPath((String) hashMap.get(this.TESTHTMLPATH));
+         this.mainPath = new AbPath((String) hashMap.get(this.MAINPATH), StringUtil.getInstance().EMPTY_STRING);
+         this.testHtmlPath = new AbPath((String) hashMap.get(this.TESTHTMLPATH), StringUtil.getInstance().EMPTY_STRING);
       }
       catch(Exception e)
       {

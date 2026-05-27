@@ -251,7 +251,7 @@ public class ProductListing implements ProductListingInterface
             //URLGLOBALS.getMainPath() + storeFront.getCurrentHomeHostName()
             //+ storeFront.getTestHtmlPath() + storeFront.getStaticPath()
 
-            final AbPath staticPath = new AbPath(stringBuffer.toString());
+            final AbPath staticPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STATICPAGEGENERATIONLOGGING))
             {

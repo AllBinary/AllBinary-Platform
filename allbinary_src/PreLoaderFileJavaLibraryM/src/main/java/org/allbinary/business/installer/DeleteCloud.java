@@ -21,6 +21,7 @@ import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class DeleteCloud
@@ -43,7 +44,7 @@ public class DeleteCloud
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(prePath);
 
-                AbPath path = new AbPath(stringBuffer.toString());
+                AbPath path = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
                 //Using cloud file search currently causes problems when trying to output new file
                 AbFile file = AbFile.createAbFileFromAbPath(path);

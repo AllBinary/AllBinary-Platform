@@ -86,7 +86,7 @@ public class RootCategoryPropertiesAbstract
 
    public AbPath getPath(CategoryHierarchyInterface categoryHierarchyInterface)
    {
-      return new AbPath();
+      return AbPath.createAbPath();
    }
 
    public String getFileName()

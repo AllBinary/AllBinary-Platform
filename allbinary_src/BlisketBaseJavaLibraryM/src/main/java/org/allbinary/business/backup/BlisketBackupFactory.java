@@ -27,6 +27,7 @@ import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.file.zip.ZipFileUtil;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
@@ -42,13 +43,14 @@ public class BlisketBackupFactory
         return BlisketBackupFactory.instance;
     }
 
+    private final StringUtil stringUtil = StringUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final Directory directory = Directory.getInstance();
     
     private BasicArrayList getFileBasicArrayList(String pathString)
         throws Exception
     {
-        AbPath path = new AbPath(pathString);
+        AbPath path = new AbPath(pathString, this.stringUtil.EMPTY_STRING);
 
         AbFile file = AbFile.createAbFileFromAbPath(path);
 
@@ -68,7 +70,7 @@ public class BlisketBackupFactory
 
             String backupPath = stringBuffer.toString();
 
-            AbPath path = new AbPath(backupPath);
+            AbPath path = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
 
             BasicArrayList fileBasicArrayList = this.getFileBasicArrayList(backupPath);
 
@@ -93,7 +95,7 @@ public class BlisketBackupFactory
 
             String backupPath = stringBuffer.toString();
 
-            AbPath path = new AbPath(backupPath);
+            AbPath path = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
 
             BasicArrayList fileBasicArrayList = new BasicArrayListD();
 
@@ -148,7 +150,7 @@ public class BlisketBackupFactory
 
             String backupPath = stringBuffer.toString();
 
-            AbPath path = new AbPath(backupPath);
+            AbPath path = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
 
             BasicArrayList fileBasicArrayList = new BasicArrayListD();
 
@@ -208,7 +210,7 @@ public class BlisketBackupFactory
 
             String backupPath = stringBuffer.toString();
 
-            AbPath path = new AbPath(backupPath);
+            AbPath path = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
 
             BasicArrayList fileBasicArrayList = new BasicArrayListD();
 

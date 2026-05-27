@@ -34,12 +34,12 @@ public class AbFile implements AbFileInterface
 
    public static AbFile createAbFile(final String filePath) throws Exception
    {
-      return new AbFile(new File(new AbPath(filePath).toFileSystemString()));
+      return new AbFile(new File(new AbPath(filePath, StringUtil.getInstance().EMPTY_STRING).toFileSystemString()));
    }
 
    public static AbFile createAbFilePathAndName(final String filePath, final String fileName) throws Exception
    {
-      return new AbFile(new File(new AbPath(filePath).toFileSystemString(), fileName));
+      return new AbFile(new File(new AbPath(filePath, StringUtil.getInstance().EMPTY_STRING).toFileSystemString(), fileName));
    }
 
    public static AbFile createAbFileFromAbPath(final AbPath abPath)

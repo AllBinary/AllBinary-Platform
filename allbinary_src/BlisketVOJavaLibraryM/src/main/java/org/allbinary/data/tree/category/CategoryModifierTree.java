@@ -18,6 +18,7 @@ import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 public class CategoryModifierTree extends CategoryPrivateTree implements CategoryModifierTreeInterface
@@ -54,9 +55,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
             //This could cause a problem adding it before saving the data but who cares
             parentCategoryInterface.addChild(newChildCategoryInterface);
             
-            AbPath directoryToBeCreatedAbPath = new AbPath(
-               newChildCategoryInterface.getRootFilePath().toString() + 
-               newChildCategoryInterface.getPath().toString());
+            AbPath directoryToBeCreatedAbPath = new AbPath(newChildCategoryInterface.getRootFilePath().toString() + newChildCategoryInterface.getPath().toString(), StringUtil.getInstance().EMPTY_STRING);
             
             this.directory.create(directoryToBeCreatedAbPath);
 
@@ -90,9 +89,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
          {
             parentCategoryInterface.addChild(existingChildCategoryInterface);
 
-            AbPath directoryToBeDeletedAbPath = new AbPath(
-               existingChildCategoryInterface.getRootFilePath().toString() + 
-               existingChildCategoryInterface.getPath().toString());
+            AbPath directoryToBeDeletedAbPath = new AbPath(existingChildCategoryInterface.getRootFilePath().toString() + existingChildCategoryInterface.getPath().toString(), StringUtil.getInstance().EMPTY_STRING);
 
             this.delete(existingChildCategoryInterface);
             parentCategoryInterface.removeChild(existingChildCategoryInterface);

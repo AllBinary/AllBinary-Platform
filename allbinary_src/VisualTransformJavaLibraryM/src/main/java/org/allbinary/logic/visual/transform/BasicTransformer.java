@@ -143,9 +143,9 @@ public class BasicTransformer extends AbTransformer {
             final PathUtil pathUtil = PathUtil.getInstance();
 
             if (this.getTransformInfoInterface().getTemplateFilePath() != null) {
-                final String extension = pathUtil.getExtension(
+                final String extension = pathUtil.getExtensionWithAbPath(
                     this.getTransformInfoInterface().getTemplateFilePath());
-                final String filePath = pathUtil.getWithoutExtension(
+                final String filePath = pathUtil.getWithoutExtensionWithAbPath(
                     this.getTransformInfoInterface().getTemplateFilePath());
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {

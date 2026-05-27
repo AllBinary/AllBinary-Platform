@@ -52,8 +52,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
     {
         this.isFile = false;
 
-        this.logoAbPath = new AbPath(DomSearchHelper.getNode(
-            LogoData.getInstance().IMAGEPATH, node.getChildNodes()).getNodeValue());
+        this.logoAbPath = new AbPath(DomSearchHelper.getNode(LogoData.getInstance().IMAGEPATH, node.getChildNodes()).getNodeValue(), StringUtil.getInstance().EMPTY_STRING);
 
         this.logoFile = DomSearchHelper.getNode(
             LogoData.getInstance().IMAGEFILENAME, node.getChildNodes()).getNodeValue();
@@ -69,7 +68,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
     public void getFormData(HashMap hashMap) throws Exception
     {
         this.logoFileItem = (FileItem) hashMap.get(LogoData.getInstance().IMAGE);
-        this.logoAbPath = new AbPath((String) hashMap.get(LogoData.getInstance().IMAGEPATH));
+        this.logoAbPath = new AbPath((String) hashMap.get(LogoData.getInstance().IMAGEPATH), StringUtil.getInstance().EMPTY_STRING);
 
         if (this.logoFileItem != null)
         {

@@ -25,6 +25,7 @@ import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Node;
@@ -74,17 +75,15 @@ public class RootStoreThemeCategoryProperties extends RootStoreCategoryPropertie
       stringBuffer.append(AbPathData.getInstance().SEPARATOR);
       stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().THEMEPATH);
       
-      AbPath abPath = new AbPath(stringBuffer.toString());
+      AbPath abPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
       //URLGLOBALS.getWebappPath() +
       //storeFrontInterface.getCurrentHostNamePath() + 
       HttpServletRequest httpServletRequest = (HttpServletRequest)
          transformInfoHttpStoreInterface.getPageContext().getRequest();
 
-      this.webAppAbPath = new AbPath(
-         httpServletRequest.getContextPath() + abPath.toString());
+      this.webAppAbPath = new AbPath(httpServletRequest.getContextPath() + abPath.toString(), StringUtil.getInstance().EMPTY_STRING);
 
-      this.setRootFilePath(new AbPath(
-         URLGLOBALS.getMainPath() + abPath.toString()));
+      this.setRootFilePath(new AbPath(URLGLOBALS.getMainPath() + abPath.toString(), StringUtil.getInstance().EMPTY_STRING));
    }
 }

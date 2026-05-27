@@ -147,12 +147,12 @@ public class StoreFront implements StoreFrontInterface
     //should be in the pathUtil
     private AbPath createPath(String key, HashMap hashMap) throws Exception
     {
-        return new AbPath(this.create(this.EMPTY_STRING, key, hashMap));
+        return new AbPath(this.create(this.EMPTY_STRING, key, hashMap), StringUtil.getInstance().EMPTY_STRING);
     }
 
     private AbPath createPath(String append, String key, HashMap hashMap) throws Exception
     {
-        return new AbPath(this.create(append, key, hashMap));
+        return new AbPath(this.create(append, key, hashMap), StringUtil.getInstance().EMPTY_STRING);
     }
 
     private String get(String key, HashMap hashMap)
@@ -884,7 +884,7 @@ public class StoreFront implements StoreFrontInterface
 
     public void setHomeHostNamePath(String value) throws Exception
     {
-        this.homeHostNamePath = new AbPath(value);
+        this.homeHostNamePath = new AbPath(value, StringUtil.getInstance().EMPTY_STRING);
     }
 
     public void setHostName(String value)
@@ -894,7 +894,7 @@ public class StoreFront implements StoreFrontInterface
 
     public void setHostNamePath(String value) throws Exception
     {
-        this.hostNamePath = new AbPath(value);
+        this.hostNamePath = new AbPath(value, StringUtil.getInstance().EMPTY_STRING);
     }
 
     public void setTestHomeHostName(String value)
@@ -904,7 +904,7 @@ public class StoreFront implements StoreFrontInterface
 
     public void setTestHomeHostNamePath(String value) throws Exception
     {
-        this.testHomeHostNamePath = new AbPath(value);
+        this.testHomeHostNamePath = new AbPath(value, StringUtil.getInstance().EMPTY_STRING);
     }
 
     public void setTestHostName(String value)
@@ -914,22 +914,22 @@ public class StoreFront implements StoreFrontInterface
 
     public void setTestHostNamePath(String value) throws Exception
     {
-        this.testHostNamePath = new AbPath(value);
+        this.testHostNamePath = new AbPath(value, StringUtil.getInstance().EMPTY_STRING);
     }
 
     public void setImagePath(String value) throws Exception
     {
-        this.imagePath = new AbPath(value);
+        this.imagePath = new AbPath(value, StringUtil.getInstance().EMPTY_STRING);
     }
 
     public void setStaticPath(String value) throws Exception
     {
-        this.staticPath = new AbPath(value);
+        this.staticPath = new AbPath(value, StringUtil.getInstance().EMPTY_STRING);
     }
 
     public void setCategoryPath(String value) throws Exception
     {
-        this.categoryPath = new AbPath(value);
+        this.categoryPath = new AbPath(value, StringUtil.getInstance().EMPTY_STRING);
     }
 
     public void setSubStores(String value)
@@ -999,26 +999,26 @@ public class StoreFront implements StoreFrontInterface
 
     public void setFtpPath(final String value) throws Exception
     {
-        this.ftpPath = new AbPath(value);
+        this.ftpPath = new AbPath(value, StringUtil.getInstance().EMPTY_STRING);
     }
 
     public void setTestFtpPath(final String value) throws Exception
     {
-        this.testFtpPath = new AbPath(value);
+        this.testFtpPath = new AbPath(value, StringUtil.getInstance().EMPTY_STRING);
     }
 
     private boolean createDirectories() throws Exception
     {
         //use storename as man directory
         AbPath storeAbPath = new AbPath(
-            URLGLOBALS.getWebappPath() + this.getCurrentHomeHostNamePath());
+            URLGLOBALS.getWebappPath() + this.getCurrentHomeHostNamePath(), StringUtil.getInstance().EMPTY_STRING);
 
         if (!this.directory.create(storeAbPath))
         {
             return false;
         }
 
-        if (!this.directory.create(new AbPath(storeAbPath + this.getCategoryPath())))
+        if (!this.directory.create(new AbPath(storeAbPath + this.getCategoryPath(), StringUtil.getInstance().EMPTY_STRING)))
         {
             return false;
         }
@@ -1028,7 +1028,7 @@ public class StoreFront implements StoreFrontInterface
         return false;
          */
 
-        if (!this.directory.create(new AbPath(storeAbPath + this.getStaticPath())))
+        if (!this.directory.create(new AbPath(storeAbPath + this.getStaticPath(), StringUtil.getInstance().EMPTY_STRING)))
         {
             return false;
         }
@@ -1059,21 +1059,21 @@ public class StoreFront implements StoreFrontInterface
             stringBuffer.append(viewPath);
             stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().INSTALLPATH);
 
-            final AbPath fromDirectoryAbPath = new AbPath(stringBuffer.toString());
+            final AbPath fromDirectoryAbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(viewPath);
             stringBuffer.append("special");
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-            final AbPath fromSpecialDirectoryAbPath = new AbPath(stringBuffer.toString());
+            final AbPath fromSpecialDirectoryAbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(viewPath);
             stringBuffer.append(this.getName());
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-            final AbPath toDirectoryAbPath = new AbPath(stringBuffer.toString());
+            final AbPath toDirectoryAbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
             if (current == 0)
             {
@@ -1146,7 +1146,7 @@ public class StoreFront implements StoreFrontInterface
         stringBuffer.append("Resources");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-        final AbPath installCategoryAbPath = new AbPath(stringBuffer.toString());
+        final AbPath installCategoryAbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(URLGLOBALS.getMainPath());
@@ -1154,7 +1154,7 @@ public class StoreFront implements StoreFrontInterface
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         stringBuffer.append(this.getCategoryPath());
 
-        final AbPath categoryAbPath = new AbPath(stringBuffer.toString());
+        final AbPath categoryAbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
         FileUtil.getInstance().copyDirectoryPortion(installCategoryAbPath, categoryAbPath, true, false, current, total);
         //FileUtil.copy(installCategoryAbPath, categoryAbPath);
@@ -1175,9 +1175,9 @@ public class StoreFront implements StoreFrontInterface
         stringBuffer.append("images");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-        final AbPath viewStoreImagesDirectoryAbPath = new AbPath(stringBuffer.toString());
+        final AbPath viewStoreImagesDirectoryAbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
-        final AbPath storeAbPath = new AbPath(URLGLOBALS.getWebappPath() + this.getCurrentHomeHostNamePath());
+        final AbPath storeAbPath = new AbPath(URLGLOBALS.getWebappPath() + this.getCurrentHomeHostNamePath(), StringUtil.getInstance().EMPTY_STRING);
 
         FileUtil.getInstance().copyDirectoryPortion(viewStoreImagesDirectoryAbPath, storeAbPath, true, false, current, total);
         //FileUtil.copy(viewStoreImagesDirectoryAbPath, storeAbPath);

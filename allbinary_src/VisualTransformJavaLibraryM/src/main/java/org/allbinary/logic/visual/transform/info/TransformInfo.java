@@ -142,7 +142,7 @@ public class TransformInfo implements TransformInfoInterface
         stringBuffer.append(this.storeName);
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-        AbPath fileAbPath = new AbPath(stringBuffer.toString());
+        AbPath fileAbPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
         String aObject = (String) hashMap.get(transformInfoData.OBJECT);
         if (!stringValidationUtil.isEmpty(aObject))

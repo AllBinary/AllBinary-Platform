@@ -66,13 +66,13 @@ public class PathUtil
         return indexOfFileExtensionDelmiter;
     }
     
-    public String getExtension(AbFilePath abFilePath)
+    public String getExtensionWithAbFilePath(AbFilePath abFilePath)
     //throws Exception
     {
         return this.getExtension(abFilePath.toString());
     }
     
-    public String getExtension(AbPath abPath)
+    public String getExtensionWithAbPath(AbPath abPath)
     //throws Exception
     {
         return this.getExtension(abPath.toString());
@@ -99,13 +99,13 @@ public class PathUtil
         return extension;
     }
     
-    public String getWithoutExtension(AbFilePath abFilePath)
+    public String getWithoutExtensionWithAbFilePath(AbFilePath abFilePath)
     throws Exception
     {
         return this.getWithoutExtension(abFilePath.toString());
     }
     
-    public String getWithoutExtension(AbPath abPath)
+    public String getWithoutExtensionWithAbPath(AbPath abPath)
     throws Exception
     {
         return this.getWithoutExtension(abPath.toString());
@@ -253,7 +253,7 @@ public class PathUtil
         
         if(endIndex < 0)
         {
-            return new AbPath();
+            return AbPath.createAbPath();
         }
         
         //if the last char is sep then use the last token as the name
@@ -264,7 +264,7 @@ public class PathUtil
         else
         {
             String categoryName = path.substring(0, endIndex);
-            return new AbPath(categoryName);
+            return new AbPath(categoryName, StringUtil.getInstance().EMPTY_STRING);
         }
     }
 

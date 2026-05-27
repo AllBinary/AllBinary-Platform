@@ -107,7 +107,7 @@ public class DbInitInfo extends DbConnectionInfo
     public void write() throws Exception
     {
         
-        final AbPath PATH = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE);
+        final AbPath PATH = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE, StringUtil.getInstance().EMPTY_STRING);
         this.directory.create(PATH);
         final AbPath FILEABPATH = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE, this.initFileName);
         try
