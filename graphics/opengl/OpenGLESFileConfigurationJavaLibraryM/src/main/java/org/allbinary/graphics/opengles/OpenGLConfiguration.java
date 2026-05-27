@@ -17,6 +17,7 @@ import java.io.Closeable;
 import java.io.DataInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import org.allbinary.TsUtil;
 
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.FileStreamFactory;
@@ -48,6 +49,7 @@ public class OpenGLConfiguration
     private final String FILE = "OpenGLConfiguration.dat";
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final TsUtil tsUtil = TsUtil.getInstance();
     
     private boolean opengl = false;
 
@@ -114,12 +116,12 @@ public class OpenGLConfiguration
 
         final String version = dataInputStream.readUTF();
         
-        if(version.compareTo(openGLFeatureFactory.OPENGL_AUTO_SELECT.getName()) == 0)
+        if(this.tsUtil.compareTo(version, openGLFeatureFactory.OPENGL_AUTO_SELECT.getName()) == 0)
         {
             this.setVersionSelector(openGLFeatureFactory.OPENGL_AUTO_SELECT);
         }
         else
-            if(version.compareTo(openGLFeatureFactory.OPENGL_MINIMUM.getName()) == 0)
+            if(this.tsUtil.compareTo(version, openGLFeatureFactory.OPENGL_MINIMUM.getName()) == 0)
             {
                 this.setVersionSelector(openGLFeatureFactory.OPENGL_MINIMUM);
             }
@@ -130,12 +132,12 @@ public class OpenGLConfiguration
         
         final String type = dataInputStream.readUTF();
         
-        if(type.compareTo(openGLFeatureFactory.OPENGL_AS_GAME_THREAD.getName()) == 0)
+        if(this.tsUtil.compareTo(type, openGLFeatureFactory.OPENGL_AS_GAME_THREAD.getName()) == 0)
         {
             this.setType(openGLFeatureFactory.OPENGL_AS_GAME_THREAD);
         }
         else
-            if(type.compareTo(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS.getName()) == 0)
+            if(this.tsUtil.compareTo(type, openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS.getName()) == 0)
             {
                 this.setType(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS);
             }
@@ -146,17 +148,17 @@ public class OpenGLConfiguration
         
         final String imageColor = dataInputStream.readUTF();
         
-        if(imageColor.compareTo(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444.getName()) == 0)
+        if(this.tsUtil.compareTo(imageColor, openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444.getName()) == 0)
         {
             this.setImageColor(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444);
         }
         else
-            if(imageColor.compareTo(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444.getName()) == 0)
+            if(this.tsUtil.compareTo(imageColor, openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444.getName()) == 0)
             {
                 this.setImageColor(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444);
             }
             else
-                if(imageColor.compareTo(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444.getName()) == 0)
+                if(this.tsUtil.compareTo(imageColor, openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444.getName()) == 0)
                 {
                     this.setImageColor(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444);
                 }
@@ -167,17 +169,17 @@ public class OpenGLConfiguration
 
         final String color = dataInputStream.readUTF();
         
-        if(color.compareTo(openGLFeatureFactory.OPENGL_COLOR_DEPTH_4444.getName()) == 0)
+        if(this.tsUtil.compareTo(color, openGLFeatureFactory.OPENGL_COLOR_DEPTH_4444.getName()) == 0)
         {
             this.setColor(openGLFeatureFactory.OPENGL_COLOR_DEPTH_4444);
         }
         else
-            if(color.compareTo(openGLFeatureFactory.OPENGL_COLOR_DEPTH_565.getName()) == 0)
+            if(this.tsUtil.compareTo(color, openGLFeatureFactory.OPENGL_COLOR_DEPTH_565.getName()) == 0)
             {
                 this.setColor(openGLFeatureFactory.OPENGL_COLOR_DEPTH_565);
             }
             else
-                if(color.compareTo(openGLFeatureFactory.OPENGL_COLOR_DEPTH_8888.getName()) == 0)
+                if(this.tsUtil.compareTo(color, openGLFeatureFactory.OPENGL_COLOR_DEPTH_8888.getName()) == 0)
                 {
                     this.setColor(openGLFeatureFactory.OPENGL_COLOR_DEPTH_8888);
                 }

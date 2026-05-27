@@ -49,7 +49,7 @@ public class AndroidServicesUtil {
     private final String SERVICE_NOT_FOUND_RUNNING = "Service not found Running: ";
     
     public boolean isServiceRunning(String name) {
-        final ActivityManager activityManager = (ActivityManager) this.resourceUtil.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        final ActivityManager activityManager = (ActivityManager) /*TS as unknown*/ this.resourceUtil.getContext().getSystemService(Context.ACTIVITY_SERVICE);
         final List<RunningServiceInfo> runningServicesList = activityManager.getRunningServices(this.SERVICE_LIMIT_MAX);
 
         ActivityManager.RunningServiceInfo runningServiceInfo;

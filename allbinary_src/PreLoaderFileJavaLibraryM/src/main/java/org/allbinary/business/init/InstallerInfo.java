@@ -56,7 +56,7 @@ public class InstallerInfo
          newFile.createNewFile();
 
          AbDataOutputStream dataOutputStream =
-             DataOutputStreamFactory.getInstance().getInstance(newFile);
+             DataOutputStreamFactory.getInstance().getInstanceForAbFile(newFile);
          
          byte[] cryptedUserName = new WeakCrypt(1).encrypt(this.getUserName()).getBytes();
          byte[] cryptedPassword = new WeakCrypt(2).encrypt(this.getPassword()).getBytes();

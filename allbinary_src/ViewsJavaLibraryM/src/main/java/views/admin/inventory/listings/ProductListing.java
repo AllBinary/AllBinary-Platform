@@ -123,7 +123,7 @@ public class ProductListing implements ProductListingInterface
         if (newFile.exists())
         {
             AbDataOutputStream idOutData =
-                DataOutputStreamFactory.getInstance().getInstance(newFile);
+                DataOutputStreamFactory.getInstance().getInstanceForAbFile(newFile);
             idOutData.writeBytes(data);
 
             idOutData.flush();

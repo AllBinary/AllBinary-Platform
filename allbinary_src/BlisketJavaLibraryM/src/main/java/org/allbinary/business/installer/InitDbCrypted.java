@@ -190,7 +190,7 @@ public class InitDbCrypted extends AbDatabaseManagement
             file.createNewFile();
 
             AbDataOutputStream idOutData
-                    = DataOutputStreamFactory.getInstance().getInstance(file);
+                    = DataOutputStreamFactory.getInstance().getInstanceForAbFile(file);
 
             idOutData.writeBytes(this.sqlCommandLog.toString());
 

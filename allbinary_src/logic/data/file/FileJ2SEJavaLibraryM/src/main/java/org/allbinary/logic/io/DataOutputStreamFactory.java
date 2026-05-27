@@ -28,7 +28,7 @@ public class DataOutputStreamFactory
         return DataOutputStreamFactory.instance;
     }
 
-    public AbDataOutputStream getInstance(AbFile file) throws Exception
+    public AbDataOutputStream getInstanceForAbFile(AbFile file) throws Exception
     {
         AbFileOutputStream idFileOutputStream = new AbFileOutputStream(file);
         AbDataOutputStream idOutData = new AbDataOutputStream(idFileOutputStream);

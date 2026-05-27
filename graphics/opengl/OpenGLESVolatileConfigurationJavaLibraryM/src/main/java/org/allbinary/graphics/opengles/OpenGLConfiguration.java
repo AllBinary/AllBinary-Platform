@@ -78,21 +78,17 @@ public class OpenGLConfiguration
                     
                     features.addDefault(OpenGLFeatureFactory.getInstance().OPENGL);
                     
-                    this.logUtil.putF("Using OpenGL Type Feature: "
-                            + this.getType(), this, this.commonStrings.INIT);
+                    this.logUtil.putF("Using OpenGL Type Feature: " + this.getType(), this, this.commonStrings.INIT);
                     
                     features.addDefault(this.getType());
                     
-                    this.logUtil.putF("Using OpenGL ImageColor Feature: "
-                            + this.getImageColor(), this, this.commonStrings.INIT);
+                    this.logUtil.putF("Using OpenGL ImageColor Feature: " + this.getImageColor(), this, this.commonStrings.INIT);
                     features.addDefault(this.getImageColor());
 
-                    this.logUtil.putF("Using OpenGL Color Feature: "
-                            + this.getColor(), this, this.commonStrings.INIT);
+                    this.logUtil.putF("Using OpenGL Color Feature: " + this.getColor(), this, this.commonStrings.INIT);
                     features.addDefault(this.getColor());
 
-                    this.logUtil.putF("Using OpenGL Version Selector Feature: "
-                            + this.getVersionSelector(), this, this.commonStrings.INIT);
+                    this.logUtil.putF("Using OpenGL Version Selector Feature: " + this.getVersionSelector(), this, this.commonStrings.INIT);
                     features.addDefault(this.getVersionSelector());
                 }
             }

@@ -118,7 +118,7 @@ public class DbInitInfo extends DbConnectionInfo
 
          //PreLogUtil.put("Host: " + this.getHost(), this, "write");
             final AbDataOutputStream dataOutputStream
-                    = DataOutputStreamFactory.getInstance().getInstance(newFile);
+                    = DataOutputStreamFactory.getInstance().getInstanceForAbFile(newFile);
 
             try
             {

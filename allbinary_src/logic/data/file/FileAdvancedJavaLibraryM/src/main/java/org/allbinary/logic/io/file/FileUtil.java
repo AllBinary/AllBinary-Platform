@@ -103,7 +103,7 @@ public class FileUtil
         throws Exception
     {
         AbDataOutputStream dataOutputStream =
-            DataOutputStreamFactory.getInstance().getInstance(file);
+            DataOutputStreamFactory.getInstance().getInstanceForAbFile(file);
 
         this.write(inputStream, dataOutputStream);
     }
@@ -258,7 +258,7 @@ public class FileUtil
             }
 
             AbDataOutputStream dataOutputStream =
-                DataOutputStreamFactory.getInstance().getInstance(outFile);
+                DataOutputStreamFactory.getInstance().getInstanceForAbFile(outFile);
 
             AbFileInputStream fileInputStream =
                 new AbFileLocalInputStream(file);
@@ -338,7 +338,7 @@ public class FileUtil
             }
 
             AbDataOutputStream dataOutputStream =
-                DataOutputStreamFactory.getInstance().getInstance(outFile);
+                DataOutputStreamFactory.getInstance().getInstanceForAbFile(outFile);
 
             AbFileInputStream fileInputStream =
                 new AbFileLocalInputStream(file);
@@ -483,7 +483,7 @@ public class FileUtil
             }
 
             AbDataOutputStream dataOutputStream =
-                DataOutputStreamFactory.getInstance().getInstance(toFile);
+                DataOutputStreamFactory.getInstance().getInstanceForAbFile(toFile);
 
             AbFileInputStream fileInputStream =
                 new AbFileInputStream(fromFile);

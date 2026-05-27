@@ -80,7 +80,7 @@ public class DomDocumentFileHelper
          file.createNewFile();
 
          dataOutputStream =
-             DataOutputStreamFactory.getInstance().getInstance(file);
+             DataOutputStreamFactory.getInstance().getInstanceForAbFile(file);
 
          StreamResult streamResult = 
              new StreamResult(dataOutputStream);

@@ -14,18 +14,19 @@
 package org.allbinary.logic.string.tokens;
 
 import java.util.Hashtable;
+import org.allbinary.TsUtil;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 public class Tokenizer {
-
+    
     private String sep;
     private String endSep = StringUtil.getInstance().EMPTY_STRING;
 
     public Tokenizer(String sep) throws Exception {
-        if (sep == null || sep.compareTo(StringUtil.getInstance().EMPTY_STRING) == 0) {
+        if (sep == null || TsUtil.getInstance().compareTo(sep, StringUtil.getInstance().EMPTY_STRING) == 0) {
             throw new Exception("Sep provided is not valid");
         }
         this.sep = sep;

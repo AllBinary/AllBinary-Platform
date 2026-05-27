@@ -162,7 +162,7 @@ public class ZipFileUtil
                     this.logUtil.putF(stringBuffer.toString(), this, "unzip");
 
                     AbDataOutputStream dataOutputStream =
-                        DataOutputStreamFactory.getInstance().getInstance(entryFile);
+                        DataOutputStreamFactory.getInstance().getInstanceForAbFile(entryFile);
 
                     fileUtil.write(inputStream, dataOutputStream, buffer);
                 }
