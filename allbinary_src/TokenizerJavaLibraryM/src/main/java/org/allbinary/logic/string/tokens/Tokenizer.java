@@ -14,8 +14,8 @@
 package org.allbinary.logic.string.tokens;
 
 import java.util.Hashtable;
-import org.allbinary.TsUtil;
 
+import org.allbinary.TsUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
