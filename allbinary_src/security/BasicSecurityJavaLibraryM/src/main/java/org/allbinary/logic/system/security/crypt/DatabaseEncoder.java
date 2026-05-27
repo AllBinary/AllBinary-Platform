@@ -66,7 +66,7 @@ public class DatabaseEncoder
       try
       {
          final Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SPACE);
-         final BasicArrayList vector = tokenizer.getTokens(value, new BasicArrayListD());
+         final BasicArrayList vector = tokenizer.getTokensFromString(value, new BasicArrayListD());
          final BasicArrayList byteVector = new BasicArrayListD();
          final int size = vector.size();
 

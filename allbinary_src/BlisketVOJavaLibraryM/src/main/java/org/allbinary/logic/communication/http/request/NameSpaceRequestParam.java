@@ -50,7 +50,7 @@ public class NameSpaceRequestParam
          NameSpaceRequestParamData.SEP.length());
 
       Tokenizer sepTokenizer = new Tokenizer(NameSpaceRequestParamData.SEP);
-      BasicArrayList nameSpaceWithPropertiesVector = sepTokenizer.getTokens(packages, new BasicArrayListD());
+      BasicArrayList nameSpaceWithPropertiesVector = sepTokenizer.getTokensFromString(packages, new BasicArrayListD());
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
@@ -77,7 +77,7 @@ public class NameSpaceRequestParam
          // ["nameSpace", "properties"]
          list.clear();
          BasicArrayList nameSpaceAndPropertiesVector = 
-            nameSpaceAndPropertiesTokenizer.getTokens(nameSpaceWithProperties, list);
+            nameSpaceAndPropertiesTokenizer.getTokensFromString(nameSpaceWithProperties, list);
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
@@ -171,7 +171,7 @@ public class NameSpaceRequestParam
 
       HashMap packagePropertiesHashMap = new HashMap();
 
-      BasicArrayList propertyVector = propertiesTokenizer.getTokens(properties, new BasicArrayListD());
+      BasicArrayList propertyVector = propertiesTokenizer.getTokensFromString(properties, new BasicArrayListD());
 
       //First Item is Always the key the rest are Properties
       
@@ -186,7 +186,7 @@ public class NameSpaceRequestParam
          String property = (String) propertyVector.get(index);
 
          list.clear();
-         BasicArrayList propertyNameValueVector = propertyTokenizer.getTokens(property, list);
+         BasicArrayList propertyNameValueVector = propertyTokenizer.getTokensFromString(property, list);
 
          int index2 = 0;
          while(index2 < propertyNameValueVector.size())

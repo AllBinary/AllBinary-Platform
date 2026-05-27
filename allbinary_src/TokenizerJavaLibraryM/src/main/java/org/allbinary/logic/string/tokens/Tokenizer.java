@@ -65,7 +65,7 @@ public class Tokenizer {
     }
 
     //BasicArrayList tokenVector = new BasicArrayListD();
-    public BasicArrayList getTokens(String string, BasicArrayList tokenVector) {
+    public BasicArrayList getTokensFromString(String string, BasicArrayList tokenVector) {
         int index = 0;
         int end = 0;
         while (index < string.length()) {

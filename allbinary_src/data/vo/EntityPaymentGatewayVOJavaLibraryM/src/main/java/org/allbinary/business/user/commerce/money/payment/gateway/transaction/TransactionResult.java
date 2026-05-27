@@ -40,7 +40,7 @@ public class TransactionResult implements TransactionResultInterface
       {
          this.result = result;
          Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().AMPERSAND);
-         BasicArrayList tokens = tokenizer.getTokens(result, new BasicArrayListD());
+         BasicArrayList tokens = tokenizer.getTokensFromString(result, new BasicArrayListD());
          Tokenizer tokenizer2 = new Tokenizer(CommonSeps.getInstance().EQUALS);
          
          Hashtable hashtable = tokenizer2.getTokens(tokens);

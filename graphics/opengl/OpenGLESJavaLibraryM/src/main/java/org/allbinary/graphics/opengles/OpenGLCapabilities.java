@@ -422,7 +422,7 @@ public class OpenGLCapabilities
         {
             Tokenizer tokenizer = new Tokenizer(commonSeps.SPACE);
 
-            BasicArrayList list = tokenizer.getTokens(this.glExtensions, new BasicArrayListD());
+            BasicArrayList list = tokenizer.getTokensFromString(this.glExtensions, new BasicArrayListD());
 
             final int size = list.size();
             for(int index = 0; index < size; index++)

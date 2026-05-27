@@ -68,7 +68,7 @@ public class UniqueTokens
          {
             String keywords = (String) stringVector.elementAt(index);
             Tokenizer tokenizer = new Tokenizer(commonSeps.COMMA);
-            BasicArrayList keywordVector = tokenizer.getTokens(keywords, new BasicArrayListD());
+            BasicArrayList keywordVector = tokenizer.getTokensFromString(keywords, new BasicArrayListD());
                         
             for(int forIndex=0;forIndex<keywordVector.size();forIndex++)
             {
@@ -82,7 +82,7 @@ public class UniqueTokens
                if(cleanString.indexOf(' ')!=-1)
                {
                   Tokenizer spaceTokenizer = new Tokenizer(commonSeps.SPACE);
-                  BasicArrayList subKeywordVector = spaceTokenizer.getTokens(cleanString, new BasicArrayListD());
+                  BasicArrayList subKeywordVector = spaceTokenizer.getTokensFromString(cleanString, new BasicArrayListD());
                   for(int spaceIndex=0;spaceIndex<subKeywordVector.size();spaceIndex++)                  
                   {                     
                      String subCleanString = (String) subKeywordVector.get(spaceIndex);

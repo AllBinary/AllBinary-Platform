@@ -241,7 +241,7 @@ public class BasicStoreFront implements BasicStoreFrontInterface
       try
       {
       Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SEMICOLON);
-      BasicArrayList subStoreVector = tokenizer.getTokens(this.subStores, new BasicArrayListD());
+      BasicArrayList subStoreVector = tokenizer.getTokensFromString(this.subStores, new BasicArrayListD());
       return subStoreVector;
       }catch(Exception e)
       {

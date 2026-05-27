@@ -799,7 +799,7 @@ public class StoreFront implements StoreFrontInterface
         try
         {
             final Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SEMICOLON);
-            final BasicArrayList subStoreVector = tokenizer.getTokens(this.subStores, new BasicArrayListD());
+            final BasicArrayList subStoreVector = tokenizer.getTokensFromString(this.subStores, new BasicArrayListD());
             return subStoreVector;
         } catch (Exception e)
         {
