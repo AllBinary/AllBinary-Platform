@@ -55,7 +55,7 @@ public class CategoryLoader
                 //this.logUtil.putF("Level: " + categoryInterface.getHierarchy().getLevel(), this, "getDoc");
                 if (categoryInterface.getHierarchy().getLevel() == 1)
                 {
-                    AbFile rootAbFile = AbFile.createAbFile(categoryInterface.getRootFilePath());
+                    AbFile rootAbFile = AbFile.createAbFileFromAbPath(categoryInterface.getRootFilePath());
 
                     if (!rootAbFile.isDirectory())
                     {

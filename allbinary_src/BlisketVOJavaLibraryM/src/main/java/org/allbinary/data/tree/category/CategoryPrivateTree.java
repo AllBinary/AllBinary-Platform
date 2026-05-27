@@ -69,7 +69,7 @@ public class CategoryPrivateTree
    {
       if(categoryInterface.isLeaf())
       {
-         AbFile categoryFile = AbFile.createAbFile(categoryInterface.getFilePath());
+         AbFile categoryFile = AbFile.createAbFileFromAbPath(categoryInterface.getFilePath());
 
          if(categoryFile.delete())
          {

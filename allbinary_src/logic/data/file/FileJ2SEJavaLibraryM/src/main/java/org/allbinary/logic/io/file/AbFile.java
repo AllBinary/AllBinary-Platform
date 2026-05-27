@@ -25,11 +25,9 @@ import org.allbinary.logic.string.StringUtil;
 
 public class AbFile implements AbFileInterface
 {
-    public static final AbFile NULL_FILE = AbFile.createAbFile(StringUtil.getInstance().EMPTY_STRING, false);
-    
-   private final File file;
+    public static final AbFile NULL_FILE = AbFile.createAbFileFromRawPath(StringUtil.getInstance().EMPTY_STRING);
 
-   public static AbFile createAbFile(final AbFile file, final String childPathName) throws Exception
+   public static AbFile createAbFileWithChild(final AbFile file, final String childPathName) throws Exception
    {
       return new AbFile(new File(file.getFile(), childPathName));
    }
@@ -39,21 +37,23 @@ public class AbFile implements AbFileInterface
       return new AbFile(new File(new AbPath(filePath).toFileSystemString()));
    }
 
-   public static AbFile createAbFile(final String filePath, final String fileName) throws Exception
+   public static AbFile createAbFilePathAndName(final String filePath, final String fileName) throws Exception
    {
       return new AbFile(new File(new AbPath(filePath).toFileSystemString(), fileName));
    }
 
-   public static AbFile createAbFile(final AbPath abPath)
+   public static AbFile createAbFileFromAbPath(final AbPath abPath)
    {
       return new AbFile(new File(abPath.toFileSystemString()));
    }
        
-   public static AbFile createAbFile(final String filePath, final boolean unknown) 
+   public static AbFile createAbFileFromRawPath(final String filePath)
    {
       return new AbFile(new File(filePath));
    }
 
+   private final File file;
+   
    AbFile(final File file) 
    {
       this.file = file;
@@ -223,7 +223,7 @@ public class AbFile implements AbFileInterface
    }
 
    @Override
-   public String[] list(final FilenameFilter filter)
+   public String[] listWithFilter(final FilenameFilter filter)
    {
       return this.file.list(filter);
    }
@@ -233,12 +233,12 @@ public class AbFile implements AbFileInterface
       return (Object[]) this.file.listFiles();
    }
 
-   public Object[] listFiles(final FilenameFilter filter)
+   public Object[] listFilesFileNameFilter(final FilenameFilter filter)
    {
       return (Object[]) this.file.listFiles(filter);
    }
 
-   public Object[] listFiles(final FileFilter filter)
+   public Object[] listFilesFileFilter(final FileFilter filter)
    {
       return (Object[]) this.file.listFiles(filter);
    }
@@ -323,21 +323,21 @@ public class AbFile implements AbFileInterface
       return this.file.getUsableSpace();
    }
 
-   public int compareTo(File pathname)
+   public int compareTo(final File pathname)
    {
       return this.file.compareTo(pathname);
    }
 
    @Override
-   public boolean equals(Object obj)
+   public boolean equals(final Object obj)
    {
-      return this.file.equals(obj);
+      return TsUtil.getInstance().equalsNotstring(this.file, obj);
    }
 
    @Override
    public int hashCode()
    {
-      return TsUtil.getInstance().hashCode(this.file);
+      return this.file.hashCode();
    }
 
    public String toString()

@@ -68,7 +68,7 @@ public class AddValidationStoreFrontView extends HttpContextView
             valid = Boolean.FALSE;
          }
 
-         if(AbFile.createAbFile(new AbPath(this.getStoreViewsPath())).isFile())
+         if(AbFile.createAbFileFromAbPath(new AbPath(this.getStoreViewsPath())).isFile())
          {
              valid = Boolean.FALSE;
          }
@@ -112,7 +112,7 @@ public class AddValidationStoreFrontView extends HttpContextView
             stringBuffer.append("Store name already used<br/>");
          }
 
-         if(AbFile.createAbFile(new AbPath(this.getStoreViewsPath())).isFile())
+         if(AbFile.createAbFileFromAbPath(new AbPath(this.getStoreViewsPath())).isFile())
          {
              stringBuffer.append("Store name clashes with template name<br/>");
          }

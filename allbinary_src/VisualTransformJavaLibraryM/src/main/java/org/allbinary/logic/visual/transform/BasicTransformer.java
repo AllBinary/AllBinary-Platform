@@ -187,7 +187,7 @@ public class BasicTransformer extends AbTransformer {
                         return;
                     } else {
                         final AbFile file =
-                            AbFile.createAbFile(this.getTransformInfoInterface().getTemplateFilePath());
+                            AbFile.createAbFileFromAbPath(this.getTransformInfoInterface().getTemplateFilePath());
 
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                             this.logUtil.putF(

@@ -69,6 +69,10 @@ public class TsUtil {
         return a.equalsIgnoreCase(b);
     }
 
+    public boolean equalsNotstring(final Object object, final Object object2) {
+        return object.equals(object2);
+    }
+    
     public ClassLoader getClassClassLoader(final Object object) {
         return object.getClass().getClassLoader();
     }

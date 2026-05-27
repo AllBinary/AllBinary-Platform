@@ -71,7 +71,7 @@ public interface AbFileInterface {
 
     String[] list();
 
-    String[] list(FilenameFilter filter);
+    String[] listWithFilter(FilenameFilter filter);
 
     boolean mkdir();
 

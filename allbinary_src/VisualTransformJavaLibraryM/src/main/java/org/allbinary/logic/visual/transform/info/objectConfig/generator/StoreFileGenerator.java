@@ -131,7 +131,7 @@ public class StoreFileGenerator
 
         this.fileAbPath = abPath;
         
-        this.file = AbFile.createAbFile(this.fileAbPath);
+        this.file = AbFile.createAbFileFromAbPath(this.fileAbPath);
         
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))

@@ -53,7 +53,7 @@ public class LoggingInitInfo
       final AbPath FILEABPATH = new AbPath(path, INITFILENAME);
       //PreLogUtil.put("File Path: " + FILEABPATH, "LoggingInitInfo", "getDoc");
       
-      final AbFile file = AbFile.createAbFile(FILEABPATH);
+      final AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
 
       final Document document = 
          DomDocumentHelper.create(new AbFileLocalInputStream(file));

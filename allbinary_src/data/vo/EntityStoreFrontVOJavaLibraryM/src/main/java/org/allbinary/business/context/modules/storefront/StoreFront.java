@@ -1087,7 +1087,7 @@ public class StoreFront implements StoreFrontInterface
             final int installTotal = (total * 93) / 100;
             if (current < viewTotal)
             {
-                final AbFile file = AbFile.createAbFile(fromSpecialDirectoryAbPath);
+                final AbFile file = AbFile.createAbFileFromAbPath(fromSpecialDirectoryAbPath);
 
                 if (file.isDirectory())
                 {

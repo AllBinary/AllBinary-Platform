@@ -52,7 +52,7 @@ public class InstallerInfo
          new AbPath(URLGLOBALS.getMainPath() + InstallerInfo.PACKAGE, InstallerInfo.INITFILENAME);
       try
       {
-         AbFile newFile = AbFile.createAbFile(FILEABPATH);
+         AbFile newFile = AbFile.createAbFileFromAbPath(FILEABPATH);
          newFile.createNewFile();
 
          AbDataOutputStream dataOutputStream =
@@ -81,7 +81,7 @@ public class InstallerInfo
          new AbPath(URLGLOBALS.getMainPath() + InstallerInfo.PACKAGE, InstallerInfo.INITFILENAME);
       try
       {
-         AbFile file = AbFile.createAbFile(FILEABPATH);
+         AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
          if(file.isFile())
          {
             AbFileLocalInputStream iFile = new AbFileLocalInputStream(file);

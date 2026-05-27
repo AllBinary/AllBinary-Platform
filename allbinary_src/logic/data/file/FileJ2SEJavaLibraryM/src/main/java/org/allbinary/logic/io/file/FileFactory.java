@@ -27,12 +27,12 @@ public class FileFactory {
 
     public AbFile getInstance(String filePath) throws Exception
     {
-        return AbFile.createAbFile(filePath, false);
+        return AbFile.createAbFileFromRawPath(filePath);
     }
 
     public AbFile getInstance(AbFile file, String childFilePath) throws Exception
     {
-        return AbFile.createAbFile(file, childFilePath);
+        return AbFile.createAbFileWithChild(file, childFilePath);
     }
 
     public boolean isFile(String path) throws Exception

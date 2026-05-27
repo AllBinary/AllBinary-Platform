@@ -46,7 +46,7 @@ public class DeleteCloud
                 AbPath path = new AbPath(stringBuffer.toString());
 
                 //Using cloud file search currently causes problems when trying to output new file
-                AbFile file = AbFile.createAbFile(path);
+                AbFile file = AbFile.createAbFileFromAbPath(path);
 
                 BasicArrayList fileBasicArrayList = Directory.getInstance().search(file, true);
 

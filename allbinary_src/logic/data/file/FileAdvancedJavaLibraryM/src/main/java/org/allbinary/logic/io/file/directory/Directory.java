@@ -118,7 +118,7 @@ public class Directory
         if (file.isDirectory())
         {
             //System.out.println("Is a Directory");
-            final Object[] fileArray = file.listFiles(fileFilter);
+            final Object[] fileArray = file.listFilesFileFilter(fileFilter);
             if(fileArray == null) {
                 return fileList;
             }

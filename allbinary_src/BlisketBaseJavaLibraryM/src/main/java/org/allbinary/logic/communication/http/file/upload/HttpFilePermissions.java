@@ -33,7 +33,7 @@ public class HttpFilePermissions
     public HttpFilePermissions(AbPath fullPath)
         throws Exception
     {
-        this.file = AbFile.createAbFile(new AbPath(fullPath.toFileSystemString(),
+        this.file = AbFile.createAbFileFromAbPath(new AbPath(fullPath.toFileSystemString(),
             FileUploadData.getInstance().FILE));
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
