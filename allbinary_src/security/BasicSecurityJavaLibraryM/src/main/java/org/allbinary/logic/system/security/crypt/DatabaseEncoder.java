@@ -83,7 +83,7 @@ public class DatabaseEncoder
          Byte aByte;
          for(int index = 0; index < size; index++)
          {
-            aByte = (Byte) byteVector.objectArray[index];            
+            aByte = (Byte) byteVector.objectArray[index];
             decode[decodeIndex] = aByte.byteValue();
             decodeIndex++;
          }
