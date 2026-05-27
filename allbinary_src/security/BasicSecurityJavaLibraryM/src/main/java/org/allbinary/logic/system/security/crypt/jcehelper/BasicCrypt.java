@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.system.security.crypt.jcehelper;
 
+import org.allbinary.TsUtil;
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -32,7 +33,7 @@ public class BasicCrypt implements CryptInterface
         byte[] key = NullUtil.getInstance().NULL_BYTE_ARRAY;
         try
         {
-            key = keyAsString.getBytes();
+            key = TsUtil.getInstance().getBytes(keyAsString);
         } catch (Exception e)
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))

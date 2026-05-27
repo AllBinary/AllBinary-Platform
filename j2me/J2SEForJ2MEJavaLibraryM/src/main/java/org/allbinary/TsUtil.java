@@ -84,7 +84,11 @@ public class TsUtil {
     public int toNumber(final int value) {
         return value;
     }
-    
+
+    public byte[] getBytes(final String string) {
+        return string.getBytes();
+    }
+
     public boolean isItemListener(Displayable owner) {
         if (owner instanceof Form) {
             return true;

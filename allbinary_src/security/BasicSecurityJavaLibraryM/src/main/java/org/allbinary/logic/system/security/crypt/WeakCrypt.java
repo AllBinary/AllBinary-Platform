@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.system.security.crypt;
 
+import org.allbinary.TsUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.crypt.jcehelper.AbCrypt;
@@ -22,6 +23,7 @@ import org.allbinary.string.CommonStrings;
 public class WeakCrypt
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
+    
 
     //private int key;
     private static String[] keys =
@@ -51,6 +53,9 @@ public class WeakCrypt
         "4gijvqo8vq984hv984hj5j3511h832hf833"
     };
     public static int KEYMAX = WeakCrypt.keys.length;
+    
+    private final TsUtil tsUtil = TsUtil.getInstance();
+    
     private AbCrypt abCrypt = new AbCrypt(KeySpecFactory.getInstance().DES);
 
     public WeakCrypt(int key)
@@ -74,7 +79,7 @@ public class WeakCrypt
     {
         try
         {
-            final byte[] crypted = this.abCrypt.encrypt(value.getBytes());
+            final byte[] crypted = this.abCrypt.encrypt(this.tsUtil.getBytes(value));
             //make data database friendly
             return DatabaseEncoder.encode(crypted);
             //return new String();

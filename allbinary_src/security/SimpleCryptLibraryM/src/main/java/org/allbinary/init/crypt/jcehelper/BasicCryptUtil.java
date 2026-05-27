@@ -16,6 +16,7 @@ package org.allbinary.init.crypt.jcehelper;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import org.allbinary.TsUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -33,6 +34,8 @@ public class BasicCryptUtil
         return BasicCryptUtil.instance;
     }
 
+    private final TsUtil tsUtil = TsUtil.getInstance();
+    
     private final String XML_START = "<?xml";
 
     public InputStream getDecryptedInputStream(
@@ -60,7 +63,7 @@ public class BasicCryptUtil
 
         //String responseData = buffer.toString();
         //responseData = responseData.substring(PHPCRYPTHEADER.length());
-        //byte[] decrypted = cryptInterface.decrypt(responseData.getBytes());
+        //byte[] decrypted = cryptInterface.decrypt(tsUtil.getBytes(responseData));
         byte[] decrypted = cryptInterface.decrypt(buffer.toByteArray());
 
         //TWB - debug output
@@ -79,6 +82,6 @@ public class BasicCryptUtil
 
         //this.logUtil.putF(new String(decryptedString), this, "decRespXMLRPC");
         ////PreLogUtil.put(new String(decryptedString), this, "decRespXMLRPC");
-        return new ByteArrayInputStream(decryptedString.getBytes());
+        return new ByteArrayInputStream(this.tsUtil.getBytes(decryptedString));
     }
 }

@@ -19,17 +19,19 @@ import java.security.spec.KeySpec;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
+import org.allbinary.TsUtil;
 
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.java.byteutil.ByteUtil;
 import org.allbinary.string.CommonStrings;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 public class AbCrypt implements CryptInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    private final TsUtil tsUtil = TsUtil.getInstance();
     
    private BaseSecretComposite secretComposite = BaseSecretComposite.NULL_SECRET_COMPOSITE;
    private String algorithm;
@@ -58,7 +60,7 @@ public class AbCrypt implements CryptInterface
               PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
           }
           
-         final byte[] key = keyAsString.getBytes();
+         final byte[] key = this.tsUtil.getBytes(keyAsString);
          final KeySpec keySpec = KeySpecFactory.getInstance().getInstance(this.algorithm, key);
          final SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(this.algorithm);
          

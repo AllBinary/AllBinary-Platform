@@ -13,6 +13,7 @@
 */
 package org.allbinary.business.init;
 
+import org.allbinary.TsUtil;
 import org.allbinary.globals.PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -59,12 +60,13 @@ public class LicenseInitInfoUtil
 
         try
         {
+            final TsUtil tsUtil = TsUtil.getInstance();
             final AbDataOutputStream dataOutputStream =
                 DataOutputStreamFactory.getInstance().getInstance(
                 this.filePath, this.INITFILENAME);
 
-            final byte[] licenseIdCrypted = new WeakCrypt(1).encrypt(
-                    initData.getLicenseId()).getBytes();
+            final byte[] licenseIdCrypted = tsUtil.getBytes(new WeakCrypt(1).encrypt(
+                    initData.getLicenseId()));
 
             dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseIdCrypted));
 
@@ -74,8 +76,8 @@ public class LicenseInitInfoUtil
             byte[] licenseServerCrypted;
             for (int index = 0; index < numberOfLicenseServers; index++)
             {
-                licenseServerCrypted = new WeakCrypt(3).encrypt(
-                        initData.getServer(index)).getBytes();
+                licenseServerCrypted = tsUtil.getBytes(new WeakCrypt(3).encrypt(
+                        initData.getServer(index)));
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseServerCrypted));
             }
         }
