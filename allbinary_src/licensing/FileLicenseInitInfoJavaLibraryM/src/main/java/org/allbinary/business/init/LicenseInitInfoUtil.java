@@ -65,7 +65,7 @@ public class LicenseInitInfoUtil
                 DataOutputStreamFactory.getInstance().getInstance(
                 this.filePath, this.INITFILENAME);
 
-            final byte[] licenseIdCrypted = tsUtil.getBytes(new WeakCrypt(1).encrypt(
+            final byte[] licenseIdCrypted = tsUtil.getByteArray(new WeakCrypt(1).encrypt(
                     initData.getLicenseId()));
 
             dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseIdCrypted));
@@ -76,7 +76,7 @@ public class LicenseInitInfoUtil
             byte[] licenseServerCrypted;
             for (int index = 0; index < numberOfLicenseServers; index++)
             {
-                licenseServerCrypted = tsUtil.getBytes(new WeakCrypt(3).encrypt(
+                licenseServerCrypted = tsUtil.getByteArray(new WeakCrypt(3).encrypt(
                         initData.getServer(index)));
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseServerCrypted));
             }

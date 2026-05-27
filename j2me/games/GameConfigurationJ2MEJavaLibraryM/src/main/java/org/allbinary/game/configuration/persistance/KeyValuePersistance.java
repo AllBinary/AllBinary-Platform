@@ -132,7 +132,7 @@ public class KeyValuePersistance extends BasicPersitance
         }
 
         final TsUtil tsUtil = TsUtil.getInstance();
-        final byte[] savedGameBytes = tsUtil.getBytes(byteArrayOutputStream.toString());
+        final byte[] savedGameBytes = tsUtil.getByteArray(byteArrayOutputStream.toString());
 
         recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
 

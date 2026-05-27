@@ -33,7 +33,7 @@ public class BasicCrypt implements CryptInterface
         byte[] key = NullUtil.getInstance().NULL_BYTE_ARRAY;
         try
         {
-            key = TsUtil.getInstance().getBytes(keyAsString);
+            key = TsUtil.getInstance().getByteArray(keyAsString);
         } catch (Exception e)
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))

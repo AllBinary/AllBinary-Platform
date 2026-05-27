@@ -60,7 +60,7 @@ public class AbCrypt implements CryptInterface
               PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
           }
           
-         final byte[] key = this.tsUtil.getBytes(keyAsString);
+         final byte[] key = this.tsUtil.getByteArray(keyAsString);
          final KeySpec keySpec = KeySpecFactory.getInstance().getInstance(this.algorithm, key);
          final SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(this.algorithm);
          

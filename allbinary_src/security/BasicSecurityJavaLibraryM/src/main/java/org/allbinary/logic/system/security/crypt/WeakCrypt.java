@@ -79,7 +79,7 @@ public class WeakCrypt
     {
         try
         {
-            final byte[] crypted = this.abCrypt.encrypt(this.tsUtil.getBytes(value));
+            final byte[] crypted = this.abCrypt.encrypt(this.tsUtil.getByteArray(value));
             //make data database friendly
             return DatabaseEncoder.encode(crypted);
             //return new String();

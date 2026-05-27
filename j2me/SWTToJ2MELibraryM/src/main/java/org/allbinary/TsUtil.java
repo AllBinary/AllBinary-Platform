@@ -85,7 +85,7 @@ public class TsUtil {
         return value;
     }
 
-    public byte[] getBytes(final String string) {
+    public byte[] getByteArray(final String string) {
         return string.getBytes();
     }
 

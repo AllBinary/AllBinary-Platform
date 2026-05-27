@@ -82,6 +82,6 @@ public class BasicCryptUtil
 
         //this.logUtil.putF(new String(decryptedString), this, "decRespXMLRPC");
         ////PreLogUtil.put(new String(decryptedString), this, "decRespXMLRPC");
-        return new ByteArrayInputStream(this.tsUtil.getBytes(decryptedString));
+        return new ByteArrayInputStream(this.tsUtil.getByteArray(decryptedString));
     }
 }
