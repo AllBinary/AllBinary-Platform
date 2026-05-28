@@ -19,6 +19,7 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.content.ComponentName;
 import android.content.Context;
+
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -52,7 +53,7 @@ public class AndroidServicesUtil {
         final ActivityManager activityManager = (ActivityManager) /*TS as unknown*/ this.resourceUtil.getContext().getSystemService(Context.ACTIVITY_SERVICE);
         final List<RunningServiceInfo> runningServicesList = activityManager.getRunningServices(this.SERVICE_LIMIT_MAX);
 
-        ActivityManager.RunningServiceInfo runningServiceInfo;
+        RunningServiceInfo runningServiceInfo;
         ComponentName serviceComponent;
         String serviceName;
         final int size = runningServicesList.size();
