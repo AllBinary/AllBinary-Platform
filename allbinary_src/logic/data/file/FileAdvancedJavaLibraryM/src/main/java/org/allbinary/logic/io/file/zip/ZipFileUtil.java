@@ -63,7 +63,7 @@ public class ZipFileUtil
             zipFile.createNewFile();
 
             final ZipOutputStream outputStream = new ZipOutputStream(
-                new AbFileOutputStream(zipFile));
+                AbFileOutputStream.createFromAbFile(zipFile));
 
             final StreamUtil streamUtil = StreamUtil.getInstance();
 

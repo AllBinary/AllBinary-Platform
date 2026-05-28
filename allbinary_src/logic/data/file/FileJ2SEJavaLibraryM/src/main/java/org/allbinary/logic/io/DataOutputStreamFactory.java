@@ -28,20 +28,20 @@ public class DataOutputStreamFactory
         return DataOutputStreamFactory.instance;
     }
 
-    public AbDataOutputStream getInstanceForAbFile(AbFile file) throws Exception
+    public AbDataOutputStream getInstanceForAbFile(final AbFile file) throws Exception
     {
-        AbFileOutputStream idFileOutputStream = new AbFileOutputStream(file);
-        AbDataOutputStream idOutData = new AbDataOutputStream(idFileOutputStream);
+        final AbFileOutputStream idFileOutputStream = AbFileOutputStream.createFromAbFile(file);
+        final AbDataOutputStream idOutData = new AbDataOutputStream(idFileOutputStream);
 
         return idOutData;
     }
 
-    public AbDataOutputStream getInstance(String filePath, String fileName) throws Exception
+    public AbDataOutputStream getInstance(final String filePath, final String fileName) throws Exception
     {
-        FileStreamFactory fileStreamFactory =
+        final FileStreamFactory fileStreamFactory =
             FileStreamFactory.getInstance();
 
-        AbFileOutputStream fileOutputStream =
+        final AbFileOutputStream fileOutputStream =
             fileStreamFactory.getFileOutputStreamInstance(
             filePath, fileName);
 

@@ -39,13 +39,13 @@ public class UniqueIdGenerator implements IdGeneratorInterface
    {
    }
    
-   public void initialize(int value)
+   public void initialize(final int value)
    {
       try
       {
          this.newFile.createNewFile();
 
-         AbDataOutputStream idData =
+         final AbDataOutputStream idData =
              DataOutputStreamFactory.getInstance().getInstanceForAbFile(this.newFile);
 
          idData.writeLong(value);
@@ -61,7 +61,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
       }
    }
    
-   public synchronized void setFile(String filePathName, String name) throws Exception
+   public synchronized void setFile(final String filePathName, final String name) throws Exception
    {
        //uniqueIdFile=filePathName;
        this.newFile = AbFile.createAbFile(filePathName);
@@ -73,16 +73,16 @@ public class UniqueIdGenerator implements IdGeneratorInterface
 	   AbDataOutputStream idOutData = null;
       try
       {
-    	 AbFileInputStream idFile = new AbFileInputStream(this.newFile);
+    	 final AbFileInputStream idFile = new AbFileInputStream(this.newFile);
     	 idData = new AbDataInputStream(idFile);
     	 
          this.id = idData.readLong();
          
-         AbFileOutputStream idOutFile = new AbFileOutputStream(this.newFile);
+         final AbFileOutputStream idOutFile = AbFileOutputStream.createFromAbFile(this.newFile);
          idOutData = new AbDataOutputStream(idOutFile);
          idOutData.writeLong(this.id + 1);
          
-         Long idLong = new Long(this.id);
+         final Long idLong = new Long(this.id);
          return idLong.toString();
       }catch(Exception e)
       {

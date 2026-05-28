@@ -30,19 +30,19 @@ public class FileStreamFactory
         return FileStreamFactory.SINGLETON;
     }
 
-    public AbFileInputStream getFileInputStreamInstance(String path, String fileName)
+    public AbFileInputStream getFileInputStreamInstance(final String path, final String fileName)
         throws Exception
     {
-        AbPath FILEABPATH = new AbPath(path, fileName);
-        AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
+        final AbPath FILEABPATH = new AbPath(path, fileName);
+        final AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
         return new AbFileInputStream(file);
     }
 
-    public AbFileOutputStream getFileOutputStreamInstance(String path, String fileName)
+    public AbFileOutputStream getFileOutputStreamInstance(final String path, final String fileName)
         throws Exception
     {
-        AbPath FILEABPATH = new AbPath(path, fileName);
-        AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
+        final AbPath FILEABPATH = new AbPath(path, fileName);
+        final AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
 
         if (file.exists())
         {
@@ -50,14 +50,14 @@ public class FileStreamFactory
             file.createNewFile();
         }
 
-        return new AbFileOutputStream(file);
+        return AbFileOutputStream.createFromAbFile(file);
     }
 
-    public void delete(String path, String fileName)
+    public void delete(final String path, final String fileName)
         throws Exception
     {
-        AbPath FILEABPATH = new AbPath(path, fileName);
-        AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
+        final AbPath FILEABPATH = new AbPath(path, fileName);
+        final AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
         file.delete();
     }
 }

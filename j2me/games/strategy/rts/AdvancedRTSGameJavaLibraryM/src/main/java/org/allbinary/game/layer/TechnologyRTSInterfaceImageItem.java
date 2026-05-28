@@ -61,7 +61,7 @@ public class TechnologyRTSInterfaceImageItem extends ABCustomImageItem
             RTSInterface rtsInterface)
             throws Exception
     {
-        super(label, img, layout, altText, basicColor);
+        super(label, img, layout, altText, basicColor, 0);
 
         this.rtsInterface = rtsInterface;
 

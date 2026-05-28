@@ -153,11 +153,11 @@ public class UploadFileServlet extends HttpServlet
                     filePath = filePath + this.fileName;
                 }
 
-                AbFile file = AbFile.createAbFile(URLGLOBALS.getWebappPath() + filePath);
+                final AbFile file = AbFile.createAbFile(URLGLOBALS.getWebappPath() + filePath);
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                 {
-                    StringMaker stringBuffer = new StringMaker();
+                    final StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Uploaded File: ");
                     stringBuffer.append(this.fileName);
@@ -169,7 +169,7 @@ public class UploadFileServlet extends HttpServlet
                 HttpFileUploadUtil.log(fileItem);
 
                 //Now that file checks out write it to file
-                byte[] byteArray = fileItem.get();
+                final byte[] byteArray = fileItem.get();
 
                 if(file.isFile())
                 {
@@ -177,7 +177,7 @@ public class UploadFileServlet extends HttpServlet
                     file.createNewFile();
                 }
                 
-                fileOutputStream = new AbFileOutputStream(file);
+                fileOutputStream = AbFileOutputStream.createFromAbFile(file);
                 fileOutputStream.write(byteArray);
             }
         } finally
@@ -190,13 +190,13 @@ public class UploadFileServlet extends HttpServlet
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
         throws ServletException, IOException
     {
         this.processRequest(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(final HttpServletRequest request, final HttpServletResponse response)
         throws ServletException, IOException
     {
         this.processRequest(request, response);

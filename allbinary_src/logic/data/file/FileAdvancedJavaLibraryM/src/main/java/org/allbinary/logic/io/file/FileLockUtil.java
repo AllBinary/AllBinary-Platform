@@ -87,7 +87,7 @@ public class FileLockUtil
     {
         try
         {
-            return this.getLock(new AbFileOutputStream(file, true));
+            return this.getLock(AbFileOutputStream.createFromAbFileAppend(file, true));
         }
         catch(Exception e)
         {

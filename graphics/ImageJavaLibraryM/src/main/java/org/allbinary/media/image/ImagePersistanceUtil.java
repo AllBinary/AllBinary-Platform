@@ -39,12 +39,12 @@ public class ImagePersistanceUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-   public void saveWithBatik(AbFile file, BufferedImage bufferedImage)
+   public void saveWithBatik(final AbFile file, final BufferedImage bufferedImage)
       throws Exception
    {
-      PNGImageWriter batikPNGImageWriter = new PNGImageWriter();
+      final PNGImageWriter batikPNGImageWriter = new PNGImageWriter();
 
-      AbFileOutputStream fileOutputStream = new AbFileOutputStream(file);
+      final AbFileOutputStream fileOutputStream = AbFileOutputStream.createFromAbFile(file);
       
       try
       {
@@ -231,12 +231,12 @@ public class ImagePersistanceUtil {
 	}
       */  
 
-   public void saveWithImageIO(String filePath, BufferedImage bufferedImage)
+   public void saveWithImageIO(final String filePath, final BufferedImage bufferedImage)
    {
        this.saveWithImageIO(new File(filePath), bufferedImage);
    }
    
-   public void saveWithImageIO(File file, BufferedImage bufferedImage)
+   public void saveWithImageIO(final File file, final BufferedImage bufferedImage)
    {
       ImageWriter writer = null;
       ImageOutputStream ios = null;
@@ -245,7 +245,7 @@ public class ImagePersistanceUtil {
       {
          // Obtain a writer based on the jpeg format.
 
-         Iterator iter = ImageIO.getImageWritersByFormatName("jpeg");
+         final Iterator iter = ImageIO.getImageWritersByFormatName("jpeg");
 
          // Validate existence of writer.
          if (!iter.hasNext())
@@ -262,7 +262,7 @@ public class ImagePersistanceUtil {
          writer.setOutput(ios);
 
          // Set JPEG compression quality to 95%.
-         ImageWriteParam iwp = writer.getDefaultWriteParam();
+         final ImageWriteParam iwp = writer.getDefaultWriteParam();
          iwp.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
          iwp.setCompressionQuality(0.95f);
 

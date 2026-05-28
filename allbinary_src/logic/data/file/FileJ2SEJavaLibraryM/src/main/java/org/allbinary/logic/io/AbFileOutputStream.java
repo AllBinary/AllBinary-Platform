@@ -22,25 +22,43 @@ import org.allbinary.logic.io.file.AbFileNativeUtil;
 public class AbFileOutputStream
     extends FileOutputStream
 {
-    public AbFileOutputStream(String name)
-        throws FileNotFoundException
-    {
-        super(name);
+
+    public static AbFileOutputStream createFromAbFile(final AbFile file) throws FileNotFoundException {
+        return new AbFileOutputStream(file.getPath(), false);
     }
 
-    public AbFileOutputStream(String name, boolean append)
+    public static AbFileOutputStream createFromAbFileAppend(final AbFile file, final boolean append) throws FileNotFoundException {
+        return new AbFileOutputStream(file.getPath(), append);
+    }
+
+    public static AbFileOutputStream createFromFilePath(final String name) throws FileNotFoundException {
+        return new AbFileOutputStream(name, false);
+    }
+
+    public static AbFileOutputStream createFromFilePathAppend(final String name, final boolean append) throws FileNotFoundException {
+        return new AbFileOutputStream(name, append);
+    }
+
+//    public AbFileOutputStream(String name)
+//        throws FileNotFoundException
+//    {
+//        super(name);
+//    }
+
+    public AbFileOutputStream(final String name, final boolean append)
         throws FileNotFoundException
     {
         super(name, append);
     }
 
-    public AbFileOutputStream(AbFile file) throws FileNotFoundException {
-        super(AbFileNativeUtil.get(file));
-    }
+//    public AbFileOutputStream(AbFile file) throws FileNotFoundException {
+//        super(AbFileNativeUtil.get(file));
+//    }
 
-    public AbFileOutputStream(AbFile file, boolean append)
-        throws FileNotFoundException
-    {
-        super(AbFileNativeUtil.get(file), append);
-    }
+//    public AbFileOutputStream(AbFile file, boolean append)
+//        throws FileNotFoundException
+//    {
+//        super(AbFileNativeUtil.get(file), append);
+//    }
+
 }

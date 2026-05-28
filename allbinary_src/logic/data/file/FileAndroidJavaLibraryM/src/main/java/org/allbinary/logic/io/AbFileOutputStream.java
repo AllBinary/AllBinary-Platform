@@ -30,7 +30,23 @@ public class AbFileOutputStream
     //extends FileOutputStream
     extends OutputStream
 {
-    public AbFileOutputStream(String name) throws FileNotFoundException
+    public static AbFileOutputStream createFromAbFile(final AbFile file) throws FileNotFoundException {
+        return new AbFileOutputStream(file.getPath());
+    }
+
+    public static AbFileOutputStream createFromAbFileAppend(final AbFile file, final boolean append) throws FileNotFoundException {
+        return new AbFileOutputStream(file.getPath());
+    }
+
+    public static AbFileOutputStream createFromFilePath(final String name) throws FileNotFoundException {
+        return new AbFileOutputStream(name);
+    }
+
+    public static AbFileOutputStream createFromFilePathAppend(final String name, final boolean append) throws FileNotFoundException {
+        return new AbFileOutputStream(name);
+    }
+
+    public AbFileOutputStream(final String name) throws FileNotFoundException
     {
         //super(name);
         
@@ -38,23 +54,21 @@ public class AbFileOutputStream
         this.fileOutputStream = new FileOutputStream(name);
     }
 
-    /*
-    public AbFileOutputStream(String name, boolean append) throws FileNotFoundException
-    {
-        super(name, append);
-    }
+//    public AbFileOutputStream(String name, boolean append) throws FileNotFoundException
+//    {
+//        super(name, append);
+//    }
 
-    public AbFileOutputStream(AbFile file) throws FileNotFoundException
-    {
-        super(AbFileNativeUtil.get(file));
-    }
+//    public AbFileOutputStream(AbFile file) throws FileNotFoundException
+//    {
+//        super(AbFileNativeUtil.get(file));
+//    }
 
-    public AbFileOutputStream(AbFile file, boolean append) throws FileNotFoundException
-    {
-        super(AbFileNativeUtil.get(file), append);
-    }
-    */
-    
+//    public AbFileOutputStream(AbFile file, boolean append) throws FileNotFoundException
+//    {
+//        super(AbFileNativeUtil.get(file), append);
+//    }
+
     private FileOutputStream fileOutputStream;
 
     public AbFileOutputStream(AbFile file) throws FileNotFoundException
