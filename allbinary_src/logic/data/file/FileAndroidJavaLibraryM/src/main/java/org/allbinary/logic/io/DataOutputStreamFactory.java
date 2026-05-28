@@ -34,7 +34,7 @@ public class DataOutputStreamFactory
 
     public AbDataOutputStream getInstanceForAbFile(AbFile file) throws Exception
     {
-        AbFileOutputStream idFileOutputStream = new AbFileOutputStream(file);
+        AbFileOutputStream idFileOutputStream = AbFileOutputStream.createFromAbFile(file);
         AbDataOutputStream idOutData = new AbDataOutputStream(idFileOutputStream);
 
         return idOutData;

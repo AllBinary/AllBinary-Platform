@@ -31,28 +31,30 @@ public class AbFileOutputStream
     extends OutputStream
 {
     public static AbFileOutputStream createFromAbFile(final AbFile file) throws FileNotFoundException {
-        return new AbFileOutputStream(file.getPath());
+        return new AbFileOutputStream(new FileOutputStream(AbFileNativeUtil.get(file)));
     }
 
     public static AbFileOutputStream createFromAbFileAppend(final AbFile file, final boolean append) throws FileNotFoundException {
-        return new AbFileOutputStream(file.getPath());
+        return new AbFileOutputStream(new FileOutputStream(file.getPath()));
     }
 
     public static AbFileOutputStream createFromFilePath(final String name) throws FileNotFoundException {
-        return new AbFileOutputStream(name);
+        return new AbFileOutputStream(new FileOutputStream(name));
     }
 
     public static AbFileOutputStream createFromFilePathAppend(final String name, final boolean append) throws FileNotFoundException {
-        return new AbFileOutputStream(name);
+        return new AbFileOutputStream(new FileOutputStream(name));
     }
 
-    public AbFileOutputStream(final String name) throws FileNotFoundException
-    {
-        //super(name);
-        
-        //TWB this should not be called.
-        this.fileOutputStream = new FileOutputStream(name);
-    }
+    private FileOutputStream fileOutputStream;
+
+//    public AbFileOutputStream(final String name) throws FileNotFoundException
+//    {
+//        //super(name);
+//
+//        //TWB this should not be called.
+//        this.fileOutputStream = new FileOutputStream(name);
+//    }
 
 //    public AbFileOutputStream(String name, boolean append) throws FileNotFoundException
 //    {
@@ -69,19 +71,17 @@ public class AbFileOutputStream
 //        super(AbFileNativeUtil.get(file), append);
 //    }
 
-    private FileOutputStream fileOutputStream;
+//    public AbFileOutputStream(AbFile file) throws FileNotFoundException
+//    {
+//        this.fileOutputStream =
+//                new FileOutputStream(AbFileNativeUtil.get(file));
+//    }
 
-    public AbFileOutputStream(AbFile file) throws FileNotFoundException
-    {
-        this.fileOutputStream = 
-            new FileOutputStream(AbFileNativeUtil.get(file));
-    }
-    
     public AbFileOutputStream(FileOutputStream fileOutputStream)
-    throws FileNotFoundException
+            throws FileNotFoundException
     {
         //super(fileOutputStream.toString());
-        
+
         this.fileOutputStream = fileOutputStream;
     }
 
