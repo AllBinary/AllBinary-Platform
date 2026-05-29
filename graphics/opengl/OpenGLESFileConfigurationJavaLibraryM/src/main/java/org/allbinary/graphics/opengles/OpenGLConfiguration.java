@@ -17,8 +17,8 @@ import java.io.Closeable;
 import java.io.DataInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.allbinary.TsUtil;
 
+import org.allbinary.TsUtil;
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.FileStreamFactory;
 import org.allbinary.logic.io.StreamUtil;
@@ -32,18 +32,22 @@ import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import org.allbinary.game.configuration.feature.Feature;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.io.NullCloseable;
 
 public class OpenGLConfiguration
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final OpenGLConfiguration instance = 
-        new OpenGLConfiguration();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static OpenGLConfiguration getInstance()
     {
-        return OpenGLConfiguration.instance;
+        if(OpenGLConfiguration.instance == NullUtil.getInstance().NULL_OBJECT) {
+            OpenGLConfiguration.instance = new OpenGLConfiguration();
+        }
+        
+        return (OpenGLConfiguration) OpenGLConfiguration.instance;
     }
 
     private final String FILE = "OpenGLConfiguration.dat";

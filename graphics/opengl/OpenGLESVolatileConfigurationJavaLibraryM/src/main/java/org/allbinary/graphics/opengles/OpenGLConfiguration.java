@@ -15,25 +15,28 @@ package org.allbinary.graphics.opengles;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import org.allbinary.game.configuration.feature.Feature;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;
 
 public class OpenGLConfiguration
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final OpenGLConfiguration instance = 
-        new OpenGLConfiguration();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static OpenGLConfiguration getInstance()
     {
-        return OpenGLConfiguration.instance;
+        if(OpenGLConfiguration.instance == NullUtil.getInstance().NULL_OBJECT) {
+            OpenGLConfiguration.instance = new OpenGLConfiguration();
+        }
+        
+        return (OpenGLConfiguration) OpenGLConfiguration.instance;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

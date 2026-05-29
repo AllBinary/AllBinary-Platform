@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import org.allbinary.game.configuration.feature.Feature;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.AbDataInputStream;
 import org.allbinary.logic.io.AbDataOutputStream;
@@ -22,7 +23,16 @@ public class ApplicationConfiguration
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final ApplicationConfiguration instance = new ApplicationConfiguration();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
+
+    public static ApplicationConfiguration getInstance()
+    {
+        if(ApplicationConfiguration.instance == NullUtil.getInstance().NULL_OBJECT) {
+            ApplicationConfiguration.instance = new ApplicationConfiguration();
+        }
+
+        return (ApplicationConfiguration) ApplicationConfiguration.instance;
+    }
 
     /*
      * private boolean fullscreen = true; private boolean showTitleBar = false;
@@ -62,21 +72,16 @@ public class ApplicationConfiguration
         }
     }
 
-    public static ApplicationConfiguration getInstance()
-    {
-        return ApplicationConfiguration.instance;
-    }
-
     private void read() throws Exception
     {
-        FileStreamFactory fileInputStreamFactory = 
+        final FileStreamFactory fileInputStreamFactory = 
             FileStreamFactory.getInstance();
 
-        InputStream fileInputStream =
+        final InputStream fileInputStream =
             fileInputStreamFactory.getFileInputStreamInstance(
                     StringUtil.getInstance().EMPTY_STRING, this.FILE);
 
-        AbDataInputStream dataInputStream =
+        final AbDataInputStream dataInputStream =
             new AbDataInputStream(fileInputStream);
 
         int fullScreen = dataInputStream.readInt();
@@ -93,7 +98,7 @@ public class ApplicationConfiguration
             throw new Exception("Invalid FullScreen ActivityConfiguration");
         }
 
-        int progressBarView = dataInputStream.readInt();
+        final int progressBarView = dataInputStream.readInt();
         if (progressBarView == 0)
         {
             this.setProgressBarView(false);
@@ -107,7 +112,7 @@ public class ApplicationConfiguration
             throw new Exception("Invalid ProgressBarView ActivityConfiguration");
         }
 
-        int showTitleBar = dataInputStream.readInt();
+        final int showTitleBar = dataInputStream.readInt();
         if (showTitleBar == 0)
         {
             this.setShowTitleBar(false);
@@ -181,12 +186,12 @@ public class ApplicationConfiguration
         }
     }
 
-    public void update(Feature gameFeature)
+    public void update(final Feature gameFeature)
     throws Exception
     {
         if (gameFeature == MainFeatureFactory.getInstance().FULL_SCREEN)
         {
-            Features features = Features.getInstance();
+            final Features features = Features.getInstance();
             
             if (features.isFeature(gameFeature))
             {
@@ -207,7 +212,7 @@ public class ApplicationConfiguration
         }
     }
     
-    public void setFullscreen(boolean fullscreen)
+    public void setFullscreen(final boolean fullscreen)
     {
         this.fullscreen = fullscreen;
     }
@@ -217,7 +222,7 @@ public class ApplicationConfiguration
         return this.fullscreen;
     }
 
-    public void setShowTitleBar(boolean showTitleBar)
+    public void setShowTitleBar(final boolean showTitleBar)
     {
         this.showTitleBar = showTitleBar;
     }
@@ -227,7 +232,7 @@ public class ApplicationConfiguration
         return this.showTitleBar;
     }
 
-    public void setProgressBarView(boolean progressBarView)
+    public void setProgressBarView(final boolean progressBarView)
     {
         this.progressBarView = progressBarView;
     }
@@ -239,7 +244,7 @@ public class ApplicationConfiguration
     
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("isFullscreen: ");
         stringBuffer.appendboolean(this.isFullscreen());

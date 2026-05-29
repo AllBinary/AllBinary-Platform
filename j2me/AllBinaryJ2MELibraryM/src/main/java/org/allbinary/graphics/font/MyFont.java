@@ -14,17 +14,22 @@
 package org.allbinary.graphics.font;
 
 import javax.microedition.lcdui.Font;
+import org.allbinary.logic.NullUtil;
 
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
 public class MyFont
 {
-   private static final MyFont instance = new MyFont();
+   private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 	
    public static MyFont getInstance()
    {
-      return MyFont.instance;
+       if(MyFont.instance == NullUtil.getInstance().NULL_OBJECT) {
+           MyFont.instance = new MyFont();
+       }
+       
+      return (MyFont) MyFont.instance;
    }
    
    //fonts

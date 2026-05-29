@@ -17,17 +17,22 @@ import org.allbinary.logic.string.StringUtil;
 
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.PaintableInterface;
+import org.allbinary.logic.NullUtil;
 
 public class ProgressCanvasFactory {
 
-    private static ProgressCanvas PROGRESS_FORM_SCREEN = new LazyProgressCanvas(
-            StringUtil.getInstance().EMPTY_STRING, 
-            BasicColorFactory.getInstance().BLACK, 
-            BasicColorFactory.getInstance().WHITE);
+    private static Object PROGRESS_FORM_SCREEN = NullUtil.getInstance().NULL_OBJECT;
     
     public static ProgressCanvas getInstance()
     {
-        return ProgressCanvasFactory.PROGRESS_FORM_SCREEN;
+        if(ProgressCanvasFactory.PROGRESS_FORM_SCREEN == NullUtil.getInstance().NULL_OBJECT) {
+            ProgressCanvasFactory.PROGRESS_FORM_SCREEN = new LazyProgressCanvas(
+                StringUtil.getInstance().EMPTY_STRING, 
+                BasicColorFactory.getInstance().BLACK, 
+                BasicColorFactory.getInstance().WHITE);
+        }
+
+        return (ProgressCanvas) ProgressCanvasFactory.PROGRESS_FORM_SCREEN;
     }
     
     public static PaintableInterface getLazyInstance() {
