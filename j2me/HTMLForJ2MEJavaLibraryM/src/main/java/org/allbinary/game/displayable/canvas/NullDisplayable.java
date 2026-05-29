@@ -17,7 +17,6 @@ public class NullDisplayable extends Canvas
     
     private NullDisplayable()
     {
-        
     }
     
     private final BaseGameStatistics baseGameStatistics = 
