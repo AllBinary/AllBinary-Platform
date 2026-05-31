@@ -14,9 +14,6 @@
 package org.allbinary.util;
 
 import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 /**
  *
@@ -40,24 +37,6 @@ public class EnumerationUtil {
 
     public Object nextElement(final Enumeration enumeration) {
         return enumeration.nextElement();
-    }
-
-    public Object[] getHashMapAsArray(final HashMap<Object, Object> hashMap)
-    {
-        final Object[] objectArray = hashMap.keySet().toArray();
-        return objectArray;
-    }
-    
-    public Object[] getMapAsArray(final Map<Object, Object> map)
-    {
-        final Object[] objectArray = map.keySet().toArray();
-        return objectArray;
-    }
-
-    public Object[] getSetAsArray(final Set<String> set)
-    {
-        final Object[] objectArray = set.toArray();
-        return objectArray;
     }
     
     public Object[] getAsArray(final Enumeration enumeration)
