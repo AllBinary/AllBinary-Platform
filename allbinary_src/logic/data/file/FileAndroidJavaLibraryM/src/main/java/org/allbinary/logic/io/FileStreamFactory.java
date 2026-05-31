@@ -20,19 +20,22 @@ import org.allbinary.logic.NullUtil;
 
 public class FileStreamFactory
 {
-    private static final FileStreamFactory SINGLETON = new FileStreamFactory(
-            ResourceUtil.getInstance().getContext());
+    private static Object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
+
+    public static FileStreamFactory getInstance()
+    {
+        if(FileStreamFactory.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
+            FileStreamFactory.SINGLETON = new FileStreamFactory(ResourceUtil.getInstance().getContext());
+        }
+
+        return (FileStreamFactory) FileStreamFactory.SINGLETON;
+    }
 
     private Object context;
 
     private FileStreamFactory(final Context context)
     {
         this.context = context;
-    }
-
-    public static FileStreamFactory getInstance()
-    {
-        return FileStreamFactory.SINGLETON;
     }
 
     public AbFileInputStream getFileInputStreamInstance(final String path, final String fileName) throws Exception

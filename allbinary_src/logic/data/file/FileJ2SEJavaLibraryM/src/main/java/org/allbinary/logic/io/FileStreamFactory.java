@@ -13,21 +13,25 @@
 */
 package org.allbinary.logic.io;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.path.AbPath;
 
 public class FileStreamFactory
 {
-    private static final FileStreamFactory SINGLETON =
-        new FileStreamFactory();
-
-    private FileStreamFactory()
-    {
-    }
+    private static Object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
 
     public static FileStreamFactory getInstance()
     {
-        return FileStreamFactory.SINGLETON;
+        if(FileStreamFactory.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
+            FileStreamFactory.SINGLETON = new FileStreamFactory();
+        }
+
+        return (FileStreamFactory) FileStreamFactory.SINGLETON;
+    }
+
+    private FileStreamFactory()
+    {
     }
 
     public AbFileInputStream getFileInputStreamInstance(final String path, final String fileName)
