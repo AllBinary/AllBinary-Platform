@@ -28,9 +28,9 @@ public class KotlinUtil {
     }
 
     public static String getShortName() {
-        //return (KotlinUtil.isKotlin() ? KT : StringUtil.getInstance().EMPTY_STRING);
+        //return (KotlinUtil.isKotlin() ? this.KT : StringUtil.getInstance().EMPTY_STRING);
         return StringUtil.getInstance().EMPTY_STRING;
-        //return KT;
+        //return this.KT;
     }
     
 }

@@ -34,17 +34,17 @@ public class GameAdStateBase {
         this.adConfigurationP = adConfiguration;
     }
 
-    public void initViewArray(Object[] viewArray) {
+    public void initViewArray(final Object[] viewArray) {
     }
 
-    public void onStart(Object object) {
+    public void onStart(final Object object) {
         this.init();
     }
 
     public void init() {
     }
 
-    public boolean isShowingAtLocation(int location) {
+    public boolean isShowingAtLocation(final int location) {
         return false;
     }
 
@@ -58,11 +58,11 @@ public class GameAdStateBase {
     public void hide() {
     }
 
-    public void onEvent(AllBinaryEventObject eventObject) {
+    public void onEvent(final AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
-    public void processAdState(GameState gameState, GameType gameType) {
+    public void processAdState(final GameState gameState, final GameType gameType) {
     }
 
     public void processPageAdState() {
@@ -73,13 +73,13 @@ public class GameAdStateBase {
     }
     
     //Paying players don't need to see the adverts in game
-    public void playingAdState(int width, int height) throws Exception {
+    public void playingAdStateWH(final int width, final int height) throws Exception {
     }
 
     public void notPlayingAdState() throws Exception {
     }
 
-    public void setGameIsReady(boolean gameIsReady) {
+    public void setGameIsReady(final boolean gameIsReady) {
     }
 
     public boolean isGameIsReady() {
@@ -98,7 +98,7 @@ public class GameAdStateBase {
         return false;
     }
 
-    public void setOkayToShowAds(boolean okayToShowAds) {
+    public void setOkayToShowAds(final boolean okayToShowAds) {
         this.okayToShowAdsP = okayToShowAds;
     }
 

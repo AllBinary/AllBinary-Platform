@@ -48,7 +48,8 @@ public class LivesHudWidget extends BasicHud
 
         this.lifeInterface = lifeInterface;
         
-        this.xArray = new int[(int) this.getLifeInterface().getMaxlives()];
+        final int size = (int) this.getLifeInterface().getMaxlives();
+        this.xArray = new int[size];
         this.update();
 
         this.animationInterface = animationInterface;
