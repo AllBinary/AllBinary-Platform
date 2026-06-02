@@ -44,19 +44,20 @@ public class TouchButtonRecognizer
     {
         protected final TouchButtonRecognizer touchButtonRecognizer;
         
-        public ReleaseHelper(TouchButtonRecognizer touchButtonRecognizer)
+        public ReleaseHelper(final TouchButtonRecognizer touchButtonRecognizer)
         {
             this.touchButtonRecognizer = touchButtonRecognizer;
         }
         
-        public void release(TouchButtonInput touchButtonInput, int deviceId) throws Exception
+        public void release(final TouchButtonInput touchButtonInput, final int deviceId) throws Exception
         {
+            TouchButtonInput nextTouchButtonInput;
+            GameKeyEvent gameKeyEvent;
             for (int index = TouchButtonRecognizer.this.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--)
             {
-                TouchButtonInput nextTouchButtonInput = TouchButtonRecognizer.this.currentlyPressedTouchButtonSingleton
-                        .get(index);
+                nextTouchButtonInput = TouchButtonRecognizer.this.currentlyPressedTouchButtonSingleton.get(index);
 
-                GameKeyEvent gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
+                gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
                 
                 TouchButtonRecognizer.this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
                 TouchButtonRecognizer.this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
@@ -73,22 +74,23 @@ public class TouchButtonRecognizer
     class MultitouchReleaseHelper extends ReleaseHelper
     {
         
-        public MultitouchReleaseHelper(TouchButtonRecognizer touchButtonRecognizer)
+        public MultitouchReleaseHelper(final TouchButtonRecognizer touchButtonRecognizer)
         {
             super(touchButtonRecognizer);
         }
         
         // This releases an associated button even if it has not been released
         @Override
-        public void release(TouchButtonInput touchButtonInput, int deviceId) throws Exception
+        public void release(final TouchButtonInput touchButtonInput, final int deviceId) throws Exception
         {
-            TouchButtonInput cancelTouchButtonInput = CancelTouchButtonInputFactory.getInstance()
-                    .getCancel(touchButtonInput);
+            final TouchButtonInput cancelTouchButtonInput = CancelTouchButtonInputFactory.getInstance().getCancel(touchButtonInput);
 
+            TouchButtonInput nextTouchButtonInput;
+            GameKeyEvent gameKeyEvent;
             for (int index = TouchButtonRecognizer.this.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--)
             {
-                TouchButtonInput nextTouchButtonInput = TouchButtonRecognizer.this.currentlyPressedTouchButtonSingleton
-                        .get(index);
+                nextTouchButtonInput = 
+                    TouchButtonRecognizer.this.currentlyPressedTouchButtonSingleton.get(index);
 
                 // the following should never happen nextTouchButtonInput ==
                 // touchButtonInput ||
@@ -97,7 +99,7 @@ public class TouchButtonRecognizer
                     // this.logUtil.putF(
                     // "Release Associated Button Press", this, // "processTouchButtonInput");
                     
-                    GameKeyEvent gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
+                    gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
                     
                     TouchButtonRecognizer.this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
                     TouchButtonRecognizer.this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
@@ -154,7 +156,7 @@ public class TouchButtonRecognizer
     }
     */
 
-    private void processRelease(TouchButtonInput touchButtonInput, int deviceId)
+    private void processRelease(final TouchButtonInput touchButtonInput, int deviceId)
     throws Exception
     {
         // Release associated button if not released
@@ -162,7 +164,7 @@ public class TouchButtonRecognizer
 
         //this.logUtil.putF("Event Inside Button Area - Action: " + touchButtonInput.getGameKeyEvent(), this, "processTouchButtonInput");
         
-        GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
+        final GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
 
         this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
         this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
@@ -192,7 +194,7 @@ public class TouchButtonRecognizer
       //TWB - Debugging
         else
         {
-            BasicArrayList list = TouchButtonFactory.getInstance().getList();
+            final BasicArrayList list = TouchButtonFactory.getInstance().getList();
 
             Rectangle rectangle;
             GPoint point;
@@ -229,7 +231,7 @@ public class TouchButtonRecognizer
         return false;
     }
     
-    public synchronized boolean pressTouchButtonInput(int x, int y, int deviceId)
+    public synchronized boolean pressTouchButtonInput(final int x, final int y, final int deviceId)
         throws Exception
     {
         //this.logUtil.putF(CommonLabels.getInstance().CURRENT + x + commonStrings.SPACE + y, this, "processTouchButtonInput");
@@ -252,12 +254,13 @@ public class TouchButtonRecognizer
         
         //PreLogUtil.put(string, this, "processTouchButtonInput");
 
-        BasicArrayList list = TouchButtonFactory.getInstance().getList();
+        final BasicArrayList list = TouchButtonFactory.getInstance().getList();
 
         Rectangle rectangle;
         GPoint point;
         TouchButton touchButton;
         TouchButtonInput touchButtonInput;
+        GameKeyEvent gameKeyEvent;
         
         for (int index = list.size() - 1; index >= 0; index--)
         {
@@ -292,7 +295,7 @@ public class TouchButtonRecognizer
                     //this.logUtil.putF("Event Inside Button Area - Action: " + touchButtonInput.getGameKey(), this, "processTouchButtonInput");
                     //PreLogUtil.put("Event Inside Button Area - Action: " + touchButtonInput.getGameKey(), this, "processTouchButtonInput");
 
-                    GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
+                    gameKeyEvent = touchButtonInput.getGameKeyEvent();
 
                     this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
                     this.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);

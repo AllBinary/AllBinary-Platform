@@ -15,6 +15,7 @@ package org.allbinary.logic.system.security.licensing;
 
 import java.util.Hashtable;
 
+import org.allbinary.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.hardware.HardwareInterface;
@@ -30,6 +31,8 @@ public class ClientInformation implements AbeClientInformationInterface
 {
     private GenericOperatingSystem operatingSystemInterface = NoOperatingSystem.NO_OPERATING_SYSTEM;
 
+    private final TsUtil tsUtil = TsUtil.getInstance();
+    
     private final String name;
     private final String shortName;
     private final String version;
@@ -206,7 +209,7 @@ public class ClientInformation implements AbeClientInformationInterface
     @Override
     public boolean isSameId(String alicenseId)
     {
-        if (this.getLicenseId().compareTo(alicenseId) == 0)
+        if (this.tsUtil.compareTo(this.getLicenseId(), alicenseId) == 0)
         {
             return true;
         }
@@ -235,7 +238,7 @@ public class ClientInformation implements AbeClientInformationInterface
                 final String nextOldServerName = (String) 
                     this.licenseServers.objectArray[index];
 
-                if (newServerName.compareTo(nextOldServerName) != 0)
+                if (this.tsUtil.compareTo(newServerName, nextOldServerName) != 0)
                 {
                     return true;
                 }
