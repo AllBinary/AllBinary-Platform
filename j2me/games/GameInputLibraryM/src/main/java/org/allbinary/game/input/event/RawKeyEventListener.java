@@ -19,6 +19,6 @@ package org.allbinary.game.input.event;
  */
 public interface RawKeyEventListener {
     
-    void onEvent(final int keyCode, final int deviceId, final boolean repeated);
+    void onEventRaw(final int keyCode, final int deviceId, final boolean repeated);
 
 }

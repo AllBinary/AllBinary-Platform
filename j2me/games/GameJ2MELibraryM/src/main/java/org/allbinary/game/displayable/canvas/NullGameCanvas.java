@@ -70,18 +70,18 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     {
         return false;
     }
-    
-    private boolean running = true;
+
+    private boolean runningNull = true;
     @Override
     public void setRunning(boolean running)
     {
-        this.running = running;
+        this.runningNull = running;
     }
 
     @Override
     public synchronized boolean isRunning()
     {
-        return this.running;
+        return this.runningNull;
     }
     
     @Override

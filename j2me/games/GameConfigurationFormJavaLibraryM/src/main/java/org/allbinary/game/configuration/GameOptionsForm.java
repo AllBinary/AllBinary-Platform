@@ -79,7 +79,7 @@ public class GameOptionsForm extends CommandForm
 
     }
 
-    public void close(final AbeClientInformationInterface abeClientInformation) throws Exception
+    public void closeClientInformation(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         super.close();
         this.save(abeClientInformation);

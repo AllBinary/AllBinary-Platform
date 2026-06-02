@@ -91,7 +91,7 @@ implements CollidableInterface
 
     public boolean isCollisionInterface(final CollidableCompositeLayer ownerLayer, final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
-        return this.layerCollisionUtil.isCollision(ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface);
+        return this.layerCollisionUtil.isCollision(ownerLayer, (AllBinaryLayer) /*TS as unknown*/ collidableInterfaceCompositeInterface);
         /*
         if ()
         {

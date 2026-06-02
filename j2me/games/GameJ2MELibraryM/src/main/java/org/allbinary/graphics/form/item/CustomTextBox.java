@@ -22,6 +22,7 @@ import org.allbinary.game.displayable.canvas.GameCommandCanvas;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.PlatformKeyFactory;
+import org.allbinary.game.input.event.RawKeyEventListener;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.form.item.validation.TextItemVisitor;
 import org.allbinary.logic.string.StringMaker;
@@ -29,6 +30,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 
 public class CustomTextBox extends GameCommandCanvas
+    implements RawKeyEventListener
 {    
     private final ABTextFieldItem textFieldItem;
 
@@ -63,7 +65,8 @@ public class CustomTextBox extends GameCommandCanvas
 
     private final InputFactory inputFactory = InputFactory.getInstance();
 
-    public void onEvent(final int keyCode, final int deviceId, final boolean repeated) {
+    @Override
+    public void onEventRaw(final int keyCode, final int deviceId, final boolean repeated) {
         this.logUtil.putF(new StringMaker().append(this.commonStrings.START).appendint(keyCode).toString(), this, "onEvent");
         this.keyPressedByDevice(keyCode, deviceId);
     }

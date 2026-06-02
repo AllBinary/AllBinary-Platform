@@ -36,7 +36,7 @@ public class PartnerIdentifierFileUtil
     {
         try
         {
-            ResourceUtil resourceUtil = ResourceUtil.getInstance();
+            final ResourceUtil resourceUtil = ResourceUtil.getInstance();
             
             //InputStream inputStream = resourceUtil.getResourceAsStream(this.FILE_NAME);
 
@@ -47,7 +47,7 @@ public class PartnerIdentifierFileUtil
 
             // String partnerString = bufferedReader.readLine();
 
-            char[] chars = new char[30];
+            //final char[] chars = new char[30];
 
             //int size = inputStreamReader.read(chars);
 

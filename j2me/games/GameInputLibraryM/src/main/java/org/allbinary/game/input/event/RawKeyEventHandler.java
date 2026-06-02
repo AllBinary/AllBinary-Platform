@@ -117,7 +117,7 @@ public class RawKeyEventHandler {
     protected void process(final int keyCode, final int deviceId, final boolean repeated,
         final RawKeyEventListener eventListenerInterface) throws Exception
     {
-        eventListenerInterface.onEvent(keyCode, deviceId, repeated);
+        eventListenerInterface.onEventRaw(keyCode, deviceId, repeated);
     }
 
     public BasicArrayList getEventListenerInterfaceListP()
