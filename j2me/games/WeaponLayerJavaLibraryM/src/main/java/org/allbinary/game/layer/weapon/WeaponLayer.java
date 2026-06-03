@@ -430,7 +430,7 @@ implements TickableInterface
     {
         ViewPosition viewPosition = this.getViewPosition();
 
-        this.animationInterface.paintThreed(graphics, 
+        this.animationInterface.paintThreedXYZ(graphics,
                 viewPosition.getX() - this.getHalfWidth(),
                 viewPosition.getY() - this.getHalfHeight(),
                 viewPosition.getZ() - this.getHalfDepth());

@@ -153,11 +153,11 @@ public class CaptionIndexedAnimation extends IndexedAnimation
     }
 
     @Override
-    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
+    public void paintThreedXYZ(final Graphics graphics, final int x, final int y, final int z)
     {
-        this.animationInterface.paintThreed(graphics, 
+        this.animationInterface.paintThreedXYZ(graphics,
                 x + this.captionDx, y + this.captionDy, z);
-        this.movieIndexedAnimationInterface.paintThreed(graphics, 
+        this.movieIndexedAnimationInterface.paintThreedXYZ(graphics,
                 x + this.captionDx + this.dx, y + this.captionDy + this.dy, z);
     }    
 }

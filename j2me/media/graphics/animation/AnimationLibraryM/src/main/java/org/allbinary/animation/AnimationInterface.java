@@ -20,5 +20,5 @@ import org.allbinary.graphics.paint.LocationPaintableInterface;
 public interface AnimationInterface extends LocationPaintableInterface
 {
     void nextFrame() throws Exception;
-    void paintThreed(Graphics graphics, int x, int y, int z);
+    void paintThreedXYZ(Graphics graphics, int x, int y, int z);
 }

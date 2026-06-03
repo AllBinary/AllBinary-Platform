@@ -127,11 +127,11 @@ extends RotationAnimation
     }
 
     @Override
-    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
+    public void paintThreedXYZ(final Graphics graphics, final int x, final int y, final int z)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
-            this.animationInterfaceArray[index].paintThreed(graphics, x, y, z);
+            this.animationInterfaceArray[index].paintThreedXYZ(graphics, x, y, z);
         }
     }
 

@@ -640,7 +640,7 @@ public class DemoCanvas extends RunnableCanvas
         this.paintableInterface.paintThreed(graphics);
         
         // Draw title animation
-        this.paintedSpecialAnimationInterface.paintThreed(graphics, 0, 0, 0);
+        this.paintedSpecialAnimationInterface.paintThreedXYZ(graphics, 0, 0, 0);
         
         //TWB - More 3d
     }

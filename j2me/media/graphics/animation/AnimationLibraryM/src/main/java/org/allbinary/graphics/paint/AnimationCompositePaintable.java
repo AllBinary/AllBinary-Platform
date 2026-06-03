@@ -40,7 +40,7 @@ public class AnimationCompositePaintable extends InitUpdatePaintable
     @Override
     public void paintThreed(Graphics graphics)
     {
-        this.animationInterface.paintThreed(graphics, 0, 0, 0);
+        this.animationInterface.paintThreedXYZ(graphics, 0, 0, 0);
     }
 
 }

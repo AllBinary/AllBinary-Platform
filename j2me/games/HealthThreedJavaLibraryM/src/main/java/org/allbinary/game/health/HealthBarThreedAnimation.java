@@ -108,7 +108,7 @@ extends HealthBarAnimation
 
     private final Object3dProcessor object3dProcessor = Object3dProcessorUtil.getInstance().getInstanceObject3dProcessor();
 
-    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
+    public void paintThreedXYZ(final Graphics graphics, final int x, final int y, final int z)
     {
     	final OpenGLESGraphics openGLESGraphics = (OpenGLESGraphics) graphics;
     	final GL10 gl = openGLESGraphics.getGl10();

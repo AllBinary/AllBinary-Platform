@@ -105,12 +105,12 @@ public class SimultaneousCompoundIndexedAnimation
     }
 
     @Override
-    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
+    public void paintThreedXYZ(final Graphics graphics, final int x, final int y, final int z)
     {
         int size = this.animationInterfaceArray.length;
         for(int index = 0; index < size; index++)
         {
-            this.animationInterfaceArray[index].paintThreed(graphics, x, y, z);
+            this.animationInterfaceArray[index].paintThreedXYZ(graphics, x, y, z);
         }
     }
     

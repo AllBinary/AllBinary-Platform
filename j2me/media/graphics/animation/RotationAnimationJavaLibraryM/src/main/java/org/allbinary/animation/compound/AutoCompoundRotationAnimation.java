@@ -113,9 +113,9 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
     }
 
     @Override
-    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
+    public void paintThreedXYZ(final Graphics graphics, final int x, final int y, final int z)
     {
-        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintThreed(graphics, x, y, z);
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintThreedXYZ(graphics, x, y, z);
     }
     
     @Override

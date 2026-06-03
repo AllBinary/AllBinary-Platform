@@ -46,7 +46,7 @@ public class IconLayer extends AllBinaryLayer
     @Override
     public void paintThreed(Graphics graphics)
     {
-       this.animationInterface.paintThreed(graphics, this.x, this.y, this.z);
+       this.animationInterface.paintThreedXYZ(graphics, this.x, this.y, this.z);
     }
     
     public Animation getAnimationInterface()

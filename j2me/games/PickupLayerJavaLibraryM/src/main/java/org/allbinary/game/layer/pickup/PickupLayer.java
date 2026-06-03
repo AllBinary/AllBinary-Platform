@@ -83,7 +83,7 @@ public class PickupLayer
        int viewX = viewPosition.getX();
        int viewY = viewPosition.getY();
 
-       this.animationInterface.paintThreed(graphics, viewX, viewY, 3);
+       this.animationInterface.paintThreedXYZ(graphics, viewX, viewY, 3);
    }
    
    @Override

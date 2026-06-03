@@ -63,10 +63,10 @@ public class CaptionAnimation extends Animation
     }
 
     @Override
-    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
+    public void paintThreedXYZ(final Graphics graphics, final int x, final int y, final int z)
     {
-        this.animationInterface.paintThreed(graphics, x + this.captionDx, y + this.captionDy, z);
-        this.overlayAnimationInterface.paintThreed(graphics, 
+        this.animationInterface.paintThreedXYZ(graphics, x + this.captionDx, y + this.captionDy, z);
+        this.overlayAnimationInterface.paintThreedXYZ(graphics,
                 x + this.captionDx + this.dx, y + this.captionDy + this.dy, z);
     }
     

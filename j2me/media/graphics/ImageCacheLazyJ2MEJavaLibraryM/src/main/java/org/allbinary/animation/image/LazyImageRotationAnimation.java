@@ -98,7 +98,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
             }
             
-            public void paintThreed(final Graphics graphics, final int x, final int y, final int z) {
+            public void paintThreedXYZ(final Graphics graphics, final int x, final int y, final int z) {
 
                 try {
                     ImageCacheFactory.getInstance().insertFirst(LazyImageRotationAnimation.this);
@@ -322,10 +322,10 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
     }
 
-    public void paintThreed(final Graphics graphics, final int x, final int y, final int z) {
+    public void paintThreedXYZ(final Graphics graphics, final int x, final int y, final int z) {
 
         try {
-            this.animation.paintThreed(graphics, x, y, z);
+            this.animation.paintThreedXYZ(graphics, x, y, z);
         } catch (Exception e) {
             this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
         }

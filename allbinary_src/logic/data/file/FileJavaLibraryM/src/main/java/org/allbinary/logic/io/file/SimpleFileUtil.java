@@ -16,6 +16,7 @@ package org.allbinary.logic.io.file;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.CharBuffer;
@@ -45,6 +46,23 @@ public class SimpleFileUtil {
         return SimpleFileUtil.instance;
     }
 
+    public static OutputStream nullOutputStream() {
+        return new OutputStream() {
+
+            @Override
+            public void write(int b) throws IOException {
+            }
+
+            @Override
+            public void write(byte b[], int off, int len) throws IOException {
+            }
+
+            @Override
+            public void close() {
+            }
+        };
+    }
+    
     public static Writer nullWriter() {
         return new Writer() {
             private volatile boolean closed;

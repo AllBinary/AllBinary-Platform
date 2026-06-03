@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -23,33 +22,18 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.FileStreamFactory;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.FileFactory;
+import org.allbinary.logic.io.file.SimpleFileUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 public class LicenseServerInitFileUtil
 {
-    public static OutputStream nullOutputStream() {
-        return new OutputStream() {
-
-            @Override
-            public void write(int b) throws IOException {
-            }
-
-            @Override
-            public void write(byte b[], int off, int len) throws IOException {
-            }
-
-            @Override
-            public void close() {
-            }
-        };
-    }
     
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    private final OutputStream NULL_OUTPUT_STREAM = LicenseServerInitFileUtil.nullOutputStream();
+    private final OutputStream NULL_OUTPUT_STREAM = SimpleFileUtil.nullOutputStream();
     
     public final void init()
     {
