@@ -128,7 +128,7 @@ public class WeaponProperties extends SimpleWeaponProperties
         this.speed = speed;
     }
 
-    public int getDamage(int range)
+    public int getDamageI(int range)
     {
         return this.getDamage() - ((this.getDissipation() * range) / this.speed.getScaled());
     }
