@@ -21,22 +21,20 @@ import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
 public class LifeLayerCircularStaticPool extends AllBinaryLayerCircularPool
 {
-    public LifeLayerCircularStaticPool(
-       AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface,
-       int total) 
+    public LifeLayerCircularStaticPool(final AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, final int total) 
        throws Exception
     {
-       super.init(allbinaryLayerFactoryInterface, total);
+       super.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
     }
    
-   public void visit(AllBinaryLayer sourceLayerInterface)
+   public void visit(final AllBinaryLayer sourceLayerInterface)
           throws Exception
     {
-        LifeLayer lifeLayer = (LifeLayer) this.getNextInstance();
+        final LifeLayer lifeLayer = (LifeLayer) this.getNextInstance();
         
-        LifeInterfaceCompositeInterface lifeInterfaceCompositeInterface =
-                (LifeInterfaceCompositeInterface) sourceLayerInterface;
-        Life lifeInterface = lifeInterfaceCompositeInterface.getLifeInterface();
+        final LifeInterfaceCompositeInterface lifeInterfaceCompositeInterface =
+                (LifeInterfaceCompositeInterface) /*TS as unknown*/ sourceLayerInterface;
+        final Life lifeInterface = lifeInterfaceCompositeInterface.getLifeInterface();
 
         lifeLayer.visit(lifeInterface);
     }

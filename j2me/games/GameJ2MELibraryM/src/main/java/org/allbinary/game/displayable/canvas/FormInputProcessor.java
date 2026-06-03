@@ -112,7 +112,8 @@ extends InputProcessor
                      this, this.gameInputStrings.KEY_RELEASED);
           
                 final GameKey gameKey = GameKeyFactory.getInstance().KEY_NUM0;
-                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput((GameKeyEventSourceInterface) canvas, gameKey);
+                final GameKeyEventSourceInterface gameKeyEventSourceInterface = (GameKeyEventSourceInterface) /*TS as unknown*/ canvas;
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(gameKeyEventSourceInterface, gameKey);
                 this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
                 this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             }

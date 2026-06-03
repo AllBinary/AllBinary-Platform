@@ -66,7 +66,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
         //ForcedLogUtil.log(this.toString(), commonStrings.REMOVE_LISTENER);
     }
 
-    public void fireEvent(final Integer eventObject) throws Exception {
+    public void fireEventI(final Integer eventObject) throws Exception {
         //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
         for (int index = this.list.size(); --index >= 0;) {
@@ -86,7 +86,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             try
             {
                 eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.get(index);
-                this.process(eventObject, eventListenerInterface);
+                this.processI(eventObject, eventListenerInterface);
             }
             catch (Exception e)
             {
@@ -129,7 +129,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
 
     }
     
-    protected void process(final Integer eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
+    protected void processI(final Integer eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
         final DownKeyEventListenerInterface downKeyEventListenerInterface = (DownKeyEventListenerInterface) eventListenerInterface;
         downKeyEventListenerInterface.onDownKey(eventObject);
     }

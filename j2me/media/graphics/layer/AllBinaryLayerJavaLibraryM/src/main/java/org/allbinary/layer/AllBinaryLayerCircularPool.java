@@ -24,8 +24,7 @@ extends BaseCircularPool
         
     }
 
-    public void init(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface,
-            int total) throws Exception
+    public void initAllBinaryLayerCircularPool(final AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, final int total) throws Exception
     {
         this.circularIndexUtil = CircularIndexUtil.createInstance(total);
 

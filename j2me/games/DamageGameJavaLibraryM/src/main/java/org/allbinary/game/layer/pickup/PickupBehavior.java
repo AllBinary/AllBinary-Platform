@@ -47,8 +47,8 @@ public class PickupBehavior implements PickupBehaviorInterface
         	//PreLogUtil.put(pickupProcessorInterface.toString(), this, "doPickup(PickupProcessorInterface)");
         	
         	//Don't process non-weapon pickups if dead
-            HealthInterfaceCompositeInterface healthInterfaceCompositeInterface = 
-                    (HealthInterfaceCompositeInterface) this.ownerLayerInterface;
+            final HealthInterfaceCompositeInterface healthInterfaceCompositeInterface = 
+                    (HealthInterfaceCompositeInterface) /*TS as unknown */ this.ownerLayerInterface;
             
             if(healthInterfaceCompositeInterface.getHealthInterface().isAlive())
             {
@@ -91,7 +91,9 @@ public class PickupBehavior implements PickupBehaviorInterface
                 collidableDestroyableDamageableLayer.addPart(pickedUpLayerInterfaceFactoryInterface);
             } else if (pickedUpLayerType == pickedUpLayerTypeFactory.NONE) {
             } else {
-                this.doPickup((PickupProcessorInterface) pickedUpLayerInterfaceFactoryInterface);
+                final PickupProcessorInterface pickupProcessorInterface = 
+                    (PickupProcessorInterface)  /*TS as unknown */ pickedUpLayerInterfaceFactoryInterface;
+                this.doPickup(pickupProcessorInterface);
             }
 
             pickupLayerInterface.setPickedUp();

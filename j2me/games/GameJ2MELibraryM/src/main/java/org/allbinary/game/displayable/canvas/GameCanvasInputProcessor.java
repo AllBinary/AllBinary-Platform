@@ -94,8 +94,8 @@ extends InputProcessor
             }
 
             final Integer keyCodeAsInteger = this.smallIntegerSingletonFactory.getAtNoThrow(keyCode);
-            this.downKeyEventHandler.fireEvent(keyCodeAsInteger);
-            this.downKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(keyCodeAsInteger);
+            this.downKeyEventHandler.fireEventI(keyCodeAsInteger);
+            this.downKeyEventHandler.getInstanceForDevice(deviceId).fireEventI(keyCodeAsInteger);
 
         }
         catch (Exception e)
@@ -119,7 +119,8 @@ extends InputProcessor
 
             if (gameKey != this.NONE)
             {
-                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput((GameKeyEventSourceInterface) canvas, gameKey);
+                final GameKeyEventSourceInterface gameKeyEventSourceInterface = (GameKeyEventSourceInterface) /*TS as unknown*/ canvas;
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(gameKeyEventSourceInterface, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent

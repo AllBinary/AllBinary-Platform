@@ -21,20 +21,20 @@ import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
 public class HealLayerCircularStaticPool extends AllBinaryLayerCircularPool
 {
-    public HealLayerCircularStaticPool(AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface,
-            int total) throws Exception
+    public HealLayerCircularStaticPool(final AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, final int total) 
+        throws Exception
     {
-       super.init(allbinaryLayerFactoryInterface, total);
+       super.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
     }
    
-    public void visit(AllBinaryLayer sourceLayerInterface)
+    public void visit(final AllBinaryLayer sourceLayerInterface)
           throws Exception
     {
-        HealLayer healLayer = (HealLayer) this.getNextInstance();
+        final HealLayer healLayer = (HealLayer) this.getNextInstance();
         
-        HealthInterfaceCompositeInterface healthInterfaceCompositeInterface =
-                (HealthInterfaceCompositeInterface) sourceLayerInterface;
-        HealthInterface healthInterface = healthInterfaceCompositeInterface.getHealthInterface();
+        final HealthInterfaceCompositeInterface healthInterfaceCompositeInterface =
+                (HealthInterfaceCompositeInterface) /*TS as unknown*/ sourceLayerInterface;
+        final HealthInterface healthInterface = healthInterfaceCompositeInterface.getHealthInterface();
 
         healLayer.visit(healthInterface);
         

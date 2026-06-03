@@ -32,7 +32,7 @@ public class MotionEventCircularPool {
 
     private MotionEventCircularPool(int id)
     {
-        this.eventPool.init(new MotionEventFactory(this.eventPool, id));
+        this.eventPool.initAllBinaryEventCircularPool(new MotionEventFactory(this.eventPool, id));
     }
     
     public synchronized MotionGestureEvent getInstance(MotionGestureInput motionGestureInput)

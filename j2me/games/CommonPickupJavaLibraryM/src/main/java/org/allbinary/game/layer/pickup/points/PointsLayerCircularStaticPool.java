@@ -22,7 +22,7 @@ public class PointsLayerCircularStaticPool extends AllBinaryLayerCircularPool {
 	public PointsLayerCircularStaticPool(
 			AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface,
 			int total) throws Exception {
-		super.init(allbinaryLayerFactoryInterface, total);
+		super.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
 	}
 
 	public void visit(AllBinaryLayer sourceLayerInterface) throws Exception {

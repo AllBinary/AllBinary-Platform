@@ -24,9 +24,8 @@ extends BaseCircularPool
         this.OBJECT_ARRAY = new Object[max];
         this.circularIndexUtil = CircularIndexUtil.createInstance(max);
     }
-    
-    public void init(
-            AllBinaryEventObjectFactoryInterface allBinaryEventObjectFactoryInterface)
+
+    public void initAllBinaryEventCircularPool(AllBinaryEventObjectFactoryInterface allBinaryEventObjectFactoryInterface)
     {
         this.circularIndexUtil.setIndex(0);
         int size = this.circularIndexUtil.getSize();

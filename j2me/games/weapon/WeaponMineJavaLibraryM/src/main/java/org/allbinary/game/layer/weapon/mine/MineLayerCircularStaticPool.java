@@ -24,7 +24,7 @@ public class MineLayerCircularStaticPool {
     public static void init(ViewPositionFactoryInterface viewPositionFactoryInterface) throws Exception
     {
     	MineCountedPickedUpLayerInterfaceFactory.init();
-    	MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL.init(new MineLayerFactory(viewPositionFactoryInterface), 20);
+    	MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL.initAllBinaryLayerCircularPool(new MineLayerFactory(viewPositionFactoryInterface), 20);
     }
 
     public static WeaponLayerCircularPool getInstance()

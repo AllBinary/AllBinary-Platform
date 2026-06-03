@@ -28,7 +28,7 @@ public class TerrainEventCircularStaticPool
     
     public void init()
     {
-        this.EVENT_POOL.init(new TerrainEventFactory());
+        this.EVENT_POOL.initAllBinaryEventCircularPool(new TerrainEventFactory());
     }
     
     public synchronized TerrainEvent getNext(BasicTerrainInfo basicTerrainInfo)

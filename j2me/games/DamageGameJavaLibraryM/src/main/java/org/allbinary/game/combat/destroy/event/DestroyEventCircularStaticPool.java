@@ -37,7 +37,7 @@ public class DestroyEventCircularStaticPool {
     
     public void init(AllBinaryGameCanvas combatGameCanvas)
     {
-        this.EVENT_POOL.init(new DestroyEventFactory(combatGameCanvas));
+        this.EVENT_POOL.initAllBinaryEventCircularPool(new DestroyEventFactory(combatGameCanvas));
     }
     
     public DestroyedEvent getInstanceForLayer(AllBinaryLayer layerInterface)
