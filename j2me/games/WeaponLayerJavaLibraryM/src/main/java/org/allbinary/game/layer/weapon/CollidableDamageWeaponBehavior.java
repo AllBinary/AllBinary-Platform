@@ -74,8 +74,6 @@ extends CollidableDestroyableDamageableBehavior
        super.collide(ownerLayer, collisionLayer);
        this.collided = true;
     }
-
-    private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
     
     @Override
     public boolean isCollisionInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
