@@ -10,50 +10,53 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.animation;
 
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.media.ScaleProperties;
 
-public class NullIndexedAnimationFactory implements 
-    AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
-{
+public class NullIndexedAnimationFactory implements
+    AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
+
     public static final IndexedAnimationInterface[] NULL_INDEXED_ANIMATION_ARRAY = new IndexedAnimationInterface[0];
-   private static NullIndexedAnimationFactory NULL_INDEXED_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
-   private final Animation NULL_ANIMATION = new NullIndexedAnimation(AnimationBehavior.getInstance()) {
-       
-       @Override
-       public void paintXY(final Graphics graphics, final int x, final int y) {
-       }
-   };
-   
-   private NullIndexedAnimationFactory()
-   {
-   }
+    private static NullIndexedAnimationFactory NULL_INDEXED_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
+    
+    final class NullIndexedAnimationInner extends NullIndexedAnimation {
 
-   public static NullIndexedAnimationFactory getFactoryInstance()
-   {
-       return NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_FACTORY;
-   }
+        NullIndexedAnimationInner() {
+            super(AnimationBehavior.getInstance());
+        }
 
-   @Override
-   public Animation getInstance(final int instanceId) throws Exception
-   {
-	   return this.NULL_ANIMATION;
-   }
-   
-   @Override
-   public Animation getInstanceAnimation(final Animation animationInterface)
-       throws Exception
-   {
-       return this.NULL_ANIMATION;
-   }
-   
-   @Override
-   public void setInitialScale(final ScaleProperties scaleProperties) {
-       
-   }
+        @Override
+        public void paintXY(final Graphics graphics, final int x, final int y) {
+        }
+    };
+    
+    private final Animation NULL_ANIMATION = new NullIndexedAnimationInner();
+
+    private NullIndexedAnimationFactory() {
+    }
+
+    public static NullIndexedAnimationFactory getFactoryInstance() {
+        return NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_FACTORY;
+    }
+
+    @Override
+    public Animation getInstance(final int instanceId) throws Exception {
+        return this.NULL_ANIMATION;
+    }
+
+    @Override
+    public Animation getInstanceAnimation(final Animation animationInterface)
+        throws Exception {
+        return this.NULL_ANIMATION;
+    }
+
+    @Override
+    public void setInitialScale(final ScaleProperties scaleProperties) {
+
+    }
 
 }
