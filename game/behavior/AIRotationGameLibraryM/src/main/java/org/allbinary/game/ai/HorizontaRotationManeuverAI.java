@@ -15,6 +15,7 @@ package org.allbinary.game.ai;
 
 import javax.microedition.lcdui.Canvas;
 
+import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.ai.ArtificialIntelligenceTransitionInterface;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.RotationAnimationInterface;
@@ -45,20 +46,17 @@ implements ArtificialIntelligenceTransitionInterface
     {
         super(ownerLayerInterface, gameInput);
         
-        final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
-        this.rotationAnimationInterface = 
-            rotationAnimationInterfaceCompositeInterface.getRotationAnimationInterface();
+        final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) /*TS as unknown*/ this.getOwnerLayerInterface();
+        this.rotationAnimationInterface = rotationAnimationInterfaceCompositeInterface.getRotationAnimationInterface();
 
-        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = 
-            (VelocityInterfaceCompositeInterface) this.getOwnerLayerInterface();
+        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = (VelocityInterfaceCompositeInterface) /*TS as unknown*/ this.getOwnerLayerInterface();
 
-        this.baseVelocityInterface =
-            velocityInterfaceCompositeInterface.getVelocityProperties();
+        this.baseVelocityInterface = velocityInterfaceCompositeInterface.getVelocityProperties();
 
-        this.velocityInterface = (VelocityInterface) this.baseVelocityInterface; 
+        this.velocityInterface = (VelocityInterface) /*TS as unknown*/ this.baseVelocityInterface; 
 
         //this.transition();
-        final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) this.rotationAnimationInterface;
+        final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) /*TS as unknown*/ this.rotationAnimationInterface;
         final AngleIncrementInfo angleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
         rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
     }
@@ -66,10 +64,10 @@ implements ArtificialIntelligenceTransitionInterface
     @Override
     public void transition()
     {
-        final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) this.rotationAnimationInterface;
+        final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) /*TS as unknown*/ this.rotationAnimationInterface;
         final AngleIncrementInfo angleIncrementInfo = 
             rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
-        final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
+        final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) /*TS as unknown*/ this.getOwnerLayerInterface();
         rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
         
         //TWB - Hack to deal with enemies flying away when off screen
@@ -88,7 +86,7 @@ implements ArtificialIntelligenceTransitionInterface
         //int x = this.getOwnerLayerInterface().getX();
 
         //this.logUtil.putF("Angle: " + currentAngle + " X: " + x + " Y: " + y, this, this.commonStrings.PROCESS);
-        final RotationAnimationInterface rotationAnimationInterface = ((RotationAnimationInterface) this.rotationAnimationInterface);
+        final RotationAnimationInterface rotationAnimationInterface = ((RotationAnimationInterface) /*TS as unknown*/ this.rotationAnimationInterface);
         final AngleIncrementInfo angleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
 
         final int frame = this.rotationAnimationInterface.getFrame();
@@ -137,21 +135,21 @@ implements ArtificialIntelligenceTransitionInterface
 
     protected void reverse()
     {
-        final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) this.rotationAnimationInterface;
+        final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) /*TS as unknown*/ this.rotationAnimationInterface;
         final AngleIncrementInfo angleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
 
         final int frame = this.rotationAnimationInterface.getFrame();
 
         if (frame == angleIncrementInfo.LEFT_FRAME.intValue())
         {
-            final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
+            final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) /*TS as unknown*/ this.getOwnerLayerInterface();
             rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
 
             this.baseVelocityInterface.zero();
         }
         else if (frame == angleIncrementInfo.RIGHT_FRAME.intValue())
         {
-            final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
+            final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) /*TS as unknown*/ this.getOwnerLayerInterface();
             rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.LEFT_FRAME.intValue());
             this.baseVelocityInterface.zero();
         }
@@ -167,9 +165,9 @@ implements ArtificialIntelligenceTransitionInterface
 
     private void drop()
     {
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         final AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         
-        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         int y = ownerLayerInterface.getYP();
         if (ownerLayerInterface.getY2() + ownerLayerInterface.getHeight() > displayInfo.getLastHeight())
         {
@@ -179,13 +177,12 @@ implements ArtificialIntelligenceTransitionInterface
         {
             y += ownerLayerInterface.getHeight() + 1;
         }
-        ownerLayerInterface.setPosition(
-                ownerLayerInterface.getXP(), y, ownerLayerInterface.getZP());
+        ownerLayerInterface.setPosition(ownerLayerInterface.getXP(), y, ownerLayerInterface.getZP());
     }
 
     @Override
     public int getId()
     {
-        return ArtificialIntelligenceTransitionInterface.ID;
+        return ArtificialIntelligence.AI_ID;
     }    
 }

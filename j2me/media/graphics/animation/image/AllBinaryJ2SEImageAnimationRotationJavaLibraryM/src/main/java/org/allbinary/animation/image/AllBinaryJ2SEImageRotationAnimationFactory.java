@@ -161,7 +161,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
         final Image canvasImage = this.getCanvasImage();
         Image scaledImage = this.animationFactoryImageScaleUtil.createImage(canvasImage, this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final OpenGLUtil openGLUtil = OpenGLUtil.getInstance();
-        scaledImage = openGLUtil.add(scaledImage);
+        scaledImage = openGLUtil.addImage(scaledImage);
         //final Image image = imageCopyUtil.createImage(this.image);
         final Image copyOfScaledImage = imageCopyUtil.createImageForRotation(scaledImage);
 

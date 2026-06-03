@@ -10,7 +10,7 @@ public class OpenGLUtil {
         return OpenGLUtil.instance;
     }
 
-    public Image add(final Image image) {
+    public Image addImage(final Image image) {
 
         return image;
     }
@@ -20,7 +20,7 @@ public class OpenGLUtil {
     }
     
 
-    public void add(final Runnable runnable) {
+    public void addRunnable(final Runnable runnable) {
 
     }
     

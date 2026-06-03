@@ -22,8 +22,9 @@ import org.allbinary.layer.AllBinaryLayerManager;
 public class ArtificialIntelligence
     implements ArtificialIntelligenceInterface
 {
-    private static final ArtificialIntelligence instance =
-        new ArtificialIntelligence();
+    public static final int AI_ID = 2;
+    
+    private static final ArtificialIntelligence instance = new ArtificialIntelligence();
 
     /**
      * @return the instance

@@ -108,7 +108,7 @@ public class OpenGLUtil {
 
     }
 
-    public Image add(final Image image) {
+    public Image addImage(final Image image) {
 
         final Image encapsulateImage = this.preResourceImageUtil.encapsulate(image);
         if (encapsulateImage != image) {
@@ -136,7 +136,7 @@ public class OpenGLUtil {
         }
     }
 
-    public void add(final Runnable runnable) {
+    public void addRunnable(final Runnable runnable) {
         
         synchronized (this.lockObject) {
             

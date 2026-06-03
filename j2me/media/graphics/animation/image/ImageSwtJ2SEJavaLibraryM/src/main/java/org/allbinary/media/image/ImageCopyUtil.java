@@ -71,7 +71,7 @@ public class ImageCopyUtil
     {
         if(this.features.isFeature(this.openGLFeatureFactory.OPENGL)) {
             Image image = originalImage;
-            image = this.openGLUtil.add(image);
+            image = this.openGLUtil.addImage(image);
             return image;
         } else {
             return this.createImage(originalImage);
@@ -270,7 +270,7 @@ public class ImageCopyUtil
 //        {
 //            image.getGraphics().drawImage(originalImage, 0, 0, anchor);
 //            
-            image = this.openGLUtil.add(image);
+            image = this.openGLUtil.addImage(image);
             return image;
 //        }
 //        else
@@ -343,7 +343,7 @@ public class ImageCopyUtil
             
         }
         
-        image = this.openGLUtil.add(image);
+        image = this.openGLUtil.addImage(image);
 
         return image;
         
@@ -405,7 +405,7 @@ public class ImageCopyUtil
                 //this.logUtil.putF("type: " + originalImage.getType(), this, this.commonStrings.CONSTRUCTOR);
                 image = originalImage;
 
-                final OpenGLESImage openGLESImage = (OpenGLESImage) this.openGLUtil.add(image);
+                final OpenGLESImage openGLESImage = (OpenGLESImage) this.openGLUtil.addImage(image);
                 final OpenGLESImageProperties openGLESImageProperties = openGLESImage.openGLESImageProperties;
                 openGLESImageProperties.scaleX = openGLESImageProperties.scaleX2 = (float) (((float) width) / openGLESImage.getWidth());
                 openGLESImageProperties.scaleY = openGLESImageProperties.scaleY2 = (float) (((float) height) / openGLESImage.getHeight());
@@ -503,7 +503,7 @@ public class ImageCopyUtil
                 }
             }
 
-            image = this.openGLUtil.add(image);
+            image = this.openGLUtil.addImage(image);
 
         }
         

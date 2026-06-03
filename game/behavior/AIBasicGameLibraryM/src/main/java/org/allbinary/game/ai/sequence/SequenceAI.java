@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.ai.sequence;
 
+import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.ai.ArtificialIntelligenceTransitionInterface;
 import org.allbinary.game.ai.ArrayAI;
@@ -24,17 +25,17 @@ import org.allbinary.logic.string.StringUtil;
 
 public class SequenceAI extends ArrayAI
 {
+    private static final String SEQUENCE_AI = "Sequence AI";
+    
    private int index;
 
-   public SequenceAI(ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray,
-           AllBinaryLayer ownerLayerInterface,
-      GameInput gameInput)
+   public SequenceAI(final ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
    {
       super(artificialIntelligenceInterfaceArray, ownerLayerInterface, gameInput);
    }
 
    @Override
-   public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
+   public void processAI(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
       this.getArtificialIntelligenceInterface()[this.index].processAI(allBinaryLayerManager);
    }
@@ -45,9 +46,9 @@ public class SequenceAI extends ArrayAI
       
       final ArtificialIntelligenceInterface artificialIntelligenceInterface = 
           this.getSelectedArtificialIntelligenceInterface();
-      if(artificialIntelligenceInterface.getId() == ArtificialIntelligenceTransitionInterface.ID)
+      if(artificialIntelligenceInterface.getId() == ArtificialIntelligence.AI_ID)
       {
-          final ArtificialIntelligenceTransitionInterface artificialIntelligenceTransitionInterface = ((ArtificialIntelligenceTransitionInterface) artificialIntelligenceInterface);
+          final ArtificialIntelligenceTransitionInterface artificialIntelligenceTransitionInterface = (ArtificialIntelligenceTransitionInterface) /*TS as unknown*/ artificialIntelligenceInterface;
           artificialIntelligenceTransitionInterface.transition();
       }
 
@@ -60,7 +61,7 @@ public class SequenceAI extends ArrayAI
       return this.index;
    }
 
-   public void setIndex(int index)
+   public void setIndex(final int index)
    {
       this.index = index;
    }
@@ -70,7 +71,6 @@ public class SequenceAI extends ArrayAI
       return this.getArtificialIntelligenceInterface()[this.index];
    }
    
-   private static final String SEQUENCE_AI = "Sequence AI";
    @Override
    public String getName()
    {
@@ -79,7 +79,7 @@ public class SequenceAI extends ArrayAI
    
    public String toString()
    {
-       StringMaker stringBuffer = new StringMaker();
+       final StringMaker stringBuffer = new StringMaker();
        
        stringBuffer.append(super.toString());
        stringBuffer.append(" Selected AI: ");

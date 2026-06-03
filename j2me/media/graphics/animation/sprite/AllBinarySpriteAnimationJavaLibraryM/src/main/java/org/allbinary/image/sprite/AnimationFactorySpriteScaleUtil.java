@@ -71,7 +71,7 @@ public class AnimationFactorySpriteScaleUtil {
            if ((scaleX == 1.0f && scaleY == 1.0f) || (scaleX == 0.0f || scaleY == 0.0f)) {
 //               stringMaker.delete(0, stringMaker.length());
 //               this.logUtil.putF(stringMaker.append("noscale ").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
-               scaledImage = this.openGLUtil.add(image);
+               scaledImage = this.openGLUtil.addImage(image);
                sprite = spriteFactory.createSprite(scaledImage, width, height);
            } else {
 //               stringMaker.delete(0, stringMaker.length());
@@ -126,7 +126,7 @@ public class AnimationFactorySpriteScaleUtil {
        } else {
 //           stringMaker.delete(0, stringMaker.length());
 //           this.logUtil.putF(stringMaker.append("noscale2").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
-           scaledImage = this.openGLUtil.add(image);
+           scaledImage = this.openGLUtil.addImage(image);
            sprite = spriteFactory.createSprite(scaledImage, width, height);
        }
         

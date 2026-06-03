@@ -48,6 +48,9 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         TrackingEventListenerInterface, DestroyedEventListenerInterface
 {
     private final MathUtil mathUtil = MathUtil.getInstance();
+    private final DirectionFactory directionFactory = DirectionFactory.getInstance();
+    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(500);
     // private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 
@@ -61,7 +64,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     { Canvas.LEFT, Canvas.DOWN, Canvas.UP, Canvas.RIGHT, };
     
     private boolean initialDropped;
-    private boolean dive;
+    private boolean diveP;
     // private boolean targeting;
     private Direction directionOfTarget = Direction.getInstance(0);
     private final int MIN_DISTANCE = 40;
@@ -73,10 +76,6 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
     private Direction lastDirection = DirectionFactory.getInstance().NO_DIRECTION;
 
-    private final DirectionFactory directionFactory = DirectionFactory.getInstance();
-
-    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
-
     public DiveAndDirectionalTrackingAI(AllBinaryLayer ownerLayerInterface,
             ArtificialIntelligenceInterface artificialIntelligenceInterface,
             GameInput gameInput, Visitor visitor)
@@ -87,17 +86,13 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
         this.artificialIntelligenceInterface = artificialIntelligenceInterface;
 
-        DirectionalCompositeInterface directionalCompositeInterface = (DirectionalCompositeInterface) this
-                .getOwnerLayerInterface();
+        DirectionalCompositeInterface directionalCompositeInterface = (DirectionalCompositeInterface) /*TS as unknown*/ this.getOwnerLayerInterface();
 
-        this.directionalInterface = directionalCompositeInterface
-                .getDirectionalInterface();
+        this.directionalInterface = directionalCompositeInterface.getDirectionalInterface();
 
-        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = (VelocityInterfaceCompositeInterface) this
-                .getOwnerLayerInterface();
+        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = (VelocityInterfaceCompositeInterface) /*TS as unknown*/ this.getOwnerLayerInterface();
 
-        this.velocityInterface = velocityInterfaceCompositeInterface
-                .getVelocityProperties();
+        this.velocityInterface = velocityInterfaceCompositeInterface.getVelocityProperties();
 
         DestroyedEventHandler.getInstance().addListenerInterface(this);
 
@@ -115,7 +110,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
             this.velocityInterface.zero();
         }
 
-        if (!this.dive)
+        if (!this.diveP)
         {
             this.target(allBinaryLayerManager);
         }
@@ -129,7 +124,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
     private void init()
     {
-        this.dive = false;
+        this.diveP = false;
         // this.targeting = true;
         this.directionOfTarget = DirectionFactory.getInstance().NOT_BORDERED_WITH;
         TrackingEventHandler.getInstance().addListenerInterface(this);
@@ -269,7 +264,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
     private void setDive()
     {
-        this.dive = true;
+        this.diveP = true;
         // this.targeting = false;
         this.velocityInterface.zero();
         TrackingEventHandler.getInstance().removeListener(this);

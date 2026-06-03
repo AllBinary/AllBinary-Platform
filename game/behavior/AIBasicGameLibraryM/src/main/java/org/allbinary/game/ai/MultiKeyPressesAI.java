@@ -16,7 +16,6 @@ package org.allbinary.game.ai;
 import java.util.Hashtable;
 
 import org.allbinary.game.input.GameInput;
-import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.time.GameTickTimeDelayHelper;
@@ -29,8 +28,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     
-    public MultiKeyPressesAI(Hashtable hashtable,
-            AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+    public MultiKeyPressesAI(final Hashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
             throws Exception
     {
         super(hashtable, ownerLayerInterface, gameInput);
@@ -39,12 +37,10 @@ public class MultiKeyPressesAI extends KeyPressesAI
     }
 
     @Override
-    public void processAI(AllBinaryLayerManager allBinaryLayerManager)
+    public void processAI(final AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
     }
-
-    private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
     private void update() throws Exception
     {

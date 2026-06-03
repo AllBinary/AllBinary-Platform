@@ -22,16 +22,14 @@ import org.allbinary.logic.math.BasicDecimal;
 
 public class UpDownVectorAI extends BasicAI
 {
-   private BasicVelocityProperties velocityInterface;
+   private final BasicVelocityProperties velocityInterface;
    private int index = 0;
 
-   public UpDownVectorAI(AllBinaryLayer ownerLayerInterface,
-      GameInput gameInput) throws Exception
+   public UpDownVectorAI(final AllBinaryLayer ownerLayerInterface, final GameInput gameInput) throws Exception
    {
       super(ownerLayerInterface, gameInput);
 
-      VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface =
-         (VelocityInterfaceCompositeInterface) this.getOwnerLayerInterface();
+      final VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = (VelocityInterfaceCompositeInterface) /*TS as unknown*/ this.getOwnerLayerInterface();
 
       this.velocityInterface =
          velocityInterfaceCompositeInterface.getVelocityProperties();
@@ -39,15 +37,15 @@ public class UpDownVectorAI extends BasicAI
    }
 
    @Override
-   public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
+   public void processAI(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
       //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.PROCESS);
 
-      int y = this.getOwnerLayerInterface().getHeight() * 270;
+      final int y = this.getOwnerLayerInterface().getHeight() * 270;
       
       if (this.index < 5)
       {
-          BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimalP();
+          final BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimalP();
           
           basicDecimal.setint(0);
           basicDecimal.addint(y);
@@ -55,7 +53,7 @@ public class UpDownVectorAI extends BasicAI
          this.index++;
       } else if (this.index < 10)
       {
-          BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimalP();
+          final BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimalP();
           
           basicDecimal.setint(0);
           basicDecimal.subtractint(y);

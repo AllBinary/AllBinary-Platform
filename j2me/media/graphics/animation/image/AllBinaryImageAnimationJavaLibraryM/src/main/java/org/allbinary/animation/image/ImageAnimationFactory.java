@@ -58,7 +58,7 @@ public class ImageAnimationFactory extends BaseImageAnimationFactory {
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
             this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final OpenGLUtil openGLUtil = OpenGLUtil.getInstance();
-        scaledImage = openGLUtil.add(scaledImage);
+        scaledImage = openGLUtil.addImage(scaledImage);
         //final Image image = imageCopyUtil.createImage(this.image);
         //final Image copyOfScaledImage = imageCopyUtil.createImageForRotation(scaledImage);
         

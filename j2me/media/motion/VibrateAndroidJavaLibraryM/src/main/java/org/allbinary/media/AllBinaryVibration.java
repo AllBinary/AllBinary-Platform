@@ -15,6 +15,7 @@ package org.allbinary.media;
 
 import android.content.Context;
 import android.os.Vibrator;
+
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 
@@ -22,8 +23,7 @@ public class AllBinaryVibration extends AllBinaryVibrationME
 {
    private static AllBinaryVibrationME VIBRATION = AllBinaryNoVibration.NO_VIBRATION;
    
-   private final Vibrator vibrator = (Vibrator) 
-       ResourceUtil.getInstance().getContext().getSystemService(Context.VIBRATOR_SERVICE);
+   private final Vibrator vibrator = (Vibrator) /*TS as unknown*/ ResourceUtil.getInstance().getContext().getSystemService(Context.VIBRATOR_SERVICE);
    
    protected AllBinaryVibration()
    {

@@ -10,46 +10,44 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.animation;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 
-public class VectorExplosionAnimationFactory 
-    implements ProceduralAnimationInterfaceFactoryInterface{
+public class VectorExplosionAnimationFactory
+    implements ProceduralAnimationInterfaceFactoryInterface {
 
-	private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-	protected final AnimationBehaviorFactory animationBehaviorFactory;
+    private final VectorExplosionGenerator vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
 
-	public VectorExplosionAnimationFactory(final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
-            
-            this.animationBehaviorFactory = animationBehaviorFactory;
-            this.setBasicColorP(basicColor);
-	}
+    private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
+    protected final AnimationBehaviorFactory animationBehaviorFactory;
 
-	private final VectorExplosionGenerator vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
+    public VectorExplosionAnimationFactory(final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
 
-        @Override
-	public Animation getInstanceAnimation(final Animation animationInterface)
-	throws Exception 
-	{
-	    final VectorAnimationInterface vectorRotationAnimationInterface = 
-			(VectorAnimationInterface) animationInterface;
+        this.animationBehaviorFactory = animationBehaviorFactory;
+        this.setBasicColorP(basicColor);
+    }
 
-		final int frame = vectorRotationAnimationInterface.getFrame();
-		final int[][] framePoints = vectorRotationAnimationInterface.getPoints(frame);
-		final int[][][] points = this.vectorExplosionGenerator.getInstance(
-		        framePoints, 6, this.vectorExplosionGenerator.ROTATION);
-		
-		return new VectorRotationAnimation(points, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
-	}
+    @Override
+    public Animation getInstanceAnimation(final Animation animationInterface)
+        throws Exception {
+        final VectorAnimationInterface vectorRotationAnimationInterface = (VectorAnimationInterface) /*TS as unknown*/ animationInterface;
 
-	private void setBasicColorP(BasicColor basicColor) {
-		this.basicColor = basicColor;
-	}
+        final int frame = vectorRotationAnimationInterface.getFrame();
+        final int[][] framePoints = vectorRotationAnimationInterface.getPoints(frame);
+        final int[][][] points = this.vectorExplosionGenerator.getInstance(
+            framePoints, 6, this.vectorExplosionGenerator.ROTATION);
 
-	private BasicColor getBasicColorP() {
-		return this.basicColor;
-	}
+        return new VectorRotationAnimation(points, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
+    }
+
+    private void setBasicColorP(BasicColor basicColor) {
+        this.basicColor = basicColor;
+    }
+
+    private BasicColor getBasicColorP() {
+        return this.basicColor;
+    }
 }

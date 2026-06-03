@@ -15,7 +15,6 @@ package org.allbinary.ai;
 
 public interface ArtificialIntelligenceTransitionInterface
 {
-    public static final int ID = 2;
     
     void transition();
 }
