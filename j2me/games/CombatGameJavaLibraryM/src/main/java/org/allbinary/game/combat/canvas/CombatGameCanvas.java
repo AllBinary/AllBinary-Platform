@@ -63,14 +63,14 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         super.initApp(abeClientInformation);
     }
     
-    protected void initConfigurable(final int portion)
+    protected void initConfigurablePortion(final int portion)
     {
         DestroyedLayerProcessor.init();
 
         ProgressCanvasFactory.getInstance().addNormalPortion(portion, "Basic Processors");
 
-        Features features = Features.getInstance();
-        GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
+        final Features features = Features.getInstance();
+        final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
         
         if (features.isFeature(gameFeatureFactory.DROPPED_ITEMS)
                 && features.isFeature(gameFeatureFactory.DROPPED_ITEMS_FROM_DEATH))

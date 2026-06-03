@@ -35,15 +35,16 @@ public class DropLayerProcessor extends BasicLayerProcessor
     public void process(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
-        BasicArrayList list = this.getList();
-        int size = list.size();
+        final BasicArrayList list = this.getList();
+        final int size = list.size();
+        AllBinaryLayer layerInterface;
+        DropLayerInterface dropLayerInterface;
         for (int index = 0; index < size; index++)
         {
-            AllBinaryLayer layerInterface = (AllBinaryLayer) list.objectArray[index];
-
-            DropLayerInterface dropLayerInterface = (DropLayerInterface) layerInterface;
-            allBinaryLayerManager.append(
-                    (AllBinaryLayer) dropLayerInterface.getDroppedLayer());
+            layerInterface = (AllBinaryLayer) list.objectArray[index];
+            dropLayerInterface = (DropLayerInterface) /*TS as unknown*/ layerInterface;
+            layerInterface = (AllBinaryLayer) /*TS as unknown*/ dropLayerInterface.getDroppedLayer();
+            allBinaryLayerManager.append(layerInterface);
         }
         list.clear();
     }

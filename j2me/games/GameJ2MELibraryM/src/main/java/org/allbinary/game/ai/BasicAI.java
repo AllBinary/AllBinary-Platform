@@ -30,20 +30,19 @@ public class BasicAI
 extends ArtificialIntelligence
 implements GameKeyEventSourceInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
     
     public static final Integer AI_VISITOR = SmallIntegerSingletonFactory.getInstance().getAt(2);
     
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getAt(1);
 
+    protected final LogUtil logUtil = LogUtil.getInstance();
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
     private final AllBinaryLayer ownerLayerInterface;
     private final GameInput gameInput;
 
     private int lastKey = -1;
-
-    private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
     /*
     private BasicAI()
