@@ -17,7 +17,6 @@ import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
-import org.allbinary.string.CommonStrings;
 
 public class VirtualKeyboardEventHandler extends BasicEventHandler
 {
@@ -41,7 +40,7 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
    protected void process(final AllBinaryEventObject eventObject,
            final EventListenerInterface eventListenerInterface) throws Exception {
 
-       final VirtualKeyboardEventListenerInterface virtualKeyboardEventListenerInterface = (VirtualKeyboardEventListenerInterface) eventListenerInterface;
+      final VirtualKeyboardEventListenerInterface virtualKeyboardEventListenerInterface = (VirtualKeyboardEventListenerInterface) /*TS as unknown*/ eventListenerInterface;
       virtualKeyboardEventListenerInterface.onVirtualKeyboardEvent((VirtualKeyboardEvent) eventObject);
    }
    

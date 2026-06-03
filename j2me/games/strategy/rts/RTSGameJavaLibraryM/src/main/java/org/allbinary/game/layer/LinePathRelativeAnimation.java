@@ -23,13 +23,13 @@ import org.allbinary.layer.Layer;
  */
 public class LinePathRelativeAnimation extends LinePathAnimation {
     
-    private static final LinePathRelativeAnimation instance = new LinePathRelativeAnimation();
+    private static final LinePathRelativeAnimation instanceC = new LinePathRelativeAnimation();
 
     /**
      * @return the instance
      */
     public static LinePathAnimation getInstance() {
-        return LinePathRelativeAnimation.instance;
+        return LinePathRelativeAnimation.instanceC;
     }
     
     @Override

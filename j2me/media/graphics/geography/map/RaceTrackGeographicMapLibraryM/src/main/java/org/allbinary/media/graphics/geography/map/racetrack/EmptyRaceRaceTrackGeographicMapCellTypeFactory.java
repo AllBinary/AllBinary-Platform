@@ -18,13 +18,13 @@ import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInf
 
 public class EmptyRaceRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeographicMapCellTypeFactory
 {
-    private static final EmptyRaceRaceTrackGeographicMapCellTypeFactory instance = new EmptyRaceRaceTrackGeographicMapCellTypeFactory();
+    private static final EmptyRaceRaceTrackGeographicMapCellTypeFactory instanceC = new EmptyRaceRaceTrackGeographicMapCellTypeFactory();
 
     /**
      * @return the instance
      */
     public static EmptyRaceRaceTrackGeographicMapCellTypeFactory getInstance() {
-        return EmptyRaceRaceTrackGeographicMapCellTypeFactory.instance;
+        return EmptyRaceRaceTrackGeographicMapCellTypeFactory.instanceC;
     }
     
     private EmptyRaceRaceTrackGeographicMapCellTypeFactory()

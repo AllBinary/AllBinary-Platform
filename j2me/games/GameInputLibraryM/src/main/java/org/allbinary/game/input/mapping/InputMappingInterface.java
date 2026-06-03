@@ -18,5 +18,5 @@ import org.allbinary.game.input.Input;
 
 public interface InputMappingInterface
 {
-    void process(GameKey gameKey, Input input) throws Exception;
+    void processInputMapping(GameKey gameKey, Input input) throws Exception;
 }

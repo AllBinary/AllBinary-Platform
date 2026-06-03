@@ -29,13 +29,13 @@ public class BaseGameBehavior extends DemoGameBehavior {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    private static final BaseGameBehavior instance = new BaseGameBehavior();
+    private static final BaseGameBehavior instanceC = new BaseGameBehavior();
 
     /**
      * @return the instance
      */
     public static DemoGameBehavior getInstance() {
-        return BaseGameBehavior.instance;
+        return BaseGameBehavior.instanceC;
     }
 
     @Override

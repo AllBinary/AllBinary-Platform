@@ -24,13 +24,13 @@ import org.allbinary.media.image.ImageModifierUtil;
  */
 public class SetColorProcessor extends ModifierBaseProcessor {
     
-    private static final SetColorProcessor instance = new SetColorProcessor();
+    private static final SetColorProcessor instanceC = new SetColorProcessor();
 
     /**
      * @return the instance
      */
     public static SetColorProcessor getInstance() {
-        return SetColorProcessor.instance;
+        return SetColorProcessor.instanceC;
     }
     
     @Override

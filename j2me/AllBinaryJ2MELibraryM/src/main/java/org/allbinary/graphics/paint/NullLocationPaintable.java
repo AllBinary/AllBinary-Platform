@@ -15,10 +15,10 @@ package org.allbinary.graphics.paint;
 
 public class NullLocationPaintable extends LocationPaintable
 {
-    private static final NullLocationPaintable instance = new NullLocationPaintable();
+    private static final NullLocationPaintable instanceC = new NullLocationPaintable();
 
     public static NullLocationPaintable getInstance()
     {
-        return NullLocationPaintable.instance;
+        return NullLocationPaintable.instanceC;
     }
 }

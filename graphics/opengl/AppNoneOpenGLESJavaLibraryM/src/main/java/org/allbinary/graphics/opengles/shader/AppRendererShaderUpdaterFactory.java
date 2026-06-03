@@ -19,13 +19,13 @@ package org.allbinary.graphics.opengles.shader;
  */
 public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
     
-    private static final AppRendererShaderUpdaterFactory instance = new AppRendererShaderUpdaterFactory();
+    private static final AppRendererShaderUpdaterFactory instanceC = new AppRendererShaderUpdaterFactory();
 
     /**
      * @return the instance
      */
     public static AppRendererShaderUpdaterFactory getInstance() {
-        return AppRendererShaderUpdaterFactory.instance;
+        return AppRendererShaderUpdaterFactory.instanceC;
     }
 
     private final ShaderComposite[] NULL_SHADER_COMPOSITE_ARRAY = new ShaderComposite[0];

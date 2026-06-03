@@ -18,6 +18,10 @@ import org.allbinary.logic.math.Orientation;
 
 public class NoAccelerometerSensor extends AllBinaryOrientationSensor
 {
+    public NoAccelerometerSensor() {
+        
+    }
+    
     @Override
     public Orientation getOrientation() throws Exception
     {

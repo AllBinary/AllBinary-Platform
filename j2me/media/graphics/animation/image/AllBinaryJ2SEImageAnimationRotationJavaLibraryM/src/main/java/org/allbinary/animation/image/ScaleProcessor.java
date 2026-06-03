@@ -27,13 +27,13 @@ public class ScaleProcessor extends ScaleBaseProcessor {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    private static final ScaleProcessor instance = new ScaleProcessor();
+    private static final ScaleProcessor instanceC = new ScaleProcessor();
 
     /**
      * @return the instance
      */
     public static ScaleBaseProcessor getInstance() {
-        return ScaleProcessor.instance;
+        return ScaleProcessor.instanceC;
     }
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

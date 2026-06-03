@@ -28,13 +28,13 @@ public class CompositeShaderUpdater extends ShaderUpdater {
 
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     
-    private static final CompositeShaderUpdater instance = new CompositeShaderUpdater(StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), NullUtil.getInstance().NULL_INT_ARRAY);
+    private static final CompositeShaderUpdater instanceC = new CompositeShaderUpdater(StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), NullUtil.getInstance().NULL_INT_ARRAY);
     
     /**
      * @return the instance
      */
     public static CompositeShaderUpdater getInstance() {
-        return CompositeShaderUpdater.instance;
+        return CompositeShaderUpdater.instanceC;
     }
         
 //    public CompositeShaderUpdater(final String[] uniformBlockArray, final String[] uniformArray, final String[] attributeArray) {

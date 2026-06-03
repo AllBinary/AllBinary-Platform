@@ -18,11 +18,11 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
 public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellTypeFactory
 {
-    private static final RaceTrackGeographicMapCellTypeFactory instance = new RaceTrackGeographicMapCellTypeFactory();
+    private static final RaceTrackGeographicMapCellTypeFactory instanceC = new RaceTrackGeographicMapCellTypeFactory();
 
     public static RaceTrackGeographicMapCellTypeFactory getInstance()
     {
-        return RaceTrackGeographicMapCellTypeFactory.instance;
+        return RaceTrackGeographicMapCellTypeFactory.instanceC;
     }
 
     public GeographicMapCellType EMPTY_CELL_TYPE = new GeographicMapCellType(0, -1);

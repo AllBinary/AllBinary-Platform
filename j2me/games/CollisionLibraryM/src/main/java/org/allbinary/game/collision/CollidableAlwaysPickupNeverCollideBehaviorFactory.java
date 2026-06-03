@@ -15,13 +15,13 @@ package org.allbinary.game.collision;
 
 public class CollidableAlwaysPickupNeverCollideBehaviorFactory extends CollidableBaseBehaviorFactory
 {
-    private static final CollidableAlwaysPickupNeverCollideBehaviorFactory instance2 = new CollidableAlwaysPickupNeverCollideBehaviorFactory();
+    private static final CollidableAlwaysPickupNeverCollideBehaviorFactory instanceC = new CollidableAlwaysPickupNeverCollideBehaviorFactory();
 
     /**
      * @return the instance2
      */
     public static CollidableAlwaysPickupNeverCollideBehaviorFactory getInstance() {
-        return CollidableAlwaysPickupNeverCollideBehaviorFactory.instance2;
+        return CollidableAlwaysPickupNeverCollideBehaviorFactory.instanceC;
     }
     
     private final CollidableAlwaysPickupNeverCollideBehavior instance = new CollidableAlwaysPickupNeverCollideBehavior();

@@ -24,7 +24,6 @@ import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.mapping.InputMappingInterface;
-import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.paint.ColorFillBasePaintable;
@@ -150,14 +149,14 @@ implements InputMappingInterface
     public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         // this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_PRESSED);        
-        this.addGameKeyEvent(keyCode, false);
+        this.addGameKey(keyCode, false);
 
         super.keyPressedByDevice(keyCode, 0);
     }
 
     private final InputFactory inputFactory = InputFactory.getInstance();
     
-    private void addGameKeyEvent(final int keyCode, final boolean repeated)
+    private void addGameKey(final int keyCode, final boolean repeated)
     {
         try
         {
@@ -168,7 +167,7 @@ implements InputMappingInterface
             //TWB - Hack for MicroEmulator negative values on directional controls
             Input input = this.inputFactory.getInstanceById(keyCode);
 
-            this.process(gameKey, input);
+            this.processInputMapping(gameKey, input);
         }
         catch (Exception e)
         {
@@ -177,7 +176,7 @@ implements InputMappingInterface
     }
     
     @Override
-    public void process(final GameKey gameKey, final Input input) throws Exception
+    public void processInputMapping(final GameKey gameKey, final Input input) throws Exception
     {
         final StringMaker stringBuffer = new StringMaker();
         

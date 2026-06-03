@@ -15,13 +15,13 @@ package org.allbinary.media.graphics.geography.map.racetrack;
 
 public class CloseLoopRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeographicMapCellTypeFactory
 {
-    private static final CloseLoopRaceTrackGeographicMapCellTypeFactory instance = new CloseLoopRaceTrackGeographicMapCellTypeFactory();
+    private static final CloseLoopRaceTrackGeographicMapCellTypeFactory instanceC = new CloseLoopRaceTrackGeographicMapCellTypeFactory();
 
     /**
      * @return the instance
      */
     public static CloseLoopRaceTrackGeographicMapCellTypeFactory getInstance() {
-        return CloseLoopRaceTrackGeographicMapCellTypeFactory.instance;
+        return CloseLoopRaceTrackGeographicMapCellTypeFactory.instanceC;
     }
     
     private CloseLoopRaceTrackGeographicMapCellTypeFactory()

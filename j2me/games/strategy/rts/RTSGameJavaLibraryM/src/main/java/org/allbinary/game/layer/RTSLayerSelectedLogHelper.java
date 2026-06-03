@@ -34,13 +34,13 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    private static final RTSLayerSelectedLogHelper instance = new RTSLayerSelectedLogHelper();
+    private static final RTSLayerSelectedLogHelper instanceC = new RTSLayerSelectedLogHelper();
     
     /**
      * @return the instance
      */
     public static RTSLayerSelectedLogHelper getInstance() {
-        return RTSLayerSelectedLogHelper.instance;
+        return RTSLayerSelectedLogHelper.instanceC;
     }
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();

@@ -30,8 +30,9 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.NullCanvas;
-import org.allbinary.J2MEUtil;
 
+import org.allbinary.J2MEUtil;
+import org.allbinary.TsUtil;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.canvas.FullScreenUtil;
 import org.allbinary.canvas.GameStatisticsFactory;
@@ -122,6 +123,7 @@ public class GameMidlet extends ProgressMidlet
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
     protected final GameStrings gameStrings = GameStrings.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
+    protected final TsUtil tsUtil = TsUtil.getInstance();
 
     private final String DISPLAYABLE = " Displayable: ";
     private final String COMMAND_NAME = "command Name/Label: ";
@@ -342,8 +344,7 @@ public class GameMidlet extends ProgressMidlet
             this.logUtil.putF(this.commonStrings.START, this, START_APP);
             //PreLogUtil.put(commonStrings.START, this, START_APP);
 
-            final GameCanvasRunnableInterface gameCanvasRunnableInterface =
-                this.allbinaryGameCanvasRunnableInterface;
+            final Object gameCanvasRunnableInterface = this.allbinaryGameCanvasRunnableInterface;
 
             //If the first time/null then start demo or unpausing
             //thus start up only occurs one time ever otherwise this is just unpause
@@ -396,15 +397,17 @@ public class GameMidlet extends ProgressMidlet
 
             PreLogUtil.put(new StringMaker().append(this.COMMAND_NAME).append(label).append(this.DISPLAYABLE).append(displayableAsString).toString(), this, this.COMMAND_ACTION);
 
-            final GameCommandsFactory gameCommandsFactory = 
-                GameCommandsFactory.getInstance();
+            final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
 
+            final GameCanvasRunnableInterface allbinaryGameCanvasRunnableInterface = this.allbinaryGameCanvasRunnableInterface;
+            final Object gameCanvasRunnableInterface = allbinaryGameCanvasRunnableInterface;
+            
             if (command == gameCommandsFactory.SHOW_GAME_CANVAS)
             {
                 //TWB - If progress concurrency is a problem then this is probably the cause
-                if(this.getDisplay().getCurrent() != this.allbinaryGameCanvasRunnableInterface && this.allbinaryGameCanvasRunnableInterface.getType() != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE.getType())
+                if(this.getDisplay().getCurrent() != gameCanvasRunnableInterface && allbinaryGameCanvasRunnableInterface.getType() != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE.getType())
                 {
-                    this.setDisplay((Displayable) this.allbinaryGameCanvasRunnableInterface);
+                    this.setDisplay((Displayable) gameCanvasRunnableInterface);
                 }
 
                 this.unPauseAppBackground(false);
@@ -412,10 +415,10 @@ public class GameMidlet extends ProgressMidlet
             else if (command == gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS)
             {
                 //this.closeMenuListener();
-                final MenuListener menuListener = (MenuListener) displayable;
+                final MenuListener menuListener = (MenuListener) /*TS as unknown*/ displayable;
                 menuListener.close();
 
-                this.setDisplay((Displayable) this.allbinaryGameCanvasRunnableInterface);
+                this.setDisplay((Displayable) gameCanvasRunnableInterface);
                 this.unPauseAppBackground(false);
             }
             else if (command == gameCommandsFactory.EXIT_COMMAND)
@@ -484,7 +487,7 @@ public class GameMidlet extends ProgressMidlet
                 {
                     //Close on quit for HighScoresTextBox.
                     if (displayable instanceof HighScoreTextBox) {
-                        final MenuListener menuListener = (MenuListener) displayable;
+                        final MenuListener menuListener = (MenuListener) /*TS as unknown*/ displayable;
                         menuListener.close();
                     }
 
@@ -511,7 +514,7 @@ public class GameMidlet extends ProgressMidlet
             {
                 this.pauseAppBackground(false);
 
-                final MenuListener menuListener = (MenuListener) displayable;
+                final MenuListener menuListener = (MenuListener) /*TS as unknown*/ displayable;
                 menuListener.open();
 
                 this.setDisplay(displayable);
@@ -519,7 +522,7 @@ public class GameMidlet extends ProgressMidlet
             else if (command == gameCommandsFactory.START_TRACE)
             {
                 this.debugInterface.start();
-                final AllBinaryGameCanvas gameCanvas = (AllBinaryGameCanvas) this.allbinaryGameCanvasRunnableInterface;
+                final AllBinaryGameCanvas gameCanvas = (AllBinaryGameCanvas) allbinaryGameCanvasRunnableInterface;
                 gameCanvas.addCommand(gameCommandsFactory.STOP_TRACE);
                 gameCanvas.removeCommand(gameCommandsFactory.START_TRACE);
             }
@@ -528,7 +531,7 @@ public class GameMidlet extends ProgressMidlet
                 this.pauseAppBackground(false);
                 this.debugInterface.stop();
                 this.unPauseAppBackground(false);
-                final AllBinaryGameCanvas gameCanvas = (AllBinaryGameCanvas) this.allbinaryGameCanvasRunnableInterface;
+                final AllBinaryGameCanvas gameCanvas = (AllBinaryGameCanvas) allbinaryGameCanvasRunnableInterface;
                 gameCanvas.addCommand(gameCommandsFactory.START_TRACE);
                 gameCanvas.removeCommand(gameCommandsFactory.STOP_TRACE);
             }
@@ -573,7 +576,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == GameInputMappingInstructionsCanvas.CLOSE)
             {
-                final MenuListener menuListener = (MenuListener) displayable;
+                final MenuListener menuListener = (MenuListener) /*TS as unknown*/ displayable;
                 menuListener.close();
 
                 this.commandAction(GameInputMappingCanvas.DISPLAY, NullCanvas.NULL_CANVAS);
@@ -625,7 +628,7 @@ public class GameMidlet extends ProgressMidlet
                 final CommandForm inGameOptionsForm = inGameOptionsFormFactory.get();
 
                 inGameOptionsForm.setItemStateListener(
-                        this.allbinaryGameCanvasRunnableInterface);
+                        allbinaryGameCanvasRunnableInterface);
 
                 this.commandAction(
                     gameCommandsFactory.SET_MENU_DISPLAYABLE,
@@ -777,11 +780,11 @@ public class GameMidlet extends ProgressMidlet
                 this.logUtil.putF("Submitted Score", this, this.COMMAND_ACTION);
 
                 if (displayable instanceof HighScoreTextBox) {
-                    final HighScoreTextBox menuListener = (HighScoreTextBox) displayable;
-                    menuListener.submitted = true;
+                    final HighScoreTextBox highScoreTextBox = (HighScoreTextBox) /*TS as unknown*/ displayable;
+                    highScoreTextBox.submitted = true;
                 }
 
-                this.allbinaryGameCanvasRunnableInterface.setHighScoreSubmitted(true);
+                allbinaryGameCanvasRunnableInterface.setHighScoreSubmitted(true);
 
                 this.commandAction(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS, displayable);
             }
@@ -800,10 +803,9 @@ public class GameMidlet extends ProgressMidlet
                 
                 virtualKeyboardEventHandler.fireEvent(virtualKeyboardEventHandler.SHOW_EVENT);
             }
-            else if (command.getLabel().compareTo(gameCommandsFactory.TOGGLE_FULLSCREEN.getLabel()) == 0)
+            else if (this.tsUtil.compareTo(command.getLabel(), gameCommandsFactory.TOGGLE_FULLSCREEN.getLabel()) == 0)
             {
-                final MainFeatureFactory mainFeatureFactory
-                        = MainFeatureFactory.getInstance();
+                final MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
 
                 final boolean isFullScreen = this.features.isFeature(mainFeatureFactory.FULL_SCREEN);
         
@@ -849,7 +851,7 @@ public class GameMidlet extends ProgressMidlet
         
         if(displayable instanceof Canvas)
         {
-            final Canvas canvas = (Canvas) displayable;
+            final Canvas canvas = (Canvas) /*TS as unknown*/ displayable;
             canvas.setFullScreenMode(isFullScreen);
         }
 
@@ -1076,7 +1078,7 @@ public class GameMidlet extends ProgressMidlet
         final Displayable displayable = this.getDisplay().getCurrent();
         
         if(displayable instanceof DemoCanvas) {
-            final DemoCanvas demoCanvas = (DemoCanvas) displayable;
+            final DemoCanvas demoCanvas = (DemoCanvas) /*TS as unknown*/ displayable;
 
             if(demoCanvas.isDemoLoading()) {
                 return true;

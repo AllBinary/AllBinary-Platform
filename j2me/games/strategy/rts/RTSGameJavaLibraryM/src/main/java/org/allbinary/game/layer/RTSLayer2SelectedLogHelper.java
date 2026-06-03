@@ -25,13 +25,13 @@ public class RTSLayer2SelectedLogHelper extends RTSLayer2LogHelper {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     
-    private static final RTSLayer2SelectedLogHelper instance = new RTSLayer2SelectedLogHelper();
+    private static final RTSLayer2SelectedLogHelper instanceC = new RTSLayer2SelectedLogHelper();
 
     /**
      * @return the instance
      */
     public static RTSLayer2SelectedLogHelper getInstance() {
-        return RTSLayer2SelectedLogHelper.instance;
+        return RTSLayer2SelectedLogHelper.instanceC;
     }
 
     private final String TRACK_TO_FIRE_OR_MOVE = "trackTo:fireOrMove";

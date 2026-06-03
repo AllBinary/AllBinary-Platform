@@ -33,13 +33,13 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
  
-    private static final WaypointSelectedLogHelper instance = new WaypointSelectedLogHelper();
+    private static final WaypointSelectedLogHelper instanceC = new WaypointSelectedLogHelper();
 
     /**
      * @return the instance
      */
     public static WaypointSelectedLogHelper getInstance() {
-        return WaypointSelectedLogHelper.instance;
+        return WaypointSelectedLogHelper.instanceC;
     }
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();

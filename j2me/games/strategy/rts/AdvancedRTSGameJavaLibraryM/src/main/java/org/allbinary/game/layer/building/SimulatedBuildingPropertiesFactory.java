@@ -28,13 +28,13 @@ import org.allbinary.logic.NullUtil;
  */
 public class SimulatedBuildingPropertiesFactory extends BuildingPropertiesFactory {
 
-    private static final SimulatedBuildingPropertiesFactory instance = new SimulatedBuildingPropertiesFactory();
+    private static final SimulatedBuildingPropertiesFactory instanceC = new SimulatedBuildingPropertiesFactory();
     
     /**
      * @return the instance
      */
     public static SimulatedBuildingPropertiesFactory getInstance() {
-        return SimulatedBuildingPropertiesFactory.instance;
+        return SimulatedBuildingPropertiesFactory.instanceC;
     }
     
     @Override

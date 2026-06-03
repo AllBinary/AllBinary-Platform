@@ -16,13 +16,13 @@ package org.allbinary.media.graphics.geography.map.racetrack;
 public class NormalRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeographicMapCellTypeFactory
 {
 
-    private static final NormalRaceTrackGeographicMapCellTypeFactory instance = new NormalRaceTrackGeographicMapCellTypeFactory();
+    private static final NormalRaceTrackGeographicMapCellTypeFactory instanceC = new NormalRaceTrackGeographicMapCellTypeFactory();
 
     /**
      * @return the instance
      */
     public static NormalRaceTrackGeographicMapCellTypeFactory getInstance() {
-        return NormalRaceTrackGeographicMapCellTypeFactory.instance;
+        return NormalRaceTrackGeographicMapCellTypeFactory.instanceC;
     }
     
     private NormalRaceTrackGeographicMapCellTypeFactory()

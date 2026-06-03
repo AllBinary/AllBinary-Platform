@@ -21,12 +21,12 @@ import org.allbinary.string.CommonSeps;
 public class CurrentlyPressedTouchButtonSingletonDebug 
     extends CurrentlyPressedTouchButtonSingleton
 {
-    private static final CurrentlyPressedTouchButtonSingletonDebug instance =
+    private static final CurrentlyPressedTouchButtonSingletonDebug instanceC =
         new CurrentlyPressedTouchButtonSingletonDebug();
     
     public static CurrentlyPressedTouchButtonSingleton getInstance()
     {
-        return CurrentlyPressedTouchButtonSingletonDebug.instance;
+        return CurrentlyPressedTouchButtonSingletonDebug.instanceC;
     }
     
     private String string = StringUtil.getInstance().EMPTY_STRING;

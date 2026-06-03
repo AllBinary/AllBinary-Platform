@@ -21,13 +21,13 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class ModifierOpenGLESImageProcessor extends OpenGLESImageProcessor {
     
-    private static final ModifierOpenGLESImageProcessor instance = new ModifierOpenGLESImageProcessor();
+    private static final ModifierOpenGLESImageProcessor instanceC = new ModifierOpenGLESImageProcessor();
 
     /**
      * @return the instance
      */
     public static ModifierOpenGLESImageProcessor getInstance() {
-        return ModifierOpenGLESImageProcessor.instance;
+        return ModifierOpenGLESImageProcessor.instanceC;
     }
     
     @Override

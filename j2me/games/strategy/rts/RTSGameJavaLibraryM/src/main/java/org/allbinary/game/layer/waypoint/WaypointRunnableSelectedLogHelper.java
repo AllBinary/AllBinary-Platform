@@ -27,13 +27,13 @@ public class WaypointRunnableSelectedLogHelper extends WaypointRunnableLogHelper
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    private static final WaypointRunnableSelectedLogHelper instance = new WaypointRunnableSelectedLogHelper();
+    private static final WaypointRunnableSelectedLogHelper instanceC = new WaypointRunnableSelectedLogHelper();
 
     /**
      * @return the instance
      */
     public static WaypointRunnableSelectedLogHelper getInstance() {
-        return WaypointRunnableSelectedLogHelper.instance;
+        return WaypointRunnableSelectedLogHelper.instanceC;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

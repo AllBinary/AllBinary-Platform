@@ -30,13 +30,13 @@ import org.allbinary.thread.NullRunnable;
  */
 public class AlwaysRepaintBehavior extends RepaintBehavior {
     
-    private static final AlwaysRepaintBehavior instance = new AlwaysRepaintBehavior();
+    private static final AlwaysRepaintBehavior instanceC = new AlwaysRepaintBehavior();
 
     /**
      * @return the instance
      */
     public static AlwaysRepaintBehavior getInstance() {
-        return AlwaysRepaintBehavior.instance;
+        return AlwaysRepaintBehavior.instanceC;
     }
         
     private final String NAME = "AlwaysRepaintBehavior";

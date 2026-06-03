@@ -22,7 +22,6 @@ import org.allbinary.game.input.Input;
 import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.mapping.GameInputMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
-import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -40,7 +39,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
-    protected StringUtil stringUtil = StringUtil.getInstance();
+    protected final StringUtil stringUtil = StringUtil.getInstance();
     
     private GameInputMapping[] gameInputMappingArray;
     
@@ -184,8 +183,6 @@ public class InputMappingHelpPaintable extends HelpPaintable
         final int size = (inputInfo.length + 4);
         return myFont.DEFAULT_CHAR_HEIGHT * size;
     }
-    
-    private int anchor = Anchor.TOP_LEFT;
     
     @Override
     public void paint(final Graphics graphics)

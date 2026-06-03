@@ -24,6 +24,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class HelpPaintable extends Paintable
 {
+    protected int anchor = Anchor.TOP_LEFT;
+    
     protected final String title;
     protected String[] inputInfo = StringUtil.getInstance().getArrayInstance();
 
@@ -52,8 +54,6 @@ public class HelpPaintable extends Paintable
         final MyFont myFont = MyFont.getInstance();
         return myFont.DEFAULT_CHAR_HEIGHT * (this.inputInfo.length + 2);
     }
-    
-    private int anchor = Anchor.TOP_LEFT;
     
     @Override
     public void paint(final Graphics graphics)

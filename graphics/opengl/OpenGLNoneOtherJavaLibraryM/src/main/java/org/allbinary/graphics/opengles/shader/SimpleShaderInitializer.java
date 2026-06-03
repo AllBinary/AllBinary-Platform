@@ -19,13 +19,13 @@ package org.allbinary.graphics.opengles.shader;
  */
 public class SimpleShaderInitializer extends ShaderInitializer {
 
-    private static final SimpleShaderInitializer instance = new SimpleShaderInitializer();
+    private static final SimpleShaderInitializer instanceC = new SimpleShaderInitializer();
 
     /**
      * @return the instance
      */
     public static SimpleShaderInitializer getInstance() {
-        return SimpleShaderInitializer.instance;
+        return SimpleShaderInitializer.instanceC;
     }
     
 }

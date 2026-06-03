@@ -19,13 +19,13 @@ package org.allbinary.image.opengles;
  */
 public class ModifierOpenGLESImageProcessor extends OpenGLESImageProcessor {
     
-    private static final ModifierOpenGLESImageProcessor instance = new ModifierOpenGLESImageProcessor();
+    private static final ModifierOpenGLESImageProcessor instanceC = new ModifierOpenGLESImageProcessor();
 
     /**
      * @return the instance
      */
     public static ModifierOpenGLESImageProcessor getInstance() {
-        return ModifierOpenGLESImageProcessor.instance;
+        return ModifierOpenGLESImageProcessor.instanceC;
     }
         
 }

@@ -21,13 +21,13 @@ import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
  */
 public class InGameMenuBehavior extends BaseMenuBehavior {
     
-    private static final InGameMenuBehavior instance = new InGameMenuBehavior();
+    private static final InGameMenuBehavior instanceC = new InGameMenuBehavior();
 
     /**
      * @return the instance
      */
     public static InGameMenuBehavior getInstance() {
-        return InGameMenuBehavior.instance;
+        return InGameMenuBehavior.instanceC;
     }    
     
     @Override

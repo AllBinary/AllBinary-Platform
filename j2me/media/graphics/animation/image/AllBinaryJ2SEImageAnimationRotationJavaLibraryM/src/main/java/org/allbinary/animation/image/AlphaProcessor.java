@@ -23,13 +23,13 @@ import org.allbinary.media.image.ImageModifierUtil;
  */
 public class AlphaProcessor extends ModifierBaseProcessor {
     
-    private static final AlphaProcessor instance = new AlphaProcessor();
+    private static final AlphaProcessor instanceC = new AlphaProcessor();
 
     /**
      * @return the instance
      */
     public static AlphaProcessor getInstance() {
-        return AlphaProcessor.instance;
+        return AlphaProcessor.instanceC;
     }
     
     @Override
