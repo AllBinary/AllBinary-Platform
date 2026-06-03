@@ -172,7 +172,7 @@ implements TickableInterface
 
         this.collidableWeaponBehavior.init(sourceLayerInterface);
 
-        this.setGroupInterface();
+        this.setGroupInterfaces();
 
         // this.angle = angle;
 
@@ -192,7 +192,7 @@ implements TickableInterface
 
     // This is very important - does the owner of the WeaponLayer have the same team
     // Subgroups are not taken if enemy is the base group.
-    protected void setGroupInterface()
+    protected void setGroupInterfaces()
     {
         final BasicGroupFactory basicGroupFactory = BasicGroupFactory.getInstance();
         if(this.sourceLayerInterface.getGroupInterface()[0] == basicGroupFactory.ENEMY) {

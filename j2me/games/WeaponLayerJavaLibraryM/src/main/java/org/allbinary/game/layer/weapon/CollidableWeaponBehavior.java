@@ -18,7 +18,6 @@ import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import org.allbinary.game.collision.CollisionHelper;
 import org.allbinary.game.collision.CollisionType;
 import org.allbinary.game.collision.CollisionTypeFactory;
-import org.allbinary.game.collision.LayerCollisionUtil;
 import org.allbinary.game.combat.damage.DamageableInterface;
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableBehavior;
@@ -31,7 +30,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     private boolean collided;
     protected CollisionHelper collisionHelper;
     
-    public CollidableWeaponBehavior(boolean collidable)
+    public CollidableWeaponBehavior(final boolean collidable)
     {
         super(collidable);
 
@@ -41,7 +40,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
         this.collisionHelper = CollidableHelperFactory.getInstance();
     }
 
-    public void init(AllBinaryLayer sourceLayerInterface)
+    public void init(final AllBinaryLayer sourceLayerInterface)
     {
         this.setCollided(false);
 
@@ -50,7 +49,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
 
     // TODO TWB Special Super Efficient Collision Processing
     @Override
-    public boolean isCollision(final CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer)
+    public boolean isCollision(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collisionLayer)
     {
         if (this.collisionHelper.isCollidable(collisionLayer))
         {
@@ -67,7 +66,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
 
     // TODO TWB Special Super Efficient Collision Processing
     @Override
-    public void collide(final CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collisionLayer) throws Exception
+    public void collide(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collisionLayer) throws Exception
     {
         // this.logUtil.putF(this.getName() + " collided with "
         // + collisionLayer.getName(), this, damageUtil.COLLIDE);
@@ -76,16 +75,14 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
         super.collide(ownerLayer, collisionLayer);
         this.collided = true;
     }
-
-    private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
     
     @Override
     public boolean isCollisionInterface(
-            final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+            final CollidableCompositeLayer ownerLayer, final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
         if (this.collisionHelper.isCollidable((CollidableCompositeLayer) collidableInterfaceCompositeInterface))
         {
-            final AllBinaryLayer layerInterface = (AllBinaryLayer) collidableInterfaceCompositeInterface;
+            final AllBinaryLayer layerInterface = (AllBinaryLayer) /*TS as unknown*/ collidableInterfaceCompositeInterface;
 
             // this.logUtil.putF("isCollision: " +
             // this.getGroupInterface().getGroupName() + "==" +
@@ -102,7 +99,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     }
 
     @Override
-    public void collideInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(final CollidableCompositeLayer ownerLayer, final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
         // this.logUtil.putF(this.commonStrings.START, this, damageUtil.COLLIDE);
@@ -111,8 +108,9 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
         
         // if (collidableInterfaceCompositeInterface was instance of
         // DamageableInterface) {
-        this.damageUtil.process((DamageableInterface) ownerLayer,
-                (DamageableInterface) collidableInterfaceCompositeInterface);
+        final DamageableInterface ownerDamageableInterface = (DamageableInterface) /*TS as unknown*/ ownerLayer;
+        final DamageableInterface damageableInterface = (DamageableInterface) /*TS as unknown*/ collidableInterfaceCompositeInterface;
+        this.damageUtil.process(ownerDamageableInterface, damageableInterface);
         this.collided = true;
         // }
     }
@@ -137,7 +135,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     */
 
     @Override
-    public CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface)
+    public CollisionType getCollisionTypeWith(final AllBinaryLayer layerInterface)
     {
         return CollisionTypeFactory.getInstance().COLLISION;
     }
@@ -154,7 +152,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
      * @param collided
      *            the collided to set
      */
-    private void setCollided(boolean collided)
+    private void setCollided(final boolean collided)
     {
         this.collided = collided;
     }

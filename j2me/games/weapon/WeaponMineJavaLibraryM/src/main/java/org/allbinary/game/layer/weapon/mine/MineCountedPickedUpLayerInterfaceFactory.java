@@ -72,7 +72,7 @@ public class MineCountedPickedUpLayerInterfaceFactory
         final AllBinaryLayer sourceLayerInterface = (AllBinaryLayer) hashtable.get((Object) this.smallIntegerSingletonFactory.getAt(0));
         final Integer angle = (Integer) hashtable.get((Object) this.smallIntegerSingletonFactory.getAt(1));
 
-        return this.weaponLayerCircularStaticPool.getInstance(
+        return this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(
                 sourceLayerInterface, x, y, z, (int) angle.intValue(), 0,
                 this.weaponProperties,
                 (ScoreableInterface) sourceLayerInterface);

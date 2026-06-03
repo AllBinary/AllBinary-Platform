@@ -28,6 +28,7 @@ implements CollidableInterface
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
     
     //TWB - move to CollidableCompositeLayer
     private boolean collidable = true;
@@ -66,8 +67,6 @@ implements CollidableInterface
     {
         throw new Exception(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(CommonLabels.getInstance().COLON_SEP).append(this.getClass().getName()).toString());
     }
-
-    private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
     
     // TODO TWB Special Super Efficient Collision Processing
     @Override

@@ -67,7 +67,7 @@ public class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
       for (int index = 0; index < this.total; index++) {
 
          weaponLayer =
-                 this.weaponLayerCircularStaticPool.getInstance(
+                 this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(
                  this.getOwnerLayerInterface(), 
                  this.relativeRelationship.getX(), 
                  this.relativeRelationship.getY(),
