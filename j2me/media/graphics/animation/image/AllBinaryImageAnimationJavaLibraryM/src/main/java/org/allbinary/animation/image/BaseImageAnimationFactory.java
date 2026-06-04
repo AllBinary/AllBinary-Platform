@@ -28,7 +28,7 @@ import org.allbinary.string.CommonSeps;
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    public static BaseImageAnimationFactory createFactory(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+    public static BaseImageAnimationFactory createFactoryBase(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
         return new BaseImageAnimationFactory(image, sequenceArray, width, height, 0, 0, animationBehaviorFactory);
     }

@@ -30,8 +30,6 @@ public class LevelHudWidget extends BasicHud
         return new LevelHudWidget(maxlevel, location, direction, MyFont.getInstance().getSize() * 4);
     }
 
-    //private final String LEVEL = "Lv ";
-
     private int level;
     private int maxlevel;
 
