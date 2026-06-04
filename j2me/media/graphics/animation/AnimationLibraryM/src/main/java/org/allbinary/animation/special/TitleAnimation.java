@@ -223,7 +223,7 @@ public class TitleAnimation extends SpecialAnimation
     }
 
     /*
-    private final ViewPosition viewPosition = new CenterViewPositionFactory().getInstance();
+    private final ViewPositionBase viewPosition = new CenterViewPositionFactory().getInstance();
     
     @Override
     public void paintThreed(final Graphics graphics, final int x, final int y, final int z)

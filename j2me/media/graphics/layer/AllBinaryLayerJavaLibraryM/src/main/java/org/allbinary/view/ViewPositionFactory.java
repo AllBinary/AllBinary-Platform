@@ -17,7 +17,7 @@ public class ViewPositionFactory
 implements ViewPositionFactoryInterface
 {
     @Override
-   public ViewPosition getInstance()
+   public ViewPositionBase getInstance()
    {
       return ViewPosition.getInstanceD();
    }

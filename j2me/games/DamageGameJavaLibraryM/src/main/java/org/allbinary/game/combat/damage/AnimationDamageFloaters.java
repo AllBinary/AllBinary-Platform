@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.CircularIndexUtil;
 import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class AnimationDamageFloaters extends DamageFloaters
 {
@@ -79,9 +80,9 @@ public class AnimationDamageFloaters extends DamageFloaters
     {
         try
         {
-            ViewPosition viewPosition = this.layerInterface.getViewPosition();
-            int x = viewPosition.getX();
-            int y = viewPosition.getY();
+            final ViewPositionBase viewPosition = this.layerInterface.getViewPosition();
+            final int x = viewPosition.getX();
+            final int y = viewPosition.getY();
 
             for (int index = 0; index < this.animationInterfaceArray.length; index++)
             {

@@ -41,7 +41,7 @@ public class RaceTrackPickupLayer extends PickupLayer
    
    public void setTiledLayer(AllBinaryTiledLayer tiledLayer)
    {
-      TileLayerPositionIntoViewPosition viewPosition =
+      final TileLayerPositionIntoViewPosition viewPosition =
          (TileLayerPositionIntoViewPosition) this.getViewPosition();
 
       viewPosition.setTiledLayer(tiledLayer);

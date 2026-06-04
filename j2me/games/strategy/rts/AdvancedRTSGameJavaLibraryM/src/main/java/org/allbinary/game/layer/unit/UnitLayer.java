@@ -123,6 +123,7 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListS;
 import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 import org.allbinary.weapon.media.audio.ExplosionBasicSound;
 
 /**
@@ -214,7 +215,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
             final Rectangle rectangle, 
             final Direction direction, 
             final int x, final int y, final int z,
-            final ViewPosition viewPosition) throws Exception
+            final ViewPositionBase viewPosition) throws Exception
         {
 
         super(remoteInfo,
@@ -1332,7 +1333,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             // this.getAnimationInterface().paint(graphics, viewX, viewY);
             super.paint(graphics);
 
-            final ViewPosition viewPosition = this.getViewPosition();
+            final ViewPositionBase viewPosition = this.getViewPosition();
             int viewX = viewPosition.getX();
             int viewY = viewPosition.getY();
 

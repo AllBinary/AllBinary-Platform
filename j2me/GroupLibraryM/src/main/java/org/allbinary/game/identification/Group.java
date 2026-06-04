@@ -10,60 +10,54 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.game.identification;
 
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 
-public class Group implements GroupInterface
-{
+public class Group implements GroupInterface {
+
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getAt(10);
-   
-   private String name = StringUtil.getInstance().EMPTY_STRING;
-   private final short teamId;
 
-   private String string = StringUtil.getInstance().EMPTY_STRING;
+    private String name = StringUtil.getInstance().EMPTY_STRING;
+    private final short teamId;
 
-   private static final String GROUP_NAME_LABEL = "Group Name: ";
-   private static final String ID_LABEL = " Id: ";
-   
-   public Group(String teamName, short teamId)
-   {
-      this.setName(teamName);
-      this.teamId = teamId;
+    private String string = StringUtil.getInstance().EMPTY_STRING;
 
-   }
+    private static final String GROUP_NAME_LABEL = "Group Name: ";
+    private static final String ID_LABEL = " Id: ";
 
-   @Override
-   public String getGroupName()
-   {
-      return this.name;
-   }
+    public Group(String teamName, short teamId) {
+        this.teamId = teamId;
+        this.setName(teamName);
+    }
 
-   public void setName(final String name)
-   {
-      this.name = name;
-      
-      final StringMaker stringBuffer = new StringMaker();
+    @Override
+    public String getGroupName() {
+        return this.name;
+    }
 
-      stringBuffer.append(Group.GROUP_NAME_LABEL);
-      stringBuffer.append(this.name);
-      stringBuffer.append(Group.ID_LABEL);
-      stringBuffer.appendshort(this.teamId);
+    public void setName(final String name) {
+        this.name = name;
 
-      this.string = stringBuffer.toString();
-   }
-   
-   @Override
-   public short getGroupId()
-   {
-      return this.teamId;
-   }
+        final StringMaker stringBuffer = new StringMaker();
 
-   public String toString()
-   {
-       return this.string;
-   }
+        stringBuffer.append(Group.GROUP_NAME_LABEL);
+        stringBuffer.append(this.name);
+        stringBuffer.append(Group.ID_LABEL);
+        stringBuffer.appendshort(this.teamId);
+
+        this.string = stringBuffer.toString();
+    }
+
+    @Override
+    public short getGroupId() {
+        return this.teamId;
+    }
+
+    public String toString() {
+        return this.string;
+    }
 }

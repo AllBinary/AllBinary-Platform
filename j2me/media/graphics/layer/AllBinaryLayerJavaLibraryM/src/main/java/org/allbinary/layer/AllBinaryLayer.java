@@ -28,13 +28,14 @@ import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 import org.allbinary.view.event.ViewPositionEvent;
 
 public class AllBinaryLayer 
 extends Layer 
 implements LayerInterface
 {
-    public static final AllBinaryLayer NULL_ALLBINARY_LAYER = new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION);
+    public static final AllBinaryLayer NULL_ALLBINARY_LAYER = new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
 
     protected final ViewPositionEvent viewPositionEvent = new ViewPositionEvent(this);
 
@@ -42,9 +43,9 @@ implements LayerInterface
     private int halfHeight;
     private final String name;
 
-    private ViewPosition viewPosition = ViewPosition.NULL_VIEW_POSITION;
+    private ViewPositionBase viewPosition = ViewPositionBase.NULL_VIEW_POSITION;
 
-    public AllBinaryLayer(final String name, final Rectangle rectangle, final ViewPosition viewPosition)
+    public AllBinaryLayer(final String name, final Rectangle rectangle, final ViewPositionBase viewPosition)
     {
         super(rectangle.getWidth(), rectangle.getHeight());
 
@@ -65,7 +66,7 @@ implements LayerInterface
 
         this.viewPosition = viewPosition;
 
-        this.viewPosition.setAllbinaryLayer(this);
+        ((ViewPosition) this.viewPosition).setAllbinaryLayer(this);
     }
 
     public void onChangeEvent(final ViewPositionEvent layerManagerEvent)
@@ -130,12 +131,12 @@ implements LayerInterface
         return (int) this.getDepth() / 2;
     }
 
-    public ViewPosition getViewPosition()
+    public ViewPositionBase getViewPosition()
     {
         return this.viewPosition;
     }
 
-    public void setViewPosition(final ViewPosition viewPosition)
+    public void setViewPosition(final ViewPositionBase viewPosition)
     {
         this.viewPosition = viewPosition;
     }

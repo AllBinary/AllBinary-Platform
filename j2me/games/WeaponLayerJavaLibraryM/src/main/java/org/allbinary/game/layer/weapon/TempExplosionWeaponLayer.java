@@ -8,7 +8,7 @@ import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.physics.movement.Movement;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class TempExplosionWeaponLayer
 extends SimpleWeaponLayer
@@ -21,7 +21,7 @@ extends SimpleWeaponLayer
 	
     public TempExplosionWeaponLayer(final String name, final Movement movement,
             final Animation animationInterface,
-            final Rectangle rectangle, final ViewPosition viewPosition, final int timeDelay)
+            final Rectangle rectangle, final ViewPositionBase viewPosition, final int timeDelay)
             throws Exception
     {
         super(name, RemoteInfo.REMOTE_INFO, -1, movement, animationInterface, SimpleWeaponLayer.createDestroyed(), rectangle, viewPosition);

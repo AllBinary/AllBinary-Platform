@@ -25,7 +25,7 @@ import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class BasicWeaponPart 
     implements PartInterface, SalvoInterface 
@@ -108,7 +108,7 @@ public class BasicWeaponPart
    @Override
    public void paint(final Graphics graphics) {
       
-       final ViewPosition viewPosition =  this.getOwnerLayerInterface().getViewPosition();
+       final ViewPositionBase viewPosition =  this.getOwnerLayerInterface().getViewPosition();
        final int viewX = viewPosition.getX();
        final int viewY = viewPosition.getY();
       

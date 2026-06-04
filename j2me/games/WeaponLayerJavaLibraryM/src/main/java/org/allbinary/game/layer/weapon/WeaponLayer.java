@@ -34,6 +34,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.physics.movement.Movement;
 import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class WeaponLayer 
 extends MultiPlayerGameLayer
@@ -80,7 +81,7 @@ implements TickableInterface
 //            Movement movement,
 //            AnimationInterface animationInterface,
 //            Rectangle rectangle,
-//            ViewPosition viewPosition,
+//            ViewPositionBase viewPosition,
 //            short angle, int damage, ScoreableInterface scoreable)
 //            throws Exception
 //    {
@@ -115,7 +116,7 @@ implements TickableInterface
     protected WeaponLayer(final String name, final RemoteInfo remoteInfo, final int multiPlayerType, 
         final Movement movement, final Animation animationInterface,
             final Animation destroyedAnimationInterface, final Rectangle rectangle,
-            final ViewPosition viewPosition)
+            final ViewPositionBase viewPosition)
             throws Exception
     {
         super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition);
@@ -411,7 +412,7 @@ implements TickableInterface
     {
         // this.logUtil.putF(this.commonStrings.START, this, canvasStrings.PAINT);
 
-        ViewPosition viewPosition = this.getViewPosition();
+        final ViewPositionBase viewPosition = this.getViewPosition();
         // int viewX = viewPosition.getX();
         // int viewY = viewPosition.getY();
 
@@ -428,7 +429,7 @@ implements TickableInterface
     @Override
     public void paintThreed(Graphics graphics)
     {
-        ViewPosition viewPosition = this.getViewPosition();
+        final ViewPositionBase viewPosition = this.getViewPosition();
 
         this.animationInterface.paintThreedXYZ(graphics,
                 viewPosition.getX() - this.getHalfWidth(),

@@ -51,7 +51,6 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.time.TimeDelayHelper;
-import org.allbinary.view.ViewPosition;
 import org.allbinary.view.event.ViewPositionEventHandler;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.logic.string.StringUtil;
@@ -60,6 +59,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.view.ViewPositionBase;
 
 /**
  *
@@ -168,7 +168,7 @@ public class RTSLayer
             final ProceduralAnimationInterfaceFactoryInterface proceduralAnimationInterfaceFactoryInterface,
             final Rectangle rectangle,
             final int x, final int y,
-            final ViewPosition viewPosition)
+            final ViewPositionBase viewPosition)
         throws Exception
     {
         super(remoteInfo, groupInterface, name, rectangle, viewPosition);
@@ -344,9 +344,9 @@ public class RTSLayer
     {
         super.paintFirst(graphics);
         
-        final ViewPosition viewPosition = this.getViewPosition();
-        int viewX = viewPosition.getX();
-        int viewY = viewPosition.getY();
+        final ViewPositionBase viewPosition = this.getViewPosition();
+        final int viewX = viewPosition.getX();
+        final int viewY = viewPosition.getY();
 
         this.getAnimationInterface().paintXY(graphics, viewX, viewY);
 

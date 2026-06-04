@@ -20,7 +20,7 @@ import javax.microedition.lcdui.NullImage;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.image.PaintableToImageUtil;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class ImageMiniMapLayer extends MiniMapLayer
 {
@@ -28,7 +28,7 @@ public class ImageMiniMapLayer extends MiniMapLayer
 
     // private
     public ImageMiniMapLayer(BasicGeographicMap geographicMapInterface,
-            ViewPosition viewPosition) throws Exception
+            ViewPositionBase viewPosition) throws Exception
     {
         super(geographicMapInterface, viewPosition);
     }

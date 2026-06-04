@@ -32,7 +32,7 @@ public class CenterStaticViewPositionFactory
     {
     }
     
-    public ViewPosition getInstance(int z)
+    public ViewPositionBase getInstance(int z)
     {
         DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
         

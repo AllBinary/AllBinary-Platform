@@ -37,7 +37,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEvent;
 import org.allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEventHandler;
 import org.allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEventListenerInterface;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class MiniMapLayer
     extends AllBinaryLayer
@@ -57,7 +57,7 @@ public class MiniMapLayer
     public MiniMapLayer(BasicGeographicMap geographicMapInterface,
         //GeographicMapCellPositionFactory geographicMapCellPositionFactory,
         //ViewPosition can only be static or setPosition will need to be in paint
-        ViewPosition viewPosition) throws Exception {
+        ViewPositionBase viewPosition) throws Exception {
         super(StringUtil.getInstance().EMPTY_STRING,
                 new Rectangle(PointFactory.getInstance().createXY(0, viewPosition.getY()),
             geographicMapInterface.getAllBinaryTiledLayer().getWidth(),

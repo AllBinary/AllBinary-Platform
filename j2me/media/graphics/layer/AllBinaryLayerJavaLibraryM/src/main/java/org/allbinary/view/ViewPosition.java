@@ -1,6 +1,6 @@
 /*
  * AllBinary Open License Version 1
- * Copyright (c) 2011 AllBinary
+ * Copyright (c) 2025 AllBinary
  * 
  * By agreeing to this license you and any business entity you represent are
  * legally bound to the AllBinary Open License Version 1 legal agreement.
@@ -13,18 +13,17 @@
  */
 package org.allbinary.view;
 
-import org.allbinary.graphics.GPoint;
 import org.allbinary.layer.AllBinaryLayer;
 
-// get the location of this vehicle relative to the top right corner of the
-// tileLayer location
-public class ViewPosition extends GPoint
-{
+/**
+ *
+ * @author User
+ */
+public class ViewPosition extends ViewPositionBase {
+ 
     public static ViewPosition getInstanceD() {
         return new ViewPosition(0, 0, 0);
     }
-    
-    public static final ViewPosition NULL_VIEW_POSITION = ViewPosition.getInstanceD();
         
     private AllBinaryLayer allbinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
 
@@ -56,16 +55,19 @@ public class ViewPosition extends GPoint
         return this.allbinaryLayer.getZP();
     }
 
+    @Override
     public int getX2()
     {
         return this.getX() + this.allbinaryLayer.getWidth();
     }
 
+    @Override
     public int getY2()
     {
         return this.getY() + this.allbinaryLayer.getHeight();
     }
 
+    @Override
     public int getZ2()
     {
         return (int) (this.getZ() + this.allbinaryLayer.getDepth());
@@ -79,4 +81,5 @@ public class ViewPosition extends GPoint
     {
         this.allbinaryLayer = allbinaryLayer;
     }
+    
 }

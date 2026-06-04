@@ -37,6 +37,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 /*
  * The Game Layers/Objects requirements change a bunch from game to game.
@@ -55,7 +56,7 @@ implements DestroyableInterface, DamageableInterface,
 PickupCompositeInterface, SpecialGameInputInterface
 {
     public static final CollidableDestroyableDamageableLayer NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = new CollidableDestroyableDamageableLayer(
-    BasicGroupFactory.getInstance().NONE_ARRAY, StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION);
+    BasicGroupFactory.getInstance().NONE_ARRAY, StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
         
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -77,7 +78,7 @@ PickupCompositeInterface, SpecialGameInputInterface
     public boolean isDragged = false;
 
     public CollidableDestroyableDamageableLayer(
-            final Group[] groupInterface, final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
+            final Group[] groupInterface, final String name, final Rectangle layerInfo, final ViewPositionBase viewPosition)
     {
         super(name, layerInfo, viewPosition, CollidableNeverCollideBehaviorFactory.getInstance());
 

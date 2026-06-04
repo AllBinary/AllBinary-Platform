@@ -25,6 +25,7 @@ import org.allbinary.logic.java.character.CharArrayFactory;
 import org.allbinary.logic.math.PrimitiveLongUtil;
 import org.allbinary.util.CircularIndexUtil;
 import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class PtsDamageFloaters extends DamageFloaters
 {    
@@ -98,9 +99,9 @@ public class PtsDamageFloaters extends DamageFloaters
     @Override
     public void paint(Graphics graphics)
     {
-        ViewPosition viewPosition = this.layerInterface.getViewPosition();
-        int x = viewPosition.getX();
-        int y = viewPosition.getY();
+        final ViewPositionBase viewPosition = this.layerInterface.getViewPosition();
+        final int x = viewPosition.getX();
+        final int y = viewPosition.getY();
 
         for (int index = this.lastDamage.length - 1; index >= 0; index--)
         {

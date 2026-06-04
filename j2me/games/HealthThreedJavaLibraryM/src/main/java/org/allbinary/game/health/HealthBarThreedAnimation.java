@@ -113,7 +113,7 @@ extends HealthBarAnimation
     	final OpenGLESGraphics openGLESGraphics = (OpenGLESGraphics) graphics;
     	final GL10 gl = openGLESGraphics.getGl10();
 
-    	final ViewPosition viewPosition = this.allbinaryLayer.getViewPosition();
+    	final ViewPositionBase viewPosition = this.allbinaryLayer.getViewPosition();
 
         final Number3d positionNumber3d = this.rectangle.getPosition();
 

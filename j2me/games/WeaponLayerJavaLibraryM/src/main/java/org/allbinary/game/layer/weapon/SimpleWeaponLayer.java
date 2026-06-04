@@ -20,7 +20,7 @@ import org.allbinary.game.combat.damage.ExplosionResources;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.physics.movement.Movement;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class SimpleWeaponLayer extends WeaponLayer
 {
@@ -34,7 +34,7 @@ public class SimpleWeaponLayer extends WeaponLayer
             final Movement movement,
             final Animation animationInterface,
             final Animation destroyedAnimationInterface,
-            final Rectangle rectangle, final ViewPosition viewPosition)
+            final Rectangle rectangle, final ViewPositionBase viewPosition)
             throws Exception
     {
         super(name, remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);

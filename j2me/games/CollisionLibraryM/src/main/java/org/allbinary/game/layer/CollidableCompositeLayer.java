@@ -25,7 +25,7 @@ import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 /*
  * The Game Layers/Objects requirements change a bunch from game to game.
@@ -43,14 +43,14 @@ extends AllBinaryGameLayer
 implements CollidableInterfaceCompositeInterface
 {
     public static final CollidableCompositeLayer NULL_COLLIDABLE_COMPOSITE_LAYER = new CollidableCompositeLayer(StringUtil.getInstance().EMPTY_STRING,
-            RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION, CollidableNeverCollideBehaviorFactory.getInstance());
+            RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION, CollidableNeverCollideBehaviorFactory.getInstance());
     
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance().createBehavior();
 
     public CollidableCompositeLayer(
-            final String name, final Rectangle layerInfo, final ViewPosition viewPosition,
+            final String name, final Rectangle layerInfo, final ViewPositionBase viewPosition,
             final CollidableBaseBehaviorFactory collidableBaseBehaviorFactory)
     {
         super(name, layerInfo, viewPosition);

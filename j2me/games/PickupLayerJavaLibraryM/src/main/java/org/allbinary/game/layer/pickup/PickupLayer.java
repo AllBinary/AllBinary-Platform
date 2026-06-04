@@ -25,7 +25,7 @@ import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class PickupLayer 
    extends MultiPlayerGameLayer
@@ -38,7 +38,7 @@ public class PickupLayer
    public PickupLayer(
            final String name, final RemoteInfo remoteInfo, final int total,
            final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
-           final Animation animationInterface, final Rectangle rectangle, final ViewPosition viewPosition)
+           final Animation animationInterface, final Rectangle rectangle, final ViewPositionBase viewPosition)
       throws Exception
    {
       super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition);
@@ -69,9 +69,9 @@ public class PickupLayer
    @Override
    public void paint(Graphics graphics)
    {
-       ViewPosition viewPosition = this.getViewPosition();
-       int viewX = viewPosition.getX();
-       int viewY = viewPosition.getY();
+       final ViewPositionBase viewPosition = this.getViewPosition();
+       final int viewX = viewPosition.getX();
+       final int viewY = viewPosition.getY();
 
        this.animationInterface.paintXY(graphics, viewX, viewY);
    }
@@ -79,9 +79,9 @@ public class PickupLayer
    @Override
    public void paintThreed(Graphics graphics)
    {
-       ViewPosition viewPosition = this.getViewPosition();
-       int viewX = viewPosition.getX();
-       int viewY = viewPosition.getY();
+       final ViewPositionBase viewPosition = this.getViewPosition();
+       final int viewX = viewPosition.getX();
+       final int viewY = viewPosition.getY();
 
        this.animationInterface.paintThreedXYZ(graphics, viewX, viewY, 3);
    }

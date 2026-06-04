@@ -16,15 +16,14 @@ package org.allbinary.game.multiplayer.layer;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.graphics.Rectangle;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class MultiPlayerGameLayer 
 extends CollidableDestroyableDamageableLayer 
 implements MultiPlayerGameLayerInterface
 {
     public MultiPlayerGameLayer(final RemoteInfo remoteInfo,
-            final Group[] groupInterface, final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
+            final Group[] groupInterface, final String name, final Rectangle layerInfo, final ViewPositionBase viewPosition)
     {
         super(groupInterface, name, layerInfo, viewPosition);
     }

@@ -15,5 +15,5 @@ package org.allbinary.view;
 
 public interface ViewPositionFactoryInterface 
 {
-    ViewPosition getInstance() throws Exception;
+    ViewPositionBase getInstance() throws Exception;
 }

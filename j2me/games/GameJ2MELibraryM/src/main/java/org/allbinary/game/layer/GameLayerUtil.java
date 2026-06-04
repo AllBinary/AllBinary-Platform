@@ -15,7 +15,7 @@ package org.allbinary.game.layer;
 
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class GameLayerUtil
 {
@@ -27,7 +27,7 @@ public class GameLayerUtil
    public static boolean isOnScreen(AllBinaryLayer layer)
    {
        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-       ViewPosition viewPosition = layer.getViewPosition();
+       ViewPositionBase viewPosition = layer.getViewPosition();
        
       return GameLayerUtil.isInside(viewPosition.getX(), viewPosition.getY(),
               viewPosition.getX2(), viewPosition.getY2(), 0, 0,

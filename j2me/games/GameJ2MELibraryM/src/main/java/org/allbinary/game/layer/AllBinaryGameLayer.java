@@ -31,7 +31,7 @@ import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 import org.allbinary.view.event.ViewPositionEvent;
 import org.allbinary.view.event.ViewPositionEventListenerInterface;
 
@@ -57,7 +57,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 
     private final BasicArrayList gameKeyEventList = new BasicArrayListD();
 
-    public AllBinaryGameLayer(final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
+    public AllBinaryGameLayer(final String name, final Rectangle layerInfo, final ViewPositionBase viewPosition)
     {
         super(name, layerInfo, viewPosition);
     }
@@ -126,7 +126,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     {
         //this.logUtil.putF(this.commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
 
-        final ViewPosition viewPosition = this.getViewPosition();
+        final ViewPositionBase viewPosition = this.getViewPosition();
         final int viewX = viewPosition.getX();
         final int viewY = viewPosition.getY();
 

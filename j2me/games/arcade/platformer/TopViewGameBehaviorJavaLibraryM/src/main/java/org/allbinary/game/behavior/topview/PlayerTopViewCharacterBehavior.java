@@ -45,7 +45,7 @@ public class PlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
         //this.logUtil.putF(new StringMaker().append("GDGameLevelLevelBuilder Moving: x: ").append(x).append(" y: ").append(y).toString(), this, "move");
 
         // Don't move to far forward in screen if not close to edge of tilelayer
-        //final ViewPosition viewPosition = layer.getViewPosition();
+        //final ViewPositionBase viewPosition = layer.getViewPosition();
         //final int viewX = viewPosition.getXP();
 
         //final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
@@ -89,7 +89,7 @@ public class PlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
     private void moveIfOnScreen(final AllBinaryLayer layer, final int ax, final int ay)
     {
 //        final int MAX_RIGHT = (DisplayInfoSingleton.getInstance().getLastWidth() - layer.getWidth());
-//        final ViewPosition viewPosition = layer.getViewPosition();
+//        final ViewPositionBase viewPosition = layer.getViewPosition();
 //        final int viewX = viewPosition.getXP();
 //        if ((viewX > 0 || ax > 0) && (viewX < MAX_RIGHT || ax < 0))
 //        {

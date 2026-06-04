@@ -21,7 +21,7 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.physics.movement.NoMovementFactory;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 import org.allbinary.view.event.ViewPositionEventHandler;
 import org.allbinary.weapon.media.audio.DropWeaponSound;
 
@@ -31,7 +31,7 @@ public class MineLayer extends SimpleWeaponLayer
     
    //private static final BasicDecimal SPEED = new BasicDecimal(0);
 
-   public MineLayer(ViewPosition viewPosition)
+   public MineLayer(ViewPositionBase viewPosition)
            throws Exception
    {
       super(MineLayer.NAME, RemoteInfo.REMOTE_INFO, -1,
@@ -46,7 +46,7 @@ public class MineLayer extends SimpleWeaponLayer
    }
    
    /*
-   public MineLayer(LayerInterface sourceLayerInterface, int x, int y, ViewPosition viewPosition, short angle, int damage, ScoreableInterface scoreable)
+   public MineLayer(LayerInterface sourceLayerInterface, int x, int y, ViewPositionBase viewPosition, short angle, int damage, ScoreableInterface scoreable)
            throws Exception
    {
       super(sourceLayerInterface,

@@ -57,7 +57,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
 import org.allbinary.media.graphics.geography.map.GeographicMapDirectionUtil;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 /**
  *
@@ -115,7 +115,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         final ProceduralAnimationInterfaceFactoryInterface proceduralAnimationInterfaceFactoryInterface,
         final Rectangle rectangle,
         final int x, final int y,
-        final ViewPosition viewPosition)
+        final ViewPositionBase viewPosition)
         throws Exception
     {
         super(
