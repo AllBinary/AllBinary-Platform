@@ -27,7 +27,7 @@ import org.allbinary.graphics.threed.min3d.renderer.Object3dProcessorUtil;
 
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.view.ViewPosition;
+import org.allbinary.view.ViewPositionBase;
 
 public class HealthBarThreedAnimation
 extends HealthBarAnimation

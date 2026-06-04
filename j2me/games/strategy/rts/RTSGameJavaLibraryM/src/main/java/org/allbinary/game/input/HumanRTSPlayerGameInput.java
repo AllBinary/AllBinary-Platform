@@ -58,6 +58,7 @@ import org.allbinary.media.audio.ErrorSound;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
+import org.allbinary.view.ViewPositionBase;
 
 /**
  * 
