@@ -22,11 +22,15 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class GameKeyEventFactory
 {
 
-    private static final GameKeyEventFactory instance = new GameKeyEventFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
     public static GameKeyEventFactory getInstance()
     {
-        return GameKeyEventFactory.instance;
+        if(GameKeyEventFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GameKeyEventFactory.instance = new GameKeyEventFactory();
+        }
+
+        return (GameKeyEventFactory) GameKeyEventFactory.instance;
     }
 
     protected final LogUtil logUtil = LogUtil.getInstance();

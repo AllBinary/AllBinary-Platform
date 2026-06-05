@@ -64,7 +64,7 @@ public class PersistentInputMapping
     
     protected InputToGameKeyMapping getDefault()
     {
-        return InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING;
+        return InputToGameKeyMapping.getNullInstance();
     }
         
     public void setDefault(final AbeClientInformationInterface abeClientInformation)

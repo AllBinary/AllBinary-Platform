@@ -13,19 +13,26 @@
  */
 package org.allbinary.game.score;
 
+import org.allbinary.logic.NullUtil;
+
 /**
  *
  * @author User
  */
 public class LastFetchHighScoresFactory {
     
-    private static final LastFetchHighScoresFactory instance = new LastFetchHighScoresFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
     /**
      * @return the instance
      */
     public static LastFetchHighScoresFactory getInstance() {
-        return LastFetchHighScoresFactory.instance;
+        
+        if(LastFetchHighScoresFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            LastFetchHighScoresFactory.instance = new LastFetchHighScoresFactory();
+        }
+        
+        return (LastFetchHighScoresFactory) LastFetchHighScoresFactory.instance;
     }
 
     public HighScores[] highScoresArray = NoHighScoresFactory.getInstance().NO_HIGH_SCORES;

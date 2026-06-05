@@ -14,16 +14,21 @@
 package org.allbinary.game.input;
 
 import javax.microedition.lcdui.Canvas;
+import org.allbinary.logic.NullUtil;
 
 import org.allbinary.string.CommonPhoneStrings;
 
 public class GameKeyFactory
 {
-    private static final GameKeyFactory instance = new GameKeyFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static GameKeyFactory getInstance()
     {
-        return GameKeyFactory.instance;
+        if(GameKeyFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GameKeyFactory.instance = new GameKeyFactory();
+        }
+        
+        return (GameKeyFactory) GameKeyFactory.instance;
     }
 
     public final GameKey NONE = new GameKey(InputFactory.getInstance().MAX - 1, "None");

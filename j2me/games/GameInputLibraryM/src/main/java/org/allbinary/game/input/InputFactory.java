@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.input;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -20,15 +21,19 @@ import org.allbinary.string.CommonStrings;
 
 public class InputFactory
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final static InputFactory instance = new InputFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
     public static InputFactory getInstance()
     {
-        return InputFactory.instance;
+        if(InputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            InputFactory.instance = new InputFactory();
+        }
+        
+        return (InputFactory) InputFactory.instance;
     }
 
+    protected final LogUtil logUtil = LogUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     public final String KEY_CODE_LABEL = "KeyCode: ";
@@ -38,7 +43,7 @@ public class InputFactory
     //public final int MAX = SmallIntegerSingletonFactory.MIN;
     //SmallIntegerSingletonFactory.init(0x101);
     //VK_CONTEXT_MENU
-    public final int MAX = SmallIntegerSingletonFactory.getInstance().MIN;
+    public final int MAX = SmallIntegerSingletonFactory.getInstance().getMin();
     //protected final Input[] negativeInputIntegerArray = new Input[6];
     protected final Input[] inputIntegerArray = new Input[this.MAX];
 

@@ -19,6 +19,7 @@ import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -29,7 +30,16 @@ import org.allbinary.util.BasicArrayListD;
 
 public class InputToGameKeyMapping extends InputMapping
 {
-    public static final InputToGameKeyMapping NULL_INPUT_TO_GAME_KEY_MAPPING = new InputToGameKeyMapping();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
+
+    public static InputToGameKeyMapping getNullInstance()
+    {
+        if(InputToGameKeyMapping.instance == NullUtil.getInstance().NULL_OBJECT) {
+            InputToGameKeyMapping.instance = new InputToGameKeyMapping();
+        }
+
+        return (InputToGameKeyMapping) InputToGameKeyMapping.instance;
+    }
 
     private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
     
@@ -42,8 +52,8 @@ public class InputToGameKeyMapping extends InputMapping
         //gameKeyFactory.GAME_A, gameKeyFactory.GAME_B, gameKeyFactory.GAME_C, gameKeyFactory.GAME_D
     };
 
-    protected GameKey[] negativePlatformToGameKeyMapping = new GameKey[0]; //6
     private final GameKey[] platformToGameKeyMapping = new GameKey[InputFactory.getInstance().MAX];
+    protected GameKey[] negativePlatformToGameKeyMapping = new GameKey[0]; //6
 
     public InputToGameKeyMapping()
     {

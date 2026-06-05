@@ -15,6 +15,7 @@ package org.allbinary.input.motion.button;
 
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
@@ -24,11 +25,20 @@ import org.allbinary.util.BasicArrayListD;
 public class BasicTouchInputFactory
         //extends BaseTouchInputFactory
 {
+
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
+
+    public static BasicTouchInputFactory getInstance()
+    {
+        if(BasicTouchInputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            BasicTouchInputFactory.instance = new BasicTouchInputFactory();
+        }
+        
+        return (BasicTouchInputFactory) BasicTouchInputFactory.instance;
+    }
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
-
-    private static final BasicTouchInputFactory SINGLETON =
-            new BasicTouchInputFactory();
-
+    
     public final TouchButtonInput SPECIAL_BUTTON_SIX =
         new TouchButtonInput(InputFactory.getInstance().MAX - 30, "Button 6");
     
@@ -51,11 +61,6 @@ public class BasicTouchInputFactory
     public final TouchButtonInput DOWN = new TouchButtonInput(InputFactory.getInstance().MAX - 39, "Down Button");
 
     public final TouchButtonInput NONE = new TouchButtonInput(InputFactory.getInstance().MAX - 40, "No Button");
-    
-    public static BasicTouchInputFactory getInstance()
-    {
-        return BasicTouchInputFactory.SINGLETON;
-    }
 
     private boolean initialized = false;
     

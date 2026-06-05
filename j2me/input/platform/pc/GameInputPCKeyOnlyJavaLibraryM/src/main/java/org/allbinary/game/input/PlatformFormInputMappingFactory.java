@@ -28,13 +28,13 @@ public class PlatformFormInputMappingFactory
         return PlatformFormInputMappingFactory.instance;
     }
     
-    private InputToGameKeyMapping SINGLETON = InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING;
+    private InputToGameKeyMapping SINGLETON = InputToGameKeyMapping.getNullInstance();
 
     public InputToGameKeyMapping getOrCreate()
     {
         try
         {
-            if (this.SINGLETON == InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING)
+            if (this.SINGLETON == InputToGameKeyMapping.getNullInstance())
             {
                 PCKeyFactory pcKeyFactory = PCKeyFactory.getInstance();
 

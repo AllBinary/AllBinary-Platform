@@ -13,13 +13,25 @@
 */
 package org.allbinary.game.input;
 
+import org.allbinary.logic.NullUtil;
+
 
 public class GameKeyMappingFactory
 {
+
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
+        
+    public static GameKeyMappingFactory getInstance()
+    {
+        if(GameKeyMappingFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GameKeyMappingFactory.instance = new GameKeyMappingFactory();
+        }
+        
+        return (GameKeyMappingFactory) GameKeyMappingFactory.instance;
+    }
+
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final GameKeyMappingFactory SINGLETON = new GameKeyMappingFactory();
-    
     private GameKey[] intKeyToGameKey = new GameKey[InputFactory.getInstance().MAX];
     
     private GameKeyMappingFactory()
@@ -66,9 +78,5 @@ public class GameKeyMappingFactory
     {
         this.intKeyToGameKey[gameKey.getId()] = gameKey;
     }
-    
-    public static GameKeyMappingFactory getInstance()
-    {
-        return GameKeyMappingFactory.SINGLETON;
-    }
+
 }

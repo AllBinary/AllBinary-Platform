@@ -33,10 +33,17 @@ public class SmallIntegerSingletonFactory
     private final Integer[] INTEGER_ARRAY = new Integer[this.NEGATIVE_MAX + this.POSITIVE_MAX];
     private final String[] STRING_ARRAY = new String[this.NEGATIVE_MAX + this.POSITIVE_MAX];
 
-    public int MIN = 0;
-    public int lastMin = 0;
-    public int lastNegativeMin = 0;
+    private int MIN = 0;
+    private int lastMin = 0;
+    private int lastNegativeMin = 0;
 
+    public int getMin() {
+        if(this.MIN == 0) {
+            throw new RuntimeException();
+        }
+        return this.MIN;
+    }
+    
     public void initWithRange(int value, int negativeValue)
     {
         for (int index = value - 1; index >= this.lastMin; index--)

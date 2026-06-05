@@ -50,7 +50,7 @@ public class InputMapping
     
     protected InputToGameKeyMapping getDefault()
     {
-        return InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING;
+        return InputToGameKeyMapping.getNullInstance();
     }
     
     protected void removeAll()

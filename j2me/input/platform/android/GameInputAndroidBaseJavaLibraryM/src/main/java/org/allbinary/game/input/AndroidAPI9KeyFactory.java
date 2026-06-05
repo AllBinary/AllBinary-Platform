@@ -1,13 +1,19 @@
 package org.allbinary.game.input;
 
 import android.view.KeyEvent;
+import org.allbinary.logic.NullUtil;
 
 public class AndroidAPI9KeyFactory extends AndroidKeyFactory {
 
-    private static final AndroidAPI9KeyFactory SINGLETON = new AndroidAPI9KeyFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
     public static final AndroidAPI9KeyFactory getInstance() {
-        return AndroidAPI9KeyFactory.SINGLETON;
+
+        if(AndroidAPI9KeyFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            AndroidAPI9KeyFactory.instance = new AndroidAPI9KeyFactory();
+        }
+        
+        return (AndroidAPI9KeyFactory) AndroidAPI9KeyFactory.instance;
     }
 
     protected AndroidAPI9KeyFactory() {
