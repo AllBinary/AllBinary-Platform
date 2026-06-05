@@ -13,25 +13,31 @@
 */
 package org.allbinary.input;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 public class AllBinarySensorManager
 {
-    public final String ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
-    public final String ORIENTATION_TYPE = "Orientation Type";
 
-    private static final AllBinarySensorManager SINGLETON = new AllBinarySensorManager();
-
-    private AllBinarySensorManager()
-    {
-    }
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
     public static AllBinarySensorManager getInstance()
     {
-        return AllBinarySensorManager.SINGLETON;
+        if(AllBinarySensorManager.instance == NullUtil.getInstance().NULL_OBJECT) {
+            AllBinarySensorManager.instance = new AllBinarySensorManager();
+        }
+        
+        return (AllBinarySensorManager) AllBinarySensorManager.instance;
     }
 
+    public final String ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
+    public final String ORIENTATION_TYPE = "Orientation Type";
+    
+    private AllBinarySensorManager()
+    {
+    }
+    
     //private final AllBinarySensor[] allBinarySensorArray = new AllBinarySensor[0];
     //public AllBinarySensor[] init()
     public void init()

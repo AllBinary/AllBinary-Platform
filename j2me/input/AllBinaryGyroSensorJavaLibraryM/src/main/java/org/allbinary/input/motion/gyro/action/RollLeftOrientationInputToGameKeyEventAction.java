@@ -17,14 +17,19 @@ package org.allbinary.input.motion.gyro.action;
 import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
 import org.allbinary.input.gyro.OrientationMotionGestureFactory;
+import org.allbinary.logic.NullUtil;
 
 public class RollLeftOrientationInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent
 {
-    private static final GameKeyCompleteMotionGestureInputEvent instance = new RollLeftOrientationInputToGameKeyEventAction();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return RollLeftOrientationInputToGameKeyEventAction.instance;
+        if(RollLeftOrientationInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
+            RollLeftOrientationInputToGameKeyEventAction.instance = new RollLeftOrientationInputToGameKeyEventAction();
+        }
+        
+        return (GameKeyCompleteMotionGestureInputEvent) RollLeftOrientationInputToGameKeyEventAction.instance;
     }
     
     private RollLeftOrientationInputToGameKeyEventAction()

@@ -14,6 +14,7 @@
 package org.allbinary.game.layer.weapon.mine;
 
 import org.allbinary.game.layer.resources.BasicGameResources;
+import org.allbinary.logic.NullUtil;
 
 /**
  *
@@ -23,11 +24,15 @@ import org.allbinary.game.layer.resources.BasicGameResources;
 public class MineWeaponResources
 extends BasicGameResources
 {
-    private static final MineWeaponResources SINGLETON = new MineWeaponResources();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static MineWeaponResources getInstance()
     {
-    	return MineWeaponResources.SINGLETON;
+        if(MineWeaponResources.instance == NullUtil.getInstance().NULL_OBJECT) {
+            MineWeaponResources.instance = new MineWeaponResources();
+        }
+        
+    	return (MineWeaponResources) MineWeaponResources.instance;
     }
 
     public final String DROP_TEXT_RESOURCE = "/mine_drop_text_20_by_20.png";

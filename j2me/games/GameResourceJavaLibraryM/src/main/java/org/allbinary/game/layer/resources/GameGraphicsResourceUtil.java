@@ -18,6 +18,7 @@ import org.allbinary.game.configuration.feature.GraphicsFeature;
 import org.allbinary.game.configuration.feature.GraphicsFeatureFactory;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -30,15 +31,20 @@ import org.allbinary.string.CommonStrings;
  */
 public class GameGraphicsResourceUtil
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final GameGraphicsResourceUtil instance = new GameGraphicsResourceUtil();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
     public static GameGraphicsResourceUtil getInstance()
     {
-        return GameGraphicsResourceUtil.instance;
+        if(GameGraphicsResourceUtil.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GameGraphicsResourceUtil.instance = new GameGraphicsResourceUtil();
+        }
+
+        return (GameGraphicsResourceUtil) GameGraphicsResourceUtil.instance;
     }
-    
+ 
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public final String SPRITE = "_sprite";
     public final String QUARTER = "_quarter";
 

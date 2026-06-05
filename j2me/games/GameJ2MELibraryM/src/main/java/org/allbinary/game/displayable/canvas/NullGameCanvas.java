@@ -20,6 +20,7 @@ import javax.microedition.lcdui.NullCommandListener;
 import org.allbinary.game.init.BasicBuildGameInitializerFactory;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.score.NoHighScoresFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -33,11 +34,16 @@ public class NullGameCanvas extends AllBinaryGameCanvas
             throw new RuntimeException();
         }
     }
-    private static final NullGameCanvas SINGLETON = NullGameCanvas.createNull();
+
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static NullGameCanvas getInstance()
     {
-        return NullGameCanvas.SINGLETON;
+        if(NullGameCanvas.instance == NullUtil.getInstance().NULL_OBJECT) {
+           NullGameCanvas.instance = NullGameCanvas.createNull();
+        }
+
+        return (NullGameCanvas) NullGameCanvas.instance;
     }
 
     public static NullGameCanvas createCanvas(
