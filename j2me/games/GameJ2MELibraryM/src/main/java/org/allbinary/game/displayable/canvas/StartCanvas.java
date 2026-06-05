@@ -137,7 +137,7 @@ public class StartCanvas extends RunnableCanvas
     //Menu
     private BasicMenuInputProcessor menuInputProcessor =
         NoMenuInputProcessor.getInstance();
-    private ScrollSelectionForm menuForm = ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM;
+    private ScrollSelectionForm menuForm = ScrollSelectionForm.getNullScrollSelectionForm();
 
     private final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface;
     private boolean initialized;

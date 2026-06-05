@@ -23,7 +23,7 @@ import org.allbinary.graphics.displayable.screen.CommandForm;
 public class SaveGameForm extends CommandForm
 {
 
-    private static CommandForm FORM = CommandForm.NULL_COMMAND_FORM;
+    private static CommandForm FORM = CommandForm.getNullCommandForm();
 
     public static CommandForm createForm(CommandListener commandListener, String title,
                                          BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)

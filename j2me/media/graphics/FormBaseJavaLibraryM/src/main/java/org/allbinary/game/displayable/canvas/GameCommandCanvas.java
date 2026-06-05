@@ -99,7 +99,7 @@ public class GameCommandCanvas
         NoMenuInputProcessor.getInstance();
     private Paintable menuPaintable = NullPaintable.getInstance();
     
-    private PaintableForm menuForm = PaintableForm.NULL_PAINTABLE_FORM;
+    private PaintableForm menuForm = PaintableForm.getNullPaintableForm();
 
     private boolean isSingleKeyRepeatableProcessing =
         Features.getInstance().isFeature(

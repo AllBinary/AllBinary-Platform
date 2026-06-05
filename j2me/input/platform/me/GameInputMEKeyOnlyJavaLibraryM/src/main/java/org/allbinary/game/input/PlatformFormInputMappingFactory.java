@@ -14,26 +14,33 @@
 package org.allbinary.game.input;
 
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class PlatformFormInputMappingFactory
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final PlatformFormInputMappingFactory instance = new PlatformFormInputMappingFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static PlatformFormInputMappingFactory getInstance() {
-        return PlatformFormInputMappingFactory.instance;
+        
+        if(PlatformFormInputMappingFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            PlatformFormInputMappingFactory.instance = new PlatformFormInputMappingFactory();
+        }
+
+        return (PlatformFormInputMappingFactory) PlatformFormInputMappingFactory.instance;
     }
     
-    private static InputToGameKeyMapping SINGLETON = InputToGameKeyMapping.getNullInstance();
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    private InputToGameKeyMapping inputToGameKeyMapping = InputToGameKeyMapping.getNullInstance();
 
     public InputToGameKeyMapping getOrCreate()
     {
         try
         {
-            if (PlatformFormInputMappingFactory.SINGLETON == InputToGameKeyMapping.getNullInstance())
+            if (this.inputToGameKeyMapping == InputToGameKeyMapping.getNullInstance())
             {
                 InputToGameKeyMapping inputToGameKeyMapping = new InputToGameKeyMapping();
 
@@ -56,7 +63,7 @@ public class PlatformFormInputMappingFactory
 
                 inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.GAME_A);
 
-                PlatformFormInputMappingFactory.SINGLETON = inputToGameKeyMapping;
+                this.inputToGameKeyMapping = inputToGameKeyMapping;
             }
         }
         catch (Exception e)
@@ -64,7 +71,7 @@ public class PlatformFormInputMappingFactory
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }
-        return PlatformFormInputMappingFactory.SINGLETON;
+        return this.inputToGameKeyMapping;
     }
 
 }

@@ -30,7 +30,7 @@ public class AdvancedRTSLayerFormFactory extends RTSLayerFormFactory
             final String label,
             final ItemArraySingletonFactoryInterface itemArrayFactoryInterface)
     {
-        ScrollSelectionForm scrollSelectionForm = ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM;
+        ScrollSelectionForm scrollSelectionForm = ScrollSelectionForm.getNullScrollSelectionForm();
         try
         {
             final ABCustomItem[] items = itemArrayFactoryInterface.getItems();

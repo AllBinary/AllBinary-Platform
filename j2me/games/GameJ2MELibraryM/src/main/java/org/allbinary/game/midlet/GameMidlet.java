@@ -162,7 +162,7 @@ public class GameMidlet extends ProgressMidlet
         //This can be used for J2ME but not BB
         //SmallIntegerSingletonFactory.getInstance().init(0x101, 6);
         //This must load after SmallIntegerSingletonFactory init for InputFactory
-        this.loadGameForm = CommandForm.NULL_COMMAND_FORM;
+        this.loadGameForm = CommandForm.getNullCommandForm();
 
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.init(this);
@@ -700,7 +700,7 @@ public class GameMidlet extends ProgressMidlet
                 keyValuePersistance.clear();
                 keyValuePersistance.loadAll(this.abeClientInformation);
 
-                if(this.getLoadGameForm() == CommandForm.NULL_COMMAND_FORM)
+                if(this.getLoadGameForm() == CommandForm.getNullCommandForm())
                 {
                     final AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
                     

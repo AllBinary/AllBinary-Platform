@@ -14,22 +14,26 @@
 package org.allbinary.input.motion.button;
 
 import org.allbinary.game.input.InputFactory;
+import org.allbinary.logic.NullUtil;
 
 public class CancelTouchButtonInputFactory
 {
-    private static final CancelTouchButtonInputFactory instance = 
-        new CancelTouchButtonInputFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
         
     public static CancelTouchButtonInputFactory getInstance()
     {
-        return CancelTouchButtonInputFactory.instance;
+        if(CancelTouchButtonInputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            CancelTouchButtonInputFactory.instance = new CancelTouchButtonInputFactory();
+        }
+
+        return (CancelTouchButtonInputFactory) CancelTouchButtonInputFactory.instance;
     }
     
     private final TouchButtonInput[] cancelInputArray = new TouchButtonInput[InputFactory.getInstance().MAX];
     
     private CancelTouchButtonInputFactory()
     {
-        BasicTouchInputFactory basicTouchInputFactory = 
+        final BasicTouchInputFactory basicTouchInputFactory = 
             BasicTouchInputFactory.getInstance();
         
         for(int index = this.cancelInputArray.length - 1; index >= 0; index--)

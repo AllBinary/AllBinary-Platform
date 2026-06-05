@@ -286,7 +286,7 @@ public class RTSLayer
 
     public ScrollSelectionForm getScrollSelectionForm()
     {
-        return ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM;
+        return ScrollSelectionForm.getNullScrollSelectionForm();
     }
     
     @Override

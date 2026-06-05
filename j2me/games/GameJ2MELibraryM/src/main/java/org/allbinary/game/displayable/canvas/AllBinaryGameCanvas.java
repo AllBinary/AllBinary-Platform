@@ -221,7 +221,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private BasicMenuInputProcessor menuInputProcessor =
         NoMenuInputProcessor.getInstance();
 
-    private ScrollSelectionForm menuForm = ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM;
+    private ScrollSelectionForm menuForm = ScrollSelectionForm.getNullScrollSelectionForm();
     private Paintable formPaintable = NullPaintable.getInstance();
     private Paintable openMenuPaintable = NullPaintable.getInstance();
     private Paintable menuPaintable = NullPaintable.getInstance();

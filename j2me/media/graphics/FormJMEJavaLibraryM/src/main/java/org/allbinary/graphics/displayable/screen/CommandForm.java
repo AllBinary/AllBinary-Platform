@@ -25,6 +25,7 @@ import org.allbinary.game.displayable.canvas.MenuListener;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
@@ -32,9 +33,17 @@ import org.allbinary.string.CommonStrings;
 public class CommandForm extends Form
         implements MyCommandInterface, MenuListener
 {
-    public static final CommandForm NULL_COMMAND_FORM = new CommandForm(
-        NullCommandListener.NULL_COMMAND_LISTENER, StringUtil.getInstance().EMPTY_STRING,
-           BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
+    private static Object NULL_COMMAND_FORM = NullUtil.getInstance().NULL_OBJECT;
+    public static CommandForm getNullCommandForm() {
+        
+        if(CommandForm.NULL_COMMAND_FORM == NullUtil.getInstance().NULL_OBJECT) {
+            CommandForm.NULL_COMMAND_FORM = new CommandForm(
+                NullCommandListener.NULL_COMMAND_LISTENER, StringUtil.getInstance().EMPTY_STRING,
+                BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
+        }
+
+        return (CommandForm) CommandForm.NULL_COMMAND_FORM;
+    }
 
     protected final LogUtil logUtil = LogUtil.getInstance();
 

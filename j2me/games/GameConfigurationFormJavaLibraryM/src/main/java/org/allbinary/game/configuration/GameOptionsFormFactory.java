@@ -54,7 +54,7 @@ public class GameOptionsFormFactory
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
-            return CommandForm.NULL_COMMAND_FORM;
+            return CommandForm.getNullCommandForm();
         }
 
         //return SINGLETON;

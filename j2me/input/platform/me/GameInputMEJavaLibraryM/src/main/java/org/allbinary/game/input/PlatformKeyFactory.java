@@ -13,17 +13,23 @@
 */
 package org.allbinary.game.input;
 
+import org.allbinary.logic.NullUtil;
+
 /**
  *
  * @author user
  */
 public class PlatformKeyFactory {
 
-    private static final PlatformKeyFactory SINGLETON = new PlatformKeyFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
     public static PlatformKeyFactory getInstance()
     {
-        return PlatformKeyFactory.SINGLETON;
+        if(PlatformKeyFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            PlatformKeyFactory.instance = new PlatformKeyFactory();
+        }
+
+        return (PlatformKeyFactory) PlatformKeyFactory.instance;
     }
     
     public String getString(int keyCode)

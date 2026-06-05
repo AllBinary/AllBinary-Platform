@@ -31,14 +31,14 @@ public class InGameOptionsFormFactory
         return InGameOptionsFormFactory.instance;
     }
 
-    private CommandForm SINGLETON = CommandForm.NULL_COMMAND_FORM;
+    private CommandForm SINGLETON = CommandForm.getNullCommandForm();
 
     public void init(CommandListener commandListener, Init initInterface, String title,
             BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
     {
         try
         {
-            if (this.SINGLETON == CommandForm.NULL_COMMAND_FORM)
+            if (this.SINGLETON == CommandForm.getNullCommandForm())
             {
                 initInterface.init();
                 this.SINGLETON = new InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);

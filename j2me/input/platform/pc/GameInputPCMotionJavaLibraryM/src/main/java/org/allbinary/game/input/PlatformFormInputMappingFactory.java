@@ -15,26 +15,33 @@ package org.allbinary.game.input;
 
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class PlatformFormInputMappingFactory
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final PlatformFormInputMappingFactory instance = new PlatformFormInputMappingFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static PlatformFormInputMappingFactory getInstance() {
-        return PlatformFormInputMappingFactory.instance;
+        
+        if(PlatformFormInputMappingFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            PlatformFormInputMappingFactory.instance = new PlatformFormInputMappingFactory();
+        }
+
+        return (PlatformFormInputMappingFactory) PlatformFormInputMappingFactory.instance;
     }
+ 
+    protected final LogUtil logUtil = LogUtil.getInstance();
     
-    private InputToGameKeyMapping SINGLETON = InputToGameKeyMapping.getNullInstance();
+    private InputToGameKeyMapping inputToGameKeyMapping = InputToGameKeyMapping.getNullInstance();
 
     public InputToGameKeyMapping getOrCreate()
     {
         try
         {
-            if (this.SINGLETON == InputToGameKeyMapping.getNullInstance())
+            if (this.inputToGameKeyMapping == InputToGameKeyMapping.getNullInstance())
             {
                 PCKeyFactory pcKeyFactory = PCKeyFactory.getInstance();
 
@@ -57,7 +64,7 @@ public class PlatformFormInputMappingFactory
                 inputToGameKeyMapping.add(gameKeyFactory.RIGHT, basicTouchInputFactory.RIGHT);
                 inputToGameKeyMapping.add(gameKeyFactory.DOWN, basicTouchInputFactory.DOWN);
                 
-                this.SINGLETON = inputToGameKeyMapping;
+                this.inputToGameKeyMapping = inputToGameKeyMapping;
             }
         }
         catch (Exception e)
@@ -65,7 +72,7 @@ public class PlatformFormInputMappingFactory
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }
-        return this.SINGLETON;
+        return this.inputToGameKeyMapping;
     }
 
 }

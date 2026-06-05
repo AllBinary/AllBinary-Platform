@@ -7,15 +7,25 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.form.item.ABCustomItem;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;
 
 public class PaintableForm extends ABCustomForm
 {
-    public static final PaintableForm NULL_PAINTABLE_FORM = new PaintableForm(
-    StringUtil.getInstance().EMPTY_STRING, new ABCustomItem[0], RectangleFactory.SINGLETON, 
-        FormTypeFactory.getInstance().NULL_FORM_TYPE, 
-        BasicColorFactory.getInstance().BLACK, 
-        BasicColorFactory.getInstance().WHITE);
+    private static Object NULL_PAINTABLE_FORM = NullUtil.getInstance().NULL_OBJECT;
+    public static PaintableForm getNullPaintableForm() {
+        
+        if(PaintableForm.NULL_PAINTABLE_FORM == NullUtil.getInstance().NULL_OBJECT) {
+            PaintableForm.NULL_PAINTABLE_FORM = new PaintableForm(
+                StringUtil.getInstance().EMPTY_STRING, 
+                new ABCustomItem[0], RectangleFactory.SINGLETON, 
+                FormTypeFactory.getInstance().NULL_FORM_TYPE, 
+                BasicColorFactory.getInstance().BLACK, 
+                BasicColorFactory.getInstance().WHITE);
+        }
+        
+        return (PaintableForm) PaintableForm.NULL_PAINTABLE_FORM;
+    }
 
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
     

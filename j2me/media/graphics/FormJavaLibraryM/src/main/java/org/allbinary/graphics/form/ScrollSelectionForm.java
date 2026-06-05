@@ -22,6 +22,7 @@ import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.ABCustomItem;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.RectangleCollisionUtil;
@@ -48,16 +49,34 @@ public class ScrollSelectionForm extends PaintableForm
         }
 
     }
-    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_FORM = ScrollSelectionForm.createForm(StringUtil.getInstance().EMPTY_STRING, new ABCustomItem[0], ItemPaintableFactory.getInstance(), RectangleFactory.SINGLETON, FormTypeFactory.getInstance().NULL_FORM_TYPE, 0,
-            BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
-    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_HORIZONTAL_FORM = ScrollSelectionForm.createForm(StringUtil.getInstance().EMPTY_STRING,
-            new ABCustomItem[0],
-            ItemPaintableFactory.getInstance(),
-            RectangleFactory.SINGLETON,
-            FormTypeFactory.getInstance().HORIZONTAL_FORM, 0,
-            BasicColorFactory.getInstance().BLACK,
-            BasicColorFactory.getInstance().WHITE
-    );
+    private static Object NULL_SCROLL_SELECTION_FORM = NullUtil.getInstance().NULL_OBJECT;
+    public static ScrollSelectionForm getNullScrollSelectionForm() {
+        
+        if(ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM == NullUtil.getInstance().NULL_OBJECT) {
+            ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM = ScrollSelectionForm.createForm(StringUtil.getInstance().EMPTY_STRING, 
+                new ABCustomItem[0], ItemPaintableFactory.getInstance(), RectangleFactory.SINGLETON, 
+                FormTypeFactory.getInstance().NULL_FORM_TYPE, 0,BasicColorFactory.getInstance().BLACK, 
+                BasicColorFactory.getInstance().WHITE);
+        }
+
+        return (ScrollSelectionForm) ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM;
+    }
+    
+    private static Object NULL_SCROLL_SELECTION_HORIZONTAL_FORM = NullUtil.getInstance().NULL_OBJECT;
+    public static ScrollSelectionForm getNullScrollSelectionFormHorizontal() {
+        
+        if(ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM == NullUtil.getInstance().NULL_OBJECT) {
+            ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM = ScrollSelectionForm.createForm(StringUtil.getInstance().EMPTY_STRING,
+                new ABCustomItem[0],
+                ItemPaintableFactory.getInstance(),
+                RectangleFactory.SINGLETON,
+                FormTypeFactory.getInstance().HORIZONTAL_FORM, 0,
+                BasicColorFactory.getInstance().BLACK,
+                BasicColorFactory.getInstance().WHITE);
+        }
+
+        return (ScrollSelectionForm) ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM;
+    }
 
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     
