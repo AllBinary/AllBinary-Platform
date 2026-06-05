@@ -22,6 +22,7 @@ import org.allbinary.game.input.InputPersistance;
 import org.allbinary.game.input.mapping.event.InputMappingEvent;
 import org.allbinary.game.input.mapping.event.InputMappingEventListenerInterface;
 import org.allbinary.game.input.mapping.event.NullInputMappingEventListener;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -33,7 +34,16 @@ import org.allbinary.util.EnumerationUtil;
 //GameInputNoPersistanceLibrary
 public class PersistentInputMapping
 {
-    public static final PersistentInputMapping NULL_PERSISTENT_INPUT_MAPPING = new PersistentInputMapping(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
+    public static Object instance = NullUtil.getInstance().NULL_OBJECT;
+    
+    public static PersistentInputMapping getNullInstance() {
+        
+        if(PersistentInputMapping.instance == NullUtil.getInstance().NULL_OBJECT) {
+            PersistentInputMapping.instance = new PersistentInputMapping(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
+        }
+
+        return (PersistentInputMapping) PersistentInputMapping.instance;
+    }
     
     protected final LogUtil logUtil = LogUtil.getInstance();
 

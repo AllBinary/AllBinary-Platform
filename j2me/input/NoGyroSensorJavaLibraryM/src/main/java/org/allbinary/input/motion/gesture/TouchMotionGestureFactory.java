@@ -14,14 +14,19 @@
 package org.allbinary.input.motion.gesture;
 
 import org.allbinary.game.input.InputFactory;
+import org.allbinary.logic.NullUtil;
 
 public class TouchMotionGestureFactory
 {
-    private static final TouchMotionGestureFactory MOTION = new TouchMotionGestureFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static final TouchMotionGestureFactory getInstance()
     {
-        return TouchMotionGestureFactory.MOTION;
+        if(TouchMotionGestureFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            TouchMotionGestureFactory.instance = new TouchMotionGestureFactory();
+        }
+        
+        return (TouchMotionGestureFactory) TouchMotionGestureFactory.instance;
     }
 
     public final MotionGestureInput LEFT;

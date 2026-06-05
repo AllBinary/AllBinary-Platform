@@ -16,14 +16,19 @@ package org.allbinary.input.motion.touch.action;
 import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+import org.allbinary.logic.NullUtil;
 
 public class DiagonalDownRightTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent
 {
-    private static final GameKeyCompleteMotionGestureInputEvent SINGLETON = new DiagonalDownRightTouchInputToGameKeyEventAction();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return DiagonalDownRightTouchInputToGameKeyEventAction.SINGLETON;
+        if(DiagonalDownRightTouchInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
+            DiagonalDownRightTouchInputToGameKeyEventAction.instance = new DiagonalDownRightTouchInputToGameKeyEventAction();
+        }
+
+        return (GameKeyCompleteMotionGestureInputEvent) DiagonalDownRightTouchInputToGameKeyEventAction.instance;
     }
 
     private DiagonalDownRightTouchInputToGameKeyEventAction()

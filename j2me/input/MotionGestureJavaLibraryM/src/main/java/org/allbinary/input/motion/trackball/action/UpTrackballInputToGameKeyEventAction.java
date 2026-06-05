@@ -16,14 +16,19 @@ package org.allbinary.input.motion.trackball.action;
 import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
 import org.allbinary.input.motion.gesture.TrackballMotionGestureFactory;
+import org.allbinary.logic.NullUtil;
 
 public class UpTrackballInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent
 {
-    private static final GameKeyCompleteMotionGestureInputEvent SINGLETON = new UpTrackballInputToGameKeyEventAction();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return UpTrackballInputToGameKeyEventAction.SINGLETON;
+        if(UpTrackballInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
+            UpTrackballInputToGameKeyEventAction.instance = new UpTrackballInputToGameKeyEventAction();
+        }
+        
+        return (GameKeyCompleteMotionGestureInputEvent) UpTrackballInputToGameKeyEventAction.instance;
     }
 
     private UpTrackballInputToGameKeyEventAction()

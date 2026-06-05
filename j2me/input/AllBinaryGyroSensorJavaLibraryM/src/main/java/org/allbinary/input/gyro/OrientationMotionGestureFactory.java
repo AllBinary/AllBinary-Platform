@@ -16,14 +16,19 @@ package org.allbinary.input.gyro;
 
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
+import org.allbinary.logic.NullUtil;
 
 public class OrientationMotionGestureFactory
 {
-    private static final OrientationMotionGestureFactory instance = new OrientationMotionGestureFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
     public static final OrientationMotionGestureFactory getInstance()
     {
-        return OrientationMotionGestureFactory.instance;
+        if(OrientationMotionGestureFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            OrientationMotionGestureFactory.instance = new OrientationMotionGestureFactory();
+        }
+        
+        return (OrientationMotionGestureFactory) OrientationMotionGestureFactory.instance;
     }
 
     public final MotionGestureInput LEFT;

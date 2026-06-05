@@ -19,16 +19,20 @@ import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.string.CommonStrings;
 
 public class ReleaseTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent
 {
-
-    private static final GameKeyCompleteMotionGestureInputEvent SINGLETON = new ReleaseTouchInputToGameKeyEventAction();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return ReleaseTouchInputToGameKeyEventAction.SINGLETON;
+        if(ReleaseTouchInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
+            ReleaseTouchInputToGameKeyEventAction.instance = new ReleaseTouchInputToGameKeyEventAction();
+        }
+        
+        return (GameKeyCompleteMotionGestureInputEvent) ReleaseTouchInputToGameKeyEventAction.instance;
     }
     
     private final GameKey NONE = GameKeyFactory.getInstance().NONE;

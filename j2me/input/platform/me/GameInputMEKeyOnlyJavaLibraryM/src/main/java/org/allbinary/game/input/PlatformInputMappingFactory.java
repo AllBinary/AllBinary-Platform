@@ -19,7 +19,6 @@ import org.allbinary.string.CommonStrings;
 
 public class PlatformInputMappingFactory
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final PlatformInputMappingFactory instance = new PlatformInputMappingFactory();
 
@@ -28,21 +27,23 @@ public class PlatformInputMappingFactory
         return PlatformInputMappingFactory.instance;
     }
 
-    private PersistentInputMapping SINGLETON = PersistentInputMapping.NULL_PERSISTENT_INPUT_MAPPING;
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    private PersistentInputMapping inputToGameKeyMapping = PersistentInputMapping.getNullInstance();
 
     public PersistentInputMapping getPersistentInputMappingInstance()
     {
         try
         {
-            if (this.SINGLETON == PersistentInputMapping.NULL_PERSISTENT_INPUT_MAPPING)
+            if (this.inputToGameKeyMapping == PersistentInputMapping.getNullInstance())
             {
-                this.SINGLETON = new NormalJ2MEGameInputMapping();
+                this.inputToGameKeyMapping = new NormalJ2MEGameInputMapping();
             }
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }
-        return this.SINGLETON;
+        return this.inputToGameKeyMapping;
     }
 }

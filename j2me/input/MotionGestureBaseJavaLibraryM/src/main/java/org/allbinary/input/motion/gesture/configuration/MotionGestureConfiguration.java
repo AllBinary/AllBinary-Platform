@@ -17,12 +17,15 @@ import org.allbinary.game.input.CompleteMotionGestureInputEvent;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.input.motion.gesture.MotionGestureToMotionGestureActionAssociation;
+import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 public class MotionGestureConfiguration
 {
+//    public static final CompleteMotionGestureInputEvent NULL_COMPLETE_MOTION_GESTURE_INPUT_EVENT = new CompleteMotionGestureInputEvent(StringUtil.getInstance().EMPTY_STRING, TouchMotionGestureFactory.getInstance().NO_MOTION);
+    
     private boolean diagonalMotionGestureAllowed = true;
     private int diagonalTolerance = 7;
     private int minimumMotionGesture = 9;
@@ -37,12 +40,12 @@ public class MotionGestureConfiguration
     public MotionGestureConfiguration() {
     }
 
-    public CompleteMotionGestureInputEvent getMotionGestureAction(int index) {
-        if (index >= this.activeCommands.size()) {
-            return CompleteMotionGestureInputEvent.NULL_COMPLETE_MOTION_GESTURE_INPUT_EVENT;
-        }
-        return (CompleteMotionGestureInputEvent) this.activeCommands.objectArray[index];
-    }
+//    public CompleteMotionGestureInputEvent getMotionGestureAction(int index) {
+//        if (index >= this.activeCommands.size()) {
+//            return MotionGestureConfiguration.NULL_COMPLETE_MOTION_GESTURE_INPUT_EVENT;
+//        }
+//        return (CompleteMotionGestureInputEvent) this.activeCommands.objectArray[index];
+//    }
     
     public void addMotionGestureAction(BasicArrayList list, CompleteMotionGestureInputEvent commandAction) {
         this.activeCommands.add(new MotionGestureToMotionGestureActionAssociation(list, commandAction));
