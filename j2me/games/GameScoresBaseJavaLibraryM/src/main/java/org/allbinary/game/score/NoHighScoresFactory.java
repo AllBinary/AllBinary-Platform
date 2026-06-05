@@ -43,7 +43,7 @@ public class NoHighScoresFactory extends HighScoresBase
     }
     
     @Override
-    public HighScoresHelperBase createHighScoresHelper() {
+    public HighScoresResultsListener createHighScoresHelper() {
         return new HighScoresHelperBase();
     }
 

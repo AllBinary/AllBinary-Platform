@@ -101,7 +101,7 @@ public class BasicHighScoresFactory extends HighScoresBase
         
     }
     
-    public HighScoresHelperBase createHighScoresHelper() {
+    public HighScoresResultsListener createHighScoresHelper() {
         return new HighScoresHelper2();
     }
 

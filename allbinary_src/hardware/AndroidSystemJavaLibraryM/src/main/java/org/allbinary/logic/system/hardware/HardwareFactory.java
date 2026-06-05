@@ -41,7 +41,11 @@ public class HardwareFactory
     {
         try
         {
-            if (this.tsUtil.compareTo(os.getName(), OperatingSystems.getInstance().ANDROID) == 0)
+            final OperatingSystems operatingSystems = OperatingSystems.getInstance();
+            if (this.tsUtil.compareTo(os.getName(), operatingSystems.ANDROID) == 0)
+            {
+                return new AndroidHardware();
+            } else if (this.tsUtil.compareTo(os.getName(), operatingSystems.HARMONY) == 0)
             {
                 return new AndroidHardware();
             }

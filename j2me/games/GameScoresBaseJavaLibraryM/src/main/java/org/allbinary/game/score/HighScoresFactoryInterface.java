@@ -19,5 +19,5 @@ public interface HighScoresFactoryInterface
 {
     void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener);
     void fetchHighScoresPreload(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload);
-    HighScoresHelperBase createHighScoresHelper();
+    HighScoresResultsListener createHighScoresHelper();
 }

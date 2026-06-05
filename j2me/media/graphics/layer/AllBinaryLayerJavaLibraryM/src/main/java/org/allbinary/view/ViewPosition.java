@@ -77,9 +77,10 @@ public class ViewPosition extends ViewPositionBase {
      * private AllBinaryLayer getAllbinaryLayer() { return allbinaryLayer; }
      */
 
-    public void setAllbinaryLayer(AllBinaryLayer allbinaryLayer)
+    @Override
+    public void setAllbinaryLayer(Object allbinaryLayer)
     {
-        this.allbinaryLayer = allbinaryLayer;
+        this.allbinaryLayer = (AllBinaryLayer) /*TS as unknown*/ allbinaryLayer;
     }
     
 }

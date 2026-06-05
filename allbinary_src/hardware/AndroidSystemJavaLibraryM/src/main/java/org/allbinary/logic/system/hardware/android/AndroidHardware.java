@@ -122,19 +122,22 @@ public class AndroidHardware implements HardwareInterface
 
     public String toString()
     {
-        final StringMaker hardwareBuffer = new StringMaker();
+        final StringMaker stringBuilder = new StringMaker();
         
         final int size = this.componentInterfaceVector.size();
-        
+
+        //stringBuilder.append("total components: ");
+        //stringBuilder.appendint(size);
+
         for (int index = 0; index < size; index++)
         {
             HardwareComponentInterface componentInterface = (HardwareComponentInterface) 
                 this.componentInterfaceVector.get(index);
 
-            hardwareBuffer.append(componentInterface.toString());
-            hardwareBuffer.append(CommonSeps.getInstance().NEW_LINE);
+            stringBuilder.append(componentInterface.toString());
+            stringBuilder.append(CommonSeps.getInstance().NEW_LINE);
         }
-        return hardwareBuffer.toString();
+        return stringBuilder.toString();
     }
 
     @Override

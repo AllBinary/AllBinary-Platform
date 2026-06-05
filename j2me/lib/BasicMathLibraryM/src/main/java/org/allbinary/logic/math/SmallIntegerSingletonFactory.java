@@ -13,6 +13,9 @@
 */
 package org.allbinary.logic.math;
 
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
+
 public class SmallIntegerSingletonFactory
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -57,7 +60,9 @@ public class SmallIntegerSingletonFactory
             this.lastNegativeMin = negativeValue;
             //MIN = negativeValue;
         }
-        //this.logUtil.putF("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
+
+        //final LogUtil logUtil = LogUtil.getInstance();
+        //logUtil.putF("? " + this.INTEGER_ARRAY[5], this, "?????????");
     }
 
     public void init()
@@ -74,10 +79,11 @@ public class SmallIntegerSingletonFactory
                 this.INTEGER_ARRAY[index] = new Integer(-index);
             }
 
-            //this.logUtil.putF("? " + NEGATIVE_INTEGER_ARRAY[5], CommonPhoneStrings.getInstance().TWO, "?????????");
-
             this.lastMin = this.POSITIVE_MAX;
             this.lastNegativeMin = this.NEGATIVE_MAX;
+
+            //final LogUtil logUtil = LogUtil.getInstance();
+            //logUtil.putF("? " + this.INTEGER_ARRAY[5], this, "?????????");            
         }
     }
 

@@ -66,7 +66,7 @@ implements LayerInterface
 
         this.viewPosition = viewPosition;
 
-        ((ViewPosition) this.viewPosition).setAllbinaryLayer(this);
+        this.viewPosition.setAllbinaryLayer(this);
     }
 
     public void onChangeEvent(final ViewPositionEvent layerManagerEvent)

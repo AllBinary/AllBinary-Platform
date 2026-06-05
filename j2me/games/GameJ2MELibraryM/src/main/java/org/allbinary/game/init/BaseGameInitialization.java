@@ -30,6 +30,7 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.image.GameFeatureImageCacheFactory;
 import org.allbinary.input.motion.CompleteMotionGestureInputToGameMotionGestureInput;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
+import org.allbinary.input.motion.button.CancelTouchButtonInputFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class BaseGameInitialization implements GameInitializationInterface
@@ -107,6 +108,8 @@ public class BaseGameInitialization implements GameInitializationInterface
             // after canvas start
             BasicTouchInputFactory.getInstance().init(
                     PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
+            //TWB - do not remove and must be after BasicTouchInputFactory init
+            CancelTouchButtonInputFactory.getInstance();
             progressCanvas.addNormalPortion(localPortion, "Touch Input");
 
             CompleteMotionGestureInputToGameMotionGestureInput.getInstance().init();

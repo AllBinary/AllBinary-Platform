@@ -39,4 +39,8 @@ public class ViewPositionBase extends GPoint
         return this.getZ();
     }
     
+    public void setAllbinaryLayer(Object allbinaryLayer)
+    {
+    }
+    
 }

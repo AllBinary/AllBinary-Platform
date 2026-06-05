@@ -106,8 +106,6 @@ public class BasicTouchInputFactory
             this.list.add(this.SPECIAL_BUTTON_SEVEN_TESTING_ONLY);
             this.list.add(this.SPECIAL_BUTTON_EIGHT_TESTING_ONLY);
             this.updateAllFromList(this.list, inputToGameKeyMapping);
-
-            CancelTouchButtonInputFactory.getInstance();
         }
     }
 
