@@ -21,7 +21,7 @@ import org.allbinary.string.CommonStrings;
  *
  * @author User
  */
-public class HighScoresHelperBase implements HighScoresResultsListener {
+public class HighScoresHelperBase implements HighScoresHelperBaseInterface {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected HighScores[] highScoresArrayP = 

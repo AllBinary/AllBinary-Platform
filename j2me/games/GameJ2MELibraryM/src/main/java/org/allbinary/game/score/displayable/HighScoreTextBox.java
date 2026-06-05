@@ -21,8 +21,8 @@ import javax.microedition.lcdui.TextField;
 import org.allbinary.PostGameCommandFactory;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.score.HighScore;
+import org.allbinary.game.score.HighScoresHelperBaseInterface;
 import org.allbinary.game.score.HighScoresFactoryInterface;
-import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.CustomTextBox;
@@ -30,7 +30,6 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
@@ -54,9 +53,9 @@ public class HighScoreTextBox extends CustomTextBox
 
     public boolean submitted = false;
     
-    public HighScoreTextBox(final HighScoresFactoryInterface highScoresFactoryInterface, final HighScoresHelperBase highScoresHelper, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, 
-        final CommandListener cmdListener, final String name, final HighScore highScore,
-        final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor) throws Exception
+    public HighScoreTextBox(final HighScoresFactoryInterface highScoresFactoryInterface, final HighScoresHelperBaseInterface highScoresHelper, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo,
+                            final CommandListener cmdListener, final String name, final HighScore highScore,
+                            final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor) throws Exception
     {
         super(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY,
                 Font.getDefaultFont(), backgrounBasicColor, foregroundBasicColor);

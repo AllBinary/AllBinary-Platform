@@ -21,7 +21,7 @@ import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScoreNamePersistanceSingleton;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresFactoryInterface;
-import org.allbinary.game.score.HighScoresHelperBase;
+import org.allbinary.game.score.HighScoresHelperBaseInterface;
 import org.allbinary.game.score.HighScoresResultsListener;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -46,11 +46,11 @@ public class HighScoreUtil implements HighScoresResultsListener
     private final AbeClientInformationInterface abeClientInformation;
     private final GameInfo gameInfo;
     
-    private final HighScoresHelperBase highScoresHelper;
+    private final HighScoresHelperBaseInterface highScoresHelper;
     
     private boolean firstTime = true;
     
-    public HighScoreUtil(final HighScoresFactoryInterface highScoresFactoryInterface, final HighScoresHelperBase highScoresHelper, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, 
+    public HighScoreUtil(final HighScoresFactoryInterface highScoresFactoryInterface, final HighScoresHelperBaseInterface highScoresHelper, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, 
         final CommandListener cmdListener, final String name, final HighScore highScore) throws Exception
     {
         this.highScoresFactoryInterface = highScoresFactoryInterface;

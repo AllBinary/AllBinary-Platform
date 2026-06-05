@@ -15,6 +15,7 @@ package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.score.HighScores;
+import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.graphics.paint.NullPaintable;
 
@@ -42,9 +43,10 @@ public class EndGameProcessor extends Processor
             {
                 if (this.gameCanvas.getGameState() == AllBinaryGameCanvas.SHOW_END_RESULT_GAME_STATE)
                 {
-                    final HighScores highScores = this.gameCanvas.highScoresHelper.getSelectedHighScores();
+                    final HighScoresHelperBase highScoresBase = (HighScoresHelperBase) this.gameCanvas.highScoresHelper;
+                    final HighScores highScores = highScoresBase.getSelectedHighScores();
                     if(highScores != NullHighScoresSingletonFactory.getInstance()) {
-                        this.gameCanvas.highScoresHelper.selectHighScores();
+                        highScoresBase.selectHighScores();
                         this.gameCanvas.getRealHighScoresPaintable().setHighScores(highScores);
                         this.gameCanvas.setGameState(AllBinaryGameCanvas.SHOW_HIGH_SCORE_GAME_STATE);
                         this.gameCanvas.setHighScoresPaintable(this.gameCanvas.getRealHighScoresPaintable());

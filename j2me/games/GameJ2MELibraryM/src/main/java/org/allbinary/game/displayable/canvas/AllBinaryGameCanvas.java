@@ -68,8 +68,8 @@ import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.game.score.HighScore;
+import org.allbinary.game.score.HighScoresHelperBaseInterface;
 import org.allbinary.game.score.HighScoresFactoryInterface;
-import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresPaintable;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.game.score.displayable.HighScoreTextBox;
@@ -182,7 +182,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final TimeDelayHelper gameStateTimeHelper = new TimeDelayHelper(0);
 
     // high score vars
-    protected final HighScoresHelperBase highScoresHelper;
+    protected final HighScoresHelperBaseInterface highScoresHelper;
     private boolean highScoreSubmitted;
     private final HighScoresPaintable realHighScoresPaintable = new HighScoresPaintable();
     private Paintable highScoresPaintable = NullPaintable.getInstance();

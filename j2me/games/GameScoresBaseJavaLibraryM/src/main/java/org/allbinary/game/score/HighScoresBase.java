@@ -38,7 +38,7 @@ public class HighScoresBase implements HighScoresFactoryInterface
     }
     
     @Override
-    public HighScoresResultsListener createHighScoresHelper() {
+    public HighScoresHelperBaseInterface createHighScoresHelper() {
         throw new RuntimeException();
     }
 

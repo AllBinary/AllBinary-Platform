@@ -51,7 +51,7 @@ public class BasicHighScoresFactory extends HighScoresBase
     }
     
     @Override
-    public HighScoresResultsListener createHighScoresHelper() {
+    public HighScoresHelperBaseInterface createHighScoresHelper() {
         return new HighScoresHelper2();
     }
 
