@@ -27,7 +27,7 @@ public class HighScoresHelperBase implements HighScoresHelperBaseInterface {
     protected HighScores[] highScoresArrayP = 
         LastFetchHighScoresFactory.getInstance().highScoresArray;
 
-    @Override    
+    @Override
     public void setHighScoresArray(final HighScores[] highScoresArrayP)
     {
         if (highScoresArrayP != null) {
@@ -50,6 +50,7 @@ public class HighScoresHelperBase implements HighScoresHelperBaseInterface {
         throw new RuntimeException();
     }
 
+    @Override
     public void setSelectedHighScores(final HighScores selectedHighScores)
     {
     }
@@ -59,6 +60,7 @@ public class HighScoresHelperBase implements HighScoresHelperBaseInterface {
         return NullHighScoresSingletonFactory.getInstance();
     }
     
+    @Override
     public HighScores[] getHighScoresArray()
     {
         return this.highScoresArrayP;
