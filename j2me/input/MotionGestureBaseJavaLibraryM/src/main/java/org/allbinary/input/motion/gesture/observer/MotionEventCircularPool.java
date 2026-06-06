@@ -25,10 +25,10 @@ public class MotionEventCircularPool {
         return new MotionEventCircularPool(id);
     }
     
-    private static final int MIN = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
+    private final int MIN = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
     
     private AllBinaryEventCircularPool eventPool = 
-        new AllBinaryEventCircularPool((InputFactory.getInstance().MAX - 1) - MotionEventCircularPool.MIN);
+        new AllBinaryEventCircularPool((InputFactory.getInstance().MAX - 1) - this.MIN);
 
     private MotionEventCircularPool(int id)
     {
@@ -38,6 +38,6 @@ public class MotionEventCircularPool {
     public synchronized MotionGestureEvent getInstance(MotionGestureInput motionGestureInput)
           throws Exception
     {
-        return (MotionGestureEvent) this.eventPool.getInstance(motionGestureInput.getId() - MotionEventCircularPool.MIN);
+        return (MotionGestureEvent) this.eventPool.getInstance(motionGestureInput.getId() - this.MIN);
     }
 }

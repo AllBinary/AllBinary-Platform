@@ -162,13 +162,12 @@ public class GameConfigurationCentral
         {
             final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
             
-            KeyValuePersistance keyValuePersistance = 
-                GameConfigurationPersistanceSingleton.getInstance();
+            final KeyValuePersistance keyValuePersistance = GameConfigurationPersistanceSingleton.getInstance();
 
             keyValuePersistance.clear();
             keyValuePersistance.loadAll(abeClientInformation);
 
-            BasicArrayList list = keyValuePersistance.getIds();
+            final BasicArrayList list = keyValuePersistance.getIds();
 
             if (list.size() > 0)
             {

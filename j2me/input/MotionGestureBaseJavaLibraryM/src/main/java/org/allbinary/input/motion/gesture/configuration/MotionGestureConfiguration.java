@@ -17,7 +17,6 @@ import org.allbinary.game.input.CompleteMotionGestureInputEvent;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.input.motion.gesture.MotionGestureToMotionGestureActionAssociation;
-import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;

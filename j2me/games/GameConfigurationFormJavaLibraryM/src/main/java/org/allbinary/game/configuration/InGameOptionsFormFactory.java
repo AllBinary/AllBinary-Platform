@@ -18,6 +18,7 @@ import javax.microedition.lcdui.CommandListener;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.init.Init;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -25,10 +26,15 @@ public class InGameOptionsFormFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final InGameOptionsFormFactory instance = new InGameOptionsFormFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
     public static InGameOptionsFormFactory getInstance() {
-        return InGameOptionsFormFactory.instance;
+
+        if(InGameOptionsFormFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            InGameOptionsFormFactory.instance = new InGameOptionsFormFactory();
+        }
+
+        return (InGameOptionsFormFactory) InGameOptionsFormFactory.instance;
     }
 
     private CommandForm SINGLETON = CommandForm.getNullCommandForm();
