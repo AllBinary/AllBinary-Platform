@@ -18,7 +18,7 @@ The AllBinary Platform represents more than 10 years of development and > 1 mill
 
 ### What is the goal?
 
-The goal of the AllBinary Platform is to create a Self Replicating Robot Army  dedicated to protecting, building, and maintaining space ships to escape the  tyrants of Earth.  While this may seem ludicrous or redicoulos it really is the goal.  Reducing the cost of UI development is current task towards that goal.
+The goal of the AllBinary Platform is to create a Self Replicating Robot Army  dedicated to protecting, building, and maintaining space ships to escape the  tyrants of Earth.  While this may seem ludicrous or ridiculous it really is the goal.  Reducing the cost of UI development is current task towards that goal.
 
 ### Where is the License?
 
@@ -192,7 +192,7 @@ The main goal of AllBinary InputAutomationTool Solution is to help reduce manual
 
 What is the planned future Implementation for the AllBinary Platform?
 
-Add TypeScript implementation from the Java code just like the Kotlin builds.
+Add Typescript implementation from the Java code just like the Kotlin builds.
 
 Better integration with GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
 
@@ -208,7 +208,7 @@ Open Robots Integration, 3D Printer Integration, and Resource Collection API - R
 
 * MMORTS - For the control of robots based on the ZeptoWars RTS and Multi-player games
 * Resource Collection API
-* 3D Printer integration (preferrably the RepRap 3D printer or better
+* 3D Printer integration (preferably the RepRap 3D printer or better
 * Convert existing Open Robots for the 3D printer integration
 * Convert existing Open Resource Machines for the 3D Printer integration - mainly smelting, ore separation, extrusion material formation, and the like
 
