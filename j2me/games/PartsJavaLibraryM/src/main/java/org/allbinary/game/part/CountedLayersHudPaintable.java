@@ -28,8 +28,7 @@ import org.allbinary.layer.AllBinaryLayer;
 public class CountedLayersHudPaintable implements PaintableInterface
 {
 
-   private static final String XXString = "XX";
-   private static final int XXStringWidth = MyFont.getInstance().stringWidth(CountedLayersHudPaintable.XXString);
+   private static int XXStringWidth = 0;
 
    private final MyFont myFont = MyFont.getInstance();
    
@@ -50,6 +49,12 @@ public class CountedLayersHudPaintable implements PaintableInterface
       this.countedPartsBorder = countedPartsBorder;
       
       this.dropSize = dropSize;
+      
+      if(CountedLayersHudPaintable.XXStringWidth == 0) {
+          final String XXString = "XX";
+          CountedLayersHudPaintable.XXStringWidth = MyFont.getInstance().stringWidth(XXString);
+      }
+
    }
    
    @Override

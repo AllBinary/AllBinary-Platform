@@ -22,6 +22,7 @@ import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.game.layer.NullPathFindingLayer;
 import org.allbinary.game.layer.PathFindingLayerInterface;
 import org.allbinary.game.layer.hud.basic.NumberStringHud;
+import org.allbinary.game.layer.hud.basic.NumberStringHudFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.math.MathUtil;
@@ -51,10 +52,11 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
 
     private BuildingInfoHudPaintable() {
         
-        NumberStringHud productivityHud = NumberStringHud.NULL_NUMBER_STRING_HUD;
-        NumberStringHud efficiencyHud = NumberStringHud.NULL_NUMBER_STRING_HUD;
-        NumberStringHud healthHud = NumberStringHud.NULL_NUMBER_STRING_HUD;
-        NumberStringHud maxHealthHud = NumberStringHud.NULL_NUMBER_STRING_HUD;
+        final NumberStringHudFactory numberStringHudFactory = NumberStringHudFactory.getInstance();
+        NumberStringHud productivityHud = numberStringHudFactory.NULL_NUMBER_STRING_HUD;
+        NumberStringHud efficiencyHud = numberStringHudFactory.NULL_NUMBER_STRING_HUD;
+        NumberStringHud healthHud = numberStringHudFactory.NULL_NUMBER_STRING_HUD;
+        NumberStringHud maxHealthHud = numberStringHudFactory.NULL_NUMBER_STRING_HUD;
         
         try {
 
