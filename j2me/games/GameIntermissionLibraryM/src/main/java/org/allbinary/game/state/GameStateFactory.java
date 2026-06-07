@@ -34,6 +34,7 @@ public class GameStateFactory
    public final GameState PLAYING_GAME_STATE = this.createGameState("PLAYING_GAME_STATE");
    public final GameState SHOW_END_RESULT_GAME_STATE = this.createGameState("SHOW_END_RESULT_GAME_STATE");
    public final GameState SHOW_HIGH_SCORE_GAME_STATE = this.createGameState("SHOW_HIGH_SCORE_GAME_STATE");
+   
    private GameStateFactory()
    {
    }
