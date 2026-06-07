@@ -17,11 +17,14 @@ import org.allbinary.canvas.Processor;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
+import org.allbinary.game.state.GameStateFactory;
 import org.allbinary.graphics.paint.NullPaintable;
 
 public class EndGameProcessor extends Processor
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
+
+    protected final GameStateFactory gameStateFactory = GameStateFactory.getInstance();
 
     private AllBinaryGameCanvas gameCanvas;
 
@@ -41,20 +44,20 @@ public class EndGameProcessor extends Processor
             // this.logUtil.putF("Score Submitted: Time In State: " + this.getGameStateTimeHelper().getElapsed(), this, "showEndOfGame");
             if (this.gameCanvas.getGameStateTimeHelper().isElapsedTNT(this.WAIT))
             {
-                if (this.gameCanvas.getGameState() == AllBinaryGameCanvas.SHOW_END_RESULT_GAME_STATE)
+                if (this.gameCanvas.getGameState() == this.gameStateFactory.SHOW_END_RESULT_GAME_STATE)
                 {
                     final HighScoresHelperBase highScoresBase = (HighScoresHelperBase) this.gameCanvas.highScoresHelper;
                     final HighScores highScores = highScoresBase.getSelectedHighScores();
                     if(highScores != NullHighScoresSingletonFactory.getInstance()) {
                         highScoresBase.selectHighScores();
                         this.gameCanvas.getRealHighScoresPaintable().setHighScores(highScores);
-                        this.gameCanvas.setGameState(AllBinaryGameCanvas.SHOW_HIGH_SCORE_GAME_STATE);
+                        this.gameCanvas.setGameState(this.gameStateFactory.SHOW_HIGH_SCORE_GAME_STATE);
                         this.gameCanvas.setHighScoresPaintable(this.gameCanvas.getRealHighScoresPaintable());
                     }
                 }
-                else if (this.gameCanvas.getGameState() == AllBinaryGameCanvas.SHOW_HIGH_SCORE_GAME_STATE)
+                else if (this.gameCanvas.getGameState() == this.gameStateFactory.SHOW_HIGH_SCORE_GAME_STATE)
                 {
-                    this.gameCanvas.setGameState(AllBinaryGameCanvas.SHOW_END_RESULT_GAME_STATE);
+                    this.gameCanvas.setGameState(this.gameStateFactory.SHOW_END_RESULT_GAME_STATE);
                     this.gameCanvas.setHighScoresPaintable(NullPaintable.getInstance());
                 }
             }

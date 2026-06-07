@@ -19,6 +19,7 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
 
 import org.allbinary.game.state.GameState;
+import org.allbinary.game.state.GameStateFactory;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;
 
@@ -29,7 +30,9 @@ import org.allbinary.logic.string.StringUtil;
 public class NullGameCanvasRunnable implements GameCanvasRunnableInterface {
 
     public static final NullGameCanvasRunnable NULL_GAME_CANVAS_RUNNABLE = new NullGameCanvasRunnable();
-    
+
+    protected final GameStateFactory gameStateFactory = GameStateFactory.getInstance();
+
     @Override
     public String getTitle() {
         return StringUtil.getInstance().EMPTY_STRING;
@@ -107,7 +110,7 @@ public class NullGameCanvasRunnable implements GameCanvasRunnableInterface {
 
     @Override
     public GameState getGameState() {
-        return GameState.NO_GAME_STATE;
+        return this.gameStateFactory.NO_GAME_STATE;
     }
 
     @Override

@@ -22,4 +22,6 @@ public interface HighScoresHelperBaseInterface extends HighScoresResultsListener
     void setSelectedHighScores(final HighScores selectedHighScores);
     HighScores[] getHighScoresArray();
 
+    HighScores getSelectedHighScores();
+
 }

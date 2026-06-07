@@ -18,9 +18,6 @@ public class GameState {
 	private String name;
 	//private int state;
 
-	public static GameState NO_GAME_STATE = GameStateFactory.getInstance("NO_GAME_STATE");
-	public static GameState PLAYING_GAME_STATE = GameStateFactory.getInstance("PLAYING_GAME_STATE");
-	
 	public GameState(String name, int state)
 	{
 		this.name = name;
@@ -31,4 +28,5 @@ public class GameState {
 	{
 		return this.name;
 	}
+
 }

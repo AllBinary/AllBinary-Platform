@@ -154,6 +154,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
     protected final GameStrings gameStrings = GameStrings.getInstance();
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+    protected final GameStateFactory gameStateFactory = GameStateFactory.getInstance();
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     private final GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = GameTickDisplayInfoSingleton.getInstance();
@@ -169,12 +170,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final IntermissionInterface endLevelIntermissionInterface = new Intermission();
     private static final int id = 0;
     protected AllBinaryGameLayerManager gameLayerManager = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
-    private GameState gameState = GameState.NO_GAME_STATE;
+    private GameState gameState = this.gameStateFactory.NO_GAME_STATE;
     private boolean gameOver;
-    public static final GameState SHOW_END_RESULT_GAME_STATE =
-        GameStateFactory.getInstance("SHOW_END_RESULT_GAME_STATE");
-    public static final GameState SHOW_HIGH_SCORE_GAME_STATE =
-        GameStateFactory.getInstance("SHOW_HIGH_SCORE_GAME_STATE");
     private boolean initialized;
     // graphic constants
     // private final int BORDER = 3;
@@ -1008,7 +1005,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.setGameOver(true);
 
         this.removePauseCommand();
-        this.setGameState(AllBinaryGameCanvas.SHOW_END_RESULT_GAME_STATE);
+        this.setGameState(this.gameStateFactory.SHOW_END_RESULT_GAME_STATE);
 
         this.setEndGamePaintable(this.getEndGameStatePaintable());
         /*
@@ -1069,14 +1066,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         gameAdState.processAdState(this.gameState, this.gameLayerManager.getGameInfo().getGameType());
 
-        if (this.gameState != GameState.PLAYING_GAME_STATE) {
+        if (this.gameState != this.gameStateFactory.PLAYING_GAME_STATE) {
             gameAdState.processPageAdState();
         }
     }
 
     private void updateGameKeyEventProcessor()
     {
-        if (this.getGameState() != GameState.PLAYING_GAME_STATE || this.isCheating)
+        if (this.getGameState() != this.gameStateFactory.PLAYING_GAME_STATE || this.isCheating)
         {
             // for cheating
             // this.open();
@@ -1124,8 +1121,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void updateEndGameProcessor2() throws Exception
     {
-        if (this.getGameState() == AllBinaryGameCanvas.SHOW_END_RESULT_GAME_STATE
-                || this.getGameState() == AllBinaryGameCanvas.SHOW_HIGH_SCORE_GAME_STATE) {
+        if (this.getGameState() == this.gameStateFactory.SHOW_END_RESULT_GAME_STATE
+                || this.getGameState() == this.gameStateFactory.SHOW_HIGH_SCORE_GAME_STATE) {
             this.setEndGameProcessor(this.realEndGameProcessor);
         } else {
             this.setEndGameProcessor(Processor.getInstance());

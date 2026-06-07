@@ -1,6 +1,7 @@
 package org.allbinary.game.midlet;
 
 import org.allbinary.game.state.GameState;
+import org.allbinary.game.state.GameStateFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -10,8 +11,8 @@ public class GameMidletStateFactory {
 
 
 	private static final GameMidletStateFactory INSTANCE = new GameMidletStateFactory();
-	
-    private GameState currentGameState = GameState.NO_GAME_STATE;
+
+    private GameState currentGameState = GameStateFactory.getInstance().NO_GAME_STATE;
     
 	private GameMidletStateFactory()
 	{

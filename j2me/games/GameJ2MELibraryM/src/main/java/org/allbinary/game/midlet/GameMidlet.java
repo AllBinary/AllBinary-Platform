@@ -76,7 +76,7 @@ import org.allbinary.game.score.HighScoreCommandsFactory;
 import org.allbinary.game.score.displayable.HighScoreTextBox;
 import org.allbinary.game.score.displayable.HighScoreUtil;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
-import org.allbinary.game.state.GameState;
+import org.allbinary.game.state.GameStateFactory;
 import org.allbinary.graphics.ResizableListenerHandler;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
@@ -123,6 +123,7 @@ public class GameMidlet extends ProgressMidlet
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
     protected final GameStrings gameStrings = GameStrings.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
+    protected final GameStateFactory gameStateFactory = GameStateFactory.getInstance();
     protected final TsUtil tsUtil = TsUtil.getInstance();
 
     private final String DISPLAYABLE = " Displayable: ";
@@ -350,7 +351,7 @@ public class GameMidlet extends ProgressMidlet
             //thus start up only occurs one time ever otherwise this is just unpause
             if (gameCanvasRunnableInterface == NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
             {
-            	this.gameMidletStateFactory.setCurrentGameState(GameState.NO_GAME_STATE);
+            	this.gameMidletStateFactory.setCurrentGameState(this.gameStateFactory.NO_GAME_STATE);
                 this.setDemo();
             }
             else
@@ -440,7 +441,7 @@ public class GameMidlet extends ProgressMidlet
                 command == gameCommandsFactory.CONTINUE_COMMAND)
             {
                 // GameState gameState = GameStateFactory.getInstance(command);
-                if (this.gameMidletStateFactory.getCurrentGameState() != GameState.PLAYING_GAME_STATE || 
+                if (this.gameMidletStateFactory.getCurrentGameState() != this.gameStateFactory.PLAYING_GAME_STATE ||
                 		command == gameCommandsFactory.RESTART_COMMAND)
                 {
                     if (this.gameStartTimeHelper.isTimeTNT())
@@ -450,7 +451,7 @@ public class GameMidlet extends ProgressMidlet
                         } else {
                             this.startedBefore = true;
                             this.createGame();
-                            this.gameMidletStateFactory.setCurrentGameState(GameState.PLAYING_GAME_STATE);
+                            this.gameMidletStateFactory.setCurrentGameState(this.gameStateFactory.PLAYING_GAME_STATE);
                         }
                     }
                     else
@@ -492,7 +493,7 @@ public class GameMidlet extends ProgressMidlet
                     }
 
                     this.stopGameCanvasRunnableInterface();
-                    this.gameMidletStateFactory.setCurrentGameState(GameState.NO_GAME_STATE);
+                    this.gameMidletStateFactory.setCurrentGameState(this.gameStateFactory.NO_GAME_STATE);
                     this.setDemo();
                 }
             }

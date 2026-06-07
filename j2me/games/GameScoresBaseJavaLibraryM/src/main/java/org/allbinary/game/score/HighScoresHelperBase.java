@@ -55,6 +55,7 @@ public class HighScoresHelperBase implements HighScoresHelperBaseInterface {
     {
     }
 
+    @Override
     public HighScores getSelectedHighScores()
     {
         return NullHighScoresSingletonFactory.getInstance();

@@ -62,6 +62,7 @@ import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresPaintable;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.game.state.GameState;
+import org.allbinary.game.state.GameStateFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.ResizableListenerHandler;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -128,6 +129,7 @@ public class DemoCanvas extends RunnableCanvas
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
 
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+    protected final GameStateFactory gameStateFactory = GameStateFactory.getInstance();
 
     private final ThreadFactoryUtil threadFactoryUtil = ThreadFactoryUtil.getInstance();
     
@@ -1160,7 +1162,7 @@ public class DemoCanvas extends RunnableCanvas
     @Override
     public GameState getGameState()
     {
-        return GameState.PLAYING_GAME_STATE;
+        return this.gameStateFactory.PLAYING_GAME_STATE;
     }
 
     public AllBinaryGameCanvas getGameCanvasRunnableInterface()
