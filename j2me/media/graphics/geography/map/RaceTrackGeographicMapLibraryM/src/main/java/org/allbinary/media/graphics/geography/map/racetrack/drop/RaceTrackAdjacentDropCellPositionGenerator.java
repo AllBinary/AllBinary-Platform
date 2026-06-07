@@ -15,6 +15,7 @@ package org.allbinary.media.graphics.geography.map.racetrack.drop;
 
 import java.util.Hashtable;
 
+import org.allbinary.game.identification.GroupCommonFactory;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.direction.Direction;
@@ -56,6 +57,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
     }
 
     private final LayerCoveringCellPositionsUtil layerCoveringCellPositionsUtil = LayerCoveringCellPositionsUtil.getInstance();
+    private final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
     
     //protected final BasicArrayList list = new BasicArrayListD();
     //private GeographicMapCellPosition[] surroundingCellPositions = new GeographicMapCellPosition[8];
@@ -197,10 +199,10 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             //PreLogUtil.put(stringBuffer.toString(), this, this.commonStrings.DROP);
             //this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.DROP);
 
-            final Object objectCanBeNull = this.hashtable.get(Group.ID);
+            final Object objectCanBeNull = this.hashtable.get(this.groupCommonFactory.ID);
             if(objectCanBeNull != null) {
             } else {
-                this.hashtable.put(Group.ID, BasicGroupFactory.getInstance().NONE_ARRAY);
+                this.hashtable.put(this.groupCommonFactory.ID, BasicGroupFactory.getInstance().NONE_ARRAY);
             }
             
             this.hashtable.put(DirectionFactory.getInstance().NAME, direction);

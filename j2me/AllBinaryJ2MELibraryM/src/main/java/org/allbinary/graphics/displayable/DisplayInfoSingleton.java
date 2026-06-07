@@ -85,6 +85,15 @@ public class DisplayInfoSingleton
     private float ratio = 1.0f;
 
     private DisplayInfoSingleton() {
+        
+        //TsUtil only
+        final int size = this.last.length;
+        for(int index = 0; index < size; index++) {
+            this.last[index] = 0;
+            this.lastHalf[index] = 0;
+            this.full[index] = 0;
+        }
+        
         if(AndroidUtil.isAndroid()) {
             this.scaleLargestTo = (float) 640;
         } else {

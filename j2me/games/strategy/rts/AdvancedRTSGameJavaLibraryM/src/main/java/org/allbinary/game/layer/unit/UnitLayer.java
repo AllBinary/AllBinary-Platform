@@ -41,6 +41,7 @@ import org.allbinary.game.health.Health;
 import org.allbinary.game.health.HealthBar;
 import org.allbinary.game.health.HealthBarTwodAnimation;
 import org.allbinary.game.identification.Group;
+import org.allbinary.game.identification.GroupCommonFactory;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.event.GameKeyEventUtil;
@@ -137,6 +138,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
     //private final short ANGLE_INCREMENT = 10;
 
     private final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
+    private final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
     
     private final LayerPartialCellPositionsUtil layerPartialCellPositionsUtil = LayerPartialCellPositionsUtil.getInstance();
     private final LayerDistanceUtil layerDistanceUtil = LayerDistanceUtil.getInstance();
@@ -320,9 +322,9 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     
     @Override
     public void updateWaypointBehavior(final BasicGeographicMap geographicMapInterface) throws Exception {
-        
+
         final Hashtable hashtable = new Hashtable();
-        hashtable.put(Group.ID, this.getGroupInterface());
+        hashtable.put(this.groupCommonFactory.ID, this.getGroupInterface());
         hashtable.put(Layer.ID, this);
         hashtable.put(AllBinaryGameLayerManager.ID, this.allBinaryGameLayerManagerP);
         

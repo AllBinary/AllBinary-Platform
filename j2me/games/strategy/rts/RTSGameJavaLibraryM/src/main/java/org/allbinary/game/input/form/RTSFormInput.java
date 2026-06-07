@@ -16,6 +16,7 @@ package org.allbinary.game.input.form;
 
 import java.util.Hashtable;
 
+import org.allbinary.game.identification.GroupCommonFactory;
 import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.item.LayerInterfaceFactoryImageItem;
@@ -42,6 +43,7 @@ public class RTSFormInput
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    private final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
     private final Hashtable hashtable = new Hashtable();
         
     protected final CollidableDestroyableDamageableLayer[] newUnconstructedRTSLayerInterfaceArray = new CollidableDestroyableDamageableLayer[7];
@@ -68,7 +70,7 @@ public class RTSFormInput
 
         if (groupInterfaceArray != null)
         {
-            this.hashtable.put(Group.ID, groupInterfaceArray);
+            this.hashtable.put(this.groupCommonFactory.ID, groupInterfaceArray);
         }
         
         //this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.CONSTRUCTOR);

@@ -36,18 +36,17 @@ public class CompositeGroup
     {
         this.list.clear();
     }
-    
-    private static final String ADDING_LABEL = "Adding: ";
-    private static final String TO_LABEL = " to: ";
-    
+        
     public void add(final Group groupInterface)
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
+        final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
+        
         final StringMaker stringBuffer = new StringMaker();
         
-        stringBuffer.append(CompositeGroup.ADDING_LABEL);
+        stringBuffer.append(groupCommonFactory.ADDING_LABEL);
         stringBuffer.append(groupInterface.toString());
-        stringBuffer.append(CompositeGroup.TO_LABEL);
+        stringBuffer.append(groupCommonFactory.TO_LABEL);
         stringBuffer.append(StringUtil.getInstance().toString(this.groupInterface));
         
         this.logUtil.putF(stringBuffer.toString(), this, commonStrings.ADD);

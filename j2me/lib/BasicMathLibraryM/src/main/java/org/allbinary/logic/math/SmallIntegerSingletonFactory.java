@@ -38,10 +38,14 @@ public class SmallIntegerSingletonFactory
     private int lastNegativeMin = 0;
 
     public int getMin() {
+        this.checkMe();
+        return this.MIN;
+    }
+
+    public void checkMe() {
         if(this.MIN == 0) {
             throw new RuntimeException();
         }
-        return this.MIN;
     }
     
     public void initWithRange(int value, int negativeValue)
@@ -111,6 +115,7 @@ public class SmallIntegerSingletonFactory
 
     public Integer getAt(int index)
     {
+        this.checkMe();
         //this.updateStats(index);
 
         return this.INTEGER_ARRAY[index + this.NEGATIVE_MAX];
@@ -118,6 +123,7 @@ public class SmallIntegerSingletonFactory
 
     public Integer getAtNoThrow(int index)
     {
+        this.checkMe();
         //this.updateStats(index);
 
         if(index + this.NEGATIVE_MAX > this.INTEGER_ARRAY.length - 1) {

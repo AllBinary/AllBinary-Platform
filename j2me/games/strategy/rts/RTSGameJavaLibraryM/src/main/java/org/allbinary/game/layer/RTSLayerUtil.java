@@ -15,6 +15,7 @@ package org.allbinary.game.layer;
 
 import java.util.Hashtable;
 
+import org.allbinary.game.identification.GroupCommonFactory;
 import org.allbinary.util.BasicArrayList;
 
 
@@ -32,7 +33,6 @@ import org.allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeograp
 
 public class RTSLayerUtil
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final RTSLayerUtil instance = new RTSLayerUtil();
     
@@ -41,6 +41,8 @@ public class RTSLayerUtil
         return RTSLayerUtil.instance;
     }
 
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    private final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
     private WeaponProperties createWeaponProperties(
             final WeaponProperties weaponProperties,
             final int currentLevel, final int lastLevel)
@@ -241,7 +243,7 @@ public class RTSLayerUtil
     public final Hashtable createFakeRTSLayerHashtable(
             final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap)
     {
-        Hashtable hashtable = new Hashtable();
+        final Hashtable hashtable = new Hashtable();
         
         final FakeLayerManager layerManager = new FakeLayerManager(GameInfo.NONE);
         layerManager.setGeographicMapInterface(new BasicGeographicMap[] { baseRaceTrackGeographicMap});
@@ -250,7 +252,7 @@ public class RTSLayerUtil
         hashtable.put(DirectionFactory.getInstance().NAME, 
                 DirectionFactory.getInstance().LEFT);
         
-        hashtable.put(Group.ID, BasicGroupFactory.getInstance().NONE_ARRAY);
+        hashtable.put(this.groupCommonFactory.ID, BasicGroupFactory.getInstance().NONE_ARRAY);
         
         return hashtable;
     }

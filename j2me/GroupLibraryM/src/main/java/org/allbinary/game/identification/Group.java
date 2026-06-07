@@ -13,21 +13,15 @@
  */
 package org.allbinary.game.identification;
 
-import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 
 public class Group implements GroupInterface {
 
-    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getAt(10);
-
     private String name = StringUtil.getInstance().EMPTY_STRING;
     private final short teamId;
 
     private String string = StringUtil.getInstance().EMPTY_STRING;
-
-    private static final String GROUP_NAME_LABEL = "Group Name: ";
-    private static final String ID_LABEL = " Id: ";
 
     public Group(String teamName, short teamId) {
         this.teamId = teamId;
@@ -42,11 +36,13 @@ public class Group implements GroupInterface {
     public void setName(final String name) {
         this.name = name;
 
+        final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
+        
         final StringMaker stringBuffer = new StringMaker();
 
-        stringBuffer.append(Group.GROUP_NAME_LABEL);
+        stringBuffer.append(groupCommonFactory.GROUP_NAME_LABEL);
         stringBuffer.append(this.name);
-        stringBuffer.append(Group.ID_LABEL);
+        stringBuffer.append(groupCommonFactory.ID_LABEL);
         stringBuffer.appendshort(this.teamId);
 
         this.string = stringBuffer.toString();
