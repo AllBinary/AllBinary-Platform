@@ -4,6 +4,7 @@
 .project
 .classpath
 .settings/
+graphify-out/**
 target/
 bin/
 gen/
