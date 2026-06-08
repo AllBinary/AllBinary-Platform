@@ -44,6 +44,7 @@ public class RTSFormInput
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
+
     private final Hashtable hashtable = new Hashtable();
         
     protected final CollidableDestroyableDamageableLayer[] newUnconstructedRTSLayerInterfaceArray = new CollidableDestroyableDamageableLayer[7];

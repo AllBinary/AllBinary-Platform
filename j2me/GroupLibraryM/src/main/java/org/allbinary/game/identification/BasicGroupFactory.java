@@ -13,13 +13,19 @@
 */
 package org.allbinary.game.identification;
 
+import org.allbinary.logic.NullUtil;
+
 public class BasicGroupFactory
 {
-    private static final BasicGroupFactory instance = new BasicGroupFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static BasicGroupFactory getInstance()
     {
-        return BasicGroupFactory.instance;
+        if(BasicGroupFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            BasicGroupFactory.instance = new BasicGroupFactory();
+        }
+        
+        return (BasicGroupFactory) BasicGroupFactory.instance;
     }
     
     public final String NAME = "GROUP_NAME";

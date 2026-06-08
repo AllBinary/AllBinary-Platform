@@ -42,7 +42,9 @@ public class RTSLayerUtil
     }
 
     protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
+
     private WeaponProperties createWeaponProperties(
             final WeaponProperties weaponProperties,
             final int currentLevel, final int lastLevel)

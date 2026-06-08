@@ -32,11 +32,11 @@ import org.allbinary.game.part.PartInterfaceUtil;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonSeps;
-import org.allbinary.view.ViewPosition;
 import org.allbinary.view.ViewPositionBase;
 
 /*
@@ -55,8 +55,17 @@ extends CollidableCompositeLayer
 implements DestroyableInterface, DamageableInterface, 
 PickupCompositeInterface, SpecialGameInputInterface
 {
-    public static final CollidableDestroyableDamageableLayer NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = new CollidableDestroyableDamageableLayer(
-    BasicGroupFactory.getInstance().NONE_ARRAY, StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
+    public static Object NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = NullUtil.getInstance().NULL_OBJECT;
+    
+    public static CollidableDestroyableDamageableLayer getNullInstance() {
+        
+        if(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER == NullUtil.getInstance().NULL_OBJECT) {
+            CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = new CollidableDestroyableDamageableLayer(
+                BasicGroupFactory.getInstance().NONE_ARRAY, StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
+        }
+        
+        return (CollidableDestroyableDamageableLayer) CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+    }
         
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
