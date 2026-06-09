@@ -215,7 +215,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         throws Exception
     {
         int itemIndex = this.getSelectedStickyItemIndex();
-        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == CollidableDestroyableDamageableLayer.getNullInstance())
         {
             this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = 
                 this.getInstance(layerManager, this.getSelectedStickyItem(), geographicMapCellPosition);
@@ -366,7 +366,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         {
             layerInterface.construct(rtsPlayerLayerInterface);
             
-            this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+            this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.getNullInstance();
 
             capital.removeMoney(cost);
 

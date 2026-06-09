@@ -299,7 +299,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
     {
         this.paintSelectedRTSLayersList = BasicArrayListUtil.getInstance().getImmutableInstance();
         
-        if(selectedLayer == CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+        if(selectedLayer == CollidableDestroyableDamageableLayer.getNullInstance())
         {
             this.deselectAll();
             this.selectedRTSLayersList.clear();
@@ -348,7 +348,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         
         //this.selectedRTSLayersList.clear();
 
-        if(selectedLayer != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+        if(selectedLayer != CollidableDestroyableDamageableLayer.getNullInstance())
         {
             this.selectedRTSLayersList.add(selectedLayer);
         }
@@ -364,7 +364,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         }
         else
         {
-            return CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+            return CollidableDestroyableDamageableLayer.getNullInstance();
         }
     }
 

@@ -70,7 +70,7 @@ public class UnitWaypointBehavior
     protected BasicArrayList waypointPathsListP = BasicArrayListUtil.getInstance().getImmutableInstance();
     
     private int currentTargetDistance = Integer.MAX_VALUE;
-    protected CollidableDestroyableDamageableLayer currentTargetLayerInterfaceP = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+    protected CollidableDestroyableDamageableLayer currentTargetLayerInterfaceP = CollidableDestroyableDamageableLayer.getNullInstance();
     
     private boolean trackingWaypoint;
     
@@ -293,7 +293,7 @@ public class UnitWaypointBehavior
         
         if(this.isTrackingWaypoint() ||
                 this.sensorAction == SensorActionFactory.getInstance().EVADE ||
-                (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER &&
+                (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.getNullInstance() &&
                 this.getCurrentTargetDistance() >= this.longWeaponRange +
                 this.currentTargetLayerInterfaceP.getHalfHeight()))
         {
@@ -322,7 +322,7 @@ public class UnitWaypointBehavior
         stringBuffer.append(" getCurrentTargetLayerInterface: ");
         stringBuffer.append(StringUtil.getInstance().toString(this.currentTargetLayerInterfaceP));
 
-        if (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER) {
+        if (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.getNullInstance()) {
             stringBuffer.append(" Target Range: ");
             stringBuffer.appendint(this.getCurrentTargetDistance());
             stringBuffer.append(" >= ");

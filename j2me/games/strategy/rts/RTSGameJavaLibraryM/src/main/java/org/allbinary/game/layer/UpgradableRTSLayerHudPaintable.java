@@ -36,7 +36,7 @@ public class UpgradableRTSLayerHudPaintable
     //private final String PERCENT_COMPLETE = "% Complete";
     private final String PERCENT = "%";
 
-    private CollidableDestroyableDamageableLayer rtsLayer = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+    private CollidableDestroyableDamageableLayer rtsLayer = CollidableDestroyableDamageableLayer.getNullInstance();
 
     protected int costY;
     protected int costY1;

@@ -263,7 +263,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
 
             if (layer == AllBinaryLayer.NULL_ALLBINARY_LAYER)
             {
-                layer = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+                layer = CollidableDestroyableDamageableLayer.getNullInstance();
             }
             else
             {

@@ -118,7 +118,7 @@ public class UnitRTSFormInput extends RTSFormInput
         this.getHashtable().put(UnitRTSFormInput.DECAL_ID, 
                 ((AdvancedRTSPlayerLayerInterface) rtsPlayerLayerInterface).getDecalBasicColor());
         
-        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == CollidableDestroyableDamageableLayer.getNullInstance())
         {
             this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = 
                 this.getInstance(layerManager, item, geographicMapCellPosition);
@@ -179,7 +179,7 @@ public class UnitRTSFormInput extends RTSFormInput
         {
             layerInterface.construct(rtsPlayerLayerInterface);
             
-            this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+            this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.getNullInstance();
 
             rtsPlayerLayerInterface.add(BuildingSound.getInstance());
 

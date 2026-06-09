@@ -13,7 +13,6 @@
 */
 package org.allbinary.business.init;
 
-import java.io.File;
 import org.allbinary.TsUtil;
 import org.allbinary.globals.PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;

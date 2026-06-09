@@ -83,7 +83,7 @@ implements BaseMotionGestureEventListener
 
     private final GameNotificationEvent notYoursGameNotificationEvent;
 
-    private CollidableDestroyableDamageableLayer selectedRtsLayer = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+    private CollidableDestroyableDamageableLayer selectedRtsLayer = CollidableDestroyableDamageableLayer.getNullInstance();
 
     public HumanRTSPlayerGameInput(
         final AllBinaryGameCanvas gameCanvas,
@@ -276,7 +276,7 @@ implements BaseMotionGestureEventListener
         final CollidableDestroyableDamageableLayer gameLayer = 
             this.getSelectedBuildingPlayerGameInput().getLastSelectedRtsLayer();
         
-        if(gameLayer != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+        if(gameLayer != CollidableDestroyableDamageableLayer.getNullInstance())
         {
             final RTSLayer lastRTSLayer = (RTSLayer) gameLayer;
             if(lastRTSLayer.getScrollSelectionForm() != ScrollSelectionForm.getNullScrollSelectionForm()) {
@@ -362,7 +362,7 @@ implements BaseMotionGestureEventListener
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START).append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
         
         super.setSelectedRtsFormInput(selectedRtsFormInput);
-        this.setSelectedRtsLayer(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER);
+        this.setSelectedRtsLayer(CollidableDestroyableDamageableLayer.getNullInstance());
     }
 
     private void updateFormForLayer(final RTSLayer rtsLayer)
@@ -377,7 +377,7 @@ implements BaseMotionGestureEventListener
                 && this.getRtsPlayerLayerInterface().getGroupInterface()[0] == rtsLayer.getGroupInterface()[0])
         {
             this.updateForm(scrollSelectionForm, rtsLayer.getRTSFormInput());
-            this.getSelectedBuildingPlayerGameInput().setSelectedRTSLayer(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER);
+            this.getSelectedBuildingPlayerGameInput().setSelectedRTSLayer(CollidableDestroyableDamageableLayer.getNullInstance());
             this.setSelectedRtsLayer(rtsLayer);
         } else
         {
@@ -388,7 +388,7 @@ implements BaseMotionGestureEventListener
 
             this.setSelectedRtsFormInput(
                     this.getRtsPlayerLayerInterface().getRTSFormInput());
-            this.getSelectedBuildingPlayerGameInput().setSelectedRTSLayer(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER);
+            this.getSelectedBuildingPlayerGameInput().setSelectedRTSLayer(CollidableDestroyableDamageableLayer.getNullInstance());
         }
     }
 
@@ -407,7 +407,7 @@ implements BaseMotionGestureEventListener
             final CollidableDestroyableDamageableLayer rtSLayer, final GeographicMapCellPosition geographicMapCellPosition) 
             throws Exception
     {
-        if (rtSLayer != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER && this.getRtsPlayerLayerInterface().getGroupInterface()[0] != rtSLayer.getGroupInterface()[0])
+        if (rtSLayer != CollidableDestroyableDamageableLayer.getNullInstance() && this.getRtsPlayerLayerInterface().getGroupInterface()[0] != rtSLayer.getGroupInterface()[0])
         {
             this.getRtsPlayerLayerInterface().add(ErrorSound.getInstance());
 
@@ -466,7 +466,7 @@ implements BaseMotionGestureEventListener
             //   geographicMapCellPosition);
 
             this.setSelectedRtsFormInput(this.getRtsPlayerLayerInterface().getRTSFormInput());
-            this.getSelectedBuildingPlayerGameInput().setSelectedRTSLayer(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER);
+            this.getSelectedBuildingPlayerGameInput().setSelectedRTSLayer(CollidableDestroyableDamageableLayer.getNullInstance());
 
             if (gameCanvas.getGameState() == this.gameStateFactory.PLAYING_GAME_STATE)
             {

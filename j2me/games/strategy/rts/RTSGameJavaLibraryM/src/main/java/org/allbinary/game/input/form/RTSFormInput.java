@@ -59,7 +59,7 @@ public class RTSFormInput
         //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         final int size = this.newUnconstructedRTSLayerInterfaceArray.length;
         for(int index = 0; index < size; index++) {
-            this.newUnconstructedRTSLayerInterfaceArray[index] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+            this.newUnconstructedRTSLayerInterfaceArray[index] = CollidableDestroyableDamageableLayer.getNullInstance();
         }
 
         this.groupInterfaceArray = groupInterfaceArray;
@@ -213,7 +213,7 @@ public class RTSFormInput
                 getHashtable(), cellPoint.getX(), cellPoint.getY(), cellPoint.getZ());
             //lastLayerInterfaceFactoryInterface = layerInterfaceFactoryInterface;
         }
-        return CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+        return CollidableDestroyableDamageableLayer.getNullInstance();
     }
 
     /**

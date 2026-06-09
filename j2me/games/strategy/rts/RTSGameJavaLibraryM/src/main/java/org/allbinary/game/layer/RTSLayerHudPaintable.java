@@ -34,7 +34,7 @@ public class RTSLayerHudPaintable extends SelectionHudPaintable {
 
     private String[] weaponProperties = StringUtil.getInstance().getArrayInstance();
 
-    private CollidableDestroyableDamageableLayer rtsLayer = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+    private CollidableDestroyableDamageableLayer rtsLayer = CollidableDestroyableDamageableLayer.getNullInstance();
 
     protected int costY;
     protected int costY1;

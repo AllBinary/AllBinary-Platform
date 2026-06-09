@@ -70,7 +70,7 @@ extends UnitWaypointBehavior
     private boolean waitingOnTargetPath;
     private boolean waitingOnWaypointPath;
     
-    private CollidableDestroyableDamageableLayer targetWithoutCachedPathLayerInterface = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+    private CollidableDestroyableDamageableLayer targetWithoutCachedPathLayerInterface = CollidableDestroyableDamageableLayer.getNullInstance();
 
     //protected
     public UnitWaypointBehavior2(
@@ -199,7 +199,7 @@ extends UnitWaypointBehavior
                 layerInterface);
 
         // String destroyedTarget = NULL;
-        // if (this.currentTargetLayerInterface != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+        // if (this.currentTargetLayerInterface != CollidableDestroyableDamageableLayer.getNullInstance())
         // {
         // destroyedTarget =
         // Boolean.toString(this.currentTargetLayerInterface.isDestroyed());
@@ -228,7 +228,7 @@ extends UnitWaypointBehavior
             this.getCurrentTargetDistance() > anotherTargetDistance;
             
         boolean isCurrentTargetDestroyed = 
-            this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER && this.currentTargetLayerInterfaceP.isDestroyed();
+            this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.getNullInstance() && this.currentTargetLayerInterfaceP.isDestroyed();
 
         this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processPossibleTarget(this.associatedAdvancedRTSGameLayer, this, layerInterface, anotherTargetDistance, isShorterThanCurrentTargetDistance, isCurrentTargetDestroyed);
 
@@ -342,7 +342,7 @@ extends UnitWaypointBehavior
     private void setTargetPath()
         throws Exception
     {
-        if(this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+        if(this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.getNullInstance())
         {
             if(this.currentTargetLayerInterfaceP.isDestroyed())
             {
@@ -418,7 +418,7 @@ extends UnitWaypointBehavior
                     }
 
                     if (this.currentGeographicMapCellHistoryP.isAllVisited2() &&
-                        this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+                        this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.getNullInstance())
                     {
                         final AdvancedRTSGameLayer oldWaypointLayer = (AdvancedRTSGameLayer)
                             this.currentTargetLayerInterfaceP;
@@ -593,7 +593,7 @@ extends UnitWaypointBehavior
     private void processTargetList()
         throws Exception
     {
-        this.targetWithoutCachedPathLayerInterface = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+        this.targetWithoutCachedPathLayerInterface = CollidableDestroyableDamageableLayer.getNullInstance();
 
         for (int index = this.getPossibleTargetList().size() - 1; index >= 0; index--)
         {
@@ -612,7 +612,7 @@ extends UnitWaypointBehavior
             }
         }
 
-        if (this.targetWithoutCachedPathLayerInterface != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+        if (this.targetWithoutCachedPathLayerInterface != CollidableDestroyableDamageableLayer.getNullInstance())
         {
             this.waitingOnTargetPath = true;
 
@@ -630,7 +630,7 @@ extends UnitWaypointBehavior
     
     private void processTargeting() throws Exception
     {
-        if (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER &&
+        if (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.getNullInstance() &&
             (this.isInSensorRange(this.currentTargetLayerInterfaceP, this.getCurrentTargetDistance()) ||
             this.isTrackingWaypoint()))
         {
@@ -789,7 +789,7 @@ extends UnitWaypointBehavior
         this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.clearTarget(this.associatedAdvancedRTSGameLayer);
 
         //this.waypointPathsList = BasicArrayListUtil.getImmutableInstance();
-        this.setCurrentTargetLayerInterface(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER);
+        this.setCurrentTargetLayerInterface(CollidableDestroyableDamageableLayer.getNullInstance());
         this.setTrackingWaypoint(false);
         final int MAX = Integer.MAX_VALUE;
         this.setCurrentTargetDistance(MAX);
@@ -843,7 +843,7 @@ extends UnitWaypointBehavior
     {
         final StringMaker stringBuffer = new StringMaker();
 
-        if (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+        if (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.getNullInstance())
         {
             stringBuffer.append(UnitWaypointBehavior2.TARGET_LAYER);
             stringBuffer.append(this.commonSeps.SPACE);
