@@ -13,6 +13,7 @@
 */
 package org.allbinary.business.init;
 
+import java.io.File;
 import org.allbinary.TsUtil;
 import org.allbinary.globals.PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
@@ -131,6 +132,9 @@ public class LicenseInitInfoUtil
             this.logUtil.putF("LicenseInitInfo File: " + this.INITFILENAME, this, METHOD_NAME);
             // }
 
+            //For testing a new platform file system
+            //this.logUtil.putF("LicenseInitInfo isFile: " + new File(this.INITFILENAME).isFile(), this, METHOD_NAME);
+            
             final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
             
             final AbFileInputStream iFile = fileStreamFactory.getFileInputStreamInstance(this.filePath, this.INITFILENAME);

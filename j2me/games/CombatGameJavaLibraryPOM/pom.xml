@@ -122,6 +122,7 @@
         <module>../../media/sound/OtherSoundMediaLibraryP</module>
 
         <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationNoFSJavaLibraryM</module>
         <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryM</module>
         <module>../../android/VirtualKeyboardJavaLibraryM</module>
 

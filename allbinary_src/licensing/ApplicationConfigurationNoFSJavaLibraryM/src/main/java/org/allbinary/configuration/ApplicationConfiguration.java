@@ -1,0 +1,249 @@
+package org.allbinary.configuration;
+
+import org.allbinary.game.configuration.feature.Feature;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.MainFeatureFactory;
+import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonStrings;
+
+public class ApplicationConfiguration
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
+
+    public static ApplicationConfiguration getInstance()
+    {
+        if(ApplicationConfiguration.instance == NullUtil.getInstance().NULL_OBJECT) {
+            ApplicationConfiguration.instance = new ApplicationConfiguration();
+        }
+
+        return (ApplicationConfiguration) ApplicationConfiguration.instance;
+    }
+
+    /*
+     * private boolean fullscreen = true; private boolean showTitleBar = false;
+     * protected boolean progressBarView = true;
+     */
+    
+    // Title progress bar works but SetProgress is now a portion of progress
+    // instead of being a total value
+    /*
+     * private boolean fullscreen = true; private boolean showTitleBar = true;
+     * protected boolean progressBarView = true;
+     */
+
+    private boolean fullscreen = true;
+    private boolean showTitleBar = false;
+    private boolean progressBarView = false;
+
+    //private final String FILE = "ReloadConfiguration.dat";
+
+    private ApplicationConfiguration()
+    {
+        try
+        {
+//            if (FileFactory.getInstance().isFile(this.FILE))
+//            {
+                this.read();
+//            }
+//            else
+//            {
+//                this.write();
+//            }
+        }
+        catch (Exception e)
+        {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+        }
+    }
+
+    private void read() throws Exception
+    {
+//        final FileStreamFactory fileInputStreamFactory = 
+//            FileStreamFactory.getInstance();
+//
+//        final InputStream fileInputStream =
+//            fileInputStreamFactory.getFileInputStreamInstance(
+//                    StringUtil.getInstance().EMPTY_STRING, this.FILE);
+//
+//        final AbDataInputStream dataInputStream =
+//            new AbDataInputStream(fileInputStream);
+//
+//        int fullScreen = dataInputStream.readInt();
+//        if (fullScreen == 0)
+//        {
+//            this.setFullscreen(false);
+//        }
+//        else if (fullScreen == 1)
+//        {
+            this.setFullscreen(true);
+//        }
+//        else
+//        {
+//            throw new Exception("Invalid FullScreen ActivityConfiguration");
+//        }
+//
+//        final int progressBarView = dataInputStream.readInt();
+//        if (progressBarView == 0)
+//        {
+            this.setProgressBarView(false);
+//        }
+//        else if (progressBarView == 1)
+//        {
+//            this.setProgressBarView(true);
+//        }
+//        else
+//        {
+//            throw new Exception("Invalid ProgressBarView ActivityConfiguration");
+//        }
+//
+//        final int showTitleBar = dataInputStream.readInt();
+//        if (showTitleBar == 0)
+//        {
+            this.setShowTitleBar(false);
+//        }
+//        else if (showTitleBar == 1)
+//        {
+//            this.setShowTitleBar(true);
+//        }
+//        else
+//        {
+//            throw new Exception("Invalid ShowTitleBar ActivityConfiguration");
+//        }
+
+        //PreLogUtil.put("Read Configuration: " + this.toString(), this, "read");
+        this.logUtil.putF(
+                "Read Configuration: " + this.toString(), this, "read");
+    }
+
+    public void write() throws Exception
+    {
+//        Closeable closeable = NullCloseable.NULL_CLOSEABLE;
+//        try
+//        {
+//        //PreLogUtil.put("Write Configuration: " + this.toString(), this, "write");
+//        this.logUtil.putF("Write Configuration: " + this.toString(), this, "write");
+//        
+//        final FileStreamFactory fileInputStreamFactory = 
+//            FileStreamFactory.getInstance();
+//
+//        final OutputStream fileOutputStream = 
+//            fileInputStreamFactory.getFileOutputStreamInstance(
+//                    StringUtil.getInstance().EMPTY_STRING, this.FILE);
+//
+//        final AbDataOutputStream dataOutputStream =
+//            new AbDataOutputStream(fileOutputStream);
+//        closeable = dataOutputStream;
+//
+//        if (this.isFullscreen())
+//        {
+//            dataOutputStream.writeInt(1);
+//        }
+//        else
+//        {
+//            dataOutputStream.writeInt(0);
+//        }
+//
+//        if (this.isProgressBarView())
+//        {
+//            dataOutputStream.writeInt(1);
+//        }
+//        else
+//        {
+//            dataOutputStream.writeInt(0);
+//        }
+//
+//        if (this.isShowTitleBar())
+//        {
+//            dataOutputStream.writeInt(1);
+//        }
+//        else
+//        {
+//            dataOutputStream.writeInt(0);
+//        }
+//        
+//        dataOutputStream.flush();
+//        } catch(Exception e) {
+//            throw e;
+//        } finally
+//        {
+//            StreamUtil.getInstance().close(closeable);
+//        }
+    }
+
+    public void update(final Feature gameFeature)
+    throws Exception
+    {
+        if (gameFeature == MainFeatureFactory.getInstance().FULL_SCREEN)
+        {
+            final Features features = Features.getInstance();
+            
+            if (features.isFeature(gameFeature))
+            {
+                if(!this.isFullscreen())
+                {
+                    this.setFullscreen(true);
+                    this.write();
+                }
+            }
+            else
+            {
+                if(this.isFullscreen())
+                {
+                    this.setFullscreen(false);
+                    this.write();
+                }
+            }
+        }
+    }
+    
+    public void setFullscreen(final boolean fullscreen)
+    {
+        this.fullscreen = fullscreen;
+    }
+
+    public boolean isFullscreen()
+    {
+        return this.fullscreen;
+    }
+
+    public void setShowTitleBar(final boolean showTitleBar)
+    {
+        this.showTitleBar = showTitleBar;
+    }
+
+    public boolean isShowTitleBar()
+    {
+        return this.showTitleBar;
+    }
+
+    public void setProgressBarView(final boolean progressBarView)
+    {
+        this.progressBarView = progressBarView;
+    }
+
+    public boolean isProgressBarView()
+    {
+        return this.progressBarView;
+    }
+    
+    public String toString()
+    {
+        final StringMaker stringBuffer = new StringMaker();
+        
+        stringBuffer.append("isFullscreen: ");
+        stringBuffer.appendboolean(this.isFullscreen());
+
+        stringBuffer.append(" isProgressBarView: ");
+        stringBuffer.appendboolean(this.isProgressBarView());
+
+        stringBuffer.append(" isShowTitleBar: ");
+        stringBuffer.appendboolean(this.isShowTitleBar());
+
+        return stringBuffer.toString();
+    }
+}
