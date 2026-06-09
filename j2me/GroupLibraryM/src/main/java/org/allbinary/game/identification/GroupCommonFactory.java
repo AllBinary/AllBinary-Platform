@@ -25,6 +25,11 @@ public class GroupCommonFactory {
     private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static GroupCommonFactory getInstance() {
+        
+        if(GroupCommonFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GroupCommonFactory.instance = new GroupCommonFactory();
+        }
+        
         return (GroupCommonFactory) GroupCommonFactory.instance;
     }
 
