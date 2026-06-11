@@ -130,6 +130,7 @@ import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.SecondaryThreadPool;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
@@ -1836,7 +1837,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                             textBox.saveHighScore();
                         }
                     } catch (Exception e) {
-                        logUtil.put(AllBinaryGameCanvas.this.commonStrings.EXCEPTION, this, "run", e);
+                        final CommonStrings commonStrings = CommonStrings.getInstance();
+                        logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                         this.progressCanvas.end();
                     }
                 }

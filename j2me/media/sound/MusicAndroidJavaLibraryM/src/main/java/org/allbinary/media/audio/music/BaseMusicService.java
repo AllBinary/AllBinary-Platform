@@ -139,8 +139,16 @@ public class BaseMusicService extends Service
             if(this.player != NullAndroidCanvas.NULL_MEDIA_PLAYER && this.player.isPlaying()) {
                 final MediaPlayer player = this.player;
                 this.logUtil.putF(this.ALREADY_PLAYING, this, this.commonStateStrings.ON_START_COMMAND);
-                final Runnable runnable = new ARunnable() {
+                
 
+                class MusicRunnable extends ARunnable {
+
+                    private final BaseMusicService baseMusicService;
+                    
+                    MusicRunnable(final BaseMusicService baseMusicService) {
+                        this.baseMusicService = baseMusicService;
+                    }
+                    
                     @Override
                     public void run() {
                         final LogUtil logUtil = LogUtil.getInstance();
@@ -148,15 +156,17 @@ public class BaseMusicService extends Service
                         final CommonStateStrings commonStateStrings = CommonStateStrings.getInstance();
                         try {
                             while(player.isPlaying()) {
-                                logUtil.putF(BaseMusicService.this.WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND);
+                                logUtil.putF(this.baseMusicService.WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND);
                                 Thread.sleep(1200);
                             }
-                            BaseMusicService.this.onStartCommandIntent(intent);
+                            this.baseMusicService.onStartCommandIntent(intent);
                         } catch(Exception e) {
                             logUtil.put(commonStrings.EXCEPTION, this, commonStateStrings.ON_START_COMMAND, e);
                         }
                     }
                 };
+                
+                final Runnable runnable = new MusicRunnable(this);
                 final Thread thread = new Thread(runnable);
                 thread.start();
                 return;

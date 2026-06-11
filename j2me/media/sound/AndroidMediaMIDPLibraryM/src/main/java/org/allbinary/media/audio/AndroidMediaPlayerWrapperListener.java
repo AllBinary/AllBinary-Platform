@@ -57,11 +57,6 @@ public class AndroidMediaPlayerWrapperListener {
         }
     }
 
-    private static final String ON_BUFFERING_UPDATE = "onBufferingUpdate()";
-    private static final String ON_PREPARE = "onPrepare()";
-    private static final String ON_ERROR = "onError()";
-    private static final String ON_COMPLETE = "onComplete()";
-
     private class MediaPlayerOnBufferingUpdateListener implements MediaPlayer.OnBufferingUpdateListener {
 
         @Override
@@ -96,41 +91,87 @@ public class AndroidMediaPlayerWrapperListener {
         }
 
     }
+    
+    private class AndroidMediaPlayerOnBufferingUpdateListener extends MediaPlayerOnBufferingUpdateListener {
         
-    private MediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener = new MediaPlayerOnBufferingUpdateListener() {
+        private final String ON_BUFFERING_UPDATE = "onBufferingUpdate()";
+        
+        private final AndroidMediaPlayerWrapperListener androidMediaPlayerWrapperListener;
+        
+        public AndroidMediaPlayerOnBufferingUpdateListener(final AndroidMediaPlayerWrapperListener androidMediaPlayerWrapperListener) {
+            this.androidMediaPlayerWrapperListener = androidMediaPlayerWrapperListener;
+        }
+        
         @Override
         public void onBufferingUpdate(final MediaPlayer mediaPlayer, final int i) {
             final LogUtil logUtil = LogUtil.getInstance();
-            logUtil.putF(new StringMaker().append("Update buffer: ").appendint(i).append("%").toString(), this, AndroidMediaPlayerWrapperListener.ON_BUFFERING_UPDATE);
-            AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.DEVICE_UNAVAILABLE);
+            logUtil.putF(new StringMaker().append("Update buffer: ").appendint(i).append("%").toString(), this, this.ON_BUFFERING_UPDATE);
+            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(PlayerListener.DEVICE_UNAVAILABLE);
         }
     };
 
-    private MediaPlayer.OnPreparedListener mOnPreparedListener = new MediaPlayerOnPreparedListener() {
+    private MediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener = new AndroidMediaPlayerOnBufferingUpdateListener(this);
+
+    private class AndroidMediaPlayerOnPreparedListener extends MediaPlayerOnPreparedListener {
+        
+        private final String ON_PREPARE = "onPrepare()";
+        
+        private final AndroidMediaPlayerWrapperListener androidMediaPlayerWrapperListener;
+        
+        public AndroidMediaPlayerOnPreparedListener(final AndroidMediaPlayerWrapperListener androidMediaPlayerWrapperListener) {
+            this.androidMediaPlayerWrapperListener = androidMediaPlayerWrapperListener;
+        }
+        
         @Override
         public void onPrepared(final MediaPlayer mp) {
             final LogUtil logUtil = LogUtil.getInstance();
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.putF(commonStrings.START, this, AndroidMediaPlayerWrapperListener.ON_PREPARE);
-            AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.DEVICE_AVAILABLE);
+            logUtil.putF(commonStrings.START, this, this.ON_PREPARE);
+            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(PlayerListener.DEVICE_AVAILABLE);
         }
     };
 
-    private MediaPlayer.OnErrorListener mOnErrorListener = new MediaPlayerOnErrorListener() {
+    private MediaPlayer.OnPreparedListener mOnPreparedListener = new AndroidMediaPlayerOnPreparedListener(this);
+
+    private class AndroidMediaPlayerOnErrorListener extends MediaPlayerOnErrorListener{
+        
+        private final String ON_ERROR = "onError()";
+
+        private final AndroidMediaPlayerWrapperListener androidMediaPlayerWrapperListener;
+        
+        public AndroidMediaPlayerOnErrorListener(final AndroidMediaPlayerWrapperListener androidMediaPlayerWrapperListener) {
+            this.androidMediaPlayerWrapperListener = androidMediaPlayerWrapperListener;
+        }
+        
+        @Override
         public boolean onError(final MediaPlayer mp, final int what, final int extra) {
             final LogUtil logUtil = LogUtil.getInstance();
-            logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("What: ").appendint(what).append(" Extra: ").appendint(extra).toString(), this, AndroidMediaPlayerWrapperListener.ON_ERROR);
-            AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.ERROR);
+            logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("What: ").appendint(what).append(" Extra: ").appendint(extra).toString(), this, this.ON_ERROR);
+            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(PlayerListener.ERROR);
             return true;
         }
     };
 
-    private MediaPlayer.OnCompletionListener mOnCompletionListener = new MediaPlayerOnCompletionListener() {
+    private MediaPlayer.OnErrorListener mOnErrorListener = new AndroidMediaPlayerOnErrorListener(this);
+
+    private class AndroidMediaPlayerOnCompletionListener extends MediaPlayerOnCompletionListener {
+        
+        private final String ON_COMPLETE = "onComplete()";
+
+        private final AndroidMediaPlayerWrapperListener androidMediaPlayerWrapperListener;
+        
+        public AndroidMediaPlayerOnCompletionListener(final AndroidMediaPlayerWrapperListener androidMediaPlayerWrapperListener) {
+            this.androidMediaPlayerWrapperListener = androidMediaPlayerWrapperListener;
+        }
+
+        @Override        
         public void onCompletion(final MediaPlayer mp) {
             final LogUtil logUtil = LogUtil.getInstance();
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.putF(commonStrings.START, this, AndroidMediaPlayerWrapperListener.ON_COMPLETE);
-            AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.END_OF_MEDIA);
+            logUtil.putF(commonStrings.START, this, this.ON_COMPLETE);
+            this.androidMediaPlayerWrapperListener.androidMediaPlayerWrapper.update(PlayerListener.END_OF_MEDIA);
         }
     };
+
+    private MediaPlayer.OnCompletionListener mOnCompletionListener = new AndroidMediaPlayerOnCompletionListener(this);
 }

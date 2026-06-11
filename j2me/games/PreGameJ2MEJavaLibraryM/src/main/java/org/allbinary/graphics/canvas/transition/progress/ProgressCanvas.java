@@ -44,12 +44,22 @@ public class ProgressCanvas extends RunnableCanvas
     
     protected boolean hasPainted;
     private final BasicColor backgroundBasicColor;
-    
-    public final Paintable GAUGE_PAINTABLE = new Paintable() {
+
+    class ProgressPaintable extends Paintable {
+        
+        final ProgressCanvas progressCanvas;
+        
+        ProgressPaintable(final ProgressCanvas progressCanvas) {
+            this.progressCanvas = progressCanvas;
+        }
+        
+        @Override
         public void paint(Graphics graphics) {
-            ProgressCanvas.this.paint2(graphics);
+            this.progressCanvas.paint2(graphics);
         }
     };
+
+    public final Paintable GAUGE_PAINTABLE = new ProgressPaintable(this);
     
     protected AllBinaryMidlet allbinaryMidlet = AllBinaryMidlet.NULL_ALLBINARY_MIDLET;
 

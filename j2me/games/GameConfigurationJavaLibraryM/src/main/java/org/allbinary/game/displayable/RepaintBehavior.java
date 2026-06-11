@@ -68,7 +68,7 @@ public class RepaintBehavior {
                         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                     }
                 }
-            }, RepaintBehavior.this.NAME);
+            }, this.NAME);
             thread.start();
         }
 

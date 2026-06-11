@@ -41,17 +41,17 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
 
     protected final BasicColor RED = BasicColorFactory.getInstance().RED;
-
-    protected final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
     
     private final Paintable paintable = SWTUtil.isSWT ? new Paintable() {
         
+        private final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
         private final BasicColor BLACK = BasicColorFactory.getInstance().BLACK;
         
         public void paint(Graphics graphics) {
-            AllBinaryGameLayer.this.basicSetColorUtil.setBasicColorP(graphics, this.BLACK);
+            this.basicSetColorUtil.setBasicColorP(graphics, this.BLACK);
         }
     } : NullPaintable.getInstance();
 

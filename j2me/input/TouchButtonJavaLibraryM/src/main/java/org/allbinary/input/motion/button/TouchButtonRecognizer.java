@@ -53,14 +53,14 @@ public class TouchButtonRecognizer
         {
             TouchButtonInput nextTouchButtonInput;
             GameKeyEvent gameKeyEvent;
-            for (int index = TouchButtonRecognizer.this.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--)
+            for (int index = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--)
             {
-                nextTouchButtonInput = TouchButtonRecognizer.this.currentlyPressedTouchButtonSingleton.get(index);
+                nextTouchButtonInput = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.get(index);
 
                 gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
                 
-                TouchButtonRecognizer.this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                TouchButtonRecognizer.this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
+                this.touchButtonRecognizer.upGameKeyEventHandler.fireEvent(gameKeyEvent);
+                this.touchButtonRecognizer.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
 
                 this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.removeAt(index);
 
@@ -87,10 +87,10 @@ public class TouchButtonRecognizer
 
             TouchButtonInput nextTouchButtonInput;
             GameKeyEvent gameKeyEvent;
-            for (int index = TouchButtonRecognizer.this.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--)
+            for (int index = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--)
             {
                 nextTouchButtonInput = 
-                    TouchButtonRecognizer.this.currentlyPressedTouchButtonSingleton.get(index);
+                    this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.get(index);
 
                 // the following should never happen nextTouchButtonInput ==
                 // touchButtonInput ||
@@ -101,8 +101,8 @@ public class TouchButtonRecognizer
                     
                     gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
                     
-                    TouchButtonRecognizer.this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                    TouchButtonRecognizer.this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
+                    this.touchButtonRecognizer.upGameKeyEventHandler.fireEvent(gameKeyEvent);
+                    this.touchButtonRecognizer.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
 
                     this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.removeAt(index);
 
