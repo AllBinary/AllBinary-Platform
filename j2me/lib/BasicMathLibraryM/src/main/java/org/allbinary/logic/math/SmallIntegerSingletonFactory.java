@@ -42,7 +42,7 @@ public class SmallIntegerSingletonFactory
         return this.MIN;
     }
 
-    public void checkMe() {
+    private void checkMe() {
         if(this.MIN == 0) {
             throw new RuntimeException();
         }
@@ -50,6 +50,7 @@ public class SmallIntegerSingletonFactory
     
     public void initWithRange(int value, int negativeValue)
     {
+        
         for (int index = value - 1; index >= this.lastMin; index--)
         {
             this.INTEGER_ARRAY[index + this.NEGATIVE_MAX] = new Integer(index);
@@ -59,7 +60,7 @@ public class SmallIntegerSingletonFactory
         {
             this.INTEGER_ARRAY[index] = new Integer(-index);
         }
-
+        
         if (this.lastMin < value)
         {
             this.lastMin = value;
@@ -80,6 +81,7 @@ public class SmallIntegerSingletonFactory
     {
         if (this.lastMin < this.POSITIVE_MAX || this.lastNegativeMin < this.NEGATIVE_MAX)
         {
+            
             for (int index = this.POSITIVE_MAX - 1; index >= this.lastMin; index--)
             {
                 this.INTEGER_ARRAY[index + this.NEGATIVE_MAX] = new Integer(index);
@@ -89,7 +91,7 @@ public class SmallIntegerSingletonFactory
             {
                 this.INTEGER_ARRAY[index] = new Integer(-index);
             }
-
+            
             this.lastMin = this.POSITIVE_MAX;
             this.lastNegativeMin = this.NEGATIVE_MAX;
 
@@ -100,6 +102,7 @@ public class SmallIntegerSingletonFactory
 
     private SmallIntegerSingletonFactory()
     {
+        this.initWithRange(23, 0);
     }
 
     /*
@@ -115,7 +118,9 @@ public class SmallIntegerSingletonFactory
 
     public Integer getAt(int index)
     {
-        this.checkMe();
+//        if(index >= 0 && index < 24) {
+//            this.checkMe();
+//        }
         //this.updateStats(index);
 
         return this.INTEGER_ARRAY[index + this.NEGATIVE_MAX];
@@ -123,7 +128,9 @@ public class SmallIntegerSingletonFactory
 
     public Integer getAtNoThrow(int index)
     {
-        this.checkMe();
+//        if(index >= 0 && index < 24) {
+//            this.checkMe();
+//        }
         //this.updateStats(index);
 
         if(index + this.NEGATIVE_MAX > this.INTEGER_ARRAY.length - 1) {
