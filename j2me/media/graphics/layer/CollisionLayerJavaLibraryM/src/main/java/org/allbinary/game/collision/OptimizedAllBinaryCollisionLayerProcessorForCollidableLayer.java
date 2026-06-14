@@ -64,7 +64,7 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
                 if (collidableBase2.isCollidable(collidableInterfaceCompositeInterface) && collidableBase.isCollision(collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2))
                 {
                     collidableBase.collide(collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2);
-                    collidableBase2.collide(collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface);
+                    collidableBase2.collide(collidableInterfaceCompositeInterface2, collidableInterfaceCompositeInterface);
                 }
             }
 
