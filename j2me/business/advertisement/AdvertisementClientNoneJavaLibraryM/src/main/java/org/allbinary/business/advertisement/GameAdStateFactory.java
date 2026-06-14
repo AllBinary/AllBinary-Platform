@@ -24,7 +24,7 @@ public class GameAdStateFactory implements GameAdStateFactoryInterface
     }
     
     @Override
-    public GameAdState getInstanceForApp(final SoftwareInformation softwareInformation)
+    public GameAdStateBase getInstanceForApp(final SoftwareInformation softwareInformation)
     throws Exception
     {
         //if(softwareInformation == TestSoftwareInfo.getInstance())
