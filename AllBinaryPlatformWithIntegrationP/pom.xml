@@ -60,6 +60,8 @@
         <module>../j2me/media/graphics/geography/map/GraphP</module>
         <module>../j2me/games/strategy/rts/RTSGameJavaLibraryP</module>
         
+        <module>../j2me/AndroidBaseJavaLibraryM</module>
+        
         <module>../j2me/input/android/MotionInputAndroidJavaLibraryM</module>
         <module>../j2me/input/android/MotionInputAPI5AndUpAndroidJavaLibraryM</module>
         <module>../j2me/input/android/MotionInputThroughAPI4AndroidJavaLibraryM</module>
