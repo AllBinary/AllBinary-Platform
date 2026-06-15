@@ -30,10 +30,9 @@
         <!--
         <module>../../../android/AndroidAPI3AndUpJavaLibraryM</module>
         -->
-                
-        <!--
-        <module>../AndroidToJ2MELibraryM</module>
-        -->
+
+        <module>../../AndroidToJ2MELibraryM</module>
+
         <!--
         <module>../../OpenGLAndroidJavaLibraryM</module>
         <module>../../AndroidBaseJavaLibraryM</module>
@@ -41,17 +40,9 @@
         <module>../../android/AndroidThroughAPI2JavaLibraryM</module>
         <module>../../android/AndroidThroughAPI4JavaLibraryM</module>
         -->
-
-        <!--
-        <module>../../AndroidToAllBinaryJavaLibraryM</module>
-        -->
         
         <!--
         <module>../../input/android/MotionInputAndroidResourcesJavaLibraryM</module>
-        -->
-        
-        <!--
-        <module>../../../../working/j2me/AndroidToJ2MELibraryM</module>
         -->
 
         <!--

@@ -52,7 +52,7 @@
             <!-- AllBinary Platform Version End -->
         </dependency>
         
-        <!-- Is in AndroidToAllBinaryJavaLibrary
+        <!-- Is in AndroidToJ2MELibrary
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>FullScreenJavaLibrary</artifactId>
@@ -94,11 +94,11 @@
         
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>AndroidToAllBinaryJavaLibrary</artifactId>
+            <artifactId>AndroidToJ2MELibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-        </dependency>
+        </dependency>                
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>J2MEWindowingJavaLibrary</artifactId>
