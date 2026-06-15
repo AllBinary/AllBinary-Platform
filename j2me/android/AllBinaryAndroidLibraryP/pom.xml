@@ -28,10 +28,6 @@
     <modules>
 
         <!--
-        <module>../../../android/AndroidAPI3AndUpJavaLibraryM</module>
-        -->
-
-        <!--
         <module>../../OpenGLAndroidJavaLibraryM</module>
         <module>../../android/AndroidThroughAPI2JavaLibraryM</module>
         -->
