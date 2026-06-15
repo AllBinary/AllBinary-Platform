@@ -164,10 +164,10 @@ public class WaypointRTSFormInput extends RTSFormInput
         super.process(layerManager);
         
         if (this.isStickyItemSelected() ||
-            associatedRtsLayer == null)
+            associatedRtsLayer == CollidableDestroyableDamageableLayer.getNullInstance())
         {
             if (this.isStickyItemSelected() &&
-                associatedRtsLayer == null)
+                associatedRtsLayer == CollidableDestroyableDamageableLayer.getNullInstance())
             {
 
                 final GeographicMapCompositeInterface geographicMapCompositeInterface

@@ -84,7 +84,7 @@ public class CompositeRTSFormInput extends RTSFormInput
 
         int index = scrollSelectionForm.getSelectedIndexForPoint(point);
 
-        if (this.isStickyItemSelected() && associatedRtsLayer == null)
+        if (this.isStickyItemSelected() && associatedRtsLayer == CollidableDestroyableDamageableLayer.getNullInstance())
         {
             //this.logUtil.putF(index +"<="+ this.itemIndex[0], this, this.commonStrings.CONSTRUCTOR);
 
@@ -119,7 +119,7 @@ public class CompositeRTSFormInput extends RTSFormInput
              CommonLabels.getInstance().INDEX_LABEL + index + " > " + this.itemIndex[0], this, commonStrings.PROCESS);
 
         if (this.isStickyItemSelected() &&
-            associatedRtsLayer == null)
+            associatedRtsLayer == CollidableDestroyableDamageableLayer.getNullInstance())
         {
             //Make sure your not drag and dropping units yet
             if(this.getSelectedStickyItemIndex() <= this.itemIndex[0])
