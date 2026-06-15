@@ -27,7 +27,6 @@ public class BasicPlatormGeographicMapCellType //extends GeographicMapCellType
         final BasicArrayList types = new BasicArrayListS(1);
         types.add(SmallIntegerSingletonFactory.getInstance().getAt(type));
         final BasicPlatormGeographicMapCellType basicPlatormGeographicMapCellType = new BasicPlatormGeographicMapCellType(types);
-        new GeographicMapCellType(type, 0);
         //this.types = new int[1];
         //this.types[0] = type;
         return basicPlatormGeographicMapCellType;
