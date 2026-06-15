@@ -40,7 +40,11 @@
         
 <!--        <module>../j2me/input/android/MotionInputAndroidxAPI21OnUpDynamicJavaLibraryM</module>-->
         <module>../../../j2me/input/android/MotionInputAndroidDynamicJavaLibraryM</module>
+
+        <module>../../../j2me/android/AndroidAPI3AndUpJavaLibraryM</module>
+        <module>../../../j2me/FullScreenAndroidJavaLibraryM</module>
         
+                
         <module>../../../j2me/AndroidToJ2MELibraryM</module>
                 
     </modules>
