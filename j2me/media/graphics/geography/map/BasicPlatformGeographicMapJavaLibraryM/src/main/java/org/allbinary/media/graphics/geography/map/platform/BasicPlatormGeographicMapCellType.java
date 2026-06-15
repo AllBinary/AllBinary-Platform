@@ -13,6 +13,7 @@
  */
 package org.allbinary.media.graphics.geography.map.platform;
 
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListS;
@@ -24,7 +25,7 @@ public class BasicPlatormGeographicMapCellType //extends GeographicMapCellType
     public static BasicPlatormGeographicMapCellType createType(final int type) {
         //super(type);
         final BasicArrayList types = new BasicArrayListS(1);
-        types.add(Integer.toString(type));
+        types.add(SmallIntegerSingletonFactory.getInstance().getAt(type));
         final BasicPlatormGeographicMapCellType basicPlatormGeographicMapCellType = new BasicPlatormGeographicMapCellType(types);
         new GeographicMapCellType(type, 0);
         //this.types = new int[1];
