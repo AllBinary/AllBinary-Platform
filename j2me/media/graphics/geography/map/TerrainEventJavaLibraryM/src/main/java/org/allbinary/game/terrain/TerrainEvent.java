@@ -24,7 +24,7 @@ public class TerrainEvent extends AllBinaryEventObject
     public TerrainEvent(final Object basicTerrainInfo)
     {
         super(basicTerrainInfo);
-        this.setBasicTerrainInfo((BasicTerrainInfo) basicTerrainInfo);
+        this.setBasicTerrainInfo(this.basicTerrainInfo);
     }
 
     public String toString()
