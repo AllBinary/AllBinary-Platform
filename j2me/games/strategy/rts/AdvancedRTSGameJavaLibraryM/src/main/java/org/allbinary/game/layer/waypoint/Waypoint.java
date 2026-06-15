@@ -82,7 +82,7 @@ public class Waypoint extends WaypointBase
         this.endList = this.ownerLayer.getEndGeographicMapCellPositionList();
         
         this.paths = new BasicArrayList[tiledLayer.getColumns()][tiledLayer.getRows()];        
-
+        this.clearPaths();
     }
     
     public void releaseCachedPaths()
@@ -275,7 +275,10 @@ public class Waypoint extends WaypointBase
         */
 
         //Remove offending paths from cache
+        this.clearPaths();
+    }
 
+    private void clearPaths() {
         for(int columnIndex = this.paths.length; --columnIndex >= 0;)
         {
             for(int rowIndex = this.paths.length; --rowIndex >= 0;)
