@@ -73,9 +73,9 @@ public class TsUtil {
         return object.equals(object2);
     }
     
-    public ClassLoader getClassClassLoader(final Object object) {
-        return object.getClass().getClassLoader();
-    }
+//    public ClassLoader getClassClassLoader(final Object object) {
+//        return object.getClass().getClassLoader();
+//    }
 
     public int toNumber(final char value) {
         return (int) value;
