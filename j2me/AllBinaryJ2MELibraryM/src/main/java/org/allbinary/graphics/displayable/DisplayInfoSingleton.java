@@ -322,9 +322,8 @@ public class DisplayInfoSingleton
         {
             //The getters fire and set on change by calling the setters of this class
             //This does not actually get called often as the displayable width and height are usually the last value
-            //Not really sure if this ever happens?
-            if(this.last[this.WIDTH] != aLastWidth || this.last[this.HEIGHT] != aLastHeight)
-            {
+//            if(this.last[this.WIDTH] != aLastWidth || this.last[this.HEIGHT] != aLastHeight)
+//            {
                 stringMaker.delete(0, stringMaker.length());        
                 this.logUtil.putF(stringMaker.append(this.UPDATE_FROM_ORIENTATION_CHANGE).toString(), this, this.commonStrings.UPDATE);
 
@@ -419,8 +418,7 @@ public class DisplayInfoSingleton
                 SWTJOGLProcessor.getInstance().setCustom(aLastWidth, aLastHeight, this.ratio);
                 
                 this.add(this.commonStrings.UPDATE);
-                return;
-            }
+//            }
         }
     }
     
