@@ -46,7 +46,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
             try {
                 pathFindingLayer.getWaypointRunnableLogHelper().start(pathFindingLayer);
 
-                reset2();
+                this.reset2();
                 
                 final GeographicMapCellPosition geographicMapCellPosition = 
                     pathFindingLayer.getCurrentGeographicMapCellPosition();
@@ -55,8 +55,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                     throw new Exception("Should never be running here");
                 }
 
-                pathFindingInfo = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathFindingInfo(geographicMapCellPosition);
-                final PathFindingInfo localPathFindingInfo = (PathFindingInfo) pathFindingInfo;
+                this.pathFindingInfo = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathFindingInfo(geographicMapCellPosition);
+                final PathFindingInfo localPathFindingInfo = (PathFindingInfo) this.pathFindingInfo;
                 
 //                logUtil.putF("first set: " + pathFindingInfo, this, "getPathsList");
                                 
@@ -71,7 +71,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-                setRunning(false);
+                this.setRunning(false);
                 finish();
             }
         }
@@ -95,7 +95,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 final GeographicMapCellPosition geographicMapCellPosition = 
                     pathFindingLayer.getCurrentGeographicMapCellPosition();
 
-                final PathFindingInfo localPathFindingInfo = (PathFindingInfo) pathFindingInfo;
+                final PathFindingInfo localPathFindingInfo = (PathFindingInfo) this.pathFindingInfo;
                 list = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, localPathFindingInfo, multipassState);
                 
                 if(list != basicArrayListUtil.getImmutableInstance()) {
@@ -106,7 +106,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-                setRunning(false);
+                this.setRunning(false);
                 finish();
             }
         }
@@ -131,7 +131,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-                setRunning(false);
+                this.setRunning(false);
             }
 
             finish();
@@ -193,7 +193,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
     
     private void finish() {
         this.reset2();
-        this.currentPassRunnable = ALREADY_ENDED_RUNNABLE;
+        this.currentPassRunnable = this.ALREADY_ENDED_RUNNABLE;
         this.done = true;
     }
 

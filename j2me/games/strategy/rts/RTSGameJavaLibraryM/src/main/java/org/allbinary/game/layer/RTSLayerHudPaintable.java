@@ -69,7 +69,7 @@ public class RTSLayerHudPaintable extends SelectionHudPaintable {
 
         int size = this.weaponProperties.length;
         for (int index = 0; index < size; index++) {
-            graphics.drawString(weaponProperties[index], this.textX, y
+            graphics.drawString(this.weaponProperties[index], this.textX, this.y
                 + ((index + 1) * charHeight), 0);
         }
     }

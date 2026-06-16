@@ -210,7 +210,7 @@ public class RTSFormInput
         {
             this.hashtable.put(AllBinaryGameLayerManager.ID, layerManager);
             return (RTSLayer) layerInterfaceFactoryInterface.getNextInstance(
-                getHashtable(), cellPoint.getX(), cellPoint.getY(), cellPoint.getZ());
+                this.getHashtable(), cellPoint.getX(), cellPoint.getY(), cellPoint.getZ());
             //lastLayerInterfaceFactoryInterface = layerInterfaceFactoryInterface;
         }
         return CollidableDestroyableDamageableLayer.getNullInstance();

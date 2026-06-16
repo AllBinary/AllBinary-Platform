@@ -104,7 +104,7 @@ implements TechEventListenerInterface
         int xa = x+2;
         graphics.drawString(this.DOLLAR, xa, y + adjustedCostY, 0);
 
-        graphics.drawChars(costString, 0, this.len, 
-                x + adjustedCostX, y + adjustedCostY, 0);
+        graphics.drawChars(this.costString, 0, this.len, 
+                x + this.adjustedCostX, y + adjustedCostY, 0);
     }
 }

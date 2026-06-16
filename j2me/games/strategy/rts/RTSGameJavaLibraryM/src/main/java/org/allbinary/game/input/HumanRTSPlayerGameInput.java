@@ -349,7 +349,7 @@ implements BaseMotionGestureEventListener
             }
         }
 
-        getMotionGestureInputList().clear();
+        this.getMotionGestureInputList().clear();
     }
 
     /**
@@ -570,7 +570,7 @@ implements BaseMotionGestureEventListener
     {
         //this.logUtil.putF("motionGestureEvent: ").append(motionGestureEvent, this, "onMotionGestureEvent");
 
-        getMotionGestureInputList().add(motionGestureEvent);
+        this.getMotionGestureInputList().add(motionGestureEvent);
     }
 
     /**

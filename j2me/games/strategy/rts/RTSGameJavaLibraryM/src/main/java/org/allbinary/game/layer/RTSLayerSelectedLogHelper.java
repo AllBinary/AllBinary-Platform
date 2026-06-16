@@ -119,62 +119,62 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
 
     @Override
     public void doneMoving(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - done moving 0,0").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - done moving 0,0").toString(), this, this.TRACKTO_TURNTO);
     }
 
     @Override
     public void closeEnough(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - close enough").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - close enough").toString(), this, this.TRACKTO_TURNTO);
     }
     
     @Override
     public void movingLeft(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingLeft").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingLeft").toString(), this, this.TRACKTO_TURNTO);
     }
     
     @Override
     public void movingRight(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingRight").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingRight").toString(), this, this.TRACKTO_TURNTO);
     }
 
     @Override
     public void movingUp(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingUp").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingUp").toString(), this, this.TRACKTO_TURNTO);
     }
 
     @Override
     public void movingDown(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingDown").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingDown").toString(), this, this.TRACKTO_TURNTO);
     }
 
     @Override
     public void currentMoveEnded(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - correct angle, but movement not needed for current deltas so reseting movement angle").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - correct angle, but movement not needed for current deltas so reseting movement angle").toString(), this, this.TRACKTO_TURNTO);
     }
 
     @Override
     public void evade(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - evade").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - evade").toString(), this, this.TRACKTO_TURNTO);
     }
     
     @Override
     public void rotateLeft(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - rotating left").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - rotating left").toString(), this, this.TRACKTO_TURNTO);
     }
     
     @Override
     public void rotateRight(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - rotating right").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - rotating right").toString(), this, this.TRACKTO_TURNTO);
     }
 
     @Override
     public void handle(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final NamedAngle movementAngle) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - movementAngle: ").append(movementAngle.name).append(commonSeps.FORWARD_SLASH).appendshort(movementAngle.getValue()).toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - movementAngle: ").append(movementAngle.name).append(this.commonSeps.FORWARD_SLASH).appendshort(movementAngle.getValue()).toString(), this, this.TRACKTO_TURNTO);
     }
     
     @Override
     public void noRotation(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - Do not rotate").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - Do not rotate").toString(), this, this.TRACKTO_TURNTO);
     }
 
     @Override

@@ -40,12 +40,12 @@ public class WaypointRunnableSelectedLogHelper extends WaypointRunnableLogHelper
 
     @Override
     public void start(final PathFindingLayerInterface pathFindingLayerInterface) {
-        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(commonStrings.START_RUNNABLE).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(this.commonStrings.START_RUNNABLE).toString(), this, this.commonStrings.RUN);
     }
 
     @Override
     public void end(final PathFindingLayerInterface pathFindingLayerInterface) {
-        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(commonStrings.END_RUNNABLE).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(this.commonStrings.END_RUNNABLE).toString(), this, this.commonStrings.RUN);
     }
     
 }

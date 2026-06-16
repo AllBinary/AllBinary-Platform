@@ -92,15 +92,15 @@ extends SelectionHudPaintable
     {
         graphics.setColor(this.backgroundColor);
         //graphics.fillRect(this.getX(), y, this.getWidth(), this.getHeight());
-        graphics.drawRect(this.getX(), y, this.getWidth(), this.getHeight());
+        graphics.drawRect(this.getX(), this.y, this.getWidth(), this.getHeight());
         
         graphics.setColor(this.getColor());
         
-        graphics.drawString(this.TOTAL, this.textX, y, 0);
+        graphics.drawString(this.TOTAL, this.textX, this.y, 0);
 
         graphics.drawChars(this.totalCharArray, 0, 
                 this.getPrimitiveLongUtil().getCurrentTotalDigits(), 
-                this.textX + this.totalWidth, y, 0);
+                this.textX + this.totalWidth, this.y, 0);
         
         final int textLine2Y = (this.y + this.myFont.DEFAULT_CHAR_HEIGHT);
         graphics.drawString(this.rootNamesString, 

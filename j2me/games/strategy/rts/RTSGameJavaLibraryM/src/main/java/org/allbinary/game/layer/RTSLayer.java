@@ -503,7 +503,7 @@ public class RTSLayer
     private final LayerDistanceUtil layerDistanceUtil = LayerDistanceUtil.getInstance();
     @Override
     public void setTarget(final PathFindingLayerInterface targetGameLayer) throws Exception {
-        final int anotherTargetDistance = layerDistanceUtil.getDistance(
+        final int anotherTargetDistance = this.layerDistanceUtil.getDistance(
             (AllBinaryLayer) this, (AllBinaryLayer) targetGameLayer);
 
         final WaypointBehaviorBase waypointBehaviorBase = this.getWaypointBehavior();

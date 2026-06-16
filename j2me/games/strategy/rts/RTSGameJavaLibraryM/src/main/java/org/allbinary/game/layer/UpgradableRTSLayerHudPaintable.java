@@ -141,7 +141,7 @@ public class UpgradableRTSLayerHudPaintable
 
         //37
         //(myFont.DEFAULT_CHAR_WIDTH * 4)
-        graphics.drawString(this.PERCENT, this.percentCompleteX2, costY, 0);
+        graphics.drawString(this.PERCENT, this.percentCompleteX2, this.costY, 0);
 
         /*
         int pc = this.getRtsLayer().getPercentComplete();

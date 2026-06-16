@@ -14,8 +14,6 @@
 
 package org.allbinary.game.input;
 
-import org.allbinary.game.input.GameInputProcessor;
-
 public class RTSPlayerGameInputProcessor extends GameInputProcessor
 {
     protected final RTSPlayerGameInput rtsPlayerGameInput;
