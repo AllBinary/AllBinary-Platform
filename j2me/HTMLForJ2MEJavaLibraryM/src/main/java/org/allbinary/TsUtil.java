@@ -42,8 +42,9 @@ public class TsUtil {
     }
 
     public void waitFor(Object any, final long timeoutMillis) throws InterruptedException {
-        final Object object = (Object) any;
-        object.wait(timeoutMillis);
+        //final Object object = (Object) any;
+        //object.wait(timeoutMillis);
+        throw new RuntimeException();
     }
         
     public byte[] getRecord(final Object object, final int recordId) 

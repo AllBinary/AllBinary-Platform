@@ -279,7 +279,7 @@ public class ImageCache extends ImageCacheBase {
             LazyImageRotationAnimation lazyImageRotationAnimation = null;
             synchronized (this.lock) {
                 if(!this.loadAfterList.isEmpty())
-                //this.loadImageAfterList.remove(0);
+                //this.loadImageAfterList.removeAt(0);
                 lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadAfterList.removeAt(0);
             }
 
