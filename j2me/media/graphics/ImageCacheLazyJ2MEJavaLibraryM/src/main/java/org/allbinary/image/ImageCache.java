@@ -246,7 +246,7 @@ public class ImageCache extends ImageCacheBase {
 //    private void loadImageForAnimation() throws Exception {
 //        LazyImageRotationAnimation lazyImageRotationAnimation = null;
 //        synchronized (lock) {
-//            lazyImageRotationAnimation = (LazyImageRotationAnimation) loadNowList.remove(0);
+//            lazyImageRotationAnimation = (LazyImageRotationAnimation) loadNowList.removeAt(0);
 //        }
 //        this.loadImageForAnimation(lazyImageRotationAnimation);
 //    }
