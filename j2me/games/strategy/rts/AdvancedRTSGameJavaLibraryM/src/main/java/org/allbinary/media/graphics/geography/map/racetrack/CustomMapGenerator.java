@@ -84,7 +84,7 @@ public class CustomMapGenerator extends CustomMapGeneratorBase
 
         if (this.dropCellPositionHistory.isCellPositionWithDrop(cellPosition))
         {
-            final AllBinaryLayer layer = dropCellPositionHistory.getLayerInterface(cellPosition);
+            final AllBinaryLayer layer = this.dropCellPositionHistory.getLayerInterface(cellPosition);
             
             if(layer == AllBinaryLayer.NULL_ALLBINARY_LAYER) {
                 return emptyType;

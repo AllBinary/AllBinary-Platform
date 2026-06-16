@@ -38,106 +38,58 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
     private BasicArrayList list = this.basicArrayListUtil.getImmutableInstance();
     private Object pathFindingInfo = NullUtil.getInstance().NULL_OBJECT;
     
-    private final Runnable FIRST_RUNNABLE = new ARunnable() {
-
+    private class FirstRunnable extends ARunnable {
+        
+        private final MultipassWaypointPathRunnable multipassWaypointPathRunnable;
+        
+        FirstRunnable(final MultipassWaypointPathRunnable multipassWaypointPathRunnable) {
+            this.multipassWaypointPathRunnable = multipassWaypointPathRunnable;
+        }
+        
         @Override
         public void run() {
-            final LogUtil logUtil = LogUtil.getInstance();
-            try {
-                pathFindingLayer.getWaypointRunnableLogHelper().start(pathFindingLayer);
-
-                this.reset2();
-                
-                final GeographicMapCellPosition geographicMapCellPosition = 
-                    pathFindingLayer.getCurrentGeographicMapCellPosition();
-
-                if (geographicMapCellPosition == null) {
-                    throw new Exception("Should never be running here");
-                }
-
-                this.pathFindingInfo = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathFindingInfo(geographicMapCellPosition);
-                final PathFindingInfo localPathFindingInfo = (PathFindingInfo) this.pathFindingInfo;
-                
-//                logUtil.putF("first set: " + pathFindingInfo, this, "getPathsList");
-                                
-                list = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, localPathFindingInfo, multipassState);
-                
-                if(list != basicArrayListUtil.getImmutableInstance()) {
-                    END_RUNNABLE.run();
-                } else {
-                    currentPassRunnable = SECOND_RUNNABLE;
-                }
-            } catch (Exception e) {
-                final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-                this.setRunning(false);
-                finish();
-            }
+            this.multipassWaypointPathRunnable.processFirstRunnable();
         }
         
     };
+    
+    private final Runnable FIRST_RUNNABLE = new FirstRunnable(this);
 
 //    private boolean first = true;
     
-    private final Runnable SECOND_RUNNABLE = new ARunnable() {
+    private class SecondRunnable extends ARunnable {
+        
+        private final MultipassWaypointPathRunnable multipassWaypointPathRunnable;
+        
+        SecondRunnable(final MultipassWaypointPathRunnable multipassWaypointPathRunnable) {
+            this.multipassWaypointPathRunnable = multipassWaypointPathRunnable;
+        }
         
         @Override
         public void run() {
-            final LogUtil logUtil = LogUtil.getInstance();
-            try {
-
-//                if(first) {
-//                    first = false;
-//                    logUtil.putF("second set: " + pathFindingInfo, this, "getPathsList");
-//                }
-                
-                final GeographicMapCellPosition geographicMapCellPosition = 
-                    pathFindingLayer.getCurrentGeographicMapCellPosition();
-
-                final PathFindingInfo localPathFindingInfo = (PathFindingInfo) this.pathFindingInfo;
-                list = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, localPathFindingInfo, multipassState);
-                
-                if(list != basicArrayListUtil.getImmutableInstance()) {
-                    END_RUNNABLE.run();
-                }
-                
-            } catch (Exception e) {
-                final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-                this.setRunning(false);
-                finish();
-            }
+            this.multipassWaypointPathRunnable.processSecondRunnable();
         }
         
     };
+    
+    private final Runnable SECOND_RUNNABLE = new SecondRunnable(this);
 
-    private final Runnable END_RUNNABLE = new ARunnable() {
-            
+    private class EndRunnable extends ARunnable {
+        
+        private final MultipassWaypointPathRunnable multipassWaypointPathRunnable;
+        
+        EndRunnable(final MultipassWaypointPathRunnable multipassWaypointPathRunnable) {
+            this.multipassWaypointPathRunnable = multipassWaypointPathRunnable;
+        }
+        
         @Override
         public void run() {
-            final LogUtil logUtil = LogUtil.getInstance();
-            try {
-                final WaypointBehaviorBase waypointBehavior = pathFindingLayer.getWaypointBehavior();
-                
-//                logUtil.putF("end: " + pathFindingInfo, this, "getPathsList");
-
-                waypointBehavior.setWaypointPathsList(list);
-
-                pathFindingLayer.getWaypointRunnableLogHelper().end(pathFindingLayer);
-                
-            } catch (Exception e) {
-                final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-                this.setRunning(false);
-            }
-
-            finish();
-        }
+            this.multipassWaypointPathRunnable.processEndRunnable();
+        }            
         
     };
+    
+    private final Runnable END_RUNNABLE = new EndRunnable(this);
 
     private final Runnable ALREADY_ENDED_RUNNABLE = new ARunnable() {
             
@@ -148,12 +100,12 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
         
     };
     
-    private Runnable currentPassRunnable = FIRST_RUNNABLE;
+    private Runnable currentPassRunnable = this.FIRST_RUNNABLE;
     
     public MultipassWaypointPathRunnable()
     {
     }
-
+    
     @Override
     public void setRunning(boolean isRunning)
     {        
@@ -205,7 +157,89 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
     @Override
     public void reset() {
         this.reset2();
-        this.currentPassRunnable = FIRST_RUNNABLE;
+        this.currentPassRunnable = this.FIRST_RUNNABLE;
         this.done = false;
     }
+    
+
+    private void processFirstRunnable() {
+        try {
+
+            this.pathFindingLayer.getWaypointRunnableLogHelper().start(this.pathFindingLayer);
+
+            this.reset2();
+
+            final GeographicMapCellPosition geographicMapCellPosition =
+                this.pathFindingLayer.getCurrentGeographicMapCellPosition();
+
+            if (geographicMapCellPosition == null) {
+                throw new Exception("Should never be running here");
+            }
+
+            this.pathFindingInfo = this.targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathFindingInfo(geographicMapCellPosition);
+            final PathFindingInfo localPathFindingInfo = (PathFindingInfo) this.pathFindingInfo;
+
+//                logUtil.putF("first set: " + pathFindingInfo, this, "getPathsList");
+            this.list = this.targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, localPathFindingInfo, this.multipassState);
+
+            if (this.list != this.basicArrayListUtil.getImmutableInstance()) {
+                this.END_RUNNABLE.run();
+            } else {
+                this.currentPassRunnable = this.SECOND_RUNNABLE;
+            }
+
+        } catch (Exception e) {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+            this.setRunning(false);
+            this.finish();
+        }
+    }
+
+    private void processSecondRunnable() {
+        try {
+
+//                if(first) {
+//                    first = false;
+//                    logUtil.putF("second set: " + pathFindingInfo, this, "getPathsList");
+//                }
+            final GeographicMapCellPosition geographicMapCellPosition =
+                this.pathFindingLayer.getCurrentGeographicMapCellPosition();
+
+            final PathFindingInfo localPathFindingInfo = (PathFindingInfo) this.pathFindingInfo;
+            this.list = this.targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, localPathFindingInfo, this.multipassState);
+
+            if (this.list != this.basicArrayListUtil.getImmutableInstance()) {
+                this.END_RUNNABLE.run();
+            }
+
+        } catch (Exception e) {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+            this.setRunning(false);
+            this.finish();
+        }
+    }
+
+    private void processEndRunnable() {
+        try {
+            final WaypointBehaviorBase waypointBehavior = this.pathFindingLayer.getWaypointBehavior();
+
+//                logUtil.putF("end: " + pathFindingInfo, this, "getPathsList");
+            waypointBehavior.setWaypointPathsList(this.list);
+
+            this.pathFindingLayer.getWaypointRunnableLogHelper().end(this.pathFindingLayer);
+
+        } catch (Exception e) {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+            this.setRunning(false);
+        }
+
+        this.finish();
+    }
+    
 }

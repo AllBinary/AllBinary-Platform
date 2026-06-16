@@ -49,35 +49,35 @@ public class UnitGameResources extends BasicGameResources
 
         String string = GameGraphicsResourceUtil.getInstance().getName();
 
-        stringBuffer.delete(0, stringBuffer.length());
-        stringBuffer.append(ROOT);
-        stringBuffer.append(UnitGameResources.DESTROY);
-        stringBuffer.append(string);
-        stringBuffer.append(sizeString);
+        BasicGameResources.stringBuffer.delete(0, BasicGameResources.stringBuffer.length());
+        BasicGameResources.stringBuffer.append(ROOT);
+        BasicGameResources.stringBuffer.append(UnitGameResources.DESTROY);
+        BasicGameResources.stringBuffer.append(string);
+        BasicGameResources.stringBuffer.append(sizeString);
 
-        this.RESOURCE_DESTROY = stringBuffer.toString();
+        this.RESOURCE_DESTROY = BasicGameResources.stringBuffer.toString();
         
-        stringBuffer.delete(0, stringBuffer.length());
-        stringBuffer.append(UnitGameResources.ICON);
-        stringBuffer.append(ROOT);
+        BasicGameResources.stringBuffer.delete(0, BasicGameResources.stringBuffer.length());
+        BasicGameResources.stringBuffer.append(UnitGameResources.ICON);
+        BasicGameResources.stringBuffer.append(ROOT);
 
-        this.RESOURCE_ICON_ANIMATION = stringBuffer.toString();
+        this.RESOURCE_ICON_ANIMATION = BasicGameResources.stringBuffer.toString();
 
-        stringBuffer.delete(0, stringBuffer.length());
-        stringBuffer.append(ROOT);
-        stringBuffer.append(UnitGameResources.ICON);
-        stringBuffer.append(string);
-        stringBuffer.append(this.ICON_SIZE);
+        BasicGameResources.stringBuffer.delete(0, BasicGameResources.stringBuffer.length());
+        BasicGameResources.stringBuffer.append(ROOT);
+        BasicGameResources.stringBuffer.append(UnitGameResources.ICON);
+        BasicGameResources.stringBuffer.append(string);
+        BasicGameResources.stringBuffer.append(this.ICON_SIZE);
 
-        this.RESOURCE_ICON = stringBuffer.toString();
+        this.RESOURCE_ICON = BasicGameResources.stringBuffer.toString();
 
-        stringBuffer.delete(0, stringBuffer.length());
-        stringBuffer.append(ROOT);
-        stringBuffer.append(UnitGameResources.ICON_BUILD);
-        stringBuffer.append(string);
-        stringBuffer.append(this.ICON_SIZE);
+        BasicGameResources.stringBuffer.delete(0, BasicGameResources.stringBuffer.length());
+        BasicGameResources.stringBuffer.append(ROOT);
+        BasicGameResources.stringBuffer.append(UnitGameResources.ICON_BUILD);
+        BasicGameResources.stringBuffer.append(string);
+        BasicGameResources.stringBuffer.append(this.ICON_SIZE);
 
-        this.RESOURCE_ICON_BUILD = stringBuffer.toString();
+        this.RESOURCE_ICON_BUILD = BasicGameResources.stringBuffer.toString();
 
         /*
         stringBuffer.delete(0, stringBuffer.length());

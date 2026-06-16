@@ -752,7 +752,7 @@ extends UnitWaypointBehavior
         final AdvancedRTSGameLayer waypointLayer)
         throws Exception
     {
-        setWaypointPathsList(UnitWaypointBehavior2.runningWaypointPathList);
+        this.setWaypointPathsList(UnitWaypointBehavior2.runningWaypointPathList);
 
         if (this.waypointPathRunnable.isRunning())
         {
@@ -853,7 +853,7 @@ extends UnitWaypointBehavior
 
             stringBuffer.append(UnitWaypointBehavior2.TARGET_DISTANCE);
             stringBuffer.append(this.commonSeps.SPACE);
-            stringBuffer.appendint(getCurrentTargetDistance());
+            stringBuffer.appendint(this.getCurrentTargetDistance());
         }
 
         return stringBuffer.toString();

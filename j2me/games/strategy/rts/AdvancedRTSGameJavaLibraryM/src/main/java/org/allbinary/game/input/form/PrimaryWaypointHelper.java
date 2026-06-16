@@ -14,7 +14,6 @@
 package org.allbinary.game.input.form;
 
 import org.allbinary.game.layer.NullPathFindingLayer;
-import org.allbinary.game.layer.NullRTSLayer;
 import org.allbinary.game.layer.PathFindingLayerInterface;
 import org.allbinary.game.layer.waypoint.WaypointLayer;
 

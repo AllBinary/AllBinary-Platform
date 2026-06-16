@@ -70,7 +70,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
                 "Productivity:", 999,
                 basicHudFactory.ABSOLUTE,
                 basicHudFactory.HORIZONTAL,
-                this.textX, y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
+                this.textX, this.y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
                 0, this.getBasicColorP());
             index++;
 
@@ -78,7 +78,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
                 "Efficiency:", 999,
                 basicHudFactory.ABSOLUTE,
                 basicHudFactory.HORIZONTAL,
-                this.textX, y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
+                this.textX, this.y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
                 0, this.getBasicColorP());
             index++;
 
@@ -87,14 +87,14 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
                 this.HEALTH, 99999,
                 basicHudFactory.ABSOLUTE,
                 basicHudFactory.HORIZONTAL,
-                this.textX, y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
+                this.textX, this.y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
                 0, this.getBasicColorP());
 
             maxHealthHud = new NumberStringHud(
                 "/ ", 99999,
                 basicHudFactory.ABSOLUTE,
                 basicHudFactory.HORIZONTAL,
-                this.textX + (totalLength * DEFAULT_CHAR_HEIGHT), y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
+                this.textX + (totalLength * DEFAULT_CHAR_HEIGHT), this.y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
                 0, this.getBasicColorP());
             
         } catch (Exception e) {

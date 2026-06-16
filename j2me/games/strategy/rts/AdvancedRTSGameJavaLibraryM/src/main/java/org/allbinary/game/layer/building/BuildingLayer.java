@@ -299,7 +299,7 @@ public class BuildingLayer
     @Override
     public int getDowngradeCost()
     {
-        final long downgradeCost = RTSLayerUtil.getInstance().getCostExponential((long) ((this.getLevel() - 1) * getBuildingLevelCost()));
+        final long downgradeCost = RTSLayerUtil.getInstance().getCostExponential((long) ((this.getLevel() - 1) * this.getBuildingLevelCost()));
 
         this.logUtil.putF("Cost: " + downgradeCost, this, "getDowngradeCost");
 
@@ -309,7 +309,7 @@ public class BuildingLayer
     @Override
     public int getUpgradeCost()
     {
-        final long upgradeCost = RTSLayerUtil.getInstance().getCostExponential((long) ((this.getLevel() + 1) * getBuildingLevelCost()));
+        final long upgradeCost = RTSLayerUtil.getInstance().getCostExponential((long) ((this.getLevel() + 1) * this.getBuildingLevelCost()));
 
         //this.logUtil.putF("Cost: " + upgradeCost, this, "getUpgradeCost");
 

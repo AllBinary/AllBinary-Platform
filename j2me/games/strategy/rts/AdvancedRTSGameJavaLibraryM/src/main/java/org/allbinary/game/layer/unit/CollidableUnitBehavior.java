@@ -31,6 +31,7 @@ import org.allbinary.math.AngleInfo;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
 import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
+import org.allbinary.string.CommonStrings;
 
 public class CollidableUnitBehavior
 extends CollidableRTSBehavior 
@@ -90,6 +91,7 @@ extends CollidableRTSBehavior
             }
             catch(Exception e)
             {
+                final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
                 return NullUtil.getInstance().NULL_OBJECT;
             }

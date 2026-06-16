@@ -333,7 +333,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                         this, 
                         (AdvancedRTSGameLayer) 
                         this.waypointLayerInterfaceFactoryInterface.getNextInstance(
-                                hashtable, x, y, z))
+                                hashtable, this.x, this.y, this.z))
                 );
 
         final Features features = Features.getInstance();
@@ -844,7 +844,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final AngleInfo angleInfo = this.rotationAnimationInterfaceP.getAngleInfoP();
         final int angle = (int) (angleInfo.getAngle() + this.slightAngle);
 
-        hashtable.put(SmallIntegerSingletonFactory.getInstance().getAt(1),
+        this.hashtable.put(SmallIntegerSingletonFactory.getInstance().getAt(1),
                 SmallIntegerSingletonFactory.getInstance().getAt((int) AngleFactory.getInstance().getAt(angle).getValue()));
 
         final SalvoInterface salvoInterface = (SalvoInterface) this.getPartInterfaceArray()[0];
@@ -862,7 +862,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     @Override
     public void downgrade()
     {
-        if (getLevel() > 1)
+        if (this.getLevel() > 1)
         {
             super.downgrade();
             //this.select();
@@ -990,7 +990,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
         //if (this.getUnitWaypointBehavior().isWaypointListEmptyOrOnlyTargets())
         
-        this.rtsLogHelper.turnTo(this, dx, dy, angleInfo, angle, movementAngle, evading, targetAngle);
+        this.rtsLogHelper.turnTo(this, dx, dy, angleInfo, angle, this.movementAngle, evading, targetAngle);
 
         final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
         
@@ -1271,10 +1271,10 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 this.layerPartialCellPositionsUtil.getAllDXY(
                         geographicMapInterface,
                         this, (int) velocityXScaled, (int) velocityYScaled,
-                        getPartialpositionlist());
+                        UnitLayer.getPartialpositionlist());
 
                 //is building in path
-                final GeographicMapCellPosition cellPosition = (GeographicMapCellPosition) DropCellPositionHistory.getInstance().getCellPositionWithDrop(getPartialpositionlist());
+                final GeographicMapCellPosition cellPosition = (GeographicMapCellPosition) DropCellPositionHistory.getInstance().getCellPositionWithDrop(UnitLayer.getPartialpositionlist());
 
                 if (cellPosition == this.cellPositionFactory.NONE) {
                     final AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
@@ -1312,7 +1312,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                         this.moveSoundInterface);
             }
         } catch(Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "move", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "move", e);
         }
     }
 
