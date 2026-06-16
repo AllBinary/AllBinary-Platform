@@ -245,31 +245,37 @@ public class OpenGLConfiguration
         if (ChangedGameFeatureListener.getInstance().isChangedFeature(
                 MainFeatureFactory.getInstance().STATIC))
         {
+            final OpenGLFeatureFactory openGLFeatureFactory
+                    = OpenGLFeatureFactory.getInstance();
+
             if (this.isOpenGL())
             {
-                if (!features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
-                {
-                    this.logUtil.putF("Turning on OpenGL", this, this.commonStrings.INIT);
-                    
-                    features.addDefault(OpenGLFeatureFactory.getInstance().OPENGL);
-                    
-                    this.logUtil.putF("Using OpenGL Type Feature: "
-                            + this.getType(), this, this.commonStrings.INIT);
-                    
-                    features.addDefault(this.getType());
-                    
-                    this.logUtil.putF("Using OpenGL ImageColor Feature: "
-                            + this.getImageColor(), this, this.commonStrings.INIT);
-                    features.addDefault(this.getImageColor());
+                //this.logUtil.putF("OpenGL is enabled", this, this.commonStrings.INIT);
 
-                    this.logUtil.putF("Using OpenGL Color Feature: "
-                            + this.getColor(), this, this.commonStrings.INIT);
-                    features.addDefault(this.getColor());
+                if(features.isFeature(openGLFeatureFactory.OPENGL_2D) || features.isFeature(openGLFeatureFactory.OPENGL_3D) || features.isFeature(openGLFeatureFactory.OPENGL_2D_AND_3D)) {
+                    if (!features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
+                    {
+                        this.logUtil.putF("Turning on OpenGL as Default", this, this.commonStrings.INIT);
 
-                    this.logUtil.putF("Using OpenGL Version Selector Feature: "
-                            + this.getVersionSelector(), this, this.commonStrings.INIT);
-                    features.addDefault(this.getVersionSelector());
+                        features.addDefault(OpenGLFeatureFactory.getInstance().OPENGL);
+
+                        this.logUtil.putF("Using OpenGL Type Feature: " + this.getType(), this, this.commonStrings.INIT);
+
+                        features.addDefault(this.getType());
+
+                        this.logUtil.putF("Using OpenGL ImageColor Feature: " + this.getImageColor(), this, this.commonStrings.INIT);
+                        features.addDefault(this.getImageColor());
+
+                        this.logUtil.putF("Using OpenGL Color Feature: " + this.getColor(), this, this.commonStrings.INIT);
+                        features.addDefault(this.getColor());
+
+                        this.logUtil.putF("Using OpenGL Version Selector Feature: " + this.getVersionSelector(), this, this.commonStrings.INIT);
+                        features.addDefault(this.getVersionSelector());
+                    }
+                } else {
+                    this.logUtil.putF("OpenGL is enabled, but this game does not support OpenGL (Probably from installing with the same package name from a game that had OpenGL available)", this, this.commonStrings.INIT);
                 }
+
             }
             else
             {
@@ -287,7 +293,7 @@ public class OpenGLConfiguration
         {
             if(this.isOpenGL() && !features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
             {
-                PreLogUtil.put("OpenGL is set but not Enabled since Statics where not cleared (Reboot or Complete exit is Required)", this, this.commonStrings.INIT);
+                PreLogUtil.put("OpenGL is set but not Enabled since statics where not cleared (Reboot or Complete exit is Required)", this, this.commonStrings.INIT);
             }
         }
         
