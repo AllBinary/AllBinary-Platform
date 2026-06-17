@@ -21,4 +21,8 @@ public class ThreadObjectUtil {
         throws Exception {
     }
 
+    public void processThread(final Runnable runnable) {
+        runnable.run();
+    }
+    
 }

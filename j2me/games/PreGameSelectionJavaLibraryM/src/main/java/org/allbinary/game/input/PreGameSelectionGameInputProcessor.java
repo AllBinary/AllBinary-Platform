@@ -32,6 +32,7 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.thread.ABRunnable;
+import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.TimeDelayHelper;
 
 public class PreGameSelectionGameInputProcessor extends Processor implements
@@ -130,8 +131,7 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
                     if (!abRunnable.isRunning()) {
                         abRunnable.setRunning(true);
                         //Better to mix this in with the UI thread that is already running.
-                        final Thread thread = new Thread(abRunnable);
-                        thread.start();
+                        ThreadObjectUtil.getInstance().processThread(abRunnable);
                     }
                     
                     break;

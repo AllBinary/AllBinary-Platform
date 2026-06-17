@@ -29,4 +29,10 @@ public class ThreadObjectUtil
     {
         TsUtil.getInstance().waitFor(object, delay);
     }
+    
+    public void processThread(final Runnable runnable) {
+        final Thread thread = new Thread(runnable);
+        thread.start();
+    }
+
 }
