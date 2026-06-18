@@ -56,7 +56,7 @@ extends InputProcessor
     }
     
     @Override    
-    public void keyPressed(final int keyCode, final int deviceId)
+    public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         try
         {
@@ -85,7 +85,7 @@ extends InputProcessor
     
     //Handle the enter case as a GameKey
     @Override
-    public void keyReleased(final Canvas canvas, final int keyCode, final int deviceId) {
+    public void keyReleasedByDevice(final Canvas canvas, final int keyCode, final int deviceId) {
         try
         {
 //                PreLogUtil.put(

@@ -60,7 +60,7 @@ extends InputProcessor
         
     //TWB - This is raw input from Canvas that does not include TouchButton Input
     @Override
-    public void keyPressed(final int keyCode, final int deviceId)
+    public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         try
         {
@@ -105,7 +105,7 @@ extends InputProcessor
     }
     
     @Override
-    public void keyReleased(final Canvas canvas, final int keyCode, final int deviceId) {
+    public void keyReleasedByDevice(final Canvas canvas, final int keyCode, final int deviceId) {
         this.removeGameKeyEvent(canvas, keyCode, deviceId, false);
     }
     

@@ -19,12 +19,12 @@ public class InputProcessor
 {
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
-    public void keyPressed(final int keyCode, final int deviceId)
+    public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         
     }
 
-    public void keyReleased(final Canvas canvas, final int keyCode, final int deviceId)
+    public void keyReleasedByDevice(final Canvas canvas, final int keyCode, final int deviceId)
     {
         
     }

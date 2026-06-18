@@ -1422,7 +1422,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         // keyCode, this);
 
         // this.addGameKeyEvent(keyCode, false);
-        this.inputProcessor.keyPressed(keyCode, deviceId);
+        this.inputProcessor.keyPressedByDevice(keyCode, deviceId);
     }
 
     @Override
@@ -1433,7 +1433,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         if (this.isSingleKeyRepeatableProcessing)
         {
             // this.addGameKeyEvent(keyCode, true);
-            this.inputProcessor.keyPressed(keyCode, deviceId);
+            this.inputProcessor.keyPressedByDevice(keyCode, deviceId);
         }
     }
 
@@ -1441,7 +1441,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void keyReleasedByDevice(final int keyCode, final int deviceId)
     {
         //this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_RELEASED);
-        this.inputProcessor.keyReleased(this, keyCode, deviceId);
+        this.inputProcessor.keyReleasedByDevice(this, keyCode, deviceId);
     }
 
     // private void addGameKeyEvent(int keyCode, boolean repeated)
