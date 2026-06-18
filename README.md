@@ -189,7 +189,7 @@ The main goal of AllBinary InputAutomationTool Solution is to help reduce manual
 
 What is the planned future Implementation for the AllBinary Platform?
 
-Add Typescript implementation from the Java code just like the Kotlin builds.
+Add TypeScript implementation from the Java code just like the Kotlin builds.
 
 Better integration with GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
 
