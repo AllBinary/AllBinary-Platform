@@ -97,7 +97,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
 
     }
 
-    public void fireEventForEvent(final GameKeyEvent eventObject) throws Exception {
+    public void fireEventForGameKeyEvent(final GameKeyEvent eventObject) throws Exception {
         //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
         final int size = this.list.size();

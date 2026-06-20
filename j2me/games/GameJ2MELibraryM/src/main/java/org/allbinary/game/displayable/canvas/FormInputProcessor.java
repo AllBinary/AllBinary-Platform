@@ -73,7 +73,7 @@ extends InputProcessor
             final Input input = this.inputFactory.getInstanceById(keyCode);
 
             final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this.allBinaryGameCanvas, input);
-            this.downKeyEventHandler.fireEventForEvent(gameKeyEvent);
+            this.downKeyEventHandler.fireEventForGameKeyEvent(gameKeyEvent);
             //downKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
 
         }

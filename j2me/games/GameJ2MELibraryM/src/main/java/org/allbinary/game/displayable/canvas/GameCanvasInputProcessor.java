@@ -39,8 +39,7 @@ extends InputProcessor
     private final DownGameKeyEventHandler downGameKeyEventHandler =
         DownGameKeyEventHandler.getInstance();
     private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
-    private final DownKeyEventHandler downKeyEventHandler =
-        DownKeyEventHandler.getInstance();
+    private final DownKeyEventHandler downKeyEventHandler = DownKeyEventHandler.getInstance();
     private final SmallIntegerSingletonFactory smallIntegerSingletonFactory = 
                     SmallIntegerSingletonFactory.getInstance();
     
