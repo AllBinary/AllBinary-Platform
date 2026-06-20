@@ -19,6 +19,7 @@ import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
+//This class needs to go away.
 public class MyFont
 {
    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
