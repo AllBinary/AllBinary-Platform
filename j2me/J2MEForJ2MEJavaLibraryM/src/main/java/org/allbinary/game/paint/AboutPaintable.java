@@ -58,7 +58,9 @@ public class AboutPaintable extends Paintable implements UpdateMyFontInterface
     private AboutPaintable(String[] info, String[] developers)
     {
         this.info = info;
+        this.infoBeginWidth = new int[this.info.length];
         this.developers = developers;
+        this.developersBeginWidth = new int[this.developers.length];
     }
 
     @Override
