@@ -35,6 +35,7 @@ extends ScrollSelectionForm
         
         public void process() throws Exception {
             this.scrollCurrentSelectionForm.processTempHorizontalForm();
+            this.scrollCurrentSelectionForm.processor = Processor.getInstance();
         }
     };
 
@@ -48,6 +49,7 @@ extends ScrollSelectionForm
         
         public void process() throws Exception {
             this.scrollCurrentSelectionForm.processHorizontalForm();
+            this.scrollCurrentSelectionForm.processor = Processor.getInstance();
         }
     };
 
@@ -61,6 +63,7 @@ extends ScrollSelectionForm
         
         public void process() throws Exception {
             this.scrollCurrentSelectionForm.processVerticalForm();
+            this.scrollCurrentSelectionForm.processor = Processor.getInstance();
         }
     };
     
@@ -269,7 +272,6 @@ extends ScrollSelectionForm
     {
         try
         {
-            //TWB this could be updated only only Display/Font changes.
             this.processor.process();
             
             int delta = 0;
