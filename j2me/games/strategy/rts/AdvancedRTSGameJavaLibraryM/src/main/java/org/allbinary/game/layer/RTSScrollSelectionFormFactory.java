@@ -19,13 +19,13 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.FormTypeFactory;
-import org.allbinary.graphics.form.MultipleScrollSelectionHorizontalForm;
+import org.allbinary.graphics.form.MultipleScrollSelectionForm;
 import org.allbinary.input.motion.button.CommonButtons;
 import org.allbinary.input.motion.button.TouchButtonLocationHelper;
 
 public class RTSScrollSelectionFormFactory
 {
-    public static MultipleScrollSelectionHorizontalForm getInstance(
+    public static MultipleScrollSelectionForm getInstance(
             final String formLabel, final ABCustomItem[] items)
     throws Exception
     {
@@ -44,7 +44,7 @@ public class RTSScrollSelectionFormFactory
                 CommonButtons.getInstance().STANDARD_BUTTON_SIZE);
 
         return
-            MultipleScrollSelectionHorizontalForm.createForm(
+            MultipleScrollSelectionForm.createForm(
                     formLabel, items, menuRectangle, FormTypeFactory.getInstance().HORIZONTAL_FORM, 0,
                     basicColorFactory.BLACK, basicColorFactory.WHITE);
     }
