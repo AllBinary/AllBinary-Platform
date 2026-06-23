@@ -41,7 +41,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         super(title, items, ItemPaintableFactory.getInstance(), rectangle, formType, border, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
 
         this.initAnimations();
-        this.update(items);
+        this.addAll(items);
     }
 
     private void initAnimations()
@@ -59,15 +59,15 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
 
-    private void update(final ABCustomItem[] items)
+    private void addAll(final ABCustomItem[] items)
     {        
         for(int index = items.length; --index >= 0;)
         {
-            this.updateAt(index, items[index]);
+            this.addAt(index, items[index]);
         }
     }
     
-    private void updateAt(final int index, final ABCustomItem item)
+    private void addAt(final int index, final ABCustomItem item)
     {
         final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
         
@@ -114,6 +114,77 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
 
+    private void updateAll(final ABCustomItem[] items)
+    {        
+        for(int index = items.length; --index >= 0;)
+        {
+            this.updateAt(index, items[index]);
+        }
+    }
+    
+    private void updateAt(final int index, final ABCustomItem item)
+    {
+        final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
+        
+        final BasicColor buttonColor = basicColorFactory.TRANSPARENT_GREY;
+        final BasicColor selectedButtonColor = basicColorFactory.TRANSPARENT_RED;
+            
+        final int width = item.getMinimumWidth();
+        final int height = item.getMinimumHeight();
+
+        //TWB - Adjust gap between menu items rectangles
+        int adjustedBorder = 3;
+            
+        int offset = -(this.halfBorder + adjustedBorder);
+
+        if (J2MEUtil.isJ2ME())
+        {
+            final RectangleAdjustedAnimation rectangleAdjustedAnimation = (RectangleAdjustedAnimation) this.selectedAnimationArray[index];
+            
+            rectangleAdjustedAnimation.setWidth(width + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setHeight(height + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setOffsetX(offset);
+            rectangleAdjustedAnimation.setOffsetY(offset);
+            rectangleAdjustedAnimation.setBasicColorP(selectedButtonColor);
+
+        } else
+        {
+            final RectangleFilledAdjustedAnimation rectangleAdjustedAnimation = (RectangleFilledAdjustedAnimation) this.selectedAnimationArray[index];
+            
+            rectangleAdjustedAnimation.setWidth(width + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setHeight(height + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setOffsetX(offset);
+            rectangleAdjustedAnimation.setOffsetY(offset);
+            rectangleAdjustedAnimation.setBasicColorP(selectedButtonColor);
+
+        }
+
+        //TWB - Adjust gap between menu items rectangles
+        adjustedBorder = 4;
+
+        if (J2MEUtil.isJ2ME())
+        {
+            final RectangleAdjustedAnimation rectangleAdjustedAnimation = (RectangleAdjustedAnimation) this.unSelectedAnimationArray[index];
+            
+            rectangleAdjustedAnimation.setWidth(width + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setHeight(height + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setOffsetX(offset);
+            rectangleAdjustedAnimation.setOffsetY(offset);
+            rectangleAdjustedAnimation.setBasicColorP(buttonColor);
+
+        } else
+        {
+            final RectangleFilledAdjustedAnimation rectangleAdjustedAnimation = (RectangleFilledAdjustedAnimation) this.unSelectedAnimationArray[index];
+            
+            rectangleAdjustedAnimation.setWidth(width + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setHeight(height + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setOffsetX(offset);
+            rectangleAdjustedAnimation.setOffsetY(offset);
+            rectangleAdjustedAnimation.setBasicColorP(buttonColor);
+
+        }
+    }
+    
     public Command getSelectedCommand()
     {
         final int index = super.getSelectedIndex();
@@ -126,7 +197,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     {
         int result = super.append(item);
 
-        this.updateAt(result, item);
+        this.addAt(result, item);
 
         return result;
     }
@@ -155,6 +226,14 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     {
         super.set(itemNum, item);
     }
+    
+    @Override
+    public void paint(final Graphics graphics)
+    {
+        this.updateAll(getAllitems());
+        super.paint(graphics);
+    }    
+    
     
     @Override
     public int paintItem(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y)
