@@ -239,18 +239,6 @@ extends ScrollSelectionForm
     private int getXVerticalForm(final int index, final ABCustomItem item, int dx, final int dy) {
         return this.getDiffX(item) + this.halfBorder;
     }
-
-    private int getXPostTempHorizontalForm(final int index, final ABCustomItem item, int deltaX, final int delta) {
-        return deltaX;
-    }
-
-    private int getXPostHorizontalForm(final int index, final ABCustomItem item, int deltaX, final int delta) {
-        return delta;
-    }
-
-    private int getXPostVerticalForm(final int index, final ABCustomItem item, int deltaX, final int delta) {
-        return delta;
-    }
     
     @Override
     protected int getDiffX(ABCustomItem item)
@@ -281,6 +269,7 @@ extends ScrollSelectionForm
     {
         try
         {
+            //TWB this could be updated only only Display/Font changes.
             this.processor.process();
             
             int delta = 0;

@@ -39,7 +39,7 @@ public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME
     @Override
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
-        width = font.stringWidth(this.VIBRATING);
+        this.width = font.stringWidth(this.VIBRATING);
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     

@@ -114,10 +114,11 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
 
-    private void updateAll(final ABCustomItem[] items)
+    private void updateAll(final Graphics graphics, final ABCustomItem[] items)
     {        
         for(int index = items.length; --index >= 0;)
         {
+            items[index].preMeasurement(graphics);
             this.updateAt(index, items[index]);
         }
     }
@@ -230,7 +231,8 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     @Override
     public void paint(final Graphics graphics)
     {
-        this.updateAll(getAllitems());
+        //TWB this could be updated only only Display/Font changes.
+        this.updateAll(graphics, getAllitems());
         super.paint(graphics);
     }    
     

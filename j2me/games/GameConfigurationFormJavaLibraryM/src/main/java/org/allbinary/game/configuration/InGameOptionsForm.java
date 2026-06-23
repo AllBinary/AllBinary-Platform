@@ -31,15 +31,15 @@ public class InGameOptionsForm extends CommandForm
     public static final Command SAVE  = new Command("Save", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 1);
     public static final Command DEFAULT  = new Command("Default", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 1);
     
-    InGameOptionsForm(CommandListener commandListener, String title,
-            BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
+    InGameOptionsForm(final CommandListener commandListener, final String title,
+            final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor)
         throws Exception
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
-        GameFeatureFormUtil gameFeatureFormUtil = 
+        final GameFeatureFormUtil gameFeatureFormUtil = 
             GameFeatureFormUtil.getInstance();
         
         gameFeatureFormUtil.addChoiceGroup(this, 
@@ -54,7 +54,7 @@ public class InGameOptionsForm extends CommandForm
     }
     
     @Override
-    public void initCommands(CommandListener cmdListener)
+    public void initCommands(final CommandListener cmdListener)
     {
         this.removeAllCommands();
 

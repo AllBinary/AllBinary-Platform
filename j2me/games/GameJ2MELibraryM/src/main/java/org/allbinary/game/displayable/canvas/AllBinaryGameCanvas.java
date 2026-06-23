@@ -375,8 +375,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         //this.logUtil.putF(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
 
-        this.myFontProcessor = this.updateMyFontProcessor;
-
         final FormType formType = FormTypeFactory.getInstance().getFormType();
         final Rectangle rectangle = this.formUtil.createFormRectangle();
         this.menuForm.init(rectangle, formType);
@@ -389,6 +387,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         // PreLogUtil.put(TouchButtonLocationHelper.getInstance().toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
 
+        this.myFontProcessor = this.updateMyFontProcessor;
     }
 
     /*

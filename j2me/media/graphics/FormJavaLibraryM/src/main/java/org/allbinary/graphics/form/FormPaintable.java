@@ -26,7 +26,7 @@ public class FormPaintable extends Paintable
         this.form = form;
     }
 
-@Override    
+    @Override    
     public void paint(Graphics graphics)
     {
         this.form.paint(graphics);

@@ -464,11 +464,11 @@ public class ScrollSelectionForm extends PaintableForm
 
     public int paintItem(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y)
         throws Exception
-    {
+    {        
+        item.paintXY(graphics, x, y);
+     
         final int width = item.getMinimumWidth();
         final int height = item.getMinimumHeight();
-        
-        item.paintXY(graphics, x, y);
         
         graphics.setColor(this.getButtonBasicColor().intValue());
         

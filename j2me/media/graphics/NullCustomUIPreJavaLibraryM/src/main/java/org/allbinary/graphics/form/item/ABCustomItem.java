@@ -66,4 +66,8 @@ public class ABCustomItem
         return 0;
     }
     
+    public void preMeasurement(final Graphics graphics) {
+        
+    }
+
 }
