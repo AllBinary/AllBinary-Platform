@@ -40,14 +40,11 @@ public class NumberStringHudFactory {
     public NumberStringHud createHud() {
 
         try {
-            return new NumberStringHud(
-                StringUtil.getInstance().EMPTY_STRING, 9,
-                BasicHudFactory.getInstance().ABSOLUTE, 1,
-                0, 0, 0, BasicColorFactory.getInstance().NULL_COLOR);
+            return new NumberStringHud(StringUtil.getInstance().EMPTY_STRING, 9,BasicHudFactory.getInstance().ABSOLUTE, 1,0, BasicColorFactory.getInstance().NULL_COLOR);
         } catch (Exception e) {
             final LogUtil logUtil = LogUtil.getInstance();
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, "NumberStringHud", commonStrings.CONSTRUCTOR, e);
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
             throw new RuntimeException();
         }
     }

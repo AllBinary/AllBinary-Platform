@@ -128,7 +128,7 @@ public class CustomTextBox extends GameCommandCanvas
     {
         graphics.setColor(this.backgroundColor);
         //graphics.fillRect(0, 0, graphics.getClipWidth(), graphics.getClipHeight());
-        graphics.fillRect(0, 0, this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
+        graphics.fillRect(0, 0, this.displayInfo.getLastWidth(), this.displayInfo.getLastHeight());
      
         //g.translate(0, viewPortY);
         graphics.setColor(this.foregroundColor);

@@ -13,26 +13,38 @@
 */
 package org.allbinary.game.paint.help;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;
 
-public class HelpPaintable extends Paintable
+public class HelpPaintable extends Paintable implements UpdateMyFontInterface
 {
+    protected final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+
+    protected final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
+
     protected int anchor = Anchor.TOP_LEFT;
     
     protected final String title;
     protected String[] inputInfo = StringUtil.getInstance().getArrayInstance();
 
     //protected ColorFillPaintable colorFillPaintable;
-    
+
     protected BasicColor basicColor;
     //private int color;
+    protected int titleBeginWidth;
+    private int[] beginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    private int charHeight;
 
     public HelpPaintable(final String title, final BasicColor backgroundBasicColor, final BasicColor basicColor)
     {
@@ -44,37 +56,51 @@ public class HelpPaintable extends Paintable
         //this.color = basicColor.intValue();
     }
 
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+
+        this.titleBeginWidth = (font.stringWidth(this.title) >> 1);
+        this.charHeight = font.getHeight();
+        
+        final int size = this.inputInfo.length;
+        for (int index = 0; index < size; index++)
+        {
+            this.beginWidthArray[index] = (font.stringWidth(this.inputInfo[index]) >> 1);
+        }
+
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+    
     public void setInputInfoP(final String[] inputInfo)
     {
         this.inputInfo = inputInfo;
+        this.beginWidthArray = new int[this.inputInfo.length];
+        this.myFontProcessor = this.updateMyFontProcessor;
     }
     
-    public int getHeight()
-    {
-        final MyFont myFont = MyFont.getInstance();
-        return myFont.DEFAULT_CHAR_HEIGHT * (this.inputInfo.length + 2);
-    }
+//    public int getHeight()
+//    {
+//        return font.getHeight() * (this.inputInfo.length + 2);
+//    }
     
     @Override
     public void paint(final Graphics graphics)
     {
-        final MyFont myFont = MyFont.getInstance();
-        final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
-        int beginWidth = (graphics.getFont().stringWidth(this.title) >> 1);
+        this.myFontProcessor.process(graphics);
+
+        final int halfWidth = this.displayInfo.getLastHalfWidth();
 
         //this.colorFillPaintable.paint(graphics);
         
         graphics.setColor(this.basicColor.intValue());
         
-        final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
-        graphics.drawString(this.title, halfWidth - beginWidth, charHeight, this.anchor);
+        graphics.drawString(this.title, halfWidth - this.titleBeginWidth, this.charHeight, this.anchor);
 
         final int size = this.inputInfo.length;
         for (int index = 0; index < size; index++)
         {
-            beginWidth = (graphics.getFont().stringWidth(this.inputInfo[index]) >> 1);
-
-            graphics.drawString(this.inputInfo[index], halfWidth - beginWidth, (index + 3) * charHeight, this.anchor);
+            graphics.drawString(this.inputInfo[index], halfWidth - this.beginWidthArray[index], (index + 3) * this.charHeight, this.anchor);
         }
     }
 }

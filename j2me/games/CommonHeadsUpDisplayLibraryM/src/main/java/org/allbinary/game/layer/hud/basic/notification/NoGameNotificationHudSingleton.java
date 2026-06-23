@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.game.layer.hud.basic.notification;
 
 import org.allbinary.game.graphics.hud.BasicHudFactory;
@@ -18,40 +18,48 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
-public class NoGameNotificationHudSingleton
-{
+public class NoGameNotificationHudSingleton {
+
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final NoGameNotificationHudSingleton instance = 
+    private static final NoGameNotificationHudSingleton instance =
         new NoGameNotificationHudSingleton();
 
-    public static NoGameNotificationHudSingleton getInstance()
-    {
+    public static NoGameNotificationHudSingleton getInstance() {
         return NoGameNotificationHudSingleton.instance;
     }
 
     private GameNotificationHud gameNotificationHud = GameNotificationHud.NULL_GAME_NOTIFICATION;
-    
-    private NoGameNotificationHudSingleton()
-    {        
-        try
-        {
-            BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
-        	
-            this.gameNotificationHud = new GameNotificationHud(
-            		basicHudFactory.TOPCENTER, 
-            		basicHudFactory.HORIZONTAL,
-                    14, 40, 2, BasicColorFactory.getInstance().RED);
-        }
-        catch(Exception e)
-        {
+
+    private NoGameNotificationHudSingleton() {
+        try {
+            final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
+
+            class NoGameGameNotificationHud extends GameNotificationHud {
+
+                NoGameGameNotificationHud() {
+                    super(basicHudFactory.TOPCENTER, basicHudFactory.HORIZONTAL, 2, BasicColorFactory.getInstance().RED);
+                    
+                    this.updateMaxWidth = 40;
+                    this.updateMaxHeight = 14;
+                }
+
+//                public void updateMeasurement(final Graphics graphics) {
+//                    final Font font = graphics.getFont();
+//                    //14, 40,
+//                    super.updateMeasurement(graphics);
+//                }
+
+            };
+
+            this.gameNotificationHud = new NoGameGameNotificationHud();
+        } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 
-    public GameNotificationHud getGameNotificationHud()
-    {
+    public GameNotificationHud getGameNotificationHud() {
         return this.gameNotificationHud;
     }
 }

@@ -14,6 +14,7 @@
 
 package org.allbinary.game.layer;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
@@ -22,11 +23,9 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.NullUtil;
 
-public class MultiSelectPaintable 
-extends SelectionHudPaintable
+public class MultiSelectPaintable extends SelectionHudPaintable
 {
     
     private final BasicArrayList rootNameList = new BasicArrayListD();
@@ -35,10 +34,27 @@ extends SelectionHudPaintable
     private String rootNamesString = StringUtil.getInstance().EMPTY_STRING;
     //private final char[][] totalArray = char[10];
     
+    private final String TOTAL = "Total Selected: ";
+    
+    private final int backgroundColor = BasicColorFactory.getInstance().GREY.intValue();
+        //BasicColor.TRANSPARENT_GREY.intValue();
+    
+    private int totalWidth;
+    private int textLine2Y;
+    
     public MultiSelectPaintable()
     {
     }
-    
+
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        super.updateMeasurement(graphics);
+        
+        final Font font = graphics.getFont();
+        this.totalWidth = font.stringWidth(this.TOTAL);
+        this.textLine2Y = (this.y + font.getHeight());
+    }
+        
     public void update(BasicArrayList list)
     {
         this.clear();
@@ -66,13 +82,13 @@ extends SelectionHudPaintable
             String rootName = (String) this.rootNameList.get(index);
             
             stringBuffer.append(rootName);
-            
+
             if(index != 0)
             {
                 stringBuffer.append(COMMA_SEP);
             }
         }
-        
+
         this.rootNamesString = stringBuffer.toString();
     }
     
@@ -80,30 +96,23 @@ extends SelectionHudPaintable
     {
         this.rootNameList.clear();
     }
-    
-    private final String TOTAL = "Total Selected: ";
-    private final int totalWidth = MyFont.getInstance().stringWidth(this.TOTAL);
-    
-    private final int backgroundColor = BasicColorFactory.getInstance().GREY.intValue();
-        //BasicColor.TRANSPARENT_GREY.intValue();
-    
+        
     @Override
     public void paint(Graphics graphics)
     {
         graphics.setColor(this.backgroundColor);
         //graphics.fillRect(this.getX(), y, this.getWidth(), this.getHeight());
         graphics.drawRect(this.getX(), this.y, this.getWidth(), this.getHeight());
-        
+
         graphics.setColor(this.getColor());
-        
+
         graphics.drawString(this.TOTAL, this.textX, this.y, 0);
 
         graphics.drawChars(this.totalCharArray, 0, 
                 this.getPrimitiveLongUtil().getCurrentTotalDigits(), 
                 this.textX + this.totalWidth, this.y, 0);
-        
-        final int textLine2Y = (this.y + this.myFont.DEFAULT_CHAR_HEIGHT);
+
         graphics.drawString(this.rootNamesString, 
-                this.textX, textLine2Y, 0);
+                this.textX, this.textLine2Y, 0);
     }
 }

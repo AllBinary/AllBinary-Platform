@@ -13,6 +13,7 @@
  */
 package org.allbinary.game.layer;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullImage;
@@ -20,35 +21,19 @@ import javax.microedition.lcdui.NullImage;
 import org.allbinary.graphics.form.item.ABCustomImageItem;
 import org.allbinary.logic.java.character.CharArrayFactory;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.logic.math.PrimitiveLongUtil;
 
 /**
  *
  * @author user
  */
-public class TechnologyRTSInterfaceImageItem extends ABCustomImageItem
-{
-    private final MyFont myFont = MyFont.getInstance();
-    
+public class TechnologyRTSInterfaceImageItem extends ABCustomImageItem 
+    implements UpdateMyFontInterface
+{   
     private final RTSInterface rtsInterface;
-
-    private final int adjustedCostLabelY;
-    private final int adjustedCostX;
-    private final int adjustedCostY;
-
-    //private String costString = StringUtil.getInstance();
-    private char[] costString
-            = CharArrayFactory.getInstance().getZeroCharArray();
-    private int costLength;
-
-    private final int adjustedLevelX;
-    private final int adjustedLevelY;
-
-    //private String levelString = StringUtil.getInstance();
-    private char[] levelString
-            = CharArrayFactory.getInstance().getZeroCharArray();
-    private int levelLength;
 
     private final PrimitiveLongUtil primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(10000);
 
@@ -56,41 +41,59 @@ public class TechnologyRTSInterfaceImageItem extends ABCustomImageItem
     private final String COST = "Cost";
     private final String DOLLAR = "$";
 
-    public TechnologyRTSInterfaceImageItem(
-            String label, Image img, int layout, String altText, BasicColor basicColor,
-            RTSInterface rtsInterface)
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
+    
+    //private String costString = StringUtil.getInstance();
+    private char[] costString = CharArrayFactory.getInstance().getZeroCharArray();
+    private int costLength;
+
+    //private String levelString = StringUtil.getInstance();
+    private char[] levelString = CharArrayFactory.getInstance().getZeroCharArray();
+    private int levelLength;
+
+    private int adjustedCostLabelY;
+    private int adjustedCostX;
+    private int adjustedCostY;
+
+    private int adjustedLevelX;
+    private int adjustedLevelY;
+
+    public TechnologyRTSInterfaceImageItem(final String label, final Image img, 
+        final int layout, final String altText, final BasicColor basicColor,
+        final RTSInterface rtsInterface)
             throws Exception
     {
         super(label, img, layout, altText, basicColor, 0);
 
         this.rtsInterface = rtsInterface;
 
-        final int DEFAULT_CHAR_HEIGHT = this.myFont.DEFAULT_CHAR_HEIGHT;
+        this.update();
+    }
 
+
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        final int fontHeight = font.getHeight();
+        
         int imageHeight = 0;
-
         final Image image = this.getImage();
         if (image != NullImage.NULL_IMAGE)
         {
             imageHeight = image.getHeight();
         }
 
-        this.adjustedCostLabelY
-                = -this.yOffset + imageHeight - (3 * DEFAULT_CHAR_HEIGHT);
+        this.adjustedCostLabelY = -this.yOffset + imageHeight - (3 * fontHeight);
 
-        this.adjustedCostY
-                = -this.yOffset + imageHeight - (2 * DEFAULT_CHAR_HEIGHT);
-        this.adjustedCostX
-                = 2 + (this.DOLLAR.length() * (DEFAULT_CHAR_HEIGHT - 1));
+        this.adjustedCostY = -this.yOffset + imageHeight - (2 * fontHeight);
+        this.adjustedCostX = 2 + (this.DOLLAR.length() * (fontHeight - 1));
 
-        this.adjustedLevelY
-                = -this.yOffset + imageHeight - DEFAULT_CHAR_HEIGHT;
-        this.adjustedLevelX
-                = 2 + (this.LEVEL.length() * (DEFAULT_CHAR_HEIGHT - 1));
-
-        this.update();
+        this.adjustedLevelY = -this.yOffset + imageHeight - fontHeight;
+        this.adjustedLevelX = 2 + (this.LEVEL.length() * (fontHeight - 1));
+        
+        this.myFontProcessor = MyFontProcessor.getInstance();
     }
-
+        
     /**
      * @return the rtsInterface
      */
@@ -113,8 +116,10 @@ public class TechnologyRTSInterfaceImageItem extends ABCustomImageItem
     }
 
     @Override
-    public void paintXY(Graphics graphics, int x, int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
+        this.myFontProcessor.process(graphics);
+
         super.paintXY(graphics, x, y);
 
         int xa = x + 2;

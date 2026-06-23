@@ -14,12 +14,13 @@
 
 package org.allbinary.game.layer;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.logic.java.character.CharArrayFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.input.motion.button.CommonButtons;
 
 public class UpgradableRTSLayerHudPaintable 
@@ -33,6 +34,8 @@ public class UpgradableRTSLayerHudPaintable
         return UpgradableRTSLayerHudPaintable.instance;
     }
 
+    private final CommonButtons commonButtons = CommonButtons.getInstance();
+    
     //private final String PERCENT_COMPLETE = "% Complete";
     private final String PERCENT = "%";
 
@@ -44,22 +47,30 @@ public class UpgradableRTSLayerHudPaintable
     private int percentCompleteX2;
     
     private RTSLayerCompositePaintable rtsLayerCompositePaintableLateInit;
+
+    private int charHeight;
+    private int charWidth;
     
     private UpgradableRTSLayerHudPaintable()
     {
     }
 
     @Override
+    public void updateMeasurement(final Graphics graphics) {
+        super.updateMeasurement(graphics);
+
+        final Font font = graphics.getFont();
+        this.charHeight = font.getHeight();
+        this.charWidth = MyFontProcessor.defaultCharWidth(font);
+    }
+    
+    @Override
     public void update()
     {
         super.update();
-        
-        final MyFont myFont = MyFont.getInstance();
 
-        final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
-
-        this.costY = (this.y + CommonButtons.getInstance().STANDARD_BUTTON_SIZE);
-        this.costY1 = (this.y + CommonButtons.getInstance().STANDARD_BUTTON_SIZE - (charHeight));
+        this.costY = (this.y + this.commonButtons.STANDARD_BUTTON_SIZE);
+        this.costY1 = (this.y + this.commonButtons.STANDARD_BUTTON_SIZE - (this.charHeight));
         /*
          * probably not needed anymore
         if(!AndroidUtil.isAndroid())
@@ -71,7 +82,7 @@ public class UpgradableRTSLayerHudPaintable
         }
         */
 
-        this.percentCompleteX2 = this.imageX + CommonButtons.getInstance().STANDARD_BUTTON_SIZE - myFont.defaultCharWidth();
+        this.percentCompleteX2 = this.imageX + this.commonButtons.STANDARD_BUTTON_SIZE - this.charWidth;
         
         final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
                 

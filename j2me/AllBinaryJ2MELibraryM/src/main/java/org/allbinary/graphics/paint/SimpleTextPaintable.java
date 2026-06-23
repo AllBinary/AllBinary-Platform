@@ -13,43 +13,54 @@
 */
 package org.allbinary.graphics.paint;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 
-public class SimpleTextPaintable extends Paintable
+public class SimpleTextPaintable extends Paintable implements UpdateMyFontInterface
 {
+    private final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+
+    private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    private MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
+    
     private String text;
     private BasicColor basicColor;
+    private int topScoresWidth = 0;
+    private int fontHeight = 0;
+    private int anchor = Anchor.TOP_LEFT;
     
     public SimpleTextPaintable(final String text, final BasicColor basicColor)
     {
         this.text = text;
-
         this.basicColor = basicColor;
     }
-    
-    private int anchor = Anchor.TOP_LEFT;
-    
-    private final DisplayInfoSingleton displayInfoSingleton = 
-            DisplayInfoSingleton.getInstance();
-    
+
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.topScoresWidth = (font.stringWidth(this.text) >> 1);
+        this.fontHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+        
     @Override
     public void paint(final Graphics graphics)
     {
-        final MyFont myFont = MyFont.getInstance();
+        this.myFontProcessor.process(graphics);
         
         //int width = graphics.getClipWidth();
         final int width = this.displayInfoSingleton.getLast()[this.displayInfoSingleton.WIDTH];
-        
-        final int topScoresWidth = (graphics.getFont().stringWidth(this.text) >> 1);
 
         graphics.setColor(this.getBasicColorP().intValue());
-        
-        graphics.drawString(this.text, (width >> 1) - topScoresWidth, myFont.DEFAULT_CHAR_HEIGHT * 3, this.anchor);    
+
+        graphics.drawString(this.text, (width >> 1) - this.topScoresWidth, this.fontHeight, this.anchor);
     }
 
     @Override
@@ -66,6 +77,7 @@ public class SimpleTextPaintable extends Paintable
     public void setText(final String text)
     {
         this.text = text;
+        this.myFontProcessor = this.updateMyFontProcessor;
     }
 
     public String getText()

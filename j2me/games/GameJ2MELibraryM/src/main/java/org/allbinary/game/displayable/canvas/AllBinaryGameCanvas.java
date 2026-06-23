@@ -18,6 +18,7 @@ import java.util.Vector;
 
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
 import javax.microedition.lcdui.NullCommandListener;
@@ -84,11 +85,15 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.displayable.CanvasStrings;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.form.CommandCurrentSelectionFormFactory;
 import org.allbinary.graphics.form.FormPaintable;
 import org.allbinary.graphics.form.FormType;
@@ -144,7 +149,7 @@ extends RunnableCanvas
 implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         MenuListener, IntermissionCompositeInterface,
         IntermissionEnableListenerInterface, PopupMenuInterface,
-        DisplayChangeEventListener
+        DisplayChangeEventListener, UpdateMyFontInterface
 {
 
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
@@ -162,7 +167,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
     public final GameCanvasPauseRunnable gamePauseRunnable = new GameCanvasPauseRunnable(this);
-    
+
+    protected final FormUtil formUtil = FormUtil.getInstance();
+    protected final MyFormUtil myFormUtil = MyFormUtil.getInstance();
+
+    private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    private MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
+
     protected Paintable gameSpecificPaintable = NullPaintable.getInstance();
 
     private final SensorGameUpdateProcessor sensorGameUpdateProcessor = new SingleSensorGameUpdateProcessor();
@@ -254,6 +265,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     private PaintableInterface progressPaintable = ProgressCanvasFactory.getLazyInstance();
 
+    protected int fontHeight;
+    
     public AllBinaryGameCanvas(
             final CommandListener commandListener,
             final AllBinaryGameLayerManager gameLayerManager,
@@ -277,16 +290,48 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             this.menuBehavior = this.getInGameMenuBehavior();
         }
 
-        this.initSpecialPaint();
-
         this.initPopupMenu();
 
         this.initMenu();
-
+        
+        this.initSpecialPaint();
+        
         DisplayChangeEventHandler.getInstance().addListenerInterface(this);
 
     }
 
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        try
+        {
+            final Font font = graphics.getFont();
+            
+            this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(DisplayInfoSingleton.getInstance().toString())
+                .append(this.canvasStrings.FD_WIDTH).appendint(MyFontProcessor.defaultCharWidth(font)).append(this.canvasStrings.FD_HEIGHT).appendint(font.getHeight()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+            
+            this.fontHeight = font.getHeight();
+            
+            this.myFormUtil.updateMeasurement(graphics);
+            
+            final Rectangle popupMenuRectangle = this.myFormUtil.getPopupMenuRectangle();
+            final BasicPopupMenuPaintable basicPopupMenuPaintable = ((BasicPopupMenuPaintable) this.getOpenMenuPaintable());
+            basicPopupMenuPaintable.init(popupMenuRectangle);
+
+            if (this.getPopupMenuInputProcessor() != NoMenuInputProcessor.getInstance()) {
+                final PopupMenuInputProcessor popupMenuInputProcessor = ((PopupMenuInputProcessor) this.getPopupMenuInputProcessor());
+                //this.logUtil.putF("PopupMenuInputProcessor init: " + popupMenuInputProcessor, this, this.commonStrings.PROCESS);
+                popupMenuInputProcessor.init(popupMenuRectangle);
+            }
+            
+            this.myFontProcessor = MyFontProcessor.getInstance();
+
+        }
+        catch(Exception e)
+        {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+        }        
+    }
+    
     public BaseMenuBehavior getInGameMenuBehavior() {
         return InGameMenuBehavior.getInstance();
     }
@@ -315,6 +360,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         try
         {
+            this.myFontProcessor = this.updateMyFontProcessor;
             this.menuBehavior.onDisplayChangeEvent(this, displayChangeEvent);
         }
         catch(Exception e)
@@ -329,18 +375,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         //this.logUtil.putF(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
 
-        final FormUtil formUtil = FormUtil.getInstance();
-        final Rectangle popupMenuRectangle = formUtil.createPopupMenuRectangle();
-        final BasicPopupMenuPaintable basicPopupMenuPaintable = ((BasicPopupMenuPaintable) this.getOpenMenuPaintable());
-        basicPopupMenuPaintable.init(popupMenuRectangle);
-
-        if (this.getPopupMenuInputProcessor() != NoMenuInputProcessor.getInstance()) {
-            final PopupMenuInputProcessor popupMenuInputProcessor = ((PopupMenuInputProcessor) this.getPopupMenuInputProcessor());
-            popupMenuInputProcessor.init(popupMenuRectangle);
-        }
+        this.myFontProcessor = this.updateMyFontProcessor;
 
         final FormType formType = FormTypeFactory.getInstance().getFormType();
-        final Rectangle rectangle = formUtil.createFormRectangle();
+        final Rectangle rectangle = this.formUtil.createFormRectangle();
         this.menuForm.init(rectangle, formType);
 
         //PreLogUtil.put(this.currentTouchInputFactory.toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
@@ -388,22 +426,25 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         //this.logUtil.putF("initPopupMenu", this, this.commonStrings.PROCESS);
 
-        final Features features = Features.getInstance();
+        if(this.popupMenuInputProcessor == NoMenuInputProcessor.getInstance()) {
+            final Features features = Features.getInstance();
 
-        // Popup Menu Tab Init
-        final Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
+            // Popup Menu Tab Init
+            final Rectangle popupMenuRectangle = this.myFormUtil.getPopupMenuRectangle();
 
-        if (features.isFeature(this.touchFeatureFactory.TOUCH_ENABLED))
-        {
-            //this.logUtil.putF("initPopupMenu - touch", this, this.commonStrings.PROCESS);
+            if (features.isFeature(this.touchFeatureFactory.TOUCH_ENABLED)) {
+                //this.logUtil.putF("initPopupMenu - touch", this, this.commonStrings.PROCESS);
 
-            this.setOpenMenuPaintable(new BasicPopupMenuPaintable(
+                this.setOpenMenuPaintable(new BasicPopupMenuPaintable(
                     popupMenuRectangle,
                     this.gameLayerManager.getBackgroundBasicColor(),
                     this.gameLayerManager.getForegroundBasicColor()));
 
-            this.setPopupMenuInputProcessor(new PopupMenuInputProcessor(
+                this.setPopupMenuInputProcessor(new PopupMenuInputProcessor(
                     new BasicArrayListD(), -1, this, popupMenuRectangle));
+            }
+        } else {
+            //this.logUtil.putF("initPopupMenu - already initialized", this, this.commonStrings.PROCESS);
         }
     }
 
@@ -427,7 +468,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.closeMenu();
 
-        final FormUtil formUtil = FormUtil.getInstance();
         final FormType formType = FormTypeFactory.getInstance().getFormType();
 
         final GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory
@@ -440,7 +480,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 (Vector<Object>) this.getCommandStack(), this.gameLayerManager
                 .getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
 
-        final Rectangle rectangle = formUtil.createFormRectangle();
+        final Rectangle rectangle = this.formUtil.createFormRectangle();
 
         this.setMenuForm(CommandCurrentSelectionFormFactory.getInstance(
                 StringUtil.getInstance().EMPTY_STRING,
@@ -509,9 +549,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             scrollSelectionForm.append(items[index]);
         }
 
-        final FormUtil formUtil = FormUtil.getInstance();
         final FormType formType = FormTypeFactory.getInstance().getFormType();
-        final Rectangle rectangle = formUtil.createFormRectangle();
+        final Rectangle rectangle = this.formUtil.createFormRectangle();
         scrollSelectionForm.init(rectangle, formType);
 
     }
@@ -572,7 +611,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void popupMenu2() throws Exception
     {
-        //this.logUtil.putF(this.commonStrings.START, this, "popupMenu");
+        //this.logUtil.putF(this.commonStrings.START + this.mainMenuInputProcessor, this, "popupMenu2");
 
         this.primaryPlayerQueue.add(SelectSound.getInstance());
 
@@ -611,7 +650,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void closeMenu2()
     {
-        //this.logUtil.putF(this.commonStrings.START, this, "closeMenu");
+        //this.logUtil.putF(this.commonStrings.START + this.mainMenuInputProcessor, this, "closeMenu");
 
         this.setMenuPaintable(this.getOpenMenuPaintable());
 
@@ -624,6 +663,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public void open()
     {
+        //this.logUtil.putF(this.commonStrings.START + this.mainMenuInputProcessor, this, "openMenu");
+
         this.basicMotionGesturesHandler.addListenerInterface(this.menuInputProcessor);
         this.gameKeyEventHandler.addListener(this.menuInputProcessor);
     }
@@ -631,6 +672,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public void close()
     {
+        //this.logUtil.putF(this.commonStrings.START + this.mainMenuInputProcessor, this, "close");
         this.basicMotionGesturesHandler.removeListener(this.menuInputProcessor);
         this.gameKeyEventHandler.removeListener(this.menuInputProcessor);
 
@@ -877,8 +919,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.addCommand(gameCommandsFactory.QUIT_COMMAND);
 
         final boolean isOverScan = OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan();
-
-        final Features features = Features.getInstance();
 
         if(J2MEUtil.isHTML()) {
         } else if(SWTUtil.isSWT) {
@@ -1347,6 +1387,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void paint(final Graphics graphics)
     {
         //PreLogUtil.put("AllBinaryGameCanvas", this, canvasStrings.PAINT);
+
+        this.myFontProcessor.process(graphics);
 
         //TWB - was in MyCanvas paint -- super.paint(graphics);
         this.baseGameStatistics.nextRefresh();
@@ -2105,11 +2147,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected void setPopupMenuInputProcessor(
             final BasicMenuInputProcessor popupMenuInputProcessor)
     {
+        //this.logUtil.putF("setPopupMenuInputProcessor: " + popupMenuInputProcessor, this, this.commonStrings.PROCESS);
         this.popupMenuInputProcessor = popupMenuInputProcessor;
     }
 
     protected BasicMenuInputProcessor getPopupMenuInputProcessor()
     {
+        //this.logUtil.putF("getPopupMenuInputProcessor: " + popupMenuInputProcessor, this, this.commonStrings.PROCESS);
         return this.popupMenuInputProcessor;
     }
 

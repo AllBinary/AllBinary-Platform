@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.score;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.Anchor;
@@ -21,60 +22,71 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.ColorChangeEvent;
 import org.allbinary.graphics.color.ColorChangeListener;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.util.BasicArrayList;
 
 public class HighScoresPaintable 
 extends Paintable
-implements ColorChangeListener
+implements ColorChangeListener, UpdateMyFontInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final DisplayInfoSingleton displayInfoSingleton = 
-            DisplayInfoSingleton.getInstance();
+    private final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
     
     private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
 
     private HighScores highScores = NullHighScoresSingletonFactory.getInstance();
 
+    private int anchor = Anchor.TOP_LEFT;
+    private int charHeight;
+
     public HighScoresPaintable()
     {
     }
 
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.charHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+    
     @Override    
     public void onEvent(AllBinaryEventObject eventObject)
     {
         //this.logUtil.putF("Color Change Event: " + basicColor.getName(), this, "onEvent");
         final ColorChangeEvent colorChangeEvent = (ColorChangeEvent) eventObject;
         this.basicColor = colorChangeEvent.getBasicColorP();
-    }    
+    }
 
-    private int anchor = Anchor.TOP_LEFT;
-    
     @Override
     public void paint(Graphics graphics)
     {
-        final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
+        this.myFontProcessor.process(graphics);
         
         //int width = graphics.getClipWidth();
         //int height = graphics.getClipHeight();
-        int width = this.displayInfoSingleton.getLastWidth();
-        int height = this.displayInfoSingleton.getLastHeight();
+        final int width = this.displayInfoSingleton.getLastWidth();
+        final int height = this.displayInfoSingleton.getLastHeight();
 
         graphics.setColor(this.getBasicColorP().intValue());
 
         String heading = this.highScores.getHeading();
 
-        int topScoresWidth = (graphics.getFont().stringWidth(heading) >> 1);
+        final int topScoresWidth = (graphics.getFont().stringWidth(heading) >> 1);
+        final int charHeight = this.charHeight;
         graphics.drawString(heading, (width >> 1) - topScoresWidth, charHeight, this.anchor);
 
-        graphics.drawString(this.highScores.getColumnOneHeading(), 10,
-                charHeight * 3, this.anchor);
+        graphics.drawString(this.highScores.getColumnOneHeading(), 10, charHeight * 3, this.anchor);
 
         String columnTwoHeading = this.highScores.getColumnTwoHeading();
-        int columnTwoHeadingWidth = graphics.getFont().stringWidth(columnTwoHeading);
+        final int columnTwoHeadingWidth = graphics.getFont().stringWidth(columnTwoHeading);
         graphics.drawString(columnTwoHeading, width - 10 - columnTwoHeadingWidth,
                 charHeight * 3, this.anchor);
 
@@ -86,11 +98,10 @@ implements ColorChangeListener
 
         int size = list.size();
         int vectorIndex = 0;
-        while (vectorIndex < size
-                && charHeight * index < height
-                        - (charHeight * 2))
+        HighScore highScore;
+        while (vectorIndex < size && charHeight * index < height - (charHeight * 2))
         {
-            HighScore highScore = (HighScore) list.objectArray[vectorIndex];
+            highScore = (HighScore) list.objectArray[vectorIndex];
             int nextScoreWidth = graphics.getFont().stringWidth(highScore.getScoreString());
             if (nextScoreWidth > largestSecondColumnWidth)
             {
@@ -100,11 +111,9 @@ implements ColorChangeListener
         }
 
         vectorIndex = 0;
-        while (vectorIndex < size
-                && charHeight * index < height
-                        - (charHeight * 2))
+        while (vectorIndex < size && charHeight * index < height - (charHeight * 2))
         {
-            HighScore highScore = (HighScore) list.objectArray[vectorIndex];
+            highScore = (HighScore) list.objectArray[vectorIndex];
             // this.highScoresHashTable.get(enumeration.nextElement());
 
             graphics.drawString(highScore.getName(), 10, 

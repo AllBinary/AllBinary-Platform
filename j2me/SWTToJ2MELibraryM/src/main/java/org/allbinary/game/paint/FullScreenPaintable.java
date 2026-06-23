@@ -18,39 +18,52 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.paint.Paintable;
 
-public class FullScreenPaintable extends Paintable
+//SwtToJ2ME
+public class FullScreenPaintable extends Paintable implements UpdateMyFontInterface
 {
-    private final String FULLSCREEN_TEXT = "F11 - Toggle Fullscreen";
     
     public static FullScreenPaintable getInstance()
     {
         return new FullScreenPaintable();
     }
 
+    private final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
+    
+    private final String FULLSCREEN_TEXT = "F11 - Toggle Fullscreen";
+    
+    private int anchor = Anchor.TOP_LEFT;
+    private int Y;
+    private int beginWidth;
+
     private FullScreenPaintable()
     {
     }
 
-    private int anchor = Anchor.TOP_LEFT;
+    @Override    
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.Y = 4 * font.getHeight();
+        this.beginWidth = (font.stringWidth(this.FULLSCREEN_TEXT) >> 1);
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
+    @Override
     public void paint(Graphics graphics)
     {
-        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        final int halfWidth = displayInfo.getLastHalfWidth();
+        this.myFontProcessor.process(graphics);
+
+        final int halfWidth = this.displayInfo.getLastHalfWidth();
         //int height = graphics.getClipHeight();
-        final int height = displayInfo.getLastHeight();        
+        final int height = this.displayInfo.getLastHeight();
 
-        //final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
-        final Font font = graphics.getFont();
-
-        final int beginWidth = (font.stringWidth(this.FULLSCREEN_TEXT) >> 1);
-
-        final MyFont myFont = MyFont.getInstance();
-        final int Y = 4 * myFont.DEFAULT_CHAR_HEIGHT;
-        graphics.drawString(this.FULLSCREEN_TEXT, halfWidth - beginWidth, height - Y, this.anchor);
+        graphics.drawString(this.FULLSCREEN_TEXT, halfWidth - this.beginWidth, height - this.Y, this.anchor);
     }
 
 }

@@ -39,7 +39,7 @@ public class MyCanvas extends Canvas
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
     protected final StringUtil stringUtil = StringUtil.getInstance();
-    protected final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    protected final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
     
     private final String name;
     private final BasicArrayList childNameList;
@@ -62,7 +62,7 @@ public class MyCanvas extends Canvas
 
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.
-        this.displayInfoSingleton.update(this, this.canvasStrings.CONSTRUCTOR);
+        this.displayInfo.update(this, this.canvasStrings.CONSTRUCTOR);
 
         this.name = name;
         this.childNameList = childNameList;
@@ -79,13 +79,13 @@ public class MyCanvas extends Canvas
 
         //PreLogUtil.put("New W: " + this.getWidth() + " H: " + this.getHeight() +  " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
 
-        this.displayInfoSingleton.update(this, this.canvasStrings.SET_FULL_SCREEN_MODE);
+        this.displayInfo.update(this, this.canvasStrings.SET_FULL_SCREEN_MODE);
     }
 
     @Override
     protected void sizeChanged(int w, int h)
     {
-        this.displayInfoSingleton.update(this, this.canvasStrings.SIZE_CHANGED);
+        this.displayInfo.update(this, this.canvasStrings.SIZE_CHANGED);
     }
     
     public Stack<Object> getCommandStack()
@@ -167,7 +167,7 @@ public class MyCanvas extends Canvas
 
     protected void process() throws Exception
     {
-        this.displayInfoSingleton.process();
+        this.displayInfo.process();
     }
     
     //public void draw(gl)

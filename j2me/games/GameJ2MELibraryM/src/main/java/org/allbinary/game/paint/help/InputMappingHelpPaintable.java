@@ -24,8 +24,8 @@ import org.allbinary.game.input.mapping.GameInputMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -36,26 +36,40 @@ import org.allbinary.util.BasicArrayList;
 
 public class InputMappingHelpPaintable extends HelpPaintable 
 {
+
+    private static final String AND = " and ";
+    private static final String SEP = ", ";
+    private static final String MORE_THAN_TWO_IN_LIST_AND = ", and ";
+
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final StringUtil stringUtil = StringUtil.getInstance();
+    private final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     
+    private final GameKey NONE = GameKeyFactory.getInstance().NONE;
+    private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+
     private GameInputMapping[] gameInputMappingArray;
     
     private BasicArrayList[] keyMappingArray = new BasicArrayList[0];
     private BasicColor[] actionBasicColor = new BasicColor[0];
     private BasicColor[][] inputBasicColorArray = new BasicColor[0][0];
-
-    private static final String AND = " and ";
-    private static final String SEP = ", ";
-    private static final String MORE_THAN_TWO_IN_LIST_AND = ", and ";
     
     private BasicColor selectedBasicColor;
-    
-    private final GameKey NONE = GameKeyFactory.getInstance().NONE;
 
-    private final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
+    private class UpdateMyFontProperties {
+        private String[] actionStringArray = StringUtil.getInstance().getArrayInstance();
+        private int[] keymappingBeginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
+        private int[] actionStringDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY;
+        private int[][] inputDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+        private String[][] sepArray = new String[0][0];
+        private int[][] sepWidthArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+        private int charHeight;
+    }
+    
+    private UpdateMyFontProperties updateMyFontProperties = new UpdateMyFontProperties();
     
     protected InputMappingHelpPaintable(
             final GameInputMapping[] gameInputMappingArray, 
@@ -77,7 +91,93 @@ public class InputMappingHelpPaintable extends HelpPaintable
             this.selectedBasicColor = this.basicColorFactory.WHITE;
         }
     }
+
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+
+        final UpdateMyFontProperties updateMyFontProperties = new UpdateMyFontProperties();
+        updateMyFontProperties.charHeight = font.getHeight();
+        
+        final StringMaker stringMaker = new StringMaker();
+        final String[] inputInfo = this.inputInfo;
+        final int size = inputInfo.length;
+        
+        updateMyFontProperties.actionStringArray = new String[size];
+        updateMyFontProperties.keymappingBeginWidthArray = new int[size];
+        updateMyFontProperties.actionStringDeltaXArray = new int[size];
+        updateMyFontProperties.inputDeltaXArray = new int[size][];
+        updateMyFontProperties.sepArray = new String[size][];
+        updateMyFontProperties.sepWidthArray = new int[size][];
+        
+        BasicArrayList list;
+        String keyMappings;
+        String actionString;        
+        Input input;
+        int size2 = 0;
+        
+        for (int index = 0; index < size; index++)
+        {            
+            list = this.keyMappingArray[index];
+            keyMappings = this.get(list);
+
+            //For same line action and mappings
+            stringMaker.delete(0, stringMaker.length());
+            actionString = stringMaker.append(inputInfo[index]).append(commonSeps.COLON).append(commonSeps.SPACE).append(commonSeps.SPACE).toString();
+            updateMyFontProperties.actionStringArray[index] = actionString;
+            //For multiline
+            //String actionString = inputInfo[index];
+
+            //For same line action and mappings
+            stringMaker.delete(0, stringMaker.length());
+            updateMyFontProperties.keymappingBeginWidthArray[index] = (font.stringWidth(stringMaker.append(updateMyFontProperties.actionStringArray[index]).append(keyMappings).toString()) >> 1);
+            updateMyFontProperties.actionStringDeltaXArray[index] = font.stringWidth(actionString);
+
+            size2 = list.size();
+
+            updateMyFontProperties.inputDeltaXArray[index] = new int[size2];
+            updateMyFontProperties.sepArray[index] = new String[size2];
+            updateMyFontProperties.sepWidthArray[index] = new int[size2];
+
+            for(int index2 = 0; index2 < size2; index2++)
+            {
+                input = (Input) list.objectArray[index2];
+                updateMyFontProperties.inputDeltaXArray[index][index2] = font.stringWidth(input.getName());
+
+                updateMyFontProperties.sepArray[index][index2] = EMPTY_STRING;
+
+                if(index2 + 1 < list.size())
+                {
+                    if(list.size() == 2)
+                    {
+                        updateMyFontProperties.sepArray[index][index2] = InputMappingHelpPaintable.AND;
+                    }
+                    else
+                    {
+                        if(index2 + 2 == list.size())
+                        {
+                            updateMyFontProperties.sepArray[index][index2] = InputMappingHelpPaintable.MORE_THAN_TWO_IN_LIST_AND;
+                        }
+                        else
+                        {
+                            updateMyFontProperties.sepArray[index][index2] = InputMappingHelpPaintable.SEP;
+                        }
+                    }
+                }
+
+                if(updateMyFontProperties.sepArray[index][index2] != EMPTY_STRING)
+                {
+                    updateMyFontProperties.sepWidthArray[index][index2] = font.stringWidth(updateMyFontProperties.sepArray[index][index2]);
+                }
+                
+            }
+        }
+
+        this.updateMyFontProperties = updateMyFontProperties;
+        super.updateMeasurement(graphics);
+    }
     
+
     public void update(final GameKey selectedGameKey, final Input selectedInput)
     {
         final StringMaker stringMaker = new StringMaker();
@@ -138,6 +238,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
         this.inputBasicColorArray = inputBasicColorArray;
 
         super.setInputInfoP(keyInfo);
+        this.myFontProcessor = this.updateMyFontProcessor;
     }
     
     private String get(BasicArrayList keyList)
@@ -175,78 +276,63 @@ public class InputMappingHelpPaintable extends HelpPaintable
         return stringBuffer.toString();
     }
 
-    @Override    
-    public int getHeight()
-    {
-        final MyFont myFont = MyFont.getInstance();
-        final String[] inputInfo = this.inputInfo;
-        final int size = (inputInfo.length + 4);
-        return myFont.DEFAULT_CHAR_HEIGHT * size;
-    }
+//    @Override    
+//    public int getHeight()
+//    {
+//        final MyFont myFont = MyFont.getInstance();
+//        final String[] inputInfo = this.inputInfo;
+//        final int size = (inputInfo.length + 4);
+//        return myFont.DEFAULT_CHAR_HEIGHT * size;
+//    }
     
     @Override
     public void paint(final Graphics graphics)
     {
+        this.myFontProcessor.process(graphics);
+
         //this.colorFillPaintable.paint(graphics);
         
-        final Font font = graphics.getFont();
-
-        final CommonSeps commonSeps = CommonSeps.getInstance();
-        
-        final StringMaker stringMaker = new StringMaker();
-        final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
-        
-        final MyFont myFont = MyFont.getInstance();
-        final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
-        final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
-
-        int beginWidth = (font.stringWidth(this.title) >> 1);
+        final int halfWidth = this.displayInfo.getLastHalfWidth();
 
         graphics.setColor(this.basicColor.intValue());
         
-        graphics.drawString(this.title, halfWidth - beginWidth, charHeight, this.anchor);
+        graphics.drawString(this.title, halfWidth - this.titleBeginWidth, this.updateMyFontProperties.charHeight, this.anchor);
 
         final String[] inputInfo = this.inputInfo;
-        int size = inputInfo.length;
+        final int size = inputInfo.length;
         int y = 0;
         int deltaX = 0;
         int size2 = 0;
         
-        Input input;
         String actionString;
+        Input input;
         BasicArrayList list;
-        String keyMappings;
         String sep;
+        int beginWidth;
         for (int index = 0; index < size; index++)
         {
             //For same line action and mappings
-            y = (index + 3) * charHeight;
+            y = (index + 3) * this.updateMyFontProperties.charHeight;
             //For multiline
             //y = ((index * 2) + 3) * this.myFont.DEFAULT_CHAR_HEIGHT;
             
             deltaX = 0;
             list = this.keyMappingArray[index];
             size2 = list.size();
-            keyMappings = this.get(list);
 
+            beginWidth = this.updateMyFontProperties.keymappingBeginWidthArray[index];
+            
             //For same line action and mappings
-            stringMaker.delete(0, stringMaker.length());
-            actionString = stringMaker.append(inputInfo[index]).append(commonSeps.COLON).append(commonSeps.SPACE).append(commonSeps.SPACE).toString();
-            //For multiline
-            //String actionString = inputInfo[index];
-
-            //For same line action and mappings
-            stringMaker.delete(0, stringMaker.length());
-            beginWidth = (font.stringWidth(stringMaker.append(actionString).append(keyMappings).toString()) >> 1);
             //For multiline
             //beginWidth = (font.stringWidth(actionString) >> 1);
-
+            
             graphics.setColor(this.actionBasicColor[index].intValue());
 
+            actionString = this.updateMyFontProperties.actionStringArray[index];
             graphics.drawString(actionString, halfWidth - beginWidth + deltaX, y, this.anchor);
             
             //For same line action and mappings
-            deltaX += font.stringWidth(actionString);
+            deltaX += this.updateMyFontProperties.actionStringDeltaXArray[index];
             //For multiline
             //y = ((index * 2) + 4) * myFont.DEFAULT_CHAR_HEIGHT;
             //beginWidth = (font.stringWidth(keyMappings) >> 1);
@@ -258,35 +344,13 @@ public class InputMappingHelpPaintable extends HelpPaintable
                 graphics.setColor(this.inputBasicColorArray[index][index2].intValue());
                 graphics.drawString(input.getName(), halfWidth - beginWidth + deltaX, y, this.anchor);
 
-                deltaX += font.stringWidth(input.getName());
+                deltaX += this.updateMyFontProperties.inputDeltaXArray[index][index2];
 
-                sep = EMPTY_STRING;
+                sep = this.updateMyFontProperties.sepArray[index][index2];
+                graphics.setColor(this.basicColor.intValue());
+                graphics.drawString(sep, halfWidth - beginWidth + deltaX, y, this.anchor);
+                deltaX += this.updateMyFontProperties.sepWidthArray[index][index2];
 
-                if(index2 + 1 < list.size())
-                {
-                    if(list.size() == 2)
-                    {
-                        sep = InputMappingHelpPaintable.AND;
-                    }
-                    else
-                    {
-                        if(index2 + 2 == list.size())
-                        {
-                            sep = InputMappingHelpPaintable.MORE_THAN_TWO_IN_LIST_AND;
-                        }
-                        else
-                        {
-                            sep = InputMappingHelpPaintable.SEP;
-                        }
-                    }
-                }
-
-                if(sep != EMPTY_STRING)
-                {
-                    graphics.setColor(this.basicColor.intValue());
-                    graphics.drawString(sep, halfWidth - beginWidth + deltaX, y, this.anchor);
-                    deltaX += font.stringWidth(sep);
-                }
             }
         }
     }

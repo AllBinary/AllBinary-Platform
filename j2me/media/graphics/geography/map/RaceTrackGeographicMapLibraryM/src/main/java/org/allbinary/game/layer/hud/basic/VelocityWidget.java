@@ -13,13 +13,14 @@
 */
 package org.allbinary.game.layer.hud.basic;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 
 import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.math.PrimitiveLongSingleton;
 import org.allbinary.logic.math.PrimitiveLongUtil;
@@ -38,25 +39,39 @@ public class VelocityWidget extends BasicHud
     private char[] string = PrimitiveLongSingleton.getInstance().ZERO;
     private int totalDigits = 1;
 
+    private final int powerOfTenVelocity;
     private final PrimitiveLongUtil primitiveLongUtil;
 
-    private final int offset;
-    private int offset2;
+    private int offset = 0;
+    private int offset2 = 0;
     
     public VelocityWidget(int powerOfTenVelocity, int location, int direction,
             BasicColor basicColor) throws Exception
     {
-        super(location, direction, 14, MyFont.getInstance().getSize() * (5 + MathUtil.getInstance().getTotalDigits(powerOfTenVelocity) + 1), 2, basicColor);
+        super(location, direction, 2, basicColor);
 
+        this.powerOfTenVelocity = powerOfTenVelocity;
         this.maxVelocity = powerOfTenVelocity;
         this.velocity = 0;
 
         this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(powerOfTenVelocity);
      
-        final MyFont myFont = MyFont.getInstance();
-        this.offset = myFont.defaultStringWidth(this.primitiveLongUtil.getMaxDigits()) + myFont.defaultStringWidth(2);
+        this.updateMaxHeight = 14;
     }
 
+
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+
+        final Font font = graphics.getFont();
+        this.updateMaxWidth = font.getSize() * (5 + MathUtil.getInstance().getTotalDigits(this.powerOfTenVelocity) + 1);
+        
+        super.updateMeasurement(graphics);
+        
+        this.offset = MyFontProcessor.defaultStringWidth(font, this.primitiveLongUtil.getMaxDigits()) + MyFontProcessor.defaultStringWidth(font, 2);
+        this.offset2 = this.offset - MyFontProcessor.defaultStringWidth(font, this.totalDigits) - MyFontProcessor.defaultStringWidth(font, 2);
+    }
+    
     public int get()
     {
         return this.velocity;
@@ -92,8 +107,7 @@ public class VelocityWidget extends BasicHud
                 this.totalDigits = this.primitiveLongUtil.getCurrentTotalDigits();
             }
 
-            final MyFont myFont = MyFont.getInstance();
-            this.offset2 = this.offset - myFont.defaultStringWidth(this.totalDigits) - myFont.defaultStringWidth(2);
+            this.myFontProcessor = this.updateMyFontProcessor;
         }
     }
 

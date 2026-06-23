@@ -23,7 +23,10 @@ import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.RectangleCollisionUtil;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
 
@@ -148,7 +151,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
             this.logUtil.putF("Exception: Bug", this, this.gameInputStrings.PROCESS_MOTION_INPUT);
             return;
         }
-        
+
         final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
         final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
 

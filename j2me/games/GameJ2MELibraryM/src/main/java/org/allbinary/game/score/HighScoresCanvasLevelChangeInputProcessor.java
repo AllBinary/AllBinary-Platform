@@ -14,6 +14,7 @@
 package org.allbinary.game.score;
 
 import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.input.event.GameKeyEventHandler;
@@ -21,14 +22,15 @@ import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.util.BasicArrayList;
 
-public class HighScoresCanvasLevelChangeInputProcessor extends
-        HighScoresCanvasInputProcessor
+public class HighScoresCanvasLevelChangeInputProcessor 
+    extends HighScoresCanvasInputProcessor implements UpdateMyFontInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
@@ -38,16 +40,27 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
     // "(Up = Next Track, Down = Previous Track)";
     private final String INSTRUCTIONS = "(Right = Next Track, Left = Previous Track)";
 
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
+    
     // private final String INSTRUCTIONS = "(Change Tracks With Game Controls)";
     
     private int anchor = Anchor.TOP_LEFT;
-    
-    public HighScoresCanvasLevelChangeInputProcessor(
-            HighScoresCanvas highScoresCanvas)
+
+    private int fontHeight = 0;
+
+    public HighScoresCanvasLevelChangeInputProcessor(final HighScoresCanvas highScoresCanvas)
     {
         super(highScoresCanvas);
     }
 
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.fontHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+        
+    
     @Override
     public void open()
     {
@@ -61,17 +74,17 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
         //BasicMotionGesturesHandler.getInstance().removeListener(this);
         GameKeyEventHandler.getInstance().removeListener(this);
     }
-    
+
     @Override
     public synchronized void update()
     {
-        BasicArrayList list = this.getGameKeyEventList();
+        final BasicArrayList list = this.getGameKeyEventList();
 
-        int size = list.size();
+        final int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            Object object = list.objectArray[index];
-            int key = GameKeyEventUtil.getKey(object);
+            final Object object = list.objectArray[index];
+            final int key = GameKeyEventUtil.getKey(object);
 
             //PreLogUtil.put(commonStrings.START_LABEL).append(key, this, this.commonStrings.UPDATE);
 
@@ -94,14 +107,14 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
     @Override
     public void paint(Graphics graphics)
     {
-        final MyFont myFont = MyFont.getInstance();
-        //int width = graphics.getClipWidth();
-        int width = this.displayInfoSingleton.getLastWidth();
+        this.myFontProcessor.process(graphics);
         
+        //int width = graphics.getClipWidth();
+        final int width = this.displayInfoSingleton.getLastWidth();   
 
-        int topScoresWidth = (graphics.getFont().stringWidth(this.INSTRUCTIONS) >> 1);
+        final int topScoresWidth = (graphics.getFont().stringWidth(this.INSTRUCTIONS) >> 1);
 
         graphics.drawString(this.INSTRUCTIONS, (width >> 1) - topScoresWidth,
-                myFont.DEFAULT_CHAR_HEIGHT * 2, this.anchor);
+                this.fontHeight * 2, this.anchor);
     }
 }

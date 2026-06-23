@@ -20,6 +20,10 @@ public class ABCustomForm extends CustomScreen
 
     }
     
+    public ABCustomItem[] getAllitems() {
+        return null;
+    }
+    
     public int size()
     {
         return 0;

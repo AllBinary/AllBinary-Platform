@@ -10,9 +10,10 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.media.graphics.geography.map;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
@@ -28,202 +29,184 @@ import org.allbinary.animation.text.TextAnimation;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.logic.math.BasicDecimal;
 
-public class GeographicMapCellHistory
-{
+public class GeographicMapCellHistory implements UpdateMyFontInterface {
+
     public static final GeographicMapCellHistory[] NULL_GEOGRPAHIC_MAP_HISTORY_ARRAY = new GeographicMapCellHistory[0];
 
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final BooleanFactory booleanFactory = BooleanFactory.getInstance();
-    
-   private final BasicArrayList list;
-   private final BasicArrayList visitedList;
-   private final String MISSED_INFO = "Missed";
-   
-   private final Animation animation = new TextAnimation(this.MISSED_INFO, AnimationBehavior.getInstance());
 
-   private int totalVisited;
+    private final BasicArrayList list;
+    private final BasicArrayList visitedList;
+    private final String MISSED_INFO = "Missed";
 
-   private int halfWidth = 0;
+    private final Animation animation = new TextAnimation(this.MISSED_INFO, AnimationBehavior.getInstance());
 
-   public GeographicMapCellHistory()
-   {
-      this.list = new BasicArrayListD();
-      this.visitedList = new BasicArrayListD();
-      this.init();
-   }
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
 
-   public int getTotalVisited()
-   {
-      return this.totalVisited;
-   }
+    private int totalVisited;
 
-   public int getTotalNotVisited()
-   {
-       return this.getSize() - this.totalVisited;
-   }
+    private int halfWidth = 0;
+    private int fontHeight = 0;
 
-   public int getSize()
-   {
-      return this.list.size();
-   }
+    public GeographicMapCellHistory() {
+        this.list = new BasicArrayListD();
+        this.visitedList = new BasicArrayListD();
+        this.init();
+    }
 
-   public void trackAll(final BasicArrayList list)
-   {
-      final int size = list.size();
-      this.list.ensureCapacity(size);
-      this.visitedList.ensureCapacity(size);
-      GeographicMapCellPosition geographicMapCellPosition;
-      for (int index = 0; index < size; index++)
-      {
-         geographicMapCellPosition =
-            (GeographicMapCellPosition) list.get(index);
-         this.track(geographicMapCellPosition);
-      }
-   }
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.fontHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
 
-   public void track(final GeographicMapCellPosition geographicMapCellPosition)
-   {
-      //Don't allow duplicates
-      if (!this.list.contains(geographicMapCellPosition))
-      {
-         this.list.add(geographicMapCellPosition);
-         this.visitedList.add(this.booleanFactory.FALSE);
-      }
-   //this.logUtil.putF("Position: " + geographicMapCellPosition, this, "track");
-   }
+    public int getTotalVisited() {
+        return this.totalVisited;
+    }
 
-   public BasicArrayList getTracked()
-   {
-      return this.list;
-   }
+    public int getTotalNotVisited() {
+        return this.getSize() - this.totalVisited;
+    }
 
-   public BasicArrayList getVisited()
-   {
-      return this.visitedList;
-   }
-   
-   /*
+    public int getSize() {
+        return this.list.size();
+    }
+
+    public void trackAll(final BasicArrayList list) {
+        final int size = list.size();
+        this.list.ensureCapacity(size);
+        this.visitedList.ensureCapacity(size);
+        GeographicMapCellPosition geographicMapCellPosition;
+        for (int index = 0; index < size; index++) {
+            geographicMapCellPosition =
+                (GeographicMapCellPosition) list.get(index);
+            this.track(geographicMapCellPosition);
+        }
+    }
+
+    public void track(final GeographicMapCellPosition geographicMapCellPosition) {
+        //Don't allow duplicates
+        if (!this.list.contains(geographicMapCellPosition)) {
+            this.list.add(geographicMapCellPosition);
+            this.visitedList.add(this.booleanFactory.FALSE);
+        }
+        //this.logUtil.putF("Position: " + geographicMapCellPosition, this, "track");
+    }
+
+    public BasicArrayList getTracked() {
+        return this.list;
+    }
+
+    public BasicArrayList getVisited() {
+        return this.visitedList;
+    }
+
+    /*
    public GeographicMapCellPosition getRandom()
    {
       return (GeographicMapCellPosition) BasicArrayListUtil.getRandom(this.list);
    }
     * */
+    public GeographicMapCellPosition getAfterIfNotLast(GeographicMapCellPosition geographicMapCellPosition) {
 
-   public GeographicMapCellPosition getAfterIfNotLast(GeographicMapCellPosition geographicMapCellPosition) {
-       
-       final BasicArrayList localList = this.list;
-       
-       final int index = localList.indexOf(geographicMapCellPosition);
-       if(localList.size() > index + 1) {
-           return (GeographicMapCellPosition) localList.get(index + 1);
-       }
-       
-       return geographicMapCellPosition;
-   }
-   
-   public GeographicMapCellPosition getFirstUnvisited()
-   {
-      final BasicArrayList localList = this.list;
-      final BasicArrayList localVisitedList = this.visitedList;
-      final int size = localVisitedList.size();
-      
-      Boolean value;
-      for (int index = 0; index < size; index++)
-      {
-         value = (Boolean) this.visitedList.get(index);
-         if (value == this.booleanFactory.FALSE)
-         {
-            return (GeographicMapCellPosition) localList.get(index);
-         }
-      }
+        final BasicArrayList localList = this.list;
 
-      return (GeographicMapCellPosition) localList.get(0);
-   }
+        final int index = localList.indexOf(geographicMapCellPosition);
+        if (localList.size() > index + 1) {
+            return (GeographicMapCellPosition) localList.get(index + 1);
+        }
 
-   public int getFirstUnvisitedIndex()
-   {
-      BasicArrayList localVisitedList = this.visitedList;
-      int size = localVisitedList.size();
-      Boolean value;
-      for (int index = 0; index < size; index++)
-      {
-         value = (Boolean) this.visitedList.get(index);
-         if (value == this.booleanFactory.FALSE)
-         {
-            return index;
-         }
-      }
+        return geographicMapCellPosition;
+    }
 
-      return 0;
-   }
+    public GeographicMapCellPosition getFirstUnvisited() {
+        final BasicArrayList localList = this.list;
+        final BasicArrayList localVisitedList = this.visitedList;
+        final int size = localVisitedList.size();
 
-   public BasicArrayList getInPathButNotTracked(BasicArrayList pathList)
-   {
-      final BasicArrayList inPathButNotTrackedList = new BasicArrayListD();
+        Boolean value;
+        for (int index = 0; index < size; index++) {
+            value = (Boolean) this.visitedList.get(index);
+            if (value == this.booleanFactory.FALSE) {
+                return (GeographicMapCellPosition) localList.get(index);
+            }
+        }
 
-      final BasicArrayList localList = this.list;
+        return (GeographicMapCellPosition) localList.get(0);
+    }
 
-      final int size = pathList.size();
-      GeographicMapCellPosition geographicMapCellPosition;
-      for (int index = 0; index < size; index++)
-      {
-         geographicMapCellPosition =
-            (GeographicMapCellPosition) pathList.get(index);
+    public int getFirstUnvisitedIndex() {
+        BasicArrayList localVisitedList = this.visitedList;
+        int size = localVisitedList.size();
+        Boolean value;
+        for (int index = 0; index < size; index++) {
+            value = (Boolean) this.visitedList.get(index);
+            if (value == this.booleanFactory.FALSE) {
+                return index;
+            }
+        }
 
-         if (!localList.contains(geographicMapCellPosition))
-         {
-            inPathButNotTrackedList.add(geographicMapCellPosition);
-         }
-      }
-      return inPathButNotTrackedList;
-   }
+        return 0;
+    }
 
-   public boolean isVisited(final GeographicMapCellPosition geographicMapCellPosition)
-   {
-      int index = this.list.indexOf(geographicMapCellPosition);
-      if (index != -1)
-      {
-         Boolean value = (Boolean) this.visitedList.get(index);
-         if (value == this.booleanFactory.TRUE)
-         {
-            return true;
-         }
-      }
-      else
-      {
-         //this.logUtil.putF(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
-      }
-      return false;
-   }
-   
-   public boolean visit(final GeographicMapCellPosition geographicMapCellPosition)
-   {
-      final int index = this.list.indexOf(geographicMapCellPosition);
-      Boolean value;
-      if (index != -1)
-      {
-         value = (Boolean) this.visitedList.get(index);
-         
-         Boolean TRUE = this.booleanFactory.TRUE;
-         if (value != TRUE)
-         {
-            this.visitedList.set(index, TRUE);
-            this.totalVisited++;
-            return true;
-         }
-      }
-      else
-      {
-         //this.logUtil.putF(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
-      }
-      return false;
-   }
+    public BasicArrayList getInPathButNotTracked(BasicArrayList pathList) {
+        final BasicArrayList inPathButNotTrackedList = new BasicArrayListD();
 
-   /*
+        final BasicArrayList localList = this.list;
+
+        final int size = pathList.size();
+        GeographicMapCellPosition geographicMapCellPosition;
+        for (int index = 0; index < size; index++) {
+            geographicMapCellPosition =
+                (GeographicMapCellPosition) pathList.get(index);
+
+            if (!localList.contains(geographicMapCellPosition)) {
+                inPathButNotTrackedList.add(geographicMapCellPosition);
+            }
+        }
+        return inPathButNotTrackedList;
+    }
+
+    public boolean isVisited(final GeographicMapCellPosition geographicMapCellPosition) {
+        int index = this.list.indexOf(geographicMapCellPosition);
+        if (index != -1) {
+            Boolean value = (Boolean) this.visitedList.get(index);
+            if (value == this.booleanFactory.TRUE) {
+                return true;
+            }
+        } else {
+            //this.logUtil.putF(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
+        }
+        return false;
+    }
+
+    public boolean visit(final GeographicMapCellPosition geographicMapCellPosition) {
+        final int index = this.list.indexOf(geographicMapCellPosition);
+        Boolean value;
+        if (index != -1) {
+            value = (Boolean) this.visitedList.get(index);
+
+            Boolean TRUE = this.booleanFactory.TRUE;
+            if (value != TRUE) {
+                this.visitedList.set(index, TRUE);
+                this.totalVisited++;
+                return true;
+            }
+        } else {
+            //this.logUtil.putF(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
+        }
+        return false;
+    }
+
+    /*
    public Boolean isVisited(
    GeographicMapCellPosition geographicMapCellPosition)
    throws Exception
@@ -239,143 +222,118 @@ public class GeographicMapCellHistory
    return falseBoolean;
    }
    }
-    */
+     */
+    public boolean isAllVisited() throws Exception {
+        if (this.totalVisited == this.getSize() - 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-   public boolean isAllVisited() throws Exception
-   {
-       if (this.totalVisited == this.getSize() - 1)
-      {
-         return true;
-      }
-      else
-      {
-         return false;
-      }
-   }
-   
-   public boolean isAllVisited2() throws Exception
-   {
-       if (this.totalVisited == this.getSize())
-      {
-         return true;
-      }
-      else
-      {
-         return false;
-      }
-   }
+    public boolean isAllVisited2() throws Exception {
+        if (this.totalVisited == this.getSize()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-   public boolean isPortionVisited(final BasicDecimal basicDecimal)
-      throws Exception
-   {
-      final int size = this.getSize();
+    public boolean isPortionVisited(final BasicDecimal basicDecimal)
+        throws Exception {
+        final int size = this.getSize();
 
-      final int numberRequired = (size << basicDecimal.getScaledFactor()) / (int) basicDecimal.getUnscaled();
+        final int numberRequired = (size << basicDecimal.getScaledFactor()) / (int) basicDecimal.getUnscaled();
 
-      //int numberNotVisited = 0;
+        //int numberNotVisited = 0;
+        final int numberNotVisited = this.getSize() - 1 - this.totalVisited;
 
-      final int numberNotVisited = this.getSize() - 1 - this.totalVisited;
-
-      /*
+        /*
       this.logUtil.putF(
          "Total Visited: " + (size - numberNotVisited) +
          " out of " + size + " Number Required: " + numberRequired, this, "isMostlyVisited");
-      */
+         */
+        if (size - numberNotVisited > numberRequired) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-      if (size - numberNotVisited > numberRequired)
-      {
-         return true;
-      }
-      else
-      {
-         return false;
-      }
-   }
+    public void reset() throws Exception {
+        final BasicArrayList localVisitedList = this.visitedList;
+        final Boolean localFalseBoolean = this.booleanFactory.FALSE;
+        int size = localVisitedList.size();
+        for (int index = size - 1; index >= 0; index--) {
+            localVisitedList.set(index, localFalseBoolean);
+        }
 
-   public void reset() throws Exception
-   {
-      final BasicArrayList localVisitedList = this.visitedList;
-      final Boolean localFalseBoolean = this.booleanFactory.FALSE;
-      int size = localVisitedList.size();
-      for (int index = size - 1; index >= 0; index--)
-      {
-         localVisitedList.set(index, localFalseBoolean);
-      }
+        this.totalVisited = 0;
+    }
 
-      this.totalVisited = 0;
-   }
-   
-   private void paintNotVisitedRelativeToPoint(final Graphics graphics, final AllBinaryTiledLayer tiledLayer, final GPoint point)
-   {
-      final int x = point.getX() - tiledLayer.getXP();
-      final int y = point.getY() - tiledLayer.getYP();
-      //graphics.fillArc(x, y, tiledLayer.getCellWidth(), tiledLayer.getCellHeight(), 0, Angle.THREE_SIXTY);
-      if(this.halfWidth == 0)
-      {
-          this.halfWidth = (graphics.getFont().stringWidth(this.MISSED_INFO) >> 1);
-      }
+    private void paintNotVisitedRelativeToPoint(final Graphics graphics, final AllBinaryTiledLayer tiledLayer, final GPoint point) {
+        final int x = point.getX() - tiledLayer.getXP();
+        final int y = point.getY() - tiledLayer.getYP();
+        //graphics.fillArc(x, y, tiledLayer.getCellWidth(), tiledLayer.getCellHeight(), 0, Angle.THREE_SIXTY);
+        if (this.halfWidth == 0) {
+            this.halfWidth = (graphics.getFont().stringWidth(this.MISSED_INFO) >> 1);
+        }
 
-      final MyFont myFont = MyFont.getInstance();
-      final int height = 2 * myFont.DEFAULT_CHAR_HEIGHT;
-      
-      this.animation.paintXY(graphics, x + halfWidth,
+        final int height = 2 * this.fontHeight;
+
+        this.animation.paintXY(graphics, x + halfWidth,
             //(tiledLayer.getCellHeight() >> 1)
-              y + (height));
+            y + (height));
 
-   /*
+        /*
    if(currentTime - lastTime > 2000)
    {
    //this.logUtil.putF("x: " + x, this, "paintNotVisited");
    //this.logUtil.putF("y: " + y, this, "paintNotVisited");
    lastTime = currentTime;
    }
-    */
-   }
-   
-   private final int RED = BasicColorFactory.getInstance().RED.intValue();
-   
-   public void paintNotVisited(final Graphics graphics, final BasicGeographicMap geographicMapInterface)
-   {
-      try
-      {
-         graphics.setColor(this.RED);
+         */
+    }
 
-         final BasicArrayList localVisitedList = this.visitedList;
-         //Boolean localFalseBoolean = this.falseBoolean;
-         final int size = localVisitedList.size();
+    private final int RED = BasicColorFactory.getInstance().RED.intValue();
 
-         GeographicMapCellPosition geographicMapCellPosition;
-         Boolean isCellVisitedBoolean;
+    public void paintNotVisited(final Graphics graphics, final BasicGeographicMap geographicMapInterface) {
+        try {
+            this.myFontProcessor.process(graphics);
 
-         for (int index = size; --index >= 0;)
-         {
-             geographicMapCellPosition = 
-                 (GeographicMapCellPosition) this.list.get(index);
+            graphics.setColor(this.RED);
 
-             isCellVisitedBoolean = (Boolean) localVisitedList.get(index);
-            //this.isVisited(geographicMapCellPosition);
+            final BasicArrayList localVisitedList = this.visitedList;
+            //Boolean localFalseBoolean = this.falseBoolean;
+            final int size = localVisitedList.size();
 
-            if (!isCellVisitedBoolean.booleanValue())
-            {
-               this.paintNotVisitedRelativeToPoint(
-                  graphics,
-                  geographicMapInterface.getAllBinaryTiledLayer(),
-                  geographicMapCellPosition.getPoint());
+            GeographicMapCellPosition geographicMapCellPosition;
+            Boolean isCellVisitedBoolean;
+
+            for (int index = size; --index >= 0;) {
+                geographicMapCellPosition =
+                    (GeographicMapCellPosition) this.list.get(index);
+
+                isCellVisitedBoolean = (Boolean) localVisitedList.get(index);
+                //this.isVisited(geographicMapCellPosition);
+
+                if (!isCellVisitedBoolean.booleanValue()) {
+                    this.paintNotVisitedRelativeToPoint(
+                        graphics,
+                        geographicMapInterface.getAllBinaryTiledLayer(),
+                        geographicMapCellPosition.getPoint());
+                }
             }
-         }
 
-      }
-      catch (Exception e)
-      {
-          final CommonStrings commonStrings = CommonStrings.getInstance();
-         this.logUtil.put(commonStrings.EXCEPTION, this, "paintNotVisited", e);
-      }
-   }
-   
-   public void init()
-   {
-      this.list.clear();
-      this.visitedList.clear();
-      this.totalVisited = 0;
-   }
+        } catch (Exception e) {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, "paintNotVisited", e);
+        }
+    }
+
+    public void init() {
+        this.list.clear();
+        this.visitedList.clear();
+        this.totalVisited = 0;
+    }
 }

@@ -53,7 +53,7 @@ public class HealthHudWidget extends BasicHud
         int direction) throws Exception
     {
     	//width = 16
-        super(location, direction, 16, healthInterface.getMaxHealth() * 16, 2, BasicColorFactory.getInstance().WHITE);
+        super(location, direction, 2, BasicColorFactory.getInstance().WHITE);
 
         this.animationInterface = animationInterface;
         this.healthInterface = healthInterface;
@@ -62,10 +62,19 @@ public class HealthHudWidget extends BasicHud
         this.healthScale = (this.healthInterface.getMaxHealth() / 6) + 1;
 
         this.onHealthChange();
+        
+        this.updateMaxWidth = healthInterface.getMaxHealth() * 16;
+        this.updateMaxHeight = 16;
 
         this.xArray = new int[30];
         this.update();
     }
+
+//    @Override
+//    public void updateMeasurement(final Graphics graphics) {        
+//        super.updateMeasurement(graphics);
+//
+//    }
 
     private final void update()
     {
@@ -120,6 +129,8 @@ public class HealthHudWidget extends BasicHud
     @Override
     public void paint(Graphics graphics)
     {
+        this.myFontProcessor.process(graphics);
+        
         for (int index = 0; index < this.max; index++)
         {
             if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime))

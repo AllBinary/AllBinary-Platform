@@ -29,20 +29,67 @@ import org.allbinary.logic.string.StringUtil;
  *
  * @author user
  */
-public class DrawStringUtil
+public class DrawVerticalStringUtil
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final DrawStringUtil instance = new DrawStringUtil();
+    private static final DrawVerticalStringUtil instance = new DrawVerticalStringUtil();
 
-    public static DrawStringUtil getInstance()
+    public static DrawVerticalStringUtil getInstance()
     {
-        return DrawStringUtil.instance;
+        return DrawVerticalStringUtil.instance;
     }    
 
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
      
     private int anchor = Anchor.TOP_LEFT;
+    private int charHeight;
+    private int offsetY;
+    private int[] offsetXArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    
+    public void updateMeasurement(final Graphics graphics, final String string) {
+        final OpenGLFeatureUtil openGLFeatureUtil = OpenGLFeatureUtil.getInstance();
+
+        final Font font = graphics.getFont();
+        this.charHeight = font.getHeight();
+        
+        this.offsetY = 0;
+        if(J2MEUtil.isHTML()) {
+            this.charHeight += 1;
+        } else if(openGLFeatureUtil.isAnyThreed()) {
+            this.charHeight += 2;
+            if(AndroidUtil.isAndroid()) {
+            } else {
+                this.offsetY = 2 + (this.charHeight * 2 / 3);
+            }
+        }
+        
+        final int size = string.length();
+        char aChar;
+        int[] offsetXArray = new int[size];
+        for (int index = size - 1; index >= 0; index--)
+        {
+            aChar = string.charAt(index);
+
+            if(openGLFeatureUtil.isAnyThreed()) {
+                offsetXArray[index] = font.charWidth(aChar) / 2;
+            }
+        }
+        this.offsetXArray = offsetXArray;
+        
+    }
+    
+    public void paintVerticle(final Graphics graphics, final String string, final int x, final int y, final int anchor)
+    {
+        final int size = string.length();
+        char aChar;
+        for (int index = size - 1; index >= 0; index--)
+        {
+            aChar = string.charAt(index);
+            
+            graphics.drawChar(aChar, x + this.offsetXArray[index], y + (this.charHeight * index) + this.offsetY, anchor);
+        }
+    }
     
     public void drawCenterString(final Graphics graphics, final String string, final int offset, int length, int x, int y)
     {
@@ -52,8 +99,11 @@ public class DrawStringUtil
 
         try
         {
-            graphics.drawSubstring(string, offset, length, x - width,
-                y,this.anchor);
+        graphics.drawSubstring(
+                string, offset, length,
+                x - width,
+                y,
+                this.anchor);
         }
         catch(Exception e)
         {
@@ -61,7 +111,7 @@ public class DrawStringUtil
         }
     }
 
-    public void drawCenterStrings(final Graphics graphics, final String[] stringArray, final int maxWidth, final int charHeight, final int x, final int y)
+    public void drawCenterStrings(final Graphics graphics, final String[] stringArray, final int maxWidth, final int x, final int y)
     {
         
         int extraLines = 0;
@@ -114,7 +164,7 @@ public class DrawStringUtil
 
                     this.drawCenterString(graphics,
                             string, offset, currentLength, 
-                            x, y + ((index + extraLines++) * charHeight));
+                            x, y + ((index + extraLines++) * this.charHeight));
 
                     offset = offset + currentLength;
 

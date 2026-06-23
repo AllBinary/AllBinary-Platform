@@ -67,12 +67,14 @@ public class CustomTextAnimation extends TextAnimation
     @Override
     public void paintXY(final Graphics graphics, final int x, final int y)
     {
+        this.myFontProcessor.process(graphics);
+        
         final Font existingFont = graphics.getFont();
         
         this.fontDebugFactory.setFont(this.font, graphics);
         
         //super.paint(graphics, x + this.xtraWidth, y);
-        super.paintXY(graphics, x, y);
+        super.paintXYNoUpdate(graphics, x, y);
         
         this.fontDebugFactory.setFont(existingFont, graphics);
     }
@@ -122,7 +124,7 @@ public class CustomTextAnimation extends TextAnimation
     }
 
     @Override
-    public int getHeight() {
+    public int getFontHeight() {
         return this.font.getHeight();
     }
 

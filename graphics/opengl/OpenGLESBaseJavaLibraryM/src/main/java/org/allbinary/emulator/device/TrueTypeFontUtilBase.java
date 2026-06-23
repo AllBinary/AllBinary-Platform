@@ -15,9 +15,7 @@ package org.allbinary.emulator.device;
 
 import javax.microedition.lcdui.Font;
 
-import org.allbinary.AndroidUtil;
 import org.allbinary.AvianUtil;
-import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.string.StringUtil;
 
 /**
@@ -68,7 +66,7 @@ public class TrueTypeFontUtilBase {
         
         this.scale = scale;
         //This needs to initialize after scale and in the OpenGL thread when running JOGL.
-        if(!AndroidUtil.isAndroid()) MyFont.getInstance();
+        //if(!AndroidUtil.isAndroid()) MyFont.getInstance();
         
         //this.logUtil.putF(Integer.toString(scale), this, this.commonStrings.CONSTRUCTOR);
         

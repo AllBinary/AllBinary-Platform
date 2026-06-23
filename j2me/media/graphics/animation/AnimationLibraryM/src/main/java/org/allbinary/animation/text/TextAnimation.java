@@ -13,33 +13,54 @@
 */
 package org.allbinary.animation.text;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.Anchor;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
-public class TextAnimation extends IndexedAnimation
+public class TextAnimation extends IndexedAnimation 
+    implements UpdateMyFontInterface
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     //private final int WIDTH = 13;
     //private final int HEIGHT = 8;
     
-    protected String[] textArrayP = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
+    private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
     
+    protected String[] textArrayP = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
+
     private int anchor = Anchor.TOP_LEFT;
+
+    private int fontHeight = 0;
+
+    private TextChangeListener textChangeListener = TextChangeListener.getInstance();
+    
     public TextAnimation(final String text, final AnimationBehavior animationBehavior)
     {
         super(animationBehavior);
         //this.textArray = new String[1];
         //this.textArray[0] = text;
         this.setText(text);
+    }
+    
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.fontHeight = font.getHeight();
+        this.textChangeListener.onMeasure();
+        this.textChangeListener = TextChangeListener.getInstance();
+        this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
     @Override
@@ -50,20 +71,30 @@ public class TextAnimation extends IndexedAnimation
     @Override
     public void paintXY(Graphics graphics, int x, int y)
     {
+        this.myFontProcessor.process(graphics);
+        this.paintXYNoUpdate(graphics, x, y);
+    }
+    
+    public void paintXYNoUpdate(Graphics graphics, int x, int y)
+    {
         this.basicSetColorUtil.setBasicColorP3(
                 graphics, this.getBasicColorP(), this.getColor());
 
-        final int height = this.getHeight();
         final int size = this.textArrayP.length;
         for(int index = 0; index < size; index++) {
             //this.logUtil.putF(new StringMaker().append(textArray[index]).append(CommonSeps.getInstance().SPACE).append(x).append(CommonSeps.getInstance().SPACE).append(y).toString(), this, this.commonStrings.PROCESS);
-            graphics.drawString(this.textArrayP[index], x, y + (index * height), this.anchor);
+            graphics.drawString(this.textArrayP[index], x, y + (index * this.fontHeight), this.anchor);
             //graphics.drawString(textArray[index], x + WIDTH, y + (index * height) + HEIGHT, anchor);
         }
 
     }
 
-    public void setText(String text)
+    public void setTextWithOnMeasure(final String text, final TextChangeListener textChangeListener) {
+        this.setText(text);
+        this.textChangeListener = textChangeListener;
+    }
+    
+    public void setText(final String text)
     {
         final BasicArrayList list = new BasicArrayListD();
 
@@ -98,16 +129,17 @@ public class TextAnimation extends IndexedAnimation
         } else {
             this.textArrayP = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
         }
+        
+        this.myFontProcessor = this.updateMyFontProcessor;
     }
 
     public String[] getTextArray()
     {
         return this.textArrayP;
     }
-    
-    public int getHeight() {
-        final MyFont myFont = MyFont.getInstance();
-        return myFont.DEFAULT_CHAR_HEIGHT;
+
+    public int getFontHeight() {
+        return this.fontHeight;
     }
     
 }

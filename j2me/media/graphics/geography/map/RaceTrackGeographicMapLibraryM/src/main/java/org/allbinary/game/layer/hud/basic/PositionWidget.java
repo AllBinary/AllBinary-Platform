@@ -31,7 +31,11 @@ public class PositionWidget extends BasicHud
     public PositionWidget(int position, int location, int direction,
             BasicColor basicColor) throws Exception
     {
-        super(location, direction, 10, 40, 2, basicColor);
+        super(location, direction, 2, basicColor);
+
+        this.updateMaxHeight = 10;
+        this.updateMaxWidth = 40;
+
     }
 
     public int get()

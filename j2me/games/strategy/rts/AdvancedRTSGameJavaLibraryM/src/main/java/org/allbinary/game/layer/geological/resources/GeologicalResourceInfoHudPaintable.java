@@ -14,13 +14,13 @@
 
 package org.allbinary.game.layer.geological.resources;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.game.layer.RTSLayer;
 
+import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.waypoint.WaypointInfoHudPaintable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.graphics.draw.KeyValueDrawCharArray;
-import org.allbinary.graphics.font.MyFont;
 
 /**
  *
@@ -29,9 +29,11 @@ import org.allbinary.graphics.font.MyFont;
 public class GeologicalResourceInfoHudPaintable 
     extends WaypointInfoHudPaintable
 {
-    private final KeyValueDrawCharArray keyvalueDrawString;
-
     private static final String RESOURCES = "Resources: ";
+    
+    private final KeyValueDrawCharArray keyvalueDrawString;
+    
+    private int fontHeight = 0;
     
     //protected
     public GeologicalResourceInfoHudPaintable()
@@ -39,6 +41,14 @@ public class GeologicalResourceInfoHudPaintable
         this.keyvalueDrawString = new KeyValueDrawCharArray(GeologicalResourceInfoHudPaintable.RESOURCES, this.textX);
     }
 
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        super.updateMeasurement(graphics);
+        
+        final Font font = graphics.getFont();
+        this.fontHeight = (2 * font.getHeight());
+    }
+    
     @Override
     public void updateSelectionInfo()
     {
@@ -67,6 +77,6 @@ public class GeologicalResourceInfoHudPaintable
     {
         super.paint(graphics);
 
-        this.keyvalueDrawString.paint(graphics, (this.y + (2 * MyFont.getInstance().DEFAULT_CHAR_HEIGHT)));
+        this.keyvalueDrawString.paint(graphics, (this.y + this.fontHeight));
     }
 }

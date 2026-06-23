@@ -20,13 +20,27 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.communication.log.LogUtil;
 
-public class OwnershipPaintable extends Paintable
+//AndroidToJ2ME
+public class OwnershipPaintable extends Paintable implements UpdateMyFontInterface
 {
+    
+    public static OwnershipPaintable getInstance()
+    {
+        //return SINGLETON;
+        return new OwnershipPaintable();
+    }
+
     protected final LogUtil logUtil = LogUtil.getInstance();
+
+    private final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();    
+
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
 
     //private final static OwnershipPaintable SINGLETON = new OwnershipPaintable();
 
@@ -36,47 +50,21 @@ public class OwnershipPaintable extends Paintable
     
     private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
     private int color = this.basicColor.intValue();
-    
-    public static OwnershipPaintable getInstance()
-    {
-        //return SINGLETON;
-        return new OwnershipPaintable();
-    }
+    private int anchor = Anchor.TOP_LEFT;
+    private int COPYRIGHT_Y;
+    private int beginWidth;
     
     private OwnershipPaintable()
     {
         
     }
 
-    private int anchor = Anchor.TOP_LEFT;
-    
     @Override
-    public void paint(final Graphics graphics)
-    {
-        //this.logUtil.putF(this.commonStrings.START, this, "paint");
-        
-        graphics.setColor(this.color);
-
-        final MyFont myFont = MyFont.getInstance();        
-        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        final int halfWidth = displayInfo.getLastHalfWidth();
-        //int height = graphics.getClipHeight();
-        final int height = displayInfo.getLastHeight();
-
+    public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
-
-        final int beginWidth = (font.stringWidth(this.COPYRIGHT) >> 1);
-        
-        //final int COPYRIGHT_Y = 3 * myFont.DEFAULT_CHAR_HEIGHT;
-        final int COPYRIGHT_Y = 2 * myFont.DEFAULT_CHAR_HEIGHT;
-        graphics.drawString(this.COPYRIGHT, halfWidth - beginWidth, height - COPYRIGHT_Y, this.anchor);
-
-        /*
-        beginWidth = (font.stringWidth(COMPANY) >> 1);
-
-        graphics.drawString(COMPANY, halfWidth - beginWidth,
-                height - COMPANY_Y, anchor);
-        */        
+        this.COPYRIGHT_Y = 2 * font.getHeight();
+        this.beginWidth = (font.stringWidth(this.COPYRIGHT) >> 1);
+        this.myFontProcessor = MyFontProcessor.getInstance();
     }
 
     @Override
@@ -90,4 +78,28 @@ public class OwnershipPaintable extends Paintable
     {
         return this.basicColor;
     }
+    
+    @Override
+    public void paint(final Graphics graphics)
+    {   
+        //this.logUtil.putF(this.commonStrings.START, this, canvasStrings.PAINT);
+        
+        this.myFontProcessor.process(graphics);
+        
+        graphics.setColor(this.color);
+
+        final int halfWidth = this.displayInfo.getLastHalfWidth();
+        //int height = graphics.getClipHeight();
+        final int height = this.displayInfo.getLastHeight();
+        
+        graphics.drawString(this.COPYRIGHT, halfWidth - this.beginWidth, height - COPYRIGHT_Y, this.anchor);
+
+        /*
+        beginWidth = (font.stringWidth(COMPANY) >> 1);
+
+        graphics.drawString(COMPANY, halfWidth - beginWidth,
+                height - COMPANY_Y, anchor);
+        */        
+    }
+
 }

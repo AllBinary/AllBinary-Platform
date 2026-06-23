@@ -22,11 +22,16 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.FontDebugFactory;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.paint.InitUpdatePaintable;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 
-public class StartIntermissionPaintable extends InitUpdatePaintable
+public class StartIntermissionPaintable extends InitUpdatePaintable 
+    implements UpdateMyFontInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -34,43 +39,55 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
     
-    protected AllBinaryGameCanvas gameCanvas;
+    protected final AllBinaryGameCanvas gameCanvas;
     protected final String[] stringArray;
+    
+    protected final int fontSize;
+    protected final Font font;
+
+    public final int[] lastWidth;
+    
+    private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    private MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
     
     private BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
     private int color;
 
-    private final int[] lineArray;
-    
-    protected final int fontSize;
-    protected final Font font;
-    
+    protected int[] lineYOffsetArray = NullUtil.getInstance().NULL_INT_ARRAY;
+        
     private boolean hasChanged = true;
+     
+    private int anchor = Anchor.TOP_LEFT;
+    
+    protected int fontHeight;
 
-    public final int[] lastWidth;
-
-    public StartIntermissionPaintable(final AllBinaryGameCanvas gameCanvas, final String[] stringArray, final int[] lineArray, final BasicColor basicColor, final Font font)
+    public StartIntermissionPaintable(final AllBinaryGameCanvas gameCanvas, final String[] stringArray, final BasicColor basicColor, final Font font)
     {
         this.gameCanvas = gameCanvas;
         this.stringArray = stringArray;
         this.lastWidth = new int[this.stringArray.length];
         this.setBasicColorP(basicColor);
         this.color = basicColor.intValue();
-        this.lineArray = lineArray;
         
         this.fontSize = font.getSize();
         this.font = font;
+    }    
+
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.fontHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
     }
-     
-    private int anchor = Anchor.TOP_LEFT;
     
     @Override
     public void paint(Graphics graphics)
     {
         //this.logUtil.putF("Intermission Processing: ", this, "draw");
+
+        this.myFontProcessor.process(graphics);
         
         final Font existingFont = graphics.getFont();
-        
         this.fontDebugFactory.setFont(this.font, graphics);
         
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
@@ -78,7 +95,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
         this.basicSetColorUtil.setBasicColorP3(graphics, this.basicColor, this.color);
 
         int beginWidth;
-        for(int index = this.stringArray.length - 1; index >= 0; index--)
+        for(int index = this.lineYOffsetArray.length - 1; index >= 0; index--)
         {
             if(this.hasChanged) {
                 this.lastWidth[index] = (graphics.getFont().stringWidth(this.stringArray[index]) >> 1);
@@ -87,7 +104,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
             
             graphics.drawString(this.stringArray[index], 
                     displayInfo.getLastHalfWidth() - beginWidth, 
-                    displayInfo.getLastHalfHeight() - this.lineArray[index], this.anchor);
+                    displayInfo.getLastHalfHeight() - this.lineYOffsetArray[index], this.anchor);
         }
         
         this.hasChanged = false;

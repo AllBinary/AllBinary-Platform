@@ -13,38 +13,59 @@
  */
 package org.allbinary.game.layer;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.AndroidUtil;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.game.part.weapon.BasicWeaponPart;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
 
 /**
  *
  * @author user
  */
-public class RTSLayerHudPaintable extends SelectionHudPaintable {
+public class RTSLayerHudPaintable extends SelectionHudPaintable 
+    implements UpdateMyFontInterface {
 
     private static final RTSLayerHudPaintable instance = new RTSLayerHudPaintable();
 
     public static final RTSLayerHudPaintable getInstance() {
         return RTSLayerHudPaintable.instance;
     }
-
+    
     private String[] weaponProperties = StringUtil.getInstance().getArrayInstance();
 
     private CollidableDestroyableDamageableLayer rtsLayer = CollidableDestroyableDamageableLayer.getNullInstance();
 
     protected int costY;
     protected int costY1;
+    
+    private int fontHeight;
 
     private RTSLayerHudPaintable() {
     }
 
     @Override
+    public void updateMeasurement(final Graphics graphics) {
+        super.updateMeasurement(graphics);
+
+        final Font font = graphics.getFont();
+        this.fontHeight = font.getHeight();
+        
+        this.costY1 = (this.y + ((this.weaponProperties.length + 1) * this.fontHeight));
+
+        if (!AndroidUtil.isAndroid()) {
+            this.costY = this.costY1;
+        } else {
+            this.costY = (this.y + ((this.weaponProperties.length + 2) * this.fontHeight));
+        }
+
+    }
+    
+    @Override
     public void updateSelectionInfo() {
-        final int charHeight = this.myFont.DEFAULT_CHAR_HEIGHT;
 
         this.setName(this.getRtsLayer().getName());
 
@@ -52,25 +73,17 @@ public class RTSLayerHudPaintable extends SelectionHudPaintable {
 
         this.weaponProperties = partInterface.getWeaponProperties().toStringArray();
 
-        this.costY1 = (this.y + ((this.weaponProperties.length + 1) * charHeight));
-
-        if (!AndroidUtil.isAndroid()) {
-            this.costY = this.costY1;
-        } else {
-            this.costY = (this.y + ((this.weaponProperties.length + 2) * charHeight));
-        }
+        this.myFontProcessor = this.updateMyFontProcessor;
     }
 
     @Override
     public void paint(Graphics graphics) {
         super.paint(graphics);
 
-        final int charHeight = this.myFont.DEFAULT_CHAR_HEIGHT;
-
-        int size = this.weaponProperties.length;
+        final int size = this.weaponProperties.length;
         for (int index = 0; index < size; index++) {
-            graphics.drawString(this.weaponProperties[index], this.textX, this.y
-                + ((index + 1) * charHeight), 0);
+            graphics.drawString(this.weaponProperties[index], this.textX, 
+                this.y + ((index + 1) * this.fontHeight), 0);
         }
     }
 
@@ -81,4 +94,5 @@ public class RTSLayerHudPaintable extends SelectionHudPaintable {
     private CollidableDestroyableDamageableLayer getRtsLayer() {
         return this.rtsLayer;
     }
+
 }

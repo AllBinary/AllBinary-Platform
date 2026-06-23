@@ -10,24 +10,25 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.game.layer.hud.basic.score;
 
+import javax.microedition.lcdui.Font;
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.layer.hud.basic.NumberStringHud;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.font.MyFont;
 
-public class ScoreHudWidget extends NumberStringHud
-{
+public class ScoreHudWidget extends NumberStringHud {
+
     public static ScoreHudWidget getInstance(final int maxscore, final int location, final int direction) throws Exception {
-        return new ScoreHudWidget(maxscore, location, direction, 14, MyFont.getInstance().getSize() * 5, 2, BasicColorFactory.getInstance().GREY);
+        return new ScoreHudWidget(maxscore, location, direction, 2, BasicColorFactory.getInstance().GREY);
     }
 
-    public ScoreHudWidget(int maxscore, int location, int direction, int maxHeight, int maxWidth,
-            int bufferZone, BasicColor basicColor) throws Exception
-    {
-        super("Pts ", maxscore, location, direction, maxHeight, maxWidth, bufferZone, basicColor);
+    public ScoreHudWidget(int maxscore, int location, int direction, int bufferZone, BasicColor basicColor) {
+        super("Pts ", maxscore, location, direction, bufferZone, basicColor);
+        
+        this.updateMaxHeight = 14;
     }
 
 //    public ScoreHudWidget(int maxscore, int location, int direction, int maxWidth)
@@ -35,5 +36,14 @@ public class ScoreHudWidget extends NumberStringHud
 //    {
 //        this(maxscore, location, direction, 14, maxWidth, 2, BasicColorFactory.getInstance().GREY);
 //    }
+
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+
+        final Font font = graphics.getFont();
+        this.updateMaxWidth = font.getSize() * 5;
+        
+        super.updateMeasurement(graphics);
+    }
 
 }

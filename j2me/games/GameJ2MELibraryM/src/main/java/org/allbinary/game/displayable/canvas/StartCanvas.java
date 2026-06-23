@@ -117,6 +117,8 @@ public class StartCanvas extends RunnableCanvas
 
     //private final ThreadFactoryUtil threadFactoryUtil = ThreadFactoryUtil.getInstance();
 
+    protected final FormUtil formUtil = FormUtil.getInstance();
+    
     private StatePaintable basicGameDemoPaintable =
         //new StateNotifyPaintable(this);
         StatePaintableFactory.getInstance();
@@ -226,7 +228,7 @@ public class StartCanvas extends RunnableCanvas
             if(scrollSelectionForm != null)
             {                
                 FormType formType = FormTypeFactory.getInstance().getFormType();
-                Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
+                Rectangle rectangle = this.formUtil.createFormRectangle();
                 scrollSelectionForm.init(rectangle, formType);
             }
             
@@ -350,7 +352,7 @@ public class StartCanvas extends RunnableCanvas
 //
 //        FormType formType = FormTypeFactory.getInstance().getFormType();
 //        
-//        Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
+//        Rectangle rectangle = this.formUtil.createFormRectangle();
 //
 //        PreLogUtil.put(commonStrings.START_LABEL).append(displayInfoSingleton.toString(), this, "initMenu");
 //        

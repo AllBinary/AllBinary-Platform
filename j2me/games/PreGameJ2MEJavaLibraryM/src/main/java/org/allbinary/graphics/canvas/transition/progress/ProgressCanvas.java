@@ -14,6 +14,7 @@
 package org.allbinary.graphics.canvas.transition.progress;
 
 import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.NullCanvas;
 import javax.microedition.lcdui.NullCommandListener;
@@ -23,8 +24,9 @@ import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.CanvasStrings;
-import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.form.item.ABCustomGaugeItem;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
@@ -38,7 +40,7 @@ import org.allbinary.thread.PathFindingThreadPool;
 import org.allbinary.thread.ThreadPool;
 
 public class ProgressCanvas extends RunnableCanvas
-    implements PaintableInterface
+    implements PaintableInterface, UpdateMyFontInterface
 {
     //protected static final String END_FROM_INITIAL_LAZY_LOADING_COMPLETE = "endFromInitialLazyLoadingComplete";
     
@@ -60,15 +62,19 @@ public class ProgressCanvas extends RunnableCanvas
     };
 
     public final Paintable GAUGE_PAINTABLE = new ProgressPaintable(this);
-    
-    protected AllBinaryMidlet allbinaryMidlet = AllBinaryMidlet.NULL_ALLBINARY_MIDLET;
 
-    private float value;
     private final float maxValue = 100.0f;
 
     protected final ABCustomGaugeItem gauge;
 
     private final String TEXT = this.commonStrings.LOADING;
+    
+    private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    private MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
+    
+    protected AllBinaryMidlet allbinaryMidlet = AllBinaryMidlet.NULL_ALLBINARY_MIDLET;
+
+    private float value;
     private String text = this.TEXT;
 
     private boolean background = true;
@@ -105,6 +111,13 @@ public class ProgressCanvas extends RunnableCanvas
                 backgroundBasicColor, foregroundBasicColor);
     }
 
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.gauge.setHeight(font.getHeight() + 2);
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+    
     public void init(AllBinaryMidlet gameMidlet)
     {
         this.allbinaryMidlet = gameMidlet;
@@ -165,9 +178,8 @@ public class ProgressCanvas extends RunnableCanvas
     public void startBackground(boolean background)
     {
         this.logUtil.putF(this.commonStrings.START, this, this.START_BACKGROUND);
-        final MyFont myFont = MyFont.getInstance();
         this.setBackground(background);
-        this.gauge.setHeight(myFont.DEFAULT_CHAR_HEIGHT + 2);
+        this.myFontProcessor = this.updateMyFontProcessor;
         this.gauge.setLabel(this.backgroundLabel);
         this.setText(this.TEXT);
         this.setValue(0);
@@ -263,9 +275,10 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void paint2(Graphics graphics)
     {
-        final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+        this.myFontProcessor.process(graphics);
+        
         graphics.setColor(this.backgroundBasicColor.intValue());
-        graphics.fillRect(0, 0, displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());
+        graphics.fillRect(0, 0, this.displayInfo.getLastWidth(), this.displayInfo.getLastHeight());
         this.gauge.paintXY(graphics, 0, 0);
         this.hasPainted = true;
     }

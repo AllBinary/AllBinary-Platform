@@ -13,6 +13,7 @@
  */
 package org.allbinary.graphics.threed;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.midlet.MIDlet;
 
 /**
@@ -99,5 +100,21 @@ public class SWTJOGLProcessor implements Runnable {
     public void setRatioProcessor() {
         
     }
-    
+
+    public int charWidth(Font font, char ch) {
+        throw new RuntimeException();
+    }
+
+    public int charsWidth(Font font, char[] ch, int offset, int length) {
+        throw new RuntimeException();
+    }
+
+    public int stringWidth(Font font, String str) {
+        throw new RuntimeException();
+    }
+
+    public int substringWidth(Font font, String str, int offset, int len) {
+        throw new RuntimeException();
+    }
+
 }

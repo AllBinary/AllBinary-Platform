@@ -14,6 +14,7 @@
 package org.allbinary.graphics.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 /**
@@ -57,4 +58,19 @@ public class OpenGLESStrings
         throw new RuntimeException();
     }
     
+    public int charWidth(final char ch) {
+        throw new RuntimeException();
+    }
+
+    public int charsWidth(final char[] ch, final int offset, final int length) {
+        throw new RuntimeException();
+    }
+    
+    public int stringWidth(final String string) {
+        throw new RuntimeException();
+    }
+    
+    public int stringWidth(final String string, final int offset, final int len) {
+        throw new RuntimeException();
+    }
 }

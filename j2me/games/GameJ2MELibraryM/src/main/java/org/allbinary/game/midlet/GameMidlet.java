@@ -721,7 +721,8 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.LOAD_FILE)
             {
-                final int index = this.getLoadGameForm().getSelectedId();
+                final LoadGameForm loadGameForm = (LoadGameForm) this.getLoadGameForm();
+                final int index = loadGameForm.getSelectedId();
 
                 if (index != -1)
                 {
@@ -744,7 +745,8 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.DELETE_FILE)
             {
-                final int index = this.getLoadGameForm().getSelectedText();
+                final LoadGameForm loadGameForm = (LoadGameForm) this.getLoadGameForm();
+                final int index = loadGameForm.getSelectedText();
 
                 if (index != -1)
                 {
@@ -1054,9 +1056,9 @@ public class GameMidlet extends ProgressMidlet
         this.loadGameForm = loadGameForm;
     }
 
-    public LoadGameForm getLoadGameForm()
+    public CommandForm getLoadGameForm()
     {
-        return (LoadGameForm) this.loadGameForm;
+        return this.loadGameForm;
     }
     
     public void setResized(final boolean resized)

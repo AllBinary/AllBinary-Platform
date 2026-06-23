@@ -31,7 +31,11 @@ public class LapWidget extends BasicHud
    public LapWidget(int location, int direction, BasicColor basicColor)
            throws Exception
    {
-      super(location, direction, 15, 40, 2, basicColor);
+      super(location, direction, 2, basicColor);
+      
+      this.updateMaxHeight = 15;
+      this.updateMaxWidth = 40;
+
    }
    
    public void update(LapInfo lapInfo)

@@ -15,19 +15,22 @@ package org.allbinary.graphics.draw;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.java.character.CharArrayFactory;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 
 /**
  *
  * @author user
  */
-public class KeyValueDrawCharArray {
+public class KeyValueDrawCharArray implements UpdateMyFontInterface {
+
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
 
     private final String LABEL;
 
-    private final int labelWidth;
-    private final int labelX;
+    private int labelX;
     private int valueX;
 
     private char[] value = CharArrayFactory.getInstance().getZeroCharArray();
@@ -37,13 +40,20 @@ public class KeyValueDrawCharArray {
     public KeyValueDrawCharArray(String label, int x)
     {
         this.LABEL = label;
-        this.labelWidth = MyFont.getInstance().stringWidth(this.LABEL) - this.LABEL.length();
         this.labelX = x;
-        this.valueX = this.labelWidth + x;
+    }
+
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        int labelWidth = graphics.getFont().stringWidth(this.LABEL) - this.LABEL.length();
+        this.valueX = labelWidth + this.labelX;
+        this.myFontProcessor = MyFontProcessor.getInstance();
     }
 
     public void paint(final Graphics graphics, final int y)
     {
+        this.myFontProcessor.process(graphics);
+        
         graphics.drawString(this.LABEL, this.labelX, y, 0);
 
         graphics.drawChars(this.value, 0, this.len, this.valueX, y, 0);

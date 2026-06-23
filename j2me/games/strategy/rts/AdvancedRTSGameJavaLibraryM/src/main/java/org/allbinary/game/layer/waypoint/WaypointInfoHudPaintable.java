@@ -13,6 +13,7 @@
  */
 package org.allbinary.game.layer.waypoint;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.layer.NullPathFindingLayer;
 import org.allbinary.game.layer.PathFindingLayerInterface;
@@ -32,16 +33,22 @@ public class WaypointInfoHudPaintable extends SelectionHudPaintable
 
     protected PathFindingLayerInterface rtsLayerP = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
     
+    private int textLine2Y;
+        
     //protected
     public WaypointInfoHudPaintable() 
     {
         this.keyvalueDrawString = new KeyValueDrawString("Owner: ", this.textX);
     }
 
-    /**
-     * @param selectedLayer
-     *            the selectedLayer to set
-     */
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        super.updateMeasurement(graphics);
+
+        final Font font = graphics.getFont();
+        this.textLine2Y = (this.y + font.getHeight());
+    }
+    
     @Override
     public void updateSelectionInfo()
     {
@@ -53,17 +60,6 @@ public class WaypointInfoHudPaintable extends SelectionHudPaintable
 
         this.keyvalueDrawString.update(rtsLayer.getParentLayer().getName());
     }
-    
-    @Override
-    public void paint(Graphics graphics)
-    {
-        super.paint(graphics);
-
-        final int textLine2Y = (this.y + this.myFont.DEFAULT_CHAR_HEIGHT);
-        this.keyvalueDrawString.paint(graphics, textLine2Y);
-        
-        this.getAnimationInterface().paintXY(graphics, this.imageX, this.y);
-    }
 
     public void setRtsLayer(RTSLayer rtsLayer)
     {
@@ -74,4 +70,16 @@ public class WaypointInfoHudPaintable extends SelectionHudPaintable
     {
         return this.rtsLayerP;
     }
+    
+    
+    @Override
+    public void paint(Graphics graphics)
+    {
+        super.paint(graphics);
+
+        this.keyvalueDrawString.paint(graphics, this.textLine2Y);
+        
+        this.getAnimationInterface().paintXY(graphics, this.imageX, this.y);
+    }
+
 }

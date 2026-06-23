@@ -34,6 +34,8 @@ extends ABTextItem
     @Override
     public void paintXY(Graphics graphics, int x, int y)
     {
+        this.myFontProcessor.process(graphics);
+        
         ABStringComponent stringComponent = this.getLabelStringComponent();
         
         if(stringComponent != null)

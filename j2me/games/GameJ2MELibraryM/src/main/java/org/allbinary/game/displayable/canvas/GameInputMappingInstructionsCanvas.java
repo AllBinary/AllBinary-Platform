@@ -23,7 +23,6 @@ import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.draw.DrawStringUtil;
-import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.string.StringUtil;
 
 public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
@@ -33,9 +32,12 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     public static final Command CLOSE  = new Command("Close", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
 
     public static final String NAME = "GameInputMappingInstructionsCanvas";
-    
+ 
+    private final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+    private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
+
     //Mapping
-    protected String TITLE = "Input Instructions";
+    protected final String TITLE = "Input Instructions";
     
     private final String[] instructions =
     { "Add Input Mapping:",
@@ -55,6 +57,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
         "3. Press the Delete Key." };
 
     private ColorFillBasePaintable colorFillPaintable;
+    private int anchor = Anchor.TOP_LEFT;
     
     public GameInputMappingInstructionsCanvas(CommandListener commandListener,
             AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception
@@ -69,7 +72,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
             ColorFillPaintableFactory.getInstance().getInstance(
                     allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
- 
+
     @Override
     public void initCommands(CommandListener cmdListener)
     {
@@ -80,33 +83,28 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
         this.setCommandListener(cmdListener);
     }
 
-    private int anchor = Anchor.TOP_LEFT;
-    
-    private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
-    
     @Override
     public void paint(Graphics graphics)
     {
     	//PreLogUtil.put(commonStrings.START, this, canvasStrings.PAINT);
-    
-        final MyFont myFont = MyFont.getInstance();
-        final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
+
+        this.myFontProcessor.process(graphics);
+        
         
         this.colorFillPaintable.paint(graphics);
 
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        int halfWidth = displayInfo.getLastHalfWidth();
+        int halfWidth = this.displayInfo.getLastHalfWidth();
 
         int beginWidth = (graphics.getFont().stringWidth(this.TITLE) >> 1);
 
         graphics.setColor(this.foregroundColor);
         
-        graphics.drawString(this.TITLE, halfWidth - beginWidth, charHeight, this.anchor);
+        graphics.drawString(this.TITLE, halfWidth - beginWidth, this.fontHeight, this.anchor);
 
         //int startIndex = this.helpPaintable.getInputInfo().length + 5;
 
         this.drawStringUtil.drawCenterStrings(graphics, this.instructions,
-                displayInfo.getLastWidth(), halfWidth, 3 * charHeight);
+                this.displayInfo.getLastWidth(), this.fontHeight, halfWidth, 3 * this.fontHeight);
 
         super.paint(graphics);
     }

@@ -14,21 +14,27 @@
 
 package org.allbinary.game.layer.item;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 
-public class RTSLayerTextAnimation
-extends Animation
+public class RTSLayerTextAnimation extends Animation 
+    implements UpdateMyFontInterface
 {
-    private final MyFont myFont = MyFont.getInstance();
     
     private final Image image;
     private final String text;
+
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
     
     //private final int adjustedCostX;
+    
+    private int fontHeight = 0;
     
     public RTSLayerTextAnimation(final String text, final Image image)
     {   
@@ -39,11 +45,20 @@ extends Animation
     }
 
     @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.fontHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+    
+    @Override
     public void paintXY(Graphics graphics, int x, int y)
     {
+        this.myFontProcessor.process(graphics);
+
         super.paintXY(graphics, x, y);
 
-        final int adjustedCostY = this.image.getHeight() - this.myFont.DEFAULT_CHAR_HEIGHT;
+        final int adjustedCostY = this.image.getHeight() - this.fontHeight;
         graphics.drawString(this.text, x, y + adjustedCostY, 0);
         // + this.adjustedCostX
     }

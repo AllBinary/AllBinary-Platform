@@ -13,12 +13,12 @@
 */
 package org.allbinary.game.layer.hud.basic.time;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.graphics.hud.BasicHud;
-import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.logic.math.PrimitiveLongSingleton;
 
 public class TimeHudWidget extends BasicHud
@@ -26,7 +26,7 @@ public class TimeHudWidget extends BasicHud
     public static TimeHudWidget getInstance(int location, int direction, BasicColor basicColor, Timer timer)
             throws Exception
     {
-        return new TimeHudWidget(location, direction, 14, MyFont.getInstance().getSize() * 5, 2, basicColor, timer);
+        return new TimeHudWidget(location, direction, 2, basicColor, timer);
     }
 
     private final String TIME_STRING = "Time ";
@@ -40,22 +40,20 @@ public class TimeHudWidget extends BasicHud
 
     private final Timer timer;
 
-    public TimeHudWidget(int location, int direction, int maxHeight, int maxWidth, int bufferZone,
-            BasicColor basicColor, Timer timer) throws Exception
+    public TimeHudWidget(final int location, final int direction, final int bufferZone, final BasicColor basicColor, final Timer timer)
     {
-        super(location, direction, maxHeight, maxWidth, bufferZone, basicColor);
+        super(location, direction, bufferZone, basicColor);
 
         this.timer = timer;
 
         this.set();
+        
+        this.updateMaxHeight = 14;
 
-        final MyFont myFont = MyFont.getInstance();
-        this.offset = myFont.stringWidth(this.TIME_STRING) + myFont.defaultStringWidth(3);
-
-        if (direction == 0)
-        {
-            throw new Exception(BasicHudFactory.getInstance().DIRECTION_EXCEPTION);
-        }
+//        if (direction == 0)
+//        {
+//            throw new Exception(BasicHudFactory.getInstance().DIRECTION_EXCEPTION);
+//        }
     }
 
 //    public TimeHudWidget(int location, int direction, int maxWidth, BasicColor basicColor,
@@ -64,6 +62,15 @@ public class TimeHudWidget extends BasicHud
 //        this(location, direction, 14, maxWidth, 2, basicColor, timer);
 //    }
 
+    public void updateMeasurement(final Graphics graphics) {
+        
+        final Font font = graphics.getFont();
+        this.updateMaxWidth = font.getSize() * 5;
+        this.offset = font.stringWidth(this.TIME_STRING) + MyFontProcessor.defaultStringWidth(font, 3);
+        
+        super.updateMeasurement(graphics);
+    }
+    
     public void update()
     {
         this.timer.update();
@@ -78,12 +85,6 @@ public class TimeHudWidget extends BasicHud
         this.totalDigits = this.timer.getCurrentTotalDigits();
     }
 
-    public void paint(Graphics graphics)
-    {
-        super.paintDX(graphics, this.TIME_CHAR_ARRAY, 0, this.TIME_CHAR_ARRAY.length, this.string, 0, this.totalDigits, this.offset);
-        // super.paint(graphics, TIME_STRING, string, offset);
-    }
-
     /*
     public void setTrackTimer(Timer trackTimer)
     {
@@ -95,4 +96,11 @@ public class TimeHudWidget extends BasicHud
     {
         return this.timer;
     }
+
+    public void paint(Graphics graphics)
+    {
+        super.paintDX(graphics, this.TIME_CHAR_ARRAY, 0, this.TIME_CHAR_ARRAY.length, this.string, 0, this.totalDigits, this.offset);
+        // super.paint(graphics, TIME_STRING, string, offset);
+    }
+
 }

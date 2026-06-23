@@ -14,6 +14,7 @@
 package org.allbinary.graphics.form;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.canvas.Processor;
 
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
@@ -22,13 +23,96 @@ import org.allbinary.graphics.form.item.ABCustomItem;
 public class ScrollCurrentSelectionForm 
 extends ScrollSelectionForm
 {
+    private final boolean moveForSmallScreen;
+
+    class TempHorizontalFormProcessor extends Processor {
+
+        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
+        
+        TempHorizontalFormProcessor(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
+            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
+        }
+        
+        public void process() throws Exception {
+            this.scrollCurrentSelectionForm.processTempHorizontalForm();
+        }
+    };
+
+    class HorizontalFormProcessor extends Processor {
+
+        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
+        
+        HorizontalFormProcessor(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
+            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
+        }
+        
+        public void process() throws Exception {
+            this.scrollCurrentSelectionForm.processHorizontalForm();
+        }
+    };
+
+    class VerticalFormProcessor extends Processor {
+
+        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
+        
+        VerticalFormProcessor(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
+            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
+        }
+        
+        public void process() throws Exception {
+            this.scrollCurrentSelectionForm.processVerticalForm();
+        }
+    };
+    
+    class TempHorizontalItemIndexDx extends ItemIndexDx {
+        
+        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
+        
+        TempHorizontalItemIndexDx(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
+            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
+        }
+
+        public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
+            return this.scrollCurrentSelectionForm.getXTempHorizontalForm(index, item, dx, dy);
+        }
+
+    };
+    
+    class HorizontalItemIndexDx extends ItemIndexDx {
+        
+        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
+        
+        HorizontalItemIndexDx(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
+            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
+        }
+
+        public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
+            return this.scrollCurrentSelectionForm.getXHorizontalForm(index, item, dx, dy);
+        }
+
+    };
+    
+    class VerticalItemIndexDx extends ItemIndexDx {
+        
+        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
+        
+        VerticalItemIndexDx(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
+            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
+        }
+
+        public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
+            return this.scrollCurrentSelectionForm.getXVerticalForm(index, item, dx, dy);
+        }
+
+    };
+    
+    private Processor processor = Processor.getInstance();
+    private ItemIndexDx preItemIndexDx = ItemIndexDx.getInstance();
 
     private int dx;
     private int dy;
 
     private int maxWidth = 0;
-
-    private final boolean moveForSmallScreen;
 
     public ScrollCurrentSelectionForm(final String title, final ABCustomItem[] items,
             final ItemPaintableFactory formPaintableFactory, final Rectangle rectangle,
@@ -41,42 +125,48 @@ extends ScrollSelectionForm
 
         this.moveForSmallScreen = moveForSmallScreen;
         
-        this.initForm();
-    }
-
-    @Override
-    public void init(final Rectangle rectangle, final FormType formType)
-    throws Exception
-    {
-        super.init(rectangle, formType);
-        this.initForm();
-    }
-
-    public void initForm()
-    {
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
 
-        if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
+        if (formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {
-            this.dx = this.x - 30 + (this.rectangle.getWidth() >> 1);
-            this.dy = this.y;
-        } else if (this.formType == formTypeFactory.HORIZONTAL_FORM)
+            this.processor = new TempHorizontalFormProcessor(this);
+            this.preItemIndexDx = new TempHorizontalItemIndexDx(this);
+        } else if (formType == formTypeFactory.HORIZONTAL_FORM)
         {
-            int size = this.size();
+            this.processor = new HorizontalFormProcessor(this);
+            this.preItemIndexDx = new HorizontalItemIndexDx(this);
+        } else if (formType == formTypeFactory.VERTICAL_CENTER_FORM)
+        {
+            this.processor = new VerticalFormProcessor(this);
+            this.preItemIndexDx = new VerticalItemIndexDx(this);
+        } else if (formType == formTypeFactory.NULL_FORM_TYPE) {
+        } else
+        {
+            this.logUtil.putF(formTypeFactory.UNK, this, this.commonStrings.INIT);
+        }
 
-            int totalWidth = 0;
+    }
 
-            ABCustomItem item;
-            for (int index = 0; index < size; index++)
-            {
-                item = this.get(index);
+    private void processTempHorizontalForm() {
+        this.dx = this.x - 30 + (this.rectangle.getWidth() >> 1);
+        this.dy = this.y;
+    }
 
-                totalWidth += item.getMinimumWidth() + this.border;
-            }
+    private void processHorizontalForm() {
+        final int size = this.size();
 
-            this.dx = this.x + (this.rectangle.getWidth() >> 1) - (totalWidth >> 1);
+        int totalWidth = 0;
 
-            /*
+        ABCustomItem item;
+        for (int index = 0; index < size; index++) {
+            item = this.get(index);
+
+            totalWidth += item.getMinimumWidth() + this.border;
+        }
+
+        this.dx = this.x + (this.rectangle.getWidth() >> 1) - (totalWidth >> 1);
+
+        /*
             int maxHeight = 0;
 
             for (int index = 0; index < size; index++)
@@ -88,72 +178,111 @@ extends ScrollSelectionForm
                     maxHeight = item.getMinimumHeight();
                 }
             }
-            */
+         */
+        this.dy = this.y + (this.rectangle.getHeight() >> 1);
 
-            this.dy = this.y + (this.rectangle.getHeight() >> 1);
+        // Special handling for small screens to keep menu out of title
+        // animation
+        if (this.moveForSmallScreen) {
+            int maxTitleHeight = 175;
+            if (this.dy < maxTitleHeight) {
+                this.dy = maxTitleHeight;
+            }
+        }
+    }
+    
+    private void processVerticalForm() {
+        int totalHeight = 0;
+        final int size = this.size();
+        ABCustomItem item2;
+        for (int index = 0; index < size; index++) {
+            item2 = this.get(index);
+            if (this.maxWidth < item2.getMinimumWidth()) {
+                this.maxWidth = item2.getMinimumWidth();
+            }
+
+            totalHeight += item2.getMinimumHeight() + this.border;
+        }
+
+        this.dx = ((this.rectangle.getWidth() - this.maxWidth) / 2);
+        // dx = this.rectangle.getWidth() - maxWidth;
+
+        if (this.size() > 0) {
+            // FormItemInterface item = (FormItemInterface) this.get(0);
+            // dy = y - 30 + ((this.rectangle.getHeight() -
+            // item.getMinimumHeight()) / 2);
+            this.dy = this.y + ((this.rectangle.getHeight() - totalHeight) / 2);
 
             // Special handling for small screens to keep menu out of title
             // animation
-            if (this.moveForSmallScreen)
-            {
+            if (this.moveForSmallScreen) {
                 int maxTitleHeight = 175;
-                if (this.dy < maxTitleHeight)
-                {
+                if (this.dy < maxTitleHeight) {
                     this.dy = maxTitleHeight;
                 }
             }
-        } else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
-        {
-            int totalHeight = 0;
-            int size = this.size();
-            ABCustomItem item2;
-            for (int index = 0; index < size; index++)
-            {
-                item2 = this.get(index);
-                if (this.maxWidth < item2.getMinimumWidth())
-                {
-                    this.maxWidth = item2.getMinimumWidth();
-                }
-
-                totalHeight += item2.getMinimumHeight() + this.border;
-            }
-
-            this.dx = ((this.rectangle.getWidth() - this.maxWidth) / 2);
-            // dx = this.rectangle.getWidth() - maxWidth;
-
-            if (this.size() > 0)
-            {
-                // FormItemInterface item = (FormItemInterface) this.get(0);
-                // dy = y - 30 + ((this.rectangle.getHeight() -
-                // item.getMinimumHeight()) / 2);
-                this.dy = this.y + ((this.rectangle.getHeight() - totalHeight) / 2);
-
-                // Special handling for small screens to keep menu out of title
-                // animation
-                if (this.moveForSmallScreen)
-                {
-                    int maxTitleHeight = 175;
-                    if (this.dy < maxTitleHeight)
-                    {
-                        this.dy = maxTitleHeight;
-                    }
-                }
-            } else
-            {
-                // dy = y - 30 + ((this.rectangle.getHeight()) >> 1);
-                this.dy = this.y;
-            }
-        } else
-        {
-            this.logUtil.putF(formTypeFactory.UNK, this, this.commonStrings.INIT);
+        } else {
+            // dy = y - 30 + ((this.rectangle.getHeight()) >> 1);
+            this.dy = this.y;
         }
     }
 
+    private int getXTempHorizontalForm(final int index, final ABCustomItem item, int dx, final int dy) {
+        return this.getDiffX(item);
+    }
+
+    private int getXHorizontalForm(final int index, final ABCustomItem item, int dx, final int dy) {
+        //this.halfBorder;
+        return 0;
+    }
+
+    private int getXVerticalForm(final int index, final ABCustomItem item, int dx, final int dy) {
+        return this.getDiffX(item) + this.halfBorder;
+    }
+
+    private int getXPostTempHorizontalForm(final int index, final ABCustomItem item, int deltaX, final int delta) {
+        return deltaX;
+    }
+
+    private int getXPostHorizontalForm(final int index, final ABCustomItem item, int deltaX, final int delta) {
+        return delta;
+    }
+
+    private int getXPostVerticalForm(final int index, final ABCustomItem item, int deltaX, final int delta) {
+        return delta;
+    }
+    
+    @Override
+    protected int getDiffX(ABCustomItem item)
+    {
+        return ((this.maxWidth - item.getMinimumWidth()) >> 1);
+    }
+
+    /**
+     * @return the dx
+     */
+    @Override
+    public int getDx()
+    {
+        return this.dx;
+    }
+
+    /**
+     * @return the dy
+     */
+    @Override
+    public int getDy()
+    {
+        return this.dy;
+    }
+        
     @Override
     public void paint(final Graphics graphics)
     {
         try
         {
+            this.processor.process();
+            
             int delta = 0;
             int deltaX = this.getDx();
             int deltaY = this.getDy();
@@ -166,25 +295,7 @@ extends ScrollSelectionForm
             {
                 item = this.get(index);
 
-                int diffX = 0;
-                if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
-                {
-                    diffX = this.getDiffX(item);
-                }
-                else
-                if (this.formType == formTypeFactory.HORIZONTAL_FORM)
-                {
-                    //diffX = this.halfBorder;
-                }
-                else 
-                    if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
-                {
-                    diffX = this.getDiffX(item) + this.halfBorder;
-                }
-                else
-                {
-                    throw new Exception(formTypeFactory.UNK);
-                }
+                int diffX = this.preItemIndexDx.getDx(index, item, this.dx, this.dy);
 
                 if (index == this.getSelectedIndex())
                 {
@@ -213,7 +324,7 @@ extends ScrollSelectionForm
                 {
                     throw new Exception(formTypeFactory.UNK);
                 }
-
+                
                 //graphics.drawRect(x, y - halfBorder, this.rectangle.getMaxX() + border, this.rectangle.getMaxY() + border);
             }
         }
@@ -223,27 +334,4 @@ extends ScrollSelectionForm
         }
     }
 
-    @Override
-    protected int getDiffX(ABCustomItem item)
-    {
-        return ((this.maxWidth - item.getMinimumWidth()) >> 1);
-    }
-
-    /**
-     * @return the dx
-     */
-    @Override
-    public int getDx()
-    {
-        return this.dx;
-    }
-
-    /**
-     * @return the dy
-     */
-    @Override
-    public int getDy()
-    {
-        return this.dy;
-    }
 }

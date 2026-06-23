@@ -13,12 +13,15 @@
 */
 package org.allbinary.game.paint;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.AppletUtil;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.input.motion.button.TouchScreenFactory;
 import org.allbinary.logic.string.StringUtil;
@@ -29,16 +32,20 @@ import org.allbinary.time.TimeDelayHelper;
  * @author Berthelot, Travis
  * @version 1.0
  */
-public class PressStartMenuPaintable extends Paintable
+public class PressStartMenuPaintable extends Paintable implements UpdateMyFontInterface
 {
-    private String startString = StringUtil.getInstance().EMPTY_STRING;
-
-    private TimeDelayHelper timeDelayHelper = new TimeDelayHelper(1100);
-    private boolean flash;
+    private final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
     private final String PRESS_START = "Press Screen To Start";
     private final String KEY_START = "Press or Click F2 To Begin";
     private final String MENU_START = "Press Start From The Menu To Begin";
+
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
+    
+    private String startString = StringUtil.getInstance().EMPTY_STRING;
+
+    private TimeDelayHelper timeDelayHelper = new TimeDelayHelper(1100);
+    private boolean flash;
 
     public PressStartMenuPaintable()
     {
@@ -57,7 +64,18 @@ public class PressStartMenuPaintable extends Paintable
     }
 
     private int anchor = Anchor.TOP_LEFT;
+
+    private int beginWidth;
+    private int line;
     
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.beginWidth = (graphics.getFont().stringWidth(this.startString) >> 1);
+        this.line = (4 * UpdateMyFontProcessor.defaultCharWidth(font)) + (font.getHeight() >> 1);
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+        
     @Override
     public void paint(Graphics graphics)
     {
@@ -75,15 +93,8 @@ public class PressStartMenuPaintable extends Paintable
 
         if (this.isFlash())
         {
-            DisplayInfoSingleton displayInfo = DisplayInfoSingleton
-                    .getInstance();
-
-            int beginWidth = (graphics.getFont().stringWidth(this.startString) >> 1);
-
-            final MyFont myFont = MyFont.getInstance();            
-            final int line = (4 * myFont.DEFAULT_CHAR_HEIGHT) + (myFont.DEFAULT_CHAR_HEIGHT >> 1);
-            graphics.drawString(this.startString, displayInfo.getLastHalfWidth()
-                    - beginWidth, displayInfo.getLastHeight() - line, this.anchor);
+            this.myFontProcessor.process(graphics);
+            graphics.drawString(this.startString, displayInfo.getLastHalfWidth() - beginWidth, displayInfo.getLastHeight() - line, this.anchor);
         }
     }
 

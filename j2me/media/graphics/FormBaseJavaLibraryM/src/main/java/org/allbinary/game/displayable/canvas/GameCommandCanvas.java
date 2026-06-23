@@ -17,6 +17,7 @@ package org.allbinary.game.displayable.canvas;
 import java.util.Vector;
 
 import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.NullCommandListener;
 
@@ -45,7 +46,9 @@ import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
 import org.allbinary.graphics.displayable.screen.ScreenRepaintProcessorFactory;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.form.CommandCurrentSelectionFormFactory;
 import org.allbinary.graphics.form.FormPaintable;
 import org.allbinary.graphics.form.FormTypeFactory;
@@ -68,7 +71,7 @@ import org.allbinary.util.BasicArrayListD;
 
 public class GameCommandCanvas
     extends MyCanvas
-    implements MenuListener, DisplayChangeEventListener
+    implements MenuListener, DisplayChangeEventListener, UpdateMyFontInterface
 {
 
     private final Processor repaintProcessor =
@@ -93,6 +96,9 @@ public class GameCommandCanvas
 
     public final RepaintBehavior repaintBehavior;
     
+    protected final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
+    
     protected int foregroundColor;
     protected int backgroundColor;
     private BasicMenuInputProcessor menuInputProcessor =
@@ -104,6 +110,8 @@ public class GameCommandCanvas
     private boolean isSingleKeyRepeatableProcessing =
         Features.getInstance().isFeature(
         InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
+    
+    protected int fontHeight = 0;
     
     public GameCommandCanvas(final CommandListener cmdListener, final String name,
             final BasicColor backgroundBasicColor, 
@@ -137,6 +145,32 @@ public class GameCommandCanvas
     }
  
     @Override
+    public void updateMeasurement(final Graphics graphics) {
+
+        try
+        {
+            final Font font = graphics.getFont();
+            
+            this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(DisplayInfoSingleton.getInstance().toString())
+                .append(this.canvasStrings.FD_WIDTH).appendint(MyFontProcessor.defaultCharWidth(font)).append(this.canvasStrings.FD_HEIGHT).appendint(font.getHeight()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+            
+            this.fontHeight = font.getHeight();
+            final Rectangle rectangle = this.createRectangle(this.menuForm.size());
+            this.menuForm.init(rectangle, FormTypeFactory.getInstance().VERTICAL_CENTER_FORM);
+            //needed to update Android on orientation change
+            //this.repaintBehavior.onChangeRepaint(this);
+            this.update();
+
+        }
+        catch(Exception e)
+        {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+        }
+        
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+    
+    @Override
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -145,23 +179,8 @@ public class GameCommandCanvas
     @Override
     public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent)
     {
-        try
-        {
-            this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
-            
-            final Rectangle rectangle = this.createRectangle(this.menuForm.size());
-
-            this.menuForm.init(rectangle, FormTypeFactory.getInstance().VERTICAL_CENTER_FORM);
-
-            //needed to update Android on orientation change
-            //this.repaintBehavior.onChangeRepaint(this);
-            this.update();
-
-        }
-        catch(Exception e)
-        {
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "onResize", e);
-        }
+        this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+        this.myFontProcessor = this.updateMyFontProcessor;
     }
     
     /*
@@ -226,16 +245,14 @@ public class GameCommandCanvas
 
     public Rectangle createRectangle(final int size) {
         
-        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        
-        final int height = size * MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
-        final int startY = (displayInfo.getLastHeight() * 2 / 3) - height;
+        final int height = size * this.fontHeight;
+        final int startY = (this.displayInfo.getLastHeight() * 2 / 3) - height;
 
         final PointFactory pointFactory = PointFactory.getInstance();
         
         final Rectangle rectangle = new Rectangle(
             pointFactory.createXY(30, startY),
-            displayInfo.getLastWidth() - 30,
+            this.displayInfo.getLastWidth() - 30,
             startY);
 
         //this.logUtil.putF(displayInfo.toString(), this, "createRectangle");
@@ -394,6 +411,8 @@ public class GameCommandCanvas
     @Override
     public void paint(final Graphics graphics)
     {
+        this.myFontProcessor.process(graphics);
+
         this.menuPaintable.paint(graphics);
         this.repaintBehavior.repaint(this);
     }

@@ -13,6 +13,7 @@
  */
 package org.allbinary.game.layer.building;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.layer.SelectionHudPaintable;
@@ -24,7 +25,9 @@ import org.allbinary.game.layer.PathFindingLayerInterface;
 import org.allbinary.game.layer.hud.basic.NumberStringHud;
 import org.allbinary.game.layer.hud.basic.NumberStringHudFactory;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.logic.math.MathUtil;
 
 /**
@@ -47,8 +50,10 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
     private final NumberStringHud efficiencyHud;
     private final NumberStringHud healthHud;
     private final NumberStringHud maxHealthHud;
-
+    
     private PathFindingLayerInterface rtsLayer = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
+
+    private int currentHealth = 0;
 
     private BuildingInfoHudPaintable() {
         
@@ -63,39 +68,102 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
             int index = 0;
 
             final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
+            final BasicColor basicColor = this.getBasicColorP();
 
-            final int DEFAULT_CHAR_HEIGHT = this.myFont.DEFAULT_CHAR_HEIGHT;
+            final int textX = this.textX;
+            final int y = this.y;
+            final int firstIndex = index;
+            class ProductivityNumberStringHud extends NumberStringHud {
+                
+                ProductivityNumberStringHud() {
+                    super("Productivity:", 999,
+                        basicHudFactory.ABSOLUTE, basicHudFactory.HORIZONTAL,
+                        0, basicColor);
+                }
+                
+                @Override
+                public void updateMeasurement(final Graphics graphics) {
+                    final Font font = graphics.getFont();
+                    this.updateMaxWidth = textX;
+                    this.updateMaxHeight = y + ((firstIndex + 1) * font.getHeight());
+                    
+                    super.updateMeasurement(graphics);
+                }
 
-            productivityHud = new NumberStringHud(
-                "Productivity:", 999,
-                basicHudFactory.ABSOLUTE,
-                basicHudFactory.HORIZONTAL,
-                this.textX, this.y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
-                0, this.getBasicColorP());
+            };
+            
+            productivityHud = new ProductivityNumberStringHud();
             index++;
 
-            efficiencyHud = new NumberStringHud(
-                "Efficiency:", 999,
-                basicHudFactory.ABSOLUTE,
-                basicHudFactory.HORIZONTAL,
-                this.textX, this.y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
-                0, this.getBasicColorP());
+            final int secondIndex = index;
+            class EfficiencyNumberStringHud extends NumberStringHud {
+                
+                EfficiencyNumberStringHud() {
+                    super("Efficiency:", 999,
+                        basicHudFactory.ABSOLUTE, basicHudFactory.HORIZONTAL,
+                        0, basicColor);
+                }
+                
+                @Override
+                public void updateMeasurement(final Graphics graphics) {
+                    super.updateMeasurement(graphics);
+
+                    final Font font = graphics.getFont();
+                    this.updateMaxWidth = textX;
+                    this.updateMaxHeight = y + ((secondIndex + 1) * font.getHeight());
+                }
+
+            };
+
+            efficiencyHud = new EfficiencyNumberStringHud();
             index++;
 
-            int totalLength = this.HEALTH.length() + 1;
-            healthHud = new NumberStringHud(
-                this.HEALTH, 99999,
-                basicHudFactory.ABSOLUTE,
-                basicHudFactory.HORIZONTAL,
-                this.textX, this.y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
-                0, this.getBasicColorP());
+            final String HEALTH = this.HEALTH;
+            final int thirdIndex = index;
+            class HealthNumberStringHud extends NumberStringHud {
+                
+                HealthNumberStringHud() {
+                    super(HEALTH, 99999,
+                        basicHudFactory.ABSOLUTE, basicHudFactory.HORIZONTAL,
+                        0, basicColor);
+                }
+                
+                @Override
+                public void updateMeasurement(final Graphics graphics) {
+                    
+                    final Font font = graphics.getFont();
+                    this.updateMaxWidth = textX;
+                    this.updateMaxHeight = y + ((thirdIndex + 1) * font.getHeight());
+                    
+                    super.updateMeasurement(graphics);
+                }
 
-            maxHealthHud = new NumberStringHud(
-                "/ ", 99999,
-                basicHudFactory.ABSOLUTE,
-                basicHudFactory.HORIZONTAL,
-                this.textX + (totalLength * DEFAULT_CHAR_HEIGHT), this.y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
-                0, this.getBasicColorP());
+            };
+            
+            final int totalLength = HEALTH.length() + 1;
+            healthHud = new HealthNumberStringHud();
+
+            final int fourthIndex = index;
+            class MaxHealthNumberStringHud extends NumberStringHud {
+                
+                MaxHealthNumberStringHud() {
+                    super("/ ", 99999,
+                        basicHudFactory.ABSOLUTE, basicHudFactory.HORIZONTAL, 
+                        0, basicColor);
+                }
+                
+                @Override
+                public void updateMeasurement(final Graphics graphics) {
+                    super.updateMeasurement(graphics);
+                    
+                    final Font font = graphics.getFont();
+                    this.updateMaxWidth = textX + (totalLength * font.getHeight());
+                    this.updateMaxHeight = y + ((fourthIndex + 1) * font.getHeight());
+                }
+
+            };
+
+            maxHealthHud = new MaxHealthNumberStringHud();
             
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -107,6 +175,16 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
         this.maxHealthHud = maxHealthHud;
     }
 
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        
+        final int totalLength = this.HEALTH.length() + MathUtil.getInstance().getTotalDigits(this.currentHealth);
+        this.maxHealthHud.setX(this.textX + MyFontProcessor.defaultStringWidth(font, totalLength));
+
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+    
     @Override
     public void setBasicColorP(BasicColor basicColor) {
         super.setBasicColorP(basicColor);
@@ -120,6 +198,8 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
     public void paint(Graphics graphics) {
         super.paint(graphics);
 
+        this.myFontProcessor.process(graphics);
+        
         this.productivityHud.paint(graphics);
         this.efficiencyHud.paint(graphics);
         this.healthHud.paint(graphics);
@@ -140,14 +220,12 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
 
         this.efficiencyHud.set(buildingLayer.getEfficiency() / 100);
 
-        int health = buildingLayer.getHealthInterface().getHealth();
-        this.healthHud.set(health);
+        this.currentHealth = buildingLayer.getHealthInterface().getHealth();
+        this.healthHud.set(this.currentHealth);
 
-        int totalLength = this.HEALTH.length() + MathUtil.getInstance().getTotalDigits(health);
-        this.maxHealthHud.setX(this.textX + MyFont.getInstance().defaultStringWidth(totalLength));
+        this.myFontProcessor = this.updateMyFontProcessor;
 
-        this.maxHealthHud.set(
-            buildingLayer.getHealthInterface().getMaxHealth());
+        this.maxHealthHud.set(buildingLayer.getHealthInterface().getMaxHealth());
     }
 
     public void setRtsLayer(PathFindingLayerInterface rtsLayer) {

@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.AndroidUtil;
@@ -27,8 +28,10 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
-import org.allbinary.graphics.draw.DrawStringUtil;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.draw.DrawVerticalStringUtil;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.paint.Paintable;
@@ -37,20 +40,21 @@ import org.allbinary.graphics.paint.Paintable;
  *
  * @author user
  */
-public class BasicPopupMenuPaintable extends Paintable
+public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontInterface
 {
     private static final String NAME = "MENU";
 
-    protected final BasicColorSetUtil basicSetColorUtil = 
-        BasicColorSetUtil.getInstance();
+    protected final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
+    private final DrawVerticalStringUtil drawStringUtil = DrawVerticalStringUtil.getInstance();
 
     private final String label;
-    
-    private final int BORDER;
-    
     private final BasicColor foregroundBasicColor;
+
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
     
     private Rectangle rectangle;
+    private int BORDER;
+    private int heightOffset;
     private int offset;
 
     private Animation animationInterface;
@@ -75,19 +79,6 @@ public class BasicPopupMenuPaintable extends Paintable
         this.label = BasicPopupMenuPaintable.NAME;
 
         this.rectangle = rectangle;
-        
-        final Features features = Features.getInstance();
-        final boolean isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
-
-        int BORDER = 0;
-        if(J2MEUtil.isHTML() || (AndroidUtil.isAndroid() && isOpenGL)) {
-            BORDER = MyFont.getInstance().defaultCharWidth() / 2;
-        } else if(AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
-            BORDER = MyFont.getInstance().defaultCharWidth();
-        } else {
-            BORDER = MyFont.getInstance().defaultCharWidth() * 2;
-        }
-        this.BORDER = BORDER;
 
         if(J2MEUtil.isJ2ME())
         {
@@ -108,24 +99,44 @@ public class BasicPopupMenuPaintable extends Paintable
         this.init(rectangle);
     }
 
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        
+        final Features features = Features.getInstance();
+        final boolean isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
+
+        this.drawStringUtil.updateMeasurement(graphics, this.label);
+
+        int BORDER = 0;
+        if(J2MEUtil.isHTML() || (AndroidUtil.isAndroid() && isOpenGL)) {
+            BORDER = UpdateMyFontProcessor.defaultCharWidth(font) / 2;
+        } else if(AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
+            BORDER = UpdateMyFontProcessor.defaultCharWidth(font);
+        } else {
+            BORDER = UpdateMyFontProcessor.defaultCharWidth(font) * 2;
+        }
+        this.BORDER = BORDER;
+
+        this.heightOffset = this.rectangle.getHeight() - (font.getHeight() * BasicPopupMenuPaintable.NAME.length());
+
+        if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
+            this.heightOffset -= font.getHeight() + 2;
+            if (AndroidUtil.isAndroid()) {
+                this.heightOffset = font.getHeight();
+            } else {
+                this.heightOffset -= font.getHeight() + 2;
+            }
+        }
+
+        this.offset = (this.heightOffset >> 1);
+        
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+        
     public void init(final Rectangle rectangle) throws Exception
     {
         this.rectangle = rectangle;
-
-        final MyFont myFont = MyFont.getInstance();
-
-        int heightOffset = rectangle.getHeight() - (myFont.DEFAULT_CHAR_HEIGHT * BasicPopupMenuPaintable.NAME.length());
-
-        if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
-            heightOffset -= myFont.DEFAULT_CHAR_HEIGHT + 2;
-            if (AndroidUtil.isAndroid()) {
-                heightOffset = myFont.DEFAULT_CHAR_HEIGHT;
-            } else {
-                heightOffset -= myFont.DEFAULT_CHAR_HEIGHT + 2;
-            }
-        }
-        
-        this.offset = (heightOffset >> 1);
 
        final int width = this.rectangle.getWidth();
        final int height = this.rectangle.getHeight();
@@ -146,17 +157,17 @@ public class BasicPopupMenuPaintable extends Paintable
         }
     }
     
-   private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
-    
    @Override
    public void paint(final Graphics graphics)
    {
+       this.myFontProcessor.process(graphics);
+
        final GPoint point = this.rectangle.getPoint();
        final int x = point.getX();
        final int y = point.getY();
 
        final int width = this.rectangle.getWidth();
-       int height = this.rectangle.getHeight();
+       final int height = this.rectangle.getHeight();
 
        this.animationInterface.paintXY(graphics, x, y);
 

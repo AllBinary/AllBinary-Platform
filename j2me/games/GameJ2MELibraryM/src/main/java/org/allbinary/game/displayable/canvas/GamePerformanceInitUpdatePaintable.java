@@ -13,15 +13,18 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.paint.InitUpdatePaintable;
 
-public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
+public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable implements UpdateMyFontInterface
 {    
     //private final String TEXT = "Implement Your Own GameCanvas Draw Method";
 
@@ -39,11 +42,22 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
             this.halfHeight + 30 + 45,
             this.halfHeight + 30 + 45
             };
+
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
     
     //private String[] baseRefreshHelperStringArray = StringUtil.getArrayInstance();
 
     private char[][] baseRefreshHelperCharArray = new char[0][0];
+
+    private int defaultStringWidth;
     
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final Font font = graphics.getFont();
+        this.defaultStringWidth = MyFontProcessor.defaultStringWidth(font, 2);
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+
     @Override
     public void init()
     {
@@ -62,7 +76,7 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
     @Override
     public void paint(Graphics graphics)
     {
-        final MyFont myFont = MyFont.getInstance();
+        this.myFontProcessor.process(graphics);
         
         graphics.setColor(this.RED);
         
@@ -79,7 +93,7 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
             size3 = charArray2.length;
 
             graphics.drawChars(charArray, 0, size2, 0, this.yArray[index], 0);
-            graphics.drawChars(charArray2, 0, size3, size2 * myFont.defaultStringWidth(2), this.yArray[index + 1], 0);
+            graphics.drawChars(charArray2, 0, size3, size2 * this.defaultStringWidth, this.yArray[index + 1], 0);
         }
     }
 }

@@ -15,18 +15,21 @@ package org.allbinary.graphics.draw;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.logic.string.StringUtil;
 
 /**
  *
  * @author user
  */
-public class KeyValueDrawString {
-
+public class KeyValueDrawString implements UpdateMyFontInterface {
+    
+    private MyFontProcessor myFontProcessor = new UpdateMyFontProcessor(this);
+    
     private final String LABEL;
 
-    private final int labelWidth;
     private final int labelX;
     private int valueX;
 
@@ -35,23 +38,29 @@ public class KeyValueDrawString {
     public KeyValueDrawString(String label, int x)
     {
         this.LABEL = label;
-        this.labelWidth = MyFont.getInstance().stringWidth(this.LABEL) - this.LABEL.length();
         this.labelX = x;
-        this.valueX = this.labelWidth + x;
     }
 
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        final int labelWidth = graphics.getFont().stringWidth(this.LABEL) - this.LABEL.length();
+        this.valueX = labelWidth + this.labelX;
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+    
     public void paint(final Graphics graphics, final int y)
     {
-        graphics.drawString(this.LABEL,
-            this.labelX, y, 0);
+        this.myFontProcessor.process(graphics);
+        
+        graphics.drawString(this.LABEL,this.labelX, y, 0);
 
-        graphics.drawString(this.value,
-            this.valueX, y, 0);
+        graphics.drawString(this.value,this.valueX, y, 0);
     }
 
     public void update(String value)
     {
-        if(value != null)
-        this.value = value;
+        if(value != null) {
+            this.value = value;
+        }
     }
 }

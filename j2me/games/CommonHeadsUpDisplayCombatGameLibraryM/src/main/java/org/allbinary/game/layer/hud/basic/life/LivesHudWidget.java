@@ -44,7 +44,7 @@ public class LivesHudWidget extends BasicHud
         int location, int direction) throws Exception
     {
     	//width = 16
-        super(location, direction, 16, lifeInterface.getMaxlives() * 16, 2, BasicColorFactory.getInstance().WHITE);
+        super(location, direction, 2, BasicColorFactory.getInstance().WHITE);
 
         this.lifeInterface = lifeInterface;
         
@@ -53,8 +53,18 @@ public class LivesHudWidget extends BasicHud
         this.update();
 
         this.animationInterface = animationInterface;
+        
+        this.updateMaxWidth = this.lifeInterface.getMaxlives() * 16;
+        this.updateMaxHeight = 16;
+        
     }
 
+//    @Override
+//    public void updateMeasurement(final Graphics graphics) {        
+//        super.updateMeasurement(graphics);
+//
+//    }
+    
     @Override
     public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
     {
@@ -85,6 +95,8 @@ public class LivesHudWidget extends BasicHud
     @Override
     public void paint(Graphics graphics)
     {
+        this.myFontProcessor.process(graphics);
+        
         for (int index = (int) this.getLifeInterface().get(); --index >= 0;)
         {
             this.animationInterface.paintXY(graphics, this.xArray[index], this.getY());

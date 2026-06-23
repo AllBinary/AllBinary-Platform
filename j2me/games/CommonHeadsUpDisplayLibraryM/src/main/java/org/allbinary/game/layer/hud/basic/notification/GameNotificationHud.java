@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.game.layer.hud.basic.notification;
 
 import javax.microedition.lcdui.Graphics;
@@ -26,61 +26,54 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 
 public class GameNotificationHud extends BasicHud
-implements GameNotificationListenerInterface
-{
+    implements GameNotificationListenerInterface {
+
     public static final GameNotificationHud NULL_GAME_NOTIFICATION = new GameNotificationHud(
-            		BasicHudFactory.getInstance().TOPCENTER, 
-            		BasicHudFactory.getInstance().HORIZONTAL,
-                    0, 0, 0, BasicColorFactory.getInstance().RED);
+        BasicHudFactory.getInstance().TOPCENTER,
+        BasicHudFactory.getInstance().HORIZONTAL,
+        0, BasicColorFactory.getInstance().RED);
 
-   public GameNotificationHud(int location, int direction,
-       int maxHeight, int maxWidth, int bufferZone, BasicColor basicColor)
-   {
-      super(location, direction, maxHeight, maxWidth, bufferZone, basicColor);
-   }
-
-   @Override
-   public void onEvent(AllBinaryEventObject eventObject)
-   {
-       ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
-   }
-   
-   private final String METHOD_NAME = "onGameNotificationEvent";
-  
-   private GameNotificationEvent lastGameNotificationEvent = GameNotification.NULL_GAME_NOTIFICATION_EVENT;
-
-   @Override
-   public void onGameNotificationEvent(
-           final GameNotificationEvent gameNotificationEvent) 
-   throws Exception
-   {
-       if(this.lastGameNotificationEvent != gameNotificationEvent) {
-           this.lastGameNotificationEvent = gameNotificationEvent;
-           this.logUtil.putF(
-               //commonStrings.START_LABEL + 
-               gameNotificationEvent.getString(), this, this.METHOD_NAME);
-       }
-
-       this.add(
-               gameNotificationEvent.getString(),
-               gameNotificationEvent.getSeconds(), 
-               gameNotificationEvent.getBasicColorP(), 
-               gameNotificationEvent.getPermanent());
-   }
-   
-    protected void add(String string, Integer seconds, BasicColor basicColor, Boolean permanent)
-    {
+    public GameNotificationHud(final int location, final int direction, final int bufferZone, final BasicColor basicColor) {
+        super(location, direction, bufferZone, basicColor);
     }
 
-    public void processTick() throws Exception
-    {
+    @Override
+    public void onEvent(final AllBinaryEventObject eventObject) {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
-    public void paint(Graphics graphics)
-    {
+    private final String METHOD_NAME = "onGameNotificationEvent";
+
+    private GameNotificationEvent lastGameNotificationEvent = GameNotification.NULL_GAME_NOTIFICATION_EVENT;
+
+    @Override
+    public void onGameNotificationEvent(
+        final GameNotificationEvent gameNotificationEvent)
+        throws Exception {
+        if (this.lastGameNotificationEvent != gameNotificationEvent) {
+            this.lastGameNotificationEvent = gameNotificationEvent;
+            this.logUtil.putF(
+                //commonStrings.START_LABEL + 
+                gameNotificationEvent.getString(), this, this.METHOD_NAME);
+        }
+
+        this.add(
+            gameNotificationEvent.getString(),
+            gameNotificationEvent.getSeconds(),
+            gameNotificationEvent.getBasicColorP(),
+            gameNotificationEvent.getPermanent());
     }
 
-    public void clear()
-    {
+    protected void add(final String string, final Integer seconds, final BasicColor basicColor, final Boolean permanent) {
     }
+
+    public void processTick() throws Exception {
+    }
+
+    public void paint(final Graphics graphics) {
+    }
+
+    public void clear() {
+    }
+
 }
