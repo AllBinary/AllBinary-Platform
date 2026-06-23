@@ -34,8 +34,6 @@ import org.allbinary.logic.math.PrimitiveLongUtil;
 public class SelectionHudPaintable extends InitUpdatePaintable implements UpdateMyFontInterface
 {
     
-    private final CommonButtons commonButtons = CommonButtons.getInstance();
-    
     protected final int y = CommonButtons.getInstance().STANDARD_BUTTON_SIZE + 17;
 
     private final PrimitiveLongUtil primitiveLongUtil;    
@@ -72,6 +70,7 @@ public class SelectionHudPaintable extends InitUpdatePaintable implements Update
     
     @Override
     public void updateMeasurement(final Graphics graphics) {
+        final CommonButtons commonButtons = CommonButtons.getInstance();
         final Font font = graphics.getFont();
         // 3 for 2 extra lines for upgrade and downgrade
         // this.height = (weaponProperties.length + 2) *
@@ -84,11 +83,12 @@ public class SelectionHudPaintable extends InitUpdatePaintable implements Update
     @Override
     public void update()
     {
+        final CommonButtons commonButtons = CommonButtons.getInstance();
         final TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
 
         final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
         
-        this.x = this.commonButtons.STANDARD_BUTTON_SIZE + touchButtonLocationHelper.getColumnsRemainderHalf();
+        this.x = commonButtons.STANDARD_BUTTON_SIZE + touchButtonLocationHelper.getColumnsRemainderHalf();
 
         this.textX = this.getX() + 4;
 

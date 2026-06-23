@@ -34,8 +34,6 @@ public class UpgradableRTSLayerHudPaintable
         return UpgradableRTSLayerHudPaintable.instance;
     }
 
-    private final CommonButtons commonButtons = CommonButtons.getInstance();
-    
     //private final String PERCENT_COMPLETE = "% Complete";
     private final String PERCENT = "%";
 
@@ -69,8 +67,9 @@ public class UpgradableRTSLayerHudPaintable
     {
         super.update();
 
-        this.costY = (this.y + this.commonButtons.STANDARD_BUTTON_SIZE);
-        this.costY1 = (this.y + this.commonButtons.STANDARD_BUTTON_SIZE - (this.charHeight));
+        final CommonButtons commonButtons = CommonButtons.getInstance();
+        this.costY = (this.y + commonButtons.STANDARD_BUTTON_SIZE);
+        this.costY1 = (this.y + commonButtons.STANDARD_BUTTON_SIZE - (this.charHeight));
         /*
          * probably not needed anymore
         if(!AndroidUtil.isAndroid())
@@ -82,7 +81,7 @@ public class UpgradableRTSLayerHudPaintable
         }
         */
 
-        this.percentCompleteX2 = this.imageX + this.commonButtons.STANDARD_BUTTON_SIZE - this.charWidth;
+        this.percentCompleteX2 = this.imageX + commonButtons.STANDARD_BUTTON_SIZE - this.charWidth;
         
         final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
                 
