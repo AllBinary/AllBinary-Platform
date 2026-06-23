@@ -46,7 +46,6 @@ public class NoGameNotificationHudSingleton {
 
 //                public void updateMeasurement(final Graphics graphics) {
 //                    final Font font = graphics.getFont();
-//                    //14, 40,
 //                    super.updateMeasurement(graphics);
 //                }
 
