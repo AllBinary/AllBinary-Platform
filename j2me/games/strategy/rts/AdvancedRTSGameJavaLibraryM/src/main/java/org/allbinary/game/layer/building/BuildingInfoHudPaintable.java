@@ -26,8 +26,6 @@ import org.allbinary.game.layer.hud.basic.NumberStringHud;
 import org.allbinary.game.layer.hud.basic.NumberStringHudFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.font.MyFontProcessor;
-import org.allbinary.graphics.font.UpdateMyFontInterface;
-import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.logic.math.MathUtil;
 
 /**
