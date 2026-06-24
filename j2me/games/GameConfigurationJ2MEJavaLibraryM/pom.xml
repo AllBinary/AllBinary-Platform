@@ -55,29 +55,12 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>J2MEForJ2MEJavaLibrary</artifactId>
+            <artifactId>TempJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
             <optional>true</optional>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>AllBinaryJ2MELibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>BasePreloaderJ2MEJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
         </dependency>
 
         <dependency>
@@ -86,15 +69,6 @@
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>PreGameJ2MEJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
         </dependency>
 
         <dependency>

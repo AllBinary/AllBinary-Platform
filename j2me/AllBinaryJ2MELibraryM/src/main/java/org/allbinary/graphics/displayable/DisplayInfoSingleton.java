@@ -16,9 +16,11 @@ package org.allbinary.graphics.displayable;
 import javax.microedition.lcdui.Displayable;
 
 import org.allbinary.AndroidUtil;
+import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.LastDisplayChangeEventHandler;
+import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.threed.SWTJOGLProcessor;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -320,10 +322,14 @@ public class DisplayInfoSingleton
 
         if(aLastWidth > 0 && aLastHeight > 0)
         {
+            final Features features = Features.getInstance();
+            final OpenGLFeatureFactory openGLFeatureFactory = 
+                OpenGLFeatureFactory.getInstance();
+
             //The getters fire and set on change by calling the setters of this class
             //This does not actually get called often as the displayable width and height are usually the last value
-//            if(this.last[this.WIDTH] != aLastWidth || this.last[this.HEIGHT] != aLastHeight)
-//            {
+            if(!features.isDefault(openGLFeatureFactory.OPENGL) || this.last[this.WIDTH] != aLastWidth || this.last[this.HEIGHT] != aLastHeight)
+            {
                 stringMaker.delete(0, stringMaker.length());        
                 this.logUtil.putF(stringMaker.append(this.UPDATE_FROM_ORIENTATION_CHANGE).toString(), this, this.commonStrings.UPDATE);
 
@@ -418,7 +424,7 @@ public class DisplayInfoSingleton
                 SWTJOGLProcessor.getInstance().setCustom(aLastWidth, aLastHeight, this.ratio);
                 
                 this.add(this.commonStrings.UPDATE);
-//            }
+            }
         }
     }
     
