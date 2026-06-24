@@ -27,7 +27,7 @@ public class LivesHudWidget extends BasicHud
 {
     private final Life lifeInterface;
     
-    private int[] xArray;
+    private final int[] xArray;
     private final Animation animationInterface;
 
     /*
@@ -50,7 +50,6 @@ public class LivesHudWidget extends BasicHud
         
         final int size = (int) this.getLifeInterface().getMaxlives();
         this.xArray = new int[size];
-        this.update();
 
         this.animationInterface = animationInterface;
         
@@ -59,37 +58,29 @@ public class LivesHudWidget extends BasicHud
         
     }
 
-//    @Override
-//    public void updateMeasurement(final Graphics graphics) {        
-//        super.updateMeasurement(graphics);
-//
-//    }
+    @Override
+    public void updateMeasurement(final Graphics graphics) {        
+        super.updateMeasurement(graphics);
+        
+        int maxLives = (int) this.getLifeInterface().getMaxlives();
+        for (int index = 0; index < maxLives; index++) {
+            //width = 16
+            this.xArray[index] = this.getX() + (index * 16);
+        }
+    }
     
     @Override
     public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
     {
         super.onDisplayChangeEvent(displayChangeEvent);
-        this.update();
+        this.myFontProcessor = this.updateMyFontProcessor;
     }
     
-    private final void update()
-    {
-        if(this.xArray != null)
-        {
-            int maxLives = (int) this.getLifeInterface().getMaxlives();
-            for (int index = 0; index < maxLives; index++)
-            {
-            	//width = 16
-                this.xArray[index] = this.getX() + (index * 16);
-            }
-        }
-    }
-
     @Override
     public void setX(int x)
     {
         super.setX(x);
-        this.update();
+        this.myFontProcessor = this.updateMyFontProcessor;
     }
 
     @Override
