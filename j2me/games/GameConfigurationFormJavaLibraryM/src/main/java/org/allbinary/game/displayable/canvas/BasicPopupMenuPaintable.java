@@ -35,6 +35,7 @@ import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.graphics.threed.SWTJOGLProcessor;
 
 /**
  *
@@ -109,7 +110,8 @@ public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontIn
         this.drawStringUtil.updateMeasurement(graphics, this.label);
 
         int BORDER = 0;
-        if(J2MEUtil.isHTML() || (AndroidUtil.isAndroid() && isOpenGL)) {
+        //AndroidUtil.isAndroid() && 
+        if(J2MEUtil.isHTML() || isOpenGL) {
             BORDER = MyFontProcessor.defaultCharWidth(font) / 2;
         } else if(AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
             BORDER = MyFontProcessor.defaultCharWidth(font);
@@ -129,7 +131,7 @@ public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontIn
             }
         }
 
-        this.offset = (this.heightOffset >> 1);
+        this.offset = (this.heightOffset >> 1) + (SWTJOGLProcessor.getInstance().isJOGL() ? 4 : 0);
         
         this.myFontProcessor = MyFontProcessor.getInstance();
     }

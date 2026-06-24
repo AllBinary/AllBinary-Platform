@@ -16,12 +16,15 @@ package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.game.configuration.feature.Features;
 
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
+import org.allbinary.graphics.threed.SWTJOGLProcessor;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -47,7 +50,11 @@ public class MyFormUtil
         
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
-        final int width = MyFontProcessor.defaultStringWidth(font, 3);
+        final Features features = Features.getInstance();
+        final boolean isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
+        
+        final int TOTAL_CHAR_WIDTH = SWTJOGLProcessor.getInstance().isJOGL() && isOpenGL ? 2 : 3;
+        final int width = MyFontProcessor.defaultStringWidth(font, TOTAL_CHAR_WIDTH);
 
         final PointFactory pointFactory = PointFactory.getInstance();
                 

@@ -93,19 +93,19 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         //TWB - Adjust gap between menu items rectangles
         int adjustedBorder = 3;
             
-        int offset = -(this.halfBorder + adjustedBorder);
+        final int offset = -(this.halfBorder + adjustedBorder);
 
+        final int rectWidth = width + this.border - adjustedBorder;
+        final int rectHeight = height + this.border - adjustedBorder;
         if (J2MEUtil.isJ2ME())
         {
             this.selectedAnimationArray[index] = new RectangleAdjustedAnimation(
-                    width + this.border - adjustedBorder,
-                    height + this.border - adjustedBorder, 
+                    rectWidth, rectHeight, 
                     offset, offset, selectedButtonColor);
         } else
         {
             this.selectedAnimationArray[index] = new RectangleFilledAdjustedAnimation(
-                    width + this.border - adjustedBorder,
-                    height + this.border - adjustedBorder, 
+                    rectWidth, rectHeight, 
                     offset, offset, selectedButtonColor);
         }
 
@@ -115,14 +115,12 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         if (J2MEUtil.isJ2ME())
         {
             this.unSelectedAnimationArray[index] = new RectangleAdjustedAnimation(
-                    width + this.border - adjustedBorder,
-                    height + this.border - adjustedBorder, 
+                    rectWidth, rectHeight, 
                     offset, offset, buttonColor);
         } else
         {
             this.unSelectedAnimationArray[index] = new RectangleFilledAdjustedAnimation(
-                    width + this.border - adjustedBorder,
-                    height + this.border - adjustedBorder, 
+                    rectWidth, rectHeight, 
                     offset, offset, buttonColor);
         }
     }
@@ -149,14 +147,16 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         //TWB - Adjust gap between menu items rectangles
         int adjustedBorder = 3;
             
-        int offset = -(this.halfBorder + adjustedBorder);
+        final int offset = -(this.halfBorder + adjustedBorder);
 
+        final int rectWidth = width + this.border - adjustedBorder;
+        final int rectHeight = height + this.border - adjustedBorder;
         if (J2MEUtil.isJ2ME())
         {
             final RectangleAdjustedAnimation rectangleAdjustedAnimation = (RectangleAdjustedAnimation) this.selectedAnimationArray[index];
             
-            rectangleAdjustedAnimation.setWidth(width + this.border - adjustedBorder);
-            rectangleAdjustedAnimation.setHeight(height + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setWidth(rectWidth);
+            rectangleAdjustedAnimation.setHeight(rectHeight);
             rectangleAdjustedAnimation.setOffsetX(offset);
             rectangleAdjustedAnimation.setOffsetY(offset);
             rectangleAdjustedAnimation.setBasicColorP(selectedButtonColor);
@@ -165,8 +165,8 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         {
             final RectangleFilledAdjustedAnimation rectangleAdjustedAnimation = (RectangleFilledAdjustedAnimation) this.selectedAnimationArray[index];
             
-            rectangleAdjustedAnimation.setWidth(width + this.border - adjustedBorder);
-            rectangleAdjustedAnimation.setHeight(height + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setWidth(rectWidth);
+            rectangleAdjustedAnimation.setHeight(rectHeight);
             rectangleAdjustedAnimation.setOffsetX(offset);
             rectangleAdjustedAnimation.setOffsetY(offset);
             rectangleAdjustedAnimation.setBasicColorP(selectedButtonColor);
@@ -180,8 +180,8 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         {
             final RectangleAdjustedAnimation rectangleAdjustedAnimation = (RectangleAdjustedAnimation) this.unSelectedAnimationArray[index];
             
-            rectangleAdjustedAnimation.setWidth(width + this.border - adjustedBorder);
-            rectangleAdjustedAnimation.setHeight(height + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setWidth(rectWidth);
+            rectangleAdjustedAnimation.setHeight(rectHeight);
             rectangleAdjustedAnimation.setOffsetX(offset);
             rectangleAdjustedAnimation.setOffsetY(offset);
             rectangleAdjustedAnimation.setBasicColorP(buttonColor);
@@ -190,8 +190,8 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         {
             final RectangleFilledAdjustedAnimation rectangleAdjustedAnimation = (RectangleFilledAdjustedAnimation) this.unSelectedAnimationArray[index];
             
-            rectangleAdjustedAnimation.setWidth(width + this.border - adjustedBorder);
-            rectangleAdjustedAnimation.setHeight(height + this.border - adjustedBorder);
+            rectangleAdjustedAnimation.setWidth(rectWidth);
+            rectangleAdjustedAnimation.setHeight(rectHeight);
             rectangleAdjustedAnimation.setOffsetX(offset);
             rectangleAdjustedAnimation.setOffsetY(offset);
             rectangleAdjustedAnimation.setBasicColorP(buttonColor);
