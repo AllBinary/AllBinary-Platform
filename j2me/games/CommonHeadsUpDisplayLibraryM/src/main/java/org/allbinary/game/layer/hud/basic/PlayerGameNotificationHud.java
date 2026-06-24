@@ -42,7 +42,6 @@ public class PlayerGameNotificationHud extends GameNotificationHud
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
 
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 

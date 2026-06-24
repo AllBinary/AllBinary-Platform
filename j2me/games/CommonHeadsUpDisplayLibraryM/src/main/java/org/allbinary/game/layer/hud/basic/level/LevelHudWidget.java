@@ -60,6 +60,7 @@ public class LevelHudWidget extends BasicHud
         this.updateMaxHeight = 14;
     }
 
+    @Override
     public void updateMeasurement(final Graphics graphics) {
         
         final Font font = graphics.getFont();

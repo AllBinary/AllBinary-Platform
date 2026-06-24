@@ -62,6 +62,7 @@ public class AboutPaintable extends Paintable implements UpdateMyFontInterface
         this.developersBeginWidth = new int[this.developers.length];
     }
 
+    @Override
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         this.charHeight = font.getHeight();

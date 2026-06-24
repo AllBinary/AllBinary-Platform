@@ -21,7 +21,6 @@ import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.paint.ColorFillBasePaintable;
 import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.graphics.Anchor;
-import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.draw.DrawStringUtil;
 import org.allbinary.logic.string.StringUtil;
 
@@ -33,7 +32,6 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
 
     public static final String NAME = "GameInputMappingInstructionsCanvas";
  
-    private final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
     private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
 
     //Mapping

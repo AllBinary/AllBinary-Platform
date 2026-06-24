@@ -24,7 +24,6 @@ import org.allbinary.game.input.mapping.GameInputMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -60,13 +59,13 @@ public class InputMappingHelpPaintable extends HelpPaintable
     private BasicColor selectedBasicColor;
 
     private class UpdateMyFontProperties {
-        private String[] actionStringArray = StringUtil.getInstance().getArrayInstance();
-        private int[] keymappingBeginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
-        private int[] actionStringDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY;
-        private int[][] inputDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-        private String[][] sepArray = new String[0][0];
-        private int[][] sepWidthArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-        private int charHeight;
+        String[] actionStringArray = StringUtil.getInstance().getArrayInstance();
+        int[] keymappingBeginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
+        int[] actionStringDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY;
+        int[][] inputDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+        String[][] sepArray = new String[0][0];
+        int[][] sepWidthArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+        int charHeight;
     }
     
     private UpdateMyFontProperties updateMyFontProperties = new UpdateMyFontProperties();
@@ -106,9 +105,9 @@ public class InputMappingHelpPaintable extends HelpPaintable
         updateMyFontProperties.actionStringArray = new String[size];
         updateMyFontProperties.keymappingBeginWidthArray = new int[size];
         updateMyFontProperties.actionStringDeltaXArray = new int[size];
-        updateMyFontProperties.inputDeltaXArray = new int[size][];
-        updateMyFontProperties.sepArray = new String[size][];
-        updateMyFontProperties.sepWidthArray = new int[size][];
+        updateMyFontProperties.inputDeltaXArray = new int[size][0];
+        updateMyFontProperties.sepArray = new String[size][0];
+        updateMyFontProperties.sepWidthArray = new int[size][0];
         
         BasicArrayList list;
         String keyMappings;

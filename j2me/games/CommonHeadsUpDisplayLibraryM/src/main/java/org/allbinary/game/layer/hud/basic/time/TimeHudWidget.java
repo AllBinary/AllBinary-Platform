@@ -62,6 +62,7 @@ public class TimeHudWidget extends BasicHud
 //        this(location, direction, 14, maxWidth, 2, basicColor, timer);
 //    }
 
+    @Override
     public void updateMeasurement(final Graphics graphics) {
         
         final Font font = graphics.getFont();

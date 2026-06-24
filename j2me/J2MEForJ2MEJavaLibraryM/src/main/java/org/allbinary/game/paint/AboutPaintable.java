@@ -88,7 +88,8 @@ public class AboutPaintable extends Paintable implements UpdateMyFontInterface
     {
         return this.paintableArray;
     }
-    
+
+    @Override    
     public void paint(Graphics graphics)
     {
         this.myFontProcessor.process(graphics);

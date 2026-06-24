@@ -72,7 +72,7 @@ public class PressStartMenuPaintable extends Paintable implements UpdateMyFontIn
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         this.beginWidth = (graphics.getFont().stringWidth(this.startString) >> 1);
-        this.line = (4 * UpdateMyFontProcessor.defaultCharWidth(font)) + (font.getHeight() >> 1);
+        this.line = (4 * MyFontProcessor.defaultCharWidth(font)) + (font.getHeight() >> 1);
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
         

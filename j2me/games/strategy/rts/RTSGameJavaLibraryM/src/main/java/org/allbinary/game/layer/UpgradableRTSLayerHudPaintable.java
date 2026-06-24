@@ -69,7 +69,7 @@ public class UpgradableRTSLayerHudPaintable
 
         final CommonButtons commonButtons = CommonButtons.getInstance();
         this.costY = (this.y + commonButtons.STANDARD_BUTTON_SIZE);
-        this.costY1 = (this.y + commonButtons.STANDARD_BUTTON_SIZE - (this.charHeight));
+        this.costY1 = (this.y + commonButtons.STANDARD_BUTTON_SIZE - this.charHeight);
         /*
          * probably not needed anymore
         if(!AndroidUtil.isAndroid())

@@ -21,7 +21,7 @@ public class ABCustomForm extends CustomScreen
     }
     
     public ABCustomItem[] getAllitems() {
-        return null;
+        return new ABCustomItem[0];
     }
     
     public int size()

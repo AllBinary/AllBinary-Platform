@@ -110,11 +110,11 @@ public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontIn
 
         int BORDER = 0;
         if(J2MEUtil.isHTML() || (AndroidUtil.isAndroid() && isOpenGL)) {
-            BORDER = UpdateMyFontProcessor.defaultCharWidth(font) / 2;
+            BORDER = MyFontProcessor.defaultCharWidth(font) / 2;
         } else if(AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
-            BORDER = UpdateMyFontProcessor.defaultCharWidth(font);
+            BORDER = MyFontProcessor.defaultCharWidth(font);
         } else {
-            BORDER = UpdateMyFontProcessor.defaultCharWidth(font) * 2;
+            BORDER = MyFontProcessor.defaultCharWidth(font) * 2;
         }
         this.BORDER = BORDER;
 
