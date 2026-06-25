@@ -39,8 +39,9 @@ public class GameCanvasPauseRunnable extends GameRunnable
     public void processLoopSleep()
     throws Exception
     {
-        //No need to pause for OpenGL on J2SE.
-        if(AndroidUtil.isAndroid()) {
+        ////No need to pause for OpenGL on J2SE.
+        //It would seem that the threading for OpenGL on J2SE does need pause now.
+        //if(AndroidUtil.isAndroid()) {
             try {
                 final Features features = Features.getInstance();
                 final boolean isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
@@ -52,7 +53,7 @@ public class GameCanvasPauseRunnable extends GameRunnable
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
-        }
+        //}
         //allBinaryGameCanvas.processLoopSleep();
     }
 }
