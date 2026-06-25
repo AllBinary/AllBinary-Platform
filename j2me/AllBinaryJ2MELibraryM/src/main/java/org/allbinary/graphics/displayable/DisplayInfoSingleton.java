@@ -143,6 +143,9 @@ public class DisplayInfoSingleton
     private final String LAST_WIDTH = "LastWidth: ";
     private final String LAST_HEIGHT = " LastHeight: ";
     
+    private final String PORTRAIT = "Portrait";
+    private final String LANDSCAPE = "Landscape";
+    
     public void setLastSize(final int aLastWidth, final int aLastHeight, final String reason)
     {
         if(this.full[this.WIDTH] != aLastWidth || this.full[this.HEIGHT] != aLastHeight)
@@ -348,7 +351,7 @@ public class DisplayInfoSingleton
                     
                     if(this.isPortraitWH(aLastWidth, aLastHeight))
                     {
-                        //this.logUtil.putF("Found Portrait Orientation", this, this.commonStrings.UPDATE);
+                        //this.logUtil.putF("Found Orientation: " + this.PORTRAIT, this, this.commonStrings.UPDATE);
                         
                         if(aLastHeight > this.scaleLargestTo)
                         {
@@ -367,7 +370,7 @@ public class DisplayInfoSingleton
                         }
                     }else
                     {
-                        this.logUtil.putF("Found Landscape Orientation", this, this.commonStrings.UPDATE);
+                        //this.logUtil.putF("Found Orientation: " + this.LANDSCAPE, this, this.commonStrings.UPDATE);
                         
                         if(aLastWidth > this.scaleLargestTo)
                         {   
@@ -465,6 +468,8 @@ public class DisplayInfoSingleton
         stringBuffer.append(this.LAST_HALF);
         stringBuffer.append(this.commonLabels.HEIGHT_LABEL);
         stringBuffer.appendint(this.lastHalf[this.HEIGHT]);
+        stringBuffer.append(this.commonSeps.SPACE);
+        stringBuffer.append(this.isPortrait() ? this.PORTRAIT : this.LANDSCAPE);
 
         return stringBuffer.toString();
     }

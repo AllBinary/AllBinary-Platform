@@ -204,6 +204,14 @@ public class ScrollSelectionForm extends PaintableForm
         this.halfBorder = (border >> 1);
 
         this.paintable = formPaintableFactory.getInstanceItemPaintable(this);
+                
+    }
+
+    @Override
+    public void init(final Rectangle rectangle, final FormType formType)
+    throws Exception
+    {
+        super.init(rectangle, formType);
         
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
@@ -227,9 +235,9 @@ public class ScrollSelectionForm extends PaintableForm
         {
             throw new Exception(formTypeFactory.UNK);
         }
-        
-    }
 
+    }
+    
     public int paintItemHorizontal(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y) {
         final int width = item.getMinimumWidth();
         return x + width + this.border;
@@ -281,10 +289,12 @@ public class ScrollSelectionForm extends PaintableForm
     public int getItemIndex(final ABCustomItem item)
         throws Exception
     {
+        ABCustomItem nextItem;
+        
         final int size = this.size();
         for (int index = 0; index < size; index++)
         {
-            final ABCustomItem nextItem = (ABCustomItem) this.get(index);
+            nextItem = (ABCustomItem) this.get(index);
 
             if(nextItem == item)
             {
