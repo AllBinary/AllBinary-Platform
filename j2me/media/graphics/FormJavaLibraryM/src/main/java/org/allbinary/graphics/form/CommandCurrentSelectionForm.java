@@ -24,9 +24,7 @@ import org.allbinary.animation.vector.RectangleFilledAdjustedAnimation;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.graphics.font.UpdateMyFontInterface;
-import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.form.item.CommandTextItem;
 import org.allbinary.graphics.form.item.ABCustomItem;
 
@@ -36,9 +34,6 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     protected final Animation[] selectedAnimationArray = new Animation[16];
     protected final Animation[] unSelectedAnimationArray = new Animation[16];
 
-    private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
-    protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
-    
     public CommandCurrentSelectionForm(
             final String title, final ABCustomItem[] items,
             final Rectangle rectangle, final FormType formType, final int border, final boolean moveForSmallScreen,
@@ -50,13 +45,13 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         this.initAnimations();
         this.addAll(items);
     }
-
+    
     @Override
     public void updateMeasurement(final Graphics graphics) {
         this.updateAll(graphics, getAllitems());
-        this.myFontProcessor = MyFontProcessor.getInstance();
+        super.updateMeasurement(graphics);
     }
-    
+        
     private void initAnimations()
     {        
         final Animation nullAnimation = NullAnimationFactory.getFactoryInstance().getInstance(0);

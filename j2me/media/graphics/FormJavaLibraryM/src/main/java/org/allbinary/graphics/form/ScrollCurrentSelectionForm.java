@@ -18,10 +18,13 @@ import org.allbinary.canvas.Processor;
 
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.font.MyFontProcessor;
+import org.allbinary.graphics.font.UpdateMyFontInterface;
+import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.form.item.ABCustomItem;
 
 public class ScrollCurrentSelectionForm 
-extends ScrollSelectionForm
+extends ScrollSelectionForm implements UpdateMyFontInterface
 {
     private final boolean moveForSmallScreen;
 
@@ -115,6 +118,9 @@ extends ScrollSelectionForm
 
     };
     
+    protected final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
+    
     private Processor processor = Processor.getInstance();
     private ItemIndexDx preItemIndexDx = ItemIndexDx.getInstance();
 
@@ -133,6 +139,16 @@ extends ScrollSelectionForm
                 backgroundBasicColor, foregroundBasicColor);
 
         this.moveForSmallScreen = moveForSmallScreen;
+    
+        this.init(rectangle, formType);
+    }
+    
+
+    @Override
+    public void init(final Rectangle rectangle, final FormType formType)
+    throws Exception
+    {
+        super.init(rectangle, formType);
         
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
 
@@ -153,9 +169,16 @@ extends ScrollSelectionForm
         {
             this.logUtil.putF(formTypeFactory.UNK, this, this.commonStrings.INIT);
         }
-
+        
+        this.myFontProcessor = this.updateMyFontProcessor;
     }
-
+    
+    @Override
+    public void updateMeasurement(final Graphics graphics) {
+        
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+    
     private void processTempHorizontalForm() {
         this.dx = this.x - 30 + (this.rectangle.getWidth() >> 1);
         this.dy = this.y;
@@ -283,7 +306,7 @@ extends ScrollSelectionForm
             int delta = 0;
             int deltaX = this.getDx();
             int deltaY = this.getDy();
-            int size = this.size();
+            final int size = this.size();
             
             final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
 
