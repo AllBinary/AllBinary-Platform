@@ -15,4 +15,14 @@ package org.allbinary.graphics.form;
 
 public class FormType
 {
+    final String name;
+    
+    public FormType(final String name) {
+        this.name = name;
+    }
+    
+    public String toString() {
+        return this.name;
+    }
+    
 }

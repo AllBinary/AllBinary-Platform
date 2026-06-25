@@ -21,12 +21,15 @@ import org.allbinary.logic.string.StringMaker;
 public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implements UpdateMyFontInterface
 {
 
-    public static MultipleScrollSelectionHorizontalForm createForm(final String title, final ABCustomItem[] items,
-                                                                   final Rectangle rectangle, final FormType formType, final int border,
-                                                                   final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
-            throws Exception
+    public static ScrollSelectionForm createForm(final String title, final ABCustomItem[] items, 
+        final Rectangle rectangle, final FormType formType, final int border, 
+        final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) 
+        throws Exception
     {
-        return new MultipleScrollSelectionHorizontalForm(title, items, ItemPaintableFactory.getInstance(), rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
+        final ScrollSelectionForm scrollSelectionForm = new MultipleScrollSelectionHorizontalForm(
+            title, items, ItemPaintableFactory.getInstance(), border, backgroundBasicColor, foregroundBasicColor);
+        scrollSelectionForm.init(rectangle, formType);
+        return scrollSelectionForm;
     }
 
     class MultipleScrollSelectionFormHorizontalPaintable extends ItemIndexPaintable {
@@ -60,9 +63,8 @@ public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm i
     };
 
     //protected final LogUtil logUtil = LogUtil.getInstance();
-    private final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
 
-    private ItemIndexPaintable formTypeItemIndexPaintable = ItemIndexPaintable.getInstance();
+    private ItemIndexPaintable multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = ItemIndexPaintable.getInstance();
 
     private final int backgroundColor = BasicColorFactory.getInstance().TRANSPARENT_GREY.intValue();
 
@@ -73,24 +75,34 @@ public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm i
     private int fontHeight = 0;
     
     public MultipleScrollSelectionHorizontalForm(final String title, final ABCustomItem[] items, 
-            final ItemPaintableFactory formPaintableFactory, 
-            final Rectangle rectangle, final FormType formType, final int border, 
+            final ItemPaintableFactory formPaintableFactory, final int border, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     throws Exception
     {
-        super(title, items, formPaintableFactory, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
-        
-        if (formType == this.formTypeFactory.HORIZONTAL_FORM) {
-            this.formTypeItemIndexPaintable = new MultipleScrollSelectionFormHorizontalPaintable(this);
-        } else if (formType == this.formTypeFactory.VERTICAL_CENTER_FORM) {
-            this.formTypeItemIndexPaintable = new MultipleScrollSelectionFormVerticalPaintable(this);
-        } else if (formType == this.formTypeFactory.NULL_FORM_TYPE) {
-        } else {
-            throw new Exception(this.formTypeFactory.UNK);
-        }
+        super(title, items, formPaintableFactory, border, 3, backgroundBasicColor, foregroundBasicColor);
 
     }
 
+    @Override
+    public void init(final Rectangle rectangle, final FormType formType)
+    throws Exception
+    {
+        super.init(rectangle, formType);
+        
+        //this.logUtil.putF("MultipleScrollSelectionHorizontalForm formType: " + formType.toString(), this, this.commonStrings.INIT);
+        
+        final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
+        
+        if (formType == formTypeFactory.HORIZONTAL_FORM) {
+            this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = new MultipleScrollSelectionFormHorizontalPaintable(this);
+        } else if (formType == formTypeFactory.VERTICAL_CENTER_FORM) {
+            this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = new MultipleScrollSelectionFormVerticalPaintable(this);
+        } else if (formType == formTypeFactory.NULL_FORM_TYPE) {
+        } else {
+            throw new Exception(formTypeFactory.UNK);
+        }
+    }
+    
     @Override
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
@@ -162,7 +174,7 @@ public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm i
                     //break;
                 }
                 
-                dx = this.formTypeItemIndexPaintable.paint(graphics, index, item, dx, dy);
+                dx = this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable.paint(graphics, index, item, dx, dy);
             }
         } catch (Exception e)
         {

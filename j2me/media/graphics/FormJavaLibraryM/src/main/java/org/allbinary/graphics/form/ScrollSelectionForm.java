@@ -18,7 +18,6 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
-import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.ABCustomItem;
@@ -32,12 +31,11 @@ import org.allbinary.string.CommonSeps;
 public class ScrollSelectionForm extends PaintableForm
 {
     private static ScrollSelectionForm createForm(final String title, final ABCustomItem[] items,
-                                                  final ItemPaintableFactory formPaintableFactory,
-                                                  final Rectangle rectangle, final FormType formType, final int border,
+                                                  final ItemPaintableFactory formPaintableFactory, final int border,
                                                   final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
         try {
             if(formPaintableFactory == ItemPaintableFactory.getInstance()) {
-                return new ScrollSelectionForm(title, items, formPaintableFactory,rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
+                return new ScrollSelectionForm(title, items, formPaintableFactory, border, -3, backgroundBasicColor, foregroundBasicColor);
             } else {
                 //This call should only work with ItemPaintableFactory.getInstance()
                 throw new RuntimeException();
@@ -54,8 +52,7 @@ public class ScrollSelectionForm extends PaintableForm
         
         if(ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM == NullUtil.getInstance().NULL_OBJECT) {
             ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM = ScrollSelectionForm.createForm(StringUtil.getInstance().EMPTY_STRING, 
-                new ABCustomItem[0], ItemPaintableFactory.getInstance(), RectangleFactory.SINGLETON, 
-                FormTypeFactory.getInstance().NULL_FORM_TYPE, 0,BasicColorFactory.getInstance().BLACK, 
+                new ABCustomItem[0], ItemPaintableFactory.getInstance(), 0, BasicColorFactory.getInstance().BLACK, 
                 BasicColorFactory.getInstance().WHITE);
         }
 
@@ -68,9 +65,7 @@ public class ScrollSelectionForm extends PaintableForm
         if(ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM == NullUtil.getInstance().NULL_OBJECT) {
             ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM = ScrollSelectionForm.createForm(StringUtil.getInstance().EMPTY_STRING,
                 new ABCustomItem[0],
-                ItemPaintableFactory.getInstance(),
-                RectangleFactory.SINGLETON,
-                FormTypeFactory.getInstance().HORIZONTAL_FORM, 0,
+                ItemPaintableFactory.getInstance(), 0,
                 BasicColorFactory.getInstance().BLACK,
                 BasicColorFactory.getInstance().WHITE);
         }
@@ -178,20 +173,22 @@ public class ScrollSelectionForm extends PaintableForm
     protected final int halfBorder;
     private BasicColor buttonBasicColor;
     
-    private ItemIndexPaintable formTypeItemIndexPaintable = ItemIndexPaintable.getInstance();
+    protected ItemIndexPaintable scrollSelectionFormFormTypeItemIndexPaintable = ItemIndexPaintable.getInstance();
     private ItemIndexDx formTypeItemIndexDx = ItemIndexDx.getInstance();
     
     protected ItemPaintable paintable = ItemPaintableFactory.getInstance();
 
+    private final int adjustedExtraBorder;
+    
     public ScrollSelectionForm(
             final String title, final ABCustomItem[] items,
-            final ItemPaintableFactory formPaintableFactory,
-            final Rectangle rectangle, final FormType formType, final int border,
+            final ItemPaintableFactory formPaintableFactory, final int border, final int adjustedExtraBorder,
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
         throws Exception
     {
-        super(title, items, rectangle, formType, backgroundBasicColor, foregroundBasicColor);
+        super(title, items, backgroundBasicColor, foregroundBasicColor);
 
+        this.adjustedExtraBorder = adjustedExtraBorder;
         this.buttonBasicColor = foregroundBasicColor;
         
 //        final int size = items.length;
@@ -213,21 +210,23 @@ public class ScrollSelectionForm extends PaintableForm
     {
         super.init(rectangle, formType);
         
+        //this.logUtil.putF("ScrollSelectionForm formType: " + formType.toString(), this, this.commonStrings.INIT);
+        
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
         if (formType == formTypeFactory.HORIZONTAL_FORM)
         {
-            this.formTypeItemIndexPaintable = new ScrollSelectionFormHorizontalPaintable(this);
+            this.scrollSelectionFormFormTypeItemIndexPaintable = new ScrollSelectionFormHorizontalPaintable(this);
             this.formTypeItemIndexDx = new ScrollSelectionFormHorizontalDx(this);
         }
         else if (formType == formTypeFactory.VERTICAL_CENTER_FORM)
         {
-            this.formTypeItemIndexPaintable = new ScrollSelectionFormVerticalPaintable(this);
+            this.scrollSelectionFormFormTypeItemIndexPaintable = new ScrollSelectionFormVerticalPaintable(this);
             this.formTypeItemIndexDx = new ScrollSelectionFormVericalDx(this);
         }
         else if (formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {
-            this.formTypeItemIndexPaintable = new ScrollSelectionFormTempHorizontalPaintable(this);
+            this.scrollSelectionFormFormTypeItemIndexPaintable = new ScrollSelectionFormTempHorizontalPaintable(this);
             this.formTypeItemIndexDx = new ScrollSelectionFormTempHorizontalDx(this);
         } 
         else if (formType == formTypeFactory.NULL_FORM_TYPE) {
@@ -309,7 +308,7 @@ public class ScrollSelectionForm extends PaintableForm
         return 0;
     }
 
-    private static final String GET_SELECTED_INDEX = "getSelectedIndex";
+    private static final String GET_SELECTED_INDEX = "getSelectedIndexForPoint";
     
     public int getSelectedIndexForPoint(final GPoint point) throws Exception
     {
@@ -486,8 +485,8 @@ public class ScrollSelectionForm extends PaintableForm
         final int adjustedBorder = 3;
 
         //graphics.drawRect(x - border, y - border_y, width + border, height + border);
-        graphics.drawRect(x - this.halfBorder - adjustedBorder, y - this.halfBorder - adjustedBorder, width + this.border - adjustedBorder, height + this.border - adjustedBorder);
-        return this.formTypeItemIndexPaintable.paint(graphics, index, item, x, y);
+        graphics.drawRect(x - this.halfBorder - adjustedBorder, y - this.halfBorder - adjustedBorder, width + this.border + this.adjustedExtraBorder, height + this.border + this.adjustedExtraBorder);
+        return this.scrollSelectionFormFormTypeItemIndexPaintable.paint(graphics, index, item, x, y);
 
     }
 
@@ -497,7 +496,7 @@ public class ScrollSelectionForm extends PaintableForm
         //graphics.setColor(BasicColor.GREY.intValue());
         graphics.setColor(this.getButtonBasicColor().intValue());
         item.paintUnselected(graphics, x, y);
-        return this.formTypeItemIndexPaintable.paint(graphics, index, item, x, y);
+        return this.scrollSelectionFormFormTypeItemIndexPaintable.paint(graphics, index, item, x, y);
     }
 
     protected int getDiffX(final ABCustomItem item)

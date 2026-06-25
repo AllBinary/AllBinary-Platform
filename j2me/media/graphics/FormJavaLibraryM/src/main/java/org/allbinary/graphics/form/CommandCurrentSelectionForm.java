@@ -21,7 +21,6 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.animation.vector.RectangleAdjustedAnimation;
 import org.allbinary.animation.vector.RectangleFilledAdjustedAnimation;
-import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.font.UpdateMyFontInterface;
@@ -36,11 +35,11 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
 
     public CommandCurrentSelectionForm(
             final String title, final ABCustomItem[] items,
-            final Rectangle rectangle, final FormType formType, final int border, final boolean moveForSmallScreen,
+            final int border, final boolean moveForSmallScreen,
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
             throws Exception
     {
-        super(title, items, ItemPaintableFactory.getInstance(), rectangle, formType, border, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
+        super(title, items, ItemPaintableFactory.getInstance(), border, -3, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
 
         this.initAnimations();
         this.addAll(items);

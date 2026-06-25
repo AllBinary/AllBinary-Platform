@@ -20,13 +20,14 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.FormTypeFactory;
 import org.allbinary.graphics.form.MultipleScrollSelectionHorizontalForm;
+import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.button.CommonButtons;
 import org.allbinary.input.motion.button.TouchButtonLocationHelper;
 
 public class RTSScrollSelectionFormFactory
 {
-    public static MultipleScrollSelectionHorizontalForm getInstance(
-            final String formLabel, final ABCustomItem[] items)
+    public static ScrollSelectionForm getInstance(
+        final String formLabel, final ABCustomItem[] items)
     throws Exception
     {
         final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();

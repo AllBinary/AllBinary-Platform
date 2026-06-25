@@ -31,9 +31,10 @@ public class CommandCurrentSelectionFormFactory
     {
         if(Features.getInstance().isFeature(TouchFeatureFactory.getInstance().TOUCH_ENABLED))
         {
-            return new CommandCurrentSelectionForm(
-                    title, items, rectangle, formType, border, moveForSmallScreen,
-                    backgroundBasicColor, foregroundBasicColor);
+            final ScrollSelectionForm scrollSelectionForm = new CommandCurrentSelectionForm(
+                title, items, border, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
+            scrollSelectionForm.init(rectangle, formType);
+            return scrollSelectionForm;
         }
         else
         {

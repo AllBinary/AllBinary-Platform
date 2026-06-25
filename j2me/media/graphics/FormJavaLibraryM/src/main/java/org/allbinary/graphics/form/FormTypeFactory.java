@@ -14,6 +14,7 @@
 package org.allbinary.graphics.form;
 
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.logic.string.StringUtil;
 
 public class FormTypeFactory
 {
@@ -25,10 +26,10 @@ public class FormTypeFactory
     }
     
     public final String UNK = "Unknown FormType";
-    public final FormType NULL_FORM_TYPE = new FormType();
-    public final FormType TEMP_HORIZONTAL_FORM = new FormType();
-    public final FormType HORIZONTAL_FORM = new FormType();
-    public final FormType VERTICAL_CENTER_FORM = new FormType();
+    public final FormType NULL_FORM_TYPE = new FormType(StringUtil.getInstance().NULL_STRING);
+    public final FormType TEMP_HORIZONTAL_FORM = new FormType("TempHorizontal");
+    public final FormType HORIZONTAL_FORM = new FormType("Horizontal");
+    public final FormType VERTICAL_CENTER_FORM = new FormType("Vertical");
     
     public FormType getFormType()
     {

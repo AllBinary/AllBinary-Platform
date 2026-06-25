@@ -130,17 +130,15 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
     private int maxWidth = 0;
 
     public ScrollCurrentSelectionForm(final String title, final ABCustomItem[] items,
-            final ItemPaintableFactory formPaintableFactory, final Rectangle rectangle,
-            final FormType formType, final int border, final boolean moveForSmallScreen,
+            final ItemPaintableFactory formPaintableFactory, final int border, final int adjustedExtraBorder,
+            final boolean moveForSmallScreen,
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) 
         throws Exception
     {
-        super(title, items, formPaintableFactory, rectangle, formType, border,
-                backgroundBasicColor, foregroundBasicColor);
+        super(title, items, formPaintableFactory, border, adjustedExtraBorder, backgroundBasicColor, foregroundBasicColor);
 
         this.moveForSmallScreen = moveForSmallScreen;
     
-        this.init(rectangle, formType);
     }
     
 
@@ -148,7 +146,10 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
     public void init(final Rectangle rectangle, final FormType formType)
     throws Exception
     {
+        
         super.init(rectangle, formType);
+        
+        //this.logUtil.putF("ScrollCurrentSelectionForm formType: " + formType.toString(), this, this.commonStrings.INIT);
         
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
 

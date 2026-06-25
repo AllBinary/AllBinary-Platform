@@ -28,19 +28,17 @@ import org.allbinary.graphics.form.ScrollCurrentSelectionForm;
 public class PreGameScrollSelectionForm
         extends ScrollCurrentSelectionForm
 {
-    public PreGameScrollSelectionForm(String title, 
-            ABCustomItem[] items, 
-            ItemPaintableFactory formPaintableFactory,
-            Rectangle rectangle,
-            BasicColor backgroundBasicColor, 
-            BasicColor foregroundBasicColor) 
+    public PreGameScrollSelectionForm(final String title, 
+            final ABCustomItem[] items, 
+            final ItemPaintableFactory formPaintableFactory,
+            final BasicColor backgroundBasicColor, 
+            final BasicColor foregroundBasicColor) 
         throws Exception
     {
-        super(title, items, formPaintableFactory, rectangle, FormTypeFactory.getInstance().TEMP_HORIZONTAL_FORM, 0, false,
-                backgroundBasicColor, foregroundBasicColor);
+        super(title, items, formPaintableFactory, 0, 3, false, backgroundBasicColor, foregroundBasicColor);
     }
 
-    public void init(Rectangle rectangle)
+    public void init(final Rectangle rectangle)
     throws Exception
     {
         super.init(rectangle, FormTypeFactory.getInstance().TEMP_HORIZONTAL_FORM);
