@@ -190,7 +190,8 @@ public class PathUtil
             return categoryName;
         }
     }
-    
+
+    //Do not update without checking the removeNameFromPath in AbPathData
     public AbPath removeNameFromPath(String path) throws Exception
     {
         int endIndex = path.lastIndexOf(this.abPathData.SEPARATOR);
@@ -212,8 +213,8 @@ public class PathUtil
         }
         else
         {
-            String categoryName = path.substring(0, endIndex);
-            return new AbPath(categoryName, StringUtil.getInstance().EMPTY_STRING);
+            final String pathWithoutName = path.substring(0, endIndex);
+            return new AbPath(pathWithoutName, StringUtil.getInstance().EMPTY_STRING);
         }
     }
 

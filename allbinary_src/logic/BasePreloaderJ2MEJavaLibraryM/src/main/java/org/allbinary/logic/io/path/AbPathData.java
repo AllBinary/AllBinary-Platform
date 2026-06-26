@@ -85,5 +85,32 @@ public class AbPathData
         
         return extension;
     }
-   
+
+    //Do not update without checking the removeNameFromPath in PathUtil
+    public String removeNameFromPath(final String path, final String systemSep)
+    {
+        int endIndex = path.lastIndexOf(this.SEPARATOR);
+
+        if(endIndex < 0)
+        {
+            endIndex = path.lastIndexOf(systemSep);
+        }
+        
+        if(endIndex < 0)
+        {
+            return StringUtil.getInstance().EMPTY_STRING;
+        }
+        
+        //if the last char is sep then use the last token as the name
+        if(path.length() == endIndex + 1)
+        {
+            return this.removeNameFromPath(path.substring(0, endIndex - 1), systemSep);
+        }
+        else
+        {
+            String pathWithoutName = path.substring(0, endIndex);
+            return pathWithoutName;
+        }
+    }
+    
 }
