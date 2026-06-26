@@ -167,7 +167,7 @@ public class PathUtil
         return path;
     }
     
-    public synchronized String getNameFromPath(String categoryPath)
+    public String getNameFromPath(String categoryPath)
     {
         int endIndex = categoryPath.lastIndexOf(this.abPathData.SEPARATOR);
         
@@ -191,7 +191,7 @@ public class PathUtil
         }
     }
     
-    public synchronized AbPath removeNameFromPath(String path) throws Exception
+    public AbPath removeNameFromPath(String path) throws Exception
     {
         int endIndex = path.lastIndexOf(this.abPathData.SEPARATOR);
 
