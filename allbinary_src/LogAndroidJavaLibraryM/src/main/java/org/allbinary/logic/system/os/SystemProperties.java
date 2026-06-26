@@ -10,12 +10,11 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.system.os;
 
 //ActualPlatform
-public class SystemProperties
-{
+public class SystemProperties {
 
     private static final SystemProperties instance = new SystemProperties();
 
@@ -26,16 +25,15 @@ public class SystemProperties
     public static SystemProperties getInstance() {
         return SystemProperties.instance;
     }
-    
+
     private final String OS_NAME = "os.name";
     private final String OS_ARCH = "os.arch";
     private final String OS_VERSION = "os.version";
-    
-     private SystemProperties()
-     {         
-     }
 
-     /*
+    private SystemProperties() {
+    }
+
+    /*
      public String getJavaVersion()
      {
         return System.getProperty("java.version");
@@ -71,23 +69,23 @@ public class SystemProperties
          return System.getProperty("java.vendor.url");
      }
      */
-     
-     //ActualPlatform
-     public String getName()
-     {
-         return System.getProperty(this.OS_NAME);
-     }
-     
-     //ActualPlatform
-     public String getArch()
-     {
-         return System.getProperty(this.OS_ARCH);
-     }
-     
-     //ActualPlatform
-     public String getVersion()
-     {
-         return System.getProperty(this.OS_VERSION);
-     }
+    //ActualPlatform
+    public String getName() {
+        return System.getProperty(this.OS_NAME);
+    }
+
+    //ActualPlatform
+    public String getArch() {
+        return System.getProperty(this.OS_ARCH);
+    }
+
+    //ActualPlatform
+    public String getVersion() {
+        return System.getProperty(this.OS_VERSION);
+    }
+
+    public String getUserHomePath() {
+        throw new RuntimeException();
+    }
 
 }

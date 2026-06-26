@@ -48,14 +48,6 @@
             <!-- AllBinary Platform Version End -->
 
         </dependency>
-
-        <!--
-        <dependency>
-            <groupId>org.allbinary.data</groupId>
-            <artifactId>BaseDataJavaLibrary</artifactId>
-
-        </dependency>
-        -->
         
         <dependency>
             <groupId>org.allbinary</groupId>

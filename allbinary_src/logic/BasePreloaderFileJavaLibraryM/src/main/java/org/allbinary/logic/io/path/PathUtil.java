@@ -35,70 +35,19 @@ public class PathUtil
     private PathUtil()
     {
     }
-    
-    private int getExtensionIndex(String filePath)
-    //throws Exception
-    {
-        int indexOfFileExtensionDelmiter = 
-            filePath.lastIndexOf(this.abPathData.EXTENSION_SEP);
         
-        int indexOfLatDelimiter = filePath.lastIndexOf(this.abPathData.SEPARATORCHAR);
-        
-        if(indexOfFileExtensionDelmiter < 0)
-        {
-            //throw new Exception("No File Extension for: " + filePath);
-            return -1;
-        }
-        
-        if(indexOfFileExtensionDelmiter < indexOfLatDelimiter)
-        {
-            //throw new Exception("No File Extension for: " + filePath);
-            return -1;
-        }
-        
-      /*
-      if(filePath.length() < indexOfFileExtensionDelmiter)
-      {
-         throw new Exception("Could not be a file path since its less than " + indexOfFileExtensionDelmiter + " characters");
-      }
-       */
-        
-        return indexOfFileExtensionDelmiter;
-    }
-    
     public String getExtensionWithAbFilePath(AbFilePath abFilePath)
     //throws Exception
     {
-        return this.getExtension(abFilePath.toString());
+        return this.abPathData.getExtension(abFilePath.toString());
     }
     
     public String getExtensionWithAbPath(AbPath abPath)
     //throws Exception
     {
-        return this.getExtension(abPath.toString());
+        return this.abPathData.getExtension(abPath.toString());
     }
-    
-    public String getExtension(String filePath) 
-    //throws Exception
-    {
-        int indexOfFileExtensionDelmiter = this.getExtensionIndex(filePath);
-        String extension = StringUtil.getInstance().EMPTY_STRING;
         
-        if(indexOfFileExtensionDelmiter >= 0)
-        {
-            extension = filePath.substring(indexOfFileExtensionDelmiter + 1);
-        }
-
-        /*
-        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
-        {
-            PreLogUtil.put("FileExtension: " + extension, this, "getExtension()");
-        }
-        */
-        
-        return extension;
-    }
-    
     public String getWithoutExtensionWithAbFilePath(AbFilePath abFilePath)
     throws Exception
     {
@@ -113,7 +62,7 @@ public class PathUtil
     
     public String getWithoutExtension(String filePath) throws Exception
     {
-        int indexOfFileExtensionDelmiter = this.getExtensionIndex(filePath);
+        int indexOfFileExtensionDelmiter = this.abPathData.getExtensionIndex(filePath);
         //No extension by default
         String pathWithoutExtension = filePath;
         

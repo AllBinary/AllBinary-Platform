@@ -32,6 +32,7 @@ import org.allbinary.logic.communication.http.request.HttpRequestUtil;
 import org.allbinary.logic.communication.http.request.MultipartRequestParams;
 import org.allbinary.logic.communication.http.request.RequestMapInterface;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.io.path.PathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.media.MediaData;
@@ -93,8 +94,9 @@ public class InventoryItemView extends HttpStoreComponentView
                 this.imageFileName = HttpRequestUtil.getInstance().generateFileName(
                     fileItem.getName());
 
+                final AbPathData pathData = AbPathData.getInstance();
                 final PathUtil pathUtil = PathUtil.getInstance();
-                this.mediaData = MediaData.get(pathUtil.getExtension(this.imageFileName));
+                this.mediaData = MediaData.get(pathData.getExtension(this.imageFileName));
                 this.imageFileName = pathUtil.getWithoutExtension(this.imageFileName);
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))

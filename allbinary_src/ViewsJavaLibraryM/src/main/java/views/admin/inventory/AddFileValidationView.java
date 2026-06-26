@@ -27,6 +27,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileData;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.io.path.PathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -267,8 +268,8 @@ public class AddFileValidationView
                     return Boolean.FALSE;
                 } else
                 {
-                    final PathUtil pathUtil = PathUtil.getInstance();
-                    final String extension = pathUtil.getExtension(fileName);
+                    final AbPathData pathData = AbPathData.getInstance();
+                    final String extension = pathData.getExtension(fileName);
 
                     final UploadMediaSingleton uploadMedia = UploadMediaSingleton.getInstance();
                     if (!uploadMedia.isWriterSupported(extension)
@@ -336,8 +337,8 @@ public class AddFileValidationView
                         stringBuffer.append("<br/>");
                     } else
                     {
-                        final PathUtil pathUtil = PathUtil.getInstance();
-                        String extension = pathUtil.getExtension(fileName);
+                        final AbPathData pathData = AbPathData.getInstance();
+                        String extension = pathData.getExtension(fileName);
 
                         final UploadMediaSingleton uploadMedia = UploadMediaSingleton.getInstance();
                         if (!uploadMedia.isWriterSupported(extension)

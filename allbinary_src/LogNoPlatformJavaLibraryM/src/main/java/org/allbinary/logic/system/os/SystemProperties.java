@@ -81,4 +81,9 @@ public class SystemProperties
      {
          throw new RuntimeException();
      }
+     
+    public String getUserHomePath() {
+        throw new RuntimeException();
+    }
+
 }
