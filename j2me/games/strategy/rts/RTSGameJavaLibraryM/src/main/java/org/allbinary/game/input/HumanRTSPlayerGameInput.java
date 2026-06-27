@@ -573,6 +573,11 @@ implements BaseMotionGestureEventListener
         this.getMotionGestureInputList().add(motionGestureEvent);
     }
 
+    @Override
+    public void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
+        
+    }
+    
     /**
      * @return the selectedRtsLayer
      */

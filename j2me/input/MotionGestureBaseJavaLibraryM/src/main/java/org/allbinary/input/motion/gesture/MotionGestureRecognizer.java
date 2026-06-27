@@ -22,6 +22,7 @@ import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
 import org.allbinary.input.motion.gesture.observer.MotionEventCircularPool;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.input.motion.gesture.observer.MovedMotionGesturesHandler;
+import org.allbinary.input.motion.gesture.observer.ScrolledMotionGesturesHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.J2SEMath;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
@@ -43,6 +44,7 @@ public class MotionGestureRecognizer
     //TWB - should be treated like the KeyEventHandlers per player for deviceId
     private final BasicMotionGesturesHandler motionGesturesHandler;
     private final BasicEventHandler movedMotionGesturesHandler;
+    private final BasicEventHandler scrolledMotionGesturesHandler;
 
     //private final int id;
     
@@ -58,10 +60,12 @@ public class MotionGestureRecognizer
         
         BasicEventHandler motionGesturesHandler = new BasicEventHandler();
         BasicEventHandler movedMotionGesturesHandler = motionGesturesHandler;
+        BasicEventHandler scrolledMotionGesturesHandler = motionGesturesHandler;
         try
         {
             motionGesturesHandler = BasicMotionGesturesHandler.getInstance();
             movedMotionGesturesHandler = MovedMotionGesturesHandler.getInstance();
+            scrolledMotionGesturesHandler = ScrolledMotionGesturesHandler.getInstance();
         }
         catch (Exception e)
         {
@@ -71,6 +75,7 @@ public class MotionGestureRecognizer
         
         this.motionGesturesHandler = (BasicMotionGesturesHandler) motionGesturesHandler;
         this.movedMotionGesturesHandler = movedMotionGesturesHandler;
+        this.scrolledMotionGesturesHandler = scrolledMotionGesturesHandler;
     }
 
     public boolean processPressedMotionEvent(final GPoint current, final int deviceId, final int button)
@@ -277,6 +282,25 @@ public class MotionGestureRecognizer
         //this.logUtil.putF("Firing Event: " + event, this, "processReleasedMotionEvent");
         
         this.movedMotionGesturesHandler.fireEvent(event);
+
+        return true;
+    }
+
+    public boolean processScrolledMotionEvent(final GPoint current, final int deviceId, final int button)
+            throws Exception
+    {
+        //this.logUtil.putF(this.commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
+
+        final MotionGestureEvent event =
+            this.motionEventCircularPool.getInstance(
+                    TouchMotionGestureFactory.getInstance().NO_MOTION);
+
+        event.setPreviousPoint(this.previous);
+        event.setCurrentPoint(current);
+
+        //this.logUtil.putF("Firing Event: " + event, this, "processReleasedMotionEvent");
+        
+        this.scrolledMotionGesturesHandler.fireEvent(event);
 
         return true;
     }

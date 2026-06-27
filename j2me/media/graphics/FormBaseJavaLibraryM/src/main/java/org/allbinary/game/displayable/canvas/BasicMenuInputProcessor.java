@@ -47,6 +47,11 @@ public class BasicMenuInputProcessor extends PlayerGameInput
         this.motionGestureEventList.add(motionGestureEvent);
     }
 
+    @Override
+    public void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
+        
+    }
+    
     private void setCanvas(MyCanvas canvas)
     {
         this.canvas = canvas;

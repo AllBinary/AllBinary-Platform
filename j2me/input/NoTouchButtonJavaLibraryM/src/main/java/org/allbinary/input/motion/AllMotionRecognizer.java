@@ -47,7 +47,12 @@ public class AllMotionRecognizer
             throws Exception
     {
     }
-    
+
+    public void processScrolledMotionEvent(final int x, final int y, final int deviceId, final int modifiers)
+            throws Exception
+    {
+    }
+
     public int getId()
     {
         return this.id;

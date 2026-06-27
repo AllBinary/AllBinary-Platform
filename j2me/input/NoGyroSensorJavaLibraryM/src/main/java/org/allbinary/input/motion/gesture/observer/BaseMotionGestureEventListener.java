@@ -18,4 +18,5 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 public interface BaseMotionGestureEventListener extends EventListenerInterface
 {
     void onMotionGestureEvent(MotionGestureEvent motionGestureEvent);
+    void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent);
 }

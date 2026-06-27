@@ -146,6 +146,23 @@ public class AllMotionRecognizer extends MotionRecognizer
             this.motionGestureRecognizer.processMovedMotionEvent(point, deviceId, modifiers);
         }
     }
+
+    public void processScrolledMotionEvent(final int x, final int y, final int deviceId, final int modifiers)
+            throws Exception
+    {
+        if(x != this.lastX || y != this.lastY) {
+
+            this.lastX = x;
+            this.lastY = y;
+            
+            final CustomGPoint point = (CustomGPoint) AllMotionRecognizer.pointCircularPool.getNextInstance();
+
+            point.setX(x);
+            point.setY(y);
+
+            this.motionGestureRecognizer.processScrolledMotionEvent(point, deviceId, modifiers);
+        }
+    }
     
     public final MotionGestureRecognizer getMotionGestureRecognizer()
     {

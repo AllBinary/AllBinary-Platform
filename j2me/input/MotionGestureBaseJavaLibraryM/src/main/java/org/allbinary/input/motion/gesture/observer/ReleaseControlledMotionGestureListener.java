@@ -112,6 +112,11 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
     }
     
     @Override
+    public void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
+        
+    }
+    
+    @Override
     public void released(MotionGestureEvent ev)
     {
         try

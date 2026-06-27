@@ -32,6 +32,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
     
     private BasicArrayList motionGestureCollection = new BasicArrayListD();
     private BasicArrayList touchGestureCollection = new BasicArrayListD();
+    private BasicArrayList scrolledGestureCollection = new BasicArrayListD();
     private CompleteMotionGestureListenerInterface signed;
 
     public GameMotionGestureListener(
@@ -124,6 +125,11 @@ public class GameMotionGestureListener implements MotionGestureEventListener
         }
     }
 
+    @Override
+    public void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
+        
+    }
+    
     @Override
     public void onMotionGestureEvent(MotionGestureEvent ev)
     {
