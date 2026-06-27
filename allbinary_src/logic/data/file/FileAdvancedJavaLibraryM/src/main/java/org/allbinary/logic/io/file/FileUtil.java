@@ -514,7 +514,7 @@ public class FileUtil
     {
         String newDirectory = fromFile.getPath();
 
-        String separatorChar = java.io.File.separator;
+        String separatorChar = FilePathData.getInstance().SEPARATOR;
 
         if (AbFileSystem.getInstance().isType("com.vobject.appengine.java.io"))
         {

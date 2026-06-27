@@ -13,7 +13,8 @@
 */
 package org.allbinary.input.automation;
 
-import java.io.File;
+import org.allbinary.logic.io.file.FilePathData;
+import org.allbinary.logic.string.StringMaker;
 
 public class ImageOutputData
 {
@@ -22,6 +23,5 @@ public class ImageOutputData
     }
  
     public final static String SAVE_PATH = 
-        System.getProperty("user.dir") + File.separator + 
-        "saves" + File.separator;
+        new StringMaker().append(System.getProperty("user.dir")).append(FilePathData.getInstance().SEPARATOR).append("saves").append(FilePathData.getInstance().SEPARATOR).toString();
 }
