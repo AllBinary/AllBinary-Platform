@@ -18,7 +18,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.font.FontDebugFactory;
-import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringMaker;
 
 /**
  *
@@ -27,14 +27,15 @@ import org.allbinary.logic.string.StringUtil;
 public class CustomTextAnimation extends TextAnimation
     implements GetTextInterface
 {
-
+    private static final String INIT_STRING = new String("");
+    
     protected final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
     
     protected final int fontSize;
     
     protected Font font;
 
-    private String lastText = StringUtil.getInstance().EMPTY_STRING;
+    private String lastText = CustomTextAnimation.INIT_STRING;
     protected boolean hasChanged = true;
     
     public CustomTextAnimation(final String text, final int fontSize, final AnimationBehavior animationBehavior)
@@ -96,6 +97,7 @@ public class CustomTextAnimation extends TextAnimation
     @Override
     public void setText(final String text)
     {
+        //this.logUtil.putF(new StringMaker().append(" text: ").append(text).toString(), this, this.commonStrings.PROCESS);        
         if(this.lastText != text) {
             this.hasChanged = true;
             this.lastText = text;
@@ -104,7 +106,7 @@ public class CustomTextAnimation extends TextAnimation
 
 //        if(font != null) {
 //            final CommonLabels commonLabels = CommonLabels.getInstance();
-//            this.logUtil.putF(new StringMaker().append("setText - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, this.commonStrings.PROCESS);
+//            this.logUtil.putF(new StringMaker().append("setText - font: ").appendint(font.getSize()).append(commonLabels.WIDTH_LABEL).appendint(font.stringWidth(text)).append(" text: ").append(text).toString(), this, this.commonStrings.PROCESS);
 //        }
     }
 
