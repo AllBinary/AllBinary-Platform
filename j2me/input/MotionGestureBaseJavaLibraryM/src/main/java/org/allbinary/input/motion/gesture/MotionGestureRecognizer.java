@@ -25,7 +25,9 @@ import org.allbinary.input.motion.gesture.observer.MovedMotionGesturesHandler;
 import org.allbinary.input.motion.gesture.observer.ScrolledMotionGesturesHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.J2SEMath;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
 public class MotionGestureRecognizer
@@ -289,11 +291,20 @@ public class MotionGestureRecognizer
     public boolean processScrolledMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //this.logUtil.putF(this.commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
+//        final CommonSeps commonSeps = CommonSeps.getInstance();
+//        this.logUtil.putF(new StringMaker().append(current.toString()).append(commonSeps.SPACE).appendint(button).toString(), this, "processScrolledMotionEvent");
 
+        final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+        MotionGestureInput newMotionGesture = touchMotionGestureFactory.NO_MOTION;
+        
+        if (button > 0) {
+            newMotionGesture = touchMotionGestureFactory.SCROLL_UP;
+        } else if (button < 0) {
+            newMotionGesture = touchMotionGestureFactory.SCROLL_DOWN;
+        }
+        
         final MotionGestureEvent event =
-            this.motionEventCircularPool.getInstance(
-                    TouchMotionGestureFactory.getInstance().NO_MOTION);
+            this.motionEventCircularPool.getInstance(newMotionGesture);
 
         event.setPreviousPoint(this.previous);
         event.setCurrentPoint(current);
