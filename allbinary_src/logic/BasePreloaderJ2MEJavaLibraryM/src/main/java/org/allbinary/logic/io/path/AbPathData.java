@@ -89,7 +89,7 @@ public class AbPathData
     //Do not update without checking the removeNameFromPath in PathUtil
     public String removeNameFromPath(final String path, final String systemSep)
     {
-        int endIndex = path.lastIndexOf(this.SEPARATOR);
+        int endIndex = path.lastIndexOf(systemSep);
 
         if(endIndex < 0)
         {
