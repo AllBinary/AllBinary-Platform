@@ -23,5 +23,5 @@ public class ImageOutputData
     }
  
     public final static String SAVE_PATH = 
-        new StringMaker().append(System.getProperty("user.dir")).append(FilePathData.getInstance().SEPARATOR).append("saves").append(FilePathData.getInstance().SEPARATOR).toString();
+        new StringMaker().append(System.getProperty("user.dir")).appendchar(FilePathData.getInstance().SEPARATORCHAR).append("saves").appendchar(FilePathData.getInstance().SEPARATORCHAR).toString();
 }

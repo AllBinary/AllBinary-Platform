@@ -136,7 +136,7 @@ public class LinuxHardware implements HardwareInterface
          if(lineNumberReader == null)
          {
             //Find file
-            final BasicArrayList fileVector = SubDirectory.getInstance().search(filePath, AbFile.createAbFile(FilePathData.getInstance().SEPARATOR));
+            final BasicArrayList fileVector = SubDirectory.getInstance().search(filePath, AbFile.createAbFile(FilePathData.getInstance().PATH_START));
             
             //if(fileVector.size() > 0)
             if(!fileVector.isEmpty())

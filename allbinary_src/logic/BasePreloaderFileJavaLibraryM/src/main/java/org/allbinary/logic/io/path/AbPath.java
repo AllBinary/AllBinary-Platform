@@ -181,7 +181,7 @@ public class AbPath
          final StringMaker stringBuffer = new StringMaker();
          stringBuffer.append(this.schema);
          stringBuffer.append(this.commonSeps.COLON);
-         stringBuffer.append(filePathData.SEPARATOR);
+         stringBuffer.append(filePathData.PATH_START);
          stringBuffer.append(FilePathUtil.adjust(this.getPath()));
          stringBuffer.append(this.nameP);
 

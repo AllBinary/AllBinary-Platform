@@ -29,11 +29,11 @@ public class FilePathData {
     //final
     public final char SEPARATORCHAR = File.separatorChar;
 
-    public String SEPARATOR = File.separator;
+    public String PATH_START = File.separator;
 
     private FilePathData() {
         if (File.separatorChar == '\\') {
-            this.SEPARATOR = File.separator + File.separator;
+            this.PATH_START = File.separator + File.separator;
         }
     }
 

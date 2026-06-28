@@ -79,7 +79,7 @@ public class FilePathUtil
       if(stringValidationUtil.isEmpty(path))
       {
          //FilePathData.
-         return filePathData.SEPARATOR;
+         return filePathData.PATH_START;
       }
 
       //Replace Duplicate Path Separators - to deal with database insertion issue
