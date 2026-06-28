@@ -297,6 +297,7 @@ public class MotionGestureRecognizer
         final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
         MotionGestureInput newMotionGesture = touchMotionGestureFactory.NO_MOTION;
         
+        //TWB - this has only been tested for SWT
         if (button > 0) {
             newMotionGesture = touchMotionGestureFactory.SCROLL_UP;
         } else if (button < 0) {
