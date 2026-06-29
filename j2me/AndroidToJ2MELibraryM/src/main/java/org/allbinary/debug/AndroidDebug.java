@@ -27,6 +27,7 @@ public class AndroidDebug implements DebugInterface
     {
         this.setStartTime(System.currentTimeMillis());
         //To get the trace log Use: adb pull /sdcard/trace.trace ./tmp
+        //Newer devices use the app path like: ./storage/emulated/0/Android/data/org.allbinary.game.package/files/trace.trace
         //traceview G:\mnt\tmp\trace
         Debug.startMethodTracing("trace", this.bufferSize);
         this.setRunning(true);
