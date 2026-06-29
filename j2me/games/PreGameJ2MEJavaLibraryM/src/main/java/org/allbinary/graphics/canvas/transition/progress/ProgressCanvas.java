@@ -188,6 +188,7 @@ public class ProgressCanvas extends RunnableCanvas
     }
     
     public void endActual() {
+        //this.logUtil.putF(this.commonStrings.START, this, "endActual");
         //getCommandListener()
         this.allbinaryMidlet.commandAction(GameCommandsFactory.getInstance().SHOW_GAME_CANVAS, NullCanvas.NULL_CANVAS);
         this.inProgress = false;

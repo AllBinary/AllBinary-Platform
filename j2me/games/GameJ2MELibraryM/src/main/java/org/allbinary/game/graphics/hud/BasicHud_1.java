@@ -79,8 +79,7 @@ public class BasicHud_1 implements UpdateMyFontInterface //DisplayChangeEventLis
     public void updateMeasurement(final Graphics graphics) {
         try {
 
-//            this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(DisplayInfoSingleton.getInstance().toString())
-//                .append(this.canvasStrings.FD_WIDTH).appendint(this.updateMaxWidth).append(this.canvasStrings.FD_HEIGHT).appendint(this.updateMaxHeight).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+//            this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(this.updateMaxWidth).append(this.canvasStrings.FD_HEIGHT).appendint(this.updateMaxHeight).toString(), this, this.canvasStrings.UPDATE_MEASUREMENT);
 
             this.hudGraphicsPosition = this.getHudGraphicsPositionWH(
                 this.displayInfo.getLastWidth(), this.displayInfo.getLastHeight(), this.updateMaxWidth, this.updateMaxHeight);
@@ -158,6 +157,9 @@ public class BasicHud_1 implements UpdateMyFontInterface //DisplayChangeEventLis
     }
 
     public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent) {
+
+//        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(DisplayInfoSingleton.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+
         this.myFontProcessor = this.updateMyFontProcessor;
     }
 

@@ -151,8 +151,7 @@ public class GameCommandCanvas
         {
             final Font font = graphics.getFont();
             
-            this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(DisplayInfoSingleton.getInstance().toString())
-                .append(this.canvasStrings.FD_WIDTH).appendint(MyFontProcessor.defaultCharWidth(font)).append(this.canvasStrings.FD_HEIGHT).appendint(font.getHeight()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+            this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(MyFontProcessor.defaultCharWidth(font)).append(this.canvasStrings.FD_HEIGHT).appendint(font.getHeight()).toString(), this, this.canvasStrings.UPDATE_MEASUREMENT);
             
             this.fontHeight = font.getHeight();
             final Rectangle rectangle = this.createRectangle(this.menuForm.size());
@@ -179,7 +178,9 @@ public class GameCommandCanvas
     @Override
     public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent)
     {
-        this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+        //this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(DisplayInfoSingleton.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+        
         this.myFontProcessor = this.updateMyFontProcessor;
     }
     

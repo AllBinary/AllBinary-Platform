@@ -40,6 +40,7 @@ public class CanvasStrings {
     
     public final String PAINT = "paint";
     public final String ON_DISPLAY_CHANGE_EVENT = "onDisplayChangeEvent";
+    public final String UPDATE_MEASUREMENT = "updateMeasurement";
     public final String FD_WIDTH = " font/display width: ";
     public final String FD_HEIGHT = " font/display height: ";
     
