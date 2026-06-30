@@ -49,8 +49,8 @@ public class CustomTextAnimationFactory
 
     private int initScaleHeight;
 
-    private int dx = 0;
-    private int dy = 0;
+    protected int dx = 0;
+    protected int dy = 0;
 
     protected Font font;
     
