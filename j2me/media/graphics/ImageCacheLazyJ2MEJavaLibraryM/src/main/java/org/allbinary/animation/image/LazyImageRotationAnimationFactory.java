@@ -37,6 +37,7 @@ public class LazyImageRotationAnimationFactory implements AnimationInterfaceFact
         ImageCacheFactory.getInstance().hasAnyLazyAnimationFactories = true;
     }
     
+    @Override
     public Animation getInstance(final int instanceId) throws Exception {
         if(this.animationInterfaceFactoryInterface.getImage().isReady()) {
             this.animationInterfaceFactoryInterface.setInitialScale(this.scaleProperties);
@@ -46,6 +47,7 @@ public class LazyImageRotationAnimationFactory implements AnimationInterfaceFact
         }
     }
     
+    @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
         //final CommonStrings commonStrings = CommonStrings.getInstance();
         //this.logUtil.putF(scaleProperties.toString(), this, commonStrings.CONSTRUCTOR);

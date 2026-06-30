@@ -83,20 +83,6 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
         return this.sequenceArray;
     }
 
-    public String toString() {
-        final CommonSeps commonSeps = CommonSeps.getInstance();
-        final CommonLabels commonLabels = CommonLabels.getInstance();
-        final StringMaker stringBuffer = new StringMaker();
-
-        stringBuffer.append(super.toString());
-        stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(this.image.getHeight());
-        stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(this.animationFactoryInitializationVisitor.toString());
-
-        return stringBuffer.toString();
-    }
-
     @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
@@ -128,4 +114,18 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
         return this.scaleProperties;
     }
     
+    public String toString() {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
+        final StringMaker stringBuffer = new StringMaker();
+
+        stringBuffer.append(super.toString());
+        stringBuffer.append(commonLabels.HEIGHT_LABEL);
+        stringBuffer.appendint(this.image.getHeight());
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(this.animationFactoryInitializationVisitor.toString());
+
+        return stringBuffer.toString();
+    }
+
 }

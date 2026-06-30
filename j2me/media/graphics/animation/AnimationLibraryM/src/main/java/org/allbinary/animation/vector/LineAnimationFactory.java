@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.animation.vector;
 
 import org.allbinary.animation.Animation;
@@ -23,24 +23,22 @@ import org.allbinary.media.ScaleProperties;
  * @author user
  */
 public class LineAnimationFactory
-implements AnimationInterfaceFactoryInterface
-{
+    implements AnimationInterfaceFactoryInterface {
+
     private BasicColor basicColor;
 
-    public LineAnimationFactory(BasicColor basicColor)
-    {
+    public LineAnimationFactory(BasicColor basicColor) {
         this.basicColor = basicColor;
     }
 
     @Override
-    public Animation getInstance(final int instanceId) throws Exception
-    {
+    public Animation getInstance(final int instanceId) throws Exception {
         return new LineAnimation(this.basicColor);
     }
-    
+
     @Override
-   public void setInitialScale(final ScaleProperties scaleProperties) {
-       
-   }
-    
+    public void setInitialScale(final ScaleProperties scaleProperties) {
+
+    }
+
 }

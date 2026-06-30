@@ -31,17 +31,20 @@ public class HealthBarAnimationInterfaceFactory
         return new HealthBarThreedAnimation(layerInterface, location);
     }
     
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
         return null;
     }
 
+    @Override
     public Animation getInstanceAnimation(Animation animationInterface)
         throws Exception
     {
         return null;
     }
     
+    @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
     }
