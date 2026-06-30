@@ -30,7 +30,20 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 {
     protected final short angleIncrementP;
     private final boolean resizeCanvasForRotation;
-    
+
+    public static AllBinaryJ2SEImageRotationAnimationFactory createDXY(final Image image,
+            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
+    {
+        final AllBinaryJ2SEImageRotationAnimationFactory imageRotationAnimationFactory = new AllBinaryJ2SEImageRotationAnimationFactory(image, width, height, angleIncrement, animationBehaviorFactory, resizeCanvasForRotation);
+
+        imageRotationAnimationFactory.animationFactoryInitializationVisitor.dx = dx;
+        imageRotationAnimationFactory.animationFactoryInitializationVisitor.dy = dy;
+        imageRotationAnimationFactory.animationFactoryInitializationVisitor.originalDx = dx;
+        imageRotationAnimationFactory.animationFactoryInitializationVisitor.originalDy = dy;
+
+        return imageRotationAnimationFactory;
+    }
+
 //    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy)
 //    throws Exception
 //    {
@@ -74,19 +87,6 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 //
 //    }
 
-//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
-//            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
-//    {
-//
-//        this(image, width, height, angleIncrement, animationBehaviorFactory, resizeCanvasForRotation);
-//
-//        this.animationFactoryInitializationVisitor.dx = dx;
-//        this.animationFactoryInitializationVisitor.dy = dy;
-//        this.animationFactoryInitializationVisitor.originalDx = dx;
-//        this.animationFactoryInitializationVisitor.originalDy = dy;
-//
-//    }
-    
 //    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
 //            final int width, final int height, final int dx, final int dy) throws Exception
 //    {
