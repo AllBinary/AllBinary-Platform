@@ -281,7 +281,7 @@ public class GeographicMapCellHistory implements UpdateMyFontInterface {
 
         final int height = 2 * this.fontHeight;
 
-        this.animation.paintXY(graphics, x + halfWidth,
+        this.animation.paintXY(graphics, x + this.halfWidth,
             //(tiledLayer.getCellHeight() >> 1)
             y + (height));
 

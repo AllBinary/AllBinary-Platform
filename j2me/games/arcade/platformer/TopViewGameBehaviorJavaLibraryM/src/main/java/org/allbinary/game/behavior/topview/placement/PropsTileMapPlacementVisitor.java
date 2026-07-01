@@ -30,6 +30,7 @@ public class PropsTileMapPlacementVisitor extends TileMapPlacementVisitor {
 
     private final MyRandomFactory randomFactory = MyRandomFactory.getInstance();
     
+    @Override
     public void visit(final TiledMap lastMap, final int[][] mapData) {
 
         final int layerIndex = 0;

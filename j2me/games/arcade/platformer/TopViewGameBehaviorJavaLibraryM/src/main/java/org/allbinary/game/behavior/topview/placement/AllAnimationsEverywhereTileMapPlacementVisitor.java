@@ -21,6 +21,7 @@ import org.mapeditor.core.TiledMap;
  */
 public class AllAnimationsEverywhereTileMapPlacementVisitor extends TileMapPlacementVisitor {
 
+    @Override
     public void visit(final TiledMap lastMap, final int[][] mapData) {
 
         final int size = mapData.length;

@@ -165,8 +165,8 @@ public class CellPositionsUtil
 
         for (int index = 0; index < 8; index++)
         {
-            column = layerGeographicMapCellPosition.getColumn() + surroundArray[index][0];
-            row = layerGeographicMapCellPosition.getRow() + surroundArray[index][1];
+            column = layerGeographicMapCellPosition.getColumn() + this.surroundArray[index][0];
+            row = layerGeographicMapCellPosition.getRow() + this.surroundArray[index][1];
 
             if (tiledLayer.isOnTileLayer(column, row))
             {

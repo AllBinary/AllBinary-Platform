@@ -76,6 +76,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
     
         final OpenGLESImageProperties openGLESImageProperties = OpenGLESGL10Image.this.openGLESImageProperties;
             
+        @Override
         public void drawRegion(final GL10 gl, final int viewHeight,
             final float x_src, final float y_src,
             final float width, final float height,

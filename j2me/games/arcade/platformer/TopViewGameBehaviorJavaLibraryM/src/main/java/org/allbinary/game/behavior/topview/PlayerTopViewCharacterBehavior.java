@@ -33,6 +33,7 @@ public class PlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     
+    @Override
     public void terrainEvent(final AllBinaryLayer layer, final Direction direction, final int x, final int y, final BasicGeographicMap[] geographicMapInterfaceArray,
             final GeographicMapCellPosition geographicMapCellPosition)
             throws Exception {

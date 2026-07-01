@@ -79,6 +79,7 @@ public class NonPlayerTopViewCharacterBehavior extends TopViewCharacterBehavior 
 
     }
     
+    @Override
     public void terrainMove(final AllBinaryLayer layer, final BasicGeographicMap[] geographicMapInterfaceArray, final int x, final int y) {
         layer.moveDXY(x, y);
     }

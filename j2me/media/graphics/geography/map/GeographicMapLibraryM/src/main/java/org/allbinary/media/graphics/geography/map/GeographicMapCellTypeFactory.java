@@ -38,7 +38,7 @@ public class GeographicMapCellTypeFactory
 //            throw new RuntimeException();
 //        }
 //        return geographicMapCellType;
-        return geographicMapCellTypeArray[type];
+        return this.geographicMapCellTypeArray[type];
     }
 
     public GeographicMapCellType[] getGeographicMapCellTypeArray()

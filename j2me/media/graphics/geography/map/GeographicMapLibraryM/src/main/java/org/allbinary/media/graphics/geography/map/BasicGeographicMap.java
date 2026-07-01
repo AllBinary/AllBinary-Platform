@@ -176,7 +176,7 @@ public class BasicGeographicMap
             for (int rowIndex = i_rowMin; rowIndex < i_rowMax; rowIndex++) {
                 if (allBinaryTiledLayer.getColumns() > columnIndex
                     && allBinaryTiledLayer.getRows() > rowIndex) {
-                    geographicMapCellPositionList.add(geographicMapCellPositionFactory.getAt(columnIndex, rowIndex));
+                    geographicMapCellPositionList.add(this.geographicMapCellPositionFactory.getAt(columnIndex, rowIndex));
                 }
             }
         }

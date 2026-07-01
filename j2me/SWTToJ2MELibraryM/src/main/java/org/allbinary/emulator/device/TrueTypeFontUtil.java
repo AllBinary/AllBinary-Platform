@@ -137,12 +137,12 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         //final CommonStrings commonStrings = CommonStrings.getInstance();
         //this.logUtil.putF(commonStrings.START, this, GET_FONT_BITMAP);
         
-        final int cellsPerRow2 = CELLS_PER_ROW * 2;
-        final int cellsPerRow3 = CELLS_PER_ROW * 3;
-        final int cellsPerRow4 = CELLS_PER_ROW * 4;
-        final int cellsPerRow5 = CELLS_PER_ROW * 5;
-        final int cellsPerRow6 = CELLS_PER_ROW * 6;
-        final int cellsPerRow7 = CELLS_PER_ROW * 7;
+        final int cellsPerRow2 = this.CELLS_PER_ROW * 2;
+        final int cellsPerRow3 = this.CELLS_PER_ROW * 3;
+        final int cellsPerRow4 = this.CELLS_PER_ROW * 4;
+        final int cellsPerRow5 = this.CELLS_PER_ROW * 5;
+        final int cellsPerRow6 = this.CELLS_PER_ROW * 6;
+        final int cellsPerRow7 = this.CELLS_PER_ROW * 7;
 
         //final Typeface typeface = Typeface.DEFAULT;
         //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
@@ -166,7 +166,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         //for (int index = 0; index < 256; index++)
         {
             //if(pattern.length() > index) {
-                characterArray[0] = pattern.charAt(index);
+                this.characterArray[0] = pattern.charAt(index);
             //} else {
                 //characterArray[0] = ' ';
             //}
@@ -176,11 +176,11 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
             _characterWidth[index] = bounds.getMaxX();
             if (bounds.getMaxY() - bounds.getPoint().getX() > biggestHeight)
                 biggestHeight = bounds.getMaxY() - bounds.getPoint().getX();
-            x = (index % CELLS_PER_ROW) * cellSize;
+            x = (index % this.CELLS_PER_ROW) * cellSize;
             x += (cellSize >> 1);
             x -= (_characterWidth[index] >> 1);
             y = -(cellSize >> 1);
-            if (index >= CELLS_PER_ROW)
+            if (index >= this.CELLS_PER_ROW)
                 y += cellSize;
             if (index >= cellsPerRow2)
                 y += cellSize;
@@ -202,7 +202,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
             ////graphics.fillRect(x, y, bounds.getWidth(), bounds.getHeight());
             ////graphics.setColor(x, y, 0);
             //graphics.drawRect(x, y, bounds.getWidth(), bounds.getHeight());
-            graphics.drawChar(characterArray[0], x, y, 0);
+            graphics.drawChar(this.characterArray[0], x, y, 0);
                         
         }
 //        canvas.save();
@@ -225,7 +225,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         //final Rectangle bounds = new Rectangle(PointFactory.getInstance().getInstance(0, 0), (this.cellSize / 10) * 4, this.cellSize);
         for (int index = 0; index < size; index++)
         {
-            characterArray[0] = pattern.charAt(index);
+            this.characterArray[0] = pattern.charAt(index);
 //            paint.getTextBounds(characterArray, 0, 1, bounds);
 
             //Avian @ symbol does not use the correct index
@@ -301,12 +301,12 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
 //                }
 //            }
  
-            if(characterArray[0] == ' ') {
+            if(this.characterArray[0] == ' ') {
                 _characterWidth[index] = (fontSize / 4);
             } else {
                 //this.logUtil.putF("widthFloatArray: " + widthFloatArray.length, this, commonStrings.START);
                 //this.logUtil.putF("character: " + characterArray[0], this, commonStrings.START);
-                final int shortPatternIndex = this.shortPattern.indexOf(characterArray[0]);
+                final int shortPatternIndex = this.shortPattern.indexOf(this.characterArray[0]);
                 //this.logUtil.putF("shortPatternIndex: " + shortPatternIndex, this, commonStrings.START);
                 final int w = (int) (this.widthFloatArray[shortPatternIndex] / 75) + 19;
 //                this.logUtil.putF(new StringMaker().append('w').append(CommonSeps.getInstance().SPACE).append(characterArray[0]).append(w).append(';')
@@ -318,12 +318,12 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
                 
                 //if(characterArray[0] == 'r' || characterArray[0] == 't' || characterArray[0] == 'i' || characterArray[0] == 'l') _characterWidth[index] -= 3;
                 //if(characterArray[0] == 'E' || characterArray[0] == 'P') _characterWidth[index] += 5;
-                if(characterArray[0] == '.' || characterArray[0] == '1') _characterWidth[index] += 4;
-                if(characterArray[0] >= 'a' && characterArray[0] < 'k') _characterWidth[index] -= 2;
-                if(characterArray[0] >= 'k' && characterArray[0] < 'v') _characterWidth[index] -= 4;
-                if(characterArray[0] >= 'v' && characterArray[0] < 'z') _characterWidth[index] -= 8;
-                if(characterArray[0] == 'D') _characterWidth[index] -= 4;
-                if(characterArray[0] >= 'A' && characterArray[0] <= 'Z') _characterWidth[index] -= 2;
+                if(this.characterArray[0] == '.' || this.characterArray[0] == '1') _characterWidth[index] += 4;
+                if(this.characterArray[0] >= 'a' && this.characterArray[0] < 'k') _characterWidth[index] -= 2;
+                if(this.characterArray[0] >= 'k' && this.characterArray[0] < 'v') _characterWidth[index] -= 4;
+                if(this.characterArray[0] >= 'v' && this.characterArray[0] < 'z') _characterWidth[index] -= 8;
+                if(this.characterArray[0] == 'D') _characterWidth[index] -= 4;
+                if(this.characterArray[0] >= 'A' && this.characterArray[0] <= 'Z') _characterWidth[index] -= 2;
             }
             _characterWidth[index] *= this.widthScale;
             

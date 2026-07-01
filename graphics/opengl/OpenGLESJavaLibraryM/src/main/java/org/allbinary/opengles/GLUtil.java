@@ -18,8 +18,6 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
-import org.allbinary.graphics.opengles.OpenGLCapabilities;
-
 /**
  *
  * @author User

@@ -93,7 +93,7 @@ public class OwnershipPaintable extends Paintable implements UpdateMyFontInterfa
         //int height = graphics.getClipHeight();
         final int height = this.displayInfo.getLastHeight();
         
-        graphics.drawString(this.COPYRIGHT, halfWidth - this.beginWidth, height - COPYRIGHT_Y, this.anchor);
+        graphics.drawString(this.COPYRIGHT, halfWidth - this.beginWidth, height - this.COPYRIGHT_Y, this.anchor);
 
         /*
         beginWidth = (font.stringWidth(COMPANY) >> 1);

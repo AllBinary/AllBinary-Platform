@@ -77,6 +77,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         this.textureVertexFloatBuffer.rewind();
     }
     
+    @Override
     public void set(final GL gl)
     {
         final GL10 gl10 = (GL10) gl;

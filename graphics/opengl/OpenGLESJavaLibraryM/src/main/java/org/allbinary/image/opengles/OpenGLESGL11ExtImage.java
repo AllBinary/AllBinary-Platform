@@ -75,6 +75,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         }
     }
     
+    @Override
     public void set(final GL gl)
     {
         this.onDisplayChangeEvent(null);

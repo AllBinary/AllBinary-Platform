@@ -135,7 +135,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
     }
 
     public boolean hasType(final int type) {
-        final int size = types.length;
+        final int size = this.types.length;
         for(int index = 0; index < size; index++) {
             if(this.types[index] == type) {
                 return true;

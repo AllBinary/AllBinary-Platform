@@ -26,6 +26,7 @@ public class MidletExitProcessor extends Processor
         this.midlet = midlet;
     }
 
+    @Override
     public void process() throws Exception
     {
         //Emulator could have an exit but currently it is only the special Android version
