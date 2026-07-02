@@ -47,6 +47,7 @@
 
         <module>../../allbinary_src/LogNoPlatformJavaLibraryM</module>
         <module>../../allbinary_src/LogJ2MEJavaLibraryM</module>
+        <module>../../allbinary_src/LogJ2SEJavaLibraryM</module>
         <module>../../allbinary_src/LogAndroidJavaLibraryM</module>
         <module>../logging/LoggingNoneM</module>
         <module>../logging/LoggingJ2MEAllM</module>
