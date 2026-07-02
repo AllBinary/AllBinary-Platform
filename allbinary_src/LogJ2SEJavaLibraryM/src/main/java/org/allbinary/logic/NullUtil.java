@@ -41,9 +41,9 @@ public class NullUtil {
     //ActualPlatform
     public final Object[] NULL_OBJECT_ARRAY = new Object[0];
     //ActualPlatform
-    public final byte[] NULL_BYTE_ARRAY = new byte[0];
-    //ActualPlatform
     public final char[] NULL_CHAR_ARRAY = new char[0];
+    //ActualPlatform
+    public final byte[] NULL_BYTE_ARRAY = new byte[0];
     //ActualPlatform
     public final short[][] NULL_SHORT_ARRAY_ARRAY = new short[0][0];
     //ActualPlatform

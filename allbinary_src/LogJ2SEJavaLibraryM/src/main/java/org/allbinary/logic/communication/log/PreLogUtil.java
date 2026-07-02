@@ -36,37 +36,37 @@ public class PreLogUtil
         
         if(className != null)
         {
-            put(specialMessage, className, functionName, exception);
+            PreLogUtil.putOE(specialMessage, className, functionName, exception);
         }
         else
             if(object != null)
             {
-            put(specialMessage, object, functionName, exception);
+            PreLogUtil.putOE(specialMessage, object, functionName, exception);
             }
             else
             {
-            put(specialMessage, "This Should Never Happed", functionName, exception);
+            PreLogUtil.putOE(specialMessage, "This Should Never Happed", functionName, exception);
             }
     }
     */
+    
     //ActualPlatform
     public static void put(
-        String specialMessage,
-        Object object,
-        String functionName)
+        final String specialMessage,
+        final Object object,
+        final String functionName)
     {
         PreLogUtil.putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
-    
     
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
     //ActualPlatform
     public static void putOE(
-        String specialMessage,
-        Object object,
-        String functionName,
-        Object exception)
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Object exception)
     {
         String className = CommonStrings.getInstance().EMPTY;
         
@@ -75,10 +75,10 @@ public class PreLogUtil
             className = new String(object.getClass().getName());
         }
         
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
         
-        System.out.print(LOG_SUCCESS);
+        System.out.print(PreLogUtil.LOG_SUCCESS);
         System.out.println(message);
     }
     
@@ -93,15 +93,15 @@ public class PreLogUtil
     
     //ActualPlatform
     public static void putSE(
-        String specialMessage,
-        String className,
-        String functionName,
-        Object exception)
+        final String specialMessage,
+        final String className,
+        final String functionName,
+        final Object exception)
     {
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
         
-        System.out.print(LOG_SUCCESS);
+        System.out.print(PreLogUtil.LOG_SUCCESS);
         System.out.println(message);
     }
     

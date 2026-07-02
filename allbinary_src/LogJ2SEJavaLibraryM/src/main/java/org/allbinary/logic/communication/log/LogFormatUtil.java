@@ -14,12 +14,12 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.NullUtil;
-import org.allbinary.time.TimeStampUtil;
-import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.time.TimeStampUtil;
 
 //ActualPlatform
 public class LogFormatUtil

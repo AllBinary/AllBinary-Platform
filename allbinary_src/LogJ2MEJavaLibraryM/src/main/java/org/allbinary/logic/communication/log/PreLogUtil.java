@@ -15,7 +15,6 @@ package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.NullUtil;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFormatUtil;
 
 //ActualPlatform
 public class PreLogUtil
@@ -81,6 +80,15 @@ public class PreLogUtil
         
         System.out.print(PreLogUtil.LOG_SUCCESS);
         System.out.println(message);
+    }
+    
+    //ActualPlatform
+    public static void putS(
+        String specialMessage,
+        String className,
+        String functionName)
+    {
+        PreLogUtil.putSE(specialMessage, className, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
     
     //ActualPlatform

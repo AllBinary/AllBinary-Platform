@@ -14,8 +14,8 @@
 package org.allbinary.data.resource;
 
 import java.io.InputStream;
-import org.allbinary.logic.NullUtil;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
