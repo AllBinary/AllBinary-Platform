@@ -24,7 +24,7 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.AbFileInputStream;
 import org.allbinary.logic.io.AbFileLocalInputStream;
-import org.allbinary.logic.io.AbFileSystem;
+import org.allbinary.logic.io.AbIOSystem;
 import org.allbinary.logic.io.DataOutputStreamFactory;
 import org.allbinary.logic.io.FileStreamFactory;
 import org.allbinary.logic.io.StreamUtil;
@@ -510,13 +510,13 @@ public class FileUtil
         }
     }
 
-    private static String getNewDirectory(AbFile fromFile)
+    private static String getNewDirectory(final AbFile fromFile)
     {
         String newDirectory = fromFile.getPath();
 
         String separatorChar = FilePathData.getInstance().PATH_START;
 
-        if (AbFileSystem.getInstance().isType("com.vobject.appengine.java.io"))
+        if (AbIOSystem.getInstance().isType("com.vobject.appengine.java.io"))
         {
             separatorChar = AbPathData.getInstance().SEPARATOR;
         }
@@ -533,21 +533,21 @@ public class FileUtil
     }
 
     public void copyDirectoryPortion(
-        AbPath fromDirectoryAbPath, AbPath toDirectoryAbPath, boolean overwriteNewer, boolean overwriteAll, int current, int total)
+        final AbPath fromDirectoryAbPath, final AbPath toDirectoryAbPath, final boolean overwriteNewer, final boolean overwriteAll, final int current, final int total)
         throws Exception
     {
-        AbFile file = AbFile.createAbFileFromAbPath(fromDirectoryAbPath);
+        final AbFile file = AbFile.createAbFileFromAbPath(fromDirectoryAbPath);
 
         if (!file.isDirectory())
         {
             throw new Exception("Not a directory: " + file.getPath());
         }
 
-        BasicArrayList fileList = this.directory.search(file, true);
+        final BasicArrayList fileList = this.directory.search(file, true);
 
-        int size = fileList.size();
+        final int size = fileList.size();
 
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Searched: ");
         stringBuffer.append(file.getPath());
@@ -555,9 +555,9 @@ public class FileUtil
         stringBuffer.appendint(size);
 
         //Add one to round up so files will not be missed
-        int portion = size / total + 1;
+        final int portion = size / total + 1;
 
-        int start = portion * current;
+        final int start = portion * current;
 
         int end = start + portion;
 
@@ -579,9 +579,10 @@ public class FileUtil
 
         //PreLogUtil.put(stringBuffer.toString(), this, "copySomeFilesToDirectory()");
 
+        AbFile nextFile;
         for (int index = start; index < end; index++)
         {
-            AbFile nextFile = (AbFile) fileList.get(index);
+            nextFile = (AbFile) fileList.get(index);
 
             if (nextFile.isDirectory())
             {
@@ -626,7 +627,7 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILE))
             {
-                StringMaker stringBuffer = new StringMaker();
+                final StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Copying Directory from: ");
                 stringBuffer.append(fromFile.getPath());
@@ -648,9 +649,9 @@ public class FileUtil
             }
 
             //copy all files and subdirectories
-            AbFile[] fileArray = FileWrapperUtil.wrapFiles(fromFile.listFiles());
+            final AbFile[] fileArray = FileWrapperUtil.wrapFiles(fromFile.listFiles());
 
-            int size = fileArray.length;
+            final int size = fileArray.length;
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILE))
             {
@@ -666,9 +667,10 @@ public class FileUtil
                 this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyDirectory");
             }
 
+            AbFile file;
             for (int index = 0; index < size; index++)
             {
-                AbFile file = fileArray[index];
+                file = fileArray[index];
                 if (file.isFile())
                 {
                     this.copyFile(file, AbFile.createAbFilePathAndName(newDirectoryAbPath.toString(), file.getName()));
@@ -712,14 +714,14 @@ public class FileUtil
     //otherwise the fromFile directory will be copied and all of its contents
     //Example: fromFile = /home/dir to = /home/dest/ then the result will be /home/dest/dir
     //Example: fromFile = /home/dir/ to = /home/dest/ then the result will be /home/dest/(all subdirectories of /home/dir/)
-    public synchronized boolean copy(AbPath fromAbPath, AbPath to) throws Exception
+    public synchronized boolean copy(final AbPath fromAbPath, final AbPath to) throws Exception
     {
         final String COPY = "copy";
         try
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILE))
             {
-                StringMaker stringBuffer = new StringMaker();
+                final StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Copying AbPaths from: ");
                 stringBuffer.append(fromAbPath.toString());
@@ -738,8 +740,8 @@ public class FileUtil
                 throw new Exception("Cannot Copy To A Null Location");
             }
 
-            AbFile fromLocationFile = AbFile.createAbFileFromAbPath(fromAbPath);
-            AbFile toLocationFile = AbFile.createAbFileFromAbPath(to);
+            final AbFile fromLocationFile = AbFile.createAbFileFromAbPath(fromAbPath);
+            final AbFile toLocationFile = AbFile.createAbFileFromAbPath(to);
 
             //copy single file
             if (fromLocationFile.isFile())
@@ -837,7 +839,7 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.FILEERROR))
             {
-                StringMaker stringBuffer = new StringMaker();
+                final StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Error Copying fromAbPath: ");
                 stringBuffer.append(fromAbPath.toString());
@@ -897,7 +899,7 @@ public class FileUtil
     private final String DATA_LABEL = " data: ";
     private final String WRITE_METHOD = "write";
     
-    public void write(String filePath, String string) throws Exception
+    public void write(final String filePath, final String string) throws Exception
     {
         AbDataOutputStream dataOutputStream = null;
         try

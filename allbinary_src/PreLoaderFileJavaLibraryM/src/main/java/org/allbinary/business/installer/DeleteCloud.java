@@ -16,7 +16,7 @@ package org.allbinary.business.installer;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.http.file.upload.FileUploadData;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.io.AbFileSystem;
+import org.allbinary.logic.io.AbIOSystem;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
@@ -37,19 +37,19 @@ public class DeleteCloud
     {
         try
         {
-            if (AbFileSystem.getInstance().isType("com.vobject.appengine.java.io"))
+            if (AbIOSystem.getInstance().isType("com.vobject.appengine.java.io"))
             {
-                StringMaker stringBuffer = new StringMaker();
+                final StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(prePath);
 
-                AbPath path = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+                final AbPath path = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
                 //Using cloud file search currently causes problems when trying to output new file
-                AbFile file = AbFile.createAbFileFromAbPath(path);
+                final AbFile file = AbFile.createAbFileFromAbPath(path);
 
-                BasicArrayList fileBasicArrayList = Directory.getInstance().search(file, true);
+                final BasicArrayList fileBasicArrayList = Directory.getInstance().search(file, true);
 
                 int size = fileBasicArrayList.size();
 
@@ -79,9 +79,10 @@ public class DeleteCloud
                 this.logUtil.putF(
                     stringBuffer.toString(), this, "initialize()");
 
+                AbFile nextFile;
                 for (int index = start; index < end; index++)
                 {
-                    AbFile nextFile = (AbFile) fileBasicArrayList.get(index);
+                    nextFile = (AbFile) fileBasicArrayList.get(index);
 
                     try
                     {

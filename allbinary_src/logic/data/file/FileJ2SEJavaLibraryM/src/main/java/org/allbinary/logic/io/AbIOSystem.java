@@ -13,16 +13,16 @@
 */
 package org.allbinary.logic.io;
 
-public class AbFileSystem {
+public class AbIOSystem {
 
-    private static final AbFileSystem instance = new AbFileSystem();
+    private static final AbIOSystem instance = new AbIOSystem();
 
     /**
      * @return the instance
      */
-    public static AbFileSystem getInstance()
+    public static AbIOSystem getInstance()
     {
-        return AbFileSystem.instance;
+        return AbIOSystem.instance;
     }
 
     private final String type = "java.io";

@@ -13,10 +13,7 @@
  */
 package org.allbinary.logic.io.file;
 
-import java.io.File;
-import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.system.os.SystemProperties;
 
 /**
  *

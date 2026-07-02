@@ -16,7 +16,7 @@ package org.allbinary.business.installer;
 import org.allbinary.globals.PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.io.AbFileSystem;
+import org.allbinary.logic.io.AbIOSystem;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileUtil;
 import org.allbinary.logic.io.file.directory.Directory;
@@ -36,12 +36,12 @@ public class InitializeCloud
     {
     }
 
-    public boolean initialize(String cloud,
-        boolean overwriteNewer, boolean overwriteAll, int current, int total)
+    public boolean initialize(final String cloud,
+        final boolean overwriteNewer, final boolean overwriteAll, final int current, final int total)
     {
         try
         {
-            if (AbFileSystem.getInstance().isType("com.vobject.appengine.java.io"))
+            if (AbIOSystem.getInstance().isType("com.vobject.appengine.java.io"))
             {
                 //Copy all installer files into cloud
 
@@ -50,20 +50,20 @@ public class InitializeCloud
                 stringBuffer.append(cloud);
                 stringBuffer.append(PATH_GLOBALS.getInstance().DATA_PATH);
 
-                AbPath path = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+                final AbPath path = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 //stringBuffer.append(PATH_GLOBALS.getInstance().DATA_PATH);
 
-                AbPath realPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
+                final AbPath realPath = new AbPath(stringBuffer.toString(), StringUtil.getInstance().EMPTY_STRING);
 
                 //Using cloud file search currently causes problems when trying to output new file
-                AbFile file = AbFile.createAbFileFromAbPath(path);
+                final AbFile file = AbFile.createAbFileFromAbPath(path);
 
-                BasicArrayList fileBasicArrayList = Directory.getInstance().search(file, true);
+                final BasicArrayList fileBasicArrayList = Directory.getInstance().search(file, true);
 
-                int size = fileBasicArrayList.size();
+                final int size = fileBasicArrayList.size();
 
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append("Searched: ");
@@ -72,9 +72,9 @@ public class InitializeCloud
                 stringBuffer.appendint(size);
 
                 //Add one to round up so files will not be missed
-                int portion = size / total + 1;
+                final int portion = size / total + 1;
 
-                int start = portion * current;
+                final int start = portion * current;
 
                 int end = start + portion;
 
@@ -91,9 +91,10 @@ public class InitializeCloud
                 this.logUtil.putF(
                     stringBuffer.toString(), this, "initialize()");
 
+                AbFile nextFile;
                 for (int index = start; index < end; index++)
                 {
-                    AbFile nextFile = (AbFile) fileBasicArrayList.get(index);
+                    nextFile = (AbFile) fileBasicArrayList.get(index);
 
                     if (nextFile.isDirectory())
                     {
