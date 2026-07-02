@@ -39,9 +39,9 @@ public class AbPathData
     //throws Exception
     {
         int indexOfFileExtensionDelmiter = 
-            filePath.lastIndexOf(this.EXTENSION_SEP);
+            filePath.lastIndexOf('.');
         
-        int indexOfLatDelimiter = filePath.lastIndexOf(this.SEPARATOR);
+        int indexOfLatDelimiter = filePath.lastIndexOf(this.SEPARATORCHAR);
         
         if(indexOfFileExtensionDelmiter < 0)
         {
@@ -89,7 +89,7 @@ public class AbPathData
     //Do not update without checking the removeNameFromPath in PathUtil
     public String removeNameFromPath(final String path, final char systemSep)
     {
-        int endIndex = path.lastIndexOf(this.SEPARATOR);
+        int endIndex = path.lastIndexOf(this.SEPARATORCHAR);
 
         if(endIndex < 0)
         {
