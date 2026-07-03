@@ -66,18 +66,6 @@ public class AllBinaryHTMLImageRotationAnimationFactory
 //
 //    }
 
-//    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy,
-//        final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
-//    {
-//
-//        this(image, width, height, angleIncrement, animationBehaviorFactory);
-//
-//        this.animationFactoryInitializationVisitor.dx = dx;
-//        this.animationFactoryInitializationVisitor.dy = dy;
-//        this.animationFactoryInitializationVisitor.originalDx = dx;
-//        this.animationFactoryInitializationVisitor.originalDy = dy;
-//    }
-
 //    public AllBinaryHTMLImageRotationAnimationFactory(final Image image,
 //            final int width, final int height, final int dx, final int dy) throws Exception
 //    {
@@ -131,6 +119,26 @@ public class AllBinaryHTMLImageRotationAnimationFactory
 //    {
 //        this(image, width, height, angleIncrement, AnimationBehaviorFactory.getInstance());
 //    }
+
+    //    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy,
+//        final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+//    {
+//
+//        this(image, width, height, angleIncrement, animationBehaviorFactory);
+//
+//        this.animationFactoryInitializationVisitor.dx = dx;
+//        this.animationFactoryInitializationVisitor.dy = dy;
+//        this.animationFactoryInitializationVisitor.originalDx = dx;
+//        this.animationFactoryInitializationVisitor.originalDy = dy;
+//    }
+
+    public static AllBinaryHTMLImageRotationAnimationFactory createFactoryADXY(final Image image, final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+    {
+        final AllBinaryHTMLImageRotationAnimationFactory htmlImageRotationAnimationFactory = new AllBinaryHTMLImageRotationAnimationFactory(image, width, height, angleIncrement, animationBehaviorFactory);
+        htmlImageRotationAnimationFactory.init(dx, dy);
+
+        return htmlImageRotationAnimationFactory;
+    }
     
     public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int width, final int height,
             final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
@@ -138,6 +146,13 @@ public class AllBinaryHTMLImageRotationAnimationFactory
         super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
 
         this.angleIncrement = angleIncrement;
+    }
+    
+    public void init(final int dx, final int dy) {
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
     }
     
     public Animation getInstance(final int instanceId) throws Exception

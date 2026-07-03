@@ -60,6 +60,14 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         return androidImageRotationAnimationFactory;
     }
     
+    public static AllBinaryAndroidImageRotationAnimationFactory createFactoryADXY(final Image image, final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
+    {
+        final AllBinaryAndroidImageRotationAnimationFactory androidImageRotationAnimationFactory = new AllBinaryAndroidImageRotationAnimationFactory(image, width, height, angleIncrement, animationBehaviorFactory, resizeCanvasForRotation);
+        androidImageRotationAnimationFactory.init(dx, dy);
+
+        return androidImageRotationAnimationFactory;
+    }
+    
     public void init(final int dx, final int dy) {
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
@@ -112,18 +120,6 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 //        this.animationFactoryInitializationVisitor.originalDy = dy;
 //    }
     
-//    public AllBinaryAndroidImageRotationAnimationFactory(final Image image,
-//            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
-//    {
-//
-//        this(image, width, height, angleIncrement, animationBehaviorFactory, resizeCanvasForRotation);
-//
-//        this.animationFactoryInitializationVisitor.dx = dx;
-//        this.animationFactoryInitializationVisitor.dy = dy;
-//        this.animationFactoryInitializationVisitor.originalDx = dx;
-//        this.animationFactoryInitializationVisitor.originalDy = dy;
-//    }
-
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
             final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
     {
