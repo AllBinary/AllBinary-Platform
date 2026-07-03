@@ -34,9 +34,10 @@ hardware information, access times, IPs, or domains.  Without this information
 we would be unable to provide appropriate alerts, upgrades, information, and 
 security.
 
-"AllBinary", "AllBinary Platform", "AllBinary Input Automation", "Freeblisket", 
-and "Weblisket" names may not be used to promote, market, or endorse a product 
-without written permission from AllBinary.
+"AllBinary", "AllBinary Platform", "AllBinary Multi-Platform Development Kit",
+"AllBinary Game Development Kit", "AllBinary Game Engine", "Freeblisket", 
+"AllBinary Input Automation", and "Weblisket" names may not be used to promote, 
+market, or endorse a product without written permission from AllBinary.
 
 Unlawful Prohibition
 
