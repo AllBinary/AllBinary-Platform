@@ -17,6 +17,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.RotationAnimation;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 
 public class SimultaneousCompoundRotationAnimationInterfaceFactory
     extends CompoundAnimationInterfaceFactory {
@@ -25,6 +26,11 @@ public class SimultaneousCompoundRotationAnimationInterfaceFactory
         final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
         final AnimationBehaviorFactory animationBehaviorFactory) {
         super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);
+        
+        if(animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
+            ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
+        }
+        
     }
 
     @Override

@@ -21,6 +21,7 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class AllBinarySpriteRotationAnimationFactory
@@ -92,6 +93,11 @@ public class AllBinarySpriteRotationAnimationFactory
     public AllBinarySpriteRotationAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
         super(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory);
+        
+        if(animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
+            ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
+        }
+        
     }
 
     public void init(final int dx, final int dy) {

@@ -31,7 +31,7 @@ ProceduralAnimationInterfaceFactoryInterface
    final class NullRotationAnimation2 extends NullRotationAnimation {
        
        NullRotationAnimation2() {
-           super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), AnimationBehavior.getInstance());
+           super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), new IndexedAnimationBehavior(1, 250));
        }
 
        @Override

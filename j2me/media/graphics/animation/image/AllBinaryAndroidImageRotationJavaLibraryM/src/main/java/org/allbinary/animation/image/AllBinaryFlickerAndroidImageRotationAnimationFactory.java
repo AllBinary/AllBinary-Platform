@@ -19,6 +19,7 @@ import javax.microedition.lcdui.NullImage;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -46,6 +47,10 @@ public class AllBinaryFlickerAndroidImageRotationAnimationFactory
         
         this.animationBehaviorFactory = animationBehaviorFactory;
 
+//        if(animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
+//            ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
+//        }
+        
     }
     
     @Override

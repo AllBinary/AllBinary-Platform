@@ -26,6 +26,7 @@ import org.allbinary.animation.image.ImageAnimation;
 import org.allbinary.graphics.color.BasicColorUtil;
 import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.media.ScaleProperties;
 import org.allbinary.media.audio.Sound;
 
@@ -61,6 +62,11 @@ public class ImageCaptionIndexedAnimationFactory
         final int frameWidth, final int frameHeight,
         final int captionDx, final int captionDy, final int dx, final int dy, final int time,
         final AnimationBehaviorFactory animationBehaviorFactory) {
+        
+        if(animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
+            ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
+        }
+        
         this.captionImage = captionImage;
         this.spriteMovieImage = spriteMovieImage;
 

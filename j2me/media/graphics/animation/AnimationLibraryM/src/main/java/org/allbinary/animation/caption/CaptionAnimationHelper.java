@@ -32,8 +32,7 @@ public class CaptionAnimationHelper extends CaptionAnimationHelperBase
     
     private Animation animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
 
-    public CaptionAnimationHelper(final Animation captionAnimation,
-            final int captionDx, final int captionDy, final int dx, final int dy)
+    public CaptionAnimationHelper(final Animation captionAnimation, final int captionDx, final int captionDy, final int dx, final int dy)
     {
         this.captionAnimation = new CaptionAnimation(
             captionAnimation, this.textAnimation, 

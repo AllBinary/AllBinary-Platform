@@ -14,8 +14,10 @@
 package org.allbinary.animation.image;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.image.ImageCacheFactory;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.media.ScaleProperties;
 
 /**
@@ -35,6 +37,11 @@ public class LazyImageRotationAnimationFactory implements AnimationInterfaceFact
         this.layoutIndex = layoutIndex;
         this.animationInterfaceFactoryInterface = animationInterfaceFactoryInterface;
         ImageCacheFactory.getInstance().hasAnyLazyAnimationFactories = true;
+        
+        if(this.animationInterfaceFactoryInterface.animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
+            ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
+        }        
+        
     }
     
     @Override

@@ -19,6 +19,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.media.ScaleProperties;
 
 public class ImageArrayAnimationFactory 
@@ -39,6 +40,11 @@ implements AnimationInterfaceFactoryInterface
 
     	this.dx = dx;
     	this.dy = dy;
+        
+//        if(animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
+//            ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
+//        }
+        
     }
 
     @Override

@@ -16,7 +16,7 @@ package org.allbinary.animation.compound;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
-import org.allbinary.animation.IndexedAnimation;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 
 public class CompoundIndexedAnimationInterfaceFactory
     extends CompoundAnimationInterfaceFactory {
@@ -25,6 +25,11 @@ public class CompoundIndexedAnimationInterfaceFactory
         final AnimationBehaviorFactory animationBehaviorFactory)
     {
         super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);
+        
+//        if(animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
+//            ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
+//        }
+        
     }
 
     @Override

@@ -26,7 +26,7 @@ public class NullIndexedAnimationFactory implements
     final class NullIndexedAnimationInner extends NullIndexedAnimation {
 
         NullIndexedAnimationInner() {
-            super(AnimationBehavior.getInstance());
+            super(new IndexedAnimationBehavior(1, 250));
         }
 
         @Override

@@ -20,6 +20,7 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.image.AnimationFactoryImageScaleUtil;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.ScaleProperties;
 import org.allbinary.string.CommonLabels;
@@ -61,6 +62,10 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
         
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
+        
+//        if(animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
+//            ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
+//        }        
         
     }
 
