@@ -16,9 +16,9 @@ package org.allbinary.logic.io.file;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -37,7 +37,11 @@ public class AbFileSystem {
 
     private final LogUtil logUtil = LogUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
-        
+
+    public boolean isDirectory(final String path) {
+        return new File(path).isDirectory();
+    }
+
     public String[] getFilesAsStringArrayForPath(final String currentDirPath) {
         final File file = new File(currentDirPath);
         if(file.exists()) {

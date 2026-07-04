@@ -36,9 +36,13 @@ public class AbFileSystem {
     }
 
     private final LogUtil logUtil = LogUtil.getInstance();
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final CommonStrings commonStrings = CommonStrings.getInstance();    
+
+    public boolean isDirectory(final String path) {
+        return new File(path).isDirectory();
+    }
     
-    public  String[] getFilesAsStringArrayForPath(final String currentDirPath) {
+    public String[] getFilesAsStringArrayForPath(final String currentDirPath) {
         final File file = new File(currentDirPath);
         if(file.exists()) {
             return file.list();

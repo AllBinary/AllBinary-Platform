@@ -73,9 +73,9 @@ public class ResourceUtil {
     private InputStream getResourceAsStreamAtStart(final String resource, final int startIndex)
             //, Object emulatorObject)
             throws Exception {
-        final StringMaker stringMaker = new StringMaker();
+        //final StringMaker stringMaker = new StringMaker();
 
-        final CommonSeps commonSeps = CommonSeps.getInstance();
+        //final CommonSeps commonSeps = CommonSeps.getInstance();
 
         //Try getting resource with normal resource access
         InputStream inputStream = new FileInputStream(new StringMaker().append(this.path).append(resource).append(this.ext).toString());

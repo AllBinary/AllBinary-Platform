@@ -36,6 +36,11 @@ public class AbFileSystem {
     private final LogUtil logUtil = LogUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
+    public boolean isDirectory(final String path) {
+        //TODO - Use JSR 75 here
+        return false;
+    }
+    
     public String[] getFilesAsStringArrayForPath(final String currentDirPath) {
         //TODO - Use JSR 75 here
         return StringUtil.getInstance().getArrayInstance();
