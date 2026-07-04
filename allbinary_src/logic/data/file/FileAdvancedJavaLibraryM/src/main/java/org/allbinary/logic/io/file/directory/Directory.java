@@ -41,18 +41,18 @@ public class Directory
     {
     }
 
-    public boolean create(AbPath directoryAbPath)
+    public boolean create(final AbPath directoryAbPath)
     {
         return this.create(directoryAbPath.toFileSystemString());
     }
 
-    public void remove(AbPath existingDirectoryAbPath) throws Exception
+    public void remove(final AbPath existingDirectoryAbPath) throws Exception
     {
         this.remove(existingDirectoryAbPath.toFileSystemString());
     }
 
     //returns true if directories already exist or if creation was successful
-    private boolean create(String directory)
+    private boolean create(final String directory)
     {
         try
         {
@@ -81,7 +81,7 @@ public class Directory
     }
 
     //see if directory contains files if not remove directory
-    private void remove(String existingDirectory) throws Exception
+    private void remove(final String existingDirectory) throws Exception
     {
         final AbFile existingDirectoryFile = FileFactory.getInstance().getInstance(existingDirectory);
         if (existingDirectoryFile.isDirectory())
@@ -103,14 +103,14 @@ public class Directory
         }
     }
 
-    public BasicArrayList search(FileFilter fileFilter, AbFile file)
+    public BasicArrayList search(final FileFilter fileFilter, final AbFile file)
     {
         return this.search(fileFilter, file, false);
     }
 
     //Find the files matching the FileFilter in the given directory
 
-    public BasicArrayList search(FileFilter fileFilter, AbFile file, boolean isRecursiveSearch)
+    public BasicArrayList search(final FileFilter fileFilter, final AbFile file, final boolean isRecursiveSearch)
     {
         final BasicArrayList fileList = new BasicArrayListD();
 
@@ -147,7 +147,7 @@ public class Directory
         return fileList;
     }
 
-    public BasicArrayList search(AbFile file)
+    public BasicArrayList search(final AbFile file)
     {
         return this.search(file, false);
     }
@@ -184,7 +184,7 @@ public class Directory
         return fileList;
     }
 
-    public BasicArrayList search(String searchValue, AbFile file)
+    public BasicArrayList search(final String searchValue, final AbFile file)
     {
         return this.search(searchValue, file, false);
     }
@@ -225,12 +225,12 @@ public class Directory
         return fileList;
     }
 
-    public BasicArrayList search(int level, AbFile file)
+    public BasicArrayList search(final int level, final AbFile file)
     {
         return this.search(level, file, false);
     }
 
-    public BasicArrayList search(int level, AbFile file, boolean isRecursiveSearch)
+    public BasicArrayList search(final int level, final AbFile file, final boolean isRecursiveSearch)
     {
         final BasicArrayList fileList = new BasicArrayListD();
 
