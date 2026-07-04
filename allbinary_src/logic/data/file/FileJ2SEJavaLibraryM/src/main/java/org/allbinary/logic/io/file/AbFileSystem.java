@@ -26,7 +26,7 @@ import org.allbinary.string.CommonStrings;
  *
  * @author User
  */
-//J2SEForJ2ME
+//FileJ2SE should be the same as J2SEForJ2ME
 public class AbFileSystem {
     
     private static final AbFileSystem instance = new AbFileSystem();
