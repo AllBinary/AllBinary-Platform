@@ -17,7 +17,7 @@ import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.logic.io.file.AbFileSystem;
 import org.allbinary.string.CommonStrings;
 
 public class SmallDelete
@@ -32,7 +32,7 @@ public class SmallDelete
     public SmallDelete(String fileName)
     {
         this.fileName = fileName;
-        this.string = FileUtil.getInstance().readAsString(fileName);
+        this.string = AbFileSystem.getInstance().readAsString(fileName);
     }
 
     //Include end

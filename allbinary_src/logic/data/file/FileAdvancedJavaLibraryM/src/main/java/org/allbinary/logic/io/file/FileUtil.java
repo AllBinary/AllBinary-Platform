@@ -856,36 +856,7 @@ public class FileUtil
     //TWB -Could add
     //FileUtil.encCopy(rootCategoryAbFile, categoryAbPath,
     // CategoryData.ENCRYPTED_EXTENSION);
-    
-    public String readAsString(final String fileName)
-    {
-        final byte[] bytes = new byte[1000000];
-        return this.readAsString(fileName, bytes);
-    }
-
-    public String readAsString(final String fileName, final byte[] bytes)
-    {
-        Closeable closeable = NullCloseable.NULL_CLOSEABLE;
-        try
-        {
-            final InputStream idFile = new FileInputStream(fileName);
-            closeable = idFile;
-            final int size = idFile.read(bytes);
-            if(size > 0) {
-                return new String(bytes, 0, size);
-            }
-        } catch (Exception e)
-        {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.IDLOGGING))
-            {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, "readAsString", e);
-            }
-        } finally {
-            this.streamUtil.close(closeable);
-        }
-        return StringUtil.getInstance().EMPTY_STRING;
-    }
-    
+        
    public boolean shouldSkip(final AbFile file, final String[] skipFiles) {
        final int size = skipFiles.length;
        String skipFile;
