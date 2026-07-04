@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.io.file;
 
+import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -27,6 +28,7 @@ import org.allbinary.logic.io.AbFileLocalInputStream;
 import org.allbinary.logic.io.AbIOSystem;
 import org.allbinary.logic.io.DataOutputStreamFactory;
 import org.allbinary.logic.io.FileStreamFactory;
+import org.allbinary.logic.io.NullCloseable;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
@@ -863,10 +865,11 @@ public class FileUtil
 
     public String readAsString(final String fileName, final byte[] bytes)
     {
-        FileInputStream idFile = null;
+        Closeable closeable = NullCloseable.NULL_CLOSEABLE;
         try
         {
-            idFile = new FileInputStream(fileName);
+            final InputStream idFile = new FileInputStream(fileName);
+            closeable = idFile;
             final int size = idFile.read(bytes);
             if(size > 0) {
                 return new String(bytes, 0, size);
@@ -875,10 +878,10 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.IDLOGGING))
             {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, "SmallInsert", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "readAsString", e);
             }
         } finally {
-            this.streamUtil.close(idFile);
+            this.streamUtil.close(closeable);
         }
         return StringUtil.getInstance().EMPTY_STRING;
     }
