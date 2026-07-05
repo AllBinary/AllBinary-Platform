@@ -59,7 +59,19 @@ public class AbPathData {
         return indexOfFileExtensionDelmiter;
     }
 
-    public String getExtension(final String filePath) //throws Exception
+    public String getExtensionWithDot(final String filePath)
+    {
+        final int indexOfFileExtensionDelmiter = this.getExtensionIndex(filePath);
+        String extension = StringUtil.getInstance().EMPTY_STRING;
+
+        if (indexOfFileExtensionDelmiter >= 0) {
+            extension = filePath.substring(indexOfFileExtensionDelmiter);
+        }
+
+        return extension;
+    }
+    
+    public String getExtension(final String filePath)
     {
         final int indexOfFileExtensionDelmiter = this.getExtensionIndex(filePath);
         String extension = StringUtil.getInstance().EMPTY_STRING;
