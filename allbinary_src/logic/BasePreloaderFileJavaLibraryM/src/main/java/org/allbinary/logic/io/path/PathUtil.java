@@ -167,30 +167,6 @@ public class PathUtil
         return path;
     }
     
-    public String getNameFromPath(String categoryPath)
-    {
-        int endIndex = categoryPath.lastIndexOf(this.abPathData.SEPARATOR);
-        
-        if(endIndex < 0)
-        {
-            endIndex = categoryPath.lastIndexOf(this.filePathData.SEPARATORCHAR);
-        }
-        
-        if(endIndex < 0) return categoryPath;
-        
-        //if the last char is sep then use the last token as the name
-        if(categoryPath.length() == endIndex + 1)
-        {
-            String categoryName = categoryPath.substring(0, endIndex);
-            return this.getNameFromPath(categoryName);
-        }
-        else
-        {
-            String categoryName = categoryPath.substring(endIndex + 1);
-            return categoryName;
-        }
-    }
-
     //Do not update without checking the removeNameFromPath in AbPathData
     public AbPath removeNameFromPath(String path) throws Exception
     {

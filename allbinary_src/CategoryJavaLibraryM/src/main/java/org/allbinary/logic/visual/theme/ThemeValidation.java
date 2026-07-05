@@ -71,9 +71,10 @@ public class ThemeValidation
    {
       this.transformInfoInterface = transformInfoInterface;
       
+      final AbPathData pathData = AbPathData.getInstance();
       final PathUtil pathUtil = PathUtil.getInstance();
       this.categoryAbPath = pathUtil.removeNameFromPath(categoryThemePath);
-      this.themeName = pathUtil.getNameFromPath(categoryThemePath);
+      this.themeName = pathData.getNameFromPath(categoryThemePath);
 
       this.styleValidationInterface = cssStyleValidation;
       
@@ -88,9 +89,10 @@ public class ThemeValidation
 
       AbPath categoryThemeAbPath = new AbPath((String) hashMap.get(ThemeData.getInstance().PATH), StringUtil.getInstance().EMPTY_STRING);
 
+      final AbPathData pathData = AbPathData.getInstance();
       final PathUtil pathUtil = PathUtil.getInstance();
       this.categoryAbPath = pathUtil.removeNameFromPath(categoryThemeAbPath.toString());
-      this.themeName = pathUtil.getNameFromPath(categoryThemeAbPath.toString());
+      this.themeName = pathData.getNameFromPath(categoryThemeAbPath.toString());
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {

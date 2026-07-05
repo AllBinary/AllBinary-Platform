@@ -47,6 +47,8 @@ public class RootStoreCategoryProperties
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    private final AbPathData pathData = AbPathData.getInstance();
+
    private AbPath fileAbPath;
    private AbPath abPath;
    private String category;
@@ -75,7 +77,7 @@ public class RootStoreCategoryProperties
    {
       this.transformInfoInterface = transformInfoInterface;
       this.abPath = categoryAbPath;
-      this.category = PathUtil.getInstance().getNameFromPath(categoryAbPath.toString());
+      this.category = this.pathData.getNameFromPath(categoryAbPath.toString());
       
       if(StringValidationUtil.getInstance().isEmpty(this.category))
       {
@@ -94,7 +96,7 @@ public class RootStoreCategoryProperties
       final String categoryPath = CategoryUtil.getNameFromNode(node);
 
       this.abPath = new AbPath(categoryPath, StringUtil.getInstance().EMPTY_STRING);
-      this.category = PathUtil.getInstance().getNameFromPath(categoryPath);
+      this.category = this.pathData.getNameFromPath(categoryPath);
       
       if(StringValidationUtil.getInstance().isEmpty(this.category))
       {
@@ -116,7 +118,7 @@ public class RootStoreCategoryProperties
             CategoryData.getInstance().NAME));
 
       this.abPath = new AbPath(categoryPath, StringUtil.getInstance().EMPTY_STRING);
-      this.category = PathUtil.getInstance().getNameFromPath(categoryPath);
+      this.category = this.pathData.getNameFromPath(categoryPath);
       
       if(StringValidationUtil.getInstance().isEmpty(this.category))
       {

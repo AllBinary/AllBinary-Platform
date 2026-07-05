@@ -10,69 +10,61 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.io.path;
 
 //Used to correct user input for paths
-
+import org.allbinary.logic.io.file.FilePathData;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 
-public class AbPathData
-{
+public class AbPathData {
+
     private static final AbPathData instance = new AbPathData();
 
-    public static AbPathData getInstance()
-    {
+    public static AbPathData getInstance() {
         return AbPathData.instance;
     }
-    
-   public final String EXTENSION_SEP = CommonSeps.getInstance().PERIOD;
-   public final char SEPARATORCHAR = '/';
-   public final String SEPARATOR = CommonSeps.getInstance().FORWARD_SLASH;
-   
-   private AbPathData()
-   {
-   }
 
-    public int getExtensionIndex(String filePath)
-    //throws Exception
+    public final String EXTENSION_SEP = CommonSeps.getInstance().PERIOD;
+    public final char SEPARATORCHAR = '/';
+    public final String SEPARATOR = CommonSeps.getInstance().FORWARD_SLASH;
+
+    private AbPathData() {
+    }
+
+    public int getExtensionIndex(final String filePath) //throws Exception
     {
-        int indexOfFileExtensionDelmiter = 
-            filePath.lastIndexOf('.');
-        
-        int indexOfLatDelimiter = filePath.lastIndexOf(this.SEPARATORCHAR);
-        
-        if(indexOfFileExtensionDelmiter < 0)
-        {
+        final int indexOfFileExtensionDelmiter =
+            filePath.lastIndexOf(this.EXTENSION_SEP);
+
+        final int indexOfLatDelimiter = filePath.lastIndexOf(this.SEPARATORCHAR);
+
+        if (indexOfFileExtensionDelmiter < 0) {
             //throw new Exception("No File Extension for: " + filePath);
             return -1;
         }
-        
-        if(indexOfFileExtensionDelmiter < indexOfLatDelimiter)
-        {
+
+        if (indexOfFileExtensionDelmiter < indexOfLatDelimiter) {
             //throw new Exception("No File Extension for: " + filePath);
             return -1;
         }
-        
-      /*
+
+        /*
       if(filePath.length() < indexOfFileExtensionDelmiter)
       {
          throw new Exception("Could not be a file path since its less than " + indexOfFileExtensionDelmiter + " characters");
       }
-       */
-        
+         */
         return indexOfFileExtensionDelmiter;
     }
-    
-    public String getExtension(String filePath) 
-    //throws Exception
+
+    public String getExtension(final String filePath) //throws Exception
     {
-        int indexOfFileExtensionDelmiter = this.getExtensionIndex(filePath);
+        final int indexOfFileExtensionDelmiter = this.getExtensionIndex(filePath);
         String extension = StringUtil.getInstance().EMPTY_STRING;
-        
-        if(indexOfFileExtensionDelmiter >= 0)
-        {
+
+        if (indexOfFileExtensionDelmiter >= 0) {
             extension = filePath.substring(indexOfFileExtensionDelmiter + 1);
         }
 
@@ -81,36 +73,50 @@ public class AbPathData
         {
             PreLogUtil.put("FileExtension: " + extension, this, "getExtension()");
         }
-        */
-        
+         */
         return extension;
     }
 
-    //Do not update without checking the removeNameFromPath in PathUtil
-    public String removeNameFromPath(final String path, final char systemSep)
-    {
+    public String getNameFromPath(final String path) {
         int endIndex = path.lastIndexOf(this.SEPARATORCHAR);
 
-        if(endIndex < 0)
-        {
-            endIndex = path.lastIndexOf(systemSep);
+        if (endIndex < 0) {
+            endIndex = path.lastIndexOf(FilePathData.getInstance().SEPARATORCHAR);
         }
-        
-        if(endIndex < 0)
-        {
+
+        if (endIndex < 0) {
+            return path;
+        }
+
+        //if the last char is sep then use the last token as the name
+        if (path.length() == endIndex + 1) {
+            String categoryName = path.substring(0, endIndex);
+            return this.getNameFromPath(categoryName);
+        } else {
+            String categoryName = path.substring(endIndex + 1);
+            return categoryName;
+        }
+    }
+
+    //Do not update without checking the removeNameFromPath in PathUtil
+    public String removeNameFromPath(final String path) {
+        int endIndex = path.lastIndexOf(this.SEPARATORCHAR);
+
+        if (endIndex < 0) {
+            endIndex = path.lastIndexOf(FilePathData.getInstance().SEPARATORCHAR);
+        }
+
+        if (endIndex < 0) {
             return StringUtil.getInstance().EMPTY_STRING;
         }
-        
+
         //if the last char is sep then use the last token as the name
-        if(path.length() == endIndex + 1)
-        {
-            return this.removeNameFromPath(path.substring(0, endIndex - 1), systemSep);
-        }
-        else
-        {
+        if (path.length() == endIndex + 1) {
+            return this.removeNameFromPath(path.substring(0, endIndex - 1));
+        } else {
             String pathWithoutName = path.substring(0, endIndex);
             return pathWithoutName;
         }
     }
-    
+
 }

@@ -21,10 +21,11 @@ public class AbFilePath extends AbPath
    {
       super(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
       
+      final AbPathData pathData = AbPathData.getInstance();
       final PathUtil abPathUtil = PathUtil.getInstance();
       
       this.schema = this.getSchema(aPath);
-      this.setName(abPathUtil.getNameFromPath(aPath));
+      this.setName(pathData.getNameFromPath(aPath));
       this.setPath(abPathUtil.adjust(
          this.getPathFromPath(abPathUtil.removeNameFromPath(aPath).toString()))
          );

@@ -38,6 +38,11 @@ public class AbFileSystem {
     private final LogUtil logUtil = LogUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
+    public boolean isDirectoryOrFile(final String path) {
+        final File file = new File(path);
+        return file.isDirectory() || file.isFile();
+    }
+    
     public boolean isDirectory(final String path) {
         return new File(path).isDirectory();
     }
@@ -90,7 +95,12 @@ public class AbFileSystem {
         } catch (Exception e) {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CLOSE, e);
             return false;
-        }
+        }    
     }
     
+    public static void main(final String[] args) throws Exception {
+        final boolean isDirectory = AbFileSystem.getInstance().isDirectory("c:");
+        System.out.println("isDirectory: " + isDirectory);
+    }
+
 }

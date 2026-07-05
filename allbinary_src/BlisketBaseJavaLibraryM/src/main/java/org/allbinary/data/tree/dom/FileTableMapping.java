@@ -19,6 +19,7 @@ import java.util.Vector;
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileData;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.io.path.PathUtil;
 
 public class FileTableMapping
@@ -55,8 +56,9 @@ public class FileTableMapping
    {
       final HashMap filePropertyHashMap = new HashMap();
 
+      final AbPathData pathData = AbPathData.getInstance();
       final PathUtil pathUtil = PathUtil.getInstance();
-      final String rootFileName = pathUtil.getNameFromPath(pathUtil.getWithoutExtension(this.file.getPath()));
+      final String rootFileName = pathData.getNameFromPath(pathUtil.getWithoutExtension(this.file.getPath()));
       final FileData fileData = FileData.getInstance();
       
       filePropertyHashMap.put(fileData.ROOT_NAME, rootFileName);
