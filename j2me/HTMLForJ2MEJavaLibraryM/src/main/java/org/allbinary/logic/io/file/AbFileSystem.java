@@ -13,8 +13,6 @@
  */
 package org.allbinary.logic.io.file;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 
 import org.allbinary.logic.NullUtil;
@@ -39,21 +37,18 @@ public class AbFileSystem {
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     public boolean isDirectoryOrFile(final String path) {
-        final File file = new File(path);
-        return file.isDirectory() || file.isFile();
+        //For HTML Use FileReader API
+        return false;
     }
     
     public boolean isDirectory(final String path) {
-        return new File(path).isDirectory();
+        //For HTML Use FileReader API
+        return false;
     }
-
+    
     public String[] getFilesAsStringArrayForPath(final String currentDirPath) {
-        final File file = new File(currentDirPath);
-        if(file.exists()) {
-            return file.list();
-        } else {
-            return StringUtil.getInstance().getArrayInstance();
-        }
+        //For HTML Use FileReader API
+        return StringUtil.getInstance().getArrayInstance();
     }
     
     public String readAsString(final String fileName)
@@ -64,24 +59,7 @@ public class AbFileSystem {
 
     public String readAsString(final String fileName, final byte[] bytes)
     {
-        Object closeable = NullUtil.getInstance().NULL_OBJECT;
-        try
-        {
-            final InputStream idFile = new FileInputStream(fileName);
-            closeable = idFile;
-            final int size = idFile.read(bytes);
-            if(size > 0) {
-                return new String(bytes, 0, size);
-            }
-        } catch (Exception e)
-        {
-//            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(this.logConfigTypeFactory.IDLOGGING))
-//            {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, "readAsString", e);
-//            }
-        } finally {
-            this.close(closeable);
-        }
+        //TODO - Use JSR 75 here
         return StringUtil.getInstance().EMPTY_STRING;
     }
     

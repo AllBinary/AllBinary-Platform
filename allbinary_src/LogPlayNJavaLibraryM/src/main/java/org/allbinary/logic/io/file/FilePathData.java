@@ -13,8 +13,6 @@
  */
 package org.allbinary.logic.io.file;
 
-import java.io.File;
-
 public class FilePathData {
 
     private static final FilePathData instance = new FilePathData();
@@ -27,14 +25,11 @@ public class FilePathData {
     }
 
     //final
-    public final char SEPARATORCHAR = File.separatorChar;
+    public final char SEPARATORCHAR = '\\';
 
-    public String PATH_START = File.separator;
+    public String PATH_START = "\\\\";
 
     private FilePathData() {
-        if (File.separatorChar == '\\') {
-            this.PATH_START = File.separator + File.separator;
-        }
     }
 
 }
