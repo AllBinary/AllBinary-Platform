@@ -22,6 +22,7 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.graphics.font.UpdateMyFontInterface;
 import org.allbinary.graphics.font.UpdateMyFontProcessor;
+import org.allbinary.graphics.threed.SWTJOGLProcessor;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -44,6 +45,7 @@ public class TextAnimation extends IndexedAnimation
     private int anchor = Anchor.TOP_LEFT;
 
     private int fontHeight = 0;
+    private int offsetY = 0;
 
     private TextChangeListener textChangeListener = TextChangeListener.getInstance();
     
@@ -59,6 +61,7 @@ public class TextAnimation extends IndexedAnimation
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         this.fontHeight = font.getHeight();
+        this.offsetY = SWTJOGLProcessor.getInstance().isJOGL() ? (int) -(this.fontHeight * 1.33) : 0;
         this.textChangeListener.onMeasure();
         this.textChangeListener = TextChangeListener.getInstance();
         this.myFontProcessor = MyFontProcessor.getInstance();
@@ -84,7 +87,7 @@ public class TextAnimation extends IndexedAnimation
         final int size = this.textArrayP.length;
         for(int index = 0; index < size; index++) {
             //this.logUtil.putF(new StringMaker().append(textArray[index]).append(CommonSeps.getInstance().SPACE).append(x).append(CommonSeps.getInstance().SPACE).append(y).toString(), this, this.commonStrings.PROCESS);
-            graphics.drawString(this.textArrayP[index], x, y + (index * this.fontHeight), this.anchor);
+            graphics.drawString(this.textArrayP[index], x, y + this.offsetY + (index * this.fontHeight), this.anchor);
             //graphics.drawString(textArray[index], x + WIDTH, y + (index * height) + HEIGHT, anchor);
         }
 
