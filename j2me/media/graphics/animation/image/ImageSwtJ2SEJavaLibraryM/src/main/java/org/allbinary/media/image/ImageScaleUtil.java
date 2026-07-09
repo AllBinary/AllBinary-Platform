@@ -98,8 +98,7 @@ public class ImageScaleUtil {
         final int width = originalImage.getWidth();
         final int height = originalImage.getHeight();
         
-        //final Image scaledImage = this.imageCopyUtil.createImage(originalImage, (int) (scaleX * width), (int) (scaleY * height), mutable);
-        final Image scaledImage = this.imageCopyUtil.createImageWH(originalImage, (int) scaleX, (int) scaleY, mutable);
+        final Image scaledImage = this.imageCopyUtil.createImageWH(originalImage, (int) (scaleX * width), (int) (scaleY * height), mutable);
         originalImageArray[0] = scaledImage;
     }    
 
