@@ -75,6 +75,11 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
     public int getWidth() {
         return this.image.getWidth();
     }
+    
+    @Override
+    public int getHeight() {
+        return this.image.getHeight();
+    }
 
     /*
     public void paint(Graphics graphics) {
