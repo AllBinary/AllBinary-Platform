@@ -21,6 +21,15 @@ import org.allbinary.logic.system.hardware.windows.WindowsHardware;
 
 public class HardwareFactory
 {
+    private static final HardwareFactory instance = new HardwareFactory();
+
+    /**
+     * @return the instance
+     */
+    public static HardwareFactory getInstance()
+    {
+        return HardwareFactory.instance;
+    }
 
     private HardwareFactory()
     {
