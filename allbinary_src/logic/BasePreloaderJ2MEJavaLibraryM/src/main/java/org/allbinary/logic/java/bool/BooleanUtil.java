@@ -14,6 +14,7 @@
 package org.allbinary.logic.java.bool;
 
 import org.allbinary.TsUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
 
 public class BooleanUtil
@@ -74,4 +75,14 @@ public class BooleanUtil
         }
         return false;
     }
+    
+    public String toStringFromBooleanArray(final boolean[] booleanArray) {
+        final StringMaker stringMaker = new StringMaker();
+        final int size = booleanArray.length;
+        for(int index = 0; index < size; index++) {
+            stringMaker.appendboolean(booleanArray[index]);
+        }
+        return stringMaker.toString();
+    }
+    
 }
