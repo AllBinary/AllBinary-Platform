@@ -26,6 +26,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
@@ -263,9 +264,9 @@ extends LayerManagerEventListener
     public void onDeleteLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
             throws Exception
     {
-        //this.logUtil.putF(this.commonStrings.START, this, "onDeleteLayerManagerEvent");
-
         final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
+        
+        //this.logUtil.putF(this.commonStrings.START + layerInterface.getName(), this, "onDeleteLayerManagerEvent");
 
         // Ignore weapons
         // if(!this.countWeapons && (layerInterface.getType() ==
@@ -308,7 +309,7 @@ extends LayerManagerEventListener
             this.logUtil.putF(stringBuffer.toString(), this, "onDeleteLayerManagerEvent");
         }
         */        
-            
+            //this.log();
         }        
     }
 
