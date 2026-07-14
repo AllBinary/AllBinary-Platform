@@ -17,8 +17,12 @@ package org.allbinary.animation.text;
  *
  * @author User
  */
-public interface GetTextInterface {
+public interface TextInterface {
  
+    void setTextWithOnMeasure(final String text, final TextChangeListener textChangeListener);
     String getText();
+    void setText(final String text);
+    int getFontHeight();
+    int getWidth();
 
 }

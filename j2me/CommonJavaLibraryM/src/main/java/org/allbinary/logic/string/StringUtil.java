@@ -21,6 +21,7 @@ public class StringUtil {
         return StringUtil.instance;
     }
 
+    public final String INIT_STRING = new String("");
     public final String NULL_STRING = "null";
     public final String EMPTY_STRING = "";
     public String[] ONE_EMPTY_STRING_ARRAY = {this.EMPTY_STRING};

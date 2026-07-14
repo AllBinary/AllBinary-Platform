@@ -18,16 +18,15 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.font.FontDebugFactory;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 /**
  *
  * @author User
  */
 public class CustomTextAnimation extends TextAnimation
-    implements GetTextInterface
+    implements TextInterface
 {
-    private static final String INIT_STRING = new String("");
     
     protected final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
     
@@ -35,7 +34,7 @@ public class CustomTextAnimation extends TextAnimation
     
     protected Font font;
 
-    private String lastText = CustomTextAnimation.INIT_STRING;
+    private String lastText = StringUtil.getInstance().INIT_STRING;
     protected boolean hasChanged = true;
     
     public CustomTextAnimation(final String text, final int fontSize, final AnimationBehavior animationBehavior)

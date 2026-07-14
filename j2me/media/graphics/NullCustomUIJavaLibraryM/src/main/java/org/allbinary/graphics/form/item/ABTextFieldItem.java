@@ -9,10 +9,14 @@ import org.allbinary.logic.util.visitor.Visitor;
 
 public class ABTextFieldItem extends ABTextItem
 {
+    private Font font;
+    
     public ABTextFieldItem(Canvas canvas, Visitor visitor, String label, String value, int maxSize, int layout, String altText,
                            final Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {
         super(label, layout, altText, backgroundBasicColor, foregroundBasicColor);
+        
+        this.font = font;
     }
     
     @Override
@@ -34,4 +38,9 @@ public class ABTextFieldItem extends ABTextItem
     public void setFocus(boolean state)
     {
     }
+    
+    public int getFontHeight() {
+        return this.font.getHeight();
+    }
+    
 }
