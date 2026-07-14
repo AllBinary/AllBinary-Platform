@@ -78,6 +78,10 @@ OpenGLSurfaceChangedInterface
         this.colorP = this.basicColor.intValue();
     }
 
+    public void setBackgroundBasicColorP(final BasicColor basicColor)
+    {
+    }
+    
     public BasicColor getChangeBasicColor()
     {
         return this.changeBasicColorP;

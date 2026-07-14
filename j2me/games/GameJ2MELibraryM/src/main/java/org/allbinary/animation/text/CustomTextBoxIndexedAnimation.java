@@ -19,6 +19,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.game.input.event.RawKeyEventListener;
+import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.font.UpdateMyFontInterface;
 import org.allbinary.graphics.form.item.CustomTextBox;
 import org.allbinary.logic.string.StringUtil;
@@ -48,6 +49,11 @@ public class CustomTextBoxIndexedAnimation extends IndexedAnimation
         this.customTextBox = customTextBox;
     }
 
+    public void setBackgroundBasicColorP(final BasicColor basicColor)
+    {
+        this.customTextBox.getTextFieldItem().setBackgroundBasicColorP(basicColor);
+    }
+    
     public void setTextWithOnMeasure(final String text, final TextChangeListener textChangeListener) {
         this.setText(text);
         this.textChangeListener = textChangeListener;

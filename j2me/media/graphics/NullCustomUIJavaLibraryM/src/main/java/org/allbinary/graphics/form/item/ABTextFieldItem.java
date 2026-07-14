@@ -42,5 +42,10 @@ public class ABTextFieldItem extends ABTextItem
     public int getFontHeight() {
         return this.font.getHeight();
     }
+
+    public void setBackgroundBasicColorP(final BasicColor basicColor)
+    {
+
+    }
     
 }
