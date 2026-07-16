@@ -47,5 +47,10 @@ public class ABTextFieldItem extends ABTextItem
     {
 
     }
+
+    public void setForegroundBasicColorP(final BasicColor basicColor)
+    {
+
+    }
     
 }

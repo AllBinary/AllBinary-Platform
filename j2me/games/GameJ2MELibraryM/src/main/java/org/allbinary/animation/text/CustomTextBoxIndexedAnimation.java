@@ -49,6 +49,11 @@ public class CustomTextBoxIndexedAnimation extends IndexedAnimation
         this.customTextBox = customTextBox;
     }
 
+    public void setBasicColorP(final BasicColor basicColor)
+    {
+        this.customTextBox.getTextFieldItem().setForegroundBasicColorP(basicColor);
+    }
+    
     public void setBackgroundBasicColorP(final BasicColor basicColor)
     {
         this.customTextBox.getTextFieldItem().setBackgroundBasicColorP(basicColor);
