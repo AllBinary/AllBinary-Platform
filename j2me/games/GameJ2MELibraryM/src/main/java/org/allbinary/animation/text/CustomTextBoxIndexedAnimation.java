@@ -49,16 +49,19 @@ public class CustomTextBoxIndexedAnimation extends IndexedAnimation
         this.customTextBox = customTextBox;
     }
 
+    @Override
     public void setBasicColorP(final BasicColor basicColor)
     {
         this.customTextBox.getTextFieldItem().setForegroundBasicColorP(basicColor);
     }
     
+    @Override
     public void setBackgroundBasicColorP(final BasicColor basicColor)
     {
         this.customTextBox.getTextFieldItem().setBackgroundBasicColorP(basicColor);
     }
     
+    @Override
     public void setTextWithOnMeasure(final String text, final TextChangeListener textChangeListener) {
         this.setText(text);
         this.textChangeListener = textChangeListener;
@@ -74,6 +77,7 @@ public class CustomTextBoxIndexedAnimation extends IndexedAnimation
         //this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
+    @Override
     public void setText(final String text)
     {
         //this.logUtil.putF(new StringMaker().append(" text: ").append(text).toString(), this, this.commonStrings.PROCESS);        
@@ -99,6 +103,7 @@ public class CustomTextBoxIndexedAnimation extends IndexedAnimation
         this.customTextBox.onEventRaw(keyCode, deviceId, repeated);
     }
 
+    @Override
     public int getFontHeight() {
         return this.customTextBox.getTextFieldItem().getFontHeight();
     }

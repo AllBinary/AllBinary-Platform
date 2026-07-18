@@ -89,7 +89,8 @@ public class AbFileSystem {
         try {
             if (closeable != null) {
                 //this.logUtil.putF("Closing: " + closeable, this, CLOSE);
-                ((InputStream) closeable).close();
+                final InputStream inputStream = ((InputStream) closeable);
+                inputStream.close();
             }
             return true;
         } catch (Exception e) {

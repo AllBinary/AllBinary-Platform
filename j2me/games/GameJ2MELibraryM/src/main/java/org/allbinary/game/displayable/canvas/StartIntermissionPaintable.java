@@ -59,7 +59,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
      
     private int anchor = Anchor.TOP_LEFT;
     
-    protected int fontHeight;
+    protected int fontHeightP;
 
     public StartIntermissionPaintable(final AllBinaryGameCanvas gameCanvas, final String[] stringArray, final BasicColor basicColor, final Font font)
     {
@@ -76,7 +76,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     @Override
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
-        this.fontHeight = font.getHeight();
+        this.fontHeightP = font.getHeight();
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     

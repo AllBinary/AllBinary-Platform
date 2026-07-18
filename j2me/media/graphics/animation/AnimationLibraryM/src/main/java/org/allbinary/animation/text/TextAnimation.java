@@ -61,7 +61,8 @@ public class TextAnimation extends IndexedAnimation
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         this.fontHeight = font.getHeight();
-        this.offsetY = SWTJOGLProcessor.getInstance().isJOGL() ? (int) -(this.fontHeight * 1.33) : 0;
+        final int adjustedFontHeight = (int) -(this.fontHeight * 1.33);
+        this.offsetY = SWTJOGLProcessor.getInstance().isJOGL() ? adjustedFontHeight : 0;
         this.textChangeListener.onMeasure();
         this.textChangeListener = TextChangeListener.getInstance();
         this.myFontProcessor = MyFontProcessor.getInstance();

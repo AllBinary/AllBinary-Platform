@@ -265,7 +265,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     private PaintableInterface progressPaintable = ProgressCanvasFactory.getLazyInstance();
 
-    protected int fontHeight;
+    protected int fontHeightP;
     
     public AllBinaryGameCanvas(
             final CommandListener commandListener,
@@ -308,7 +308,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             
             this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(MyFontProcessor.defaultCharWidth(font)).append(this.canvasStrings.FD_HEIGHT).appendint(font.getHeight()).toString(), this, this.canvasStrings.UPDATE_MEASUREMENT);
             
-            this.fontHeight = font.getHeight();
+            this.fontHeightP = font.getHeight();
             
             this.myFormUtil.updateMeasurement(graphics);
             
