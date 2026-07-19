@@ -20,12 +20,13 @@ public class InputAutomationModuleConfigurationsSingletonFactory
     private static InputAutomationModuleConfigurations inputAutomationModuleConfigurations =
         new InputAutomationModuleConfigurations(InputAutomationConfigurationFactory.getInstance().getInputAutomationModuleConfigurationList());
     
-    private InputAutomationModuleConfigurationsSingletonFactory()
-    {
-    }
-
     public static InputAutomationModuleConfigurations getInstance()
     {
         return InputAutomationModuleConfigurationsSingletonFactory.inputAutomationModuleConfigurations;
     }
+
+    private InputAutomationModuleConfigurationsSingletonFactory()
+    {
+    }
+
 }
