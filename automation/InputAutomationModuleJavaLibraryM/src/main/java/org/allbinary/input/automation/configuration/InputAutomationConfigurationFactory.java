@@ -29,15 +29,21 @@ import org.allbinary.string.CommonStrings;
 
 public class InputAutomationConfigurationFactory
 {
+    private static final InputAutomationConfigurationFactory instance = new InputAutomationConfigurationFactory();
+    
+    public static InputAutomationConfigurationFactory getInstance() {
+        return InputAutomationConfigurationFactory.instance;
+    }
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static InputAutomationConfiguration inputAutomationConfiguration = null;
-    
+    public InputAutomationConfiguration inputAutomationConfiguration = null;
+
     private InputAutomationConfigurationFactory()
     {
     }
     
-    public static void init(final AbeClientInformationInterface abeClientInformation)
+    public void init(final AbeClientInformationInterface abeClientInformation)
     throws Exception
     {
         final LogUtil logUtil = LogUtil.getInstance();
@@ -51,20 +57,22 @@ public class InputAutomationConfigurationFactory
             final JAXBContext jaxbContext = JAXBContext.newInstance(InputAutomationConfiguration.class);
             final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             final JAXBElement<InputAutomationConfiguration> root = unmarshaller.unmarshal(new StreamSource(new FileInputStream(file)), InputAutomationConfiguration.class);
-            InputAutomationConfigurationFactory.inputAutomationConfiguration = (InputAutomationConfiguration) 
+            this.inputAutomationConfiguration = (InputAutomationConfiguration) 
                     //unmarshaller.unmarshal(file);
                     root.getValue();
             
             final List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList = 
-                    InputAutomationConfigurationFactory.inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
+                    this.inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
             
-            logUtil.putF("isInstalled: " + InputAutomationConfigurationFactory.inputAutomationConfiguration.isInstalled(), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
+            logUtil.putF("isInstalled: " + this.inputAutomationConfiguration.isInstalled() + " inputAutomationModuleConfigurationList: " + inputAutomationModuleConfigurationList, INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
 
-            final int size = inputAutomationModuleConfigurationList.size();
-            InputAutomationModuleConfiguration inputAutomationModuleConfiguration;
-            for (int index = 0; index < size; index++) {
-                inputAutomationModuleConfiguration = inputAutomationModuleConfigurationList.get(index);
-                inputAutomationModuleConfiguration.init(abeClientInformation);
+            if(inputAutomationModuleConfigurationList != null) {
+                final int size = inputAutomationModuleConfigurationList.size();
+                InputAutomationModuleConfiguration inputAutomationModuleConfiguration;
+                for (int index = 0; index < size; index++) {
+                    inputAutomationModuleConfiguration = inputAutomationModuleConfigurationList.get(index);
+                    inputAutomationModuleConfiguration.init(abeClientInformation);
+                }
             }
             
             logUtil.putF("LoadedConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
@@ -72,12 +80,8 @@ public class InputAutomationConfigurationFactory
         else
         {
             logUtil.putF("New Configuration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
-            InputAutomationConfigurationFactory.inputAutomationConfiguration = new InputAutomationConfiguration();
+            this.inputAutomationConfiguration = new InputAutomationConfiguration();
         }
     }
     
-    public static InputAutomationConfiguration getInstance()
-    {
-        return InputAutomationConfigurationFactory.inputAutomationConfiguration;
-    }
 }

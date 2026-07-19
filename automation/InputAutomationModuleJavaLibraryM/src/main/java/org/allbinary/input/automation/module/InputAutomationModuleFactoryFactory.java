@@ -20,11 +20,10 @@ import java.util.Iterator;
 import javax.help.HelpSet;
 import javax.help.event.HelpSetEvent;
 import javax.help.event.HelpSetListener;
-import javax.swing.*;
+import javax.swing.ListModel;
 
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfiguration;
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurations;
-import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurationsSingletonFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.help.JavaHelpSetNotifier;
 import org.allbinary.string.CommonStrings;
@@ -37,7 +36,7 @@ public class InputAutomationModuleFactoryFactory
     private DefaultListModelHelper defaultListModelHelper;
     private HelpSetListener helpSetListenerInterface;
     
-    public InputAutomationModuleFactoryFactory(final HelpSetListener helpSetListenerInterface)
+    public InputAutomationModuleFactoryFactory(final InputAutomationModuleConfigurations inputAutomationModuleConfigurations, final HelpSetListener helpSetListenerInterface)
     throws Exception
     {
         this.helpSetListenerInterface = helpSetListenerInterface;
@@ -45,8 +44,6 @@ public class InputAutomationModuleFactoryFactory
         
         this.hashMap = new HashMap();
         
-        final InputAutomationModuleConfigurations inputAutomationModuleConfigurations = InputAutomationModuleConfigurationsSingletonFactory.getInstance();
-
         final Collection collection = inputAutomationModuleConfigurations.getHashMap().values();
         final Iterator iterator = collection.iterator();
         InputAutomationModuleConfiguration inputAutomationModuleConfiguration;

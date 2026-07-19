@@ -15,18 +15,21 @@ package org.allbinary.input.automation;
 import org.allbinary.thread.ARunnable;
 
 
-import java.awt.*;
 import java.net.URI;
 import java.net.URL;
+import java.awt.Desktop;
+import java.util.List;
 
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.help.HelpSet;
 import javax.help.event.HelpSetEvent;
 import javax.help.event.HelpSetListener;
-import javax.swing.*;
 
 import bundle.input.automation.InputAutomationBundleActivatorListenerInterface;
 import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
 import bundle.input.automation.robot.InputAutomationRobotChangeListener;
+
 import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.gui.dialog.BasicTextJDialog;
@@ -36,8 +39,8 @@ import org.allbinary.input.automation.configuration.InputAutomationConfiguration
 import org.allbinary.input.automation.configuration.InputAutomationConfigurationModuleChangeEvent;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryFactory;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
+import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfiguration;
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurations;
-import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurationsSingletonFactory;
 import org.allbinary.input.automation.osgi.DesktopBundle;
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.osgi.InputAutomationRobotChangeEvent;
@@ -54,7 +57,8 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
-    
+
+   private InputAutomationModuleConfigurations inputAutomationModuleConfigurations = new InputAutomationModuleConfigurations();
    private InputAutomationModuleFactoryFactory inputAutomationModuleFactory;
    private InputAutomationModuleFactoryInterface inputAutomationModuleInterface;
    private RunnableInterface runnableInterface;
@@ -88,12 +92,19 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
       this.helpSet.remove(helpSetEvent.getHelpSet());
    }
-
+   
    private void init() throws Exception
    {
-      InputAutomationConfigurationFactory.init(InputAutomationClientInformationFactory.getInstance());
+      final InputAutomationConfigurationFactory inputAutomationConfigurationFactory = InputAutomationConfigurationFactory.getInstance();
+      inputAutomationConfigurationFactory.init(InputAutomationClientInformationFactory.getInstance());
+      final List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList = inputAutomationConfigurationFactory.inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
+      if(inputAutomationModuleConfigurationList == null) {
+          //No modules from configuration loaded.
+      } else {
+          this.inputAutomationModuleConfigurations = new InputAutomationModuleConfigurations(inputAutomationModuleConfigurationList);
+      }
 
-      this.inputAutomationModuleFactory = new InputAutomationModuleFactoryFactory(this);
+      this.inputAutomationModuleFactory = new InputAutomationModuleFactoryFactory(inputAutomationModuleConfigurations, this);
 
       (new JListSwingWorker(this.inputAutomationModuleJList, this.inputAutomationModuleFactory.getListModel())).execute();
 
@@ -619,7 +630,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       });
    }
 
-   public static void main(String[] args) throws Exception
+   public static void main(final String[] args) throws Exception
    {
       InputAutomationJFrame.create(null);
    }
@@ -629,12 +640,12 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       return this.automationModuleConfigurationJPanel;
    }
 
-   public void setAutomationModuleConfigurationJPanel(javax.swing.JPanel automationModuleConfigurationJPanel)
+   public void setAutomationModuleConfigurationJPanel(final javax.swing.JPanel automationModuleConfigurationJPanel)
    {
       this.automationModuleConfigurationJPanel = automationModuleConfigurationJPanel;
    }
 
-   public void onAdd(InputAutomationRobotChangeEvent inputAutomationRobotChangeEvent)
+   public void onAdd(final InputAutomationRobotChangeEvent inputAutomationRobotChangeEvent)
    {
       try
       {
@@ -647,7 +658,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       }
    }
 
-   public void onRemove(InputAutomationRobotChangeEvent inputAutomationRobotChangeEvent)
+   public void onRemove(final InputAutomationRobotChangeEvent inputAutomationRobotChangeEvent)
    {
       try
       {
@@ -666,9 +677,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       {
          this.logUtil.putF(this.commonStrings.START, this, "onAdd");
 
-         final InputAutomationModuleConfigurations inputAutomationModuleConfigurations = InputAutomationModuleConfigurationsSingletonFactory.getInstance();
-
-         inputAutomationModuleConfigurations.add(inputAutomationConfigurationChangeEvent.getInputAutomationModuleConfiguration());
+         this.inputAutomationModuleConfigurations.add(inputAutomationConfigurationChangeEvent.getInputAutomationModuleConfiguration());
 
          //inputAutomationConfiguration.save();
          this.init();
@@ -678,13 +687,22 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       }
    }
 
-   public void onRemove(InputAutomationConfigurationModuleChangeEvent inputAutomationConfigurationChangeEvent)
+   public void onRemove(final InputAutomationConfigurationModuleChangeEvent inputAutomationConfigurationChangeEvent)
    {
       try
       {
          this.logUtil.putF(this.commonStrings.START, this, "onRemove");
-
-         final InputAutomationConfiguration inputAutomationConfiguration = InputAutomationConfigurationFactory.getInstance();
+         
+         final InputAutomationConfiguration inputAutomationConfiguration = InputAutomationConfigurationFactory.getInstance().inputAutomationConfiguration;
+         
+            final java.util.List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList = inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
+            if(inputAutomationModuleConfigurationList == null) {
+                final LogUtil logUtil = LogUtil.getInstance();
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                logUtil.putF("inputAutomationModuleConfigurationList: " + inputAutomationModuleConfigurationList, this, commonStrings.INIT);
+                throw new Exception();
+            }
+         
          final InputAutomationModuleConfigurations inputAutomationModuleConfigurations = new InputAutomationModuleConfigurations(inputAutomationConfiguration.getInputAutomationModuleConfigurationList());
 
          inputAutomationModuleConfigurations.remove(inputAutomationConfigurationChangeEvent.getInputAutomationModuleConfiguration());
