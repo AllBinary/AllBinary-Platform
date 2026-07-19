@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<INPUT_AUTOMATION>
+    <INPUT_AUTOMATION_INSTALLATION>true</INPUT_AUTOMATION_INSTALLATION>
+    <INPUT_AUTOMATION_MODULE>
+        <DYNAMICCOMPONENT_NAME>org.allbinary.input.automation.module.generic.GenericModuleFactory</DYNAMICCOMPONENT_NAME>
+    </INPUT_AUTOMATION_MODULE>
+</INPUT_AUTOMATION>
