@@ -75,8 +75,8 @@ public class PathFinder extends GeographicPathFinderBase {
     
     @Override
     public BasicArrayList searchTotalPath(
-        BasicArrayList startPathFindingNodeList,
-        BasicArrayList endPathFindingNodeList, int totalPaths) {
+        final BasicArrayList startPathFindingNodeList,
+        final BasicArrayList endPathFindingNodeList, final int totalPaths) {
         
         try {
             return this.search((PathFindingNode) startPathFindingNodeList.get(0), (PathFindingNode) endPathFindingNodeList.get(0));
@@ -89,8 +89,8 @@ public class PathFinder extends GeographicPathFinderBase {
    
     @Override
     public BasicArrayList searchTotalPathN(
-        BasicArrayList startPathFindingNodeList,
-        BasicArrayList endPathFindingNodeList, int totalPaths, final MultipassState multipassState)
+        final BasicArrayList startPathFindingNodeList,
+        final BasicArrayList endPathFindingNodeList, final int totalPaths, final MultipassState multipassState)
         throws Exception {
         
         if(multipassState.step == 0) {
