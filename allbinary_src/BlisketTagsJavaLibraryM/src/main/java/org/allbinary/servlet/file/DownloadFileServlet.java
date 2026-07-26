@@ -33,6 +33,7 @@ import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.servlet.BlisketServletUtil;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
 /**
@@ -121,7 +122,7 @@ public class DownloadFileServlet extends HttpServlet
 
                     stringBuffer.append("attachment; filename=\"");
                     stringBuffer.append(file.getName());
-                    stringBuffer.append("\"");
+                    stringBuffer.append(CommonSeps.getInstance().QUOTE);
 
                     response.setHeader("Content-Disposition", stringBuffer.toString());
 

@@ -1,5 +1,7 @@
 package org.allbinary.logic.communication.sql;
 
+import org.allbinary.string.CommonSeps;
+
 /**
  *
  * @author user
@@ -43,7 +45,7 @@ public class SqlStrings
     public final String END = ") )";
     
     public final String EQUAL_QUOTE = " = \"";
-    public final String CLOSE_QUOTE = "\"";
+    public final String CLOSE_QUOTE = CommonSeps.getInstance().QUOTE;
     public final String EQUAL_QUOTE_NO_SPACE = "=\"";
     
     public final String ESCAPE = "\\";

@@ -32,6 +32,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class UserEntity extends AbSqlBean implements UserEntityInterface
 {
@@ -46,7 +47,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
    private final String COMMAND_SUCCESS_BUT_LOGIN_FAILED = "Command Success but login failed for user: ";
    private final String INVALID_PASSWORD_LABEL = " Password: \n\"";
    private final String NOT_EQUAL = "\"!=\"";
-   private final String END_QUOTES = "\"";
+   private final String END_QUOTES = CommonSeps.getInstance().QUOTE;
 
    public UserEntity()
    {
