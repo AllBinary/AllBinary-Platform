@@ -47,8 +47,8 @@ public class ImageRotationUtil {
         Image originalImage2 = originalImage;
         if(this.features.isFeature(OpenGLFeatureFactory.getInstance().OPENGL)) {
             
-            if (originalImage.getType() >= OpenGLESImage.TYPE) {
-                final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
+            if (image.getType() >= OpenGLESImage.TYPE) {
+                final OpenGLESImage openGLESImage = ((OpenGLESImage) image);
                 //originalImage2 = openGLESImage.openGLBitmap.getImage();
                 openGLESImage.openGLESImageProperties.angle = totalAngle;
 //                if(originalImage != image) {
@@ -56,8 +56,20 @@ public class ImageRotationUtil {
 //                }
                 return;
             } else {
-                PreLogUtil.put("OpenGL but image is: " + originalImage + " type: " + originalImage.getType(), this, "rotateImage");
+                PreLogUtil.put("OpenGL but image is: " + image + " type: " + image.getType(), this, "rotateImage");
             }
+
+//            if (originalImage.getType() >= OpenGLESImage.TYPE) {
+//                final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
+//                //originalImage2 = openGLESImage.openGLBitmap.getImage();
+//                openGLESImage.openGLESImageProperties.angle = totalAngle;
+////                if(originalImage != image) {
+////                    throw new RuntimeException();
+////                }
+//                return;
+//            } else {
+//                PreLogUtil.put("OpenGL but image is: " + originalImage + " type: " + originalImage.getType(), this, "rotateImage");
+//            }
         }
         
         final org.eclipse.swt.graphics.Image originalSwtImage = ((org.eclipse.swt.graphics.Image) originalImage2.getImage());
