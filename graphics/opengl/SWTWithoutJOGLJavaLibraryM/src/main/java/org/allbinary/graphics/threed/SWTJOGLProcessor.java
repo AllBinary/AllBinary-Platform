@@ -97,8 +97,8 @@ public class SWTJOGLProcessor implements Runnable {
     
     }
 
-    public void setRatioProcessor() {
-        
+    public void setRatioProcessor(RatioProcessor ratioProcessor) {
+
     }
 
     public int charWidth(Font font, char ch) {
