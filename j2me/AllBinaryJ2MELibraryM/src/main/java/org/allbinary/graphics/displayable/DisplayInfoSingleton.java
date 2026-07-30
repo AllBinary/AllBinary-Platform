@@ -533,6 +533,8 @@ public class DisplayInfoSingleton
     
     public void setCustom(final int width, final int height) {
 
+        //this.logUtil.put(new StringMaker().append(" w: ").appendint(width).append(" h: ").appendint(height).append(" ratio: ").appendfloat(ratio).toString(), this, "setCustom", new Exception());
+
         this.last[this.CUSTOM_WIDTH] = width;
         this.lastHalf[this.CUSTOM_WIDTH] = (this.last[this.CUSTOM_WIDTH] >> 1);
         this.last[this.CUSTOM_HEIGHT] = height;
