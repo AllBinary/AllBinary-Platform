@@ -65,6 +65,7 @@ public class ImageCopyUtil
     
     private final String NO_COPY = "SWT should not copy images after initial loading as the alpha is not honored";
     //private final String NO_COPY2 = "JOGL support for SWT Image copy is not implemented";
+    private final String UNABLE = "Unable to scale image without dimensions";
 
     public Image createImageForRotation(final Image originalImage)
             throws Exception
@@ -331,8 +332,14 @@ public class ImageCopyUtil
                 final ImageData imageData2 = originalImmutableImage.image.getImageData();
                 //this.logUtil.putF(new StringMaker().append("witdh: ").append(width).append(" height: ").append(height).toString(), this, this.commonStrings.CONSTRUCTOR);
 //                if(imageData2.data.length != 120000) {
-                    final ImageData imageData = imageData2.scaledTo(width, height);
-                    image = new SwtImmutableImage(originalImage.getName(), SwtDeviceComponent.createImage(imageData));
+                    if(width > 0 && height > 0) {
+                        final ImageData imageData = imageData2.scaledTo(width, height);
+                        image = new SwtImmutableImage(originalImage.getName(), SwtDeviceComponent.createImage(imageData));
+                    } else {
+                        
+                        this.logUtil.putF(UNABLE, this, this.commonStrings.CONSTRUCTOR);
+                        image = new SwtImmutableImage(originalImmutableImage.getName(), new PostLoadSwtImmutableImageProcessor(originalImmutableImage));
+                    }
                     //image = new SwtMutableImage(originalImage.getName(), SwtDeviceComponent.createImage(imageData));
 //                } else {
 //                    return originalImage;

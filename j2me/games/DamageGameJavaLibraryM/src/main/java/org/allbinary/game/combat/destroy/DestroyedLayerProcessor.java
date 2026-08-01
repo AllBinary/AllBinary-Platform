@@ -19,6 +19,9 @@ import org.allbinary.game.combat.destroy.event.DestroyedEventHandler;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.BasicLayerProcessor;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class DestroyedLayerProcessor extends BasicLayerProcessor
@@ -40,8 +43,9 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
         return DestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR;
     }
 
-    //private final String LAYER_LABEL = "layerInterface: ";
- 
+//    private final CommonStrings commonStrings = CommonStrings.getInstance();
+//    private final String LAYER_LABEL = "layerInterface: ";    
+
     @Override
     public void process(AllBinaryLayerManager allBinaryLayerManager)
         throws Exception
@@ -53,8 +57,8 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
         final DestroyEventCircularStaticPool destroyEventCircularStaticPool =
             DestroyEventCircularStaticPool.getInstance();
         
-        //final StringMaker stringBuilder = new StringMaker();
-        //this.logUtil.putF(stringBuilder.append("Removing: ").append(size).append(" left: ").append(allBinaryLayerManager.getSize()).toString(), this, this.commonStrings.PROCESS);
+//        final StringMaker stringBuilder = new StringMaker();
+//        this.logUtil.putF(stringBuilder.append("Removing: ").appendint(size).append(" left: ").appendint(allBinaryLayerManager.getSize()).toString(), this, this.commonStrings.PROCESS);
 
         //GroupLayerManagerListener.getInstance().log();
         DestroyedEvent destroyedEvent;
@@ -67,24 +71,34 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
             if(layerInterfaceCanBeNull != null) {
                 
                 layerInterface = (AllBinaryLayer) layerInterfaceCanBeNull;
-                //stringBuilder.delete(0, stringBuilder.length());
-                //this.logUtil.putF(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, this.commonStrings.PROCESS);
+//                if(layerInterface != null) {
+//                    stringBuilder.delete(0, stringBuilder.length());
+//                    this.logUtil.putF(stringBuilder.append(LAYER_LABEL).append(layerInterface.toString()).toString(), this, this.commonStrings.PROCESS);
+//                } else {
+//                    stringBuilder.delete(0, stringBuilder.length());
+//                    this.logUtil.putF(stringBuilder.append(LAYER_LABEL).append(StringUtil.getInstance().NULL_STRING).toString(), this, this.commonStrings.PROCESS);
+//                }
 
-                //stringBuilder.delete(0, stringBuilder.length());
-                //this.logUtil.putF(stringBuilder.append("Processing: ").append(allBinaryLayerManager.getSize()).toString(), this, this.commonStrings.PROCESS);
+//                stringBuilder.delete(0, stringBuilder.length());
+//                this.logUtil.putF(stringBuilder.append("Processing: ").appendint(allBinaryLayerManager.getSize()).toString(), this, this.commonStrings.PROCESS);
                 allBinaryLayerManager.remove(layerInterface);
 
-                //stringBuilder.delete(0, stringBuilder.length());
-                //this.logUtil.putF(stringBuilder.append("After: ").append(allBinaryLayerManager.getSize()).toString(), this, this.commonStrings.PROCESS);
+//                stringBuilder.delete(0, stringBuilder.length());
+//                this.logUtil.putF(stringBuilder.append("After: ").appendint(allBinaryLayerManager.getSize()).toString(), this, this.commonStrings.PROCESS);
                 destroyedEvent = destroyEventCircularStaticPool.getInstanceForLayer(layerInterface);
 
                 // Notify Listeners of Destroyed Layer
                 destroyedEventHandler.fireEvent(destroyedEvent);
             } else {
-                //final CommonStrings commonStrings = CommonStrings.getInstance();
+                final CommonStrings commonStrings = CommonStrings.getInstance();
                 //final StringMaker stringBuilder = new StringMaker();
-                //stringBuilder.delete(0, stringBuilder.length());
-                //this.logUtil.put(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS, new Exception());
+//                if(layerInterfaceCanBeNull != null) {
+//                    stringBuilder.delete(0, stringBuilder.length());
+//                    this.logUtil.put(stringBuilder.append(LAYER_LABEL).append(layerInterfaceCanBeNull.toString()).toString(), this, commonStrings.PROCESS, new Exception());
+//                } else {                    
+//                    stringBuilder.delete(0, stringBuilder.length());
+//                    this.logUtil.put(stringBuilder.append(LAYER_LABEL).append(StringUtil.getInstance().NULL_STRING).toString(), this, commonStrings.PROCESS, new Exception());
+//                }
             }
             
         }
