@@ -23,12 +23,12 @@ public class RectangleFilledAnimation
 extends Animation 
 implements ColorCompositeInterface
 {
-   private int width;
-   private int height;
+   protected int widthP;
+   protected int heightP;
    
    public RectangleFilledAnimation(final int width, final int height, final BasicColor basicColor) {
-      this.width = width;
-      this.height = height;
+      this.widthP = width;
+      this.heightP = height;
       this.setBasicColorP(basicColor);
    }
 
@@ -41,7 +41,7 @@ implements ColorCompositeInterface
        this.basicSetColorUtil.setBasicColorP3(
                graphics, this.getBasicColorP(), this.getColor());
 
-      graphics.fillRect(x, y, this.width, this.height);
+      graphics.fillRect(x, y, this.widthP, this.heightP);
    }
 
     /**
@@ -49,7 +49,7 @@ implements ColorCompositeInterface
      */
     public void setWidth(final int width)
     {
-        this.width = width;
+        this.widthP = width;
     }
 
     /**
@@ -57,6 +57,6 @@ implements ColorCompositeInterface
      */
     public void setHeight(final int height)
     {
-        this.height = height;
+        this.heightP = height;
     }
 }

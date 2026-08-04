@@ -15,23 +15,19 @@ package org.allbinary.animation.vector;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.animation.Animation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.ColorCompositeInterface;
 
 public class RectangleFilledAdjustedAnimation
-extends Animation 
+extends RectangleFilledAnimation 
 implements ColorCompositeInterface
 {
-   private int width;
-   private int height;
 
    private int offsetX;
    private int offsetY;
 
-   public RectangleFilledAdjustedAnimation(int width, int height, int offsetX, int offsetY, BasicColor basicColor) {
-      this.width = width;
-      this.height = height;
+   public RectangleFilledAdjustedAnimation(final int width, final int height, final int offsetX, final int offsetY, final BasicColor basicColor) {
+       super(width, height, basicColor);
 
       this.offsetX = offsetX;
       this.offsetY = offsetY;
@@ -44,28 +40,12 @@ implements ColorCompositeInterface
    }
 
    @Override
-   public void paintXY(Graphics graphics, int x, int y) {
+   public void paintXY(final Graphics graphics, final int x, final int y) {
        this.basicSetColorUtil.setBasicColorP3(
                graphics, this.getBasicColorP(), this.getColor());
 
-      graphics.fillRect(x + this.offsetX, y + this.offsetY, this.width, this.height);
+       super.paintXY(graphics, x + this.offsetX, y + this.offsetY);
    }
-
-    /**
-     * @param width the width to set
-     */
-    public void setWidth(int width)
-    {
-        this.width = width;
-    }
-
-    /**
-     * @param height the height to set
-     */
-    public void setHeight(int height)
-    {
-        this.height = height;
-    }
 
     /**
      * @param offsetX the offsetX to set
