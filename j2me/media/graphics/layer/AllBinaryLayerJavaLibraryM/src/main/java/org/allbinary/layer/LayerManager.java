@@ -29,7 +29,23 @@ public class LayerManager
     {
         return this.list.contains(layerInterface);
     }
-    
+
+    public void update(final AllBinaryLayer layerInterface) throws Exception
+    {
+        this.list.remove(layerInterface);
+        
+        AllBinaryLayer nextLayerInterface;
+        final int size = this.list.size();
+        for(int index = 0; index < size; index++) {
+            nextLayerInterface = (AllBinaryLayer) this.list.get(index);
+            if(layerInterface.getZP() > nextLayerInterface.getZP()) {
+                this.list.addAt(index, layerInterface);
+                return;
+            }
+        }
+        this.list.add(layerInterface);
+    }
+
     public void insert(final AllBinaryLayer layerInterface) throws Exception
     {
         AllBinaryLayer nextLayerInterface;
