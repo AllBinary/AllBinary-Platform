@@ -32,18 +32,20 @@ public class LayerManager
 
     public void update(final AllBinaryLayer layerInterface) throws Exception
     {
-        this.list.remove(layerInterface);
+        boolean had = this.list.remove(layerInterface);
         
-        AllBinaryLayer nextLayerInterface;
-        final int size = this.list.size();
-        for(int index = 0; index < size; index++) {
-            nextLayerInterface = (AllBinaryLayer) this.list.get(index);
-            if(layerInterface.getZP() > nextLayerInterface.getZP()) {
-                this.list.addAt(index, layerInterface);
-                return;
+        if(had) {
+            AllBinaryLayer nextLayerInterface;
+            final int size = this.list.size();
+            for (int index = 0; index < size; index++) {
+                nextLayerInterface = (AllBinaryLayer) this.list.get(index);
+                if (layerInterface.getZP() > nextLayerInterface.getZP()) {
+                    this.list.addAt(index, layerInterface);
+                    return;
+                }
             }
+            this.list.add(layerInterface);
         }
-        this.list.add(layerInterface);
     }
 
     public void insert(final AllBinaryLayer layerInterface) throws Exception
