@@ -85,6 +85,7 @@ PickupCompositeInterface, SpecialGameInputInterface
     
     public boolean isDraggable = false;
     public boolean isDragged = false;
+    public boolean isDropped = false;
 
     public CollidableDestroyableDamageableLayer(
             final Group[] groupInterface, final String name, final Rectangle layerInfo, final ViewPositionBase viewPosition)
