@@ -44,6 +44,8 @@ public class CommonLabels {
     public final String CURRENT = " Current: ";
     public final String ITEM_LABEL = "Item: ";
     
+    public final String RESULT_ = "Result: ";
+    
     public final String COLON_SEP = ": ";
     
 }

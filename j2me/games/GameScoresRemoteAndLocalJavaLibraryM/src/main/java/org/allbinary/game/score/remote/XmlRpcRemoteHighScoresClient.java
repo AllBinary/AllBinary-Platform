@@ -99,7 +99,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            //System.out.println("Result: \n" + result.toString());
+            //System.out.println(CommonLabels.getInstance().RESULT_ + CommonSeps.getInstance().NEW_LINE + result.toString());
             this.logUtil.putF(RESULT + result.toString(), this, this.commonStrings.GET);
             // }
 

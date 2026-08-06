@@ -91,7 +91,7 @@ AppUrlGlobals urlGlobals = new AppUrlGlobals();
 urlGlobals.setWebappPath("G:\\mnt\\bc\\mydev\\working\\allbinary_src\\blisket\\FreeblisketWebApplication\\web\\");
 URLGLOBALS.init(urlGlobals);
 
-        System.out.print("Result: "+
+        System.out.print(CommonLabels.getInstance().RESULT_ +
             DocumentToNode.convertDocumentToNodeString(
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?><jsp:root xmlns:jsp=\"http://java.sun.com/JSP/Page\" xmlns:transformInfoObjectConfig=\"/WEB-INF/transformInfoObjectConfig.tld\" xmlns:transform=\"/WEB-INF/transform.tld\" xmlns:payment=\"/WEB-INF/payment.tld\" xmlns:generic=\"/WEB-INF/generic.tld\" xmlns:ecommerce=\"/WEB-INF/ecommerce.tld\" xmlns:admin=\"/WEB-INF/admin.tld\" xmlns:jutil=\"/WEB-INF/jutil.tld\" version=\"1.2\"><jsp:scriptlet></jsp:scriptlet><div class=\"mainHeading\"><p>About</p><div class=\"main\"><jsp:expression>DEFAULTBODYMESSAGE</jsp:expression></div></div></jsp:root>"
             ));

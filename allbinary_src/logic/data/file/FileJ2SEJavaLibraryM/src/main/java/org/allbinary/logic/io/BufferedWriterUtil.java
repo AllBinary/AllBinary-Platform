@@ -20,6 +20,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 
 public class BufferedWriterUtil {
@@ -35,11 +37,15 @@ public class BufferedWriterUtil {
 
     private final LogUtil logUtil = LogUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final CommonLabels commonLabels = CommonLabels.getInstance();
+    
+    private final String REMOVING_OLD = "Remove old for overwritting: ";
     
     public void overwrite(final String path, final String data) throws Exception
     {
         final AbFile abFile = AbFile.createAbFile(path);
         if(abFile.exists()) {
+            this.logUtil.putF(this.REMOVING_OLD + path, this, this.commonStrings.CREATE);
             abFile.delete();
         } else {
             //Create all of the directories that the file needs when it does not exist already.
@@ -48,9 +54,12 @@ public class BufferedWriterUtil {
             if(abFileDirectory.exists()) {
                 
             } else {
-                this.logUtil.putF(name, this, this.commonStrings.CREATE);
-                abFileDirectory.mkdirs();
-            }            
+                final StringMaker stringBuilder = new StringMaker();
+                this.logUtil.putF(stringBuilder.append(this.commonStrings.CREATE).append(this.commonLabels.COLON_SEP).append(name).toString(), this, this.commonStrings.CREATE);
+                boolean result = abFileDirectory.mkdirs();
+                stringBuilder.delete(0, stringBuilder.length());
+                this.logUtil.putF(stringBuilder.append(this.commonLabels.RESULT_).appendboolean(result).toString(), this, this.commonStrings.CREATE);
+            }
         }
 
         this.write(abFile, data);
@@ -59,6 +68,7 @@ public class BufferedWriterUtil {
     public void overwrite(final AbFile abFile, final String data) throws Exception
     {
         if(abFile.exists()) {
+            this.logUtil.putF(this.REMOVING_OLD + abFile.getPath(), this, this.commonStrings.CREATE);
             abFile.delete();
         } else {
             //Create all of the directories that the file needs when it does not exist already.
@@ -67,8 +77,11 @@ public class BufferedWriterUtil {
             if(abFileDirectory.exists()) {
                 
             } else {
-                this.logUtil.putF(name, this, this.commonStrings.CREATE);
-                abFileDirectory.mkdirs();
+                final StringMaker stringBuilder = new StringMaker();
+                this.logUtil.putF(stringBuilder.append(this.commonStrings.CREATE).append(this.commonLabels.COLON_SEP).append(name).toString(), this, this.commonStrings.CREATE);
+                boolean result = abFileDirectory.mkdirs();
+                stringBuilder.delete(0, stringBuilder.length());
+                this.logUtil.putF(stringBuilder.append(this.commonLabels.RESULT_).appendboolean(result).toString(), this, this.commonStrings.CREATE);
             }            
         }
 

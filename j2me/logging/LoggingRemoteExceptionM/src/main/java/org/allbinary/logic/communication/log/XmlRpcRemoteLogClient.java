@@ -23,6 +23,8 @@ import org.apache.xmlrpc.XmlRpcException;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
 
 public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 {
@@ -86,8 +88,8 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            System.out.println("Result: \n" + result.toString());
-            //this.logUtil.putF("Result: \n" + result.toString(), this, this.commonStrings.GET);
+            System.out.println(CommonLabels.getInstance().RESULT_ + CommonSeps.getInstance().NEW_LINE + result.toString());
+            //this.logUtil.putF(CommonLabels.getInstance().RESULT_ + CommonSeps.getInstance().NEW_LINE + result.toString(), this, this.commonStrings.GET);
             // }
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
