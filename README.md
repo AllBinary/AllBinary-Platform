@@ -178,7 +178,7 @@ You can find more about Freeblisket at: https://allbinary.com
 
 The main goal of Freeblisket/Weblisket is to help manage inventory and trade for e-commerce, spaceships, games, and the like.
 
-What is the AllBinary InputAutomationTool Solution?
+### What is the AllBinary InputAutomationTool Solution?
 
 It speeds up application testing by providing a base framework for automating input.
 : C/C++ DLLs for human input device hooks
@@ -186,7 +186,7 @@ It speeds up application testing by providing a base framework for automating in
 
 The main goal of AllBinary InputAutomationTool Solution is to help reduce manual tasks.
 
-What is the planned future Implementation for the AllBinary Platform?
+### What is the planned future Implementation for the AllBinary Platform?
 
 Better integration with GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
 
@@ -198,7 +198,14 @@ Integration with other Scene Editors, 2d/3d animation tools (currently Spline), 
 
 Open Robots Integration, 3D Printer Integration, and Resource Collection API - RTS with real robots and real maps
 
-### What is still needed to create a Self Replicating Robot Army?
+### What is the path to escaping the tyrants of earth?
+
+1. Make UI and E-Commerce software cheap and easy.
+2. Make a 3d printer that can print itself.
+3. Make robots that can assemble the 3d printer and collect resourses.
+4. Build spaceships.
+
+What is still needed to create a Self Replicating Robot Army?
 
 * MMORTS - For the control of robots based on the ZeptoWars RTS and Multi-player games
 * Resource Collection API
@@ -206,7 +213,7 @@ Open Robots Integration, 3D Printer Integration, and Resource Collection API - R
 * Convert existing Open Robots for the 3D printer integration
 * Convert existing Open Resource Machines for the 3D Printer integration - mainly smelting, ore separation, extrusion material formation, and the like
 
-### After the Self Replicating Robot Army is created what is needed for the Space Ships?
+After the Self Replicating Robot Army is created what is needed for the Space Ships?
 
 Parts Development using all off the self technologies for the following in order of need:
 
