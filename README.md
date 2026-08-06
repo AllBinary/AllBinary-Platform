@@ -11,8 +11,7 @@ This Repository Contains the core AllBinary Platform code (https://github.com/Al
 * AllBinary Game Engine - includes the AllBinary Multi-Platform Development Kit
 * Freeblisket/Weblisket E-Commerce Solution (https://allbinary.com)
 * AllBinary Input Automation
-* AllBinary Vector Graphics Tool
-* AllBinary Sprite Tool
+* Various Tools like AllBinary Vector Graphics Tool and AllBinary Sprite Tool
 
 The AllBinary Platform represents more than 10 years of development and > 1 million LOC.  Some of which is represented by the this repo info: https://www.openhub.net/p/AllBinary-Platform/analyses/latest/languages_summary
 

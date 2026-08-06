@@ -30,6 +30,9 @@ public class LogConfigTypeFactory {
     
    private final String NO_DESCRIPTION = "No Description";
    
+   public final LogConfigType OS = new LogConfigType("Operating System",this.NO_DESCRIPTION);
+   public final LogConfigType FACTORYERROR = new LogConfigType("Factory Error",this.NO_DESCRIPTION);
+   
    public final LogConfigType FILE = new LogConfigType("File",this.NO_DESCRIPTION);
    public final LogConfigType FILEERROR = new LogConfigType("File Error",this.NO_DESCRIPTION);
 
@@ -39,4 +42,9 @@ public class LogConfigTypeFactory {
    public final LogConfigType REPLACE_INFO = new LogConfigType("Replace Info", this.NO_DESCRIPTION);
    public final LogConfigType REPLACEERROR = new LogConfigType("Replace Error", this.NO_DESCRIPTION);   
    
+   private LogConfigTypeFactory() {
+       LogConfigTypes.LOGGING.add(OS);
+       LogConfigTypes.LOGGING.add(this.FACTORYERROR);
+   }
+
 }
