@@ -30,6 +30,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.HashtableUtil;
 
+//Android
 public class ResourceUtil
 {
     protected final LogUtil logUtil = LogUtil.getInstance();

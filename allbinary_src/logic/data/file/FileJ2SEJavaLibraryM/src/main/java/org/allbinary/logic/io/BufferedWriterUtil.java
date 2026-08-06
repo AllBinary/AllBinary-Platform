@@ -15,9 +15,12 @@ package org.allbinary.logic.io;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.string.CommonStrings;
 
 public class BufferedWriterUtil {
 
@@ -30,11 +33,24 @@ public class BufferedWriterUtil {
         return BufferedWriterUtil.instance;
     }
 
+    private final LogUtil logUtil = LogUtil.getInstance();
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public void overwrite(final String path, final String data) throws Exception
     {
         final AbFile abFile = AbFile.createAbFile(path);
         if(abFile.exists()) {
             abFile.delete();
+        } else {
+            //Create all of the directories that the file needs when it does not exist already.
+            final String name = AbPathData.getInstance().removeNameFromPath(path);
+            final AbFile abFileDirectory = AbFile.createAbFile(name);
+            if(abFileDirectory.exists()) {
+                
+            } else {
+                this.logUtil.putF(name, this, this.commonStrings.CREATE);
+                abFileDirectory.mkdirs();
+            }            
         }
 
         this.write(abFile, data);
@@ -44,18 +60,29 @@ public class BufferedWriterUtil {
     {
         if(abFile.exists()) {
             abFile.delete();
+        } else {
+            //Create all of the directories that the file needs when it does not exist already.
+            final String name = AbPathData.getInstance().removeNameFromPath(abFile.getAbsolutePath());
+            final AbFile abFileDirectory = AbFile.createAbFile(name);
+            if(abFileDirectory.exists()) {
+                
+            } else {
+                this.logUtil.putF(name, this, this.commonStrings.CREATE);
+                abFileDirectory.mkdirs();
+            }            
         }
 
         this.write(abFile, data);
     }
     
-    public void write(final AbFile abFile, final String data) throws Exception
-    {
-         final BufferedWriter fileOut = new BufferedWriter(
-             new FileWriter(AbFileNativeUtil.get(abFile)));
+    public void write(final AbFile abFile, final String data) throws Exception {
 
-         fileOut.write(data, 0, data.length());
-         fileOut.newLine();
-         fileOut.flush();
+        final BufferedWriter fileOut = new BufferedWriter(
+            new FileWriter(AbFileNativeUtil.get(abFile)));
+
+        fileOut.write(data, 0, data.length());
+        fileOut.newLine();
+        fileOut.flush();
     }
+
 }

@@ -20,6 +20,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
+//J2SE - J2ME
 public class ResourceUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -35,6 +36,10 @@ public class ResourceUtil {
     private ResourceUtil() {
     }
 
+    public void setLoadingPaths(String path, String ext) {
+        this.logUtil.putF("Not Implemented", this, "setLoadingPaths");
+    }
+    
 //    public ClassLoader getClassLoader() {
 //        return ResourceUtil.classLoader;
 //    }

@@ -24,6 +24,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 
+//J2SE - PC
 public class ResourceUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
