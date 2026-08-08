@@ -161,8 +161,6 @@
             <!-- AllBinary Platform Version End -->
         </dependency>
         
-        <!-- ResourceUtil is in AllBinaryPlaynGWT -->
-        
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>ScreenCaptureNoneJavaLibrary</artifactId>

@@ -27,7 +27,7 @@ import org.microemu.device.ResourceCallbackStrings;
 
 import playn.core.Canvas;
 import playn.core.CanvasImage;
-import playn.core.ResourceCallback;
+import playn.core.util.Callback;
 
 /**
  *
@@ -142,16 +142,16 @@ public class ImageModifierUtil {
                 this.copy(imageArray, index, image, image3);
             } else {
 
-                final ResourceCallback callback = new ResourceCallback() {
+                final Callback callback = new Callback() {
                     @Override
-                    public void done(Object resource) {
+                    public void onSuccess(Object resource) {
                         final LogUtil logUtil = LogUtil.getInstance();
                         logUtil.putF(resourceCallbackStrings.DONE + image.getName(), this, resourceCallbackStrings.HANDLE_IMAGE);
                         copy(imageArray, index, image, image3);
                     }
 
                     @Override
-                    public void error(Throwable e) {
+                    public void onFailure(Throwable e) {
                         final LogUtil logUtil = LogUtil.getInstance();
                         logUtil.putF(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE);
                     }
