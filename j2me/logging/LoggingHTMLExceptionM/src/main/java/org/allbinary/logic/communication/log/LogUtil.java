@@ -14,6 +14,8 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.string.CommonStrings;
+
+//@playn.core.PlayN
 import playn.core.PlayN;
 
 //ActualPlatform
@@ -85,6 +87,7 @@ public class LogUtil {
         final String message = this.logFormatUtil.getS(
             className, functionName, specialMessage);
 
+        //@playn.core.PlayN::debug(Ljava/lang/String;)(this.LOG_SUCCESS + message);
         PlayN.log().debug(this.LOG_SUCCESS + message);
         //System.out.print(LOG_SUCCESS);
         //System.out.println(message);
@@ -111,8 +114,10 @@ public class LogUtil {
             className, functionName, specialMessage, exception);
 
         if (exception != null) {
+            //@playn.core.PlayN::error(Ljava/lang/String;, Ljava/lang/Throwable;)(this.LOG_SUCCESS + message, exception);
             PlayN.log().error(this.LOG_SUCCESS + message, (Throwable) exception);
         } else {
+            //@playn.core.PlayN::debug(Ljava/lang/String;)(this.LOG_SUCCESS + message);
             PlayN.log().debug(this.LOG_SUCCESS + message);
         }
 
