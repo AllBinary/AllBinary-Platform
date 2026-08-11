@@ -14,6 +14,7 @@
 package org.allbinary.game.input;
 
 import java.awt.event.KeyEvent;
+import org.allbinary.math.PositionStrings;
 
 import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
@@ -78,8 +79,8 @@ public class PCKeyFactory
     public final PCGameKey u = new PCGameKey(117, "u");
     public final PCGameKey v = new PCGameKey(118, "v");
     public final PCGameKey w = new PCGameKey(119, "w");
-    public final PCGameKey x = new PCGameKey(120, "x");
-    public final PCGameKey y = new PCGameKey(121, "y");
+    public final PCGameKey x = new PCGameKey(120, PositionStrings.getInstance().X);
+    public final PCGameKey y = new PCGameKey(121, PositionStrings.getInstance().Y);
     public final PCGameKey z = new PCGameKey(122, "z");
     
     public final PCGameKey ZERO = new PCGameKey(KeyEvent.VK_0, CommonPhoneStrings.getInstance().ZERO);

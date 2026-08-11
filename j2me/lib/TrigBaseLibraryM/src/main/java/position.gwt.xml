@@ -1,0 +1,9 @@
+<!-- This is used by custom PlayN 2.0 -->
+<module rename-to="position">
+
+  <source path='org/allbinary'>
+    <!-- Exclude non-GWT-compatible classes -->
+    <exclude name='**/*Test.java' />
+  </source>
+
+</module>
