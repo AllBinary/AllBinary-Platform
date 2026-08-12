@@ -1,0 +1,151 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package org.allbinary.logic.communication.log;
+
+import org.allbinary.logic.NullUtil;
+import org.allbinary.time.TimeStampUtil;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.java.exception.ExceptionUtil;
+import org.allbinary.string.CommonLabels;
+
+//ActualPlatform
+public class LogFormatUtil
+{
+
+    private static final LogFormatUtil instance = new LogFormatUtil();
+
+    //ActualPlatform
+    public static LogFormatUtil getInstance()
+    {
+        return LogFormatUtil.instance;
+    }
+
+    private final TimeStampUtil timeStampUtil = TimeStampUtil.getInstance();
+    private final CommonSeps commonSeps = CommonSeps.getInstance();
+
+    //private final String NONE = "None";
+    private final String LOG_ERROR = "\nLog-Error: ";
+    private final String EMPTY = "Empty";
+    private final String STACK_TRACE = "\nStack Trace: ";
+    private final String TIME = "Time: ";
+    //private final String CLASS_NAME = "\nClass Name: ";
+    //private final String FUNCTION_CALL = "\nFunction Call: ";
+    //private final String SPECIAL_MESSAGE = "\nSpecial Msg: ";
+    private final String CLASS_NAME = this.commonSeps.SPACE;
+    private final String FUNCTION_CALL = CommonLabels.getInstance().COLON_SEP;
+    private final String SPECIAL_MESSAGE = "> ";
+    
+    private LogFormatUtil()
+    {
+    }
+
+    //ActualPlatform
+    public String get(final String className, final String functionName, final String specialMessage, final Object exception)
+    {
+        final StringMaker stringBuffer = this.getF(className, functionName);
+
+        stringBuffer.append(this.getO(exception));
+
+        stringBuffer.append(this.SPECIAL_MESSAGE);
+        stringBuffer.append(specialMessage);
+        stringBuffer.append(this.commonSeps.NEW_LINE);
+
+        //"\nClassLoader: " +  hashCode +
+
+        return stringBuffer.toString();
+    }
+
+    //ActualPlatform
+    public String getS(final String className, final String functionName, final String specialMessage)
+    {
+        final StringMaker stringBuffer = this.getF(className, functionName);
+
+        stringBuffer.append(this.SPECIAL_MESSAGE);
+        stringBuffer.append(specialMessage);
+        stringBuffer.append(this.commonSeps.NEW_LINE);
+
+        //"\nClassLoader: " +  hashCode +
+
+        return stringBuffer.toString();
+    }
+
+    //Date does not change as static
+    //private final Calendar calendar = Calendar.getInstance();
+    
+    private StringMaker getF(final String className, final String functionName)
+    {
+        //int hashCode = TsUtil.getInstance().hashCode(LogUtil.class.getClassLoader().getClass());
+        final StringMaker stringBuffer = new StringMaker();
+        stringBuffer.append(this.TIME);
+        stringBuffer.append(this.timeStampUtil.getAsString());
+        stringBuffer.append(this.CLASS_NAME);
+        stringBuffer.append(className);
+        stringBuffer.append(this.FUNCTION_CALL);
+        stringBuffer.append(functionName);
+
+        //"\nClassLoader: " +  hashCode +
+
+        return stringBuffer;
+    }
+
+    private final StringUtil stringUtil = StringUtil.getInstance();
+    private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
+    private final NullUtil nullUtil = NullUtil.getInstance();
+    
+    //ActualPlatform
+    public String getO(final Object exception)
+    {
+        if (exception != this.nullUtil.NULL_OBJECT)
+        {
+            final StringMaker stringBuffer = new StringMaker();
+            stringBuffer.append(this.LOG_ERROR);
+
+            final String exceptionAsString = exception.toString();
+            if (exceptionAsString != null)
+            {
+                stringBuffer.append(exceptionAsString);
+            } else
+            {
+                stringBuffer.append(this.EMPTY);
+            }
+
+            stringBuffer.append(this.STACK_TRACE);
+            if (exception != this.nullUtil.NULL_OBJECT) {
+                stringBuffer.append(this.exceptionUtil.getStackTrace((Throwable) exception));
+            } else {
+                stringBuffer.append(this.stringUtil.NULL_STRING);
+            }
+
+            /*
+            String exceptionMessage = ExceptionUtil.getStackTrace(exception);
+
+            if(exceptionMessage == null)
+            {
+            exceptionMessage = this.EMPTY;
+            }
+             */
+
+            //+
+            //"\nLog-Error: " + exceptionMessage;
+
+            return stringBuffer.toString();
+        } else
+        {
+            return StringUtil.getInstance().EMPTY_STRING;
+        }
+    }
+
+}

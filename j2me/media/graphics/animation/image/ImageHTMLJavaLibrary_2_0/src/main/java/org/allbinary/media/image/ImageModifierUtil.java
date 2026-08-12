@@ -24,6 +24,7 @@ import org.allbinary.logic.string.StringMaker;
 
 import org.microemu.device.playn.PlaynImage;
 import org.microemu.device.ResourceCallbackStrings;
+import playn.core.Callback;
 
 import playn.core.Canvas;
 import playn.core.ImageImpl;
@@ -157,7 +158,7 @@ public class ImageModifierUtil {
                     @Override
                     public void onFailure(Throwable e) {
                         final LogUtil logUtil = LogUtil.getInstance();
-                        logUtil.putF(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE);
+                        logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE, e);
                     }
                 };
                 

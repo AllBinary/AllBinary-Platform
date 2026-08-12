@@ -16,10 +16,14 @@ package org.allbinary.media.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.ImageCache;
+
 import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
-import playn.core.CanvasImage;
-import playn.core.CanvasSurface;
+import playn.core.Canvas;
+import playn.core.ImageImpl;
+import playn.core.PlayN;
+import playn.html.HtmlGraphics;
+import playn.html.HtmlImage;
 
 public class ImageScaleUtil
 {
@@ -97,11 +101,13 @@ public class ImageScaleUtil
             }
 
             final PlaynMutableImage htmlImage = (PlaynMutableImage) image;
-            final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
-            final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
+            final ImageImpl canvasImage = (ImageImpl) htmlImage.getImage();
+            final PlayN playN = PlayN.getInstance();
+            final Canvas canvas = ((HtmlGraphics) playN.graphics()).get((HtmlImage) canvasImage);
+
             //canvasSurface.translate(-3, 3);
             //canvasSurface.drawImage(originalPlayNImage, 0, 0, image.getWidth() + 3, image.getHeight(), 0, 0, originalImage.getWidth(), originalImage.getHeight());
-            canvasSurface.drawImage(originalPlayNImage, 0, 0, image.getWidth(), image.getHeight(), 0, 0, originalImage.getWidth(), originalImage.getHeight());
+            canvas.draw(originalPlayNImage, 0, 0, image.getWidth(), image.getHeight(), 0, 0, originalImage.getWidth(), originalImage.getHeight());
             
             return image;
         }

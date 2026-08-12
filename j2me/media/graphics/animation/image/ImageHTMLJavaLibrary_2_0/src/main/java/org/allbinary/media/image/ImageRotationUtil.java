@@ -17,8 +17,11 @@ import javax.microedition.lcdui.Image;
 
 import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
-import playn.core.CanvasImage;
-import playn.core.CanvasSurface;
+import playn.core.Canvas;
+import playn.core.ImageImpl;
+import playn.core.PlayN;
+import playn.html.HtmlGraphics;
+import playn.html.HtmlImage;
 
 public class ImageRotationUtil
 {
@@ -39,19 +42,20 @@ public class ImageRotationUtil
         if (image.isMutable())
         {
             final PlaynMutableImage htmlImage = (PlaynMutableImage) image;
-            final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
-            final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
+            final ImageImpl canvasImage = (ImageImpl) htmlImage.getImage();
             
-            canvasSurface.translate(originalImage.getWidth() / 2, originalImage.getHeight() / 2);
-            final Image image2 = this.rotateImageCanvasSurface(originalImage, image, canvasSurface, totalAngle);
-            this.drawImage(originalImage, image, canvasSurface);
+            final PlayN playN = PlayN.getInstance();
+            final Canvas canvas = ((HtmlGraphics) playN.graphics()).get((HtmlImage) canvasImage);
+            canvas.translate(originalImage.getWidth() / 2, originalImage.getHeight() / 2);
+            final Image image2 = this.rotateImageCanvasSurface(originalImage, image, canvas, totalAngle);
+            this.drawImage(originalImage, image, canvas);
             return image2;
         } else {
             return null;
         }
     }
     
-    public Image rotateImageCanvasSurfaceClear(final Image originalImage, final Image image, final CanvasSurface canvasSurface, final int totalAngle) {
+    public Image rotateImageCanvasSurfaceClear(final Image originalImage, final Image image, final Canvas canvasSurface, final int totalAngle) {
         if (image.isMutable())
         {
             canvasSurface.translate(-originalImage.getWidth() / 2, -originalImage.getHeight() / 2);
@@ -64,7 +68,7 @@ public class ImageRotationUtil
         }
     }
     
-    public Image rotateImageCanvasSurface(final Image originalImage, final Image image, final CanvasSurface canvasSurface, final int totalAngle) {
+    public Image rotateImageCanvasSurface(final Image originalImage, final Image image, final Canvas canvasSurface, final int totalAngle) {
         if (image.isMutable())
         {            
             canvasSurface.rotate((float) Math.toRadians(totalAngle));
@@ -77,7 +81,7 @@ public class ImageRotationUtil
         }
     }
 
-    public void drawImage(final Image originalImage, final Image image, final CanvasSurface canvasSurface) {
+    public void drawImage(final Image originalImage, final Image image, final Canvas canvasSurface) {
         playn.core.Image originalPlayNImage = null;
         if (originalImage.isMutable()) {
             //PreLogUtil.put("3a", this, "createRotatedImage");
@@ -91,7 +95,7 @@ public class ImageRotationUtil
             //PreLogUtil.put("4b", this, "createRotatedImage");
         }
 
-        canvasSurface.drawImage(originalPlayNImage, -originalImage.getWidth() / 2, -originalImage.getHeight() / 2);
+        canvasSurface.draw(originalPlayNImage, -originalImage.getWidth() / 2, -originalImage.getHeight() / 2);
     }
     
     public Image createRotatedImage(final Image originalImage, final int rotationInDegrees)
