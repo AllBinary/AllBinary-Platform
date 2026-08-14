@@ -61,11 +61,12 @@ public class GameKeyEventFactory
         }
         */
         
-        int size = InputFactory.getInstance().MAX;
+        final int size = InputFactory.getInstance().MAX;
         for (int index = this.MAX_SOURCES; --index >= 0;)
         {
             for (int index2 = size; --index2 >= 0;)
             {
+                //this.logUtil.putF("TWB index2: " + index2 + " src: " + index, this, "getInstanceForKey");
                 this.ARRAY[index][index2] = GameKeyEvent.createEvent(nullUtil.NULL_OBJECT, index, index2);
             }
         }

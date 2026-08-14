@@ -14,7 +14,6 @@
 package org.allbinary.logic.math;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.StringUtil;
 
 public class SmallIntegerSingletonFactory
 {
@@ -38,14 +37,12 @@ public class SmallIntegerSingletonFactory
     private int lastNegativeMin = 0;
 
     public int getMin() {
-        this.checkMe();
-        return this.MIN;
-    }
-
-    private void checkMe() {
-        if(this.MIN == 0) {
-            throw new RuntimeException();
+        //if(this.MIN == 0) {
+        if(this.MIN <= 23) {
+            final LogUtil logUtil = LogUtil.getInstance();
+            logUtil.put("This means you loaded the InputFactory before determining the platform input size requirements.", this, "getMin", new Exception());
         }
+        return this.MIN;
     }
     
     public void initWithRange(int value, int negativeValue)
@@ -93,6 +90,7 @@ public class SmallIntegerSingletonFactory
             }
             
             this.lastMin = this.POSITIVE_MAX;
+            this.MIN = this.lastMin;
             this.lastNegativeMin = this.NEGATIVE_MAX;
 
             //final LogUtil logUtil = LogUtil.getInstance();
