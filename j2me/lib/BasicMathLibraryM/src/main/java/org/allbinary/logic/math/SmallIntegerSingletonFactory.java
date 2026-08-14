@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.math;
 
+import org.allbinary.J2MEUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class SmallIntegerSingletonFactory
@@ -37,8 +38,8 @@ public class SmallIntegerSingletonFactory
     private int lastNegativeMin = 0;
 
     public int getMin() {
-        //if(this.MIN == 0) {
-        if(this.MIN <= 23) {
+        final int minAllowed = (J2MEUtil.isJ2ME() ? 0 : 23);
+        if(this.MIN <= minAllowed) {
             final LogUtil logUtil = LogUtil.getInstance();
             logUtil.put("This means you loaded the InputFactory before determining the platform input size requirements.", this, "getMin", new Exception());
         }
