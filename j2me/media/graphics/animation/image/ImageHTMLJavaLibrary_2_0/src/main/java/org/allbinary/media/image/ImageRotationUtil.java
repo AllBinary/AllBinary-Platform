@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Image;
 
 import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
+
 import playn.core.Canvas;
 import playn.core.ImageImpl;
 import playn.core.PlayN;
@@ -46,9 +47,15 @@ public class ImageRotationUtil
             
             final PlayN playN = PlayN.getInstance();
             final Canvas canvas = ((HtmlGraphics) playN.graphics()).get((HtmlImage) canvasImage);
+            // HtmlCanvas translate/rotate compose onto the persistent Context2d transform;
+            // without save/restore each call accumulates on top of the last, drifting the
+            // draw outside this sprite's small backing canvas on some frames.
+            canvas.save();
+            canvas.clear();
             canvas.translate(originalImage.getWidth() / 2, originalImage.getHeight() / 2);
             final Image image2 = this.rotateImageCanvasSurface(originalImage, image, canvas, totalAngle);
             this.drawImage(originalImage, image, canvas);
+            canvas.restore();
             return image2;
         } else {
             return null;
