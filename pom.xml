@@ -40,9 +40,10 @@
         <module>./graphics/GraphicsToolsP</module>
         <module>./allbinary_src/FreeblisketJavaLibraryP</module>
         <module>./j2me/games/platform/AllBinaryOnAllPlatformsJavaLibraryP</module>
-        
+
         <!--
         <module>./j2me/media/graphics/animation/image/AllBinaryHTMLImageAnimationRotationJavaLibraryM</module>
+        <module>./j2me/media/graphics/animation/image/AllBinaryHTML2ImageAnimationRotationJavaLibraryM</module>
         -->
         <module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryM</module>
         <module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryM</module>
