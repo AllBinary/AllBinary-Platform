@@ -78,7 +78,7 @@
 
         <module>../../allbinary_src/hardware/HardwareLibraryPOM</module>
 
-        <module>../lib/TrigBaseLibraryM</module>        
+        <module>../lib/TrigBaseLibraryM</module>
 
     </modules>
 
