@@ -3,6 +3,7 @@ package org.allbinary.game.displayable.canvas;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 
+//Temp should not be in any build
 public class NullDisplayable extends Canvas
 {
     private static final NullDisplayable SINGLETON = new NullDisplayable();

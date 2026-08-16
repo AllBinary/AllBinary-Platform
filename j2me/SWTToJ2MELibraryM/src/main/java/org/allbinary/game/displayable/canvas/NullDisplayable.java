@@ -6,6 +6,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.canvas.BaseGameStatistics;
 import org.allbinary.canvas.GameStatisticsFactory;
 
+//SWTToJ2ME
 public class NullDisplayable extends Canvas
 {
     private static final NullDisplayable SINGLETON = new NullDisplayable();
