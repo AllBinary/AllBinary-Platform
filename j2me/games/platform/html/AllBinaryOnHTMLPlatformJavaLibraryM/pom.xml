@@ -202,7 +202,33 @@
                     </descriptors>
                 </configuration>
             </plugin>
-            
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.6.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <!-- Match the path and finalName specified in the assembly plugin above -->
+                                    <file>${project.build.directory}/${project.build.finalName}-dependencies.jar</file>
+                                    <type>jar</type>
+                                    <!-- CRITICAL: Instructs Maven to handle this as the official source bundle -->
+                                    <classifier>sources</classifier>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+    
         </plugins>
 
     </build>
