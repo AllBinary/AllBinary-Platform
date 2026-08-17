@@ -26,6 +26,7 @@ import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 import org.allbinary.input.automation.module.DefaultListModelHelper;
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfiles;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.file.CommonDataFileStrings;
 import org.allbinary.logic.io.path.AbPath;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -34,10 +35,11 @@ import org.w3c.dom.NodeList;
 public class GenericProfileActions
     implements DomNodeInterface, DomDocumentMappingInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
     public static final String DEFAULT_PROFILE_ACTIONS_PATH = 
         GenericProfiles.DEFAULT_PROFILES_PATH + "actions/";
+    
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    private final CommonDataFileStrings commonFileStrings = CommonDataFileStrings.getInstance();
         
     private String name;
     
@@ -85,22 +87,22 @@ public class GenericProfileActions
     public void save() throws Exception
     {
         FileOutputStream idFile = new FileOutputStream(
-            GenericProfileActions.DEFAULT_PROFILE_ACTIONS_PATH + getName() + ".xml");
+            GenericProfileActions.DEFAULT_PROFILE_ACTIONS_PATH + getName() + this.commonFileStrings._XML);
         DataOutputStream idOutData = new DataOutputStream(idFile);
         idOutData.writeBytes(
             DomDocumentHelper.toString(this.toXmlDoc()));
     }
 
-    public static File getFile(String name)
+    public File getFile(String name)
     {
-        String fileName = DEFAULT_PROFILE_ACTIONS_PATH + name + ".xml";
+        String fileName = DEFAULT_PROFILE_ACTIONS_PATH + name + this.commonFileStrings._XML;
         return new File(fileName);
     }
     
     private void load()
     throws Exception
     {
-        File file = GenericProfileActions.getFile(getName());
+        File file = this.getFile(getName());
 
         if(file.isFile())
         {

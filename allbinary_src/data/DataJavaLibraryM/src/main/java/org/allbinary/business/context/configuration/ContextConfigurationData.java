@@ -10,25 +10,24 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.business.context.configuration;
 
-import org.allbinary.data.file.DataFileData;
+import org.allbinary.logic.io.file.CommonDataFileStrings;
 
-public class ContextConfigurationData
-{
-	private static final ContextConfigurationData instance = new ContextConfigurationData();
+public class ContextConfigurationData {
 
-	   public static ContextConfigurationData getInstance() {
-			return ContextConfigurationData.instance;
-		}
-	
-   private ContextConfigurationData()
-   {
-   }
+    private static final ContextConfigurationData instance = new ContextConfigurationData();
 
-public final String NAME = "CONTEXT_CONFIGURATION_NAME";
-   
-   public final String UNCRYPTED_EXTENSION = DataFileData.UNCRYPTED_EXTENSION;
-   public final String ENCRYPTED_EXTENSION = DataFileData.ENCRYPTED_EXTENSION;
+    public static ContextConfigurationData getInstance() {
+        return ContextConfigurationData.instance;
+    }
+
+    private ContextConfigurationData() {
+    }
+
+    public final String NAME = "CONTEXT_CONFIGURATION_NAME";
+
+    public final String UNCRYPTED_EXTENSION = CommonDataFileStrings.getInstance().UNCRYPTED_EXTENSION;
+    public final String ENCRYPTED_EXTENSION = CommonDataFileStrings.getInstance().ENCRYPTED_EXTENSION;
 }

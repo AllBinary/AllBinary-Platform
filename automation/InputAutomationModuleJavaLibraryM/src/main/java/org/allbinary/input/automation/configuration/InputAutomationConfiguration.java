@@ -63,7 +63,7 @@ public class InputAutomationConfiguration
         String data = new String(bytes);
         int endIndex = data.lastIndexOf('>');
         
-        //String data = new CryptFileReader("xml","grx").get(abPath);
+        //String data = new CryptFileReader(CommonDataFileStrings.getInstance().XML,"grx").get(abPath);
         Document document = DomDocumentHelper.create(data.substring(0, endIndex + 1);
         
         NodeList nodeList = document.getElementsByTagName(InputAutomationData.NAME);

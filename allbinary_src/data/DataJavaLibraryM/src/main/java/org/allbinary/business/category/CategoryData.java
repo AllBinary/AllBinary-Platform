@@ -10,44 +10,42 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.business.category;
 
-import org.allbinary.data.file.DataFileData;
+import org.allbinary.logic.io.file.CommonDataFileStrings;
 
-public class CategoryData
-{
-	private static final CategoryData instance = new CategoryData();
-	
-	public static CategoryData getInstance() {
-		return CategoryData.instance;
-	}
+public class CategoryData {
 
-	private CategoryData()
-	{
-		
-	}
-	
-   public final String PARENT = "CATEGORY_PARENT";
-   
-   public final String NAME = "CATEGORY_NAME";
-   public final String PATH = "CATEGORY_PATH";
+    private static final CategoryData instance = new CategoryData();
 
-   public final String LABEL = "CATEGORY_LABEL";
+    public static CategoryData getInstance() {
+        return CategoryData.instance;
+    }
 
-   public final String VIEW = "CATEGORY_VIEW_CATEGORY";
+    private CategoryData() {
 
-   public final String LEVEL = "CATEGORY_LEVEL";
+    }
 
-   public final String REQUEST = "request";
+    public final String PARENT = "CATEGORY_PARENT";
 
-   public final String ROOTCATEGORY = "Category";
+    public final String NAME = "CATEGORY_NAME";
+    public final String PATH = "CATEGORY_PATH";
 
-   //public final String VIEW = "CATEGORY_VIEW";
-   //private final String CATEGORIES = "categories";
-   //public final String NAME = "CATEGORY";
-   //public final String STORENAMEELEMENT = "STORE";
+    public final String LABEL = "CATEGORY_LABEL";
 
-   public final String UNCRYPTED_EXTENSION = DataFileData.UNCRYPTED_EXTENSION;
-   public final String ENCRYPTED_EXTENSION = DataFileData.ENCRYPTED_EXTENSION;
+    public final String VIEW = "CATEGORY_VIEW_CATEGORY";
+
+    public final String LEVEL = "CATEGORY_LEVEL";
+
+    public final String REQUEST = "request";
+
+    public final String ROOTCATEGORY = "Category";
+
+    //public final String VIEW = "CATEGORY_VIEW";
+    //private final String CATEGORIES = "categories";
+    //public final String NAME = "CATEGORY";
+    //public final String STORENAMEELEMENT = "STORE";
+    public final String UNCRYPTED_EXTENSION = CommonDataFileStrings.getInstance().UNCRYPTED_EXTENSION;
+    public final String ENCRYPTED_EXTENSION = CommonDataFileStrings.getInstance().ENCRYPTED_EXTENSION;
 }

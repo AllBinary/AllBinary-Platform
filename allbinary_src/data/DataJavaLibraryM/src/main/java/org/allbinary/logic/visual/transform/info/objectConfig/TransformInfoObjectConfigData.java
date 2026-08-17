@@ -10,27 +10,26 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
-import org.allbinary.data.file.DataFileData;
+import org.allbinary.logic.io.file.CommonDataFileStrings;
 
-public class TransformInfoObjectConfigData
-{
-	private static final TransformInfoObjectConfigData instance = new TransformInfoObjectConfigData();
+public class TransformInfoObjectConfigData {
 
-	   public static TransformInfoObjectConfigData getInstance() {
-		return TransformInfoObjectConfigData.instance;
-	}
+    private static final TransformInfoObjectConfigData instance = new TransformInfoObjectConfigData();
 
-   private TransformInfoObjectConfigData()
-   {
-   }
+    public static TransformInfoObjectConfigData getInstance() {
+        return TransformInfoObjectConfigData.instance;
+    }
 
-public final String NAME = "OBJECTCONFIG_NAME";
+    private TransformInfoObjectConfigData() {
+    }
 
-   public final String VARKEY = "$";
-   
-   public final String UNCRYPTED_EXTENSION = DataFileData.UNCRYPTED_EXTENSION;
-   public final String ENCRYPTED_EXTENSION = DataFileData.ENCRYPTED_EXTENSION;
+    public final String NAME = "OBJECTCONFIG_NAME";
+
+    public final String VARKEY = "$";
+
+    public final String UNCRYPTED_EXTENSION = CommonDataFileStrings.getInstance().UNCRYPTED_EXTENSION;
+    public final String ENCRYPTED_EXTENSION = CommonDataFileStrings.getInstance().ENCRYPTED_EXTENSION;
 }

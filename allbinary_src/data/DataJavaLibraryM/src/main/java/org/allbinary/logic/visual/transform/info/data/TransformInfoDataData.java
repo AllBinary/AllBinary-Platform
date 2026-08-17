@@ -10,24 +10,23 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.visual.transform.info.data;
 
-import org.allbinary.data.file.DataFileData;
+import org.allbinary.logic.io.file.CommonDataFileStrings;
 
-public class TransformInfoDataData
-{
-	private static final TransformInfoDataData instance = new TransformInfoDataData();
+public class TransformInfoDataData {
 
-	   public static TransformInfoDataData getInstance() {
-			return TransformInfoDataData.instance;
-		}
-	
-   private TransformInfoDataData()
-   {
-   }
+    private static final TransformInfoDataData instance = new TransformInfoDataData();
 
-public final String UNCRYPTED_EXTENSION = DataFileData.UNCRYPTED_EXTENSION;
-   public final String ENCRYPTED_EXTENSION = DataFileData.ENCRYPTED_EXTENSION;
+    public static TransformInfoDataData getInstance() {
+        return TransformInfoDataData.instance;
+    }
+
+    private TransformInfoDataData() {
+    }
+
+    public final String UNCRYPTED_EXTENSION = CommonDataFileStrings.getInstance().UNCRYPTED_EXTENSION;
+    public final String ENCRYPTED_EXTENSION = CommonDataFileStrings.getInstance().ENCRYPTED_EXTENSION;
 
 }
