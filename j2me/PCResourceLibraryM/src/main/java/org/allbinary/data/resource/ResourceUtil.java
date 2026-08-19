@@ -22,12 +22,9 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.string.CommonSeps;
 
 //J2SE - PC
 public class ResourceUtil {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private static final ResourceUtil instance = new ResourceUtil();
 
@@ -35,6 +32,8 @@ public class ResourceUtil {
         return ResourceUtil.instance;
     }
 
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     private String path = StringUtil.getInstance().EMPTY_STRING;
     private String ext = StringUtil.getInstance().EMPTY_STRING;
     

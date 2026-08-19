@@ -18,13 +18,11 @@ import java.io.InputStream;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 
 //J2ME
 public class ResourceUtil
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
-
     private static ResourceUtil instance = new ResourceUtil();
 
     public static ResourceUtil getInstance()
@@ -32,10 +30,16 @@ public class ResourceUtil
         return ResourceUtil.instance;
     }
 
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     private ResourceUtil()
     {
     }
 
+    public void setLoadingPaths(String path, String ext) {
+        this.logUtil.putF(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "setLoadingPaths");
+    }
+    
     //private final String METHOD_NAME = "getResourceAsStream";
     //private final String GET_RESOURCE = "Getting Resource: ";
 

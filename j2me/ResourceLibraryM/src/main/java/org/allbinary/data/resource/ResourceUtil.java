@@ -19,11 +19,10 @@ import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 
 //J2SE - J2ME
 public class ResourceUtil {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private static Object classLoader = NullUtil.getInstance().NULL_OBJECT;
 
@@ -33,11 +32,13 @@ public class ResourceUtil {
         return ResourceUtil.instance;
     }
 
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     private ResourceUtil() {
     }
 
     public void setLoadingPaths(String path, String ext) {
-        this.logUtil.putF("Not Implemented", this, "setLoadingPaths");
+        this.logUtil.putF(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "setLoadingPaths");
     }
     
 //    public ClassLoader getClassLoader() {

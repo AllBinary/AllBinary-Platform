@@ -28,12 +28,12 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.HashtableUtil;
 
 //Android
 public class ResourceUtil
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final ResourceUtil instance = new ResourceUtil();
 
@@ -41,6 +41,8 @@ public class ResourceUtil
     {
         return ResourceUtil.instance;
     }
+ 
+    protected final LogUtil logUtil = LogUtil.getInstance();
     
     //private Activity activity;
     private Object context = NullUtil.getInstance().NULL_OBJECT;
@@ -49,6 +51,10 @@ public class ResourceUtil
 
     private ResourceUtil()
     {
+    }
+  
+    public void setLoadingPaths(String path, String ext) {
+        this.logUtil.putF(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "setLoadingPaths");
     }
     
     public Context getContext()

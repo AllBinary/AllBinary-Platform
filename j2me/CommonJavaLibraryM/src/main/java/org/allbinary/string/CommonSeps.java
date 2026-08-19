@@ -57,4 +57,6 @@ public class CommonSeps
     public final String QUOTE_END = "\",";
     
     public final String COMMENT = "//";
+    
+    public final String INDENT = "    ";
 }
