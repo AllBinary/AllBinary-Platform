@@ -21,7 +21,7 @@ public class J2MEUtil
 
     public static boolean isJ2ME()
     {
-        return true;
+        return false;
     }
         
     public static boolean isJ2SE()
