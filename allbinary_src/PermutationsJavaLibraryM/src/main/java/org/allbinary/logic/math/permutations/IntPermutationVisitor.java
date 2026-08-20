@@ -1,5 +1,6 @@
 package org.allbinary.logic.math.permutations;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.string.CommonSeps;
@@ -15,10 +16,11 @@ public class IntPermutationVisitor extends Visitor {
     
     private StringMaker stringBuilder = new StringMaker();
 
+    @Override
     public Object visit(final Object object) {
         this.stringBuilder.delete(0, stringBuilder.length());
         this.print(this.data, stringBuilder);
-        return null;
+        return NullUtil.getInstance().NULL_OBJECT;
     }
     
 

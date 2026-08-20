@@ -19,8 +19,9 @@ import org.allbinary.TsUtil;
  *
  * @author user
  */
-public class ComparableObject implements Comparable
+public class ComparableObject implements Comparable<Object>
 {
+    @Override
     public int compareTo(Object object)
     {
         if(TsUtil.getInstance().hashCode(this) < TsUtil.getInstance().hashCode(object))
