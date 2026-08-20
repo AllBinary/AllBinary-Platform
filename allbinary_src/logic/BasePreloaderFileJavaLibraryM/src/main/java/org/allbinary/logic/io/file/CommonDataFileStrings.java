@@ -43,6 +43,8 @@ public class CommonDataFileStrings {
     public final String _KT = ".kt";
     public final String TS = "ts";
     public final String _TS = ".ts";
+    public final String JS = "js";
+    public final String _JS = ".js";
 
     public final String UNCRYPTED_EXTENSION = this.XML;
     public final String ENCRYPTED_EXTENSION = "abd";
