@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
-    <artifactId>CommonJavaLibrary</artifactId>
+    <artifactId>J2MEJsInteropCompatibilityJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
     <version>1.0.0-SNAPSHOT</version>
     <!-- AllBinary Platform Version End -->
 
-    <name>CommonJavaLibrary</name>
+    <name>J2MEJsInteropCompatibilityJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -22,22 +22,15 @@
             <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
         </repository>
     </distributionManagement>
+
     <dependencies>
-        <!--
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-        -->
-        
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>J2MEJsInteropCompatibilityJavaLibrary</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-            
+
     </dependencies>
 
     <build>
@@ -77,3 +70,11 @@
     </build>
 
 </project>
+
+
+
+
+
+
+
+
