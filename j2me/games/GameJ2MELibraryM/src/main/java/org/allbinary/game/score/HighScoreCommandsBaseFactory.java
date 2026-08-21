@@ -26,22 +26,21 @@ public class HighScoreCommandsBaseFactory {
 
     protected HighScoreCommandsBaseFactory(Command[] HIGH_SCORE_COMMANDS)
     {
-        if(J2MEUtil.isJ2ME())
-        {
-            //this.logUtil.putF(this.commonStrings.START).append("J2ME", this, this.commonStrings.CONSTRUCTOR);
-            
-            //TWB - Hackish but it is better than a whole new library
-            this.HIGH_SCORE_COMMANDS = new Command[] 
-                    {
-                    HighScoreCommands.getInstance().PERSONAL,
-                    };
-        }
-        else
-        {
+//        if(J2MEUtil.isJ2ME())
+//        {
+//            //this.logUtil.putF(this.commonStrings.START).append("J2ME", this, this.commonStrings.CONSTRUCTOR);
+//            
+//            //TWB - Hackish but it is better than a whole new library
+//            this.HIGH_SCORE_COMMANDS = new Command[] 
+//                    {
+//                    HighScoreCommands.getInstance().PERSONAL,
+//                    };
+//        }
+//        else
+//        {
             //this.logUtil.putF(this.commonStrings.START).append("not J2ME", this, this.commonStrings.CONSTRUCTOR);
-
             this.HIGH_SCORE_COMMANDS = HIGH_SCORE_COMMANDS;
-        }
+//        }
     }
 
     public boolean isHighScoreCommand(Command command)

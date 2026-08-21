@@ -91,7 +91,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
 
         final int rectWidth = width + this.border - adjustedBorder;
         final int rectHeight = height + this.border - adjustedBorder;
-        if (J2MEUtil.isJ2ME())
+        if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
         {
             this.selectedAnimationArray[index] = new RectangleAdjustedAnimation(
                     rectWidth, rectHeight, 
@@ -106,7 +106,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         //TWB - Adjust gap between menu items rectangles
         adjustedBorder = 4;
 
-        if (J2MEUtil.isJ2ME())
+        if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
         {
             this.unSelectedAnimationArray[index] = new RectangleAdjustedAnimation(
                     rectWidth, rectHeight, 
@@ -145,7 +145,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
 
         final int rectWidth = width + this.border - adjustedBorder;
         final int rectHeight = height + this.border - adjustedBorder;
-        if (J2MEUtil.isJ2ME())
+        if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
         {
             final RectangleAdjustedAnimation rectangleAdjustedAnimation = (RectangleAdjustedAnimation) this.selectedAnimationArray[index];
             
@@ -170,7 +170,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         //TWB - Adjust gap between menu items rectangles
         adjustedBorder = 4;
 
-        if (J2MEUtil.isJ2ME())
+        if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
         {
             final RectangleAdjustedAnimation rectangleAdjustedAnimation = (RectangleAdjustedAnimation) this.unSelectedAnimationArray[index];
             

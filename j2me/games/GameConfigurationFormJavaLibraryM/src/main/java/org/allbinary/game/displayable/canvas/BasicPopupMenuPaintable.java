@@ -81,7 +81,7 @@ public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontIn
 
         this.rectangle = rectangle;
 
-        if(J2MEUtil.isJ2ME())
+        if(J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
         {
             //Image image = ImageCacheFactory.getInstance().get(
               //      this, this.rectangle.getWidth(), this.rectangle.getHeight());
@@ -143,7 +143,7 @@ public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontIn
        final int width = this.rectangle.getWidth();
        final int height = this.rectangle.getHeight();
 
-        if(J2MEUtil.isJ2ME())
+        if(J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
         {
             //Image image = ImageCacheFactory.getInstance().get(this, width, height);
             //image.getGraphics().setColor(BasicColor.TRANSPARENT_GREY.intValue());

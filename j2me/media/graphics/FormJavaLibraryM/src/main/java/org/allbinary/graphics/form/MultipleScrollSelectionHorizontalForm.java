@@ -11,6 +11,8 @@ import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.graphics.font.UpdateMyFontInterface;
 import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.form.item.ABCustomItem;
+import org.allbinary.graphics.paint.NullPaintable;
+import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 
@@ -64,6 +66,8 @@ public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm i
 
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    private Paintable rectPaintable = NullPaintable.getInstance();
+    
     private ItemIndexPaintable multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = ItemIndexPaintable.getInstance();
 
     private final int backgroundColor = BasicColorFactory.getInstance().TRANSPARENT_GREY.intValue();
@@ -81,6 +85,30 @@ public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm i
     {
         super(title, items, formPaintableFactory, border, 3, backgroundBasicColor, foregroundBasicColor);
 
+        if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
+
+        } else {
+
+            final class MPaintable extends Paintable {
+
+                @Override
+                public void paint(final Graphics graphics) {
+                    MultipleScrollSelectionHorizontalForm.this.fillRect(graphics);
+                }
+            };
+
+            this.rectPaintable = new MPaintable();
+
+        }
+        
+    }
+
+    private void fillRect(final Graphics graphics) {
+        graphics.setColor(this.backgroundColor);
+
+        graphics.fillRect(this.x, this.y,
+            this.rectangle.getWidth(),
+            this.rectangle.getHeight());
     }
 
     @Override
@@ -143,18 +171,7 @@ public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm i
             int dx = this.x;
             final int dy = this.y;
 
-            if(J2MEUtil.isJ2ME())
-            {
-
-            }
-            else
-            {
-                graphics.setColor(this.backgroundColor);
-
-                graphics.fillRect(this.x, this.y,
-                    this.rectangle.getWidth(),
-                    this.rectangle.getHeight());
-            }
+            this.rectPaintable.paint(graphics);
 
             graphics.drawString(this.getTitle(), this.x, this.y - this.fontHeight, 0);
 
