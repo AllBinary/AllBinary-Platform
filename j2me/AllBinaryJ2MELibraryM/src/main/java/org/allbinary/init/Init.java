@@ -13,13 +13,21 @@
 */
 package org.allbinary.init;
 
-import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class Init implements InitInterface
 {
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     @Override
+    @JsMethod
     public void init()
     throws Exception
     {

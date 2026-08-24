@@ -13,13 +13,19 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.khronos.opengles.GL10;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class ShaderInitializer {
 
     private static final ShaderInitializer instance = new ShaderInitializer();
@@ -27,12 +33,15 @@ public class ShaderInitializer {
     /**
      * @return the instance
      */
+    @JsMethod
     public static ShaderInitializer getInstance() {
         return ShaderInitializer.instance;
     }
     
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
+    @JsMethod
     public int init(final GL10 gl, final Shader[] shader, final String[] attributeArray) {
         return -1;
     }

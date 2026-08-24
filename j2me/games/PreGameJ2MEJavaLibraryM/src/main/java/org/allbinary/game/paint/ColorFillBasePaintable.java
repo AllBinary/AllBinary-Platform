@@ -13,25 +13,36 @@
 */
 package org.allbinary.game.paint;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.ColorCompositeInterface;
 import org.allbinary.graphics.paint.Paintable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class ColorFillBasePaintable extends Paintable 
 implements ColorCompositeInterface
 {
+    @JsProperty
     protected BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
+    @JsProperty
     protected int colorP;
     
+    @JsConstructor
     public ColorFillBasePaintable(BasicColor basicColor)
     {
        this.setBasicColorP(basicColor);       
     }
     
     @Override
+    @JsMethod
     public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;
@@ -42,6 +53,7 @@ implements ColorCompositeInterface
      * @return the basicColor
      */
     @Override
+    @JsMethod
     public BasicColor getBasicColorP()
     {
         return this.basicColor;
@@ -50,6 +62,7 @@ implements ColorCompositeInterface
     /**
      * @return the color
      */
+    @JsMethod
     protected int getColor()
     {
         return this.colorP;
@@ -59,12 +72,14 @@ implements ColorCompositeInterface
      * @param color
      *            the color to set
      */
+    @JsMethod
     protected void setColor(int color)
     {
         this.colorP = color;
     }
     
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {        
     }

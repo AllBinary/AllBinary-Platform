@@ -13,7 +13,13 @@
 */
 package org.allbinary.layer;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface PositionInterface
 {
+    @JsMethod
     void setPosition(int x, int y, int z);
 }

@@ -13,18 +13,26 @@
 */
 package org.allbinary.game.combat.weapon;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.BasicDecimal;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author user
  */
+
+@JsType
 public class WeaponProperties extends SimpleWeaponProperties
 {
+    @JsProperty
     public static final WeaponProperties NULL_WEAPON_PROPERTIES = new WeaponProperties(0L, 0L, 0L, 0, (short) 0);
 
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -38,6 +46,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     private final long MAX = 10240L;
     private final short ZERO = 0;
 
+    @JsConstructor
     public WeaponProperties(
             long reloadTime, long targetingTime, long speed, int damage, short dissipation)
     {
@@ -82,21 +91,25 @@ public class WeaponProperties extends SimpleWeaponProperties
         }
     }
     
+    @JsMethod
     private void setReloadTime(long reloadTime)
     {
         this.reloadTime = reloadTime;
     }
     
+    @JsMethod
     public long getReloadTime()
     {
         return this.reloadTime;
     }
     
+    @JsMethod
     private void setTargetingTime(long targetingTime)
     {
         this.targetingTime = targetingTime;
     }
     
+    @JsMethod
     public long getTargetingTime()
     {
         return this.targetingTime;
@@ -115,6 +128,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     /**
      * @return the speed
      */
+    @JsMethod
     public BasicDecimal getSpeed()
     {
         return this.speed;
@@ -123,11 +137,13 @@ public class WeaponProperties extends SimpleWeaponProperties
     /**
      * @param speed the speed to set
      */
+    @JsMethod
     public void setSpeed(BasicDecimal speed)
     {
         this.speed = speed;
     }
 
+    @JsMethod
     public int getDamageI(int range)
     {
         return this.getDamage() - ((this.getDissipation() * range) / this.speed.getScaled());
@@ -137,6 +153,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     private static final String RANGE = "Range: ";
     private static final String RELOAD = "Reload: ";
     
+    @JsMethod
     public String[] toStringArray()
     {
         int index = 0;
@@ -159,6 +176,7 @@ public class WeaponProperties extends SimpleWeaponProperties
         return stringArray;
     }
 
+    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();

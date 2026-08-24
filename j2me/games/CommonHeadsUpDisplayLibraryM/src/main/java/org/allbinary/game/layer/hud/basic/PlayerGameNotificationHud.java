@@ -255,6 +255,6 @@ public class PlayerGameNotificationHud extends GameNotificationHud
 
         //Could draw rectangle
         //this.getMaxWidth()
-        super.paint(graphics, this.string);
+        super.paintString(graphics, this.string);
     }
 }

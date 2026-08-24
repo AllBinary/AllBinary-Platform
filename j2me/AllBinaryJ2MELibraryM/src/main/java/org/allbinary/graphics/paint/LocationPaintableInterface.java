@@ -13,9 +13,15 @@
 */
 package org.allbinary.graphics.paint;
 
-import javax.microedition.lcdui.Graphics;
+import jsinterop.annotations.JsType;
 
+import javax.microedition.lcdui.Graphics;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface LocationPaintableInterface 
 {
+    @JsMethod
     void paintXY(Graphics graphics, int x, int y);
 }

@@ -13,20 +13,30 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Hashtable;
 
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.registration.RegistrationConfiguration;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class MobileClientInformation 
     extends AbeClientInformation
 {
 
+    @JsProperty
     protected static final String DESC = "Mobile";
+    @JsProperty
     protected static final String ANDROID_DESC = "Android" + MobileClientInformation.DESC;
 
+    @JsConstructor
     public MobileClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
         super(name, version, 
@@ -57,6 +67,7 @@ public class MobileClientInformation
     }
  
     @Override
+    @JsMethod
     public Hashtable toHashtable()
     {
         final Hashtable hashtable = super.toHashtable();

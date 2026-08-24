@@ -13,11 +13,19 @@
 */
 package org.allbinary.game.score;
 
-import org.allbinary.game.GameInfo;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.game.GameInfo;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface HighScoresFactoryInterface
 {
+    @JsMethod
     void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener);
+    @JsMethod
     void fetchHighScoresPreload(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload);
+    @JsMethod
     HighScoresHelperBaseInterface createHighScoresHelper();
 }

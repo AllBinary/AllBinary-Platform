@@ -13,18 +13,28 @@
 */
 package org.allbinary.graphics;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class ItemColorFactory
 {
     private static final ItemColorFactory instance = new ItemColorFactory();
 
+    @JsMethod
     public static ItemColorFactory getInstance()
     {
         return ItemColorFactory.instance;
     }
     
+    @JsProperty
     public int INVERT_PAINT = (int) 0xFF000000;
+    @JsProperty
     public int PAINT = (int) 0xFFe07718;
     
+    @JsProperty
     public int TEXT_FIELD_NO_FOCUS = 0x7F7F7F;
     
 }

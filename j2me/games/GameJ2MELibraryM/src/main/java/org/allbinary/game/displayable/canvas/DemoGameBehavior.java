@@ -13,17 +13,24 @@
  */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.GameTypeFactory;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class DemoGameBehavior {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     
@@ -32,53 +39,65 @@ public class DemoGameBehavior {
     /**
      * @return the instance
      */
+    @JsMethod
     public static DemoGameBehavior getInstance() {
         return DemoGameBehavior.instance;
     }
 
+    @JsMethod
     public void init() throws Exception {
     
     }
 
+    @JsMethod
     public void pause(final AllBinaryGameCanvas allBinaryGameCanvas) {
         
     }
     
+    @JsMethod
     public void unPause(final AllBinaryGameCanvas allBinaryGameCanvas) {
         
     }
 
+    @JsMethod
     public void updateTouch(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         
     }
     
     // Show/Hide the screen buttons
+    @JsMethod
     public void updateScreenButtonPaintable(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.setTouchPaintableP(NullPaintable.getInstance());
     }
     
+    @JsMethod
     public void setGameState(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
 
     }
 
+    @JsMethod
     public void removeAllGameKeyInputListeners(final AllBinaryGameCanvas allBinaryGameCanvas) {
         
     }
     
+    @JsMethod
     public void updateEndGameProcessor(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         
     }
     
+    @JsMethod
     public void buildGame(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         
     }
 
     //Don't keep running thread if in bot/demo mode
+    @JsMethod
     public void run(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         this.logUtil.putF(GameTypeFactory.getInstance().BOT.toString(), this, commonStrings.RUN);
     }
     
+    @JsMethod
     public void setHighScore(final AbeClientInformationInterface abeClientInformation, final AllBinaryGameCanvas allBinaryGameCanvas, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {
 
     }

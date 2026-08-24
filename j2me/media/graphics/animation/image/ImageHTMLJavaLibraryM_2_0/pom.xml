@@ -76,12 +76,27 @@
             <optional>true</optional>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.microemu</groupId>
+            <artifactId>microemu-playn</artifactId>
+            <version>2.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>J2MEColorJavaLibrary</artifactId>
+                    <groupId>org.allbinary</groupId>
+                </exclusion>
+            </exclusions>
+            <optional>true</optional>
+        </dependency>
+<!--    
         <dependency>
             <groupId>org.microemu</groupId>
             <artifactId>microemu-midp</artifactId>
             <version>2.0.4</version>
             <optional>true</optional>
         </dependency>
+        -->
         <!--
         Public microemu
         <dependency>

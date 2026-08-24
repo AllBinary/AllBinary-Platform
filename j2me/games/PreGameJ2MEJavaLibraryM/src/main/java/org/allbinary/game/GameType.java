@@ -13,15 +13,23 @@
 */
 package org.allbinary.game;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class GameType 
 {
    private String name;
    
+   @JsConstructor
    GameType(String name)
    {
        this.name = name;
    }
    
+   @JsMethod
    public String toString()
    {
        return this.name;

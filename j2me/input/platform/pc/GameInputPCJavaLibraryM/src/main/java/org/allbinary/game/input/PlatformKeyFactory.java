@@ -13,16 +13,22 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.NullUtil;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author user
  */
+
+@JsType
 public class PlatformKeyFactory {
 
     private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
+    @JsMethod
     public static PlatformKeyFactory getInstance()
     {
         if(PlatformKeyFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
@@ -32,46 +38,55 @@ public class PlatformKeyFactory {
         return (PlatformKeyFactory) PlatformKeyFactory.instance;
     }
 
+    @JsMethod
     public String getString(int keyCode)
     {
         return PCGameKey.getString(keyCode);
     }
 
+    @JsMethod
     public boolean isSubmission(Input input)
     {
         return PCKeyFactory.getInstance().isSubmission(input);
     }
 
+    @JsMethod
     public boolean isDelete(Input input)
     {
         return PCKeyFactory.getInstance().isDelete(input);
     }
 
+    @JsMethod
     public boolean isBackSpace(Input input)
     {
         return PCKeyFactory.getInstance().isBackSpace(input);
     }
 
+    @JsMethod
     public boolean isUp(Input input)
     {
         return PCKeyFactory.getInstance().isUp(input);
     }
 
+    @JsMethod
     public boolean isDown(Input input)
     {
         return PCKeyFactory.getInstance().isDown(input);
     }
 
+    @JsMethod
     public boolean isEnter(Input input)
     {
         return PCKeyFactory.getInstance().isEnter(input);
     }
 
+    @JsMethod
     public boolean isLeft(Input input)
     {
         return PCKeyFactory.getInstance().isLeft(input);
     }
 
+    @JsMethod
     public boolean isRight(Input input)
     {
         return PCKeyFactory.getInstance().isRight(input);

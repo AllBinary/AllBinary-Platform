@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Hashtable;
 
 import javax.microedition.rms.RecordEnumeration;
@@ -28,17 +30,23 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 //GameInputNoPersistanceLibrary
+
+@JsType
 public class InputPersistance extends BasicPersitance
 {
     private final HashtableUtil hashtableUtil = HashtableUtil.getInstance();
 
+    @JsConstructor
     public InputPersistance(String name)
     {
         super(name);
     }
 
+    @JsMethod
     public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
@@ -139,6 +147,7 @@ public class InputPersistance extends BasicPersitance
         recordStore.closeRecordStore();
     }
 
+    @JsMethod
     public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
     {
         PreLogUtil.put(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);

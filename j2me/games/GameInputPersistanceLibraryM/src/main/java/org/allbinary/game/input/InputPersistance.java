@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -35,19 +37,25 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 //GameInputPersistanceLibrary
+
+@JsType
 public class InputPersistance extends BasicPersitance
 {
     private final TsUtil tsUtil = TsUtil.getInstance();
 
     private final HashtableUtil hashtableUtil = HashtableUtil.getInstance();
 
+    @JsConstructor
     public InputPersistance(final String name)
     {
         super(name);
     }
 
+    @JsMethod
     public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
@@ -158,6 +166,7 @@ public class InputPersistance extends BasicPersitance
         }
     }
 
+    @JsMethod
     public void save(final AbeClientInformationInterface abeClientInformation, final Hashtable hashtable) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;

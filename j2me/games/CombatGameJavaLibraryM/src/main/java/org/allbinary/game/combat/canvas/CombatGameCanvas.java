@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.combat.canvas;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
@@ -29,11 +31,18 @@ import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.layer.BasicLayerProcessor;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class CombatGameCanvas extends AllBinaryGameCanvas
 {
+    @JsProperty
     protected static BasicLayerProcessor[] basicLayerProcessor = new BasicLayerProcessor[0];
 
+    @JsConstructor
     public CombatGameCanvas(
             final CommandListener cmdListener,
             final AllBinaryGameLayerManager gameLayerManager,
@@ -46,6 +55,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
                 gameInitializationInterfaceFactoryInterface, buffered);
     }
 
+    @JsMethod
     private void CombatGameCanvas_init()
     {
         DestroyEventCircularStaticPool.getInstance().init(this);
@@ -56,6 +66,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
     }
 
     @Override
+    @JsMethod
     protected void initApp(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         this.CombatGameCanvas_init();
@@ -63,6 +74,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         super.initApp(abeClientInformation);
     }
     
+    @JsMethod
     protected void initConfigurablePortion(final int portion)
     {
         DestroyedLayerProcessor.init();
@@ -89,6 +101,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
     }
 
     @Override
+    @JsMethod
     protected void processPlayingGame() throws Exception
     {
         super.processPlayingGame();
@@ -100,6 +113,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
     }
     
     @Override
+    @JsMethod
     protected void cleanupGame() throws Exception
     {
         super.cleanupGame();
@@ -120,6 +134,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         this.cleanupManager();
     }
     
+    @JsMethod
     protected void cleanupManager()
     throws Exception
     {

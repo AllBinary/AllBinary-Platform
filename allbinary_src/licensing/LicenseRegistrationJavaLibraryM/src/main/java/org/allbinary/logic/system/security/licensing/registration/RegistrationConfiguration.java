@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.system.security.licensing.registration;
 
+import jsinterop.annotations.JsType;
+
 import java.io.DataInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -27,19 +29,27 @@ import org.allbinary.logic.string.StringUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class RegistrationConfiguration
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final RegistrationConfiguration SINGLETON = new RegistrationConfiguration();
 
     private String registrationCode = "No Registration Code";
 
+    @JsProperty
     public final String NAME = "registrationid";
     
     private final String FILE = "Registration.dat";
 
+    @JsConstructor
     private RegistrationConfiguration()
     {
         try
@@ -60,11 +70,13 @@ public class RegistrationConfiguration
         }
     }
 
+    @JsMethod
     public static RegistrationConfiguration getInstance()
     {
         return RegistrationConfiguration.SINGLETON;
     }
 
+    @JsMethod
     private void read() throws Exception
     {
         FileStreamFactory fileInputStreamFactory = 
@@ -82,6 +94,7 @@ public class RegistrationConfiguration
         PreLogUtil.put(new StringMaker().append("Read Configuration: ").append(this.toString()).toString(), this, "read");
     }
 
+    @JsMethod
     public void write() throws Exception
     {
         AbDataOutputStream dataOutputStream = null;
@@ -114,16 +127,19 @@ public class RegistrationConfiguration
         
     }
 
+    @JsMethod
     public String toString()
     {
         return new StringMaker().append("Registration Code: ").append(this.getRegistrationCode()).toString();
     }
 
+    @JsMethod
     public void setRegistrationCode(String registrationCode)
     {
         this.registrationCode = registrationCode;
     }
 
+    @JsMethod
     public String getRegistrationCode()
     {
         return this.registrationCode;

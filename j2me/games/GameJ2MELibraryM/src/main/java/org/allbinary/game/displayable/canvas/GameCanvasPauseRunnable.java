@@ -13,29 +13,40 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.AndroidUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameCanvasPauseRunnable extends GameRunnable
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final AllBinaryGameCanvas allBinaryGameCanvas;
     
+    @JsConstructor
     public GameCanvasPauseRunnable(AllBinaryGameCanvas allBinaryGameCanvas)
     {
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
 
     @Override
+    @JsMethod
     public void run()
     {
     }
     
     @Override
+    @JsMethod
     public void processLoopSleep()
     throws Exception
     {

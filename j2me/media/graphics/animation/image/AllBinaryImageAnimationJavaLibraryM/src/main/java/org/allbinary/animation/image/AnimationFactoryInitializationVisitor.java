@@ -13,28 +13,42 @@
  */
 package org.allbinary.animation.image;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class AnimationFactoryInitializationVisitor {
     
+    @JsProperty
     public int width;
+    @JsProperty
     public int height;
+    @JsProperty
     public int dx;
+    @JsProperty
     public int dy;
+    @JsProperty
     public int originalDx;
+    @JsProperty
     public int originalDy;
 
+    @JsMethod
     public void visit() {
         
     }
     
+    @JsMethod
     public String toString() {
         final CommonSeps commonSeps = CommonSeps.getInstance();
         final CommonLabels commonLabels = CommonLabels.getInstance();

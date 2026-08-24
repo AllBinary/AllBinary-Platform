@@ -13,8 +13,10 @@
 */
 package org.allbinary.midlet;
 
+import jsinterop.annotations.JsType;
+
 /**
- *Detailed description This class is the main MIDlet for all MIDlets and
+ *Detailed description: This class is the main MIDlet for all MIDlets and
  *it sets the main canvas and starts a thread for the specified canvas.
  *
  *@author Travis Berthelot
@@ -42,15 +44,32 @@ import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.system.Memory;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 // MIDlet methods not overridden are final
+
+@JsType
 public class AllBinaryMidlet extends MIDlet 
 implements CommandListener
 {
-    public static final AllBinaryMidlet NULL_ALLBINARY_MIDLET = new AllBinaryMidlet();
+    private static Object NULL_ALLBINARY_MIDLET = NullUtil.getInstance().NULL_OBJECT;
     
+    @JsMethod
+    public static AllBinaryMidlet getNullInstance() {
+        
+        if(AllBinaryMidlet.NULL_ALLBINARY_MIDLET == NullUtil.getInstance().NULL_OBJECT) {
+            AllBinaryMidlet.NULL_ALLBINARY_MIDLET = new AllBinaryMidlet();
+        }
+
+        return (AllBinaryMidlet) AllBinaryMidlet.NULL_ALLBINARY_MIDLET;
+    }
+    
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final String SET_DISPLAY = "setDisplay";
@@ -62,11 +81,13 @@ implements CommandListener
     private Hashtable hashtable = new Hashtable();
     private boolean midletDestroyed;
 
+    @JsConstructor
     public AllBinaryMidlet()
     {
         this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet");
     }
 
+    @JsMethod
     protected void setDisplay(final Displayable newDisplay)
     {
         String title = StringUtil.getInstance().EMPTY_STRING;
@@ -87,44 +108,52 @@ implements CommandListener
         display.setCurrent(newDisplay);
     }
 
+    @JsMethod
     public Display getDisplay()
     {
         return Display.getDisplay(this);
     }
 
+    @JsMethod
     protected Displayable getCurrentDisplayable()
     {
         return Display.getDisplay(this).getCurrent();
     }
 
+    @JsMethod
     public void setDestroyed(boolean destroyed)
     {
         this.midletDestroyed = destroyed;
     }
 
+    @JsMethod
     public boolean isDestroyed()
     {
         return this.midletDestroyed;
     }
 
     @Override
+    @JsMethod
     protected void startApp() throws MIDletStateChangeException
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     @Override
+    @JsMethod
     protected void pauseApp()
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
+    @JsMethod
     protected void destroyAppInRunnable(boolean unconditional, boolean isProgress)
     {
         
     }
 
     @Override
+    @JsMethod
     protected void destroyApp(boolean unconditional)
     {
         final String METHOD_NAME = "AllBinaryMidlet::destroyApp";
@@ -142,18 +171,21 @@ implements CommandListener
         }
     }
     
+    @JsMethod
     public void setStartStateHashtable(Hashtable hashtable) throws Exception
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "setStartStateHashtable");
         this.hashtable = hashtable;
     }
 
+    @JsMethod
     public Hashtable getStartStateHashtable() throws Exception
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(this.hashtable)).toString(), this, "getStartStateHashtable");
         return this.hashtable;
     }
 
+    @JsMethod
     public Hashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, "getStateHashtable");
@@ -161,6 +193,7 @@ implements CommandListener
     }
 
     @Override
+    @JsMethod
     public void commandAction(Command command, Displayable displayable)
     {
     }

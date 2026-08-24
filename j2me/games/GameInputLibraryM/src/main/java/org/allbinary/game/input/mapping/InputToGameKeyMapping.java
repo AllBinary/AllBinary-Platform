@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.input.mapping;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.game.input.GameKey;
@@ -27,11 +29,17 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class InputToGameKeyMapping extends InputMapping
 {
     private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
+    @JsMethod
     public static InputToGameKeyMapping getNullInstance()
     {
         if(InputToGameKeyMapping.instance == NullUtil.getInstance().NULL_OBJECT) {
@@ -53,8 +61,10 @@ public class InputToGameKeyMapping extends InputMapping
     };
 
     private final GameKey[] platformToGameKeyMapping = new GameKey[InputFactory.getInstance().MAX];
+    @JsProperty
     protected GameKey[] negativePlatformToGameKeyMapping = new GameKey[0]; //6
 
+    @JsConstructor
     public InputToGameKeyMapping()
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
@@ -62,6 +72,7 @@ public class InputToGameKeyMapping extends InputMapping
         this.clear();
     }
         
+    @JsMethod
     private void clear()
     {
         for (int index = this.platformToGameKeyMapping.length - 1; index >= 0; index--)
@@ -71,6 +82,7 @@ public class InputToGameKeyMapping extends InputMapping
     }
 
     @Override    
+    @JsMethod
     protected void removeAll()
     {
         super.removeAll();
@@ -78,6 +90,7 @@ public class InputToGameKeyMapping extends InputMapping
     }
     
     @Override
+    @JsMethod
     public void addMapping(final InputToGameKeyMapping inputToGameKeyMapping)
     {
         //PreLogUtil.put(commonStrings.START, this, "InputToGameKeyMapping::add(InputToGameKeyMapping)");
@@ -94,6 +107,7 @@ public class InputToGameKeyMapping extends InputMapping
         }
     }
 
+    @JsMethod
     private void addAll(Input input, BasicArrayList list)
     {
         //PreLogUtil.put(commonStrings.START_LABEL + input + " == " + list, this, "InputToGameKeyMapping::addAll");
@@ -108,6 +122,7 @@ public class InputToGameKeyMapping extends InputMapping
     }
 
     @Override    
+    @JsMethod
     public void add(Input input, Input mappedToInput)
     {
         //PreLogUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
@@ -117,6 +132,7 @@ public class InputToGameKeyMapping extends InputMapping
     }
 
     @Override
+    @JsMethod
     public void remove(Input input, Input mappedToInput)
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput)).toString(), this, "InputToGameKeyMapping::remove");
@@ -124,6 +140,7 @@ public class InputToGameKeyMapping extends InputMapping
         this.set(input, this.gameKeyFactory.NONE);
     }
 
+    @JsMethod
     private void set(Input input, Input mappedToInput)
     {
         int id = mappedToInput.getId();
@@ -133,6 +150,7 @@ public class InputToGameKeyMapping extends InputMapping
         }
     }
 
+    @JsMethod
     public int getMaxMappable()
     {
         return this.platformToGameKeyMapping.length;
@@ -140,6 +158,7 @@ public class InputToGameKeyMapping extends InputMapping
 
     //This is slow but that is okay for options screen
     //This may not work at some point for a new platform since I have special mappings at the high end like touch and motion inputs
+    @JsMethod
     public BasicArrayList getReverseInstance(int id)
     //throws Exception
     {
@@ -181,6 +200,7 @@ public class InputToGameKeyMapping extends InputMapping
     }
     */
 
+    @JsMethod
     private void initGameKey(Canvas canvas, GameKey gameKey) throws Exception
     {
         int key = canvas.getKeyCode(gameKey.getId());
@@ -203,6 +223,7 @@ public class InputToGameKeyMapping extends InputMapping
         //PreLogUtil.put(gameKey.toString() + CommonSeps.getInstance().COLON_SEP + key, this, this.commonStrings.INIT);
     }
 
+    @JsMethod
     private int getSmallestCanvasGameKeyCode(Canvas canvas) throws Exception
     {
         int nextKey = 0;
@@ -220,6 +241,7 @@ public class InputToGameKeyMapping extends InputMapping
         return smallestKey;
     }
 
+    @JsMethod
     public void init(Canvas canvas)
     {
         try
@@ -260,6 +282,7 @@ public class InputToGameKeyMapping extends InputMapping
         }
     }
 
+    @JsMethod
     public GameKey getInstanceForCanvas(Canvas canvas, int id)
     {
         //Reduce method call by one for often used method
@@ -280,6 +303,7 @@ public class InputToGameKeyMapping extends InputMapping
         }
     }
     
+    @JsMethod
     public GameKey getInstance(int id)
     {
         if(id >= 0 && id < this.platformToGameKeyMapping.length)

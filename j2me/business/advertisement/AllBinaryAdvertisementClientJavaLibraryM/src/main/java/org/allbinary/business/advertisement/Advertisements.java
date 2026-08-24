@@ -13,16 +13,22 @@
 */
 package org.allbinary.business.advertisement;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.logic.system.security.licensing.LockedUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public class Advertisements
 {
     private final BasicArrayList bannerList = new BasicArrayListD();
     private final BasicArrayList pageList = new BasicArrayListD();
     
+    @JsMethod
     public void addPage(AdvertisementProcessorInterface advertisementProcessorInterface)
     {
         if(!this.pageList.contains(advertisementProcessorInterface))
@@ -31,6 +37,7 @@ public class Advertisements
         }
     }
     
+    @JsMethod
     public void startRandomPage()
     {
         int size = this.pageList.size();
@@ -49,6 +56,7 @@ public class Advertisements
 
     private final MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
     
+    @JsMethod
     public void processRandomPage()
     {
         if(LockedUtil.getInstance().isLocked())
@@ -68,6 +76,7 @@ public class Advertisements
         }
     }
     
+    @JsMethod
     public void stopAllPage()
     {
         for(int index = this.pageList.size(); --index >= 0;)
@@ -80,6 +89,7 @@ public class Advertisements
         }
     }
     
+    @JsMethod
     public void addBanner(AdvertisementProcessorInterface advertisementProcessorInterface)
     {
         if(!this.bannerList.contains(advertisementProcessorInterface))
@@ -88,6 +98,7 @@ public class Advertisements
         }
     }
     
+    @JsMethod
     public void startAll()
     {
         for(int index = this.bannerList.size(); --index >= 0;)
@@ -99,6 +110,7 @@ public class Advertisements
         }
     }
 
+    @JsMethod
     public void stopAllBanner()
     {
         for(int index = this.bannerList.size(); --index >= 0;)
@@ -110,6 +122,7 @@ public class Advertisements
         }
     }
     
+    @JsMethod
     public AdvertisementProcessorInterface getBanner(int index)
     {
         AdvertisementProcessorInterface advertisementProcessorInterface = 
@@ -118,6 +131,7 @@ public class Advertisements
         return advertisementProcessorInterface;
     }
 
+    @JsMethod
     public void stopAll()
     {
         this.stopAllBanner();

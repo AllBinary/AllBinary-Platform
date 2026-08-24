@@ -13,10 +13,17 @@
 */
 package org.allbinary.game.combat.damage;
 
-import org.allbinary.layer.NamedInterface;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.layer.NamedInterface;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface DamageableInterface extends NamedInterface
 {
+   @JsMethod
    void damage(int damage,int damageType)throws Exception;
+   @JsMethod
    int getDamage(int damageType)throws Exception;
 }

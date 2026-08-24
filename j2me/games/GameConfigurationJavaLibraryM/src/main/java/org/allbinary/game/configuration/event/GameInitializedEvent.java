@@ -13,37 +13,48 @@
 */
 package org.allbinary.game.configuration.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class GameInitializedEvent extends AllBinaryEventObject
 {
     private ResourceLoadingLevel resourceLoadingLevel = ResourceLoadingLevelFactory.getInstance().LEVEL;
     private int level;
     
+    @JsConstructor
     public GameInitializedEvent(Object object)
     {
         super(object);
     }
 
+    @JsMethod
     public void setLevel(int level)
     {
         this.level = level;
         this.resourceLoadingLevel = ResourceLoadingLevelFactory.getInstance().LEVEL;
     }
 
+    @JsMethod
     public int getLevel()
     {
         return this.level;
     }
 
+    @JsMethod
     public void setResourceLoadingLevel(ResourceLoadingLevel resourceLoadingLevel)
     {
         this.resourceLoadingLevel = resourceLoadingLevel;
         this.level = this.resourceLoadingLevel.getLevel();
     }
 
+    @JsMethod
     public ResourceLoadingLevel getResourceLoadingLevel()
     {
         return this.resourceLoadingLevel;

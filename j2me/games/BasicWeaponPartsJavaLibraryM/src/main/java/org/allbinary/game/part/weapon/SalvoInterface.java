@@ -13,15 +13,22 @@
 */
 package org.allbinary.game.part.weapon;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface SalvoInterface {
 
+	@JsMethod
 	void process(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle) 
 	throws Exception;
 	
+	@JsMethod
 	void processScore(final AllBinaryLayerManager allbinaryLayerManager,
 	                  final short angle, final short otherAngle, final WeaponProperties weaponProperties,
 	                  final ScoreableInterface scoreableInterface)

@@ -14,14 +14,19 @@
 
 package org.allbinary.graphics.displayable.screen;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class AboutCommandProcessor {
 
     private static final AboutCommandProcessor instance = new AboutCommandProcessor();
@@ -29,10 +34,12 @@ public class AboutCommandProcessor {
     /**
      * @return the instance
      */
+    @JsMethod
     public static AboutCommandProcessor getInstance() {
         return AboutCommandProcessor.instance;
     }
     
+    @JsMethod
     public void process(final CommandListener midletCommandListener, final Command command, final Canvas canvas) {
         midletCommandListener.commandAction(command, canvas);
     }

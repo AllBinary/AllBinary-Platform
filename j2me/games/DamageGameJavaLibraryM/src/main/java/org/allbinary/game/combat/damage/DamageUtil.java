@@ -13,13 +13,21 @@
 */
 package org.allbinary.game.combat.damage;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class DamageUtil
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
@@ -28,17 +36,21 @@ public class DamageUtil
     /**
      * @return the instance
      */
+    @JsMethod
     public static DamageUtil getInstance() {
         return DamageUtil.instance;
     }
 
+    @JsProperty
     public final String COLLIDE = "collide";
     //public final String IS_COLLISION = "isCollision";
     
+   @JsConstructor
    private DamageUtil()
    {
    }
    
+   @JsMethod
    public void process(
       DamageableInterface damageableInterface, 
       DamageableInterface damageableInterface2)
@@ -57,6 +69,7 @@ public class DamageUtil
       }*/
    }
 
+   @JsMethod
    public void debugDamage(CollidableCompositeLayer collidableInterfaceCompositeInterface1, CollidableCompositeLayer collidableInterfaceCompositeInterface) 
        throws Exception
    {

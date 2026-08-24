@@ -13,20 +13,35 @@
 */
 package org.allbinary.logic.system.os;
 
-import org.allbinary.logic.java.character.CharacterSet;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.java.character.CharacterSet;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface OperatingSystemInterface
 {    
+   @JsMethod
    String getName();
+   @JsMethod
    String getVersion();
+   @JsMethod
    String getArch();
+   @JsMethod
    CharacterSet getCharacterSet();
    
+   @JsMethod
    boolean isOverScan();
+   @JsMethod
    int getOverScanXPercent();
+   @JsMethod
    int getOverScanYPercent();
+   @JsMethod
    boolean isScalable();
+   @JsMethod
    boolean isAutoHide();
 
+   @JsMethod
    String toString();      
 }

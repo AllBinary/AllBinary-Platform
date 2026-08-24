@@ -13,15 +13,23 @@
 */
 package org.allbinary.logic.java.character;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
 //import java.nio.charset.Charset;
 
+
+@JsType
 public class CharacterSet
 {
    
+   @JsConstructor
    public CharacterSet()
    {
    }
    
+   @JsMethod
    public String toString()
    {
       //Charset charset = Charset.defaultCharset();

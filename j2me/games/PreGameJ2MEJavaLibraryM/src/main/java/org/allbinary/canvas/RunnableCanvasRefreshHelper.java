@@ -13,18 +13,26 @@
 */
 package org.allbinary.canvas;
 
-import org.allbinary.graphics.displayable.MyCanvas;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.graphics.displayable.MyCanvas;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class RunnableCanvasRefreshHelper extends Processor
 {
     private final MyCanvas runnableCanvas;
 
+    @JsConstructor
     public RunnableCanvasRefreshHelper(MyCanvas runnableCanvas)
     {
         this.runnableCanvas = runnableCanvas;
     }
     
     @Override
+    @JsMethod
     public void process()
     {
         //System.out.println("TWB:RunnableCanvasRefreshHelper:process:repaint");

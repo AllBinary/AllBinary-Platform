@@ -13,15 +13,23 @@
 */
 package org.allbinary.game.configuration.feature;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author user
  */
+
+@JsType
 public interface GameFeatureControlledInterface {
 
+   @JsMethod
    void init(int level) throws Exception;
 
+   @JsMethod
    boolean isFeature();
 	
+   @JsMethod
    boolean isLoadingLevel(int level);
 }

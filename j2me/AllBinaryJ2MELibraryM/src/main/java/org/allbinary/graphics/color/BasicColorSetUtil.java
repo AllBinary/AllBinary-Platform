@@ -13,27 +13,37 @@
 */
 package org.allbinary.graphics.color;
 
-import javax.microedition.lcdui.Graphics;
+import jsinterop.annotations.JsType;
 
+import javax.microedition.lcdui.Graphics;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class BasicColorSetUtil
 {
     private static final BasicColorSetUtil instance = new BasicColorSetUtil();
     
+    @JsMethod
     public static BasicColorSetUtil getInstance()
     {
         return BasicColorSetUtil.instance;
     }
     
+    @JsConstructor
     protected BasicColorSetUtil()
     {
         
     }
     
+    @JsMethod
     public void setBasicColorP(Graphics graphics, BasicColor basicColor)
     {
         graphics.setColor(basicColor.intValue());
     }
 
+    @JsMethod
     public void setBasicColorP3(Graphics graphics, BasicColor basicColor, int value)
     {
         graphics.setColor(value);

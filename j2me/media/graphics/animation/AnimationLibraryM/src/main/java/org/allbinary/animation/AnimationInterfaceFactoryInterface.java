@@ -13,10 +13,17 @@
 */
 package org.allbinary.animation;
 
-import org.allbinary.media.ScaleProperties;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.media.ScaleProperties;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface AnimationInterfaceFactoryInterface extends 
     BasicAnimationInterfaceFactoryInterface {
+    @JsMethod
     Animation getInstance(final int instanceId) throws Exception;
+    @JsMethod
     void setInitialScale(final ScaleProperties scaleProperties);
 }

@@ -13,6 +13,8 @@
  */
 package org.allbinary.game.input.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -21,14 +23,20 @@ import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class DownGameKeyEventHandlerBase extends BasicEventHandler {
 
     private final BasicArrayList list = new BasicArrayListD();
 
+    @JsConstructor
     DownGameKeyEventHandlerBase() {
     }
 
+    @JsMethod
     public void addListener(PlayerGameInput playerGameInput) {
         if (!this.list.contains(playerGameInput)) {
 
@@ -39,6 +47,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
     }
 
     @Override
+    @JsMethod
     public void removeAllListeners() {
 
         //ForcedLogUtil.log(this.toString(), "removeAllListeners");
@@ -50,6 +59,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
     }
 
     @Override
+    @JsMethod
     public void removeListenerSingleThreaded(
             EventListenerInterface eventListenerInterface) {
         
@@ -60,6 +70,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
     }
 
     @Override
+    @JsMethod
     public synchronized void removeListener(EventListenerInterface eventListenerInterface) {
 
         this.list.remove(eventListenerInterface);
@@ -69,6 +80,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
     }
 
     @Override
+    @JsMethod
     public void fireEvent(AllBinaryEventObject eventObject) throws Exception {
         //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
@@ -86,6 +98,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
     }
 
     @Override
+    @JsMethod
     protected void process(AllBinaryEventObject eventObject,
             EventListenerInterface eventListenerInterface) throws Exception {
         
@@ -97,6 +110,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
     private static final String TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
     private static final String LISTENER_LABEL = " PlayerGameInput Listener: ";
 
+    @JsMethod
     public String toString() {
         final StringMaker stringBuffer = new StringMaker();
 

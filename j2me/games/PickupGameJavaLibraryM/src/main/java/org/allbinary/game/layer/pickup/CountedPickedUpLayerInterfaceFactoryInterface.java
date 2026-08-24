@@ -13,11 +13,18 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import org.allbinary.layer.LayerInterfaceFactoryInterface;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.layer.LayerInterfaceFactoryInterface;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface CountedPickedUpLayerInterfaceFactoryInterface
 extends PickedUpLayerInterfaceFactoryInterface, LayerInterfaceFactoryInterface
 {
+   @JsMethod
    int getId();
+   @JsMethod
    int getTotal();
 }

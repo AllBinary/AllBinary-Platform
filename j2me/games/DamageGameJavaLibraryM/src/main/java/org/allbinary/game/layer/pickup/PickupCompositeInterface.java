@@ -13,8 +13,15 @@
 */
 package org.allbinary.game.layer.pickup;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface PickupCompositeInterface
 {
+    @JsMethod
     PickupBehavior getPickupBehavior();
+    @JsMethod
     void setPickupBehavior(PickupBehavior pickupBehavior);
 }

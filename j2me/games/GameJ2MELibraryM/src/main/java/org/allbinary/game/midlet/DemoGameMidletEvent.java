@@ -13,12 +13,19 @@
 */
 package org.allbinary.game.midlet;
 
-import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class DemoGameMidletEvent extends AllBinaryEventObject
 {
     private DemoGameMidletState demoGameMidletState;
 
+    @JsConstructor
     public DemoGameMidletEvent(Object object,
             DemoGameMidletState demoGameMidletState)
     {
@@ -27,16 +34,19 @@ public class DemoGameMidletEvent extends AllBinaryEventObject
         this.demoGameMidletState = demoGameMidletState;
     }
 
+    @JsMethod
     public void init(Object object)
     {
         this.setSource(object);
     }
 
+    @JsMethod
     public void setDemoGameMidletState(DemoGameMidletState demoGameMidletState)
     {
         this.demoGameMidletState = demoGameMidletState;
     }
 
+    @JsMethod
     public DemoGameMidletState getDemoGameMidletState()
     {
         return this.demoGameMidletState;

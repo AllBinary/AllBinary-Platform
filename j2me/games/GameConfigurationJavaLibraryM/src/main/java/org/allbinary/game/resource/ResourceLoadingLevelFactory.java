@@ -13,22 +13,35 @@
 */
 package org.allbinary.game.resource;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class ResourceLoadingLevelFactory
 {
     private static final ResourceLoadingLevelFactory instance = new ResourceLoadingLevelFactory();
 
+    @JsMethod
     public static ResourceLoadingLevelFactory getInstance()
     {
         return ResourceLoadingLevelFactory.instance;
     }
 
+    @JsProperty
     public final ResourceLoadingLevel LOAD_EARLY = new ResourceLoadingLevel("Load Early", Integer.MAX_VALUE);
+    @JsProperty
     public final ResourceLoadingLevel LOAD_TOUCH = new ResourceLoadingLevel("Load Touch", Integer.MAX_VALUE - 1);
+    @JsProperty
     public final ResourceLoadingLevel LOAD_GAME = new ResourceLoadingLevel("Load Game", Integer.MAX_VALUE - 2);
+    @JsProperty
     public final ResourceLoadingLevel LEVEL = new ResourceLoadingLevel("Level", Integer.MAX_VALUE - 99);
+    @JsProperty
     public final ResourceLoadingLevel MAX_LEVEL = new ResourceLoadingLevel("Max Level", Integer.MAX_VALUE - 100);
 
     //private final int LOAD_ = Integer.MAX_VALUE;
+    @JsProperty
     public final ResourceLoadingLevel LOAD_ALL = new ResourceLoadingLevel("Load All", -1);
     
     private final ResourceLoadingLevel[] RESOURCE_LOADING_LEVEL_ARRAY = 
@@ -41,6 +54,7 @@ public class ResourceLoadingLevelFactory
         this.LOAD_EARLY
     };
     
+    @JsMethod
     public String getLevelString(int level)
     {
         for(int index = 0; index < this.RESOURCE_LOADING_LEVEL_ARRAY.length; index++)

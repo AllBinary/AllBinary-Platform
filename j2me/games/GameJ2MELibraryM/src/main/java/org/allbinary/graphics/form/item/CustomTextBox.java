@@ -13,6 +13,8 @@
 */
 package org.allbinary.graphics.form.item;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
@@ -28,12 +30,17 @@ import org.allbinary.graphics.form.item.validation.TextItemVisitor;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class CustomTextBox extends GameCommandCanvas
     implements RawKeyEventListener
 {    
     private final ABTextFieldItem textFieldItem;
 
+    @JsConstructor
     public CustomTextBox(final CommandListener cmdListener, final String label, final String text, 
         final int maxSize, final int constraints,
         final Font font, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
@@ -58,6 +65,7 @@ public class CustomTextBox extends GameCommandCanvas
         
     }
     
+    @JsMethod
     public void submit()
     {
         
@@ -66,30 +74,35 @@ public class CustomTextBox extends GameCommandCanvas
     private final InputFactory inputFactory = InputFactory.getInstance();
 
     @Override
+    @JsMethod
     public void onEventRaw(final int keyCode, final int deviceId, final boolean repeated) {
         this.logUtil.putF(new StringMaker().append(this.commonStrings.START).appendint(keyCode).toString(), this, "onEvent");
         this.keyPressedByDevice(keyCode, deviceId);
     }
     
     @Override
+    @JsMethod
     public void keyPressed(final int keyCode)
     {
         this.keyPressedByDevice(keyCode, 0);
     }
     
     @Override
+    @JsMethod
     public void keyReleased(final int keyCode)
     {
         this.keyReleasedByDevice(keyCode, 0);
     }
 
     @Override
+    @JsMethod
     public void keyRepeated(final int keyCode)
     {
         this.keyRepeatedByDevice(keyCode, 0);
     }
     
     @Override
+    @JsMethod
     public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         try {
@@ -118,12 +131,14 @@ public class CustomTextBox extends GameCommandCanvas
     }
 
     @Override
+    @JsMethod
     public void keyReleasedByDevice(final int keyCode, final int deviceId)
     {
         // this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_RELEASED);
     }
 
     @Override
+    @JsMethod
     public void paint(final Graphics graphics)
     {
         graphics.setColor(this.backgroundColor);
@@ -148,11 +163,13 @@ public class CustomTextBox extends GameCommandCanvas
         super.paint(graphics);
     }
     
+    @JsMethod
     public void paintXY(final Graphics graphics, final int x, final int y)
     {   
         this.textFieldItem.paintXY(graphics, x, y);
     }
     
+    @JsMethod
     public ABTextFieldItem getTextFieldItem()
     {
         return this.textFieldItem;

@@ -13,20 +13,28 @@
 */
 package org.allbinary.game.layer.weapon;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerCircularPool;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class WeaponLayerCircularPool extends AllBinaryLayerCircularPool
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsConstructor
     public WeaponLayerCircularPool()
     {
 
     }
     
+    @JsMethod
     public WeaponLayer getInstanceWeaponLayer(
             final AllBinaryLayer sourceLayerInterface, 
             final int x, final int y, final int z, 

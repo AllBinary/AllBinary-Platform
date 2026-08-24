@@ -13,8 +13,15 @@
 */
 package org.allbinary.graphics.color;
 
-import org.allbinary.logic.string.StringMaker;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.string.StringMaker;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class BasicColor
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -29,9 +36,13 @@ public class BasicColor
     private final float blueComponent;
     private final float alphaComponent;
 
+    @JsProperty
     public final short red;
+    @JsProperty
     public final short green;
+    @JsProperty
     public final short blue;
+    @JsProperty
     public final short alpha;
 
     /*
@@ -43,6 +54,7 @@ public class BasicColor
      * BasicColor.setAlpha(alpha); BasicColor.ffOpaque = ffOpaque; }
      */
 
+    @JsConstructor
     BasicColor(final int alphaValue, final int value, final String name)
     {
 
@@ -153,16 +165,19 @@ public class BasicColor
 //        */
 //    }
     
+    @JsMethod
     public int intValue()
     {
         return this.value;
     }
 
+    @JsMethod
     public int toInt()
     {
         return this.value;
     }
     
+    @JsMethod
     public String toString()
     {
         StringMaker stringBuffer = new StringMaker();
@@ -185,26 +200,31 @@ public class BasicColor
     /**
      * @return the name
      */
+    @JsMethod
     public String getName()
     {
         return this.name;
     }
 
+    @JsMethod
     public float getRedComponent()
     {
         return this.redComponent;
     }
 
+    @JsMethod
     public float getGreenComponent()
     {
         return this.greenComponent;
     }
 
+    @JsMethod
     public float getBlueComponent()
     {
         return this.blueComponent;
     }
 
+    @JsMethod
     public float getAlphaComponent()
     {
         return this.alphaComponent;

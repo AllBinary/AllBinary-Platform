@@ -13,6 +13,12 @@
 */
 package org.allbinary.math;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class RectangleCollisionUtil
 {
     private static final RectangleCollisionUtil instance = new RectangleCollisionUtil();
@@ -20,14 +26,17 @@ public class RectangleCollisionUtil
     /**
      * @return the instance
      */
+    @JsMethod
     public static RectangleCollisionUtil getInstance() {
         return RectangleCollisionUtil.instance;
     }
     
+    @JsConstructor
     private RectangleCollisionUtil()
     {
     }
 
+    @JsMethod
     public boolean isCollision(final int rectX1, final int rectY1, final int rectX2, final int rectY2,
             final int rect2X1, final int rect2Y1, final int rect2X2, final int rect2Y2)
     {
@@ -117,6 +126,7 @@ public class RectangleCollisionUtil
          */
     }
 
+    @JsMethod
     public boolean isInside(final int rectX1, final int rectY1, final int rectX2, final int rectY2, final int x, final int y)
     {
         if (x >= rectX2 || y >= rectY2 || x <= rectX1 || y <= rectY1)

@@ -13,21 +13,30 @@
  */
 package org.allbinary.game.score;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class HighScoresHelperBase implements HighScoresHelperBaseInterface {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected HighScores[] highScoresArrayP = 
         LastFetchHighScoresFactory.getInstance().highScoresArray;
 
     @Override
+    @JsMethod
     public void setHighScoresArray(final HighScores[] highScoresArrayP)
     {
         if (highScoresArrayP != null) {
@@ -41,32 +50,38 @@ public class HighScoresHelperBase implements HighScoresHelperBaseInterface {
         this.highScoresArrayP = highScoresArrayP;
     }
     
+    @JsMethod
     public HighScores getNextHighScores()
     {
         return NullHighScoresSingletonFactory.getInstance();
     }
     
+    @JsMethod
     public boolean isAnyHighScores() {
         throw new RuntimeException();
     }
 
     @Override
+    @JsMethod
     public void setSelectedHighScores(final HighScores selectedHighScores)
     {
     }
 
     @Override
+    @JsMethod
     public HighScores getSelectedHighScores()
     {
         return NullHighScoresSingletonFactory.getInstance();
     }
     
     @Override
+    @JsMethod
     public HighScores[] getHighScoresArray()
     {
         return this.highScoresArrayP;
     }
 
+    @JsMethod
     public void selectHighScores() {
         
     }

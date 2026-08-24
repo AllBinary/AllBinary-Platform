@@ -13,22 +13,31 @@
 */
 package org.allbinary.game.resource;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class ResourceLoadingLevel
 {
     private final String name;
     private final int level;
     
+    @JsConstructor
     ResourceLoadingLevel(String name, int level)
     {
         this.name = name;
         this.level = level;
     }
 
+    @JsMethod
     public int getLevel()
     {
         return this.level;
     }
 
+    @JsMethod
     public String getName()
     {
         return this.name;

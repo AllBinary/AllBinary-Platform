@@ -13,6 +13,8 @@
 */
 package org.allbinary.graphics.canvas.transition.progress;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
@@ -38,12 +40,18 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.midlet.AllBinaryMidlet;
 import org.allbinary.thread.PathFindingThreadPool;
 import org.allbinary.thread.ThreadPool;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class ProgressCanvas extends RunnableCanvas
     implements PaintableInterface, UpdateMyFontInterface
 {
     //protected static final String END_FROM_INITIAL_LAZY_LOADING_COMPLETE = "endFromInitialLazyLoadingComplete";
     
+    @JsProperty
     protected boolean hasPainted;
     private final BasicColor backgroundBasicColor;
 
@@ -51,16 +59,19 @@ public class ProgressCanvas extends RunnableCanvas
         
         final ProgressCanvas progressCanvas;
         
+        @JsConstructor
         ProgressPaintable(final ProgressCanvas progressCanvas) {
             this.progressCanvas = progressCanvas;
         }
         
         @Override
+        @JsMethod
         public void paint(Graphics graphics) {
             this.progressCanvas.paint2(graphics);
         }
     };
 
+    @JsProperty
     public final Paintable GAUGE_PAINTABLE = new ProgressPaintable(this);
 
     private final float maxValue = 100.0f;
@@ -72,26 +83,31 @@ public class ProgressCanvas extends RunnableCanvas
     private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
     private MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
     
-    protected AllBinaryMidlet allbinaryMidlet = AllBinaryMidlet.NULL_ALLBINARY_MIDLET;
+    @JsProperty
+    protected AllBinaryMidlet allbinaryMidlet = AllBinaryMidlet.getNullInstance();
 
     private float value;
     private String text = this.TEXT;
 
     private boolean background = true;
     
+    @JsProperty
     protected PaintableInterface paintable = this.GAUGE_PAINTABLE;
     
+    @JsProperty
     public boolean inProgress = false;
     
     private final Processor IN_GAME_PROCESSOR = new Processor() {
         
         private final ThreadPool pathFindingThreadPool = PathFindingThreadPool.getInstance();
         
+        @JsMethod
         public void process() throws Exception {
             this.pathFindingThreadPool.runAPriorityTask();
         }
     };
 
+    @JsProperty
     public Processor inGameProcessor = Processor.getInstance();
     
 //    ProgressCanvas()
@@ -102,6 +118,7 @@ public class ProgressCanvas extends RunnableCanvas
 //        this.gauge = CustomGaugeItem.NULL_GAUGE_ITEM;
 //    }
     
+    @JsConstructor
     ProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         super(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
@@ -112,17 +129,20 @@ public class ProgressCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         this.gauge.setHeight(font.getHeight() + 2);
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
+    @JsMethod
     public void init(AllBinaryMidlet gameMidlet)
     {
         this.allbinaryMidlet = gameMidlet;
     }
     
+    @JsMethod
     public void update(Graphics graphics) throws Exception
     {
         
@@ -139,6 +159,7 @@ public class ProgressCanvas extends RunnableCanvas
     */
 
     @Override
+    @JsMethod
     public void initCommands(CommandListener cmdListener)
     {
         // this.removeAllCommands();
@@ -153,11 +174,13 @@ public class ProgressCanvas extends RunnableCanvas
      * true; } }
      */
 
+    @JsMethod
     protected final float getMaxValue()
     {
         return this.maxValue;
     }
 
+    @JsMethod
     public void start()
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.START_METHOD_NAME);
@@ -175,6 +198,7 @@ public class ProgressCanvas extends RunnableCanvas
     private final String backgroundLabel = "Background AI Game Loading...";
     private final String START_BACKGROUND = "startBackground";
     
+    @JsMethod
     public void startBackground(boolean background)
     {
         this.logUtil.putF(this.commonStrings.START, this, this.START_BACKGROUND);
@@ -187,6 +211,7 @@ public class ProgressCanvas extends RunnableCanvas
         this.paintable = this.GAUGE_PAINTABLE;
     }
     
+    @JsMethod
     public void endActual() {
         //this.logUtil.putF(this.commonStrings.START, this, "endActual");
         //getCommandListener()
@@ -195,10 +220,12 @@ public class ProgressCanvas extends RunnableCanvas
         this.inGame();
     }
 
+    @JsMethod
     public void inGame() {
         this.inGameProcessor = this.IN_GAME_PROCESSOR;
     }
 
+    @JsMethod
     public void end()
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.END_METHOD_NAME);
@@ -207,6 +234,7 @@ public class ProgressCanvas extends RunnableCanvas
         this.paintable = NullPaintable.getInstance();
     }
 
+    @JsMethod
     public void endFromInitialLazyLoadingComplete()
     {
         //this.logUtil.putF(this.commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE);
@@ -214,13 +242,17 @@ public class ProgressCanvas extends RunnableCanvas
         this.inGameProcessor = this.IN_GAME_PROCESSOR;
     }
     
+    @JsMethod
     public void endIfPaintedSinceStart()
     {
     }
     
+    @JsProperty
     protected final String ADD_PORTION = "addPortion";
+    @JsProperty
     protected final String ADD_EARLY_PORTION = "addEarlyPortion";
     
+    @JsMethod
     public void addEarlyPortion(int value, String text, int index)
     {
         //this.logUtil.putF(this.text, this, ADD_EARLY_PORTION);
@@ -231,6 +263,7 @@ public class ProgressCanvas extends RunnableCanvas
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
     }
     
+    @JsMethod
     public void addPortion(int value, String text, int index)
     {
         this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getAt(index).toString()).toString());
@@ -245,6 +278,7 @@ public class ProgressCanvas extends RunnableCanvas
         //BaseRefreshHelper.process();
     }
     
+    @JsMethod
     public void addNormalPortion(int value, String text)
     {   
         //this.commonStrings.START_LABEL).append(
@@ -262,6 +296,7 @@ public class ProgressCanvas extends RunnableCanvas
         //BaseRefreshHelper.process();
     }
 
+    @JsMethod
     protected void setValue(int value)
     {
         this.value = (float) value;
@@ -269,11 +304,13 @@ public class ProgressCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {
         this.paintable.paint(graphics);
     }
 
+    @JsMethod
     public void paint2(Graphics graphics)
     {
         this.myFontProcessor.process(graphics);
@@ -285,6 +322,7 @@ public class ProgressCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void paintThreed(Graphics graphics)
     {
     	
@@ -314,26 +352,31 @@ public class ProgressCanvas extends RunnableCanvas
     }
     */
 
+    @JsMethod
     protected float getValue()
     {
         return this.value;
     }
 
+    @JsMethod
     public void setText(String text)
     {
         this.text = text;
     }
 
+    @JsMethod
     public String getText()
     {
         return this.text;
     }
     
+    @JsMethod
     protected void setBackground(boolean background)
     {
         this.background = background;
     }
 
+    @JsMethod
     protected boolean isBackground()
     {
         return this.background;

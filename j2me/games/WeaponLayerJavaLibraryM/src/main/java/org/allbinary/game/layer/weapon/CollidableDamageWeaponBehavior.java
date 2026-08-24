@@ -18,7 +18,6 @@ import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import org.allbinary.game.collision.CollisionHelper;
 import org.allbinary.game.collision.CollisionType;
 import org.allbinary.game.collision.CollisionTypeFactory;
-import org.allbinary.game.collision.LayerCollisionUtil;
 import org.allbinary.game.combat.damage.DamageableInterface;
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableBehavior;

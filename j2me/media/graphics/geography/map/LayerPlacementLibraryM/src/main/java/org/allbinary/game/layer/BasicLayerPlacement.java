@@ -14,12 +14,19 @@
 
 package org.allbinary.game.layer;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class BasicLayerPlacement {
 
    private LayerPlacementType layerType; 
    private int width; 
    private int height;
    
+   @JsConstructor
    public BasicLayerPlacement(LayerPlacementType layerType, int width, int height)
    {
       this.layerType = layerType;
@@ -27,21 +34,25 @@ public class BasicLayerPlacement {
       this.height = height;
    }
    
+   @JsMethod
    public int getWidth()
    {
       return this.width;
    }
 
+   @JsMethod
    public int getHeight()
    {
       return this.height;
    }
 
+   @JsMethod
    public LayerPlacementType getLayerType()
    {
       return this.layerType;
    }
 
+   @JsMethod
    protected void setLayerType(LayerPlacementType layerType)
    {
       this.layerType = layerType;

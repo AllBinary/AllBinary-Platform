@@ -13,18 +13,25 @@
 */
 package org.allbinary.layer.event;
 
-import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class LayerManagerEventListener
 implements LayerManagerEventListenerInterface
 {
     @Override
+    @JsMethod
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         
     }
 
     @Override
+    @JsMethod
     public void onCreateLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
     throws Exception
     {
@@ -32,6 +39,7 @@ implements LayerManagerEventListenerInterface
     }
     
     @Override
+    @JsMethod
     public void onDeleteLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
     throws Exception
     {

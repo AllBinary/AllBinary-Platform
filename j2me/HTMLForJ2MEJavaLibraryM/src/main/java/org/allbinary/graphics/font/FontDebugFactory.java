@@ -13,13 +13,18 @@
 */
 package org.allbinary.graphics.font;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class FontDebugFactory {
     
     private static final FontDebugFactory instance = new FontDebugFactory();
@@ -27,10 +32,12 @@ public class FontDebugFactory {
     /**
      * @return the instance
      */
+    @JsMethod
     public static FontDebugFactory getInstance() {
         return FontDebugFactory.instance;
     }
         
+    @JsMethod
     public void setFont(final Font font, final Graphics graphics) {
         graphics.setFont(font);
     }

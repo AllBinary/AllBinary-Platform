@@ -13,10 +13,16 @@
 */
 package org.allbinary.graphics.displayable.event;
 
-import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class DisplayChangeEvent extends AllBinaryEventObject
 {
+    @JsConstructor
     public DisplayChangeEvent(Object object)
     {
         super(object);

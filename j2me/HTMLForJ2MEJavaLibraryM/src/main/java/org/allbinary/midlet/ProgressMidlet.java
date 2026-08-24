@@ -13,28 +13,38 @@
 */
 package org.allbinary.midlet;
 
-import org.allbinary.logic.communication.log.LogUtil;
+import jsinterop.annotations.JsType;
+
 import org.allbinary.canvas.Processor;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
 import org.allbinary.thread.ThreadPool;
 
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class ProgressMidlet extends AllBinaryMidlet
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     public final AbeClientInformationInterface abeClientInformation;
     
+    @JsConstructor
     public ProgressMidlet(final ClientInformationFactory clientInformationFactory)
     {
         this.preInit();
         this.abeClientInformation = clientInformationFactory.getInstance();
     }   
 
+    @JsMethod
     public void preInit() {
     }
     
+    @JsMethod
     protected void exitProgress(boolean isProgress)
     {
 

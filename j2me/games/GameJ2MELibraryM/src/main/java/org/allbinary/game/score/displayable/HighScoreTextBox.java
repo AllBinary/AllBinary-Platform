@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.score.displayable;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
@@ -34,7 +36,12 @@ import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class HighScoreTextBox extends CustomTextBox
 // BasicTextBox
 {
@@ -51,8 +58,10 @@ public class HighScoreTextBox extends CustomTextBox
     
     private Paintable paintable = NullPaintable.getInstance();
 
+    @JsProperty
     public boolean submitted = false;
     
+    @JsConstructor
     public HighScoreTextBox(final HighScoresFactoryInterface highScoresFactoryInterface, final HighScoresHelperBaseInterface highScoresHelper, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo,
                             final CommandListener cmdListener, final String name, final HighScore highScore,
                             final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor) throws Exception
@@ -83,6 +92,7 @@ public class HighScoreTextBox extends CustomTextBox
     }
 
     @Override
+    @JsMethod
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -95,6 +105,7 @@ public class HighScoreTextBox extends CustomTextBox
     }
 
     @Override
+    @JsMethod
     public void open()
     {
         this.virtualKeyboardEventHandler.open();
@@ -104,6 +115,7 @@ public class HighScoreTextBox extends CustomTextBox
     }
 
     @Override
+    @JsMethod
     public void close() throws Exception
     {
         this.virtualKeyboardEventHandler.close();
@@ -130,6 +142,7 @@ public class HighScoreTextBox extends CustomTextBox
     }
 
     @Override
+    @JsMethod
     public void update() throws Exception
     {
         final String name = this.getTextFieldItem().getString();
@@ -139,18 +152,21 @@ public class HighScoreTextBox extends CustomTextBox
     }
 
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {
         super.paint(graphics);
         this.paintable.paint(graphics);
     }
     
+    @JsMethod
     public void saveHighScore()
     {
         this.highScoreUtil.saveHighScore();
     }
     
     @Override
+    @JsMethod
     public void submit()
     {
         this.highScoreUtil.submit(this);

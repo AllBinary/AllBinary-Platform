@@ -13,13 +13,19 @@
  */
 package org.allbinary.thread;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public class ARunnable implements Runnable {
     
     @Override
+    @JsMethod
     public void run()
     {
         

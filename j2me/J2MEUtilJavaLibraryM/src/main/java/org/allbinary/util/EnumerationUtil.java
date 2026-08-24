@@ -13,13 +13,18 @@
  */
 package org.allbinary.util;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Enumeration;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
 //ArkTs does not have this.  So this is for the ArkTs build.
+
+@JsType
 public class EnumerationUtil {
     
     private static final EnumerationUtil instance = new EnumerationUtil();
@@ -27,18 +32,22 @@ public class EnumerationUtil {
     /**
      * @return the instance
      */
+    @JsMethod
     public static EnumerationUtil getInstance() {
         return EnumerationUtil.instance;
     }
     
+    @JsMethod
     public boolean hasMoreElements(final Enumeration enumeration) {
         return enumeration.hasMoreElements();
     }
 
+    @JsMethod
     public Object nextElement(final Enumeration enumeration) {
         return enumeration.nextElement();
     }
     
+    @JsMethod
     public Object[] getAsArray(final Enumeration enumeration)
     {
         final BasicArrayList basicArrayList = new BasicArrayListD();

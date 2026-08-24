@@ -13,24 +13,33 @@
 */
 package org.allbinary.game.input.mapping.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class InputMappingEvent extends AllBinaryEventObject
 {
     private InputToGameKeyMapping inputToGameKeyMapping = InputToGameKeyMapping.getNullInstance();
 
+    @JsConstructor
     public InputMappingEvent(Object object)
     {
         super(object);
     }
 
+    @JsMethod
     public void setInputToGameKeyMapping(
             InputToGameKeyMapping inputToGameKeyMapping)
     {
         this.inputToGameKeyMapping = inputToGameKeyMapping;
     }
 
+    @JsMethod
     public InputToGameKeyMapping getInputToGameKeyMapping()
     {
         return this.inputToGameKeyMapping;

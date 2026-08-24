@@ -13,31 +13,43 @@
 */
 package org.allbinary.game.score;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.GameInfo;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class HighScoresBase implements HighScoresFactoryInterface
 {
+    @JsProperty
     protected CommonStrings commonStrings = CommonStrings.getInstance();
     
+    @JsConstructor
     protected HighScoresBase()
     {
         
     }
     
     @Override
+    @JsMethod
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {
         throw new RuntimeException();
     }
     
     @Override
+    @JsMethod
     public void fetchHighScoresPreload(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
     {
         throw new RuntimeException();
     }
     
     @Override
+    @JsMethod
     public HighScoresHelperBaseInterface createHighScoresHelper() {
         throw new RuntimeException();
     }

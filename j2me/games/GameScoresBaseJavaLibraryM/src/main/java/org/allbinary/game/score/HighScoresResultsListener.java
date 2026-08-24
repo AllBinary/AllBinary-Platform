@@ -13,12 +13,18 @@
  */
 package org.allbinary.game.score;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public interface HighScoresResultsListener {
     
+    @JsMethod
     void setHighScoresArray(final HighScores[] highScoresArrayP);
     
 }

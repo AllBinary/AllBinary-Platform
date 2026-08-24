@@ -13,16 +13,23 @@
 */
 package org.allbinary.graphics.form;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class ItemPaintableFactory extends ItemPaintable
 {
 
     private static final ItemPaintableFactory instance = new ItemPaintableFactory();
 
+    @JsMethod
     public static ItemPaintableFactory getInstance()
     {
         return ItemPaintableFactory.instance;
     }
 
+    @JsMethod
     public ItemPaintable getInstanceItemPaintable(final PaintableForm paintableForm)
             throws Exception
     {

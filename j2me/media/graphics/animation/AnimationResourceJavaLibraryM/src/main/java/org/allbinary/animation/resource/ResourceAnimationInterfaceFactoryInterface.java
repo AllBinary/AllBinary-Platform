@@ -13,14 +13,20 @@
 */
 package org.allbinary.animation.resource;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author user
  */
+
+@JsType
 public interface ResourceAnimationInterfaceFactoryInterface {
 
+      @JsMethod
       BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(
       String resource) throws Exception;
  

@@ -13,18 +13,27 @@
 */
 package org.allbinary.game.layer.special;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import org.allbinary.game.combat.damage.DamageUtil;
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class CollidableDestroyableDamageableBehavior 
 extends CollidableBaseBehavior 
 {
 
+    @JsProperty
     protected final DamageUtil damageUtil = DamageUtil.getInstance();
     
+    @JsConstructor
     public CollidableDestroyableDamageableBehavior(final boolean collidable)
     {
         super(collidable);
@@ -32,6 +41,7 @@ extends CollidableBaseBehavior
     
     // TODO TWB Special Super Efficient Collision Processing
     @Override
+    @JsMethod
     public boolean isCollision(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collisionLayer)
     {
         if (ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0])
@@ -44,6 +54,7 @@ extends CollidableBaseBehavior
     // TODO TWB Special Super Efficient Collision Processing
     //public void collide(CollidableDestroyableDamageableTeamLayer collisionLayer)
     @Override
+    @JsMethod
     public void collide(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collidableInterfaceCompositeInterface)
             throws Exception
     {
@@ -53,6 +64,7 @@ extends CollidableBaseBehavior
     }
 
     @Override
+    @JsMethod
     public boolean isCollisionInterface(final CollidableCompositeLayer ownerLayer, final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
         ForcedLogUtil.log("No Longer Used", this);
@@ -75,6 +87,7 @@ extends CollidableBaseBehavior
     }
     
     @Override
+    @JsMethod
     public void collideInterface(final CollidableCompositeLayer ownerLayer, final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {

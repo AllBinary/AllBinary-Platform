@@ -13,29 +13,39 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.game.state.GameStateFactory;
 import org.allbinary.graphics.paint.NullPaintable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class EndGameProcessor extends Processor
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final GameStateFactory gameStateFactory = GameStateFactory.getInstance();
 
     private AllBinaryGameCanvas gameCanvas;
 
     private final long WAIT = 5000;
 
+    @JsConstructor
     public EndGameProcessor(AllBinaryGameCanvas gameCanvas)
     {
         this.gameCanvas = gameCanvas;
     }
     
     @Override
+    @JsMethod
     public void process() throws Exception
     {
         // Only Show End of game for people

@@ -13,10 +13,16 @@
 */
 package org.allbinary.graphics;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class Rectangle 
 {
    private GPoint point;
@@ -24,6 +30,7 @@ public class Rectangle
    private int width;
    private int height;
    
+   @JsConstructor
    public Rectangle(GPoint point, int width, int height)
            //throws Exception
    {
@@ -35,46 +42,55 @@ public class Rectangle
       this.height = height;
    }
 
+   @JsMethod
    public GPoint getPoint()
    {
       return this.point;
    }
 
+   @JsMethod
    public void setPoint(final GPoint point)
    {
       this.point = point;
    }
    
+   @JsMethod
    public int getMaxX()
    {
       return this.point.getX() + this.width;
    }
 
+   @JsMethod
    public int getMaxY()
    {
       return this.point.getY() + this.height;
    }
    
+   @JsMethod
    public int getWidth()
    {
       return this.width;
    }
 
+   @JsMethod
    public void setWidth(int width)
    {
       this.width = width;
    }
 
+   @JsMethod
    public int getHeight()
    {
       return this.height;
    }
 
+   @JsMethod
    public void setHeight(int height)
    {
       this.height = height;
    }
    
+   @JsMethod
    public String toString()
    {
        final StringMaker stringBuffer = new StringMaker();

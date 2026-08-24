@@ -1,18 +1,27 @@
 package org.allbinary.util;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 //This is a very fast and simple resizable list.
+
+@JsType
 public class BasicArrayList
 {
     private static final String SIZE = ", Size: ";
     private final ArrayUtil arrayUtil = ArrayUtil.getInstance();
 
+    @JsProperty
     public transient Object[] objectArray;
     private int currentIndex = 0;
 
+    @JsConstructor
     public BasicArrayList(final Object[] objectArray) {
         this.objectArray = objectArray;
     }
@@ -27,6 +36,7 @@ public class BasicArrayList
 //        this.objectArray = objectArray;
 //    }
 
+    @JsMethod
     public void addAt(final int index, final Object element)
     {
         if (index > this.currentIndex || index < 0) {
@@ -46,6 +56,7 @@ public class BasicArrayList
         this.currentIndex++;
     }
 
+    @JsMethod
     public boolean add(final Object object)
     {
         this.ensureCapacity(this.currentIndex + 1);
@@ -53,6 +64,7 @@ public class BasicArrayList
         return true;
     }
 
+    @JsMethod
     public Object removeAt(final int index)
     {
         if (index >= this.currentIndex) {
@@ -78,6 +90,7 @@ public class BasicArrayList
         return oldValue;
     }
 
+    @JsMethod
     public boolean remove(final Object object)
     {
         if (object == null) {
@@ -113,6 +126,7 @@ public class BasicArrayList
         return false;
     }
 
+    @JsMethod
     public boolean removeAll2(final BasicArrayList list) {
     
         boolean result = true;
@@ -128,6 +142,7 @@ public class BasicArrayList
         return result;
     }
     
+    @JsMethod
     public boolean addAll2(final BasicArrayList list)
     {
         this.ensureCapacity(this.currentIndex + list.currentIndex);
@@ -141,12 +156,14 @@ public class BasicArrayList
         return true;
     }
 
+    @JsMethod
     public boolean addAllList(final BasicArrayList list)
     {
         final Object[] newObjectArray = list.toArray();
         return this.addAll(newObjectArray);
     }
 
+    @JsMethod
     public boolean addAll(final Object[] newObjectArray)
     {
         final int numSize = newObjectArray.length;
@@ -156,6 +173,7 @@ public class BasicArrayList
         return numSize != 0;
     }
     
+    @JsMethod
     public void ensureCapacity(final int minSize)
     {
         final int oldCapacity = this.objectArray.length;
@@ -171,6 +189,7 @@ public class BasicArrayList
         }
     }
 
+    @JsMethod
     public void trimToSize()
     {
         final int oldCapacity = this.objectArray.length;
@@ -180,6 +199,7 @@ public class BasicArrayList
         }
     }
 
+    @JsMethod
     public int indexOf(final Object object)
     {
         if (object == null) {
@@ -200,6 +220,7 @@ public class BasicArrayList
         return -1;
     }
 
+    @JsMethod
     public int lastIndexOf(final Object object)
     {
         if (object == null) {
@@ -220,6 +241,7 @@ public class BasicArrayList
         return -1;
     }
 
+    @JsMethod
     public Object get(final int index)
     {
         if (index >= this.currentIndex) {
@@ -236,6 +258,7 @@ public class BasicArrayList
         return this.objectArray[index];
     }
 
+    @JsMethod
     public Object set(final int index, final Object element)
     {
         if (index >= this.currentIndex) {
@@ -254,6 +277,7 @@ public class BasicArrayList
         return oldValue;
     }
 
+    @JsMethod
     public void clear()
     {
         for (int i = 0; i < this.currentIndex; i++) 
@@ -262,26 +286,31 @@ public class BasicArrayList
         this.currentIndex = 0;
     }
 
+    @JsMethod
     public int size()
     {
         return this.currentIndex;
     }
 
+    @JsMethod
     public boolean isEmpty()
     {
         return this.currentIndex == 0;
     }
 
+    @JsMethod
     public boolean contains(final Object object)
     {
         return this.indexOf(object) >= 0;
     }
 
+    @JsMethod
     public Object[] toArray()
     {
         return this.arrayUtil.copyOf(this.objectArray, this.currentIndex);
     }
 
+    @JsMethod
     public Object[] toArrayType(final Object[] objectArray)
     {
         if (objectArray.length < this.currentIndex) {
@@ -297,6 +326,7 @@ public class BasicArrayList
         return objectArray;
     }
 
+    @JsMethod
     public Object clone()
     {
     	
@@ -312,6 +342,7 @@ public class BasicArrayList
     	return list;
     }
 
+    @JsMethod
     public String toString()
     {
         final String COMMA_SEP = CommonSeps.getInstance().COMMA_SEP;

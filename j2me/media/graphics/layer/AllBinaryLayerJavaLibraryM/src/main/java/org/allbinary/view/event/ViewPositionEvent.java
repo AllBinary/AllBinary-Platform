@@ -13,10 +13,16 @@
 */
 package org.allbinary.view.event;
 
-import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class ViewPositionEvent extends AllBinaryEventObject
 {
+    @JsConstructor
     public ViewPositionEvent(Object object)
     {
         super(object);

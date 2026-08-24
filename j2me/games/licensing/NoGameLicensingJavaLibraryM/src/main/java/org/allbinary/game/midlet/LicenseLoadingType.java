@@ -13,10 +13,16 @@
 */
 package org.allbinary.game.midlet;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class LicenseLoadingType
 {
     //private final String name;
     
+    @JsConstructor
     LicenseLoadingType(String name)
     {
         //this.name = name;

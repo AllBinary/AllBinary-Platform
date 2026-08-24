@@ -13,19 +13,27 @@
 */
 package org.allbinary.math;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+
+@JsType
 public class Angle
 {
     //private Integer value;
     private short value;
 
     //protected 
+    @JsConstructor
     public Angle(final short angle)
     {
         //this.value = SmallIntegerSingletonFactory.getInstance(angle);
         this.value = angle;
     }
 
+    @JsMethod
     public short getValue()
     {
         return this.value;

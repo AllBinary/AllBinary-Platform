@@ -13,9 +13,15 @@
 */
 package org.allbinary.game.input.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.LocalPlayerInputIdFactory;
 import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
 {
    private static final UpGameKeyEventHandler instance = new UpGameKeyEventHandler();
@@ -29,6 +35,7 @@ public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
        new UpGameKeyEventHandlerBase()
    };
 
+   @JsMethod
    public static UpGameKeyEventHandler getInstance()
    {
       return UpGameKeyEventHandler.instance;
@@ -36,23 +43,27 @@ public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
 
    private final LocalPlayerInputIdFactory playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
    
+   @JsMethod
    public UpGameKeyEventHandlerBase getInstanceForDevice(int deviceId)
    {
        final int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
        return UpGameKeyEventHandler.instanceArray[playerInputId];
    }
 
+   @JsMethod
    public UpGameKeyEventHandlerBase getInstanceForPlayer(int playerInputId)
    {
        return UpGameKeyEventHandler.instanceArray[playerInputId];
    }
    
+   @JsConstructor
    private UpGameKeyEventHandler()
    {
    }
 
    @Override
-    public void removeAllListeners()
+   @JsMethod
+   public void removeAllListeners()
     {
         super.removeAllListeners();
 
@@ -63,6 +74,7 @@ public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
     }
 
     @Override
+    @JsMethod
     public void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
     {
         super.removeListenerSingleThreaded(eventListenerInterface);
@@ -74,6 +86,7 @@ public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
     }
     
     @Override
+    @JsMethod
     public void removeListener(EventListenerInterface eventListenerInterface)
     {
         super.removeListener(eventListenerInterface);

@@ -13,7 +13,13 @@
 */
 package org.allbinary.graphics.displayable;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface StateControlledInterface {
 
+	@JsMethod
 	void setState(int state);
 }

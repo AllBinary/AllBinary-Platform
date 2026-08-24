@@ -13,24 +13,33 @@
 */
 package org.allbinary.game.collision;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.NamedInterface;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author USER
  */
+
+@JsType
 public interface CollidableInterface extends NamedInterface
 {
+   @JsMethod
    boolean isCollidable(final CollidableCompositeLayer ownerLayer)
            throws Exception;
 
+   @JsMethod
    boolean isCollision(final CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface)
            throws Exception;
 
+   @JsMethod
    void collide(final CollidableCompositeLayer ownerLayer, CollidableCompositeLayer collidableInterfaceCompositeInterface)
            throws Exception;
    
+   @JsMethod
    CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface);
 }

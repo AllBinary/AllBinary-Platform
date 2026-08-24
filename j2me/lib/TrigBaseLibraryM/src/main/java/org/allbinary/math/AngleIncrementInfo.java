@@ -13,21 +13,31 @@
 */
 package org.allbinary.math;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
+import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+@JsType
 public class AngleIncrementInfo
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
    private final short angleIncrement;
    
+   @JsProperty
    public final Integer DOWN_FRAME;
+   @JsProperty
    public final Integer UP_FRAME;
+   @JsProperty
    public final Integer LEFT_FRAME;
+   @JsProperty
    public final Integer RIGHT_FRAME;
    
    //protected    
+   @JsConstructor
    public AngleIncrementInfo(short angleIncrement)
    {
       this.angleIncrement = angleIncrement;
@@ -55,12 +65,14 @@ public class AngleIncrementInfo
    
    private final FrameUtil frameUtil = FrameUtil.getInstance();
    
+   @JsMethod
    public int getFrameAngle(int frame)
    {
       return this.frameUtil.getFrameAngle(frame, (int) this.angleIncrement);
    }
       
    //public Integer getAngleIncrement()
+   @JsMethod
    public short getAngleIncrement()
    {
       return this.angleIncrement;
@@ -68,11 +80,13 @@ public class AngleIncrementInfo
 
    private static final String INCREMENT = "Inc: ";
    
+   @JsMethod
    public String toString()
    {
       return new StringMaker().append(AngleIncrementInfo.INCREMENT).appendshort(this.angleIncrement).toString();
    }
    
+   @JsMethod
    public int getClosestGeneralDirection(short angle)
    {
         Integer closestDirection = SmallIntegerSingletonFactory.getInstance().getAt(360);

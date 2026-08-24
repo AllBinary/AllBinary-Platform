@@ -13,21 +13,29 @@
  */
 package org.allbinary.graphics.font;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class UpdateMyFontProcessor extends MyFontProcessor {
 
     private final UpdateMyFontInterface updateMeasurementProcessor;
 
+    @JsConstructor
     public UpdateMyFontProcessor(final UpdateMyFontInterface keyValueDrawCharArray) {
         this.updateMeasurementProcessor = keyValueDrawCharArray;
     }
 
     @Override
+    @JsMethod
     public void process(final Graphics graphics) {
         this.updateMeasurementProcessor.updateMeasurement(graphics);
     }

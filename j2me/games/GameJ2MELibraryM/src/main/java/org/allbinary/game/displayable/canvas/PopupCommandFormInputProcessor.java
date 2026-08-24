@@ -13,17 +13,24 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.util.BasicArrayList;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class PopupCommandFormInputProcessor 
 extends CommandFormInputProcessor 
 {
 
     //private PopupMenuInputProcessor popupMenuInputProcessor;
 
+    @JsConstructor
     public PopupCommandFormInputProcessor(
         BasicArrayList gameKeyEventList,
         int playerInputId, 
@@ -39,6 +46,7 @@ extends CommandFormInputProcessor
     }
 
     @Override
+    @JsMethod
     public int processInput(int key) throws Exception
     {
         //this.logUtil.putF(this.commonStrings.START_LABEL).append(" Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
@@ -47,6 +55,7 @@ extends CommandFormInputProcessor
     }
 
     @Override
+    @JsMethod
     protected void processMotionInput(MotionGestureEvent motionGestureEvent)
         throws Exception
     {

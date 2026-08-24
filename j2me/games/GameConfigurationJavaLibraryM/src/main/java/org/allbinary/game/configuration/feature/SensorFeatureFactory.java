@@ -13,32 +13,49 @@
 */
 package org.allbinary.game.configuration.feature;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class SensorFeatureFactory
 {
     private static final SensorFeatureFactory instance = new SensorFeatureFactory();
     
+    @JsMethod
     public static SensorFeatureFactory getInstance()
     {
         return SensorFeatureFactory.instance;
     }
     
+    @JsConstructor
     private SensorFeatureFactory()
     {
     }
 
+    @JsProperty
     public final SensorFeature NO_ORIENTATION = 
         new SensorFeature("No Orientation");
+    @JsProperty
     public final SensorFeature ORIENTATION_SENSORS = 
         new SensorFeature("Orientation Sensors");
+    @JsProperty
     public final SensorFeature SIMULATED_ORIENTATION_SENSORS = 
         new SensorFeature("Simulated Orientation Sensors");
     
+    @JsProperty
     public final SensorFeature YAW = new SensorFeature("Yaw");
+    @JsProperty
     public final SensorFeature YAW_MINUS_RIGHT_PLUS_LEFT = 
         new SensorFeature("Yaw -Right +Left");
+    @JsProperty
     public final SensorFeature YAW_MINUS_LEFT_PLUS_RIGHT = 
         new SensorFeature("Yaw -Left +Right ");
     
+    @JsProperty
     public final SensorFeature PITCH = new SensorFeature("Pitch");
+    @JsProperty
     public final SensorFeature ROLL = new SensorFeature("Roll");
 }

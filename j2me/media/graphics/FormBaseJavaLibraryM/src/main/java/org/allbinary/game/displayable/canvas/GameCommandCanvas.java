@@ -14,6 +14,8 @@
 
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Vector;
 
 import javax.microedition.lcdui.CommandListener;
@@ -68,7 +70,12 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameCommandCanvas
     extends MyCanvas
     implements MenuListener, DisplayChangeEventListener, UpdateMyFontInterface
@@ -77,16 +84,21 @@ public class GameCommandCanvas
     private final Processor repaintProcessor =
             ScreenRepaintProcessorFactory.getInstance().create(this);
     
+    @JsProperty
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private static final int id = 0;
     
+    @JsProperty
     protected final BasicColor foregroundBasicColor;
+    @JsProperty
     protected final BasicColor backgroundBasicColor;
 
+    @JsProperty
     protected final InputToGameKeyMapping inputToGameKeyMapping =
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
 
+    @JsProperty
     protected final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
 
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
@@ -94,12 +106,17 @@ public class GameCommandCanvas
     private final DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
     private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
 
+    @JsProperty
     public final RepaintBehavior repaintBehavior;
     
+    @JsProperty
     protected final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    @JsProperty
     protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
     
+    @JsProperty
     protected int foregroundColor;
+    @JsProperty
     protected int backgroundColor;
     private BasicMenuInputProcessor menuInputProcessor =
         NoMenuInputProcessor.getInstance();
@@ -111,8 +128,10 @@ public class GameCommandCanvas
         Features.getInstance().isFeature(
         InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
     
+    @JsProperty
     protected int fontHeight = 0;
     
+    @JsConstructor
     public GameCommandCanvas(final CommandListener cmdListener, final String name,
             final BasicColor backgroundBasicColor, 
             final BasicColor foregroundBasicColor)
@@ -145,6 +164,7 @@ public class GameCommandCanvas
     }
  
     @Override
+    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
 
         try
@@ -170,12 +190,14 @@ public class GameCommandCanvas
     }
     
     @Override
+    @JsMethod
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     @Override
+    @JsMethod
     public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent)
     {
         //this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
@@ -196,6 +218,7 @@ public class GameCommandCanvas
     }
     */
 
+    @JsMethod
     public void initCommands(final CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -205,6 +228,7 @@ public class GameCommandCanvas
         this.setCommandListener(cmdListener);
     }
 
+    @JsMethod
     protected void initMenu() throws Exception
     { 
         final ScrollSelectionForm form = this.createForm();
@@ -223,6 +247,7 @@ public class GameCommandCanvas
         this.repaintBehavior.onChangeRepaint(this);
     }
 
+    @JsMethod
     public ScrollSelectionForm createForm() throws Exception {
         
         final ABCustomItem[] items = new CommandTextItemArrayFactory(
@@ -244,6 +269,7 @@ public class GameCommandCanvas
             );
     }
 
+    @JsMethod
     public Rectangle createRectangle(final int size) {
         
         final int height = size * this.fontHeight;
@@ -263,6 +289,7 @@ public class GameCommandCanvas
     }
 
     @Override
+    @JsMethod
     public void open()
     {
         this.logUtil.putF(this.commonStrings.START, this, "open");
@@ -273,6 +300,7 @@ public class GameCommandCanvas
     }
     
     @Override
+    @JsMethod
     public void close() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLOSE);
@@ -282,35 +310,41 @@ public class GameCommandCanvas
         DisplayChangeEventHandler.getInstance().removeListener(this);
     }
 
+    @JsMethod
     public void update() throws Exception {
         this.repaintProcessor.process();
     }
     
     @Override
+    @JsMethod
     public int getSourceId()
     {
         return GameCommandCanvas.id;
     }
 
     @Override
+    @JsMethod
     public void keyPressed(final int keyCode)
     {
         this.keyPressedByDevice(keyCode, 0);
     }
     
     @Override
+    @JsMethod
     public void keyReleased(final int keyCode)
     {
         this.keyReleasedByDevice(keyCode, 0);
     }
 
     @Override
+    @JsMethod
     public void keyRepeated(final int keyCode)
     {
         this.keyRepeatedByDevice(keyCode, 0);
     }
     
     @Override
+    @JsMethod
     public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         this.logUtil.putF(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, this.gameInputStrings.KEY_PRESSED);
@@ -318,6 +352,7 @@ public class GameCommandCanvas
     }
 
     @Override
+    @JsMethod
     public void keyReleasedByDevice(final int keyCode, final int deviceId)
     {
         //this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_RELEASED);
@@ -325,6 +360,7 @@ public class GameCommandCanvas
     }
 
     @Override
+    @JsMethod
     public void keyRepeatedByDevice(final int keyCode, final int deviceId)
     {
         // this.logUtil.putF("Key Repeated: ").append(Integer.toHexString(keyCode), this, gameInputStrings.KEY_REPEATED);
@@ -334,6 +370,7 @@ public class GameCommandCanvas
         }
     }
     
+    @JsMethod
     private void addGameKeyEvent(final int keyCode, final int deviceId, final boolean repeated)
     {
         try
@@ -372,6 +409,7 @@ public class GameCommandCanvas
         }
     }
 
+    @JsMethod
     private void removeGameKeyEvent(final int keyCode, final int deviceId, final boolean repeated)
     {
         try
@@ -410,6 +448,7 @@ public class GameCommandCanvas
     }
 
     @Override
+    @JsMethod
     public void paint(final Graphics graphics)
     {
         this.myFontProcessor.process(graphics);
@@ -418,11 +457,13 @@ public class GameCommandCanvas
         this.repaintBehavior.repaint(this);
     }
 
+    @JsMethod
     private void setMenuInputProcessor(final BasicMenuInputProcessor menuInputProcessor)
     {
         this.menuInputProcessor = menuInputProcessor;
     }
 
+    @JsMethod
     protected BasicMenuInputProcessor getMenuInputProcessor()
     {
         return this.menuInputProcessor;

@@ -13,8 +13,14 @@
 */
 package org.allbinary.game.configuration.feature;
 
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.configuration.event.GameFeatureEvent;
 import org.allbinary.game.configuration.event.GameFeatureEventHandler;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -25,17 +31,30 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
+@JsType
 public class Features
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final Features SINGLETON = new Features();
+    private static Object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
+
+    @JsMethod
+    public static Features getInstance()
+    {
+        if(Features.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
+            Features.SINGLETON = new Features();
+        }
+        return (Features) Features.SINGLETON;
+    }
+
+    @JsProperty
+    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final BasicArrayList list;
     private final BasicArrayList defaultList;
 
+    @JsConstructor
     private Features()
     {
         this.list = new BasicArrayListD();
@@ -44,12 +63,8 @@ public class Features
         this.init();
     }
 
-    public static Features getInstance()
-    {
-        return Features.SINGLETON;
-    }
-
     //For default or reload required features
+    @JsMethod
     public void addDefault(final Feature gameFeature) throws Exception
     {
         //this.logUtil.putF(
@@ -63,6 +78,7 @@ public class Features
         }
     }
 
+    @JsMethod
     public void add(final Feature gameFeature) throws Exception
     {
         if (!this.list.contains(gameFeature))
@@ -82,6 +98,7 @@ public class Features
     }
 
   //For default or reload required features
+    @JsMethod
     public void removeDefault(final Feature gameFeature) throws Exception
     {
         this.logUtil.putF(
@@ -91,6 +108,7 @@ public class Features
         this.defaultList.remove(gameFeature);
     }
 
+    @JsMethod
     public void remove(final Feature gameFeature) throws Exception
     {
         if (this.list.contains(gameFeature))
@@ -102,6 +120,7 @@ public class Features
         }
     }
 
+    @JsMethod
     private void init() // throws Exception
     {
         try
@@ -157,17 +176,20 @@ public class Features
     }
 
   //For default or reload required features
-    public boolean isDefault(Feature gameFeature)
+    @JsMethod
+    public boolean isDefault(final Feature gameFeature)
     {
         return this.defaultList.contains(gameFeature);
     }
 
-    public boolean isFeature(Feature gameFeature)
+    @JsMethod
+    public boolean isFeature(final Feature gameFeature)
     {
         return this.list.contains(gameFeature);
     }
 
-    public void toggle(Feature gameFeature) throws Exception
+    @JsMethod
+    public void toggle(final Feature gameFeature) throws Exception
     {
         if (this.isFeature(gameFeature))
         {

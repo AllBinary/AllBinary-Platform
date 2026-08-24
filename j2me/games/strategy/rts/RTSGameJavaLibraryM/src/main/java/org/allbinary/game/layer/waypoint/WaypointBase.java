@@ -41,7 +41,7 @@ public class WaypointBase
     
     private final Sound sound;
     
-    protected AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
+    protected AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.getNullInstance();
     
     public WaypointBase(final Sound sound) {
         this.sound = sound;

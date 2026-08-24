@@ -13,15 +13,21 @@
  */
 package org.allbinary.game.midlet;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.thread.ABRunnable;
 import org.allbinary.thread.NullABRunnable;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class LicenseCheckRunnableFactory {
     
+    @JsMethod
     public ABRunnable getInstance(final SpecialDemoGameMidlet specialDemoGameMidlet) {
         return NullABRunnable.getInstance();
     }

@@ -13,8 +13,12 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.layer.NamedInterface;
 
+
+@JsType
 public interface CompleteMotionGestureInputInterface extends NamedInterface
 {
 }

@@ -13,13 +13,21 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author user
  */
+
+@JsType
 public interface PopupMenuInterface {
 
+    @JsMethod
     void popupMenu() throws Exception;
+    @JsMethod
     void closeMenu();
+    @JsMethod
     void toggleMenu() throws Exception;
 }

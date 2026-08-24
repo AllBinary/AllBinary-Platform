@@ -13,19 +13,28 @@
 */
 package org.allbinary.game;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.time.TimeDelayHelper;
+import jsinterop.annotations.JsMethod;
 
 /**
  * 
  * @author Admin
  */
+
+@JsType
 public interface IntermissionInterface
 {
+    @JsMethod
     TimeDelayHelper getTimeDelayHelper();
 
+    @JsMethod
     boolean isEnabled();
 
+    @JsMethod
     void setEnabled(boolean value);
     
+    @JsMethod
     void setListener(IntermissionEnableListenerInterface enableListener);
 }

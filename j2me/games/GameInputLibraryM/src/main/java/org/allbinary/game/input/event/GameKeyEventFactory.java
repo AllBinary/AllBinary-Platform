@@ -13,17 +13,25 @@
 */
 package org.allbinary.game.input.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameKeyEventFactory
 {
 
     private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
+    @JsMethod
     public static GameKeyEventFactory getInstance()
     {
         if(GameKeyEventFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
@@ -33,9 +41,12 @@ public class GameKeyEventFactory
         return (GameKeyEventFactory) GameKeyEventFactory.instance;
     }
 
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     public final int TOUCH_BUTTON_SOURCE_ID = 2;
+    @JsProperty
     public final int MOTION_GESTURE_SOURCE_ID = 3;
     
     private final int MAX_SOURCES = 4;
@@ -44,10 +55,12 @@ public class GameKeyEventFactory
     private GameKeyEvent[][] ARRAY = new GameKeyEvent[this.MAX_SOURCES][InputFactory.getInstance().MAX];
     //private GameKeyEvent[] ARRAY = new GameKeyEvent[MAX];
 
+    @JsConstructor
     private GameKeyEventFactory()
     {
     }
 
+    @JsMethod
     public void init()
     {
         //this.logUtil.putF(this.commonStrings.START, "GameKeyEventFactory", commonStrings.INIT);
@@ -72,6 +85,7 @@ public class GameKeyEventFactory
         }
     }
 
+    @JsMethod
     public GameKeyEvent getInstanceForKey(final GameKeyEventSourceInterface object, final int key)
     throws Exception
     {
@@ -83,6 +97,7 @@ public class GameKeyEventFactory
         return gameKeyEvent;
     }
 
+    @JsMethod
     public GameKeyEvent getInstanceForInput(final GameKeyEventSourceInterface object, final Input input)
     throws Exception
     {

@@ -13,24 +13,35 @@
 */
 package org.allbinary.logic.util.event;
 
-import org.allbinary.logic.NullUtil;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.NullUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class AllBinaryEventObject
 {
+   @JsProperty
    public static final AllBinaryEventObject NULL_EVENT = new AllBinaryEventObject(NullUtil.getInstance().NULL_OBJECT);
     
    private Object source;
    
+   @JsConstructor
    public AllBinaryEventObject(Object object)
    {
       this.source = object;
    }
 
+   @JsMethod
    public Object getSource()
    {
       return this.source;
    }
 
+   @JsMethod
    protected void setSource(Object source)
    {
       this.source = source;

@@ -13,20 +13,27 @@
  */
 package org.allbinary.graphics.form;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.graphics.form.item.ABCustomItem;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class ItemIndexDx {
 
     private static final ItemIndexDx instance = new ItemIndexDx();
     
+    @JsMethod
     public static ItemIndexDx getInstance() {
         return ItemIndexDx.instance;
     }
     
+    @JsMethod
     public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
         return 0;
     }

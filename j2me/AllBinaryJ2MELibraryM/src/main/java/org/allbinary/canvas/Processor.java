@@ -13,19 +13,27 @@
 */
 package org.allbinary.canvas;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class Processor
 {
     private static final Processor SINGLETON = new Processor();
     
+    @JsMethod
     public static Processor getInstance()
     {
         return Processor.SINGLETON;
     }
     
+    @JsMethod
     public void process() throws Exception
     {
     }
 
+    @JsMethod
     public void processt(final long timeDelta) throws Exception
     {
     }

@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.midlet;
 
+import jsinterop.annotations.JsType;
+
 /**
  *Detailed description This class is the main MIDlet for all GameMidlets
  *it sets the main canvas and starts a thread for the specified canvas.
@@ -30,6 +32,7 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.midlet.MIDletStateChangeException;
 
 import org.allbinary.J2MEUtil;
 import org.allbinary.TsUtil;
@@ -111,19 +114,32 @@ import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.EnumerationUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameMidlet extends ProgressMidlet
     implements CommandListener //, GameMidletEventListener
 {
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
     
+    @JsProperty
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
+    @JsProperty
     protected final Features features = Features.getInstance();
+    @JsProperty
     protected final MidletStrings midletStrings = MidletStrings.getInstance();
+    @JsProperty
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
+    @JsProperty
     protected final GameStrings gameStrings = GameStrings.getInstance();
+    @JsProperty
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
+    @JsProperty
     protected final GameStateFactory gameStateFactory = GameStateFactory.getInstance();
+    @JsProperty
     protected final TsUtil tsUtil = TsUtil.getInstance();
 
     private final String DISPLAYABLE = " Displayable: ";
@@ -137,6 +153,7 @@ public class GameMidlet extends ProgressMidlet
     private final AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
     private final WebCommandProcessor webCommandProcessor = WebCommandProcessor.getInstance();
     private final GameMidletStateFactory gameMidletStateFactory = GameMidletStateFactory.getInstance();
+    @JsProperty
     protected final TimeDelayHelper gameStartTimeHelper = new TimeDelayHelper(240);
     private final FullScreenUtil fullScreenUtil = FullScreenUtil.getInstance();
 
@@ -153,6 +170,7 @@ public class GameMidlet extends ProgressMidlet
     
     //private GameOptionsForm gameOptionsForm;
 
+    @JsConstructor
     public GameMidlet(final ClientInformationFactory clientInformationFactory)
     {
         super(clientInformationFactory);
@@ -178,30 +196,36 @@ public class GameMidlet extends ProgressMidlet
         this.init();        
     }
     
+    @JsMethod
     protected void init()
     {
     }
 
+    @JsMethod
     protected void setDemo() throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
+    @JsMethod
     protected void createGame() throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
+    @JsMethod
     protected void mediaShutdown() throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
+    @JsMethod
     public void stopAll()
     {
     }
 
     @Override
+    @JsMethod
     protected void pauseApp()
     {
         this.pauseAppBackground(true);
@@ -211,6 +235,7 @@ public class GameMidlet extends ProgressMidlet
         gameAdState.getAdvertisements().stopAll();
     }
 
+    @JsMethod
     protected void pauseAppBackground(final boolean background)
     {
         this.logUtil.putF(this.commonStrings.START, this, this.PAUSE_APP_BACKGROUND);
@@ -234,6 +259,7 @@ public class GameMidlet extends ProgressMidlet
         AllBinarySensorManager.getInstance().shutdown();
     }
 
+    @JsMethod
     protected void unPauseApp()
     {
         this.unPauseAppBackground(true);
@@ -243,6 +269,7 @@ public class GameMidlet extends ProgressMidlet
         gameAdState.getAdvertisements().startAll();
     }
     
+    @JsMethod
     protected void unPauseAppBackground(boolean background)
     {
         this.logUtil.putF(this.commonStrings.START, this, this.UN_PAUSE_APP_BACKGROUND);
@@ -270,6 +297,7 @@ public class GameMidlet extends ProgressMidlet
     }
     
     @Override
+    @JsMethod
     protected void destroyAppInRunnable(boolean unconditional, boolean isProgress)
     {
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -292,6 +320,7 @@ public class GameMidlet extends ProgressMidlet
     }
     
     @Override
+    @JsMethod
     protected void destroyApp(boolean unconditional)
     {
         final String METHOD_NAME = "GameMidlet::destroyApp";
@@ -332,7 +361,8 @@ public class GameMidlet extends ProgressMidlet
     }
  
     @Override
-    protected void startApp()
+    @JsMethod
+    protected void startApp() throws MIDletStateChangeException
     {
         try
         {
@@ -380,6 +410,7 @@ public class GameMidlet extends ProgressMidlet
     }
     
     @Override
+    @JsMethod
     public synchronized void commandAction(final Command command, final Displayable displayable)
     {
         try
@@ -841,6 +872,7 @@ public class GameMidlet extends ProgressMidlet
         }
     }
 
+    @JsMethod
     private void updateFullScreen()
     {
         final MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
@@ -881,17 +913,20 @@ public class GameMidlet extends ProgressMidlet
     }
      */
     
+    @JsMethod
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
+    @JsMethod
     protected MyCanvas getInputMappingInstructionsCanvas()
         throws Exception
     {
         return new GameInputMappingInstructionsCanvas(this, this.createGameLayerManager());
     }
 
+    @JsMethod
     protected MyCanvas getInputMappingCanvas()
         throws Exception
     {
@@ -901,23 +936,27 @@ public class GameMidlet extends ProgressMidlet
     }
 
     //You can override this with your own Canvas
+    @JsMethod
     protected MyCanvas getAboutCanvas() throws Exception
     {
         return new BasicPaintablesCanvas(this, CanvasStrings.getInstance().ABOUT, this.createGameLayerManager(),
                 AboutPaintableFactory.getInstance().paintableArray);
     }
 
+    @JsMethod
     protected HelpPaintable getHelpPaintable()
         throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
+    @JsMethod
     protected HighScoresCanvas createHighScoresCanvas() throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
+    @JsMethod
     public void startGameCanvasRunnableInterface() throws Exception
     {
         //this.logUtil.putF(this.commonStrings.START, this, "startGameCanvasRunnableInterface");
@@ -937,6 +976,7 @@ public class GameMidlet extends ProgressMidlet
         threadFactoryUtil.start(this.thread);
     }
 
+    @JsMethod
     protected void stopGameCanvasRunnableInterface() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
@@ -978,11 +1018,13 @@ public class GameMidlet extends ProgressMidlet
         this.logUtil.putF(this.commonStrings.END, this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
     }
 
+    @JsMethod
     public GameCanvasRunnableInterface getGameCanvasRunnableInterface()
     {
         return this.allbinaryGameCanvasRunnableInterface;
     }
 
+    @JsMethod
     public void setGameCanvasRunnableInterface(
         final GameCanvasRunnableInterface gameCanvasRunnableInterface)
     {
@@ -995,6 +1037,7 @@ public class GameMidlet extends ProgressMidlet
         
     }
 
+    @JsMethod
     protected AllBinaryGameLayerManager createGameLayerManager()
     {
         final GameInfo gameInfo = new GameInfo(GameTypeFactory.getInstance().SINGLE_PLAYER,
@@ -1011,6 +1054,7 @@ public class GameMidlet extends ProgressMidlet
         //this.gameOptionsForm = gameOptionsForm;
     //}
     
+    @JsMethod
     protected CommandForm getGameOptionsForm()
     {
         final AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
@@ -1022,6 +1066,7 @@ public class GameMidlet extends ProgressMidlet
         //return gameOptionsForm;
     }
 
+    @JsMethod
     public void save() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.SAVE);
@@ -1031,6 +1076,7 @@ public class GameMidlet extends ProgressMidlet
     }
 
     @Override
+    @JsMethod
     public Hashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, "getCurrentStateHashtable");
@@ -1051,27 +1097,32 @@ public class GameMidlet extends ProgressMidlet
         return hashtable;
     }
 
+    @JsMethod
     public void setLoadGameForm(final LoadGameForm loadGameForm)
     {
         this.loadGameForm = loadGameForm;
     }
 
+    @JsMethod
     public CommandForm getLoadGameForm()
     {
         return this.loadGameForm;
     }
     
+    @JsMethod
     public void setResized(final boolean resized)
     {
         this.resized = resized;
     }
 
+    @JsMethod
     public boolean isResized()
     {
         return this.resized;
     }
 
     private boolean startedBefore = false;
+    @JsMethod
     public boolean isDemoLoading() {
         
         if(this.startedBefore) {

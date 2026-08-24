@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.configuration;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.graphics.color.BasicColor;
@@ -21,13 +23,19 @@ import org.allbinary.init.Init;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class InGameOptionsFormFactory
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
+    @JsMethod
     public static InGameOptionsFormFactory getInstance() {
 
         if(InGameOptionsFormFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
@@ -39,6 +47,7 @@ public class InGameOptionsFormFactory
 
     private CommandForm SINGLETON = CommandForm.getNullCommandForm();
 
+    @JsMethod
     public void init(CommandListener commandListener, Init initInterface, String title,
             BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
     {
@@ -56,6 +65,7 @@ public class InGameOptionsFormFactory
         }
     }
     
+    @JsMethod
     public CommandForm get()
     {
         return this.SINGLETON;

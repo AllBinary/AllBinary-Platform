@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
 
@@ -36,8 +38,13 @@ import org.allbinary.media.audio.SelectSound;
 import org.allbinary.thread.PrimaryThreadPool;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 //In general allow scrolling of the menu and selection the center item
+
+@JsType
 public class CommandFormInputProcessor extends BasicMenuInputProcessor
 {
 
@@ -48,12 +55,14 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    private final int DOUBLE_CLICK_DELAY = 1200;
    private final TimeDelayHelper doubleClickTimeHelper = new TimeDelayHelper(this.DOUBLE_CLICK_DELAY);
 
+   @JsProperty
    protected final boolean isSingleKeyProcessing = 
        InputFeatureFactory.getInstance().isSingleKeyProcessing();
 
    private ScrollSelectionForm form;
    private boolean hasPressed = false;
 
+   @JsConstructor
    public CommandFormInputProcessor(final BasicArrayList gameKeyEventList,
            final int playerInputId, 
            final MyCanvas gameCanvas, final ScrollSelectionForm form)
@@ -63,6 +72,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       this.form = form;
    }
 
+   @JsMethod
    public int processInput(final int key) throws Exception
    {
       //this.logUtil.putF(new StringMaker().append(commonStrings.START).append("Canvas.").append(CanvasUtil.getKeyName(key)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
@@ -93,6 +103,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    }
 
    private final String PROCESS_COMMAND = "processCommand";
+   @JsMethod
    private int processCommand()
    {
       final CommandCurrentSelectionForm commandCurrentSelectionForm = (CommandCurrentSelectionForm) this.form;
@@ -121,6 +132,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    }
 
    @Override
+   @JsMethod
    public int processInputList() throws Exception
    {
       try
@@ -181,6 +193,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    }
 
    // AllBinaryLayerManager layerManager
+   @JsMethod
    public int processMotionInputs() throws Exception
    {
        //PreLogUtil.put(commonStrings.START, this, "processMotionInputs");
@@ -200,6 +213,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       return lastIndex;
    }
 
+   @JsMethod
    protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
            throws Exception
    {
@@ -261,6 +275,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    
     private final String NAME_LABEL = " ScrollSelectionForm: ";
     
+    @JsMethod
     public String toString()
     {
         return new StringMaker()

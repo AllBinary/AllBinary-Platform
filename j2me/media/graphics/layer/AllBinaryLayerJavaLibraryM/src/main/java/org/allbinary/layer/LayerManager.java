@@ -1,5 +1,7 @@
 package org.allbinary.layer;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -7,17 +9,25 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.SynchObject;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class LayerManager
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final LayerManagerLoggingBase layerManagerLogging;
     private final BasicArrayList list = new BasicArrayListD();
     private final SynchObject object = new SynchObject();
 
+    @JsConstructor
     public LayerManager(final LayerManagerLoggingBase layerManagerLogging)
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
@@ -25,11 +35,13 @@ public class LayerManager
         this.layerManagerLogging = layerManagerLogging;
     }
     
+    @JsMethod
     public boolean contains(final AllBinaryLayer layerInterface)
     {
         return this.list.contains(layerInterface);
     }
 
+    @JsMethod
     public void update(final AllBinaryLayer layerInterface) throws Exception
     {
         boolean had = this.list.remove(layerInterface);
@@ -48,6 +60,7 @@ public class LayerManager
         }
     }
 
+    @JsMethod
     public void insert(final AllBinaryLayer layerInterface) throws Exception
     {
         AllBinaryLayer nextLayerInterface;
@@ -62,6 +75,7 @@ public class LayerManager
         this.append(layerInterface);
     }
     
+    @JsMethod
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
         this.layerManagerLogging.append(layerInterface);
@@ -69,6 +83,7 @@ public class LayerManager
         this.list.add(layerInterface);
     }
 
+    @JsMethod
     public void appendAt(final AllBinaryLayer layerInterface, final int index)
             throws Exception
     {
@@ -77,6 +92,7 @@ public class LayerManager
         this.list.addAt(index, layerInterface);
     }
     
+    @JsMethod
     public void remove(final AllBinaryLayer layerInterface)
             throws Exception
     {
@@ -89,16 +105,19 @@ public class LayerManager
     	}
     }
 
+    @JsMethod
     public Layer getLayerAt(final int index)
     {
         return (Layer) this.list.objectArray[index];
     }
 
+    @JsMethod
     public int getSize()
     {
         return this.list.size();
     }
 
+    @JsMethod
     public void cleanup() throws Exception
     {
         //this.logUtil.putF(this.commonStrings.CLEANUP, this, this.commonStrings.CLEANUP);
@@ -116,6 +135,7 @@ public class LayerManager
     //private boolean isFirst = true;
     //private final String PAINT = canvasStrings.PAINT;
     
+    @JsMethod
     public void paint(Graphics g, int x, int y)
     {
     	synchronized(this.object)

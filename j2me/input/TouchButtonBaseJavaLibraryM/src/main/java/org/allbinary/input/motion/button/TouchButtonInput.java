@@ -13,6 +13,8 @@
 */
 package org.allbinary.input.motion.button;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.Input;
@@ -22,10 +24,16 @@ import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public final class TouchButtonInput extends Input 
     implements GameKeyEventSourceInterface
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
@@ -33,6 +41,7 @@ public final class TouchButtonInput extends Input
     
     private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
 
+    @JsConstructor
     public TouchButtonInput(int id, String name)
     {
         super(id, name);
@@ -43,6 +52,7 @@ public final class TouchButtonInput extends Input
         //this.logUtil.putF("Created", this, this.commonStrings.CONSTRUCTOR);
     }
 
+    @JsMethod
     public void update(InputToGameKeyMapping inputToGameKeyMapping)
     {
         try
@@ -58,11 +68,13 @@ public final class TouchButtonInput extends Input
     }
 
     @Override
+    @JsMethod
     public int getSourceId()
     {
         return this.TOUCH_BUTTON_SOURCE_ID;
     }
 
+    @JsMethod
     public GameKeyEvent getGameKeyEvent()
     {
         return this.gameKeyEvent;

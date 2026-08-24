@@ -52,6 +52,6 @@ public class LapWidget extends BasicHud
    
    public void paint(Graphics graphics)
    {
-      super.paint(graphics, this.string);
+      super.paintString(graphics, this.string);
    }
 }

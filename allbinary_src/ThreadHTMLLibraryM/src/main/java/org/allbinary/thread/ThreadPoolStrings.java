@@ -13,10 +13,16 @@
  */
 package org.allbinary.thread;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public class ThreadPoolStrings {
 
     private static final ThreadPoolStrings instance = new ThreadPoolStrings();
@@ -24,12 +30,16 @@ public class ThreadPoolStrings {
     /**
      * @return the instance
      */
+    @JsMethod
     public static ThreadPoolStrings getInstance() {
         return ThreadPoolStrings.instance;
     }
     
+    @JsProperty
     public final String ADD_TASK = "addTask";
+    @JsProperty
     public final String START_TASK = "Started Task: ";
+    @JsProperty
     public final String COMPLETE_TASK = "Completed Task: ";
 
 }

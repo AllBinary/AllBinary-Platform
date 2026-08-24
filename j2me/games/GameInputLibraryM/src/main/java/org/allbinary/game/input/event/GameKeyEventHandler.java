@@ -13,16 +13,24 @@
 */
 package org.allbinary.game.input.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameKeyEventHandler
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final GameKeyEventHandler instance = new GameKeyEventHandler();
 
+    @JsMethod
     public static GameKeyEventHandler getInstance()
     {
         return GameKeyEventHandler.instance;
@@ -37,6 +45,7 @@ public class GameKeyEventHandler
     private final DownGameKeyEventHandler downGameKeyEventHandler = 
             DownGameKeyEventHandler.getInstance();
 
+    @JsMethod
     public synchronized void removeAllListeners()
     {
         this.pressGameKeyEventHandler.removeAllListeners();
@@ -54,6 +63,7 @@ public class GameKeyEventHandler
     */
 
     //synchronized 
+    @JsMethod
     public void addListenerForPlayer(
             EventListenerInterface eventListenerInterface, int playerInputId)
     {
@@ -66,6 +76,7 @@ public class GameKeyEventHandler
         this.downGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
     }
 
+    @JsMethod
     public void addListener(
             EventListenerInterface eventListenerInterface)
     {
@@ -78,6 +89,7 @@ public class GameKeyEventHandler
     }
     
     //synchronized 
+    @JsMethod
     public void removeListener(
             EventListenerInterface eventListenerInterface)
     {

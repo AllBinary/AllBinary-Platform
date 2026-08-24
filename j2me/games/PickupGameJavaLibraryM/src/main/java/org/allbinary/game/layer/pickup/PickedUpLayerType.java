@@ -13,15 +13,23 @@
 */
 package org.allbinary.game.layer.pickup;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class PickedUpLayerType 
 {
    private String name;
    
+   @JsConstructor
    PickedUpLayerType(String name)
    {
       this.name = name;
    }
    
+   @JsMethod
    public String toString()
    {
       return this.name;

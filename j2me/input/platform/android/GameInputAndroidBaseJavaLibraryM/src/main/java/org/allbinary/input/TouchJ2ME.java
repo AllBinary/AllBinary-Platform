@@ -17,6 +17,7 @@ package org.allbinary.input;
  *
  * @author user
  */
+//TouchAndroid
 public class TouchJ2ME
 {
     public TouchJ2ME()

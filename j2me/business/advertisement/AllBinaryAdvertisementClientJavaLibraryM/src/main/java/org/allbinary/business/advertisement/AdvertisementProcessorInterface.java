@@ -13,18 +13,25 @@
 */
 package org.allbinary.business.advertisement;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+@JsType
 public class AdvertisementProcessorInterface
 {
+    @JsMethod
     public void process()
     {
         
     }
 
+    @JsMethod
     public void start()
     {
         
     }
 
+    @JsMethod
     public void stop()
     {
         

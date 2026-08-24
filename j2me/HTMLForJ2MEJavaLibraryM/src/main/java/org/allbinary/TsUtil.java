@@ -13,6 +13,8 @@
  */
 package org.allbinary;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.Form;
 import javax.microedition.rms.InvalidRecordIDException;
@@ -21,11 +23,14 @@ import javax.microedition.rms.RecordStoreException;
 import javax.microedition.rms.RecordStoreNotOpenException;
 
 import org.allbinary.logic.NullUtil;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class TsUtil {
 
     private static final TsUtil instance = new TsUtil();
@@ -33,20 +38,24 @@ public class TsUtil {
     /**
      * @return the instance
      */
+    @JsMethod
     public static TsUtil getInstance() {
         return TsUtil.instance;
     }
 
+    @JsMethod
     public int hashCode(Object object) {
         return object.hashCode();
     }
 
+    @JsMethod
     public void waitFor(Object any, final long timeoutMillis) throws InterruptedException {
         //final Object object = (Object) any;
         //object.wait(timeoutMillis);
         throw new RuntimeException();
     }
         
+    @JsMethod
     public byte[] getRecord(final Object object, final int recordId) 
         throws RecordStoreNotOpenException, InvalidRecordIDException, RecordStoreException {
         final RecordStore recordStore = (RecordStore) object;
@@ -62,14 +71,17 @@ public class TsUtil {
 
     }
 
+    @JsMethod
     public int compareTo(final String a, final String b) {
         return a.compareTo(b);
     }
     
+    @JsMethod
     public boolean equalIgnoreCase(final String a, final String b) {
         return a.equalsIgnoreCase(b);
     }
 
+    @JsMethod
     public boolean equalsNotstring(final Object object, final Object object2) {
         return object.equals(object2);
     }
@@ -78,18 +90,22 @@ public class TsUtil {
 //        return object.getClass().getClassLoader();
 //    }
 
-    public int toNumber(final char value) {
+    @JsMethod
+    public int toNumberFromChar(final char value) {
         return (int) value;
     }
 
+    @JsMethod
     public int toNumber(final int value) {
         return value;
     }
 
+    @JsMethod
     public byte[] getByteArray(final String string) {
         return string.getBytes();
     }
     
+    @JsMethod
     public boolean isItemListener(Displayable owner) {
         if (owner instanceof Form) {
             return true;

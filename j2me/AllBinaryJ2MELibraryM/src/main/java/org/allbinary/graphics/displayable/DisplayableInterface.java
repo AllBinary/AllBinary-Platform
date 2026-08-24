@@ -13,18 +13,28 @@
 */
 package org.allbinary.graphics.displayable;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface DisplayableInterface
 {
+   @JsMethod
    void addCommand(Command cmd);
+   @JsMethod
    int getHeight();
    //Ticker getTicker();
    //String getTitle();
+   @JsMethod
    int getWidth();
    //boolean isShown();
+   @JsMethod
    void removeCommand(Command cmd);
+   @JsMethod
    void setCommandListener(CommandListener l);
    //void setTicker(Ticker ticker);
    //void setTitle(String s);

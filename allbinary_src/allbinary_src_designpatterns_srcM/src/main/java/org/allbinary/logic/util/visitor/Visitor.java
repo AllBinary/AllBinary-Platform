@@ -13,20 +13,29 @@
 */
 package org.allbinary.logic.util.visitor;
 
-import org.allbinary.logic.NullUtil;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.NullUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class Visitor implements VisitorInterface
 {
     private static final Visitor instance = new Visitor();
     
+    @JsProperty
     protected final NullUtil nullUtil = NullUtil.getInstance();
     
     @Override
+    @JsMethod
     public Object visit(Object object)
     {
         return this.nullUtil.NULL_OBJECT;
     }
 
+    @JsMethod
     public static Visitor getInstance()
     {
         return Visitor.instance;

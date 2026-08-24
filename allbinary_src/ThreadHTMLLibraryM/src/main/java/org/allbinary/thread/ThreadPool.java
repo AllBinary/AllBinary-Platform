@@ -13,20 +13,33 @@
 */
 package org.allbinary.thread;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class ThreadPool
 {
+    @JsProperty
     public static final int NORMAL_PRIORITY = 5; //5 = Thread.NORM_PRIORITY
     
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
     
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    @JsProperty
     protected final NullRunnable NULL_RUNNABLE = NullRunnable.getInstance();
+    @JsProperty
     protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
+    @JsProperty
     protected final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
     
     //private final String poolName;
@@ -40,6 +53,7 @@ public class ThreadPool
 
     private boolean runningTask;
         
+    @JsConstructor
     public ThreadPool(final String poolName, final int numThreads, final int priority)
     {
 //        this.poolName = poolName;
@@ -49,6 +63,7 @@ public class ThreadPool
     
     //TWB - PlayN Single Thread Fix
     private PriorityRunnable currentPriorityRunnable = this.threadObjectUtil.NULL_PRIORITY_RUNNABLE;
+    @JsMethod
     public void runAPriorityTask()
             throws Exception
     {
@@ -74,6 +89,7 @@ public class ThreadPool
 
     }
 
+    @JsMethod
     public void runATask()
             throws Exception
     {
@@ -85,6 +101,7 @@ public class ThreadPool
             }
     }
     
+    @JsMethod
     public void init()
     {
         if (!this.isAlive)
@@ -100,6 +117,7 @@ public class ThreadPool
     }
 
     
+    @JsMethod
     public synchronized void runTaskWithPriority(final PriorityRunnable task)
     {
         if (!this.isAlive)
@@ -139,6 +157,7 @@ public class ThreadPool
         }
     }
     
+    @JsMethod
     public synchronized void runTask(final Runnable task)
     {
         if (!this.isAlive)
@@ -157,6 +176,7 @@ public class ThreadPool
         }
     }
 
+    @JsMethod
     protected synchronized Runnable getTask()
             throws InterruptedException
     {
@@ -178,11 +198,13 @@ public class ThreadPool
         return (Runnable) this.taskQueue.removeAt(0);
     }
 
+    @JsMethod
     public synchronized void clear() 
     {
         this.taskQueue.clear();
     }
     
+    @JsMethod
     public synchronized void close()
     {
         if (this.isAlive)
@@ -194,6 +216,7 @@ public class ThreadPool
         }
     }
 
+    @JsMethod
     public void join()
     {
 
@@ -213,6 +236,7 @@ public class ThreadPool
         //}
     }
 
+    @JsMethod
     public boolean isBusy()
     {
         if (!this.isAlive) {
@@ -231,10 +255,12 @@ public class ThreadPool
         return false;
     }
 
+    @JsMethod
     protected void threadStarted()
     {
     }
 
+    @JsMethod
     protected void threadStopped()
     {
         if (this.numThreads == 1)
@@ -245,10 +271,12 @@ public class ThreadPool
         }
     }
 
+    @JsMethod
     protected void startTask(final Runnable task)
     {
     }
 
+    @JsMethod
     protected void completedTask(final Runnable task)
     {
     }

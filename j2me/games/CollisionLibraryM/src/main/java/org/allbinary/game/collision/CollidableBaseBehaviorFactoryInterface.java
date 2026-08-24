@@ -13,12 +13,18 @@
  */
 package org.allbinary.game.collision;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public interface CollidableBaseBehaviorFactoryInterface {
     
+    @JsMethod
     CollidableBaseBehavior createBehavior();
     
 }

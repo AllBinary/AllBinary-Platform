@@ -13,12 +13,19 @@
 */
 package org.allbinary.logic.system.os;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.java.character.CharacterSet;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GenericOperatingSystem implements OperatingSystemInterface
 {
    private final String osName;
@@ -26,8 +33,10 @@ public class GenericOperatingSystem implements OperatingSystemInterface
    private final String osVersion;
    private final CharacterSet characterSet = new CharacterSet();
 
+   @JsProperty
    protected boolean scalable = false;
    
+   @JsConstructor
    public GenericOperatingSystem()
    {
        final SystemProperties systemProperties = SystemProperties.getInstance();
@@ -67,58 +76,68 @@ public class GenericOperatingSystem implements OperatingSystemInterface
    }
    
    @Override
+   @JsMethod
    public String getName()
    {
       return this.osName;
    }
    
    @Override
+   @JsMethod
    public String getVersion()
    {
       return this.osVersion;
    }
    
    @Override
+   @JsMethod
    public String getArch()
    {
       return this.osArch;
    }
 
    @Override
+   @JsMethod
    public CharacterSet getCharacterSet()
    {
       return this.characterSet;
    }
    
    @Override
+   @JsMethod
    public boolean isOverScan()
    {
        return false;
    }
 
    @Override
+   @JsMethod
    public int getOverScanXPercent()
    {
        return 100;
    }
 
    @Override
+   @JsMethod
    public int getOverScanYPercent()
    {
        return 100;
    }
    
    @Override
+   @JsMethod
    public boolean isScalable()
    {
        return this.scalable;
    }
    
    @Override
+   @JsMethod
    public boolean isAutoHide() {
        return false;
    }
 
+   @JsMethod
    public String toString()
    {
        final String NEW_LINE = CommonSeps.getInstance().NEW_LINE;

@@ -13,17 +13,26 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class DemoGameRunnable extends GameRunnable
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final DemoCanvas demoCanvas;
     
+    @JsConstructor
     public DemoGameRunnable(DemoCanvas demoCanvas)
     {
         this.demoCanvas = demoCanvas;
@@ -32,6 +41,7 @@ public class DemoGameRunnable extends GameRunnable
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
     @Override
+    @JsMethod
     public void run()
     {
         try
@@ -52,6 +62,7 @@ public class DemoGameRunnable extends GameRunnable
     }
     
     @Override
+    @JsMethod
     public void processLoopSleep()
     throws Exception
     {

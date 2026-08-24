@@ -13,11 +13,17 @@
 */
 package org.allbinary.game.layer.hud.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class GameNotificationEvent extends AllBinaryEventObject
 {
     private String string = StringUtil.getInstance().EMPTY_STRING;
@@ -25,6 +31,7 @@ public class GameNotificationEvent extends AllBinaryEventObject
     private BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
     private final Boolean removeable;
 
+    @JsConstructor
     public GameNotificationEvent(
             Object object, 
             String string,
@@ -40,31 +47,37 @@ public class GameNotificationEvent extends AllBinaryEventObject
         this.removeable = permanent;
     }
 
+    @JsMethod
     public String getString()
     {
         return this.string;
     }
 
+    @JsMethod
     public Integer getSeconds()
     {
         return this.seconds;
     }
 
+    @JsMethod
     public BasicColor getBasicColorP()
     {
         return this.basicColor;
     }
 
+    @JsMethod
     public Boolean getPermanent()
     {
         return this.removeable;
     }
 
+    @JsMethod
     public void setString(String string)
     {
         this.string = string;
     }
 
+    @JsMethod
     public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;

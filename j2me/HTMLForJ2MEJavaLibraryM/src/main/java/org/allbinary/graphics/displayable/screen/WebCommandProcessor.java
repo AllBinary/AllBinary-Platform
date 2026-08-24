@@ -14,6 +14,8 @@
 
 package org.allbinary.graphics.displayable.screen;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -23,12 +25,17 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import playn.core.PlayN;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class WebCommandProcessor {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
@@ -37,6 +44,7 @@ public class WebCommandProcessor {
     /**
      * @return the instance
      */
+    @JsMethod
     public static WebCommandProcessor getInstance() {
         return WebCommandProcessor.instance;
     }
@@ -44,8 +52,10 @@ public class WebCommandProcessor {
     private final AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
 
     //Hack
+    @JsProperty
     public final BasicArrayList list = new BasicArrayListD();
     
+    @JsMethod
     public void process(final CommandListener midletCommandListener, final Command command, final Canvas canvas) {
         try {
             //HTML

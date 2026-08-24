@@ -6,15 +6,24 @@
 
 package org.allbinary.input.motion.button;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
 /**
  *
  * @author user
  */
+
+@JsType
 public class TouchButtonResource {
     
+    @JsProperty
     public final String RESOURCE;
+    @JsProperty
     public final String HINT;
     
+    @JsConstructor
     protected TouchButtonResource(String resource, String hint)
     {
         this.RESOURCE = resource;

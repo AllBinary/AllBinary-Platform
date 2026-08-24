@@ -13,10 +13,16 @@
 */
 package org.allbinary.ai;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.graphics.IdentifierInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface ArtificialIntelligenceInterface extends IdentifierInterface
 {
+   @JsMethod
    void processAI(AllBinaryLayerManager layerManager) throws Exception;
 }

@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.score.displayable;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
@@ -43,11 +45,17 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.ARunnable;
 import org.allbinary.thread.SecondaryThreadPool;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class HighScoresCanvas extends GameCommandCanvas
         implements HighScoresResultsListener
 {
 
+    @JsProperty
     public static final String NAME = "HighScoresCanvas";
     
     private Paintable paintable = NullPaintable.getInstance();
@@ -62,6 +70,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     private final HighScoresPaintable highScoresPaintable;
     private final HighScoresFactoryInterface highScoresFactoryInterface;
 
+    @JsProperty
     protected ColorFillBasePaintable colorFillPaintable;
 
     private final HighScoresHelperBase highScoresHelper = new HighScoresHelperBase();
@@ -73,6 +82,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     private Command currentCommand = this.highScoreCommandsFactory.HIGH_SCORE_COMMANDS[0];
     private boolean hasPainted = false;
     
+    @JsConstructor
     public HighScoresCanvas(
             final CommandListener commandListener,
             final AllBinaryGameLayerManager allBinaryGameLayerManager,
@@ -121,11 +131,13 @@ public class HighScoresCanvas extends GameCommandCanvas
 
             final HighScoresCanvas highScoresCanvas;
                 
+            @JsConstructor
             HighScoreRunnable(final HighScoresCanvas highScoresCanvas) {
                 this.highScoresCanvas = highScoresCanvas;
             }
             
             @Override
+            @JsMethod
             public void run() {
                 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -162,6 +174,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     }
 
     @Override
+    @JsMethod
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -172,6 +185,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     }
 
     @Override
+    @JsMethod
     public void open()
     {
         super.open();
@@ -180,6 +194,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     }
     
     @Override
+    @JsMethod
     public void close() throws Exception
     {
         super.close();
@@ -188,6 +203,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     } 
     
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);
@@ -204,6 +220,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         this.hasPainted = true;
     }
 
+    @JsMethod
     public void executeUpdate()
     {
         try
@@ -216,12 +233,14 @@ public class HighScoresCanvas extends GameCommandCanvas
         }
     }
 
+    @JsMethod
     private HighScoresPaintable getHighScoresPaintable()
     {
         return this.highScoresPaintable;
     }
 
     @Override
+    @JsMethod
     public void setHighScoresArray(final HighScores[] highScoresArray)
     {
         try {
@@ -241,6 +260,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         }
     }
 
+    @JsMethod
     public void updateCommand(Command command) throws Exception
     {
         this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.stringUtil.toString(command)).toString(), this, this.commonStrings.UPDATE);
@@ -286,11 +306,13 @@ public class HighScoresCanvas extends GameCommandCanvas
         this.repaintBehavior.onChangeRepaint(this);
     }
 
+    @JsMethod
     public GameInfo getGameInfo()
     {
         return this.gameInfo;
     }
 
+    @JsMethod
     private void setPaintable(Paintable paintable)
     {
         this.paintable = paintable;

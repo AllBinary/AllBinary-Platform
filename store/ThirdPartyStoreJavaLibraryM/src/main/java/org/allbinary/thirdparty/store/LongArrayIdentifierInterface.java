@@ -13,11 +13,17 @@
 */
 package org.allbinary.thirdparty.store;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author user
  */
+
+@JsType
 public interface LongArrayIdentifierInterface {
 
+    @JsMethod
     long[] getLongArrayIdentifier();
 }

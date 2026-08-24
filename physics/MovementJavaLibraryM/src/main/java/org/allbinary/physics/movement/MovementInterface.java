@@ -13,16 +13,24 @@
 */
 package org.allbinary.physics.movement;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.layer.AllBinaryGameLayer;
 import org.allbinary.logic.math.BasicDecimal;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author user
  */
+
+@JsType
 public interface MovementInterface
 {
+    @JsMethod
     void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle);
+    @JsMethod
     void process(AllBinaryGameLayer layer) throws Exception;
+    @JsMethod
     void stop();
 }

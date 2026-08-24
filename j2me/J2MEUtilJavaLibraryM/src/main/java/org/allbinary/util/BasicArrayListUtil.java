@@ -13,24 +13,32 @@
 */
 package org.allbinary.util;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonPhoneStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
 /**
  * 
  * @author user
  */
+
+@JsType
 public class BasicArrayListUtil
 {
     private static final BasicArrayListUtil instance = new BasicArrayListUtil();
 
+    @JsMethod
     public static BasicArrayListUtil getInstance()
     {
         return BasicArrayListUtil.instance;
     }
 
+    @JsProperty
     public final BasicArrayList[][] NULL_ARRAY_OF_ARRAY = new BasicArrayList[0][0];
 
     private final MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
@@ -38,6 +46,7 @@ public class BasicArrayListUtil
     // I should make immutable and throw on attempted edit
     private final BasicArrayList immutableInstance = new ImmutableBasicArrayList("Immutable", 0);
 
+    @JsMethod
     public Object getRandom(BasicArrayList list)
     {
         //if(list.size() == 0)
@@ -49,11 +58,13 @@ public class BasicArrayListUtil
         return list.objectArray[i_random];
     }
 
+    @JsMethod
     public int getRandomIndex(BasicArrayList list)
     {
         return this.myRandomFactory.getAbsoluteNextInt(list.size());
     }
 
+    @JsMethod
     public void reverse(final BasicArrayList list) {
         final int lastMinusOneIndex = list.size() - 2;
         Object temp;
@@ -68,6 +79,7 @@ public class BasicArrayListUtil
         }
     }	
     
+    @JsMethod
     public String log(final BasicArrayList list)
     {
         final String S_LABEL = " s: ";
@@ -91,11 +103,13 @@ public class BasicArrayListUtil
     /**
      * @return the immutableInstance
      */
+    @JsMethod
     public BasicArrayList getImmutableInstance()
     {
         return this.immutableInstance;
     }
     
+    @JsMethod
     public static void main(String args[]) {
         final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
         final BasicArrayList list = new BasicArrayListD();

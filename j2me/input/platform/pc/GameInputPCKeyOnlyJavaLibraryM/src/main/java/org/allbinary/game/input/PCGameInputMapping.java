@@ -13,21 +13,29 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+
 //import org.allbinary.input.gyro.OrientationMotionGestureFactory;
 
 import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class PCGameInputMapping 
 extends PersistentInputMapping
 {
+    @JsConstructor
     public PCGameInputMapping()
     {
         super(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
     }
 
     @Override
+    @JsMethod
     public void init(final AbeClientInformationInterface abeClientInformation)
     throws Exception
     {
@@ -45,6 +53,7 @@ extends PersistentInputMapping
     }
 
     @Override
+    @JsMethod
     public boolean isDelete(Input input)
     {
         if(input == PCKeyFactory.getInstance().DEL)
@@ -58,6 +67,7 @@ extends PersistentInputMapping
     }
 
     @Override
+    @JsMethod
     public boolean isSystemInput(Input input)
     {
         return false;

@@ -13,6 +13,8 @@
 */
 package org.allbinary.graphics.opengles;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Displayable;
 
 import org.allbinary.J2MEUtil;
@@ -37,13 +39,19 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.NullRunnable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class CurrentDisplayableFactory
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final CurrentDisplayableFactory instance = new CurrentDisplayableFactory();
 
+    @JsMethod
     public static CurrentDisplayableFactory getInstance()
     {
         return CurrentDisplayableFactory.instance;
@@ -61,6 +69,7 @@ public class CurrentDisplayableFactory
     private final String RUNNABLE = "Runnable: ";
     private final String RUNNABLE_WAS_ALREADY_IN_USE = "Runnable was already in use: ";
 
+    @JsProperty
     public final BasicArrayList DEFAULT_CHILD_NAME_LIST = new BasicArrayListD();
 
     private Displayable displayable = NullDisplayable.getInstance();
@@ -69,6 +78,7 @@ public class CurrentDisplayableFactory
     private GameRunnable runnable = NullWaitGameRunnable.getInstance();
     private GameRunnable usedRunnable = NullWaitGameRunnable.getInstance();
 
+    @JsConstructor
     private CurrentDisplayableFactory() {
         this.DEFAULT_CHILD_NAME_LIST.add(this.canvasStrings.ABOUT);
         this.DEFAULT_CHILD_NAME_LIST.add(this.canvasStrings.OPTIONS);
@@ -77,6 +87,7 @@ public class CurrentDisplayableFactory
         this.DEFAULT_CHILD_NAME_LIST.add(HighScoresCanvas.NAME);
     }
     
+    @JsMethod
     public void setMyCanvas(final MyCanvas displayable)
     {
         if(this.displayable instanceof MyCanvas) {
@@ -90,6 +101,7 @@ public class CurrentDisplayableFactory
 
     }
 
+    @JsMethod
     public void setDisplayable(final Displayable displayable)
     {
         //ForcedLogUtil.log(SET_DISPLAYABLE + displayable, this);
@@ -98,6 +110,7 @@ public class CurrentDisplayableFactory
 
     }
     
+    @JsMethod
     public void setOpenGlReadydisplayable(final Displayable openGlReadydisplayable)
     {
         //Should not be needed since all resources except for progressimages are loaded after image to imagegl conversion
@@ -106,11 +119,13 @@ public class CurrentDisplayableFactory
         this.update();
     }
 
+    @JsMethod
     public Displayable getOpenGlReadydisplayable()
     {
         return this.openGlReadydisplayable;
     }
 
+    @JsMethod
     public void setRunnable(final GameRunnable runnable)
     {
         PreLogUtil.put(new StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(runnable)).toString(), this, this.SET_RUNNABLE);
@@ -124,12 +139,14 @@ public class CurrentDisplayableFactory
         }
     }
 
+    @JsMethod
     public void clearRunnable()
     {
         PreLogUtil.put(new StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(NullRunnable.getInstance())).toString(), this, this.CLEAR_RUNNABLE);
         this.setUsedRunnable(NullWaitGameRunnable.getInstance()); 
     }
     
+    @JsMethod
     private void update()
     {
         synchronized (this)
@@ -181,11 +198,13 @@ public class CurrentDisplayableFactory
     }
     */
 
+    @JsMethod
     public Displayable getDisplayable()
     {
         return this.displayable;
     }
 
+    @JsMethod
     public GameRunnable getUsedRunnable()
     {
         return this.usedRunnable;
@@ -194,6 +213,7 @@ public class CurrentDisplayableFactory
     /**
      * @param usedRunnable the usedRunnable to set
      */
+    @JsMethod
     public void setUsedRunnable(GameRunnable usedRunnable)
     {
         PreLogUtil.put(new StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).toString(), this, this.SET_USED_RUNNABLE);

@@ -13,10 +13,17 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class LockableFeature {
 
     private final String name;
     
+    @JsConstructor
     public LockableFeature(String name)
     {
         this.name = name;
@@ -25,6 +32,7 @@ public class LockableFeature {
     /**
      * @return the name
      */
+    @JsMethod
     public String getName() {
         return this.name;
     }

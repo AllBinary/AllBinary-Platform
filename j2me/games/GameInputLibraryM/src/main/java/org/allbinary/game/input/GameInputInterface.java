@@ -13,13 +13,20 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.NamedInterface;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface GameInputInterface extends NamedInterface
 {
+   @JsMethod
    void processInput(AllBinaryLayerManager layerManager) throws Exception;
    
+   @JsMethod
    void initInputProcessors();
 
 }

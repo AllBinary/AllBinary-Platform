@@ -13,14 +13,22 @@
 */
 package org.allbinary.midlet;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.canvas.Processor;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class ExitRunnable implements Runnable
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -29,6 +37,7 @@ public class ExitRunnable implements Runnable
     private final Processor processor;
     private final boolean isProgress;
     
+    @JsConstructor
     public ExitRunnable(AllBinaryMidlet midlet, Processor processor, boolean isProgress)
     {
         this.midlet = midlet;
@@ -37,6 +46,7 @@ public class ExitRunnable implements Runnable
     }
     
     @Override
+    @JsMethod
     public void run()
     {
         try

@@ -13,25 +13,34 @@
 */
 package org.allbinary.graphics.form;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.paint.Paintable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class FormPaintable extends Paintable
 {
     private final PaintableForm form;
     
+    @JsConstructor
     public FormPaintable(PaintableForm form)
     {
         this.form = form;
     }
 
     @Override    
+    @JsMethod
     public void paint(Graphics graphics)
     {
         this.form.paint(graphics);
     }
 
+    @JsMethod
     public PaintableForm getForm()
     {
         return this.form;

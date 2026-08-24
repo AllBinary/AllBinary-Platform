@@ -13,22 +13,32 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.ABRunnable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class DemoGameStartupRunnable extends ABRunnable
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final DemoCanvas demoCanvas;
 
+    @JsConstructor
     public DemoGameStartupRunnable(DemoCanvas demoCanvas)
     {
         this.demoCanvas = demoCanvas;
     }
 
     @Override    
+    @JsMethod
     public void run()
     {
         try
@@ -56,8 +66,10 @@ public class DemoGameStartupRunnable extends ABRunnable
         }
     }
     
+    @JsProperty
     public static final int TYPE = 4;
     @Override
+    @JsMethod
     public int getType() {
         return DemoGameStartupRunnable.TYPE;
     }

@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.util.event.handler;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -21,31 +23,42 @@ import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class BasicEventHandler implements BasicEventHandlerInterface
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final EventStrings eventStrings = EventStrings.getInstance();
     
+    @JsProperty
     protected BasicArrayList eventListenerInterfaceList;
 
     // private ReentrantLock reentrantLock = new ReentrantLock();
     // private Condition condition = reentrantLock.newCondition();
+    @JsConstructor
     public BasicEventHandler()
     {
         this.eventListenerInterfaceList = new BasicArrayListD();
     }
 
     @Override
+    @JsMethod
     public void removeAllListeners()
     {
         this.eventListenerInterfaceList = new BasicArrayListD();
     }
 
     @Override
+    @JsMethod
     public void addListeners(final BasicArrayList vector)
     {
         EventListenerInterface eventListenerInterface;
@@ -57,6 +70,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         }
     }
 
+    @JsMethod
     public void removeListeners(final BasicArrayList vector)
     {
         EventListenerInterface eventListenerInterface;
@@ -68,6 +82,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         }
     }
     
+    @JsMethod
     public void addListenerSingleThreaded(final EventListenerInterface eventListenerInterface)
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
@@ -78,6 +93,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     }
 
     @Override
+    @JsMethod
     public void addListenerInterface(final EventListenerInterface eventListenerInterface)
     {
 
@@ -102,6 +118,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          */
     }
 
+    @JsMethod
     public void removeListenerSingleThreaded(final EventListenerInterface eventListenerInterface)
      {
 
@@ -112,6 +129,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     }
     
     @Override
+    @JsMethod
     public void removeListener(final EventListenerInterface eventListenerInterface)
     {
         /*
@@ -136,6 +154,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     }
 
     @Override
+    @JsMethod
     public void fireEvent(final AllBinaryEventObject eventObject)
         throws Exception
     {
@@ -183,6 +202,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     }
 
     
+    @JsMethod
     protected void process(final AllBinaryEventObject eventObject,
         final EventListenerInterface eventListenerInterface) throws Exception
     {
@@ -193,12 +213,14 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         // basicEventListenerInterface.onEvent(eventObject);
     }
 
+    @JsMethod
     public BasicArrayList getEventListenerInterfaceListP()
     {
         return this.eventListenerInterfaceList;
     }
 
     @Override
+    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();

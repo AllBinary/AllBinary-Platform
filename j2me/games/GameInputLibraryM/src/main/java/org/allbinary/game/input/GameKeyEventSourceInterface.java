@@ -13,7 +13,13 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface GameKeyEventSourceInterface
 {
+    @JsMethod
     int getSourceId();
 }

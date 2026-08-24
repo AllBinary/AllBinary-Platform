@@ -13,56 +13,70 @@
  */
 package javax.microedition.lcdui;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.logic.NullUtil;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
 //PlatformNullImageJavaLibrary
+@JsType
 public class PlatformImage {
 
+    @JsMethod
     public Object getImage(final Object graphicsSurface2) {
         return NullImage.NULL_IMAGE;
     }
 
+    @JsMethod
     public int getSurfaceWidth(final Object graphicsSurface2, final int width) {
         return width;
     }
 
+    @JsMethod
     public int getSurfaceHeight(final Object graphicsSurface2, final int height) {
         return height;
     }
     
+    @JsMethod
     public int getWidth(final Image image, final int width) {
         return width;
     }
 
+    @JsMethod
     public int getHeight(final Image image, final int height) {
         return height;
     }
     
+    @JsMethod
     public javax.microedition.lcdui.Graphics getGraphics(final Object graphicsSurface, final int width, final int height, final Image image) {
         throw new RuntimeException();
     }
 
+    @JsMethod
     public void drawImage(final Image image, final int x, final int y, int anchor, final javax.microedition.lcdui.Graphics g2, final Object g) {
 
     }
 
+    @JsMethod
     public void drawRegion(final Image image, final int x_src, final int y_src, final int width,
         final int height, final int transform, final int x_dst, final int y_dst, final int anchor, final javax.microedition.lcdui.Graphics g) {
 
     }
 
+    @JsMethod
     public void getRGB(final int[] argb, final int offset, final int scanlength, final int x, final int y, final int width, final int height, final Image image) {
 
     }
 
+    @JsMethod
     public void setRGB(final int[] argb, final int offset, final int scanlength, final int x, final int y, final int width, final int height, final Image image) {
         
     }
 
+    @JsMethod
     public int[] getData(final Image image) {
         return NullUtil.getInstance().NULL_INT_ARRAY;
     }

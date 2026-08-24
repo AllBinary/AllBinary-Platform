@@ -13,6 +13,8 @@
  */
 package org.allbinary.animation;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.animation.resource.FeatureResourceAnimationInterfaceFactoryInterface;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.resource.FeaturedResourceFactory;
@@ -24,7 +26,11 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         extends FeaturedResourceFactory
 {
@@ -34,21 +40,25 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
     private static FeaturedAnimationInterfaceFactoryInterfaceFactory INSTANCE
             = new FeaturedAnimationInterfaceFactoryInterfaceFactory();
 
+    @JsConstructor
     private FeaturedAnimationInterfaceFactoryInterfaceFactory()
     {
     }
 
+    @JsMethod
     public static FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance()
     {
         return FeaturedAnimationInterfaceFactoryInterfaceFactory.INSTANCE;
     }
 
+    @JsMethod
     public Rectangle getRectangle(String resource)
             throws Exception
     {
         return this.getRectangleXY(resource, 0, 0);
     }
 
+    @JsMethod
     public Rectangle getRectangleXY(final String resource, final int x, final int y)
             throws Exception
     {
@@ -81,6 +91,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
                 new StringMaker().append("No rectangle available for current feature selection or Resource: ").append(resource).toString());
     }
 
+    @JsMethod
     public ProceduralAnimationInterfaceFactoryInterface getProcedural(
             String resource) throws Exception
     {
@@ -89,12 +100,14 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
 
     }
 
+    @JsMethod
     public AnimationInterfaceFactoryInterface get(String resource)
             throws Exception
     {
         return (AnimationInterfaceFactoryInterface) this.getBasicAnimationInterfaceFactoryInstance(resource);
     }
 
+    @JsMethod
     private BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(final String resource) throws Exception
     {
 

@@ -13,8 +13,14 @@
 */
 package org.allbinary.ai;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface ArtificialIntelligenceTransitionInterface
 {
     
+    @JsMethod
     void transition();
 }

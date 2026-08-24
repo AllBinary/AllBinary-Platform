@@ -13,9 +13,15 @@
  */
 package org.allbinary.layer;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.layer.event.LayerManagerEvent;
 import org.allbinary.layer.event.LayerManagerEventHandler;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class AllBinaryLayerManager extends LayerManager
 {
 
@@ -28,6 +34,7 @@ public class AllBinaryLayerManager extends LayerManager
     private final LayerManagerEvent deleteLayerManagerEvent = new LayerManagerEvent(this, this.layerManagerEventHandler.DELETE);
     private LayerProcessor[] basicLayerProcessorArray = new LayerProcessor[0];
 
+    @JsConstructor
     protected AllBinaryLayerManager()
     {
         super(LayerManagerNoDebug.getInstance());
@@ -35,12 +42,14 @@ public class AllBinaryLayerManager extends LayerManager
     }
 
     // private int damageIndex = -1;
+    @JsMethod
     protected LayerProcessor[] getLayerProcessorArray()
     {
         return this.basicLayerProcessorArray;
     }
 
     // , int damageIndex
+    @JsMethod
     public void setLayerProcessorArray(final LayerProcessor[] layerProcessorArray)
     {
         this.basicLayerProcessorArray = layerProcessorArray;
@@ -48,6 +57,7 @@ public class AllBinaryLayerManager extends LayerManager
         //this.log();
     }
 
+    @JsMethod
     public final void log()
     {
         //this.logUtil.putF(this.commonLabels.TOTAL_LABEL + this.getSize(), this, "log");
@@ -63,6 +73,7 @@ public class AllBinaryLayerManager extends LayerManager
     }
     
     @Override
+    @JsMethod
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
         if(!this.contains(layerInterface))
@@ -76,6 +87,7 @@ public class AllBinaryLayerManager extends LayerManager
     }
 
     @Override
+    @JsMethod
     public void appendAt(final AllBinaryLayer layerInterface, final int index) throws Exception
     {
         if(!this.contains(layerInterface))
@@ -86,6 +98,7 @@ public class AllBinaryLayerManager extends LayerManager
         }
     }
 
+    @JsMethod
     private void appendProcessors(final AllBinaryLayer layerInterface)
         throws Exception
     {
@@ -111,6 +124,7 @@ public class AllBinaryLayerManager extends LayerManager
     }
 
     @Override
+    @JsMethod
     public synchronized void remove(final AllBinaryLayer layerInterface)
         throws Exception
     {
@@ -135,6 +149,7 @@ public class AllBinaryLayerManager extends LayerManager
         //PrelogUtil.putF("Remove: " + layerInterface + " Size: " + this.getSize(), this, "remove");
     }
 
+    @JsMethod
     public void process() throws Exception
     {
         
@@ -163,6 +178,7 @@ public class AllBinaryLayerManager extends LayerManager
     }
 
     @Override
+    @JsMethod
     public void cleanup() throws Exception
     {
          //PrelogUtil.putF(new Integer(this.getSize()).toString(), this, this.commonStrings.CLEANUP);

@@ -13,17 +13,26 @@
 */
 package org.allbinary.util;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class CircularIndexUtil
 {
+    @JsProperty
     public static final CircularIndexUtil NULL_CIRCULAR_INDEX_UTIL = new CircularIndexUtil(0, 0);
 
     private int index = 0;
     private int lastIndex = 0;
     private int size = 0;
     
+    @JsConstructor
     private CircularIndexUtil(int index, int size)
     {
         this.setSize(size);
@@ -35,6 +44,7 @@ public class CircularIndexUtil
 //        this.setSize(size);
 //    }
     
+    @JsMethod
     public int next()
     {
         if (this.index >= this.lastIndex)
@@ -48,6 +58,7 @@ public class CircularIndexUtil
         return this.index;
     }
 
+    @JsMethod
     public int previous()
     {
         if (this.index < 1)
@@ -61,6 +72,7 @@ public class CircularIndexUtil
         return this.index;
     }
     
+    @JsMethod
     public void setIndex(int index)
     {
         if (index > this.lastIndex)
@@ -71,21 +83,25 @@ public class CircularIndexUtil
         this.index = index;
     }
     
+    @JsMethod
     public int getIndex()
     {
         return this.index;
     }
     
+    @JsMethod
     public static CircularIndexUtil createInstance(int max)
     {
         return new CircularIndexUtil(0, max);
     }
 
+    @JsMethod
     public static CircularIndexUtil createInstanceAt(int index, int max)
     {
         return new CircularIndexUtil(index, max);
     }
 
+    @JsMethod
     public void setSize(int size)
     {
         this.size = size;
@@ -93,11 +109,13 @@ public class CircularIndexUtil
         this.index = 0;
     }
 
+    @JsMethod
     public int getSize()
     {
         return this.size;
     }
     
+    @JsMethod
     public String toString() {
         return new StringMaker().append(CommonLabels.getInstance().INDEX_LABEL).appendint(this.index).append("lastIndex: ").appendint(this.lastIndex).append("size: ").appendint(this.size).toString();
     }

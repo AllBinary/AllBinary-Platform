@@ -13,13 +13,19 @@
 */
 package org.allbinary.game.configuration;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.configuration.event.GameFeatureEvent;
 import org.allbinary.game.configuration.event.GameFeatureEventHandler;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class GameConfiguration
 {
     private static final Integer MIN_VALUE = new Integer(Integer.MIN_VALUE);
@@ -31,6 +37,7 @@ public class GameConfiguration
 
     private Boolean modifiable = BooleanFactory.getInstance().TRUE;
 
+    @JsConstructor
     public GameConfiguration(final String name, final Integer defaultValue,
             final Integer minValue, final Integer maxValue)
     {
@@ -44,6 +51,7 @@ public class GameConfiguration
                 this.getName(), this);
     }
 
+    @JsMethod
     public void setValue(final Integer value) throws Exception
     {
         if (this.value != value)
@@ -55,56 +63,67 @@ public class GameConfiguration
         }
     }
 
+    @JsMethod
     public Integer getValue()
     {
         return this.value;
     }
 
+    @JsMethod
     public void setMaxValue(final Integer maxValue)
     {
         this.maxValue = maxValue;
     }
 
+    @JsMethod
     public Integer getMaxValue()
     {
         return this.maxValue;
     }
 
+    @JsMethod
     public void setMinValue(final Integer minValue)
     {
         this.minValue = minValue;
     }
 
+    @JsMethod
     public Integer getMinValue()
     {
         return this.minValue;
     }
 
+    @JsMethod
     public void setName(final String name)
     {
         this.name = name;
     }
 
+    @JsMethod
     public String getName()
     {
         return this.name;
     }
 
+    @JsMethod
     public void setDefaultValue(final Integer defaultValue)
     {
         this.defaultValue = defaultValue;
     }
 
+    @JsMethod
     protected Integer getDefaultValue()
     {
         return this.defaultValue;
     }
 
+    @JsMethod
     public void setDefault() throws Exception
     {
         this.setValue(this.getDefaultValue());
     }
 
+    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -125,11 +144,13 @@ public class GameConfiguration
         return stringBuffer.toString();
     }
 
+    @JsMethod
     public void setModifiable(Boolean modifiable)
     {
         this.modifiable = modifiable;
     }
 
+    @JsMethod
     public Boolean isModifiable()
     {
         return this.modifiable;

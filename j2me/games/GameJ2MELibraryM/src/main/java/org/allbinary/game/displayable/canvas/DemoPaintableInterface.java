@@ -13,12 +13,18 @@
  */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public interface DemoPaintableInterface {
     
+    @JsMethod
     void showGamePaintable();
     
 }

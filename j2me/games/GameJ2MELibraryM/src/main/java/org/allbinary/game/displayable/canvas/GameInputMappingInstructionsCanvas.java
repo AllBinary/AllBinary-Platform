@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
@@ -23,18 +25,27 @@ import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.draw.DrawStringUtil;
 import org.allbinary.logic.string.StringUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
 {
 
+    @JsProperty
     public static final Command DISPLAY  = new Command("Help", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    @JsProperty
     public static final Command CLOSE  = new Command("Close", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
 
+    @JsProperty
     public static final String NAME = "GameInputMappingInstructionsCanvas";
  
     private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
 
     //Mapping
+    @JsProperty
     protected final String TITLE = "Input Instructions";
     
     private final String[] instructions =
@@ -57,6 +68,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     private ColorFillBasePaintable colorFillPaintable;
     private int anchor = Anchor.TOP_LEFT;
     
+    @JsConstructor
     public GameInputMappingInstructionsCanvas(CommandListener commandListener,
             AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception
     {
@@ -72,6 +84,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     }
 
     @Override
+    @JsMethod
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -82,6 +95,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     }
 
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {
     	//PreLogUtil.put(commonStrings.START, this, canvasStrings.PAINT);

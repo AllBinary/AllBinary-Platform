@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.midlet;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Hashtable;
 
 import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
@@ -22,15 +24,21 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class DemoGameMidlet extends GameMidlet
 {
 
+    @JsConstructor
     public DemoGameMidlet(final ClientInformationFactory clientInformationFactory)
     {
         super(clientInformationFactory);
     }
     
+    @JsMethod
     protected boolean isContinue() throws Exception
     {
         Hashtable hashtable = this.getStartStateHashtable();
@@ -44,17 +52,20 @@ public class DemoGameMidlet extends GameMidlet
         }
     }
 
+    @JsMethod
     public int getHighestLevel()
     {
         return 1;
     }
     
+    @JsMethod
     public GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface()
             throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
+    @JsMethod
     protected GameCanvasRunnableInterface createGameCanvasRunnable(
             AllBinaryGameLayerManager allBinaryGameLayerManager)
             throws Exception
@@ -62,6 +73,7 @@ public class DemoGameMidlet extends GameMidlet
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
     
+    @JsMethod
     protected GameCanvasRunnableInterface createGameCanvasRunnableInterface()
             throws Exception
     {
@@ -73,17 +85,20 @@ public class DemoGameMidlet extends GameMidlet
      * Implemented"); }
      */
 
+    @JsMethod
     public void demoSetup()
     {
     }
 
     
+    @JsMethod
     public void postDemoSetup()
     {
         
     }
  
     @Override
+    @JsMethod
     public synchronized void setDemo() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, "setDemo");
@@ -97,6 +112,7 @@ public class DemoGameMidlet extends GameMidlet
     }
 
     @Override
+    @JsMethod
     public synchronized void createGame() throws Exception
     {
         final String CREATE_GAME = "createGame";
@@ -114,6 +130,7 @@ public class DemoGameMidlet extends GameMidlet
         this.logUtil.putF(this.commonStrings.END, this, CREATE_GAME);
     }
 
+    @JsMethod
     public boolean isReady()
     {
        return true;

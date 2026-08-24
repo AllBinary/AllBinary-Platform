@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.midlet;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Hashtable;
 
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -20,11 +22,18 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class CreateGameRunnable implements Runnable
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final DemoGameMidlet demoGameMidlet;
@@ -32,6 +41,7 @@ public class CreateGameRunnable implements Runnable
     
     private final DemoGameMidletEvent startGameMidletEvent;
     
+    @JsConstructor
     public CreateGameRunnable(DemoGameMidlet demoGameMidlet, Hashtable hashtable)
     {
         this.demoGameMidlet = demoGameMidlet;
@@ -42,6 +52,7 @@ public class CreateGameRunnable implements Runnable
     }
  
     @Override
+    @JsMethod
     public void run()
     {
         try

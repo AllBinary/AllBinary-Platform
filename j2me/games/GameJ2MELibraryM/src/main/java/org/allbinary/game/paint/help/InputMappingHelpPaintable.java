@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.paint.help;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
@@ -32,7 +34,12 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class InputMappingHelpPaintable extends HelpPaintable 
 {
 
@@ -40,10 +47,14 @@ public class InputMappingHelpPaintable extends HelpPaintable
     private static final String SEP = ", ";
     private static final String MORE_THAN_TWO_IN_LIST_AND = ", and ";
 
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    @JsProperty
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
+    @JsProperty
     protected final StringUtil stringUtil = StringUtil.getInstance();
     private final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     
@@ -70,6 +81,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
     
     private UpdateMyFontProperties updateMyFontProperties = new UpdateMyFontProperties();
     
+    @JsConstructor
     protected InputMappingHelpPaintable(
             final GameInputMapping[] gameInputMappingArray, 
             final BasicColor backgroundBasicColor, final BasicColor basicColor)
@@ -92,6 +104,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
     }
 
     @Override
+    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
 
@@ -177,6 +190,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
     }
     
 
+    @JsMethod
     public void update(final GameKey selectedGameKey, final Input selectedInput)
     {
         final StringMaker stringMaker = new StringMaker();
@@ -240,6 +254,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
         this.myFontProcessor = this.updateMyFontProcessor;
     }
     
+    @JsMethod
     private String get(BasicArrayList keyList)
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -285,6 +300,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
 //    }
     
     @Override
+    @JsMethod
     public void paint(final Graphics graphics)
     {
         this.myFontProcessor.process(graphics);

@@ -13,15 +13,23 @@
 */
 package org.allbinary.graphics;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author user
  */
+
+@JsType
 public class RelativeRelationship
 {
+    @JsProperty
     public static final RelativeRelationship NULL_RELATIVE_RELATIONSHIP = new RelativeRelationship(
         PointFactory.getInstance().ZERO_ZERO, BasicArrayListUtil.getInstance().getImmutableInstance());
 
@@ -33,6 +41,7 @@ public class RelativeRelationship
 
    //private Angle[] angleArray;
 
+   @JsConstructor
    public RelativeRelationship(GPoint point, BasicArrayList typesAllowedList)
    {
       this.x = point.getX();
@@ -42,26 +51,31 @@ public class RelativeRelationship
       this.typesAllowedList = typesAllowedList;
    }
    
+   @JsMethod
    public int getX()
    {
       return this.x;
    }
    
+   @JsMethod
    public int getY()
    {
       return this.y;
    }
 
+   @JsMethod
    public int getZ()
    {
       return this.z;
    }
    
+   @JsMethod
    public BasicArrayList getTypesAllowedList()
    {
       return this.typesAllowedList;
    }
 
+   @JsMethod
    public void setTypesAllowedList(BasicArrayList typesAllowedList)
    {
       this.typesAllowedList = typesAllowedList;

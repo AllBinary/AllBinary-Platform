@@ -13,10 +13,15 @@
  */
 package org.allbinary.graphics.displayable;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public class GameTickDisplayInfoSingleton {
     
     private static final GameTickDisplayInfoSingleton instance = new GameTickDisplayInfoSingleton();
@@ -24,6 +29,7 @@ public class GameTickDisplayInfoSingleton {
     /**
      * @return the instance
      */
+    @JsMethod
     public static GameTickDisplayInfoSingleton getInstance() {
         return GameTickDisplayInfoSingleton.instance;
     }
@@ -35,6 +41,7 @@ public class GameTickDisplayInfoSingleton {
     private int lastHalfWidth = this.displayInfoSingleton.getLastHalfWidth();
     private int lastHalfHeight = this.displayInfoSingleton.getLastHalfHeight();
     
+    @JsMethod
     public void update() {
         this.lastWidth = this.displayInfoSingleton.getLastWidth();
         this.lastHeight = this.displayInfoSingleton.getLastHeight();
@@ -42,18 +49,22 @@ public class GameTickDisplayInfoSingleton {
         this.lastHalfHeight = this.displayInfoSingleton.getLastHalfHeight();        
     }
     
+    @JsMethod
     public int getLastWidth() {
         return this.lastWidth;
     }
 
+    @JsMethod
     public int getLastHeight() {
         return this.lastHeight;
     }
     
+    @JsMethod
     public int getLastHalfWidth() {
         return this.lastHalfWidth;
     }
 
+    @JsMethod
     public int getLastHalfHeight() {
         return this.lastHalfHeight;
     }

@@ -52,7 +52,7 @@ public class PositionWidget extends BasicHud
 
     public void paint(Graphics graphics)
     {
-        super.paint(graphics, this.positionString);
+        super.paintString(graphics, this.positionString);
     }
 
     public static String toString(int position)

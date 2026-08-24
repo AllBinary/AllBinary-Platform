@@ -13,11 +13,13 @@
  */
 package org.allbinary.thread;
 
+import org.allbinary.logic.string.StringUtil;
+
 /**
  *
  * @author User
  */
 public class NullThread {
     
-    public static final Thread NULL_THREAD = new Thread();
+    public static final Thread NULL_THREAD = new Thread(NullRunnable.getInstance(), StringUtil.getInstance().EMPTY_STRING);
 }

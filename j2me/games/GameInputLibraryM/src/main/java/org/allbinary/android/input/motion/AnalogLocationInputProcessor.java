@@ -13,11 +13,17 @@
 */
 package org.allbinary.android.input.motion;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.analog.AnalogLocationInput;
 import org.allbinary.layer.AllBinaryLayerManager;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public class AnalogLocationInputProcessor {
 
+	@JsMethod
 	public void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInput analogLocationInput)
 	{
 		

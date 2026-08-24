@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.layer.weapon;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
@@ -35,7 +37,12 @@ import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.physics.movement.Movement;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.view.ViewPositionBase;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class WeaponLayer 
 extends MultiPlayerGameLayer
 implements TickableInterface
@@ -45,6 +52,7 @@ implements TickableInterface
     // private static final int MIN = 200;
 
     private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
+    @JsProperty
     protected Animation initAnimationInterface;
     private Animation destroyedAnimationInterface;
 
@@ -52,9 +60,11 @@ implements TickableInterface
 
     // Initialized upon init
     // private int angle;
+    @JsProperty
     protected int totalDamage;
     private int initDamage;
     private boolean destroyed = true;
+    @JsProperty
     protected ScoreableInterface scoreableInterface = NoScoreable.getInstance();
     private Movement movement;
 
@@ -113,6 +123,7 @@ implements TickableInterface
 //               ViewPosition.getInstanceD());
 //    }
 
+    @JsConstructor
     protected WeaponLayer(final String name, final RemoteInfo remoteInfo, final int multiPlayerType, 
         final Movement movement, final Animation animationInterface,
             final Animation destroyedAnimationInterface, final Rectangle rectangle,
@@ -132,15 +143,17 @@ implements TickableInterface
         this.multiPlayerType = multiPlayerType;
     }
 
-    private CollidableWeaponBehavior collidableWeaponBehavior = CollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR;
+    private CollidableWeaponBehavior collidableWeaponBehavior = CollidableWeaponBehavior.getNullInstance();
 
     @Override
+    @JsMethod
     public void setCollidableInferface(CollidableBaseBehavior collidableInferface)
     {
         super.setCollidableInferface(collidableInferface);
         this.collidableWeaponBehavior = (CollidableWeaponBehavior) this.getCollidableInferface();
     }
     
+    @JsMethod
     public void initXYZ(int x, int y, int z) throws Exception
     {
         this.x = x;
@@ -148,6 +161,7 @@ implements TickableInterface
         this.z = z;
     }
     
+    @JsMethod
     public void init(AllBinaryLayer sourceLayerInterface, int angle, int otherAngle,
             WeaponProperties weaponProperties, ScoreableInterface scoreable) throws Exception
     {
@@ -193,6 +207,7 @@ implements TickableInterface
 
     // This is very important - does the owner of the WeaponLayer have the same team
     // Subgroups are not taken if enemy is the base group.
+    @JsMethod
     protected void setGroupInterfaces()
     {
         final BasicGroupFactory basicGroupFactory = BasicGroupFactory.getInstance();
@@ -204,6 +219,7 @@ implements TickableInterface
     }
 
     @Override
+    @JsMethod
     public void processTick(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
         //final GameStrings gameStrings = GameStrings.getInstance();
@@ -285,12 +301,14 @@ implements TickableInterface
     */
     
     @Override
+    @JsMethod
     public boolean isDestroyed()
     {
         return this.destroyed;
     }
 
     @Override
+    @JsMethod
     public void damage(int damage, int damageType)
     {
         this.totalDamage += damage * damage;
@@ -298,12 +316,14 @@ implements TickableInterface
         // " Points Left: " + (this.getInitDamage() - this.totalDamage), this, // "damage");
     }
 
+    @JsMethod
     protected void givePoints(int total)
     {
         this.scoreableInterface.addPoints(GameConfigurationUtil.getInstance().getCompetitionValue() * total);
     }
 
     // Is damage value gone
+    @JsMethod
     protected boolean isExhausted()
     {
         // Less than 0 most likely means that it collided a bunch before last tick
@@ -318,6 +338,7 @@ implements TickableInterface
     }
 
     @Override
+    @JsMethod
     public int getDamage(int damageType)
     {
         if (!this.isExhausted())
@@ -335,6 +356,7 @@ implements TickableInterface
         return 0;
     }
 
+    @JsMethod
     public void setDestroyed(boolean destroyed)
     {
         this.destroyed = destroyed;
@@ -360,31 +382,37 @@ implements TickableInterface
     }
     */
 
+    @JsMethod
     protected int getInitDamage()
     {
         return this.initDamage;
     }
 
+    @JsMethod
     protected void setAnimationInterface(Animation animationInterface)
     {
         this.animationInterface = animationInterface;
     }
 
+    @JsMethod
     protected Animation getAnimationInterface()
     {
         return this.animationInterface;
     }
 
+    @JsMethod
     public Animation getInitAnimationInterfaceP()
     {
         return this.initAnimationInterface;
     }
 
+    @JsMethod
     public void setInitAnimationInterfaceP(Animation initAnimationInterface)
     {
         this.initAnimationInterface = initAnimationInterface;
     }
 
+    @JsMethod
     public Animation getDestroyedAnimationInterface()
     {
         return this.destroyedAnimationInterface;
@@ -393,6 +421,7 @@ implements TickableInterface
     /**
      * @return the sourceLayerInterface
      */
+    @JsMethod
     public AllBinaryLayer getOwnerLayerInterface()
     {
         return this.sourceLayerInterface;
@@ -402,12 +431,14 @@ implements TickableInterface
      * @param sourceLayerInterface
      *            the sourceLayerInterface to set
      */
+    @JsMethod
     public void setOwnerLayerInterface(AllBinaryLayer sourceLayerInterface)
     {
         this.sourceLayerInterface = sourceLayerInterface;
     }
 
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {
         // this.logUtil.putF(this.commonStrings.START, this, canvasStrings.PAINT);
@@ -427,6 +458,7 @@ implements TickableInterface
     }
 
     @Override
+    @JsMethod
     public void paintThreed(Graphics graphics)
     {
         final ViewPositionBase viewPosition = this.getViewPosition();
@@ -440,6 +472,7 @@ implements TickableInterface
     /**
      * @return the movement
      */
+    @JsMethod
     public Movement getMovement()
     {
         return this.movement;
@@ -449,45 +482,53 @@ implements TickableInterface
      * @param movement
      *            the movement to set
      */
+    @JsMethod
     public void setMovement(Movement movement)
     {
         this.movement = movement;
     }
 
     @Override
+    @JsMethod
     public int getType()
     {
         return WeaponLayer.getStaticType();
     }
 
+    @JsMethod
     public static int getStaticType()
     {
         return 0;
     }
 
     @Override
+    @JsMethod
     public int getMultiPlayerType()
     {
         return this.multiPlayerType;
     }
 
+    @JsMethod
     public void setWeaponPropertiesP(WeaponProperties weaponProperties)
     {
         this.weaponProperties = weaponProperties;
     }
 
+    @JsMethod
     public WeaponProperties getWeaponPropertiesP()
     {
         return this.weaponProperties;
     }
 
     @Override
+    @JsMethod
     public boolean implmentsTickableInterface()
     {
         return true;
     }
     
     @Override
+    @JsMethod
     public void set(GL gl) throws Exception
     {
         //OpenGLSurfaceChangedInterface

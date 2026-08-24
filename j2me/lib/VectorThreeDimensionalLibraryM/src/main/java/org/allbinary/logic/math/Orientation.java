@@ -13,17 +13,29 @@
 */
 package org.allbinary.logic.math;
 
-import org.allbinary.logic.string.StringMaker;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.string.StringMaker;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class Orientation
 {
+    @JsProperty
     public static Orientation NONE = new Orientation(0, 0, 0);
     private static Orientation SINGLETON = new Orientation(0, 0, 0);
     
+    @JsProperty
     public BasicDecimal yaw = new BasicDecimal(0);
+    @JsProperty
     public BasicDecimal pitch = new BasicDecimal(0);
+    @JsProperty
     public BasicDecimal roll = new BasicDecimal(0);
     
+    @JsMethod
     public static final Orientation getInstance(int yaw, int pitch, int roll)
     {
         Orientation.SINGLETON.yaw.setint(yaw);
@@ -33,6 +45,7 @@ public class Orientation
         return Orientation.SINGLETON;
     }
     
+    @JsConstructor
     private Orientation(int yaw, int pitch, int roll)
     {
         this.yaw.setint(yaw);
@@ -40,6 +53,7 @@ public class Orientation
         this.roll.setint(roll);
     }
     
+    @JsMethod
     public String toString()
     {
        StringMaker stringBuffer = new StringMaker();

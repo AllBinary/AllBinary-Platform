@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.game.input.GameKey;
@@ -31,12 +33,19 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class FormInputProcessor
 extends InputProcessor
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
    
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
@@ -50,12 +59,14 @@ extends InputProcessor
  
     private final AllBinaryGameCanvas allBinaryGameCanvas;
     
+    @JsConstructor
     public FormInputProcessor(AllBinaryGameCanvas allBinaryGameCanvas)
     {
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
     
     @Override    
+    @JsMethod
     public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         try
@@ -85,6 +96,7 @@ extends InputProcessor
     
     //Handle the enter case as a GameKey
     @Override
+    @JsMethod
     public void keyReleasedByDevice(final Canvas canvas, final int keyCode, final int deviceId) {
         try
         {

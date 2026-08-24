@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.configuration.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.configuration.feature.Feature;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureUtil;
@@ -24,23 +26,32 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class BaseChangedGameFeatureListener implements GameFeatureListenerInterface
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final GameFeatureUtil gameFeatureUtil = GameFeatureUtil.getInstance();
 
+    @JsProperty
     protected final BasicArrayList list = new BasicArrayListD();
     private boolean changed = true;
 
     @Override
+    @JsMethod
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
     }
 
     @Override
+    @JsMethod
     public void onGameFeatureChange(final GameFeatureEvent gameFeatureEvent)
     {
         this.logUtil.putF(new StringMaker().append(this.gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged()).toString(), this, this.gameFeatureUtil.ON_GAME_FEATURE_CHANGE);
@@ -50,16 +61,19 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
        this.setChanged(true);
     }
 
+    @JsMethod
     public void add(final Feature gameFeature)
     {
         this.list.add(gameFeature);
     }
 
+    @JsMethod
     public void remove(final Feature gameFeature)
     {
         this.list.remove(gameFeature);
     }
     
+    @JsMethod
     public void setChanged(final boolean initialized)
     {
         this.changed = initialized;
@@ -70,6 +84,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
         }
     }
 
+    @JsMethod
     public boolean isChangedFeature(final Feature gameFeature)
     {
         final boolean isChanged = this.list.contains(gameFeature);
@@ -88,6 +103,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
         return isChanged;
     }
     
+    @JsMethod
     public boolean isChanged()
     {
         return this.changed;

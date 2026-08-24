@@ -13,24 +13,37 @@
  */
 package org.allbinary.animation;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public class IndexedAnimationBehavior extends AnimationBehavior {
     
+    @JsProperty
     public long frameDelayTime;
+    @JsProperty
     public int loopTotal;
     
+    @JsProperty
     public long elapsedTime;
+    @JsProperty
     public int loopIndex;
     
+    @JsConstructor
     public IndexedAnimationBehavior(final int loopTotal, final long frameDelayTime) {
         this.loopTotal = loopTotal;
         this.frameDelayTime = frameDelayTime;
     }
     
     @Override
+    @JsMethod
     public void reset() {
         this.loopIndex = 0;
     }

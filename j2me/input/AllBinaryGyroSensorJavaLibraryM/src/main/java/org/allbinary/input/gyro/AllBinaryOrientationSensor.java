@@ -14,30 +14,42 @@
 
 package org.allbinary.input.gyro;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
 import org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
 import org.allbinary.input.AllBinarySensor;
 import org.allbinary.logic.math.Orientation;
 import org.allbinary.logic.math.PrimitiveFloatUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class AllBinaryOrientationSensor extends AllBinarySensor
 {
+    @JsProperty
     protected float[] sensorDataFloatArray = PrimitiveFloatUtil.getArrayInstance();
     
+    @JsProperty
     protected CompleteMotionGestureInputEventListenerInterface listener =
         NoCompleteMotionGestureInputEventListener.getInstance();
 
+    @JsMethod
     public void setCompleteMotionGestureInputEventListener(
             CompleteMotionGestureInputEventListenerInterface completeMotionGestureInputEventListenerInterface)
     {
         this.listener = completeMotionGestureInputEventListenerInterface;
     }
     
+    @JsConstructor
     protected AllBinaryOrientationSensor()
     {
         
     }
     
+    @JsMethod
     public Orientation getOrientation() throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);

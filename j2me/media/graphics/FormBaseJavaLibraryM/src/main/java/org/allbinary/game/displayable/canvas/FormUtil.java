@@ -14,22 +14,29 @@
 
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.logic.communication.log.LogUtil;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public class FormUtil
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final FormUtil instance = new FormUtil();
 
+    @JsMethod
     public static FormUtil getInstance()
     {
         return FormUtil.instance;
     }
     
+    @JsMethod
     public Rectangle createFormRectangle()
     {
         //final CommonStrings commonStrings = CommonStrings.getInstance();

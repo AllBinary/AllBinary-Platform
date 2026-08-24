@@ -13,15 +13,21 @@
  */
 package org.allbinary.util;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
+import jsinterop.annotations.JsConstructor;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class BasicArrayListS extends BasicArrayList {
     
+    @JsConstructor
     public BasicArrayListS(final int size)
     {
         super(NullUtil.getInstance().NULL_OBJECT_ARRAY);

@@ -176,7 +176,7 @@ public class ImageModifierUtil {
         try {
             //final Image image2 = Image.createImage(image.getWidth(), image.getHeight());
             //this.logUtil.put(DONE + image3.width() + ", " + image3.height(), this, HANDLE_IMAGE);
-            final Image image2 = Image.createImage((int) image3.width(), (int) image3.height());
+            final Image image2 = Image.createImageWH((int) image3.width(), (int) image3.height());
             final Graphics graphics = image2.getGraphics();
             graphics.drawImage(image, 0, 0, Anchor.TOP_LEFT);
             imageArray[index] = image2;

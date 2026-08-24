@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
@@ -29,22 +31,34 @@ import org.allbinary.graphics.paint.InitUpdatePaintable;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class StartIntermissionPaintable extends InitUpdatePaintable 
     implements UpdateMyFontInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
+    @JsProperty
     protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
     
+    @JsProperty
     protected final AllBinaryGameCanvas gameCanvas;
+    @JsProperty
     protected final String[] stringArray;
     
+    @JsProperty
     protected final int fontSize;
+    @JsProperty
     protected final Font font;
 
+    @JsProperty
     public final int[] lastWidth;
     
     private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
@@ -53,14 +67,17 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     private BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
     private int color;
 
+    @JsProperty
     protected int[] lineYOffsetArray = NullUtil.getInstance().NULL_INT_ARRAY;
         
     private boolean hasChanged = true;
      
     private int anchor = Anchor.TOP_LEFT;
     
+    @JsProperty
     protected int fontHeightP;
 
+    @JsConstructor
     public StartIntermissionPaintable(final AllBinaryGameCanvas gameCanvas, final String[] stringArray, final BasicColor basicColor, final Font font)
     {
         this.gameCanvas = gameCanvas;
@@ -74,6 +91,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     }    
 
     @Override
+    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         this.fontHeightP = font.getHeight();
@@ -81,6 +99,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     }
     
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {
         //this.logUtil.putF("Intermission Processing: ", this, "draw");
@@ -116,6 +135,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
     
     @Override
+    @JsMethod
     public void update()
     {
         int level = this.gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
@@ -128,11 +148,13 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     }
 
     @Override
+    @JsMethod
     public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;
     }
 
+    @JsMethod
     public BasicColor getBasicColorP()
     {
         return this.basicColor;

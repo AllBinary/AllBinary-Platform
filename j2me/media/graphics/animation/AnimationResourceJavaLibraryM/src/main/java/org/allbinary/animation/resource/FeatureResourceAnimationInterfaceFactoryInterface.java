@@ -13,15 +13,21 @@
 */
 package org.allbinary.animation.resource;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Hashtable;
 
 import org.allbinary.game.configuration.feature.GameFeatureControlledInterface;
 import org.allbinary.game.resource.RectangleResourceFactoryInterface;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface FeatureResourceAnimationInterfaceFactoryInterface
    extends ResourceAnimationInterfaceFactoryInterface, 
    RectangleResourceFactoryInterface, 
    GameFeatureControlledInterface
 {
+    @JsMethod
     Hashtable getHashtable();   
 }

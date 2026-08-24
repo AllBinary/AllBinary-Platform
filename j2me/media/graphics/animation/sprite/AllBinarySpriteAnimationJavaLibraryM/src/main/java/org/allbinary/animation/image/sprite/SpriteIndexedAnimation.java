@@ -13,6 +13,8 @@
 */
 package org.allbinary.animation.image.sprite;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
@@ -25,17 +27,25 @@ import org.allbinary.graphics.color.ColorCompositeInterface;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class SpriteIndexedAnimation extends IndexedAnimation
     implements ColorCompositeInterface//, AutoCloseable
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final Sprite sprite;
+    @JsProperty
     protected final Image image;
     
     private final BasicColor[] basicColorArray;
 
+    @JsConstructor
     public SpriteIndexedAnimation(final Sprite sprite, final Image image, final BasicColor[] basicColorArray, final AnimationBehavior animationBehavior)
         throws Exception
     {
@@ -53,12 +63,14 @@ public class SpriteIndexedAnimation extends IndexedAnimation
     }
 
     @Override
+    @JsMethod
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
     }
     
     @Override
+    @JsMethod
     public void setBasicColorP(final BasicColor basicColor)
         //throws Exception
     {
@@ -75,6 +87,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
     }
 
     @Override
+    @JsMethod
     public BasicColor getBasicColorP()
     {
         if(this.basicColorArray.length < this.getFrame())
@@ -94,6 +107,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
      * this.setDx(dx); this.setDy(dy); }
      */
 
+    @JsMethod
     public void paintFrame(final Graphics graphics, final int frame, final int x, final int y)
     {
         this.setFrame(frame);
@@ -102,30 +116,35 @@ public class SpriteIndexedAnimation extends IndexedAnimation
     }
 
     @Override
+    @JsMethod
     public void paintXY(final Graphics graphics, final int x, final int y)
     {
         this.sprite.setPosition(x, y);
         this.sprite.paint(graphics);
     }
 
+    @JsMethod
     protected void paint(final Graphics graphics)
     {
         this.sprite.paint(graphics);
     }
 
     @Override
+    @JsMethod
     public void nextFrame()
     {
         this.sprite.nextFrame();
     }
 
     @Override
+    @JsMethod
     public void previousFrame()
     {
         this.sprite.prevFrame();
     }
 
     @Override
+    @JsMethod
     public int getSize()
     {
         // .getFrameSequenceLength()
@@ -133,18 +152,21 @@ public class SpriteIndexedAnimation extends IndexedAnimation
     }
 
     @Override
+    @JsMethod
     public void setFrame(final int frame)
     {
         this.sprite.setFrame(frame);
     }
 
     @Override
+    @JsMethod
     public int getFrame()
     {
         return this.sprite.getFrame();
     }
 
     @Override
+    @JsMethod
     public boolean isLastFrame()
     {
         if(this.sprite.getFrame() == this.getSize() - 1)
@@ -157,6 +179,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         }
     }
 
+    @JsMethod
     public int getLastFrame()
     {
         //use Seguence at some point
@@ -164,21 +187,25 @@ public class SpriteIndexedAnimation extends IndexedAnimation
     }
 
     @Override
+    @JsMethod
     public void setSequence(final int[] sequence)
     {
 
     }
 
     @Override
+    @JsMethod
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     } 
     
+    @JsMethod
     public void close() throws Exception {
     }
  
     @Override
+    @JsMethod
     protected void finalize() throws Throwable {
     }
      

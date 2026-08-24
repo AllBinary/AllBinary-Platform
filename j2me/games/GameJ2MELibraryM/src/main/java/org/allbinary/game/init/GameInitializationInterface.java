@@ -13,11 +13,17 @@
 */
 package org.allbinary.game.init;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface GameInitializationInterface
 {
+    @JsMethod
     void init(final AbeClientInformationInterface abeClientInformation, final CommandListener commandListener, final int level) throws Exception;
 }

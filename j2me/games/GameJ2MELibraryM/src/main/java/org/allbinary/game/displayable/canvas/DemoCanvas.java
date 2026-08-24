@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Hashtable;
 import java.util.Vector;
 
@@ -115,7 +117,12 @@ import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class DemoCanvas extends RunnableCanvas 
         implements GameCanvasRunnableInterface,
         MenuListener, 
@@ -123,17 +130,24 @@ public class DemoCanvas extends RunnableCanvas
         DemoPaintableInterface
 {
 
+    @JsProperty
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
+    @JsProperty
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
+    @JsProperty
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
 
+    @JsProperty
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+    @JsProperty
     protected final GameStateFactory gameStateFactory = GameStateFactory.getInstance();
 
     private final ThreadFactoryUtil threadFactoryUtil = ThreadFactoryUtil.getInstance();
  
+    @JsProperty
     protected final FormUtil formUtil = FormUtil.getInstance();
     
+    @JsProperty
     protected Paintable fullscreenPaintable = FullScreenPaintableFactory.getInstance().paintable;
 
     private StatePaintable basicGameDemoPaintable =
@@ -154,6 +168,7 @@ public class DemoCanvas extends RunnableCanvas
     
     private BasicColor basicColor = this.basicColorFactory.RED;
 
+    @JsProperty
     protected final AbeClientInformationInterface abeClientInformation;
     
     private final HighScoresFactoryInterface highScoresFactoryInterface;
@@ -176,8 +191,10 @@ public class DemoCanvas extends RunnableCanvas
     private final InputToGameKeyMapping inputToGameKeyMapping = 
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
+    @JsProperty
     protected GameRunnable gameRunnable = NullWaitGameRunnable.getInstance();
     
+    @JsConstructor
     public DemoCanvas(final AbeClientInformationInterface abeClientInformation,
         final CommandListener commandListener,
         final HighScoresFactoryInterface highScoresFactoryInterface,
@@ -229,12 +246,14 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     @Override
+    @JsMethod
     public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
     {
         try
@@ -261,6 +280,7 @@ public class DemoCanvas extends RunnableCanvas
         }
     }
     
+    @JsMethod
     protected Object[] getCustomCommands()
     {
         final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
@@ -322,6 +342,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -341,11 +362,13 @@ public class DemoCanvas extends RunnableCanvas
         this.setCommandListener(cmdListener);
     }
 
+    @JsMethod
     public void initPostPaint()
         throws Exception
     {
     }
 
+    @JsMethod
     public void mediaInit() throws Exception
     {
         //this.logUtil.putF(this.commonStrings.START, this, "mediaInit");
@@ -353,11 +376,13 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void itemStateChanged(Item item)
     {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
     
+    @JsMethod
     protected void initMenu()
         throws Exception
     {
@@ -399,6 +424,7 @@ public class DemoCanvas extends RunnableCanvas
     }
     
     @Override
+    @JsMethod
     public void open()
     {
         BasicMotionGesturesHandler.getInstance().addListenerInterface(this.getMenuInputProcessor());
@@ -406,6 +432,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void close()
     {
         BasicMotionGesturesHandler.getInstance().removeListener(this.getMenuInputProcessor());
@@ -415,30 +442,35 @@ public class DemoCanvas extends RunnableCanvas
     private static final int id = 0;
 
     @Override
+    @JsMethod
     public int getSourceId()
     {
         return DemoCanvas.id;
     }
 
     @Override
+    @JsMethod
     public void keyPressed(int keyCode)
     {
         this.keyPressedByDevice(keyCode, 0);
     }
     
     @Override
+    @JsMethod
     public void keyReleased(int keyCode)
     {
         this.keyReleasedByDevice(keyCode, 0);
     }
 
     @Override
+    @JsMethod
     public void keyRepeated(int keyCode)
     {
         this.keyRepeatedByDevice(keyCode, 0);
     }
     
     @Override
+    @JsMethod
     public void keyPressedByDevice(int keyCode, int deviceId)
     {
         // this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_PRESSED);
@@ -446,6 +478,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void keyReleasedByDevice(int keyCode, int deviceId)
     {
         // this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_RELEASED);
@@ -455,6 +488,7 @@ public class DemoCanvas extends RunnableCanvas
         Features.getInstance().isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
 
     @Override
+    @JsMethod
     public void keyRepeatedByDevice(int keyCode, int deviceId)
     {
         // this.logUtil.putF("Key Repeated: " +
@@ -471,6 +505,7 @@ public class DemoCanvas extends RunnableCanvas
     
     private int lastKeyNotMapped = -1;
     
+    @JsMethod
     private void addGameKeyEvent(int keyCode, boolean repeated)
     {
         try
@@ -508,6 +543,7 @@ public class DemoCanvas extends RunnableCanvas
         }
     }
 
+    @JsMethod
     private void removeGameKeyEvent(int keyCode, boolean repeated)
     {
         try
@@ -546,6 +582,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public synchronized void pause()
     {
         this.close();
@@ -556,6 +593,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public synchronized void unPause()
     {
         this.open();
@@ -566,6 +604,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public boolean isPausable()
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
@@ -579,6 +618,7 @@ public class DemoCanvas extends RunnableCanvas
     }
     
     @Override
+    @JsMethod
     public boolean isGameOver()
     {
         this.logUtil.putF(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
@@ -586,6 +626,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void setLoadStateHashtable(Hashtable hashtable) throws Exception
     {
         this.logUtil.putF(
@@ -593,6 +634,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public Hashtable getLoadStateHashtable() throws Exception
     {
         this.logUtil.putF(
@@ -601,6 +643,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public Hashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF("Trying to save the AI lol", this, "getCurrentStateHashtable");
@@ -608,11 +651,13 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void setHighScoreSubmitted(boolean isNotUsed)
     {
     }
 
     @Override
+    @JsMethod
     public void paint(final Graphics graphics)
     {
         //PreLogUtil.put("DemoCanvas", this, canvasStrings.PAINT);
@@ -639,6 +684,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void paintThreed(final Graphics graphics)
     {
         this.paintableInterface.paintThreed(graphics);
@@ -650,11 +696,13 @@ public class DemoCanvas extends RunnableCanvas
     }
     
     @Override
+    @JsMethod
     public synchronized void processGameOver()
     {
         this.logUtil.putF("Not Implemented since not a game", this, "setGameOver");
     }
     
+    @JsMethod
     protected void demoStateChange()
     {
         int newState = this.state + 1;
@@ -689,6 +737,7 @@ public class DemoCanvas extends RunnableCanvas
 
     private final String SET_STATE = "setState";
     
+    @JsMethod
     protected void updateDemoState()
     {
         PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, this.SET_STATE);
@@ -725,23 +774,27 @@ public class DemoCanvas extends RunnableCanvas
         gameAdState.processPageAdState();
     }
 
+    @JsMethod
     protected int getNextRandom() throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
+    @JsMethod
     protected AllBinaryGameLayerManager createGameLayerManager(int randomValue)
         throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
+    @JsMethod
     protected GameCanvasRunnableInterface createRunnable(int randomLevel)
         throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
+    @JsMethod
     protected void create() throws Exception
     {
         PreLogUtil.put(this.commonStrings.START, this, "create");
@@ -766,6 +819,7 @@ public class DemoCanvas extends RunnableCanvas
 
     }
 
+    @JsMethod
     protected void start() throws Exception
     {
         final AllBinaryGameCanvas gameCanvas = this.gameCanvas;
@@ -800,6 +854,7 @@ public class DemoCanvas extends RunnableCanvas
         //PreLogUtil.put(commonStrings.END, this, this.commonStrings);
     }
 
+    @JsMethod
     public void preDemoProcess()
     {
         if (!this.gameCanvas.isInitialized() ||
@@ -819,6 +874,7 @@ public class DemoCanvas extends RunnableCanvas
 
     //private final String PROCESS_GAME = "processGame";
     @Override
+    @JsMethod
     public void process() throws Exception
     {
         //PreLogUtil.put(commonStrings.START, this, PROCESS_GAME);
@@ -884,12 +940,14 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     //Override to Show Background progress when demogame is loading
+    @JsMethod
     protected final void startDemoGame() throws Exception
     {
         //Show Background progress when demogame is loading
         DemoCanvasProgressUtil.showProgress(this);
     }
     
+    @JsMethod
     protected void stopGameDemo() throws Exception
     {
         if (this.gameCanvas != NullGameCanvas.getInstance())
@@ -903,6 +961,7 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
+    @JsMethod
     public void showGamePaintable()
     {
         final String METHOD_NAME = "showGamePaintable";
@@ -927,11 +986,13 @@ public class DemoCanvas extends RunnableCanvas
         }
     }
 
+    @JsMethod
     protected boolean isReadyForStateChange()
     {
         return !this.demoGameRunnable.isRunning() && this.gameCanvas.isInitialized();
     }
     
+    @JsMethod
     protected void processGame() throws Exception
     {
         //PreLogUtil.put(commonStrings.START, this, "processGame");
@@ -967,6 +1028,7 @@ public class DemoCanvas extends RunnableCanvas
     }
     
     @Override
+    @JsMethod
     public void run()
     {
         this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
@@ -1087,6 +1149,7 @@ public class DemoCanvas extends RunnableCanvas
         this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
     }
 
+    @JsMethod
     public void run3() throws Exception {
         
         this.loopTimeHelper.setStartTimeTNT();
@@ -1098,6 +1161,7 @@ public class DemoCanvas extends RunnableCanvas
     }
     
     @Override
+    @JsMethod
     public void setRunning(boolean running) 
     {
         super.setRunning(running);
@@ -1134,6 +1198,7 @@ public class DemoCanvas extends RunnableCanvas
     private final BaseGameStatistics baseGameStatistics = 
             GameStatisticsFactory.getInstance();
 
+    @JsMethod
     public void end() throws Exception
     {
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -1156,22 +1221,26 @@ public class DemoCanvas extends RunnableCanvas
     }
     
     @Override
+    @JsMethod
     public void setGameState(GameState gameState)
     {
         
     }
     
     @Override
+    @JsMethod
     public GameState getGameState()
     {
         return this.gameStateFactory.PLAYING_GAME_STATE;
     }
 
+    @JsMethod
     public AllBinaryGameCanvas getGameCanvasRunnableInterface()
     {
         return this.gameCanvas;
     }
 
+    @JsMethod
     public boolean isDemoLoading() {
         AllBinaryGameCanvas gameCanvas = this.gameCanvas;
         if(gameCanvas == NullGameCanvas.getInstance()) {
@@ -1183,17 +1252,20 @@ public class DemoCanvas extends RunnableCanvas
         return true;
     }
     
+    @JsMethod
     protected int getState()
     {
         return this.state;
     }
 
+    @JsMethod
     protected void setState(int state)
     {
         this.state = state;
     }
 
     @Override
+    @JsMethod
     public boolean isHighScoreSubmitted()
     {
         // Don't Submit AI Score Since That Is Stupidy
@@ -1207,11 +1279,13 @@ public class DemoCanvas extends RunnableCanvas
     this.realHighScoresPaintable = realHighScoresPaintable;
     }
      */
+    @JsMethod
     public HighScoresPaintable getRealHighScoresPaintable()
     {
         return this.realHighScoresPaintable;
     }
 
+    @JsMethod
     protected void setSpecialAnimationInterface(
         SpecialAnimation specialAnimationInterface)
     {
@@ -1219,42 +1293,50 @@ public class DemoCanvas extends RunnableCanvas
         this.specialAnimationInterface = specialAnimationInterface;
     }
 
+    @JsMethod
     protected SpecialAnimation getSpecialAnimationInterface()
     {
         return this.specialAnimationInterface;
     }
 
+    @JsMethod
     protected void setPaintableInterface(PaintableInterface paintableInterface)
     {
         this.paintableInterface = paintableInterface;
     }
 
+    @JsMethod
     protected PaintableInterface getPaintableInterface()
     {
         return this.paintableInterface;
     }
 
+    @JsMethod
     protected void setDefaultPaintableInterface(
         Paintable defaultPaintableInterface)
     {
         this.defaultPaintableInterface = defaultPaintableInterface;
     }
 
+    @JsMethod
     protected Paintable getDefaultPaintableInterface()
     {
         return this.defaultPaintableInterface;
     }
 
+    @JsMethod
     public HighScoresFactoryInterface getHighScoresFactoryInterface()
     {
         return this.highScoresFactoryInterface;
     }
 
+    @JsMethod
     protected void setMenuInputProcessor(BasicMenuInputProcessor menuInputProcessor)
     {
         this.menuInputProcessor = menuInputProcessor;
     }
 
+    @JsMethod
     protected BasicMenuInputProcessor getMenuInputProcessor()
     {
         return this.menuInputProcessor;
@@ -1263,6 +1345,7 @@ public class DemoCanvas extends RunnableCanvas
     /**
      * @return the menuForm
      */
+    @JsMethod
     public ScrollSelectionForm getMenuForm()
     {
         return this.menuForm;
@@ -1271,6 +1354,7 @@ public class DemoCanvas extends RunnableCanvas
     /**
      * @param menuForm the menuForm to set
      */
+    @JsMethod
     public void setMenuForm(ScrollSelectionForm menuForm)
     {
         this.menuForm = menuForm;
@@ -1283,42 +1367,50 @@ public class DemoCanvas extends RunnableCanvas
     }
      */
     @Override
+    @JsMethod
     public boolean isInitialized()
     {
         return this.initialized;
     }
 
+    @JsMethod
     protected Paintable getOverlayPaintable()
     {
         return this.overlayPaintable;
     }
 
+    @JsMethod
     protected void setBasicGameDemoPaintable(StatePaintable basicGameDemoPaintable)
     {
         this.basicGameDemoPaintable = basicGameDemoPaintable;
     }
 
+    @JsMethod
     protected StatePaintable getBasicGameDemoPaintable()
     {
         return this.basicGameDemoPaintable;
     }
 
+    @JsMethod
     public void setTempWait(int tempWait)
     {
         this.tempWait = tempWait;
     }
 
+    @JsMethod
     public int getTempWait()
     {
         return this.tempWait;
     }
 
     @Override
+    @JsMethod
     public boolean isSingleThread()
     {
         return OpenGLFeatureUtil.getInstance().isAnyThreed() || SWTUtil.isSWT;
     }
     
+    @JsMethod
     public boolean isRunningInAnotherThread() {
         final Features features = Features.getInstance();
         final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
@@ -1332,13 +1424,16 @@ public class DemoCanvas extends RunnableCanvas
    /**
     * @return the gameInitializationInterfaceFactoryInterface
     */
+   @JsMethod
    public BasicBuildGameInitializerFactory getGameInitializationInterfaceFactoryInterface()
    {
       return this.gameInitializationInterfaceFactoryInterface;
    }
 
+    @JsProperty
     public static final int TYPE = 3;
     @Override
+    @JsMethod
     public int getType() {
         return DemoCanvas.TYPE;
     }

@@ -13,12 +13,18 @@
 */
 package org.allbinary.game.score;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class HighScores implements HighScoresInterface
 {
     private BasicArrayList orderedHighScoresList = new BasicArrayListD();
@@ -30,6 +36,7 @@ public class HighScores implements HighScoresInterface
     private final String columnOneHeading = "Name";
     private final String columnTwoHeading;
     
+    @JsConstructor
     public HighScores(String name, String heading, String columnTwoHeading)
     {
         this.name = name;
@@ -37,55 +44,65 @@ public class HighScores implements HighScoresInterface
         this.columnTwoHeading = columnTwoHeading;
     }
     
+    @JsMethod
     public void setList(BasicArrayList orderedHighScoresList)
     {
         this.orderedHighScoresList = orderedHighScoresList;
     }
 
     @Override
+    @JsMethod
     public BasicArrayList getList()
     {
         return this.orderedHighScoresList;
     }
     
+    @JsMethod
     public String getName()
     {
         return this.name;
     }
     
     @Override
+    @JsMethod
     public int getTotal()
     {
         return this.getList().size();
     }
     
     @Override
+    @JsMethod
     public void addHighScore(HighScore newHighScore)
     {
         this.orderedHighScoresList.add(newHighScore);
     }
 
+    @JsMethod
     public String getHeading()
     {
         return this.heading;
     }
 
+    @JsMethod
     public String getColumnOneHeading()
     {
         return this.columnOneHeading;
     }
 
+    @JsMethod
     public String getColumnTwoHeading()
     {
         return this.columnTwoHeading;
     }
     
     @Override
+    @JsMethod
     public boolean isBestScore(HighScore newHighScore) throws Exception
     {
         return false;
     }
     
+    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();

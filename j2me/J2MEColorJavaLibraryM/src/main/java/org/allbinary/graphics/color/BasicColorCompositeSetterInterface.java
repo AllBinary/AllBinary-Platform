@@ -13,6 +13,12 @@
 */
 package org.allbinary.graphics.color;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface BasicColorCompositeSetterInterface {
+    @JsMethod
     void setBasicColorP(BasicColor basicColor); //throws Exception;
 }

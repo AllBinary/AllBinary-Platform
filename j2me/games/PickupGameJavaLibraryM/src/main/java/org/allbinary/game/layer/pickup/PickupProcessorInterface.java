@@ -13,9 +13,13 @@
 */
 package org.allbinary.game.layer.pickup;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.layer.AllBinaryLayer;
+import jsinterop.annotations.JsMethod;
 
+@JsType
 public interface PickupProcessorInterface {
 
+    @JsMethod
     void process(AllBinaryLayer sourceLayerInterface) throws Exception;
 }

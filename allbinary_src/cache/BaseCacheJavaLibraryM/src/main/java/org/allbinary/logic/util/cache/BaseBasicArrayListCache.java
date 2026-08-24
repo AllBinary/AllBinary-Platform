@@ -13,18 +13,26 @@
 */
 package org.allbinary.logic.util.cache;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author user
  */
+
+@JsType
 public class BaseBasicArrayListCache {
 
+    @JsProperty
     protected final BasicArrayList list = new BasicArrayListD();
 
+    @JsMethod
     public String log()
     {
         final StringMaker stringBuffer = new StringMaker();

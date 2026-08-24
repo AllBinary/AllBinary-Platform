@@ -13,41 +13,64 @@
 */
 package org.allbinary.layer;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.identification.GroupInterfaceCompositeInterface;
 import org.allbinary.graphics.paint.PaintableInterface;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface LayerInterface
     extends NamedInterface, PaintableInterface, GroupInterfaceCompositeInterface, PositionInterface {
 
+   @JsMethod
    int getHeight();
 
+   @JsMethod
    int getWidth();
 
+   @JsMethod
    int getHalfHeight();
 
+   @JsMethod
    int getHalfWidth();
    
+   @JsMethod
    int getXP();
 
+   @JsMethod
    int getYP();
    
+   @JsMethod
    int getZP();
 
+   @JsMethod
    int getX2();
 
+   @JsMethod
    int getY2();
    
+   @JsMethod
    int getZ2();
 
+   @JsMethod
    boolean isVisible();
 
+   @JsMethod
    void moveDXYZ(int dx, int dy, int dz);
 
+   @JsMethod
    void setVisible(boolean visible);
 
+   @JsMethod
    boolean implmentsTickableInterface();
+   @JsMethod
    boolean implmentsCollidableInterface();
+   @JsMethod
    boolean implmentsGameInputInterface();
+   @JsMethod
    boolean implmentsArtificialIntelligenceCompositeInterface();
+   @JsMethod
    int getType();
 }

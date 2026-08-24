@@ -13,28 +13,41 @@
 */
 package org.allbinary.game.layer.resources;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.logic.communication.log.LogUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class OnDemandResources
 {
+    @JsProperty
     public static final OnDemandResources NULL_ON_DEMAND_RESOURCES = new OnDemandResources();
     
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
     
+    @JsConstructor
     protected OnDemandResources()
     {
     }
 
+    @JsMethod
     public void waitFor() throws Exception
     {
     }
     
+    @JsMethod
     public void init() throws Exception
     {
     }
 
+    @JsMethod
     public int initAt(
             ImageCache imageCache,
             BaseResourceAnimationInterfaceFactoryInterfaceFactory 

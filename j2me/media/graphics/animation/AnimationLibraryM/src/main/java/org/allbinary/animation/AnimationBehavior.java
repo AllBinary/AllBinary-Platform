@@ -13,10 +13,15 @@
  */
 package org.allbinary.animation;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public class AnimationBehavior {
 
     private static final AnimationBehavior instance = new AnimationBehavior();
@@ -24,10 +29,12 @@ public class AnimationBehavior {
     /**
      * @return the instance
      */
+    @JsMethod
     public static AnimationBehavior getInstance() {
         return AnimationBehavior.instance;
     }
 
+    @JsMethod
     public void reset() {
     }
     

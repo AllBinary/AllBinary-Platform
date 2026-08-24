@@ -13,26 +13,37 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.canvas.Processor;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class StartIntermissionProcessor extends Processor
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private AllBinaryGameCanvas gameCanvas;
 
     private final long WAIT = 5000;
 
+    @JsConstructor
     public StartIntermissionProcessor(AllBinaryGameCanvas gameCanvas)
     {
         this.gameCanvas = gameCanvas;
     }
 
     @Override
+    @JsMethod
     public void process() throws Exception
     {
         if (this.gameCanvas.getStartIntermissionInterface().getTimeDelayHelper().isElapsedTNT(this.WAIT))

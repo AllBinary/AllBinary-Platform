@@ -52,7 +52,7 @@ public class RTSFormInput
     private GeographicMapCellPosition selectedGeographicCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
     private boolean stickyItemSelected;
     private int selectedStickyItemIndex;
-    private ABCustomItem selectedStickyItem = ABCustomItem.NULL_CUSTOM_ITEM;
+    private ABCustomItem selectedStickyItem = ABCustomItem.getNullInstance();
     
     public RTSFormInput(final Group[] groupInterfaceArray)
     {

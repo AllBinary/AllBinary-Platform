@@ -13,11 +13,21 @@
 */
 package org.allbinary.debug;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface DebugInterface
 {
+    @JsMethod
     void start();
+    @JsMethod
     void stop();
+    @JsMethod
     long getStartTime();
+    @JsMethod
     long getMaxTime();
+    @JsMethod
     boolean isRunning();
 }

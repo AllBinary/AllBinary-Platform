@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.part.weapon;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.animation.Animation;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.layer.weapon.WeaponLayer;
@@ -23,9 +25,14 @@ import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.math.NoDecimalTrigTable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
 
+   @JsMethod
    public static StraightMultiProjectileWeaponPart createStraightMultiProjectileWeaponPart(final Animation animationInterface, final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
       return new StraightMultiProjectileWeaponPart(animationInterface, AllBinaryLayer.NULL_ALLBINARY_LAYER, weaponLayerCircularStaticPool, 2, WeaponProperties.NULL_WEAPON_PROPERTIES, NoScoreable.getInstance(), RelativeRelationship.NULL_RELATIVE_RELATIONSHIP);
    }
@@ -33,6 +40,7 @@ public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
    private final WeaponLayerCircularPool weaponLayerCircularStaticPool;
    private final int total;
 
+   @JsConstructor
    public StraightMultiProjectileWeaponPart(
            final Animation animationInterface,
            final AllBinaryLayer sourceLayerInterface,
@@ -47,6 +55,7 @@ public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
    private final NoDecimalTrigTable noDecimalTrigTable = NoDecimalTrigTable.getInstance();
    
    @Override
+   @JsMethod
    public void processScore(final AllBinaryLayerManager allbinaryLayerManager,
                             final short angle, final short otherAngle, final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
            throws Exception {

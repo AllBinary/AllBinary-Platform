@@ -13,12 +13,18 @@
  */
 package org.allbinary.logic.system.security.licensing;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public class ClientInformationFactory {
     
+    @JsMethod
     public ClientInformation getInstance() {
         throw new RuntimeException();
     }

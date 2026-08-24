@@ -13,30 +13,38 @@
  */
 package org.allbinary.graphics.displayable;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author user
  */
+@JsType
 public class BaseScalable implements ScalableListener
 {
     @Override
+    @JsMethod
     public float getRatio(final float ratio) {
         return (float) 1;
     }
 
     @Override
+    @JsMethod
     public int getLeft(final int xOffset)
     {
         return -1;
     }
 
     @Override
+    @JsMethod
     public int getTop(final int yOffset)
     {
         return -1;
     }
     
     @Override
+    @JsMethod
     public void scale(float ratio)
     {
         

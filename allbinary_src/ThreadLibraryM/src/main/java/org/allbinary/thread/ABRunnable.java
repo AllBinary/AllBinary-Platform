@@ -13,36 +13,46 @@
  */
 package org.allbinary.thread;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public class ABRunnable implements RunnableInterface {
     
     private boolean running = false;
     
     @Override
+    @JsMethod
     public void setThread(Thread thread)
     {
     }
 
     @Override
+    @JsMethod
     public synchronized boolean isRunning()
     {
         return this.running;
     }
 
     @Override
+    @JsMethod
     public synchronized void setRunning(boolean running)
     {
         this.running = running;
     }
     
     @Override
+    @JsMethod
     public void run() {
         
     }
 
+    @JsMethod
     public int getType() {
         return -1;
     }

@@ -13,15 +13,24 @@
 */
 package org.allbinary.graphics;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class PointFactory
 {
     private static final PointFactory instance = new PointFactory();
 
+    @JsMethod
     public static PointFactory getInstance()
     {
         return PointFactory.instance;
     }
     
+    @JsProperty
     public GPoint ZERO_ZERO = this.createXYZ(0, 0, 0);
             //SmallIntegerSingletonFactory.getInstance(0), SmallIntegerSingletonFactory.getInstance(0));
 
@@ -29,6 +38,7 @@ public class PointFactory
 
     //private static final Hashtable hashtable = new Hashtable();
 
+    @JsMethod
     public void init()
     {
         /*
@@ -38,11 +48,13 @@ public class PointFactory
          */
     }
 
+    @JsConstructor
     private PointFactory()
     {
     }
 
     //TWB - to be depricated
+    @JsMethod
     public GPoint createXY(int x, int y)
     {
         return new GPoint(x, y, 0); 
@@ -52,6 +64,7 @@ public class PointFactory
     //Game Level points should use the cellPosition factory instead or simply arrays
     //MotionRecognizer should use a new point cache that is releasable and sets the x, y for each get from cache
     //The rest are mainly static or part of each game level as well
+    @JsMethod
     public GPoint createXYZ(int x, int y, int z) //throws Exception
     {
         return new GPoint(x, y, z); 

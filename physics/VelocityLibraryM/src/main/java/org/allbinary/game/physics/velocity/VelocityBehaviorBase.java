@@ -13,19 +13,27 @@
  */
 package org.allbinary.game.physics.velocity;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public class VelocityBehaviorBase {
     
+    @JsMethod
     public void reduce(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator) {
         
     }
  
+    @JsMethod
     public void reduceX(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator) {
     }
 
+    @JsMethod
     public void reduceY(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator) {
     }
 

@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.init;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
@@ -32,34 +34,48 @@ import org.allbinary.input.motion.CompleteMotionGestureInputToGameMotionGestureI
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
 import org.allbinary.input.motion.button.CancelTouchButtonInputFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class BaseGameInitialization implements GameInitializationInterface
 {
+    @JsProperty
     public static final BaseGameInitialization NULL_BASE_GAME_INITIALIZATION = new BaseGameInitialization(new ResourceInitialization[0], 0);
 
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final ResourceInitialization[] resourceInitializationArray;
 
     private final int portion;
 
     private boolean initialized;
     
+    @JsProperty
     protected final int EARLY_RESOURCES = 0;
+    @JsProperty
     protected final int GAME_RESOURCES = 1;
+    @JsProperty
     protected final int EARLY_CHANGABLE_RESOURCES = 2;
+    @JsProperty
     protected final int GAME_CHANGABLE_RESOURCES = 3;
     
+    @JsConstructor
     public BaseGameInitialization(final ResourceInitialization[] resourceInitializationArray, final int portion)
     {
         this.resourceInitializationArray = resourceInitializationArray;
         this.portion = portion;
     }
 
+    @JsMethod
     public void initKey(int portion) throws Exception
     {
     }
     
+    @JsMethod
     protected void initKeyMapping(final AbeClientInformationInterface abeClientInformation, int portion) throws Exception
     {
         if (ChangedGameFeatureListener.getInstance().isChangedFeature(
@@ -73,6 +89,7 @@ public class BaseGameInitialization implements GameInitializationInterface
     }
 
     @Override
+    @JsMethod
     public void init(final AbeClientInformationInterface abeClientInformation, final CommandListener commandListener, final int level) 
         throws Exception
     {        
@@ -127,6 +144,7 @@ public class BaseGameInitialization implements GameInitializationInterface
     private boolean gameInitialized;
     private boolean allLoaded;
     
+    @JsMethod
     public void resourceInitialization(int level)
     throws Exception
     {
@@ -158,6 +176,7 @@ public class BaseGameInitialization implements GameInitializationInterface
         }
     }
     
+    @JsMethod
     public boolean resourceAnimationChange()
     {
         ChangedGameFeatureListener changedGameFeatureListener = 
@@ -180,6 +199,7 @@ public class BaseGameInitialization implements GameInitializationInterface
         return false;
     }
     
+    @JsMethod
     private void clearResources()
     {
         this.allLoaded = false;
@@ -196,27 +216,32 @@ public class BaseGameInitialization implements GameInitializationInterface
 
     }
     
+    @JsMethod
     protected void setGameInitialized(boolean gameInitialized)
     {
         this.gameInitialized = gameInitialized;
     }
 
+    @JsMethod
     protected boolean isGameInitialized()
     {
         return this.gameInitialized;
     }
 //
     
+    @JsMethod
     protected int getPortion()
     {
         return this.portion;
     }
 
+    @JsMethod
     public void setInitialized(boolean initialized)
     {
         this.initialized = initialized;
     }
 
+    @JsMethod
     public boolean isInitialized()
     {
         return this.initialized;

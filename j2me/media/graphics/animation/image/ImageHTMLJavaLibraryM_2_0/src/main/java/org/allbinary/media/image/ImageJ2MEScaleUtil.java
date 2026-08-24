@@ -71,7 +71,7 @@ public class ImageJ2MEScaleUtil {
             //PreLogUtil.put("4b", this, "createImage");
         }
 
-        final Image scaledImage = Image.createImage(width, height);
+        final Image scaledImage = Image.createImageWH(width, height);
         final PlaynMutableImage htmlImage = (PlaynMutableImage) scaledImage;
         final ImageImpl canvasImage = (ImageImpl) htmlImage.getImage();
         

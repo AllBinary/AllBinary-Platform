@@ -13,26 +13,39 @@
 */
 package org.allbinary.logic.math;
 
-import org.allbinary.logic.string.StringMaker;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.string.StringMaker;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class PrimitiveLongSingleton
 {
     private static final PrimitiveLongSingleton instance = new PrimitiveLongSingleton();
 
+    @JsMethod
     public static PrimitiveLongSingleton getInstance()
     {
         return PrimitiveLongSingleton.instance;
     }
     
+    @JsProperty
     public final char[] UNK = {'U', 'n', 'k'};
     
     //public final String[] NUMBER_STRING_ARRAY = {CommonPhoneStrings.getInstance().ZERO, CommonPhoneStrings.getInstance().ONE, CommonPhoneStrings.getInstance().TWO, CommonPhoneStrings.getInstance().THREE, CommonPhoneStrings.getInstance().FOUR, CommonPhoneStrings.getInstance().FIVE, CommonPhoneStrings.getInstance().SIX, CommonPhoneStrings.getInstance().SEVEN, CommonPhoneStrings.getInstance().EIGHT, CommonPhoneStrings.getInstance().NINE};
+    @JsProperty
     public final byte[] NUMBER_ARRAY = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    @JsProperty
     public final char[] NUMBER_CHAR_ARRAY = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    @JsProperty
     public final char[][] NUMBER_CHAR_ARRAYS = {{'0'}, {'1'}, {'2'}, {'3'}, {'4'}, {'5'}, {'6'}, {'7'}, {'8'}, {'9'}};
     
+    @JsProperty
     public final char[] ZERO = new char[]{this.NUMBER_CHAR_ARRAY[0]};
 
+    @JsMethod
     public byte getNumberFromChar(char numberAsChar) throws Exception {
         final int size = this.NUMBER_CHAR_ARRAY.length;
         for(int index = 0; index < size; index++) {

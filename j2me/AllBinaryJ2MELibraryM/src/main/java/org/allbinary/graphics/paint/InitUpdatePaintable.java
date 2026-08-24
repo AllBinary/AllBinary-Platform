@@ -13,22 +13,31 @@
 */
 package org.allbinary.graphics.paint;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+
+@JsType
 public class InitUpdatePaintable extends Paintable 
    implements InitUpdatePaintableInterface
 {
+    @JsConstructor
     protected InitUpdatePaintable()
     {
         
     }
     
     @Override
+    @JsMethod
     public void init() throws Exception
     {
         
     }
 
     @Override
+    @JsMethod
     public void update()
     {
         

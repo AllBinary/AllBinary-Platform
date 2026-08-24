@@ -13,9 +13,15 @@
 */
 package org.allbinary.game.configuration.event;
 
-import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface GameFeatureListenerInterface extends EventListenerInterface
 {
+    @JsMethod
     void onGameFeatureChange(GameFeatureEvent gameFeatureEvent);
 }

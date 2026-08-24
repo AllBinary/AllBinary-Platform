@@ -13,24 +13,35 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameInput {
     
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
    private final BasicArrayList gameKeyEventList;
    private final BasicArrayList removalGameKeyEventList;
 
+   @JsProperty
    protected final boolean isRemoveDuplicateKeyPresses;
    
+   @JsConstructor
    public GameInput(final BasicArrayList gameKeyEventList, final BasicArrayList removalGameKeyEventList) {
       this.gameKeyEventList = gameKeyEventList;
       this.removalGameKeyEventList = removalGameKeyEventList;
@@ -39,6 +50,7 @@ public class GameInput {
               InputFeatureFactory.getInstance().REMOVE_DUPLICATE_KEY_PRESSES);
    }
 
+   @JsMethod
    public synchronized void add(GameKeyEvent gameKeyEvent) {
 
       //TODO TWB - fix all null and duplicate issue for better performance
@@ -55,18 +67,22 @@ public class GameInput {
       }
    }
 
+   @JsMethod
    public synchronized void addForRemoval(GameKeyEvent gameKeyEvent) {
       this.removalGameKeyEventList.add(gameKeyEvent);
    }
 
+   @JsMethod
    public synchronized boolean isForRemoval(GameKeyEvent gameKeyEvent) {
       return this.removalGameKeyEventList.contains(gameKeyEvent);
    }
 
+   @JsMethod
    public synchronized void clear() {
       this.gameKeyEventList.clear();
    }
 
+   @JsMethod
    public synchronized void removeNonAIInputGameKeyEvents()
    {
        BasicArrayList list = this.gameKeyEventList;
@@ -97,6 +113,7 @@ public class GameInput {
    }
    */
 
+   @JsMethod
    public synchronized void update() {
 
       BasicArrayList removeList = this.removalGameKeyEventList;
@@ -120,6 +137,7 @@ public class GameInput {
     /**
      * @return the gameKeyEventList
      */
+    @JsMethod
     protected BasicArrayList getRemovalGameKeyEventList()
     {
         return this.removalGameKeyEventList;
@@ -128,6 +146,7 @@ public class GameInput {
     /**
      * @return the gameKeyEventList
      */
+    @JsMethod
     protected BasicArrayList getGameKeyEventList()
     {
         return this.gameKeyEventList;

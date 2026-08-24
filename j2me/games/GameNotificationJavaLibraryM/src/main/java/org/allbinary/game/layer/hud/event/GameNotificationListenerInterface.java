@@ -13,11 +13,17 @@
 */
 package org.allbinary.game.layer.hud.event;
 
-import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface GameNotificationListenerInterface
 extends EventListenerInterface
 {
+    @JsMethod
     void onGameNotificationEvent(
             GameNotificationEvent gameNotificationEvent) 
     throws Exception;

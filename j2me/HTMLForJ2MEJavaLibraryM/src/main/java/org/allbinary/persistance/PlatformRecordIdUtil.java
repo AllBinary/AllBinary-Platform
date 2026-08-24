@@ -13,14 +13,19 @@
  */
 package org.allbinary.persistance;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class PlatformRecordIdUtil {
    
     private static final PlatformRecordIdUtil instance = new PlatformRecordIdUtil();
@@ -28,12 +33,14 @@ public class PlatformRecordIdUtil {
     /**
      * @return the instance
      */
+    @JsMethod
     public static PlatformRecordIdUtil getInstance() {
         return PlatformRecordIdUtil.instance;
     }
     
     private final String PLATFORM_SHORT_NAME = "HTML";
     
+    @JsMethod
     public String getRecordId(final AbeClientInformationInterface abeClientInformation, final String baseRecordId) {
         return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.PLATFORM_SHORT_NAME).append(baseRecordId).toString();
     }

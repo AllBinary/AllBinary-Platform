@@ -13,32 +13,45 @@
  */
 package org.allbinary.view;
 
-import org.allbinary.graphics.GPoint;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.graphics.GPoint;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class ViewPositionBase extends GPoint
 {
+    @JsProperty
     public static final ViewPositionBase NULL_VIEW_POSITION = new ViewPositionBase(0, 0, 0);
     
+    @JsConstructor
     protected ViewPositionBase(int x, int y, int z)
     {
         super(x, y, z);
     }
     
+    @JsMethod
     public int getX2()
     {
         return this.getX();
     }
 
+    @JsMethod
     public int getY2()
     {
         return this.getY();
     }
 
+    @JsMethod
     public int getZ2()
     {
         return this.getZ();
     }
     
+    @JsMethod
     public void setAllbinaryLayer(Object allbinaryLayer)
     {
     }

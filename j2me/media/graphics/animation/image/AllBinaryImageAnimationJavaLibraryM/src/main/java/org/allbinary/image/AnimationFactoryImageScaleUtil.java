@@ -13,17 +13,22 @@
  */
 package org.allbinary.image;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.image.AnimationFactoryInitializationVisitor;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.media.ScaleProperties;
 import org.allbinary.media.image.ImageJ2MEScaleUtil;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class AnimationFactoryImageScaleUtil {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -33,6 +38,7 @@ public class AnimationFactoryImageScaleUtil {
     /**
      * @return the instance
      */
+    @JsMethod
     public static AnimationFactoryImageScaleUtil getInstance() {
         return AnimationFactoryImageScaleUtil.instance;
     }
@@ -42,6 +48,7 @@ public class AnimationFactoryImageScaleUtil {
     private final ImageJ2MEScaleUtil imageScaleUtil = ImageJ2MEScaleUtil.getInstance();
     //private final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
     
+    @JsMethod
     public Image createImage(final Image image, final int width, final int height, final int scaleWidth, final int scaleHeight) throws Exception {
         Image scaledImage;
 
@@ -78,6 +85,7 @@ public class AnimationFactoryImageScaleUtil {
         return scaledImage;
     }
 
+    @JsMethod
     public void processAdjust(final BaseImageAnimationFactory baseImageAnimationFactory) throws Exception {
         
         final ScaleProperties scaleProperties = baseImageAnimationFactory.getScalePropertiesP();

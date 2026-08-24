@@ -320,7 +320,7 @@ public class BasicHud_1 implements UpdateMyFontInterface //DisplayChangeEventLis
 
     protected int offsetY;
 
-    public void paint(final Graphics graphics, final String string) {
+    public void paintString(final Graphics graphics, final String string) {
         
         this.myFontProcessor.process(graphics);
 

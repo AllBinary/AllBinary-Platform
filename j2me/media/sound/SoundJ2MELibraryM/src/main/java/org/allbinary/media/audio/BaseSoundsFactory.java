@@ -13,17 +13,24 @@
 */
 package org.allbinary.media.audio;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class BaseSoundsFactory 
 implements SoundsFactoryInterface
 {
     private boolean initialized;
 
     @Override    
+    @JsMethod
     public void init() 
     {
     }
 
     @Override
+    @JsMethod
     public Sound[] getSoundInterfaceArray() 
     throws Exception 
     {
@@ -31,12 +38,14 @@ implements SoundsFactoryInterface
     }
 
     @Override
+    @JsMethod
     public void setInitialized(boolean initialized)
     {
         this.initialized = initialized;
     }
 
     @Override
+    @JsMethod
     public boolean isInitialized()
     {
         return this.initialized;

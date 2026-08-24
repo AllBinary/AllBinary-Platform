@@ -13,17 +13,25 @@
 */
 package org.allbinary.graphics.paint;
 
-import org.allbinary.graphics.displayable.StateControlledInterface;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.graphics.displayable.StateControlledInterface;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class StatePaintable extends Paintable implements
         StateControlledInterface
 {
+    @JsConstructor
     public StatePaintable()
     {
         
     }
    
     @Override
+    @JsMethod
     public void setState(int state)
     {
 

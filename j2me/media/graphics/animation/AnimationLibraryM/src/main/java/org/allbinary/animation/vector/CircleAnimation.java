@@ -13,20 +13,31 @@
 */
 package org.allbinary.animation.vector;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.ColorCompositeInterface;
 import org.allbinary.math.AngleFactory;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class CircleAnimation extends Animation implements ColorCompositeInterface
 {
+    @JsProperty
     protected final int TOTAL_ANGLE = (int) AngleFactory.getInstance().TOTAL_ANGLE;
     
+    @JsProperty
     protected int width;
+    @JsProperty
     protected int height;
 
+    @JsConstructor
     public CircleAnimation(int width, int height, BasicColor basicColor)
     {
         this.width = width;
@@ -36,11 +47,13 @@ public class CircleAnimation extends Animation implements ColorCompositeInterfac
     }
 
     @Override
+    @JsMethod
     public void nextFrame()
     {
     }
     
     @Override
+    @JsMethod
     public void paintXY(Graphics graphics, int x, int y)
     {
         this.basicSetColorUtil.setBasicColorP3(

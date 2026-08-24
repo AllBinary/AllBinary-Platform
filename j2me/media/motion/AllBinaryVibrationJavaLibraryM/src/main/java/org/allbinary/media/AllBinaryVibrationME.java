@@ -13,8 +13,14 @@
 */
 package org.allbinary.media;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class AllBinaryVibrationME 
 {
+   @JsMethod
    public void vibrate(int duration, int type, int volume) 
    {
    }

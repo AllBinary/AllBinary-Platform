@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.configuration.feature;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Enumeration;
 import java.util.Hashtable;
 
@@ -25,13 +27,19 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.EnumerationUtil;
 import org.allbinary.util.HashtableUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameFeatureUtil
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final GameFeatureUtil instance = new GameFeatureUtil();
 
+    @JsMethod
     public static GameFeatureUtil getInstance()
     {
         return GameFeatureUtil.instance;
@@ -40,9 +48,12 @@ public class GameFeatureUtil
     private final TsUtil tsUtil = TsUtil.getInstance();
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
     
+    @JsProperty
     public final String ON_GAME_FEATURE_CHANGE = "onGameFeatureChange";
+    @JsProperty
     public final String GAME_FEATURE_CHANGED = "Game Feature Changed: ";
     
+    @JsMethod
     public void setDefault(ChoiceGroup choiceGroup)
         throws Exception
     {
@@ -91,6 +102,7 @@ public class GameFeatureUtil
         }
     }
 
+    @JsMethod
     public void updateMultiple(ChoiceGroup choiceGroup) throws Exception
     {
         StringMaker stringBuffer = new StringMaker();
@@ -136,6 +148,7 @@ public class GameFeatureUtil
         }
     }
 
+    @JsMethod
     public void updateExclusiveForChoiceGroup(ChoiceGroup choiceGroup)
             throws Exception
     {
@@ -174,6 +187,7 @@ public class GameFeatureUtil
         }
     }
 
+    @JsMethod
     public boolean isExclusive(String itemLabel)
     {
         final Enumeration enumeration = 
@@ -193,6 +207,7 @@ public class GameFeatureUtil
         return false;
     }
 
+    @JsMethod
     private void updateExclusive(final String selectedChoiceLabel)
             throws Exception
     {
@@ -224,6 +239,7 @@ public class GameFeatureUtil
          */
     }
 
+    @JsMethod
     public void updateExclusiveList(Feature gameFeature, BasicArrayList list)
     throws Exception
     {

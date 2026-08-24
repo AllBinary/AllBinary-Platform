@@ -13,15 +13,21 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 import org.allbinary.graphics.opengles.renderer.RendererStrings;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class ShaderUpdater {
     
     private static final ShaderUpdater instance = new ShaderUpdater();
@@ -29,13 +35,17 @@ public class ShaderUpdater {
     /**
      * @return the instance
      */
+    @JsMethod
     public static ShaderUpdater getInstance() {
         return ShaderUpdater.instance;
     }
     
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    @JsProperty
     protected final RendererStrings rendererStrings = RendererStrings.getInstance();
     
+    @JsMethod
     public void onSurfaceCreated(final GL10 gl, final EGLConfig eglConfig) {
         
     }

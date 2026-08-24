@@ -13,12 +13,19 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class LicenseServerInitFileUtil
 {
+    @JsMethod
     public final void init()
     {
     }
 
+    @JsMethod
     private void write()
     {
     }

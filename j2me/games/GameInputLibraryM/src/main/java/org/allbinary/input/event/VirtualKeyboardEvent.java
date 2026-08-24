@@ -13,10 +13,14 @@
 */
 package org.allbinary.input.event;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsConstructor;
 
+@JsType
 public class VirtualKeyboardEvent extends AllBinaryEventObject
 {
+    @JsConstructor
     public VirtualKeyboardEvent(Object object)
     {
         super(object);

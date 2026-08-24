@@ -13,22 +13,32 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 
 /*
  * These are imaginary inputs outside of J2ME Canvas keys.
  */
+
+@JsType
 public class GameKey extends Input
 {
+    @JsProperty
     public static final GameKey NULL_GAME_KEY = new GameKey(-1, StringUtil.getInstance().NULL_STRING);
     
+    @JsConstructor
     GameKey(final int key, final String name)
     {
         super(key, name);
     }
 
+    @JsMethod
     public String toString()
     {
         return new StringMaker().append("GameKey ").append(super.toString()).toString();

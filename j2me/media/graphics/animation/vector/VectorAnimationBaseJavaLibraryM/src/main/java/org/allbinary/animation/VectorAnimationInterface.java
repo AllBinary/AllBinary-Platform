@@ -13,11 +13,17 @@
 */
 package org.allbinary.animation;
 
-import org.allbinary.graphics.color.ColorCompositeInterface;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.graphics.color.ColorCompositeInterface;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface VectorAnimationInterface
   extends IndexedAnimationInterface, //VectorInterface, 
   ColorCompositeInterface  {
     
+    @JsMethod
     int[][] getPoints(int frame);
 }

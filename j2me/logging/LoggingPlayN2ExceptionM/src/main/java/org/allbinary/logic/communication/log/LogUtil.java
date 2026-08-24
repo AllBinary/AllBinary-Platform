@@ -13,30 +13,36 @@
  */
 package org.allbinary.logic.communication.log;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.string.CommonStrings;
 
 //@playn.core.PlayN
 import playn.core.PlayN;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 //ActualPlatform
+@JsType
 public class LogUtil {
 
     private static final LogUtil instance = new LogUtil();
 
     //ActualPlatform
+    @JsMethod
     public static final LogUtil getInstance() {
         return LogUtil.instance;
     }
 
     private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
-    private final PlayN playN = PlayN.getInstance();
     
     private final String LOG_SUCCESS = "org.allbinary: ";
 
+    @JsConstructor
     private LogUtil() {
     }
 
     //ActualPlatform
+    @JsMethod
     public void putL(final Log log) {
         if (log == null) {
             return;
@@ -51,6 +57,7 @@ public class LogUtil {
     }
 
     //ActualPlatform
+    @JsMethod
     public void putF(
         final String specialMessage,
         final Object object,
@@ -69,12 +76,14 @@ public class LogUtil {
         final String message = this.logFormatUtil.getS(
             className, functionName, specialMessage);
 
-        this.playN.log().debug(this.LOG_SUCCESS + message);
+        final PlayN playN = PlayN.getInstance();
+        playN.log().debug(this.LOG_SUCCESS + message);
         //System.out.print(LOG_SUCCESS);
         //System.out.println(message);
     }
 
     //ActualPlatform
+    @JsMethod
     public void putFS(
         final String specialMessage,
         final String className,
@@ -89,12 +98,14 @@ public class LogUtil {
             className, functionName, specialMessage);
 
         //@playn.core.PlayN::debug(Ljava/lang/String;)(this.LOG_SUCCESS + message);
-        this.playN.log().debug(this.LOG_SUCCESS + message);
+        final PlayN playN = PlayN.getInstance();
+        playN.log().debug(this.LOG_SUCCESS + message);
         //System.out.print(LOG_SUCCESS);
         //System.out.println(message);
     }
     
     //ActualPlatform
+    @JsMethod
     public void put(
         final String specialMessage,
         final Object object,
@@ -114,12 +125,13 @@ public class LogUtil {
         final String message = this.logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
+        final PlayN playN = PlayN.getInstance();
         if (exception != null) {
             //@playn.core.PlayN::error(Ljava/lang/String;, Ljava/lang/Throwable;)(this.LOG_SUCCESS + message, exception);
-            this.playN.log().error(this.LOG_SUCCESS + message, (Throwable) exception);
+            playN.log().error(this.LOG_SUCCESS + message, (Throwable) exception);
         } else {
             //@playn.core.PlayN::debug(Ljava/lang/String;)(this.LOG_SUCCESS + message);
-            this.playN.log().debug(this.LOG_SUCCESS + message);
+            playN.log().debug(this.LOG_SUCCESS + message);
         }
 
     }

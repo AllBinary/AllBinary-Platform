@@ -13,13 +13,18 @@
 */
 package org.allbinary.game;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.logic.string.StringUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+@JsType
 public class PlayerType
 {
     private int id;
     private String name = StringUtil.getInstance().EMPTY_STRING;
     
+    @JsConstructor
     PlayerType(final String name, final int value)
     {
         this.name = name;
@@ -31,6 +36,7 @@ public class PlayerType
 //        this.id = id;
 //    }
 
+    @JsMethod
     public int getId()
     {
         return this.id;
@@ -41,11 +47,13 @@ public class PlayerType
 //        this.name = name;
 //    }
 
+    @JsMethod
     public String getName()
     {
         return this.name;
     }
     
+    @JsMethod
     public String toString()
     {
         return this.getName();

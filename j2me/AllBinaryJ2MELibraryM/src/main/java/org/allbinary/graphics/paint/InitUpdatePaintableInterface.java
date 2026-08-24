@@ -13,9 +13,13 @@
 */
 package org.allbinary.graphics.paint;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.init.InitInterface;
 import org.allbinary.init.UpdateInterface;
 
+
+@JsType
 public interface InitUpdatePaintableInterface extends InitInterface, UpdateInterface, PaintableInterface
 {
 

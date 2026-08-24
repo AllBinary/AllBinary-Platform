@@ -13,6 +13,8 @@
  */
 package org.allbinary.game.layer.hud.basic.notification;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.graphics.hud.BasicHud;
@@ -24,20 +26,28 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameNotificationHud extends BasicHud
     implements GameNotificationListenerInterface {
 
+    @JsProperty
     public static final GameNotificationHud NULL_GAME_NOTIFICATION = new GameNotificationHud(
         BasicHudFactory.getInstance().TOPCENTER,
         BasicHudFactory.getInstance().HORIZONTAL,
         0, BasicColorFactory.getInstance().RED);
 
+    @JsConstructor
     public GameNotificationHud(final int location, final int direction, final int bufferZone, final BasicColor basicColor) {
         super(location, direction, bufferZone, basicColor);
     }
 
     @Override
+    @JsMethod
     public void onEvent(final AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
@@ -47,6 +57,7 @@ public class GameNotificationHud extends BasicHud
     private GameNotificationEvent lastGameNotificationEvent = GameNotification.NULL_GAME_NOTIFICATION_EVENT;
 
     @Override
+    @JsMethod
     public void onGameNotificationEvent(
         final GameNotificationEvent gameNotificationEvent)
         throws Exception {
@@ -64,15 +75,19 @@ public class GameNotificationHud extends BasicHud
             gameNotificationEvent.getPermanent());
     }
 
+    @JsMethod
     protected void add(final String string, final Integer seconds, final BasicColor basicColor, final Boolean permanent) {
     }
 
+    @JsMethod
     public void processTick() throws Exception {
     }
 
+    @JsMethod
     public void paint(final Graphics graphics) {
     }
 
+    @JsMethod
     public void clear() {
     }
 

@@ -13,9 +13,13 @@
 */
 package org.allbinary.game.part;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.animation.AnimationInterfaceCompositeInterface;
 import org.allbinary.graphics.paint.PaintableInterface;
 
+
+@JsType
 public interface PartInterface extends PaintableInterface, AnimationInterfaceCompositeInterface
 {
    //void init(LayerInterface sourceLayerInterface, int damage, int dissipation, ScoreableInterface scoreableInterface);

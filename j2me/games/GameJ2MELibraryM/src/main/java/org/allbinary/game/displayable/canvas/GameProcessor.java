@@ -13,18 +13,26 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.canvas.Processor;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.canvas.Processor;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class GameProcessor extends Processor
 {
     private AllBinaryGameCanvas gameCanvas;
     
+    @JsConstructor
     public GameProcessor(AllBinaryGameCanvas gameCanvas)
     {
         this.gameCanvas = gameCanvas;
     }
   
     @Override
+    @JsMethod
     public void process() throws Exception
     {
         this.gameCanvas.processPlayingGame();

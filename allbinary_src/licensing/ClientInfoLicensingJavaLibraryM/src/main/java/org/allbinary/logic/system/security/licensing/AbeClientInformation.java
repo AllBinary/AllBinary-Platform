@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -21,18 +23,26 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 // This is the information sent to the license server
+
+@JsType
 public class AbeClientInformation extends ClientInformation
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsConstructor
     public AbeClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
         super(name, version, specialName, shortName);
     }
 
     @Override
+    @JsMethod
     public void init()
     {
         try

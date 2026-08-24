@@ -13,7 +13,13 @@
 */
 package org.allbinary.game.init;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface GameInitializationInterfaceFactoryInterface
 {
+    @JsMethod
     GameInitializationInterface getInstance();
 }

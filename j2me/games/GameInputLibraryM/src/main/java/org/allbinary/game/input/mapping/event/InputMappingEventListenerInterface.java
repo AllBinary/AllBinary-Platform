@@ -13,10 +13,16 @@
 */
 package org.allbinary.game.input.mapping.event;
 
-import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface InputMappingEventListenerInterface 
    extends EventListenerInterface
 {
+    @JsMethod
     void onInputMappingEvent(InputMappingEvent inputMappingEvent) throws Exception;
 }

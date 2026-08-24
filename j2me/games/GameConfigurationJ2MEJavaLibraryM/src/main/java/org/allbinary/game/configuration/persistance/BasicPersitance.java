@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.configuration.persistance;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.rms.RecordStore;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -23,31 +25,44 @@ import org.allbinary.persistance.PlatformRecordIdUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class BasicPersitance
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    @JsProperty
     protected final PersistanceStrings persistanceStrings = PersistanceStrings.getInstance();
     private final PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
     
     private final String recordId;
     
+    @JsProperty
     protected final BasicArrayList valueList = new BasicArrayListD();
+    @JsProperty
     protected final BasicArrayList idList = new BasicArrayListD();
     
+    @JsConstructor
     protected BasicPersitance(final String recordId)
     {
         this.recordId = recordId;
     }
 
+    @JsMethod
     public void deleteRecoreStore(final AbeClientInformationInterface abeClientInformation) throws Exception 
     {
         RecordStore.deleteRecordStore(this.getRecordId(abeClientInformation));
     }
     
     //Load all needs to be called already
+    @JsMethod
     public void deleteAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         int size = this.idList.size();
@@ -60,6 +75,7 @@ public class BasicPersitance
         this.clear();
     }
     
+    @JsMethod
     public void delete(final AbeClientInformationInterface abeClientInformation, final int deleteId) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
@@ -83,20 +99,24 @@ public class BasicPersitance
 
     }
     
+    @JsMethod
     public String getRecordId(final AbeClientInformationInterface abeClientInformation) {
         return this.platformRecordIdUtil.getRecordId(abeClientInformation, this.recordId);
     }
 
+    @JsMethod
     public BasicArrayList getList()
     {
         return this.valueList;
     }
 
+    @JsMethod
     public BasicArrayList getIds()
     {
         return this.idList;
     }
 
+    @JsMethod
     public void clear()
     {
         this.valueList.clear();

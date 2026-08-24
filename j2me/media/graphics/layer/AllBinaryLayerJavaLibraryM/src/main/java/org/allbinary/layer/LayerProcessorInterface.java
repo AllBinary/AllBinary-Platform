@@ -13,13 +13,21 @@
 */
 package org.allbinary.layer;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface LayerProcessorInterface 
 extends BasicLayerProcessorInterface
 {
+    @JsMethod
     LayerManager getLayerManager();
 
+    @JsMethod
     void processAt(AllBinaryLayerManager allBinaryLayerManager,
                    AllBinaryLayer layerInterface, int index) throws Exception;
 
+    @JsMethod
     boolean isProcessorLayer(AllBinaryLayer layerInterface) throws Exception;
 }

@@ -13,18 +13,27 @@
 */
 package org.allbinary.game.input.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameKeyEvent extends AllBinaryEventObject
 {
 
+   @JsMethod
    public static GameKeyEvent createEvent(Object object, int sourceId, int key)
    {
       return new GameKeyEvent(object, sourceId, 0, 0, key, false);
    }
 
+   @JsProperty
    public static final GameKeyEvent NONE = new GameKeyEvent(NullUtil.getInstance().NULL_OBJECT, -1, -1, -1, -1, false);
    
    private final int sourceId;
@@ -35,6 +44,7 @@ public class GameKeyEvent extends AllBinaryEventObject
    private int gameActionKey;
    private int originalKey;
    
+   @JsConstructor
    public GameKeyEvent(Object object, int sourceId, int originalKey, int gameActionKey, int key, boolean repeated)
    {
       super(object);
@@ -47,6 +57,7 @@ public class GameKeyEvent extends AllBinaryEventObject
       this.setRepeatEvents(repeated);
    }
 
+   @JsMethod
    public void init(Object object)
    {
       this.setSource(object);
@@ -62,21 +73,25 @@ public class GameKeyEvent extends AllBinaryEventObject
    }
    */
       
+   @JsMethod
    private  void setRepeatEvents(boolean repeated)
    {
       this.repeated = repeated;
    }
    
+   @JsMethod
    public boolean hasRepeatEvents()
    {
       return this.repeated;
    }
 
+   @JsMethod
    public int getKey()
    {
       return this.key;
    }
       
+   @JsMethod
    public String toString()
    {
       StringMaker stringBuffer = new StringMaker();
@@ -119,26 +134,31 @@ public class GameKeyEvent extends AllBinaryEventObject
       return stringBuffer.toString();
    }
 
+   @JsMethod
    public int getOriginalKey()
    {
       return this.originalKey;
    }
 
+   @JsMethod
    public void setOriginalKey(int originalKey)
    {
       this.originalKey = originalKey;
    }
 
+   @JsMethod
    public int getGameActionKey()
    {
       return this.gameActionKey;
    }
 
+   @JsMethod
    public void setGameActionKey(int gameActionKey)
    {
       this.gameActionKey = gameActionKey;
    }
 
+   @JsMethod
    public int getSourceId()
    {
        return this.sourceId;

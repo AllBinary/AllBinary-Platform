@@ -13,12 +13,19 @@
 */
 package org.allbinary.game.configuration.event;
 
-import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class GameFeatureEvent extends AllBinaryEventObject
 {
     private final String whatChanged;
     
+    @JsConstructor
     public GameFeatureEvent(Object object, String whatChanged)
     {
         super(object);
@@ -26,11 +33,13 @@ public class GameFeatureEvent extends AllBinaryEventObject
         this.whatChanged = whatChanged;
     }
 
+    @JsMethod
     public String getWhatChanged()
     {
         return this.whatChanged;
     }
 
+    @JsMethod
     public Object getGameOption()
     {
         return this.getSource();

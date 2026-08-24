@@ -13,28 +13,36 @@
 */
 package org.allbinary.graphics.paint;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author user
  */
+
+@JsType
 public class Paintable 
 implements PaintableInterface
 {
 
+    @JsMethod
     public void setBasicColorP(final BasicColor basicColor)
     {
     }
     
     @Override
+    @JsMethod
     public void paint(final Graphics graphics)
     {
     }
 
     @Override
+    @JsMethod
     public void paintThreed(final Graphics graphics)
     {
     }

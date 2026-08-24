@@ -13,8 +13,13 @@
 */
 package org.allbinary.game.score;
 
-import org.allbinary.util.CircularIndexUtil;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.util.CircularIndexUtil;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class HighScoresHelper extends HighScoresHelperBase
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -23,6 +28,7 @@ public class HighScoresHelper extends HighScoresHelperBase
         CircularIndexUtil.createInstanceAt(0, 0);
 
     @Override
+    @JsMethod
     public void setHighScoresArray(final HighScores[] highScoresArrayP)
     {
         super.setHighScoresArray(highScoresArrayP);
@@ -33,6 +39,7 @@ public class HighScoresHelper extends HighScoresHelperBase
     int lastIndex = -1;
  
     @Override
+    @JsMethod
     public HighScores getNextHighScores()
     {        
         HighScores highScores = this.highScoresArrayP[this.circularIndexUtil.getIndex()];
@@ -61,6 +68,7 @@ public class HighScoresHelper extends HighScoresHelperBase
     }
     
     @Override
+    @JsMethod
     public boolean isAnyHighScores()
     {
         if(this.highScoresArrayP.length < 1)

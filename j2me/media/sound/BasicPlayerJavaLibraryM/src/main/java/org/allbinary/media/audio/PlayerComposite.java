@@ -24,6 +24,7 @@ import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
+//BasicPlayer
 public class PlayerComposite implements Controllable, Player
 {
     protected final LogUtil logUtil = LogUtil.getInstance();

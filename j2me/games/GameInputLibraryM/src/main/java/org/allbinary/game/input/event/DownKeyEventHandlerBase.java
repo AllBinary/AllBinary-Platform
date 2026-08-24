@@ -13,6 +13,8 @@
  */
 package org.allbinary.game.input.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.EventListenerInterface;
@@ -20,14 +22,20 @@ import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class DownKeyEventHandlerBase extends BasicEventHandler {
 
     private final BasicArrayList list = new BasicArrayListD();
 
+    @JsConstructor
     DownKeyEventHandlerBase() {
     }
 
+    @JsMethod
     public void addListener(final PlayerGameInput playerGameInput) {
         if (!this.list.contains(playerGameInput)) {
 
@@ -38,6 +46,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
     }
 
     @Override
+    @JsMethod
     public void removeAllListeners() {
 
         //ForcedLogUtil.log(this.toString(), "removeAllListeners");
@@ -49,6 +58,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
     }
 
     @Override
+    @JsMethod
     public void removeListenerSingleThreaded(final EventListenerInterface eventListenerInterface) {
         
         this.list.remove(eventListenerInterface);
@@ -58,6 +68,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
     }
 
     @Override
+    @JsMethod
     public synchronized void removeListener(EventListenerInterface eventListenerInterface) {
 
         this.list.remove(eventListenerInterface);
@@ -66,6 +77,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
         //ForcedLogUtil.log(this.toString(), commonStrings.REMOVE_LISTENER);
     }
 
+    @JsMethod
     public void fireEventI(final Integer eventObject) throws Exception {
         //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
@@ -97,6 +109,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
 
     }
 
+    @JsMethod
     public void fireEventForGameKeyEvent(final GameKeyEvent eventObject) throws Exception {
         //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
@@ -129,11 +142,13 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
 
     }
     
+    @JsMethod
     protected void processI(final Integer eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
         final DownKeyEventListenerInterface downKeyEventListenerInterface = (DownKeyEventListenerInterface) eventListenerInterface;
         downKeyEventListenerInterface.onDownKey(eventObject);
     }
 
+    @JsMethod
     protected void processEvent(final GameKeyEvent eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
         final DownKeyEventListenerInterface downKeyEventListenerInterface = (DownKeyEventListenerInterface) eventListenerInterface;
         downKeyEventListenerInterface.onDownKeyEvent(eventObject);
@@ -142,6 +157,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
     private static final String TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
     private static final String LISTENER_LABEL = " PlayerGameInput Listener: ";
 
+    @JsMethod
     public String toString() {
         final StringMaker stringBuffer = new StringMaker();
 

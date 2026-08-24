@@ -13,24 +13,34 @@
 */
 package org.allbinary.input;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.input.motion.AllMotionRecognizer;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
 import org.allbinary.input.motion.gesture.observer.GameMotionGestureListener;
 import org.allbinary.input.motion.gesture.observer.MotionGestureReceiveInterfaceFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author user
  */
+//TouchJ2ME
+
+@JsType
 public class TouchJ2ME
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final int DEVICE_ID = 0;
     private AllMotionRecognizer motionRecognizer = new AllMotionRecognizer();
 
+    @JsConstructor
     public TouchJ2ME()
     {
         BasicMotionGesturesHandler motionGesturesHandler =
@@ -41,6 +51,7 @@ public class TouchJ2ME
             MotionGestureReceiveInterfaceFactory.getInstance()));
     }
 
+    @JsMethod
     public void pointerDragged(int x, int y)
     {
         try
@@ -54,6 +65,7 @@ public class TouchJ2ME
         }
     }
 
+    @JsMethod
     public void pointerPressed(int x, int y)
     {
         try
@@ -67,6 +79,7 @@ public class TouchJ2ME
         }
     }
 
+    @JsMethod
     public void pointerReleased(int x, int y)
     {
         try

@@ -13,7 +13,13 @@
 */
 package org.allbinary.input;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface AllBinarySensorListener
 {
+    @JsMethod
     void onSensorChange();
 }

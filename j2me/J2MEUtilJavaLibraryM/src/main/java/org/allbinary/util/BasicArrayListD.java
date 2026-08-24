@@ -13,12 +13,18 @@
  */
 package org.allbinary.util;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsConstructor;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public class BasicArrayListD extends BasicArrayListS {
         
+    @JsConstructor
     public BasicArrayListD()
     {
         super(7);

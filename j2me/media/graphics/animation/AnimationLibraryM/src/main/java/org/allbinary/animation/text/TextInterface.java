@@ -13,16 +13,26 @@
  */
 package org.allbinary.animation.text;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public interface TextInterface {
  
+    @JsMethod
     void setTextWithOnMeasure(final String text, final TextChangeListener textChangeListener);
+    @JsMethod
     String getText();
+    @JsMethod
     void setText(final String text);
+    @JsMethod
     int getFontHeight();
+    @JsMethod
     int getWidth();
 
 }

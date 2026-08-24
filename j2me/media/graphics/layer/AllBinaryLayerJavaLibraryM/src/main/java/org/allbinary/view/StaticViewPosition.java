@@ -13,26 +13,36 @@
 */
 package org.allbinary.view;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class StaticViewPosition extends ViewPosition
 {
+    @JsConstructor
     public StaticViewPosition(int x, int y, int z)
     {
         super(x, y, z);
     }
     
     @Override
+    @JsMethod
     public int getX()
     {
         return this.getRawX();
     }
 
     @Override
+    @JsMethod
     public int getY()
     {
         return this.getRawY();
     }
 
     @Override
+    @JsMethod
     public int getZ()
     {
         return this.getRawZ();

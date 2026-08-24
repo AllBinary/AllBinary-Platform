@@ -13,12 +13,20 @@
 */
 package org.allbinary.game.state;
 
-import org.allbinary.logic.NullUtil;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.NullUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class GameStateFactory
 {
    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
+   @JsMethod
    public static GameStateFactory getInstance()
    {
       if(GameStateFactory.instance == NullUtil.getInstance().NULL_OBJECT)
@@ -30,15 +38,21 @@ public class GameStateFactory
 
    private int index = 0;
    
+   @JsProperty
    public final GameState NO_GAME_STATE = this.createGameState("NO_GAME_STATE");
+   @JsProperty
    public final GameState PLAYING_GAME_STATE = this.createGameState("PLAYING_GAME_STATE");
+   @JsProperty
    public final GameState SHOW_END_RESULT_GAME_STATE = this.createGameState("SHOW_END_RESULT_GAME_STATE");
+   @JsProperty
    public final GameState SHOW_HIGH_SCORE_GAME_STATE = this.createGameState("SHOW_HIGH_SCORE_GAME_STATE");
    
+   @JsConstructor
    private GameStateFactory()
    {
    }
    
+   @JsMethod
    public GameState createGameState(String name)
    {
       return new GameState(name, this.index++);

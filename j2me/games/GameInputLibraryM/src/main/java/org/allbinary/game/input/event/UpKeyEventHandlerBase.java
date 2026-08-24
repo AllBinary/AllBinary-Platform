@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.input.event;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.EventListenerInterface;
@@ -20,16 +22,22 @@ import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class UpKeyEventHandlerBase extends BasicEventHandler
 {
 
    private final BasicArrayList list = new BasicArrayListD();
    
+   @JsConstructor
    UpKeyEventHandlerBase()
    {
    }
  
+   @JsMethod
    public void addListener(PlayerGameInput playerGameInput)
    {
        if(!this.list.contains(playerGameInput))
@@ -39,6 +47,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
    }
 
    @Override
+   @JsMethod
    public void removeAllListeners()
    {
        this.list.clear();
@@ -46,7 +55,8 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
    }
 
    @Override
-    public void removeListenerSingleThreaded(
+   @JsMethod
+   public void removeListenerSingleThreaded(
             EventListenerInterface eventListenerInterface)
     {
         this.list.remove(eventListenerInterface);
@@ -54,13 +64,15 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
     }
     
     @Override
-   public synchronized void removeListener(EventListenerInterface eventListenerInterface)
+    @JsMethod
+    public synchronized void removeListener(EventListenerInterface eventListenerInterface)
    {
        this.list.remove(eventListenerInterface);
        super.removeListener(eventListenerInterface);
    }
 
-   public void fireEvent(final Integer eventObject) throws Exception
+   @JsMethod
+   public void fireEventForInteger(final Integer eventObject) throws Exception
    {        
        for (int index = this.list.size(); --index >= 0;)
        {
@@ -83,7 +95,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
             try
             {
                 eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.get(index);
-                this.process(eventObject, eventListenerInterface);
+                this.processForInteger(eventObject, eventListenerInterface);
             }
             catch (Exception e)
             {
@@ -93,8 +105,9 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
         }
    }
    
-   protected void process(final Integer eventObject,
-           final EventListenerInterface eventListenerInterface) throws Exception {
+   @JsMethod
+   protected void processForInteger(final Integer eventObject,
+                                    final EventListenerInterface eventListenerInterface) throws Exception {
 
        final UpKeyEventListenerInterface upKeyEventListenerInterface = (UpKeyEventListenerInterface) eventListenerInterface;
        upKeyEventListenerInterface.onUpKeyEvent(eventObject);
@@ -104,6 +117,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
     private static final String TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
     private static final String LISTENER_LABEL = " PlayerGameInput Listener: ";
     
+    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();

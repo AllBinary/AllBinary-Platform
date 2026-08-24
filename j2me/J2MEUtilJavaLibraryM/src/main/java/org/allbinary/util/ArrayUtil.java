@@ -1,14 +1,20 @@
 package org.allbinary.util;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public class ArrayUtil
 {
     private static final ArrayUtil instance = new ArrayUtil();
 
+    @JsMethod
     public static ArrayUtil getInstance()
     {
         return ArrayUtil.instance;
@@ -16,11 +22,13 @@ public class ArrayUtil
 
     private final MathUtil mathUtil = MathUtil.getInstance();
     
+    @JsMethod
     public Object[] copyOf(final Object[] original, final int newLength)
     {
         return this.copyOfType(original, newLength, original.getClass());
     }
 
+    @JsMethod
     public Object[] copyOfType(final Object[] original, final int newLength, final Class newType)
     {
         final Object[] copy = new Object[newLength];
@@ -28,54 +36,63 @@ public class ArrayUtil
         return copy;
     }
 
+    @JsMethod
     public byte[] copyOfbyte(final byte[] original, final int newLength) {
         final byte[] copy = new byte[newLength];
         System.arraycopy(original, 0, copy, 0,this.mathUtil.min(original.length, newLength));
         return copy;
     }
 
+    @JsMethod
     public short[] copyOfshort(short[] original, int newLength) {
         final short[] copy = new short[newLength];
         System.arraycopy(original, 0, copy, 0,this.mathUtil.min(original.length, newLength));
         return copy;
     }
 
+    @JsMethod
     public int[] copyOfint(final int[] original, final int newLength) {
         final int[] copy = new int[newLength];
         System.arraycopy(original, 0, copy, 0,this.mathUtil.min(original.length, newLength));
         return copy;
     }
 
+    @JsMethod
     public long[] copyOflong(final long[] original, final int newLength) {
         final long[] copy = new long[newLength];
         System.arraycopy(original, 0, copy, 0,this.mathUtil.min(original.length, newLength));
         return copy;
     }
 
+    @JsMethod
     public char[] copyOfchar(final char[] original, final int newLength) {
         final char[] copy = new char[newLength];
         System.arraycopy(original, 0, copy, 0,this.mathUtil.min(original.length, newLength));
         return copy;
     }
 
+    @JsMethod
     public float[] copyOffloat(final float[] original, final int newLength) {
         final float[] copy = new float[newLength];
         System.arraycopy(original, 0, copy, 0,this.mathUtil.min(original.length, newLength));
         return copy;
     }
 
+    @JsMethod
     public double[] copyOfdouble(final double[] original, final int newLength) {
         final double[] copy = new double[newLength];
         System.arraycopy(original, 0, copy, 0,this.mathUtil.min(original.length, newLength));
         return copy;
     }
 
+    @JsMethod
     public boolean[] copyOfboolean(final boolean[] original, final int newLength) {
         final boolean[] copy = new boolean[newLength];
         System.arraycopy(original, 0, copy, 0,this.mathUtil.min(original.length, newLength));
         return copy;
     }
     
+    @JsMethod
     public void reverse(final int[] intArray) {
         final int length = intArray.length - 1;
         int temp;
@@ -87,6 +104,7 @@ public class ArrayUtil
         }
     }	
 
+    @JsMethod
     public void flip(final int[] intArray, final int width, final int height) {
         final int length = height - 1;
         int temp;
@@ -103,6 +121,7 @@ public class ArrayUtil
         }
     }	
     
+    @JsMethod
     public String toStringFromTwoDimensionaArray(final int[][] twoDimensionalIntArray)
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -126,6 +145,7 @@ public class ArrayUtil
         return stringBuffer.toString();
     }
     
+    @JsMethod
     public String toStringFromObjectArray(final Object[] objectArray)
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -141,6 +161,7 @@ public class ArrayUtil
         return stringBuffer.toString();
     }
     
+    @JsMethod
     public String toStringFromByteArray(final byte[] byteArray)
     {
         final StringMaker stringBuffer = new StringMaker();

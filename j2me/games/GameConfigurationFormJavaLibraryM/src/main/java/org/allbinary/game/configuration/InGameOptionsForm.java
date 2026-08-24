@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.configuration;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -23,14 +25,23 @@ import org.allbinary.game.configuration.feature.InGameFeatureChoiceGroups;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.logic.string.StringUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class InGameOptionsForm extends CommandForm
 {
 
+    @JsProperty
     public static final Command DISPLAY  = new Command("Options In Game", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 1);
+    @JsProperty
     public static final Command SAVE  = new Command("Save", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 1);
+    @JsProperty
     public static final Command DEFAULT  = new Command("Default", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 1);
     
+    @JsConstructor
     InGameOptionsForm(final CommandListener commandListener, final String title,
             final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor)
         throws Exception
@@ -54,6 +65,7 @@ public class InGameOptionsForm extends CommandForm
     }
     
     @Override
+    @JsMethod
     public void initCommands(final CommandListener cmdListener)
     {
         this.removeAllCommands();

@@ -13,14 +13,22 @@
 */
 package org.allbinary.game.init;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class BasicBuildGameInitializerFactory
    implements GameInitializationInterfaceFactoryInterface
 {
+    @JsProperty
     public static BasicBuildGameInitializerFactory NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = new BasicBuildGameInitializerFactory();
 
     //private static GameInitializationInterface STATIC = new BaseGameInitialization(0);
 
     @Override
+    @JsMethod
     public GameInitializationInterface getInstance()
     {
         return BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION;

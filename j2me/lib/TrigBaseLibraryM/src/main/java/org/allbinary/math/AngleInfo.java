@@ -13,11 +13,17 @@
 */
 package org.allbinary.math;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 
+
+@JsType
 public class AngleInfo
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -26,11 +32,13 @@ public class AngleInfo
 
    private short angle = 0;
       
+   @JsMethod
    public static AngleInfo getInstance(final short angleIncrement)
    {
       return new AngleInfo(AngleIncrementInfoFactory.getInstance().getAt(angleIncrement));
    }
    
+   @JsConstructor
    private AngleInfo(final AngleIncrementInfo angleIncrementInfo)
    {
       this.angleIncrementInfo = angleIncrementInfo;
@@ -39,23 +47,27 @@ public class AngleInfo
    
    private final FrameUtil frameUtil = FrameUtil.getInstance();
    
+   @JsMethod
    public void adjustAngle(final int frame)
    {
       final int newAngle = this.angleIncrementInfo.getAngleIncrement() * frame - 90;
       this.setAngle((short) this.frameUtil.adjustAngleToFrameAngle(newAngle));
    }
    
+   @JsMethod
    public short getAngle()
    {
       return this.angle;
    }
    
+   @JsMethod
    public void setAngle(final short angle)
    {
       //this.logUtil.putF("Set Angle: " + angle, this, "setAngle");
       this.angle = angle;
    }
 
+   @JsMethod
    public AngleIncrementInfo getAngleIncrementInfo()
    {
 	  //this.logUtil.putF(angleIncrementInfo.toString(), this, "getAngleIncrementInfo()");
@@ -64,6 +76,7 @@ public class AngleInfo
    
    private static final String ANGLE = "Angle: ";
    
+   @JsMethod
    public String toString()
    {
       final StringMaker stringBuffer = new StringMaker();

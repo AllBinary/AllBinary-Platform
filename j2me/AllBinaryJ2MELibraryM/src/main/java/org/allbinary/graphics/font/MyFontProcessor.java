@@ -13,19 +13,26 @@
  */
 package org.allbinary.graphics.font;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class MyFontProcessor {
 
+    @JsMethod
     public static int defaultCharWidth(final Font font) {
         return font.charWidth('C');
     }
     
+    @JsMethod
     public static int defaultStringWidth(final Font font, final int size) {
         return MyFontProcessor.defaultCharWidth(font) * size;
     }
@@ -35,10 +42,12 @@ public class MyFontProcessor {
     /**
      * @return the instance
      */
+    @JsMethod
     public static MyFontProcessor getInstance() {
         return instance;
     }
 
+    @JsMethod
     public void process(final Graphics graphics) {
         
     }

@@ -183,7 +183,7 @@ implements BaseMotionGestureEventListener
             }
 
             rtsFormInput.setStickyItemSelected(false);
-            rtsFormInput.setSelectedStickyItem(ABCustomItem.NULL_CUSTOM_ITEM);
+            rtsFormInput.setSelectedStickyItem(ABCustomItem.getNullInstance());
             rtsFormInput.setSelectedStickyItemIndex(-1);
 
             return true;

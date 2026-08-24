@@ -13,23 +13,32 @@
 */
 package org.allbinary.game.collision;
 
-import org.allbinary.game.layer.CollidableCompositeLayer;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.game.layer.CollidableCompositeLayer;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class CollidableNeverCollideBehavior extends CollidableBaseBehavior
 {    
 
+    @JsConstructor
     CollidableNeverCollideBehavior(boolean isCollidable)
     {
         super(isCollidable);
     }
     
     @Override
+    @JsMethod
     public boolean isCollision(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer allbinaryCollidableLayer)
     {
        return false;
     }
 
     @Override
+    @JsMethod
     public void collide(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer allbinaryCollidableLayer)
        throws Exception
     {
@@ -37,12 +46,14 @@ public class CollidableNeverCollideBehavior extends CollidableBaseBehavior
     }
 
     @Override
+    @JsMethod
     public void collideInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        // this.setPickedUp();
     }
     
     @Override
+    @JsMethod
     public boolean isCollisionInterface(final CollidableCompositeLayer ownerLayer, CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        return false;

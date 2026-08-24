@@ -18,6 +18,7 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullImage;
+import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -25,26 +26,41 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+@JsType
 public class ImageCacheBase
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
     
+    @JsProperty
     protected final ImageFactory imageFactory = ImageFactory.getInstance();
 
+    @JsProperty
     protected final Hashtable hashtable = new Hashtable();
 
+    @JsProperty
     protected final int SIZE = 128;
+    @JsProperty
     protected final int[] widths = new int[this.SIZE];
+    @JsProperty
     protected final int[] heights = new int[this.SIZE];
     
+    @JsProperty
     protected final BasicArrayList[] listOfList = new BasicArrayList[this.SIZE];
+    @JsProperty
     protected final BasicArrayList[] availableListOfList = new BasicArrayList[this.SIZE];
 
+    @JsProperty
     protected int volume = 0;
+    @JsProperty
     protected int nextIndex = 0;
 
     //protected
+    @JsConstructor
     public ImageCacheBase()
     // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
@@ -61,6 +77,7 @@ public class ImageCacheBase
         }
     }
     
+    @JsMethod
     protected Image getImage(final Object resourceId) {
        final Object imageCanBeNull =  this.hashtable.get(resourceId);
        if(imageCanBeNull == null) {
@@ -70,6 +87,7 @@ public class ImageCacheBase
        return (Image) imageCanBeNull;
     }
     
+    @JsMethod
     public void releaseAll()
     {
         for (int index = this.listOfList.length - 1; index >= 0; index--)
@@ -80,6 +98,7 @@ public class ImageCacheBase
         this.logUtil.putF(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll");
     }
 
+    @JsMethod
     protected int getIndexWH(final int width, final int height)
     {
         int foundIndex = -1;
@@ -98,6 +117,7 @@ public class ImageCacheBase
         return foundIndex;
     }
     
+    @JsMethod
     protected Image getFromAvailable(final int foundIndex, final int width, final int height)
     {
         if (foundIndex != -1)
@@ -118,29 +138,34 @@ public class ImageCacheBase
 //        return this.get(object.getClass().getName(), width, height);
 //    }
     
+    @JsMethod
     public Image get(final String caller, final int width, final int height)
     throws Exception
     {        
         throw new RuntimeException();
     }
 
+    @JsMethod
     public Image getWithKey(final Object key) throws Exception
     {
         throw new RuntimeException();
     }
 
+    @JsMethod
     protected Image createImage(final String caller, final int width, final int height)
     throws Exception
     {
         return this.imageFactory.createImage(caller, width, height);
     }
     
+    @JsMethod
     protected Image createImageFromInputStream(final Object key, final InputStream inputStream)
     throws Exception
     {
         return this.imageFactory.createImageFromInputStream(key, inputStream);
     }
     
+    @JsMethod
     public String toString()
     {   
         final StringMaker stringBuffer = new StringMaker(); 
@@ -166,16 +191,19 @@ public class ImageCacheBase
         return stringBuffer.toString();
     }
 
+    @JsMethod
     public Hashtable getHashtableP()
     {
         return this.hashtable;
     }
 
     //OpenGL
+    @JsMethod
     public void init(Image image) {
         
     }
     
+    @JsMethod
     public void initProgress() {
         
     }

@@ -13,14 +13,22 @@
 */
 package org.allbinary.graphics.form;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class FormType
 {
     final String name;
     
+    @JsConstructor
     public FormType(final String name) {
         this.name = name;
     }
     
+    @JsMethod
     public String toString() {
         return this.name;
     }

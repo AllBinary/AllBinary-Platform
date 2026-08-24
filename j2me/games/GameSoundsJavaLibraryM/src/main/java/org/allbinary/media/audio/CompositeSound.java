@@ -13,16 +13,24 @@
 */
 package org.allbinary.media.audio;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class CompositeSound extends Sound
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
     
+    @JsConstructor
     protected CompositeSound(String resource)
     {
         super(resource);
     }
 
     @Override
+    @JsMethod
     public void init() throws Exception
     {
         //player = AllBinaryMediaManager.createPlayer(this.getResource());

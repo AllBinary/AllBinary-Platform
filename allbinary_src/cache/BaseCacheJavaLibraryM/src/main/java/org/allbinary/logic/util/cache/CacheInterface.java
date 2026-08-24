@@ -13,14 +13,22 @@
 */
 package org.allbinary.logic.util.cache;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 //import java.util.Set;
 
 /* Use this cache if you want to manually remove objects
  * from the cache
  */
+
+@JsType
 public interface CacheInterface
 {
+    @JsMethod
     void add(CacheableInterface cacheableInterface) throws Exception;
+    @JsMethod
     void addArray(CacheableInterface[] cacheableInterfaces) throws Exception;
+    @JsMethod
     void clear() throws Exception;
 }

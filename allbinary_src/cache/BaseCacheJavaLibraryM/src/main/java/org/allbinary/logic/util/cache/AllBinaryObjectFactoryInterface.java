@@ -13,7 +13,13 @@
 */
 package org.allbinary.logic.util.cache;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface AllBinaryObjectFactoryInterface
 {
+    @JsMethod
     Object getInstance();
 }

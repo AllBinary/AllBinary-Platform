@@ -13,14 +13,22 @@
 */
 package org.allbinary.midlet;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.midlet.MIDlet;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface MidletCompositeInterface {
 
+	@JsMethod
 	void setMidlet(MIDlet midlet);
+	@JsMethod
 	AllBinaryMidlet getMidlet();
 	
+	@JsMethod
 	Displayable getDisplayable();
 	//void setDisplayable(Displayable displayable);
 }

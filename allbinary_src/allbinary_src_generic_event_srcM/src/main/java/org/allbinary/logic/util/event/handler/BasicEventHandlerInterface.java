@@ -13,18 +13,27 @@
 */
 package org.allbinary.logic.util.event.handler;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface BasicEventHandlerInterface
 {
+   @JsMethod
    void addListenerInterface(EventListenerInterface eventListenerInterface);
 
    //void addListeners(BasicArrayList basicArrayList);
 
+   @JsMethod
    void fireEvent(AllBinaryEventObject eventObject) throws Exception;
 
+   @JsMethod
    void removeAllListeners();
 
+   @JsMethod
    void removeListener(EventListenerInterface eventListenerInterface);
 }

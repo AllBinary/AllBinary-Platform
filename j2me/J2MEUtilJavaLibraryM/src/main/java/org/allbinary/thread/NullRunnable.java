@@ -13,15 +13,23 @@
 */
 package org.allbinary.thread;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class NullRunnable extends ARunnable
 {
     private static final NullRunnable instance = new NullRunnable();
     
+    @JsMethod
     public static NullRunnable getInstance()
     {
         return NullRunnable.instance;
     }
 
+    @JsConstructor
     private NullRunnable()
     {
         

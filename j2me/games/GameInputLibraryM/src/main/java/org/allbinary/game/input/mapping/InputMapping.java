@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.input.mapping;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Hashtable;
 
 import org.allbinary.game.input.Input;
@@ -23,42 +25,55 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class InputMapping
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
     
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
    //TWB - Use MapList someday
     private final Hashtable hashtable = new Hashtable();
     private final BasicArrayList mappedList = new BasicArrayListD();
 
+    @JsConstructor
     protected InputMapping()
     {
     }
 
+    @JsMethod
     public int getTotalMapped()
     {
         return this.hashtable.size();
     }
     
+    @JsMethod
     protected boolean isDefaultNew()
     {
         return false;
     }
     
+    @JsMethod
     protected InputToGameKeyMapping getDefault()
     {
         return InputToGameKeyMapping.getNullInstance();
     }
     
+    @JsMethod
     protected void removeAll()
     {
         this.hashtable.clear();
         this.mappedList.clear();
     }
 
+    @JsMethod
     public void remove(final Input input, final Input mappedToInput)
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -98,12 +113,14 @@ public class InputMapping
         }
     }
     
+    @JsMethod
     public void addMapping(final InputToGameKeyMapping inputToGameKeyMapping)
     throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
     
+    @JsMethod
     public void add(final Input input, final Input mappedToInput)
     {
         //this.logUtil.putF(this.commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputMapping::add");
@@ -115,11 +132,13 @@ public class InputMapping
         }
     }
 
+    @JsMethod
     public boolean isMapped(final Input input)
     {
         return this.mappedList.contains(input);
     }
     
+    @JsMethod
     public BasicArrayList getMappedInput(final Input id)
     {
         final Object mappingInputCanBeNullList = this.hashtable.get(id);
@@ -134,6 +153,7 @@ public class InputMapping
         return (BasicArrayList) mappingInputCanBeNullList;
     }
 
+    @JsMethod
     public Hashtable getHashtable()
     {
         return this.hashtable;

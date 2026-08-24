@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.configuration;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Hashtable;
 
 import javax.microedition.lcdui.Choice;
@@ -37,7 +39,11 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class GameOptionsForm extends CommandForm
     //CommandForm
 {
@@ -49,6 +55,7 @@ public class GameOptionsForm extends CommandForm
     }
     */
 
+    @JsConstructor
     public GameOptionsForm(final CommandListener commandListener, final String title,
             final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor)
         throws Exception
@@ -79,12 +86,14 @@ public class GameOptionsForm extends CommandForm
 
     }
 
+    @JsMethod
     public void closeClientInformation(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         super.close();
         this.save(abeClientInformation);
     }
 
+    @JsMethod
     private void addTextFieldsIfSimulated()
     {
         String key = OrientationData.getInstance().ORIENTATION_SENSOR_INPUT;
@@ -102,6 +111,7 @@ public class GameOptionsForm extends CommandForm
         }
     }
     
+    @JsMethod
     private void addTextFields()
     {
         final Hashtable hashtable = GameConfigurationTextInput.getHashtable();
@@ -121,6 +131,7 @@ public class GameOptionsForm extends CommandForm
         }
     }
 
+    @JsMethod
     private void addConfiguration()
     {
         final String METHOD_NAME = "addConfiguration";
@@ -155,6 +166,7 @@ public class GameOptionsForm extends CommandForm
     }
 
     @Override
+    @JsMethod
     public void initCommands(final CommandListener cmdListener)
     {
         final GameCommandsFactory gameCommandsFactory = 
@@ -167,6 +179,7 @@ public class GameOptionsForm extends CommandForm
         this.setCommandListener(cmdListener);
     }
 
+    @JsMethod
     public void save(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         final int size = this.size();

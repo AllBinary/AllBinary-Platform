@@ -13,17 +13,25 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class InputFactory
 {
 
     private static Object instance = NullUtil.getInstance().NULL_OBJECT;
 
+    @JsMethod
     public static InputFactory getInstance()
     {
         if(InputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
@@ -33,22 +41,29 @@ public class InputFactory
         return (InputFactory) InputFactory.instance;
     }
 
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
+    @JsProperty
     public final String KEY_CODE_LABEL = "KeyCode: ";
+    @JsProperty
     public final String DEVICE_ID_LABEL = "DeviceId: ";
     
     //TWB - Should be seperated into an initializable class with specific size for a platform
     //public final int MAX = SmallIntegerSingletonFactory.MIN;
     //SmallIntegerSingletonFactory.init(0x101);
     //VK_CONTEXT_MENU
+    @JsProperty
     public final int MAX = SmallIntegerSingletonFactory.getInstance().getMin();
     //protected final Input[] negativeInputIntegerArray = new Input[6];
+    @JsProperty
     protected final Input[] inputIntegerArray = new Input[this.MAX];
 
+    @JsProperty
     public final Input NO_INPUT = new Input(0, this.commonStrings.UNKNOWN);
     
+    @JsConstructor
     private InputFactory() {
         
         final int size = this.inputIntegerArray.length;
@@ -58,11 +73,13 @@ public class InputFactory
         }
     }
 
+    @JsMethod
     public void add(int id, Input input)
     {
         this.inputIntegerArray[id] = input;
     }
     
+    @JsMethod
     public Input getInstanceById(int id)
     {
         if(id < 0)

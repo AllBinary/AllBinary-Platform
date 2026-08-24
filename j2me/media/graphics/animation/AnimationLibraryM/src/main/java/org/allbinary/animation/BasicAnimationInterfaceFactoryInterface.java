@@ -13,6 +13,10 @@
 */
 package org.allbinary.animation;
 
+import jsinterop.annotations.JsType;
 
+
+
+@JsType
 public interface BasicAnimationInterfaceFactoryInterface {
 }

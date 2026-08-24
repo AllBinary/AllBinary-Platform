@@ -249,7 +249,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
     {
         if (this.selectedRTSLayersList != null)
         {
-            this.inputProcessorArray[key].processEvent(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER, GameKeyEvent.NONE);
+            this.inputProcessorArray[key].processEvent(AllBinaryGameLayerManager.getNullInstance(), GameKeyEvent.NONE);
         }
     }
     

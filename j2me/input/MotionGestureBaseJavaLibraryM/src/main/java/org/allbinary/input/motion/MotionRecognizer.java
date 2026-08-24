@@ -13,18 +13,26 @@
 */
 package org.allbinary.input.motion;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class MotionRecognizer
 {
+    @JsMethod
     public void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
     }
 
+    @JsMethod
     public void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
     }
 
+    @JsMethod
     public void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {

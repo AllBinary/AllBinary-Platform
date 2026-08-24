@@ -13,12 +13,19 @@
 */
 package org.allbinary.math;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class FrameUtil
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final FrameUtil instance = new FrameUtil();
 
+    @JsMethod
     public static FrameUtil getInstance()
     {
         return FrameUtil.instance;
@@ -27,22 +34,26 @@ public class FrameUtil
     //private final String AJUST_ANGLE_TO_FRAME_ANGLE_MORE = "adjustAngleToFrameAngle >";
     //private final String AJUST_ANGLE_TO_FRAME_ANGLE_LESS = "adjustAngleToFrameAngle <";
     
+    @JsConstructor
     private FrameUtil()
     {
     }
 
     // TWB - Note the angle is actually 90 degrees off
+    @JsMethod
     public int getFrameForAngle(final short angle, final int angleIncrement)
     {
         return this.adjustAngleToFrameAngle((int) angle) / angleIncrement;
     }
 
+    @JsMethod
     public int getFrameAngle(final int frame, final int angleIncrement)
     {
         final int frameAngle = angleIncrement * frame - 90;
         return this.adjustAngleToFrameAngle(frameAngle);
     }
 
+    @JsMethod
     public int adjustAngleToFrameAngle(int currentAngle)
     {
         final AngleFactory angleFactory = AngleFactory.getInstance();

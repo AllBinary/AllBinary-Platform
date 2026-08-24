@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.layer.special;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
@@ -38,6 +40,9 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.view.ViewPositionBase;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 /*
  * The Game Layers/Objects requirements change a bunch from game to game.
@@ -50,13 +55,17 @@ import org.allbinary.view.ViewPositionBase;
  * For now just think of the 3 classes (MultiPlayerGameLayer -> CollidableDestroyableDamageableLayer -> CollidableCompositeLayer)
  * as SpecialGameLayer or MagicalGameLayer.
  */
+
+@JsType
 public class CollidableDestroyableDamageableLayer 
 extends CollidableCompositeLayer 
 implements DestroyableInterface, DamageableInterface, 
 PickupCompositeInterface, SpecialGameInputInterface
 {
+    @JsProperty
     public static Object NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = NullUtil.getInstance().NULL_OBJECT;
     
+    @JsMethod
     public static CollidableDestroyableDamageableLayer getNullInstance() {
         
         if(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER == NullUtil.getInstance().NULL_OBJECT) {
@@ -78,15 +87,21 @@ PickupCompositeInterface, SpecialGameInputInterface
     private int initY;
     private int initZ;
 
+    @JsProperty
     protected PartInterface[] partInterfaceArrayP = PartInterfaceUtil.getZeroArray();
     private PickupBehavior pickupBehavior;
  
-    public AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
+    @JsProperty
+    public AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.getNullInstance();
     
+    @JsProperty
     public boolean isDraggable = false;
+    @JsProperty
     public boolean isDragged = false;
+    @JsProperty
     public boolean isDropped = false;
 
+    @JsConstructor
     public CollidableDestroyableDamageableLayer(
             final Group[] groupInterface, final String name, final Rectangle layerInfo, final ViewPositionBase viewPosition)
     {
@@ -97,14 +112,16 @@ PickupCompositeInterface, SpecialGameInputInterface
         
         this.groupInterface = groupInterface;
         
-        this.pickupBehavior = PickupBehavior.NULL_PICKUP_BEHAVIOR;
+        this.pickupBehavior = PickupBehavior.getNullInstance();
     }
     
+    @JsMethod
     public void initPosition() throws Exception
     {
         this.setPosition(this.initX, this.initY, this.initZ);
     }
 
+    @JsMethod
     public void initPositionXYZ(final int x, final int y, final int z) throws Exception
     {        
         this.initX = x;
@@ -114,6 +131,7 @@ PickupCompositeInterface, SpecialGameInputInterface
     
     //Should be overridden
     @Override
+    @JsMethod
     public void paint(final Graphics graphics)
     {
         //this.logUtil.putF(this.commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
@@ -121,18 +139,21 @@ PickupCompositeInterface, SpecialGameInputInterface
     }
 
     @Override
+    @JsMethod
     public void damage(final int damage, final int damageType) throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     @Override
+    @JsMethod
     public int getDamage(final int damageType) throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     @Override
+    @JsMethod
     public boolean isDestroyed() throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
@@ -147,16 +168,19 @@ PickupCompositeInterface, SpecialGameInputInterface
     */
     
     @Override
+    @JsMethod
     public Group[] getGroupInterface()
     {
         return this.groupInterface;
     }
 
+    @JsMethod
     public void setGroupInterface(final Group[] teamInterface)
     {
         this.groupInterface = teamInterface;
     }
 
+    @JsMethod
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
         this.allBinaryGameLayerManagerP = allBinaryGameLayerManager;
         //this.logUtil.putF(new StringMaker().append(commonStrings.START).append(this.getName()).append(CommonSeps.getInstance().SPACE).append(allBinaryGameLayerManager).toString(), this, this.commonStrings.PROCESS);
@@ -165,37 +189,44 @@ PickupCompositeInterface, SpecialGameInputInterface
         }
     }
     
+    @JsMethod
     public final boolean isReadyForExplosion()
     {
         return this.readyForExplosion;
     }
 
+    @JsMethod
     protected final void setReadyForExplosion(final boolean isReadyForExplosion)
     {
         this.readyForExplosion = isReadyForExplosion;
     }
 
+    @JsMethod
     public int getInitWidth()
     {
         return this.initWidth;
     }
 
+    @JsMethod
     public int getInitHeight()
     {
         return this.initHeight;
     }
     
+    @JsMethod
     public int getInitX()
     {
         return this.initX;
     }
 
+    @JsMethod
     public int getInitY()
     {
         return this.initY;
     }
     
     @Override
+    @JsMethod
     public void up()
     throws Exception
     {
@@ -203,95 +234,112 @@ PickupCompositeInterface, SpecialGameInputInterface
     }
     
     @Override
+    @JsMethod
     public void down()
     throws Exception
     {
     }
 
     @Override
+    @JsMethod
     public void right()
     throws Exception
     {
     }
     
     @Override
+    @JsMethod
     public void left()
     throws Exception
     {
     }
 
     @Override
+    @JsMethod
     public void strafeLeft() throws Exception
     {
     }
 
     @Override
+    @JsMethod
     public void strafeRight() throws Exception
     {
     }
     
     @Override
+    @JsMethod
     public void fire(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
     @Override
+    @JsMethod
     public void special1(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }    
 
     @Override
+    @JsMethod
     public void special2(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
     @Override
+    @JsMethod
     public void special3(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
     @Override
+    @JsMethod
     public void special4(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
     @Override
+    @JsMethod
     public void special5(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
+    @JsMethod
     public void upAnalog(final int yAnalogValue)
     throws Exception
     {
         
     }
     
+    @JsMethod
     public void downAnalog(final int yAnalogValue)
     throws Exception
     {
     }
 
+    @JsMethod
     public void rightAnalog(final int xAnalogValue)
     throws Exception
     {
     }
 
+    @JsMethod
     public void leftAnalog(final int xAnalogValue)
     throws Exception
     {
     }
 
+    @JsMethod
     public void rightTrigger(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent, final int xAnalogValue)
     throws Exception
     {
     }
 
+    @JsMethod
     public void leftTrigger(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent, final int xAnalogValue)
     throws Exception
     {
@@ -304,22 +352,26 @@ PickupCompositeInterface, SpecialGameInputInterface
     }
     */
     
+    @JsMethod
     public void onDestroyed(final DestroyedEvent destroyedEvent)
     {
     }
 
     @Override
+    @JsMethod
     public PickupBehavior getPickupBehavior()
     {
         return this.pickupBehavior;
     }
 
     @Override
+    @JsMethod
     public void setPickupBehavior(final PickupBehavior pickupBehavior)
     {
         this.pickupBehavior = pickupBehavior;
     }
 
+    @JsMethod
     public void addPart(
             final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface)
     throws Exception
@@ -327,11 +379,13 @@ PickupCompositeInterface, SpecialGameInputInterface
         
     }
 
+    @JsMethod
     public void setPartInterfaceArray(final PartInterface[] partInterfaceArray)
     {
         this.partInterfaceArrayP = partInterfaceArray;
     }
 
+    @JsMethod
     public PartInterface[] getPartInterfaceArray()
     {
         return this.partInterfaceArrayP;
@@ -342,6 +396,7 @@ PickupCompositeInterface, SpecialGameInputInterface
     private static final String READYFOREXPLOSION = "ReadyForExplosion: ";
     
     @Override
+    @JsMethod
     public void toStringAppend(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
@@ -396,6 +451,7 @@ PickupCompositeInterface, SpecialGameInputInterface
         
     }
     
+    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();

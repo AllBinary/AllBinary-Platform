@@ -13,14 +13,23 @@
 */
 package org.allbinary.logic.util.cache;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.NullUtil;
 import org.allbinary.util.CircularIndexUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class BaseCircularPool
 {
+    @JsProperty
     protected CircularIndexUtil circularIndexUtil = CircularIndexUtil.NULL_CIRCULAR_INDEX_UTIL;
+    @JsProperty
     protected Object[] OBJECT_ARRAY = NullUtil.getInstance().NULL_OBJECT_ARRAY;
 
+    @JsMethod
     public synchronized Object getNextInstance() throws Exception
     {
         Object object = this.OBJECT_ARRAY[this.circularIndexUtil.getIndex()];
@@ -30,6 +39,7 @@ public class BaseCircularPool
         return object;
     }
     
+    @JsMethod
     public void init(
             AllBinaryObjectFactoryInterface allBinaryObjectFactoryInterface)
     {
@@ -41,6 +51,7 @@ public class BaseCircularPool
         }
     }
     
+    @JsMethod
     public Object getInstance(int index) throws Exception
     {
         return this.OBJECT_ARRAY[index];

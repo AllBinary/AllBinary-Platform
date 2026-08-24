@@ -13,15 +13,22 @@
  */
 package org.allbinary.math;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsConstructor;
+
 /**
  *
  * @author User
  */
+@JsType
 public class NamedAngle extends Angle {
     
+    @JsProperty
     public final String name;
    
     //protected
+    @JsConstructor
     public NamedAngle(final short angle, final String name)
     {
         super(angle);

@@ -13,6 +13,8 @@
 */
 package org.allbinary.canvas;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.math.PrimitiveLongSingleton;
 import org.allbinary.logic.math.ScaleFactorFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -21,7 +23,12 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class BaseGameStatistics
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -32,10 +39,12 @@ public class BaseGameStatistics
     private long totalRefreshes;
     private long totalFrames;
 
+    @JsProperty
     protected final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
     // private PrimitiveLongUtil primitiveLongUtil;
 
+    @JsConstructor
     public BaseGameStatistics()
     {
         /*
@@ -44,6 +53,7 @@ public class BaseGameStatistics
          */
     }
 
+    @JsMethod
     public void init()
     {
         this.timeDelayHelper.setStartTimeTNT();
@@ -51,11 +61,13 @@ public class BaseGameStatistics
         this.totalFrames = 0;
     }
 
+    @JsMethod
     public void add(String string) {
         
     }
         
     // never really implemented
+    @JsMethod
     public void process()
     {
         // this.logUtil.putF(this.commonStrings.START, "Refresh", commonStrings.PROCESS);
@@ -65,11 +77,13 @@ public class BaseGameStatistics
         // }
     }
 
+    @JsMethod
     public void nextFrame()
     {
         this.totalFrames++;
     }
 
+    @JsMethod
     public void nextRefresh()
     {
         this.totalRefreshes++;
@@ -78,6 +92,7 @@ public class BaseGameStatistics
     private final int DEFAULT_SCALE_FACTOR = 
             ScaleFactorFactory.getInstance().DEFAULT_SCALE_FACTOR;
     
+    @JsMethod
     public short getRefreshRate()
     {
         long elapsed = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);
@@ -99,11 +114,13 @@ public class BaseGameStatistics
      * totalFrames) { return false; } else { return true; } }
      */
 
+    @JsMethod
     protected TimeDelayHelper getTimeDelayHelper()
     {
         return this.timeDelayHelper;
     }
 
+    @JsProperty
     protected final String NOT = "Not enough Time to Calculate";
     
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
@@ -125,6 +142,7 @@ public class BaseGameStatistics
 
     private final PrimitiveLongSingleton primitiveLongSingleton = PrimitiveLongSingleton.getInstance();
     
+    @JsMethod
     public char[][] to2DCharArray()
     {
         long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);
@@ -171,6 +189,7 @@ public class BaseGameStatistics
         return this.CHAR_ARRAY;
     }
 
+    @JsMethod
     public String[] toStringArray()
     {
         long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);
@@ -196,6 +215,7 @@ public class BaseGameStatistics
         return this.STRING_ARRAY;
     }
 
+    @JsMethod
     public String toStringAt(long totalTime)
     {
         StringMaker stringBuffer = new StringMaker();
@@ -219,6 +239,7 @@ public class BaseGameStatistics
         return stringBuffer.toString();
     }
     
+    @JsMethod
     public String toString()
     {
         long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);

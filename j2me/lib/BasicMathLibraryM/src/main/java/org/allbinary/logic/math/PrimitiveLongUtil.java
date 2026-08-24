@@ -13,12 +13,20 @@
 */
 package org.allbinary.logic.math;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class PrimitiveLongUtil
 {
+    @JsMethod
     public static PrimitiveLongUtil createPowerOfTen(int powerOfTen)
     {
         final PrimitiveLongUtil primitiveLongUtil = new PrimitiveLongUtil(powerOfTen, NullUtil.getInstance().NULL_OBJECT);
@@ -33,6 +41,7 @@ public class PrimitiveLongUtil
         return primitiveLongUtil;
     }
 
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     //private final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -47,6 +56,7 @@ public class PrimitiveLongUtil
 
     private final PrimitiveLongSingleton primitiveLongSingleton = PrimitiveLongSingleton.getInstance();
 
+    @JsConstructor
     public PrimitiveLongUtil(int powerOfTen, Object unused)
     {
         this.maxDigits = MathUtil.getInstance().getTotalDigits(powerOfTen);
@@ -95,6 +105,7 @@ public class PrimitiveLongUtil
     }
     */
 
+    @JsMethod
     public char[] getCharArray(int value)
     {
         if(value < 10)
@@ -143,16 +154,19 @@ public class PrimitiveLongUtil
         return this.charArray;
     }
 
+    @JsMethod
     private void setCurrentTotalDigits(int currentTotalDigits)
     {
         this.currentTotalDigits = currentTotalDigits;
     }
 
+    @JsMethod
     public int getCurrentTotalDigits()
     {
         return this.currentTotalDigits;
     }
     
+    @JsMethod
     public int getMaxDigits()
     {
         return this.maxDigits;

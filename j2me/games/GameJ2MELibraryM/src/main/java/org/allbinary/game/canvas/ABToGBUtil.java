@@ -33,6 +33,6 @@ public class ABToGBUtil {
     }
 
     public Canvas abCanvas = NullCanvas.NULL_CANVAS;
-    public AllBinaryGameLayerManager allBinaryGameLayerManager = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
+    public AllBinaryGameLayerManager allBinaryGameLayerManager = AllBinaryGameLayerManager.getNullInstance();
 
 }

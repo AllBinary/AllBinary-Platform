@@ -13,24 +13,37 @@
 */
 package org.allbinary.graphics.form;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.logic.string.StringUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class FormTypeFactory
 {
     private static final FormTypeFactory instance = new FormTypeFactory();
     
+    @JsMethod
     public static FormTypeFactory getInstance()
     {
         return FormTypeFactory.instance;
     }
     
+    @JsProperty
     public final String UNK = "Unknown FormType";
+    @JsProperty
     public final FormType NULL_FORM_TYPE = new FormType(StringUtil.getInstance().NULL_STRING);
+    @JsProperty
     public final FormType TEMP_HORIZONTAL_FORM = new FormType("TempHorizontal");
+    @JsProperty
     public final FormType HORIZONTAL_FORM = new FormType("Horizontal");
+    @JsProperty
     public final FormType VERTICAL_CENTER_FORM = new FormType("Vertical");
     
+    @JsMethod
     public FormType getFormType()
     {
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();

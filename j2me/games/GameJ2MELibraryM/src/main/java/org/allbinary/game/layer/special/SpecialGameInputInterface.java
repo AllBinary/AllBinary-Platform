@@ -13,34 +13,51 @@
 */
 package org.allbinary.game.layer.special;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface SpecialGameInputInterface extends PaintableInterface {
 
+    @JsMethod
     void up() throws Exception;
     
+    @JsMethod
     void down() throws Exception;
 
+    @JsMethod
     void right() throws Exception;
 
+    @JsMethod
     void left() throws Exception;
 
+    @JsMethod
     void strafeLeft() throws Exception;
 
+    @JsMethod
     void strafeRight() throws Exception;
     
+    @JsMethod
     void fire(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) throws Exception;
 
+    @JsMethod
     void special1(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) throws Exception;
 
+    @JsMethod
     void special2(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) throws Exception;
 
+    @JsMethod
     void special3(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) throws Exception;
 
+    @JsMethod
     void special4(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) throws Exception;
 
+    @JsMethod
     void special5(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent) throws Exception;
     
 }

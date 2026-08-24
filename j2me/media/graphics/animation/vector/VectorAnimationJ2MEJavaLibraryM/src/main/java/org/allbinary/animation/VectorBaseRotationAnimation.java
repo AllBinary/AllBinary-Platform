@@ -13,6 +13,8 @@
 */
 package org.allbinary.animation;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
@@ -21,15 +23,21 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.util.CircularIndexUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+@JsType
 public class VectorBaseRotationAnimation 
     extends RotationAnimation
     implements VectorAnimationInterface
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
    
+    @JsConstructor
     public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
         super(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
@@ -55,54 +63,63 @@ public class VectorBaseRotationAnimation
 //    }
 
     @Override
+    @JsMethod
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
     }
 
     @Override
+    @JsMethod
     public int getFrame()
     {
         return this.circularIndexUtil.getIndex();
     }
 
     @Override
+    @JsMethod
     public void setFrame(int index)
     {
         this.circularIndexUtil.setIndex(index);
     }
 
     @Override
+    @JsMethod
     public void nextFrame()
     {
         this.circularIndexUtil.next();
     }
 
     @Override
+    @JsMethod
     public void previousFrame()
     {
         this.circularIndexUtil.previous();
     }
 
     @Override
+    @JsMethod
     public int getSize()
     {
         return this.currentPoints.length;
     }
 
     @Override
+    @JsMethod
     public void setSequence(final int[] sequence)
     {
 
     }
 
     @Override
+    @JsMethod
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
 
     @Override
+    @JsMethod
     public void paintXY(final Graphics graphics, final int x, final int y)
     {
         this.basicSetColorUtil.setBasicColorP(graphics, this.basicColor);
@@ -153,11 +170,13 @@ public class VectorBaseRotationAnimation
     }
     
     @Override
+    @JsMethod
     public int[][] getPoints(final int frame)
     {
         return this.currentPoints[frame];
     }
 
+    @JsMethod
     public void setPoints(final int[][][] currentPoints)
     {
         this.currentPoints = currentPoints;

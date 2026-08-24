@@ -13,17 +13,23 @@
 */
 package org.allbinary.game.paint;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.StatePaintable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 /**
  * 
  * @author Berthelot, Travis
  * @version 1.0
  */
+
+@JsType
 public class BasicGameDemoPaintable 
     extends StatePaintable
 {
@@ -35,6 +41,7 @@ public class BasicGameDemoPaintable
     
     private Paintable currentStatePaintable = NullPaintable.getInstance();
 
+    @JsConstructor
     public BasicGameDemoPaintable(
             Paintable mainDemoStatePaintable, Paintable ownershipPaintable, Paintable helpPaintableInterface)
     {
@@ -46,6 +53,7 @@ public class BasicGameDemoPaintable
     }
  
     @Override
+    @JsMethod
     public void setState(int state)
     {
         if (state == 0)
@@ -68,6 +76,7 @@ public class BasicGameDemoPaintable
     }
 
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {
         this.getCurrentStatePaintable().paint(graphics);
@@ -76,21 +85,25 @@ public class BasicGameDemoPaintable
     /**
      * @return the helpPaintableInterface
      */
+    @JsMethod
     public Paintable getHelpPaintableInterface()
     {
         return this.helpPaintableInterface;
     }
 
+    @JsMethod
     protected void setCurrentStatePaintable(Paintable currentStatePaintable)
     {
         this.currentStatePaintable = currentStatePaintable;
     }
 
+    @JsMethod
     protected Paintable getCurrentStatePaintable()
     {
         return this.currentStatePaintable;
     }
 
+    @JsMethod
     protected Paintable getMainDemoStatePaintable()
     {
         return this.mainDemoStatePaintable;

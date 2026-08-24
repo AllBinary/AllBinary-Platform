@@ -13,23 +13,32 @@
 */
 package org.allbinary.game.input;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class CompleteMotionGestureInputEvent extends AllBinaryEventObject 
 implements CompleteMotionGestureInputInterface
 {
     
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private String name = StringUtil.getInstance().EMPTY_STRING;
     
     private MotionGestureInput motionGestureInput = TouchMotionGestureFactory.getInstance().NO_MOTION;
     
+    @JsConstructor
     public CompleteMotionGestureInputEvent(String name, MotionGestureInput motionGestureInput)
     {
         super(motionGestureInput);
@@ -45,22 +54,26 @@ implements CompleteMotionGestureInputInterface
         }        
     }
     
+    @JsMethod
     protected void setName(String name)
     {
         this.name = name;
     }
 
     @Override
+    @JsMethod
     public String getName()
     {
         return this.name;
     }
     
+    @JsMethod
     public void setMotionGestureInput(MotionGestureInput motionGestureInput)
     {
         this.motionGestureInput = motionGestureInput;
     }
 
+    @JsMethod
     public MotionGestureInput getMotionGestureInput()
     {
         return this.motionGestureInput;

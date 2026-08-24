@@ -13,8 +13,12 @@
 */
 package org.allbinary.graphics.color;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.util.event.EventListenerInterface;
 
+
+@JsType
 public interface ColorChangeListener 
 extends EventListenerInterface
 {

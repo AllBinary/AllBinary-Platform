@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
@@ -35,21 +37,30 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameInputMappingCanvas extends GameCommandCanvas
 implements InputMappingInterface
 {
    
     private final ProcessPaintable paintable;
 
+    @JsProperty
     public static final String NAME = "GameInputMappingCanvas";
     
     //Input Mapping
+    @JsProperty
     public static final Command DISPLAY  = new Command("Controls", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 2);
+    @JsProperty
     public static final Command DEFAULT  = new Command("Default", StringUtil.getInstance().EMPTY_STRING,Command.SCREEN, 2);
     
     private final InputMappingHelpPaintable helpPaintable;
     
+    @JsProperty
     protected final ColorFillBasePaintable colorFillPaintable;
     
     private final PersistentInputMapping inputMapping;
@@ -61,6 +72,7 @@ implements InputMappingInterface
     private GameKey selectedGameKey = this.NONE;
     private Input selectedInput = this.NONE;
     
+    @JsConstructor
     public GameInputMappingCanvas(final AbeClientInformationInterface abeClientInformation,
         final CommandListener commandListener,
         final AllBinaryGameLayerManager allBinaryGameLayerManager,
@@ -98,6 +110,7 @@ implements InputMappingInterface
     }
 
     @Override
+    @JsMethod
     public void close() throws Exception
     {
         super.close();
@@ -116,6 +129,7 @@ implements InputMappingInterface
     }
     
     @Override
+    @JsMethod
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -128,24 +142,28 @@ implements InputMappingInterface
     }
 
     @Override
+    @JsMethod
     public void keyPressed(final int keyCode)
     {
         this.keyPressedByDevice(keyCode, 0);
     }
     
     @Override
+    @JsMethod
     public void keyReleased(final int keyCode)
     {
         this.keyReleasedByDevice(keyCode, 0);
     }
 
     @Override
+    @JsMethod
     public void keyRepeated(final int keyCode)
     {
         this.keyRepeatedByDevice(keyCode, 0);
     }
     
     @Override
+    @JsMethod
     public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         // this.logUtil.putF(this.commonStrings.START, this, gameInputStrings.KEY_PRESSED);        
@@ -156,6 +174,7 @@ implements InputMappingInterface
 
     private final InputFactory inputFactory = InputFactory.getInstance();
     
+    @JsMethod
     private void addGameKey(final int keyCode, final boolean repeated)
     {
         try
@@ -176,6 +195,7 @@ implements InputMappingInterface
     }
     
     @Override
+    @JsMethod
     public void processInputMapping(final GameKey gameKey, final Input input) throws Exception
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -197,6 +217,7 @@ implements InputMappingInterface
         }
     }
 
+    @JsMethod
     private void setSelectedAction(final GameKey gameKey)
     {
         this.logUtil.putF(new StringMaker().append("Selected GameKey: ").append(this.stringUtil.toString(gameKey)).toString(), this, "setSelectedAction");
@@ -207,6 +228,7 @@ implements InputMappingInterface
         this.repaintBehavior.onChangeRepaint(this);
     }
 
+    @JsMethod
     private void gameActionCrud(final GameKey gameKey, final Input input) throws Exception
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -251,6 +273,7 @@ implements InputMappingInterface
         }
     }
 
+    @JsMethod
     private void addNewMapping(final GameKey gameKey, final Input input) throws Exception
     {
         final String METHOD_NAME = "addNewMapping";
@@ -282,6 +305,7 @@ implements InputMappingInterface
         }
     }
 
+    @JsMethod
     private void deleteCurrentMapping() throws Exception
     {
         final String METHOD_NAME = "deleteCurrentMapping";
@@ -310,6 +334,7 @@ implements InputMappingInterface
         }
     }
     
+    @JsMethod
     public void setDefault() throws Exception
     {
         this.inputMapping.setDefault(this.abeClientInformation);
@@ -319,6 +344,7 @@ implements InputMappingInterface
     }
     
     @Override
+    @JsMethod
     public void update() throws Exception
     {
         this.inputMapping.update(this.abeClientInformation);
@@ -328,6 +354,7 @@ implements InputMappingInterface
     }
 
     @Override
+    @JsMethod
     public void paint(final Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);

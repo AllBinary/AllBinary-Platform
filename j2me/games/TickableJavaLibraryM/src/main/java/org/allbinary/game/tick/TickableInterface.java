@@ -13,12 +13,18 @@
 */
 package org.allbinary.game.tick;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.NamedInterface;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface TickableInterface 
 extends NamedInterface
 {
+   @JsMethod
    void processTick(AllBinaryLayerManager allBinaryLayerManager) 
        throws Exception;
 }

@@ -13,19 +13,27 @@
 */
 package org.allbinary.math;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 
+
+@JsType
 public class NoDecimalTrigTable
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final NoDecimalTrigTable instance = new NoDecimalTrigTable();
 
+    @JsMethod
     public static NoDecimalTrigTable getInstance()
     {
         return NoDecimalTrigTable.instance;
@@ -37,6 +45,7 @@ public class NoDecimalTrigTable
     private final long[] noDecimalCos;
     private final long[] noDecimalTan;
 
+    @JsConstructor
     private NoDecimalTrigTable()
     {
         final int TOTAL_ANGLE = (int) AngleFactory.getInstance().TOTAL_ANGLE;
@@ -1135,25 +1144,30 @@ public class NoDecimalTrigTable
         this.noDecimalTan[0] = -174;
     }
 
+    @JsMethod
     public long sin(int angle)
     {
         return this.noDecimalSin[angle];
     }
 
+    @JsMethod
     public long cos(int angle)
     {
         return this.noDecimalCos[angle];
     }
 
+    @JsMethod
     public long tan(int angle)
     {
         return this.noDecimalTan[angle];
     }
     
+    @JsProperty
     public int SCALE = 10000;
     
     //private final String ANTITAN = "antiTan";
     
+    @JsMethod
     public short antiTan(int dx, int dy)
        throws Exception
     {
@@ -1254,6 +1268,7 @@ public class NoDecimalTrigTable
     }
     
     //Used to help figure out the correct quadrants when +- values are mixed up
+    @JsMethod
     public short antiTanDebug(int screenX, int screenY, int targetX, int targetY)
     throws Exception
     {

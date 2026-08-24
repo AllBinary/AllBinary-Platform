@@ -13,20 +13,30 @@
 */
 package org.allbinary.animation;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 /**
  * 
  * @author user
  */
+
+@JsType
 public class IndexedAnimation extends Animation 
     implements IndexedAnimationInterface
 {
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
+    @JsProperty
     protected final AnimationBehavior animationBehaviorP;
     
+    @JsConstructor
     protected IndexedAnimation(final AnimationBehavior animationBehavior)
     {
         this.animationBehaviorP = animationBehavior;
@@ -35,11 +45,13 @@ public class IndexedAnimation extends Animation
     /**
      * @return the animationBehavior
      */
+    @JsMethod
     public AnimationBehavior getAnimationBehavior() {
         return this.animationBehaviorP;
     }
    
     @Override
+    @JsMethod
     public void reset()
     {
         this.animationBehaviorP.reset();
@@ -47,17 +59,20 @@ public class IndexedAnimation extends Animation
     }
     
     @Override
+    @JsMethod
     public void setFrame(final int index)
     {
 
     }
 
     @Override
+    @JsMethod
     public int getFrame()
     {
         return 0;
     }
 
+    @JsMethod
     public int getAnimationSize() throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
@@ -65,17 +80,20 @@ public class IndexedAnimation extends Animation
     }
     
     @Override
+    @JsMethod
     public int getSize()
     {
         return 0;
     }
 
     @Override
+    @JsMethod
     public void previousFrame()
     {
 
     }
 
+    @JsMethod
     public boolean isLastFrame()
     {
         if(this.getFrame() == this.getSize() - 1)
@@ -89,17 +107,20 @@ public class IndexedAnimation extends Animation
     }
     
     @Override
+    @JsMethod
     public void setSequence(final int[] sequence)
     {
 
     }
 
     @Override
+    @JsMethod
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
     
+    @JsMethod
     public void setState(final IndexedAnimation indexedAnimation) {
         this.setFrame(indexedAnimation.getFrame());
         this.setDx(indexedAnimation.getDx());
@@ -107,9 +128,11 @@ public class IndexedAnimation extends Animation
     }
     
     //TWB - This is really only for ImageBaseRotationAnimation
+    @JsMethod
     public int getWidth() {
         return 0;
     }
+    @JsMethod
     public int getHeight() {
         return 0;
     }

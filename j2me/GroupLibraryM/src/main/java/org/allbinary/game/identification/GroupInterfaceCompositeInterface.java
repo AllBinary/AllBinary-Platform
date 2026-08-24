@@ -13,7 +13,13 @@
 */
 package org.allbinary.game.identification;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface GroupInterfaceCompositeInterface
 {
+   @JsMethod
    Group[] getGroupInterface();
 }

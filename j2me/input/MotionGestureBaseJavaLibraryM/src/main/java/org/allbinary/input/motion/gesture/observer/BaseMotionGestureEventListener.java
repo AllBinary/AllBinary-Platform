@@ -13,10 +13,17 @@
 */
 package org.allbinary.input.motion.gesture.observer;
 
-import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface BaseMotionGestureEventListener extends EventListenerInterface
 {
+    @JsMethod
     void onMotionGestureEvent(MotionGestureEvent motionGestureEvent);
+    @JsMethod
     void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent);
 }

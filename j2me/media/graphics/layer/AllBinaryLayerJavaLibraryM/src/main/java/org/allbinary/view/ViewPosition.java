@@ -13,14 +13,21 @@
  */
 package org.allbinary.view;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.layer.AllBinaryLayer;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class ViewPosition extends ViewPositionBase {
  
+    @JsMethod
     public static ViewPosition getInstanceD() {
         return new ViewPosition(0, 0, 0);
     }
@@ -32,42 +39,49 @@ public class ViewPosition extends ViewPositionBase {
 //        super(x, y, 0);
 //    }
 
+    @JsConstructor
     protected ViewPosition(int x, int y, int z)
     {
         super(x, y, z);
     }
 
     @Override
+    @JsMethod
     public int getX()
     {
         return this.allbinaryLayer.getXP();
     }
 
     @Override
+    @JsMethod
     public int getY()
     {
         return this.allbinaryLayer.getYP();
     }
 
     @Override
+    @JsMethod
     public int getZ()
     {
         return this.allbinaryLayer.getZP();
     }
 
     @Override
+    @JsMethod
     public int getX2()
     {
         return this.getX() + this.allbinaryLayer.getWidth();
     }
 
     @Override
+    @JsMethod
     public int getY2()
     {
         return this.getY() + this.allbinaryLayer.getHeight();
     }
 
     @Override
+    @JsMethod
     public int getZ2()
     {
         return (int) (this.getZ() + this.allbinaryLayer.getDepth());
@@ -78,6 +92,7 @@ public class ViewPosition extends ViewPositionBase {
      */
 
     @Override
+    @JsMethod
     public void setAllbinaryLayer(Object allbinaryLayer)
     {
         this.allbinaryLayer = (AllBinaryLayer) /*TS as unknown*/ allbinaryLayer;

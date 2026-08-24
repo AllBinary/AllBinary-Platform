@@ -13,12 +13,19 @@
 */
 package org.allbinary.game;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author Admin
  */
+
+@JsType
 public interface IntermissionCompositeInterface {
 
+   @JsMethod
    IntermissionInterface getStartIntermissionInterface();
+   @JsMethod
    IntermissionInterface getEndLevelIntermissionInterface();
 }

@@ -13,15 +13,23 @@
 */
 package org.allbinary.ai;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.layer.AllBinaryLayerManager;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author user
  */
+
+@JsType
 public class ArtificialIntelligence
     implements ArtificialIntelligenceInterface
 {
+    @JsProperty
     public static final int AI_ID = 2;
     
     private static final ArtificialIntelligence instance = new ArtificialIntelligence();
@@ -29,22 +37,26 @@ public class ArtificialIntelligence
     /**
      * @return the instance
      */
+    @JsMethod
     public static ArtificialIntelligence getInstance()
     {
         return ArtificialIntelligence.instance;
     }
     
+    @JsConstructor
     public ArtificialIntelligence()
     {
     }
 
     @Override
+    @JsMethod
     public void processAI(AllBinaryLayerManager layerManager)
         throws Exception
     {
     }
 
     @Override
+    @JsMethod
     public int getId()
     {
         return 1;

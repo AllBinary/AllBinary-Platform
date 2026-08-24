@@ -13,26 +13,36 @@
 */
 package org.allbinary.animation.transition.shake;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class ShakeAnimationListener 
 {
 
+    @JsMethod
     public void onSmallShakeEvent()
     {
     }
 
+    @JsMethod
     public void onMediumShakeEvent()
     {
     }
 
+    @JsMethod
     public void onLargeShakeEvent()
     {
     }
     
+    @JsMethod
     public void onShakeEvent(ShakeEvent shakeEvent)
     {
        
     }
     
+    @JsMethod
     public int getType() {
         return 0;
     }

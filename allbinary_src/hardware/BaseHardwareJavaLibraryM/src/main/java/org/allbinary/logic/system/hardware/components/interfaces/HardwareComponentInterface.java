@@ -13,9 +13,15 @@
 */
 package org.allbinary.logic.system.hardware.components.interfaces;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+@JsType
 public interface HardwareComponentInterface
 {
+    @JsMethod
     boolean compareTo(HardwareComponentInterface componentInterface);
+    @JsMethod
     String toString();    
 }
 

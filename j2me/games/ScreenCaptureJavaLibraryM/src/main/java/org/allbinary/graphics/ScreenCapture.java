@@ -13,19 +13,27 @@
 */
 package org.allbinary.graphics;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class ScreenCapture
 {
 
+    @JsMethod
     public void saveFrame()
     {
         
     }
 
+    @JsMethod
     public void startRecording()
     {
         
     }
 
+    @JsMethod
     public void endRecording()
     {
         

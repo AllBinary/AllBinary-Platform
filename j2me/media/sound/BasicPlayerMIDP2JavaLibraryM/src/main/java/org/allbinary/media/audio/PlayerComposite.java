@@ -13,6 +13,8 @@
 */
 package org.allbinary.media.audio;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.media.Control;
 import javax.microedition.media.Controllable;
 import javax.microedition.media.MediaException;
@@ -25,9 +27,16 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+//BasicPlayerMIDP2
+
+@JsType
 public class PlayerComposite implements Controllable, Player
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -36,6 +45,7 @@ public class PlayerComposite implements Controllable, Player
     
     private final TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
 
+    @JsConstructor
     public PlayerComposite(Player player, int repeatTime)
     {
         this.player = player;
@@ -54,53 +64,63 @@ public class PlayerComposite implements Controllable, Player
      * player; this.repeatTime = repeatTime; timeElapsedHelper.setStartTime(); }
      */
 
+    @JsMethod
     public synchronized void addPlayerListener(PlayerListener playerListener)
     {
         this.player.addPlayerListener(playerListener);
     }
 
+    @JsMethod
     public void removePlayerListener(PlayerListener playerListener)
     {
         this.player.removePlayerListener(playerListener);
     }
 
+    @JsMethod
     public void close()
     {
         this.player.close();
         //this.player = null;
     }
 
+    @JsMethod
     public void deallocate()
     {
         this.player.deallocate();
     }
 
+    @JsMethod
     public String getContentType()
     {
         return this.player.getContentType();
     }
 
+    @JsMethod
     public long getDuration()
     {
         return this.player.getDuration();
     }
 
+    @JsMethod
     public long getMediaTime()
     {
         return this.player.getMediaTime();
     }
 
+   @JsMethod
    public TimeBase getTimeBase()
    {
       return ((TimeBaseInterface) this.player).getTimeBase();
    }
 
+   @JsMethod
    public synchronized void setTimeBase(TimeBase timeBase)
        throws MediaException
    {
       ((TimeBaseInterface) this.player).setTimeBase(timeBase);
    }
 
+    @JsMethod
     public void prefetch()
     {
         try
@@ -113,6 +133,7 @@ public class PlayerComposite implements Controllable, Player
         }
     }
 
+    @JsMethod
     public void realize()
     {
         try
@@ -125,16 +146,19 @@ public class PlayerComposite implements Controllable, Player
         }
     }
 
+    @JsMethod
     public int getState()
     {
         return this.player.getState();
     }
 
+    @JsMethod
     public void setLoopCount(int count)
     {
         this.player.setLoopCount(count);
     }
 
+    @JsMethod
     public long setMediaTime(long now)
     {
         try
@@ -151,6 +175,7 @@ public class PlayerComposite implements Controllable, Player
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     
+    @JsMethod
     public void start()
     {
         try
@@ -167,6 +192,7 @@ public class PlayerComposite implements Controllable, Player
         }
     }
 
+    @JsMethod
     public void stop()
     {
         try
@@ -179,22 +205,26 @@ public class PlayerComposite implements Controllable, Player
         }
     }
 
+    @JsMethod
     public Control getControl(String controlType)
     {
         return this.player.getControl(controlType);
     }
 
+    @JsMethod
     public Control[] getControls()
     {
         throw new RuntimeException();
         //return ;
     }
 
+    @JsMethod
     public void setVolume(final int leftVolume, final int rightVolume) {
         final Controllable2 controllable2 = ((Controllable2) /*TS as unknown*/ this.player);
         controllable2.setVolume(leftVolume, rightVolume);
     }
     
+    @JsMethod
     public Player getPlayerP()
     {
         return this.player;

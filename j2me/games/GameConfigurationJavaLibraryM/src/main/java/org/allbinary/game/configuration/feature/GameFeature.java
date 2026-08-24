@@ -13,8 +13,14 @@
 */
 package org.allbinary.game.configuration.feature;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class GameFeature extends Feature
 {
+    @JsConstructor
     public GameFeature(String name)
     {
         super(name);

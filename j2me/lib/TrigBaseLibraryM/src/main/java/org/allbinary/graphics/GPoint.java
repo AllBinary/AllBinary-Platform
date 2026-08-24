@@ -13,12 +13,19 @@
 */
 package org.allbinary.graphics;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class GPoint 
 {
+   @JsMethod
    public static GPoint getInstance(final GPoint point) {
       return new GPoint(point.getX(), point.getY(), point.getZ());
    }
@@ -28,6 +35,7 @@ public class GPoint
    private final int z;
 
    //protected
+   @JsConstructor
    public GPoint(final int x, final int y, final int z)
    {
       this.x = x;
@@ -35,36 +43,43 @@ public class GPoint
       this.z = z;
    }
    
+   @JsMethod
    public int getX()
    {
       return this.x;
    }
    
+   @JsMethod
    public int getY()
    {
       return this.y;
    }
 
+   @JsMethod
    public int getZ()
    {
       return this.z;
    }
 
+   @JsMethod
    public int getRawX()
    {
       return this.x;
    }
    
+   @JsMethod
    public int getRawY()
    {
       return this.y;
    }
 
+   @JsMethod
    public int getRawZ()
    {
       return this.z;
    }
    
+   @JsMethod
    public String toString()
    {
        return GPoint.toStringStatic(this.getX(), this.getY(), this.getZ());
@@ -72,6 +87,7 @@ public class GPoint
    
    private static final String POINT_LABEL = "Point: ";
    
+   @JsMethod
    public static String toStringStatic(final int x, final int y, final int z)
    {
       final StringMaker stringBuffer = new StringMaker();

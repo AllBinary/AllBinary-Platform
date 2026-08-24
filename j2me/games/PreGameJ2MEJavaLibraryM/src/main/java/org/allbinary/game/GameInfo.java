@@ -13,20 +13,30 @@
 */
 package org.allbinary.game;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Hashtable;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameInfo 
 {
 
+    @JsProperty
     public static final GameInfo NONE = new GameInfo(GameTypeFactory.getInstance().NONE, GameMode.NONE, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, -1, -1);
     
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+   @JsProperty
    public static final String LEVEL_NAME = "LEVEL";
    
    private final GameInfoData gameInfoData = GameInfoData.getInstance();
@@ -38,6 +48,7 @@ public class GameInfo
    private int highestLevel;
    private int currentLevel;
    
+   @JsConstructor
    public GameInfo(GameType gameType, GameMode gameMode, PlayerType playerType,
            int highestLevel, int currentLevel)
    {
@@ -48,31 +59,37 @@ public class GameInfo
        this.playerType = playerType;
    }
    
+   @JsMethod
    public GameType getGameType()
    {
       return this.gameType;
    }
 
+   @JsMethod
    public GameMode getGameMode()
    {
       return this.gameMode;
    }
 
+   @JsMethod
    public PlayerType getPlayerType()
    {
        return this.playerType;
    }
    
+   @JsMethod
    public int getHighestLevel()
    {
       return this.highestLevel;
    }
 
+   @JsMethod
    public void setHighestLevel(final int highestLevel)
    {
        this.highestLevel = highestLevel;
    }
    
+   @JsMethod
    public int getCurrentLevel()
    {
       return this.currentLevel;
@@ -81,6 +98,7 @@ public class GameInfo
    private final String NEW_LEVEL = "New Level: ";
    private final String SET_CURRENT_LEVEL = "setCurrentLevel";
 
+   @JsMethod
    public void setCurrentLevel(final int currentLevel)
    {
       this.currentLevel = currentLevel;
@@ -90,6 +108,7 @@ public class GameInfo
    private final String NEXT = "Next ";
    private final String NEXT_GAME_LEVEL = "nextGameLevel";
    
+   @JsMethod
    public void nextGameLevel()
    {
       if(this.getCurrentLevel() < this.getHighestLevel())
@@ -100,12 +119,14 @@ public class GameInfo
       this.logUtil.putF(new StringMaker().append(this.NEXT).append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.NEXT_GAME_LEVEL);
    }
    
+   @JsMethod
    public void previousGameLevel()
    {
       if(this.getCurrentLevel() > 1)
       this.currentLevel--;
    }  
    
+   @JsMethod
    public boolean isLastLevel()
    {
       if(this.getCurrentLevel() >= this.getHighestLevel())
@@ -118,6 +139,7 @@ public class GameInfo
       }
    }
    
+   @JsMethod
    public Hashtable toHashtable()
    {
        final Hashtable hashtable = new Hashtable();
@@ -131,6 +153,7 @@ public class GameInfo
        return hashtable;
    }
    
+   @JsMethod
    public String toString()
    {
        final StringMaker stringBuffer = new StringMaker();

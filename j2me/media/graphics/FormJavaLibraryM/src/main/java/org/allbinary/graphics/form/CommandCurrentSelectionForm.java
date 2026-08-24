@@ -13,6 +13,8 @@
 */
 package org.allbinary.graphics.form;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.Graphics;
 
@@ -26,13 +28,21 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.font.UpdateMyFontInterface;
 import org.allbinary.graphics.form.item.CommandTextItem;
 import org.allbinary.graphics.form.item.ABCustomItem;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     implements UpdateMyFontInterface
 {
+    @JsProperty
     protected final Animation[] selectedAnimationArray = new Animation[16];
+    @JsProperty
     protected final Animation[] unSelectedAnimationArray = new Animation[16];
 
+    @JsConstructor
     public CommandCurrentSelectionForm(
             final String title, final ABCustomItem[] items,
             final int border, final boolean moveForSmallScreen,
@@ -46,11 +56,13 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     }
     
     @Override
+    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         this.updateAll(graphics, getAllitems());
         super.updateMeasurement(graphics);
     }
         
+    @JsMethod
     private void initAnimations()
     {        
         final Animation nullAnimation = NullAnimationFactory.getFactoryInstance().getInstance(0);
@@ -66,6 +78,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
 
+    @JsMethod
     private void addAll(final ABCustomItem[] items)
     {        
         for(int index = items.length; --index >= 0;)
@@ -74,6 +87,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
     
+    @JsMethod
     private void addAt(final int index, final ABCustomItem item)
     {
         final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
@@ -119,6 +133,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
 
+    @JsMethod
     private void updateAll(final Graphics graphics, final ABCustomItem[] items)
     {        
         for(int index = items.length; --index >= 0;)
@@ -128,6 +143,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
     
+    @JsMethod
     private void updateAt(final int index, final ABCustomItem item)
     {
         final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
@@ -193,6 +209,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
     
+    @JsMethod
     public Command getSelectedCommand()
     {
         final int index = super.getSelectedIndex();
@@ -201,6 +218,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     }
 
     @Override
+    @JsMethod
     public int append(final ABCustomItem item)
     {
         int result = super.append(item);
@@ -211,12 +229,14 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     }
 
     @Override
+    @JsMethod
     public void delete(final int itemNum)
     {
         super.delete(itemNum);
     }
 
     @Override
+    @JsMethod
     public void deleteAll()
     {
         this.initAnimations();
@@ -224,18 +244,21 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     }
 
     @Override
+    @JsMethod
     public void insert(final int itemNum, final ABCustomItem item)
     {
         super.insert(itemNum, item);
     }
 
     @Override
+    @JsMethod
     public void set(final int itemNum, final ABCustomItem item)
     {
         super.set(itemNum, item);
     }
     
     @Override
+    @JsMethod
     public void paint(final Graphics graphics)
     {
         this.myFontProcessor.process(graphics);
@@ -244,6 +267,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     
     
     @Override
+    @JsMethod
     public int paintItem(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y)
         throws Exception
     {
@@ -252,6 +276,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     }
 
     @Override
+    @JsMethod
     public int paintUnselectedItem(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y)
         throws Exception
     {

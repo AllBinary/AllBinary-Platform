@@ -13,12 +13,18 @@
  */
 package org.allbinary.game.input.event;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public interface RawKeyEventListener {
     
+    @JsMethod
     void onEventRaw(final int keyCode, final int deviceId, final boolean repeated);
 
 }

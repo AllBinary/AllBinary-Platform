@@ -14,29 +14,39 @@
 
 package org.allbinary.layer;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public class LayerManagerLoggingBase {
 
+    @JsMethod
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
         
     }
     
+    @JsMethod
     public void appendAt(final AllBinaryLayer layerInterface, final int index) {
         
     }
  
+    @JsMethod
     public void remove(final AllBinaryLayer layerInterface) {
         
     }
     
+    @JsMethod
     public void removeResult(final LayerManager layerManager, final AllBinaryLayer layerInterface, final boolean result) {
         
     }
  
+    @JsMethod
     public void clear() {
         
     }

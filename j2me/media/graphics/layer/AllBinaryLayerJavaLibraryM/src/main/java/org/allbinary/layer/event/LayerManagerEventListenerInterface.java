@@ -13,14 +13,21 @@
  */
 package org.allbinary.layer.event;
 
-import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.util.event.EventListenerInterface;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface LayerManagerEventListenerInterface 
 extends EventListenerInterface
 {
+    @JsMethod
     void onCreateLayerManagerEvent(LayerManagerEvent layerManagerEvent)
             throws Exception;
 
+    @JsMethod
     void onDeleteLayerManagerEvent(LayerManagerEvent layerManagerEvent)
             throws Exception;
 }

@@ -13,6 +13,8 @@
 */
 package org.allbinary.graphics.form.item;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Vector;
 
 import javax.microedition.lcdui.Command;
@@ -25,7 +27,11 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class CommandTextItemArrayFactory
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -34,12 +40,14 @@ public class CommandTextItemArrayFactory
  
     private final Visitor visitorInterface;
 
+    @JsConstructor
     public CommandTextItemArrayFactory( 
             final Visitor visitorInterface)
     {
         this.visitorInterface = visitorInterface;
     }
 
+    @JsMethod
     public final ABCustomItem[] getInstance(Vector<Object> vector, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {

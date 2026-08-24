@@ -13,6 +13,8 @@
 */
 package org.allbinary.midlet;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.TsUtil;
 import org.allbinary.canvas.Processor;
 import org.allbinary.globals.Globals;
@@ -22,11 +24,19 @@ import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
 import org.allbinary.thread.ThreadPool;
 
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+@JsType
+//AndroidToJ2ME
 public class ProgressMidlet extends AllBinaryMidlet
 {
 
+    @JsProperty
     public final AbeClientInformationInterface abeClientInformation;
     
+    @JsConstructor
     public ProgressMidlet(final ClientInformationFactory clientInformationFactory)
     {
         Globals.getInstance().init(TsUtil.getInstance().getClassClassLoader(this), StringUtil.getInstance().EMPTY_STRING);
@@ -35,9 +45,11 @@ public class ProgressMidlet extends AllBinaryMidlet
         this.abeClientInformation = clientInformationFactory.getInstance();
     }   
 
+    @JsMethod
     public void preInit() {
     }
     
+    @JsMethod
     protected void exitProgress(boolean isProgress)
     {
 

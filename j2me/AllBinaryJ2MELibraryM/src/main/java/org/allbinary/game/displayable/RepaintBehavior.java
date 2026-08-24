@@ -12,6 +12,8 @@
  * 
  */
 package org.allbinary.game.displayable;
+
+import jsinterop.annotations.JsType;
 import org.allbinary.thread.ARunnable;
 
 
@@ -23,12 +25,17 @@ import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.NullRunnable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class RepaintBehavior {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
@@ -37,15 +44,18 @@ public class RepaintBehavior {
     /**
      * @return the instance
      */
+    @JsMethod
     public static RepaintBehavior getInstance() {
         return RepaintBehavior.instance;
     }
     
+    @JsMethod
     public void repaint(final Canvas canvas) {
 
     }
 
     private final String NAME = "RepaintBehavior";
+    @JsMethod
     public void onChangeRepaint(final Canvas canvas) {
 
         final Features features = Features.getInstance();
@@ -57,6 +67,7 @@ public class RepaintBehavior {
             final Thread thread = new Thread(new ARunnable() {
                 
                 @Override
+                @JsMethod
                 public void run() {
                     try {
                         //System.out.println("TWB:RepaintBehavior:repaint");

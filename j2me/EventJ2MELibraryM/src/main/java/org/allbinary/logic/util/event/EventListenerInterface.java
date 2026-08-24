@@ -13,7 +13,13 @@
 */
 package org.allbinary.logic.util.event;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface EventListenerInterface 
 {	
+   @JsMethod
    void onEvent(AllBinaryEventObject eventObject);
 }

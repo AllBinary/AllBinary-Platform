@@ -13,6 +13,8 @@
  */
 package org.allbinary.image;
 
+import jsinterop.annotations.JsType;
+
 import java.io.InputStream;
 
 import javax.microedition.lcdui.Image;
@@ -40,37 +42,54 @@ import org.allbinary.thread.ConcurrentImageLoadingProcessor;
 import org.allbinary.thread.SynchObject;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class ImageCache extends ImageCacheBase {
     
+    @JsProperty
     public static final ImageCache NULL_IMAGE_CACHE = new ImageCache();
     
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final BaseImageLoadingProcessor concurrentImageLoadingProcessor = new ConcurrentImageLoadingProcessor(this);
     
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    @JsProperty
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
+    @JsProperty
     protected final ResourceUtil resourceUtil = ResourceUtil.getInstance();
 
     private final GameGlobalsFactory gameGlobalsFactory = GameGlobalsFactory.getInstance();
     private final GDResources gdResources = GDResources.getInstance();
     
+    @JsProperty
     public final BasicArrayList loadNowList = new BasicArrayListD();
+    @JsProperty
     public final BasicArrayList loadSoonList = new BasicArrayListD();
+    @JsProperty
     public final BasicArrayList loadList = new BasicArrayListD();
     //public final BasicArrayList loadImageAfterList = new BasicArrayListD();
+    @JsProperty
     public final BasicArrayList loadAfterList = new BasicArrayListD();
 
     private final SynchObject lock = new SynchObject();
     
     private boolean firstTime = true;
     private int totalLoaded = 0;
+    @JsProperty
     public boolean progressEnded = false;
+    @JsProperty
     public boolean hasAnyLazyAnimationFactories = false;
 
     private class NotHTMLProcessor extends Processor {
         
+        @JsMethod
         public void process() {
 
             concurrentImageLoadingProcessor.runTask();
@@ -81,6 +100,7 @@ public class ImageCache extends ImageCacheBase {
 
     private class NotHTMLEndProcessor extends Processor {
         
+        @JsMethod
         public void process() {
 
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -92,6 +112,7 @@ public class ImageCache extends ImageCacheBase {
 
     private class HTMLEndProcessor extends Processor {
 
+        @JsMethod
         public void process() {
 
             final int size = gdResources.currentLayoutRequiredTotal;;
@@ -113,6 +134,7 @@ public class ImageCache extends ImageCacheBase {
     
     private class FirstProcessor extends Processor {
         
+        @JsMethod
         public void process() {
             ImageCache.this.firstProcess();
         }
@@ -122,10 +144,12 @@ public class ImageCache extends ImageCacheBase {
     private Processor processor = new FirstProcessor();
     private Processor endProcessor = Processor.getInstance();
     
+    @JsConstructor
     public ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
     }
 
+    @JsMethod
     public void firstProcess() {
         final LogUtil logUtil = LogUtil.getInstance();
         final boolean isHTML = J2MEUtil.isHTML();
@@ -146,10 +170,12 @@ public class ImageCache extends ImageCacheBase {
     }
 
     //AllBinaryRendererBase3
+    @JsMethod
     public void addListener(Object renderer) {
         
     }
 
+    @JsMethod
     public void waitForLoadNow() throws Exception {
         if(this.firstTime) {
             
@@ -166,6 +192,7 @@ public class ImageCache extends ImageCacheBase {
 
     //private final String LOAD_IMAGE_FOR_ANIMATION = "loadImageForAnimation";
     private final String LOAD_IMAGE_FOR_ANIMATION = "Load Image Animation";
+    @JsMethod
     public void loadImageForAnimation() throws Exception {
         LazyImageRotationAnimation lazyImageRotationAnimation = null;
         synchronized (this.lock) {
@@ -251,6 +278,7 @@ public class ImageCache extends ImageCacheBase {
 //        this.loadImageForAnimation(lazyImageRotationAnimation);
 //    }
 
+    @JsMethod
     public void loadImages() throws Exception {
         while (!this.loadList.isEmpty() || !this.loadNowList.isEmpty()) {
 
@@ -260,6 +288,7 @@ public class ImageCache extends ImageCacheBase {
         }
     }
     
+    @JsMethod
     public void loadImageForAnimations() throws Exception {
         while (!this.loadNowList.isEmpty()) {
             //this.logUtil.putF("load lazy animation image", this, this.commonStrings.RUN);
@@ -267,6 +296,7 @@ public class ImageCache extends ImageCacheBase {
         }
     }
     
+    @JsMethod
     public void loadRemainingAnimations() throws Exception {
         //this.logUtil.putF("load remaining lazy animations", this, this.commonStrings.RUN);
         while (!this.loadAfterList.isEmpty() || !this.loadNowList.isEmpty()) {
@@ -289,6 +319,7 @@ public class ImageCache extends ImageCacheBase {
         }
     }
     
+    @JsMethod
     private boolean loadImageForLazyAnimation(final LazyImageRotationAnimation lazyImageRotationAnimation) throws Exception {
         final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
         
@@ -300,6 +331,7 @@ public class ImageCache extends ImageCacheBase {
         return false;
     }
 
+    @JsMethod
     private void loadNextImage() throws Exception {
         Image image = null;
         synchronized (this.lock) {
@@ -311,6 +343,7 @@ public class ImageCache extends ImageCacheBase {
         this.loadImage(image);
     }
 
+    @JsMethod
     private boolean loadImage(final Image image) throws Exception {
 
         if (image.isReady()) {
@@ -346,12 +379,14 @@ public class ImageCache extends ImageCacheBase {
         return false;
     }
 
+    @JsMethod
     protected void init(final Image image, final Image image2) throws Exception {
         //this.logUtil.putF(new StringMaker().append("loading resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, this.commonStrings.RUN);
         image.init(image2.getImage());
         //this.logUtil.putF(new StringMaker().append("loaded resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, this.commonStrings.RUN);
     }
 
+    @JsMethod
     protected Image creatImage(final String key) throws Exception {
         final InputStream inputStream = resourceUtil.getResourceAsStream(key);
         final Image image = Image.createImage(inputStream);
@@ -359,6 +394,7 @@ public class ImageCache extends ImageCacheBase {
         return image;
     }
 
+    @JsMethod
     public Image get(final String caller, final int width, final int height)
         throws Exception {
         int foundIndex = this.getIndexWH(width, height);
@@ -396,6 +432,7 @@ public class ImageCache extends ImageCacheBase {
         return image;
     }
 
+    @JsMethod
     public Image getWithKey(final Object key) throws Exception {
         Image image = this.getImage(key);
 
@@ -435,6 +472,7 @@ public class ImageCache extends ImageCacheBase {
         return image;
     }
 
+    @JsMethod
     public int getIndex(final Object key) {
         final GDResources gdResources = GDResources.getInstance();
         final String[] resourceStringArray = gdResources.resourceStringArray;
@@ -448,6 +486,7 @@ public class ImageCache extends ImageCacheBase {
         throw new RuntimeException();
     }
 
+    @JsMethod
     protected Image createImageFromInputStream(final Object key, final InputStream inputStream)
         throws Exception {
 
@@ -478,10 +517,12 @@ public class ImageCache extends ImageCacheBase {
         return image;
     }
 
+    @JsMethod
     protected Image createImageLater(final String key, final int width, final int height) throws Exception {
         return Image.createImageLater(key, width, height);
     }
 
+    @JsMethod
     public BasicArrayList getAssociated(final LazyImageRotationAnimation lazyImageRotationAnimation) {
         final BasicArrayList list = new BasicArrayListD();
         
@@ -506,6 +547,7 @@ public class ImageCache extends ImageCacheBase {
         return list;
     }
     
+    @JsMethod
     public void add(final LazyImageRotationAnimation lazyImageRotationAnimation) {
         synchronized (this.lock) {
             //this.logUtil.putF("adding to loadAfterList: " + lazyImageRotationAnimation, this, this.commonStrings.RUN);
@@ -514,6 +556,7 @@ public class ImageCache extends ImageCacheBase {
         }
     }
     
+    @JsMethod
     public void insertFirst(final LazyImageRotationAnimation lazyImageRotationAnimation) throws Exception {
             //final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
 //            if (image.getImage() != null) {
@@ -555,15 +598,18 @@ public class ImageCache extends ImageCacheBase {
         //}
     }
 
+    @JsMethod
     public void progressEnded() {
         this.progressEnded = true;
     }    
 
+    @JsMethod
     public void runTask() throws Exception {
         //this.logUtil.putF(this.commonStrings.START + this.processor, this, "runTask");
         this.processor.process();
     }
     
+    @JsMethod
     public void initProgress() {
         //this.logUtil.putF("reset totalFrames", this, this.commonStrings.RUN);
         
@@ -573,6 +619,7 @@ public class ImageCache extends ImageCacheBase {
         
     }
 
+    @JsMethod
     public boolean isLazy() {
         return true;
     }

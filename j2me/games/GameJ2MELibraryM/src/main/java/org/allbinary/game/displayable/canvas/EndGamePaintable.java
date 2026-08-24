@@ -13,20 +13,28 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.paint.Paintable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class EndGamePaintable extends Paintable
 {
     private AllBinaryGameCanvas gameCanvas;
     
+    @JsConstructor
     public EndGamePaintable(AllBinaryGameCanvas gameCanvas)
     {
         this.gameCanvas = gameCanvas;
     }
     
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {
         this.gameCanvas.paintGameOver(graphics);

@@ -13,25 +13,34 @@
 */
 package org.allbinary.input.motion.gesture.observer;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class BasicMotionGesturesHandler extends BasicEventHandler
 {
     private static final BasicMotionGesturesHandler SINGLETON =
        new BasicMotionGesturesHandler();
 
+    @JsMethod
     public static final BasicMotionGesturesHandler getInstance()
     {
         return BasicMotionGesturesHandler.SINGLETON;
     }
     
+    @JsConstructor
     protected BasicMotionGesturesHandler()
     {
     }
 
     @Override
+    @JsMethod
     protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
         

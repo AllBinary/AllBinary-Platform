@@ -13,22 +13,32 @@
 */
 package org.allbinary.game.paint;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class ColorFillPaintable extends ColorFillBasePaintable
 {
+    @JsProperty
     protected final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
     
+    @JsConstructor
     public ColorFillPaintable(BasicColor basicColor)
     {
         super(basicColor);
     }
 
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {        
         graphics.setColor(this.colorP);

@@ -13,35 +13,52 @@
 */
 package org.allbinary.math;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class AngleFactory
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final AngleFactory instance = new AngleFactory();
 
+    @JsMethod
     public static AngleFactory getInstance()
     {
         return AngleFactory.instance;
     }
     
+    @JsProperty
     public final short TOTAL_ANGLE = 360;
+    @JsProperty
     public final short QUARTER_TOTAL_ANGLE = 90;
 
     private final Angle[] angleArray = new Angle[(int) this.TOTAL_ANGLE];
 
     private final short NEGATIVE_ONE = -1;
+    @JsProperty
     public final NamedAngle NOT_ANGLE = new NamedAngle(this.NEGATIVE_ONE, CommonStrings.getInstance().EMPTY);
+    @JsProperty
     public final NamedAngle DOWN;
+    @JsProperty
     public final NamedAngle UP;
+    @JsProperty
     public final NamedAngle LEFT;
+    @JsProperty
     public final NamedAngle RIGHT;
 
+    @JsConstructor
     public AngleFactory()
     {
         final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
@@ -84,12 +101,14 @@ public class AngleFactory
 
     private final FrameUtil frameUtil = FrameUtil.getInstance();
     
+    @JsMethod
     public Angle getAt(final int index)
     {
         final int adjustedIndex = (int) this.frameUtil.adjustAngleToFrameAngle(index);
         return this.angleArray[adjustedIndex];
     }
 
+    @JsMethod
     public Angle getClosestDirection(int angle)
     {
         if((angle >= 315 && angle < 360) || (angle >= 0 && angle < 45)) {
@@ -104,6 +123,7 @@ public class AngleFactory
         throw new RuntimeException();
     }
 
+    @JsMethod
     public Angle getGeneralDirection()
     {
         return this.NOT_ANGLE;
@@ -126,6 +146,7 @@ public class AngleFactory
 //        throw new RuntimeException();
 //    }
     
+    @JsMethod
     public static void main(String[] args) {
         
         final StringMaker stringMaker = new StringMaker();

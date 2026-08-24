@@ -13,13 +13,19 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 //import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.graphics.displayable.DisplayableInterface;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface AllBinaryGameCanvasInterface 
     extends DisplayableInterface
 //, GameCanvasRunnableInterface
 {
+    @JsMethod
     AllBinaryGameLayerManager getLayerManager();
 }

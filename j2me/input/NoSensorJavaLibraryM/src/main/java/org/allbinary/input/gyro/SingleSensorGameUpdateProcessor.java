@@ -13,17 +13,24 @@
 */
 package org.allbinary.input.gyro;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class SingleSensorGameUpdateProcessor 
     extends SensorGameUpdateProcessor
 {
     //public void process(AllBinaryGameLayerManager layerManager) throws Exception
     @Override
+    @JsMethod
     public void process(Object object) throws Exception
     {
     }
     
     //public void sendNotifications(AllBinaryGameLayerManager layerManager) throws Exception
     @Override
+    @JsMethod
     public void sendNotifications(Object object) throws Exception
     {
     }

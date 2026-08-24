@@ -13,15 +13,22 @@
 */
 package org.allbinary.game;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.business.advertisement.GameAdStateBase;
 import org.allbinary.business.advertisement.AdConfiguration;
 import org.allbinary.input.event.VirtualKeyboardEvent;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
 import org.allbinary.input.event.VirtualKeyboardEventListenerInterface;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class GameAdState extends GameAdStateBase implements VirtualKeyboardEventListenerInterface
 {
 
+    @JsConstructor
     public GameAdState(AdConfiguration adConfiguration)
     {   
         super(adConfiguration);
@@ -30,6 +37,7 @@ public class GameAdState extends GameAdStateBase implements VirtualKeyboardEvent
     }
 
     @Override
+    @JsMethod
     public void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent) throws Exception {
     }
     

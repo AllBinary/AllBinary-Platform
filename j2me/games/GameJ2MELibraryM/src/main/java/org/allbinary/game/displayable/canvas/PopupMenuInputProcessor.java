@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.game.input.GameInputStrings;
@@ -29,7 +31,11 @@ import org.allbinary.math.RectangleCollisionUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 {
 
@@ -40,6 +46,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 
     private Rectangle rectangle;
 
+    @JsConstructor
     public PopupMenuInputProcessor(
         final BasicArrayList gameKeyEventList,
         final int playerInputId, 
@@ -51,11 +58,13 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         this.rectangle = rectangle;
     }
 
+    @JsMethod
     public void init(final Rectangle rectangle)
     {
         this.rectangle = rectangle;        
     }
 
+    @JsMethod
     public int processInput(final int key) throws Exception
     {
         //this.logUtil.putF(this.commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, this.gameInputStrings.);
@@ -75,6 +84,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     }
 
     @Override
+    @JsMethod
     public int processInputList()
         throws Exception
     {
@@ -123,6 +133,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     }
 
     //AllBinaryLayerManager layerManager
+    @JsMethod
     public int processMotionInputs()
         throws Exception
     {
@@ -141,6 +152,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         return lastIndex;
     }
 
+    @JsMethod
     protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
         throws Exception
     {

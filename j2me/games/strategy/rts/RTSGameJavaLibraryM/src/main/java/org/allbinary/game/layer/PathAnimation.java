@@ -37,7 +37,7 @@ public class PathAnimation extends Animation
     private final LinePathAnimation linePathAnimation;
     private final PathFindingLayerInterface pathFindingLayer;
     
-    protected AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
+    protected AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.getNullInstance();
     
     public PathAnimation(final PathFindingLayerInterface pathFindingLayer, final LinePathAnimation linePathAnimation)
     {

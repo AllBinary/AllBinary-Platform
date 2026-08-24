@@ -13,6 +13,10 @@
 */
 package org.allbinary.game.input.event;
 
+import jsinterop.annotations.JsType;
+
+
+@JsType
 public interface GameKeyEventListenerInterface
     extends DownGameKeyEventListenerInterface, 
     UpGameKeyEventListenerInterface, 

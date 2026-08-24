@@ -13,13 +13,19 @@
 */
 package org.allbinary.input.motion.gesture;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public final class MotionGestureInput extends Input
 {
     //private static MotionGestureInput[] motionGestureInputArray = new MotionGestureInput[Input.MAX];
     
+    @JsConstructor
     public MotionGestureInput(int id, String name)
     {
         super(id,  name);

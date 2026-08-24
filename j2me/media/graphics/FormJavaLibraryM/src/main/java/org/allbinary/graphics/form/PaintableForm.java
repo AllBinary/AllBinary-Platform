@@ -1,5 +1,7 @@
 package org.allbinary.graphics.form;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.RectangleFactory;
@@ -9,10 +11,16 @@ import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class PaintableForm extends ABCustomForm
 {
     private static Object NULL_PAINTABLE_FORM = NullUtil.getInstance().NULL_OBJECT;
+    @JsMethod
     public static PaintableForm getNullPaintableForm() {
         
         if(PaintableForm.NULL_PAINTABLE_FORM == NullUtil.getInstance().NULL_OBJECT) {
@@ -26,15 +34,21 @@ public class PaintableForm extends ABCustomForm
         return (PaintableForm) PaintableForm.NULL_PAINTABLE_FORM;
     }
 
+    @JsProperty
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
     
+    @JsProperty
     protected Rectangle rectangle = RectangleFactory.SINGLETON;
 
+    @JsProperty
     protected int x;
+    @JsProperty
     protected int y;
     
+    @JsProperty
     protected FormType formType = FormTypeFactory.getInstance().NULL_FORM_TYPE;
 
+    @JsConstructor
     public PaintableForm(final String title, final ABCustomItem[] items, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
@@ -43,6 +57,7 @@ public class PaintableForm extends ABCustomForm
         this.setSelectedIndex(0);
     }
 
+    @JsMethod
     public void init(final Rectangle rectangle, final FormType formType)
     throws Exception
     {
@@ -59,6 +74,7 @@ public class PaintableForm extends ABCustomForm
     }
 
     @Override
+    @JsMethod
     public int getWidth()
     {
         return this.rectangle.getWidth();

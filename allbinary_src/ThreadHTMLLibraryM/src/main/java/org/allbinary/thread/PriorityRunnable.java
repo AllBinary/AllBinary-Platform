@@ -13,17 +13,25 @@
  */
 package org.allbinary.thread;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
 /**
  *
  * @author User
  */
+
+@JsType
 public interface PriorityRunnable extends Runnable {
     
+    @JsMethod
     int getPriority();
     
     //This is not really about priority and is for HTML5 builds
+    @JsMethod
     boolean isDone();
     
+    @JsMethod
     void reset();
     
 }

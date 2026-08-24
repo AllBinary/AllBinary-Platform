@@ -13,17 +13,25 @@
 */
 package org.allbinary.logic.util.cache;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 
 /**
  *
  * @author user
  */
+
+@JsType
 public class IndexedBasicArrayListCache
     extends BaseBasicArrayListCache
     implements CacheInterface
 {
+    @JsMethod
     public static IndexedBasicArrayListCache createCache(int size) throws Exception
     {
         final IndexedBasicArrayListCache indexedBasicArrayListCache = new IndexedBasicArrayListCache();
@@ -31,16 +39,20 @@ public class IndexedBasicArrayListCache
         return indexedBasicArrayListCache;
     }
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private int size = 0;
+    @JsProperty
     protected int index = 0;
 
+    @JsConstructor
     public IndexedBasicArrayListCache()
     {
 
     }
 
+    @JsMethod
     public void init(int size)
     throws Exception
     {
@@ -58,28 +70,33 @@ public class IndexedBasicArrayListCache
         }
     }
 
+    @JsMethod
     public Object getAt(int index)
     {
         return this.list.objectArray[index];
     }
 
+    @JsMethod
     public void addDefault() throws Exception
     {
 
     }
 
+    @JsMethod
     public void addObject(Object object) throws Exception
     {
         this.list.add(object);
     }
 
     @Override
+    @JsMethod
     public void add(CacheableInterface cacheableInterface) throws Exception
     {
         this.list.add(cacheableInterface);
     }
 
     @Override
+    @JsMethod
     public void addArray(CacheableInterface[] cacheableInterfaces) throws Exception
     {
         //this.list.add(this);
@@ -87,6 +104,7 @@ public class IndexedBasicArrayListCache
     }
 
     @Override
+    @JsMethod
     public void clear()
     {
         //this.logUtil.putF("List: " + this.log(), this, "clear");

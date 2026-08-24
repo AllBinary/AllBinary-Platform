@@ -13,13 +13,21 @@
 */
 package org.allbinary.input.motion.gesture;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.logic.NullUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class TouchMotionGestureFactory
 {
     private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
+    @JsMethod
     public static final TouchMotionGestureFactory getInstance()
     {
         if(TouchMotionGestureFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
@@ -29,34 +37,49 @@ public class TouchMotionGestureFactory
         return (TouchMotionGestureFactory) TouchMotionGestureFactory.instance;
     }
 
+    @JsProperty
     public final MotionGestureInput LEFT;
 
+    @JsProperty
     public final MotionGestureInput RIGHT;
     
+    @JsProperty
     public final MotionGestureInput UP;
 
+    @JsProperty
     public final MotionGestureInput DOWN;
 
+    @JsProperty
     public final MotionGestureInput PRESSED;
+    @JsProperty
     public final MotionGestureInput RELEASED;
 
+    @JsProperty
     public final MotionGestureInput DIAGONAL_DOWN_RIGHT;
 
+    @JsProperty
     public final MotionGestureInput DIAGONAL_DOWN_LEFT;
 
+    @JsProperty
     public final MotionGestureInput DIAGONAL_UP_RIGHT;
 
+    @JsProperty
     public final MotionGestureInput DIAGONAL_UP_LEFT;
     
+    @JsProperty
     public final MotionGestureInput SCROLL_UP;
+    @JsProperty
     public final MotionGestureInput SCROLL_DOWN;
     
     //public final MotionGestureInput TOUCH;
     
+    @JsProperty
     public final MotionGestureInput NO_MOTION;
     
+    @JsProperty
     public final MotionGestureInput LAST_MOTION;
 
+    @JsConstructor
     public TouchMotionGestureFactory()
     {
         int MAX = InputFactory.getInstance().MAX;

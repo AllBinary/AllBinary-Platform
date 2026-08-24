@@ -13,9 +13,13 @@
 */
 package org.allbinary.game.score;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
+import jsinterop.annotations.JsMethod;
 
+@JsType
 public interface HighScoresCanvasInputProcessorFactoryInterface
 {
+    @JsMethod
     HighScoresCanvasInputProcessor getInstance(HighScoresCanvas highScoresCanvas);
 }

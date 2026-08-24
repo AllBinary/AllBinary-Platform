@@ -13,13 +13,18 @@
  */
 package org.allbinary.graphics.form;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.form.item.ABCustomItem;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class ItemIndexPaintable {
     
     private static final ItemIndexPaintable instance = new ItemIndexPaintable();
@@ -27,10 +32,12 @@ public class ItemIndexPaintable {
     /**
      * @return the instance
      */
+    @JsMethod
     public static ItemIndexPaintable getInstance() {
         return ItemIndexPaintable.instance;
     }
     
+    @JsMethod
     public int paint(final Graphics graphics, final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
         return 0;
     }

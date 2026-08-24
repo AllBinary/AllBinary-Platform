@@ -13,8 +13,13 @@
 */
 package org.allbinary.game.configuration.feature;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsConstructor;
+
+@JsType
 public class TouchFeature extends Feature
 {
+    @JsConstructor
     TouchFeature(String name)
     {
         super(name);

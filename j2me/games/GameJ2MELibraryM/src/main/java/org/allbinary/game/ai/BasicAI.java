@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.ai;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.game.displayable.canvas.CanvasUtil;
 import org.allbinary.game.input.GameInput;
@@ -25,18 +27,28 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class BasicAI 
 extends ArtificialIntelligence
 implements GameKeyEventSourceInterface
 {
     
+    @JsProperty
     public static final Integer AI_VISITOR = SmallIntegerSingletonFactory.getInstance().getAt(2);
     
+    @JsProperty
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getAt(1);
 
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    @JsProperty
     protected final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
     private final AllBinaryLayer ownerLayerInterface;
@@ -52,6 +64,7 @@ implements GameKeyEventSourceInterface
     }
     */
     
+    @JsConstructor
     public BasicAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput)
     {
         this.ownerLayerInterface = ownerLayerInterface;
@@ -59,12 +72,14 @@ implements GameKeyEventSourceInterface
     }
 
     @Override
+    @JsMethod
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
+    @JsMethod
     public void processKeyAI(int key) throws Exception
     {
         if (key != -1)
@@ -73,16 +88,19 @@ implements GameKeyEventSourceInterface
         }
     }
 
+    @JsMethod
     public void setLastKey(int lastKey)
     {
         this.lastKey = lastKey;
     }
 
+    @JsMethod
     public int getLastKey()
     {
         return this.lastKey;
     }
 
+    @JsMethod
     public AllBinaryLayer getOwnerLayerInterface()
     {
         return this.ownerLayerInterface;
@@ -100,16 +118,19 @@ implements GameKeyEventSourceInterface
     }
     */    
     
+    @JsMethod
     public GameInput getGameInput()
     {
         return this.gameInput;
     }
  
+    @JsMethod
     public String getName()
     {
         return this.getClass().getName();
     }
     
+    @JsMethod
     public String toString()
     {
         StringMaker stringBuffer = new StringMaker();
@@ -123,6 +144,7 @@ implements GameKeyEventSourceInterface
     }
 
     @Override    
+    @JsMethod
     public int getSourceId()
     {
         return 1;

@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.part.weapon;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
@@ -26,14 +28,21 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.view.ViewPositionBase;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class BasicWeaponPart 
     implements PartInterface, SalvoInterface 
 {
+    @JsMethod
     public static BasicWeaponPart createBasicWeaponPart(final Animation animationInterface) {
         return new BasicWeaponPart(animationInterface, AllBinaryLayer.NULL_ALLBINARY_LAYER, WeaponProperties.NULL_WEAPON_PROPERTIES, NoScoreable.getInstance(), RelativeRelationship.NULL_RELATIVE_RELATIONSHIP);
     }
 
+    @JsProperty
     public static final BasicWeaponPart NULL_BASIC_WEAPON_PART = BasicWeaponPart.createBasicWeaponPart(NullAnimationFactory.getFactoryInstance().getInstance(0));
     
    private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
@@ -44,6 +53,7 @@ public class BasicWeaponPart
 
    private ScoreableInterface scoreableInterface = NoScoreable.getInstance();
    
+   @JsProperty
    protected RelativeRelationship relativeRelationship = RelativeRelationship.NULL_RELATIVE_RELATIONSHIP;
 
 //   public BasicWeaponPart(final Animation animationInterface) {
@@ -51,6 +61,7 @@ public class BasicWeaponPart
 //      this.setAnimationInterface(animationInterface);
 //   }
 
+   @JsConstructor
    public BasicWeaponPart(
            final Animation animationInterface, 
            final AllBinaryLayer sourceLayerInterface, 
@@ -62,6 +73,7 @@ public class BasicWeaponPart
       this.setAnimationInterface(animationInterface);
    }
    
+   @JsMethod
    public void init(final AllBinaryLayer sourceLayerInterface, 
            final WeaponProperties weaponProperties, 
            final ScoreableInterface scoreableInterface,
@@ -77,35 +89,42 @@ public class BasicWeaponPart
    }
    
    @Override
+   @JsMethod
    public void process(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle)
            throws Exception {
        this.processScore(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), this.scoreableInterface);
    }
 
    @Override
+   @JsMethod
    public void processScore(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle, final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
            throws Exception {
       throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
    }
 
+   @JsMethod
    public AllBinaryLayer getOwnerLayerInterface() {
       return this.ownerLayerInterface;
    }
 
+   @JsMethod
    public void setOwnerLayerInterface(final AllBinaryLayer ownerLayerInterface) {
       this.ownerLayerInterface = ownerLayerInterface;
    }
    
    @Override
+   @JsMethod
    public Animation getAnimationInterface() {
       return this.animationInterface;
    }
 
+   @JsMethod
    public void setAnimationInterface(final Animation animationInterface) {
       this.animationInterface = animationInterface;
    }
    
    @Override
+   @JsMethod
    public void paint(final Graphics graphics) {
       
        final ViewPositionBase viewPosition =  this.getOwnerLayerInterface().getViewPosition();
@@ -117,6 +136,7 @@ public class BasicWeaponPart
    }
 
    @Override
+   @JsMethod
    public void paintThreed(final Graphics graphics)
    {
    }
@@ -124,6 +144,7 @@ public class BasicWeaponPart
     /**
      * @return the weaponProperties
      */
+    @JsMethod
     public WeaponProperties getWeaponProperties()
     {
         return this.weaponProperties;
@@ -132,6 +153,7 @@ public class BasicWeaponPart
     /**
      * @param weaponProperties the weaponProperties to set
      */
+    @JsMethod
     public void setWeaponProperties(final WeaponProperties weaponProperties)
     {
         this.weaponProperties = weaponProperties;

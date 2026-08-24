@@ -13,17 +13,25 @@
 */
 package org.allbinary.graphics.form.item.validation;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.util.visitor.Visitor;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class TextItemVisitor extends Visitor
 {
+    @JsConstructor
     public TextItemVisitor()
     {
         
     }
     
     @Override
+    @JsMethod
     public Object visit(final Object object)
     {
         final String value = (String) object;

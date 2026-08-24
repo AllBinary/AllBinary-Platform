@@ -13,10 +13,16 @@
 */
 package org.allbinary.graphics;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.graph.V;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class CellPosition
 extends V
 {
@@ -25,6 +31,7 @@ extends V
    private final int column;
    private final int row;
 
+   @JsConstructor
    public CellPosition(int column, int row, int columns, int rows)
    {
       this.column = column;
@@ -34,6 +41,7 @@ extends V
           //SmallIntegerSingletonFactory.getInstance((row * columns) + column);
    }
 
+   @JsMethod
    public int getColumn()
    {
       return this.column;
@@ -46,6 +54,7 @@ extends V
    }
    */
    
+   @JsMethod
    public int getRow()
    {
       return this.row;
@@ -58,16 +67,19 @@ extends V
    }
    */
 
+   @JsMethod
    public String toString()
    {
       return CellPosition.toStringColRow(this.getColumn(), this.getRow());
    }
 
+   @JsMethod
    public static String toStringCellPosition(CellPosition basicGeographicMapCellPosition)
    {
       return CellPosition.toStringColRow(basicGeographicMapCellPosition.getColumn(), basicGeographicMapCellPosition.getRow());
    }
    
+   @JsMethod
    public static String toStringColRow(int i_column, int i_row)
    {
       //return "Column: " + i_column + " Row: " + i_row;
@@ -86,6 +98,7 @@ extends V
    }
 
    @Override
+   @JsMethod
    public int getId()
    {
       return this.id;

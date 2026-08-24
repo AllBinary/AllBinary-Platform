@@ -13,6 +13,8 @@
 */
 package org.allbinary.input.motion.button;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
@@ -27,27 +29,42 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class TouchButton extends Paintable
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final TouchButtonInput touchButtonInput;
     private final Animation animationInterface;
     
+    @JsProperty
     protected final Rectangle rawRectangle;
 
+    @JsProperty
     protected final int xBorder;
+    @JsProperty
     protected final int yBorder;
     
+    @JsProperty
     protected Rectangle rectangle = RectangleFactory.SINGLETON;
+    @JsProperty
     protected final CellPosition cellPosition;
     
+    @JsProperty
     protected int animationX;
+    @JsProperty
     protected int animationY;
     
+    @JsConstructor
     public TouchButton(TouchButtonInput touchButtonInput, AnimationInterface animationInterface,
             Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
     {
@@ -65,6 +82,7 @@ public class TouchButton extends Paintable
     }
 
     @Override
+    @JsMethod
     public void paint(Graphics graphics)
     {
         this.animationInterface.paintXY(graphics, animationX, this.animationY);
@@ -73,6 +91,7 @@ public class TouchButton extends Paintable
     }
 
     //This would probably be better as a builder
+    @JsMethod
     protected void updateRectangle()
     {
         try
@@ -111,21 +130,25 @@ public class TouchButton extends Paintable
     }
     */
 
+    @JsMethod
     public CellPosition getCellPositionP()
     {
         return this.cellPosition;
     }
 
+    @JsMethod
     public Rectangle getRectangleP()
     {
         return this.rectangle;
     }
 
+    @JsMethod
     public TouchButtonInput getTouchButtonInput()
     {
         return this.touchButtonInput;
     }
 
+    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();

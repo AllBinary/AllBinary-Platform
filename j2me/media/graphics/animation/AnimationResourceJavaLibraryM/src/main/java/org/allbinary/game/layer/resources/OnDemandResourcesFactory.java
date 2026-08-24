@@ -13,13 +13,20 @@
 */
 package org.allbinary.game.layer.resources;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public class OnDemandResourcesFactory
 {
+    @JsMethod
     public int size()
     {
         return 0;
     }
     
+    @JsMethod
     public OnDemandResources remove(int layerId)
     {
         return OnDemandResources.NULL_ON_DEMAND_RESOURCES;

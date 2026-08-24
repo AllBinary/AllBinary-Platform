@@ -13,15 +13,26 @@
 */
 package org.allbinary.business.advertisement;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.direction.Direction;
 import org.allbinary.game.state.GameState;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class AdConfiguration
 {
+    @JsProperty
     public final String INNERACTIVE;
+    @JsProperty
     public final String LEADBOLT;
+    @JsProperty
     public final String ADMOB;
     
+    @JsConstructor
     public AdConfiguration(final Object[] advertIdArray)
     {
         this.INNERACTIVE = (String) advertIdArray[0];
@@ -29,29 +40,35 @@ public class AdConfiguration
         this.LEADBOLT = (String) advertIdArray[2];
     }
     
+    @JsMethod
     public Direction[] getValidAdSpots()
     {
         return new Direction[0];
     }
     
     //Special in gamestate based processing
+    @JsMethod
     public void process(final GameState gameState)
     {
     }
     
     //Special Demo processing
+    @JsMethod
     public void processDemo(final int state)
     {
     }
 
+    @JsMethod
     public void setShowAds()
     {
     }
     
+    @JsMethod
     public void setToggleAds(final boolean showAds)
     {
     }
 
+    @JsMethod
     public boolean isShowAds()
     {
         return true;

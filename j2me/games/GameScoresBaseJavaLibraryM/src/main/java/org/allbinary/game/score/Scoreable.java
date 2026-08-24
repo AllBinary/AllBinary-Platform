@@ -13,38 +13,51 @@
 */
 package org.allbinary.game.score;
 
-import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class Scoreable implements ScoreableInterface
 {
 
+   @JsProperty
    public static Integer ID = SmallIntegerSingletonFactory.getInstance().getAt(3);
 
    private int points;
    
+   @JsConstructor
    public Scoreable(int points)
    {
       this.points = points;
    }
 
    @Override
+   @JsMethod
    public void addPoints(int points)
    {
       this.points += points;
    }
 
    @Override   
+   @JsMethod
    public void removePoints(int points)
    {
       this.points -= points;
    }
 
+@JsMethod
 protected void setPoints(int points)
 {
     this.points = points;
 }
 
 @Override
+@JsMethod
 public int getPoints()
 {
     return this.points;

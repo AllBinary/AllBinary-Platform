@@ -13,12 +13,19 @@
 */
 package org.allbinary.logic.string;
 
-import org.allbinary.TsUtil;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.TsUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+
+@JsType
 public class StringValidationUtil
 {
     private static final StringValidationUtil instance = new StringValidationUtil();
 
+    @JsMethod
     public static StringValidationUtil getInstance()
     {
         return StringValidationUtil.instance;
@@ -27,10 +34,12 @@ public class StringValidationUtil
     private final StringUtil stringUtil = StringUtil.getInstance();
     private final TsUtil tsUtil = TsUtil.getInstance();
     
+    @JsConstructor
     private StringValidationUtil()
     {
     }
     
+    @JsMethod
     public boolean containsSpaces(String value)
     {
         if (value.indexOf(' ') >= 0)
@@ -41,6 +50,7 @@ public class StringValidationUtil
         return false;
     }
 
+    @JsMethod
     public boolean isNumber(String value)
     {
         int numberOfDecimalPoints = 0;
@@ -65,6 +75,7 @@ public class StringValidationUtil
         return true;
     }
 
+    @JsMethod
     public boolean isNumberFromChar(char digit)
     {
         if (digit != '0'
@@ -84,6 +95,7 @@ public class StringValidationUtil
         return true;
     }
 
+    @JsMethod
     public boolean isValidRequired(String value, int min, int max)
     {
         //value.compareTo(stringUtil.EMPTY_STRING)==0 ||
@@ -94,6 +106,7 @@ public class StringValidationUtil
         return true;
     }
 
+    @JsMethod
     public boolean isValidRequiredNumber(String value, int min, int max)
     {
         if (this.isEmpty(value)
@@ -109,6 +122,7 @@ public class StringValidationUtil
         return true;
     }
 
+    @JsMethod
     public boolean isValidNotRequired(String value, int min, int max)
     {
         //value.compareTo(stringUtil.EMPTY_STRING)==0 ||
@@ -122,6 +136,7 @@ public class StringValidationUtil
         return true;
     }
 
+    @JsMethod
     public boolean isValidNotRequiredNumber(String value, int min, int max)
     {
         if (value != null)
@@ -140,6 +155,7 @@ public class StringValidationUtil
         return true;
     }
 
+    @JsMethod
     public boolean isEmpty(String string)
     {
         if (string != null

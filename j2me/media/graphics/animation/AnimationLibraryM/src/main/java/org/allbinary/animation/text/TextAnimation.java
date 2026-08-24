@@ -13,6 +13,8 @@
 */
 package org.allbinary.animation.text;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
@@ -28,18 +30,26 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class TextAnimation extends IndexedAnimation 
     implements UpdateMyFontInterface
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     //private final int WIDTH = 13;
     //private final int HEIGHT = 8;
     
     private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    @JsProperty
     protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
     
+    @JsProperty
     protected String[] textArrayP = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
 
     private int anchor = Anchor.TOP_LEFT;
@@ -49,6 +59,7 @@ public class TextAnimation extends IndexedAnimation
 
     private TextChangeListener textChangeListener = TextChangeListener.getInstance();
     
+    @JsConstructor
     public TextAnimation(final String text, final AnimationBehavior animationBehavior)
     {
         super(animationBehavior);
@@ -58,6 +69,7 @@ public class TextAnimation extends IndexedAnimation
     }
     
     @Override
+    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         this.fontHeight = font.getHeight();
@@ -69,17 +81,20 @@ public class TextAnimation extends IndexedAnimation
     }
     
     @Override
+    @JsMethod
     public void nextFrame() throws Exception
     {
     }
 
     @Override
+    @JsMethod
     public void paintXY(Graphics graphics, int x, int y)
     {
         this.myFontProcessor.process(graphics);
         this.paintXYNoUpdate(graphics, x, y);
     }
     
+    @JsMethod
     public void paintXYNoUpdate(Graphics graphics, int x, int y)
     {
         this.basicSetColorUtil.setBasicColorP3(
@@ -94,11 +109,13 @@ public class TextAnimation extends IndexedAnimation
 
     }
 
+    @JsMethod
     public void setTextWithOnMeasure(final String text, final TextChangeListener textChangeListener) {
         this.setText(text);
         this.textChangeListener = textChangeListener;
     }
     
+    @JsMethod
     public void setText(final String text)
     {
         final BasicArrayList list = new BasicArrayListD();
@@ -139,11 +156,13 @@ public class TextAnimation extends IndexedAnimation
         this.myFontProcessor = this.updateMyFontProcessor;
     }
 
+    @JsMethod
     public String[] getTextArray()
     {
         return this.textArrayP;
     }
 
+    @JsMethod
     public int getFontHeight() {
         return this.fontHeight;
     }

@@ -13,22 +13,32 @@
 */
 package org.allbinary.game.collision;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.layer.AllBinaryLayer;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author user
  */
+
+@JsType
 public class CollisionHelper {
 
+   @JsProperty
    protected AllBinaryLayer sourceLayerInterface;
    
+   @JsConstructor
    public CollisionHelper(AllBinaryLayer sourceLayerInterface)
    {
       this.sourceLayerInterface = sourceLayerInterface;
    }
    
+   @JsMethod
    public boolean isCollidable(CollidableCompositeLayer layerInterface)
    {
       return true;
@@ -37,6 +47,7 @@ public class CollisionHelper {
    /**
     * @return the sourceLayerInterface
     */
+   @JsMethod
    public AllBinaryLayer getOwnerLayerInterface()
    {
       return this.sourceLayerInterface;
@@ -45,6 +56,7 @@ public class CollisionHelper {
    /**
     * @param sourceLayerInterface the sourceLayerInterface to set
     */
+   @JsMethod
    public void setOwnerLayerInterface(AllBinaryLayer sourceLayerInterface)
    {
       this.sourceLayerInterface = sourceLayerInterface;

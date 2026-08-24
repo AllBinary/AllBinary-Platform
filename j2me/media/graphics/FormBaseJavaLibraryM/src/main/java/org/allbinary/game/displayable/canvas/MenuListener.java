@@ -13,11 +13,18 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.game.input.GameKeyEventSourceInterface;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.game.input.GameKeyEventSourceInterface;
+import jsinterop.annotations.JsMethod;
+
+
+@JsType
 public interface MenuListener 
 extends GameKeyEventSourceInterface
 {
+    @JsMethod
     void open(); //throws Exception;
+    @JsMethod
     void close() throws Exception;
 }

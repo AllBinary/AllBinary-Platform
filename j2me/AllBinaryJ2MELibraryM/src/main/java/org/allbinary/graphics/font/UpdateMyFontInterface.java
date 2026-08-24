@@ -13,14 +13,20 @@
  */
 package org.allbinary.graphics.font;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
+import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public interface UpdateMyFontInterface {
  
+    @JsMethod
     public void updateMeasurement(final Graphics graphics);
 
 }

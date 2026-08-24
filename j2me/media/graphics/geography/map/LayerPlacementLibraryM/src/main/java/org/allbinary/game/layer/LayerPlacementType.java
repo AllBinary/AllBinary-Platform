@@ -14,21 +14,30 @@
 
 package org.allbinary.game.layer;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+
+@JsType
 public class LayerPlacementType
 {    
    private int type;
 
+   @JsConstructor
    LayerPlacementType(int type)
    {
       this.type = type;
    }
 
+   @JsMethod
    public int getType()
    {
       return this.type;
    }
 
+   @JsMethod
    protected void setType(int type)
    {
       this.type = type;

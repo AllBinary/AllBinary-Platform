@@ -22,6 +22,7 @@ import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
 import org.allbinary.thread.ThreadPool;
 
+//SWTForJ2ME
 public class ProgressMidlet extends AllBinaryMidlet
 {
     protected final LogUtil logUtil = LogUtil.getInstance();

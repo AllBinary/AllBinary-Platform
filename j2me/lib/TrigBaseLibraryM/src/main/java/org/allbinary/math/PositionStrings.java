@@ -13,23 +13,38 @@
 */
 package org.allbinary.math;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class PositionStrings
 {
     private static final PositionStrings instance = new PositionStrings();
 
+    @JsMethod
     public static PositionStrings getInstance()
     {
         return PositionStrings.instance;
     }
 
+    @JsProperty
     public final String X = "x";
+    @JsProperty
     public final String Y = "y";
 
+    @JsProperty
     public final String X_LABEL = "x: ";
+    @JsProperty
     public final String Y_LABEL = "y: ";
+    @JsProperty
     public final String Z_LABEL = "z: ";
 
+    @JsProperty
     public final String DX_LABEL = "dx: ";
+    @JsProperty
     public final String DY_LABEL = "dy: ";
+    @JsProperty
     public final String DZ_LABEL = "dz: ";
 }

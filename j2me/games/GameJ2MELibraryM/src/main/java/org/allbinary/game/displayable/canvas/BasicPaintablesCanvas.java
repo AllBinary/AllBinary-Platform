@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
@@ -20,12 +22,17 @@ import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.paint.ColorFillBasePaintable;
 import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.graphics.paint.Paintable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class BasicPaintablesCanvas extends GameCommandCanvas
 {
     private final Paintable[] paintableArray;
     private final ColorFillBasePaintable colorFillPaintable;
 
+    @JsConstructor
     public BasicPaintablesCanvas(final CommandListener cmdListener, final String name, 
             final AllBinaryGameLayerManager allBinaryGameLayerManager, final Paintable[] paintableArray)
             throws Exception
@@ -51,6 +58,7 @@ public class BasicPaintablesCanvas extends GameCommandCanvas
     */
 
     @Override
+    @JsMethod
     public void paint(final Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);

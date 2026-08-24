@@ -13,6 +13,8 @@
  */
 package org.allbinary.layer;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.identification.BasicGroupFactory;
@@ -30,13 +32,20 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.view.ViewPositionBase;
 import org.allbinary.view.event.ViewPositionEvent;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class AllBinaryLayer 
 extends Layer 
 implements LayerInterface
 {
+    @JsProperty
     public static final AllBinaryLayer NULL_ALLBINARY_LAYER = new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
 
+    @JsProperty
     protected final ViewPositionEvent viewPositionEvent = new ViewPositionEvent(this);
 
     private int halfWidth;
@@ -45,6 +54,7 @@ implements LayerInterface
 
     private ViewPositionBase viewPosition = ViewPositionBase.NULL_VIEW_POSITION;
 
+    @JsConstructor
     public AllBinaryLayer(final String name, final Rectangle rectangle, final ViewPositionBase viewPosition)
     {
         super(rectangle.getWidth(), rectangle.getHeight());
@@ -69,119 +79,140 @@ implements LayerInterface
         this.viewPosition.setAllbinaryLayer(this);
     }
 
+    @JsMethod
     public void onChangeEvent(final ViewPositionEvent layerManagerEvent)
             throws Exception
     {
     }
 
     @Override
+    @JsMethod
     public void paintThreed(final Graphics graphics)
     {
 
     }
 
     @Override
+    @JsMethod
     public int getX2()
     {
         return this.getXP() + this.getWidth();
     }
 
     @Override
+    @JsMethod
     public int getY2()
     {
         return this.getYP() + this.getHeight();
     }
 
     @Override
+    @JsMethod
     public int getZ2()
     {
         return (int) (this.getZP() + this.getDepth());
     }
 
     @Override
+    @JsMethod
     public String getName()
     {
         return this.name;
     }
 
+    @JsMethod
     protected void setHalfWidth(final int halfWidth)
     {
         this.halfWidth = halfWidth;
     }
 
     @Override
+    @JsMethod
     public int getHalfWidth()
     {
         return this.halfWidth;
     }
 
+    @JsMethod
     protected void setHalfHeight(final int halfHeight)
     {
         this.halfHeight = halfHeight;
     }
 
     @Override
+    @JsMethod
     public int getHalfHeight()
     {
         return this.halfHeight;
     }
 
+    @JsMethod
     public int getHalfDepth()
     {
         return (int) this.getDepth() / 2;
     }
 
+    @JsMethod
     public ViewPositionBase getViewPosition()
     {
         return this.viewPosition;
     }
 
+    @JsMethod
     public void setViewPosition(final ViewPositionBase viewPosition)
     {
         this.viewPosition = viewPosition;
     }
 
     @Override
+    @JsMethod
     public Group[] getGroupInterface()
     {
         return BasicGroupFactory.getInstance().NONE_ARRAY;
     }
 
     @Override
+    @JsMethod
     public boolean implmentsTickableInterface()
     {
         return false;
     }
 
     @Override
+    @JsMethod
     public boolean implmentsGameInputInterface()
     {
         return false;
     }
 
     @Override
+    @JsMethod
     public boolean implmentsArtificialIntelligenceCompositeInterface()
     {
         return false;
     }
 
     @Override
+    @JsMethod
     public boolean implmentsCollidableInterface()
     {
         return false;
     }
 
+    @JsMethod
     public boolean implementsThreedInterface()
     {
         return OpenGLFeatureUtil.getInstance().isAnyThreed();
     }
 
     @Override
+    @JsMethod
     public int getType()
     {
         return -1;
     }
 
+    @JsMethod
     public int getMultiPlayerType()
     {
         return -1;
@@ -190,6 +221,7 @@ implements LayerInterface
     private static final String TYPE = "Type: ";
 
     @Override
+    @JsMethod
     public void toStringAppend(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
@@ -220,6 +252,7 @@ implements LayerInterface
 
     }
     
+    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();

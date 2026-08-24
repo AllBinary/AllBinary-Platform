@@ -14,6 +14,8 @@
 
 package org.allbinary.game.displayable.canvas;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.configuration.feature.Features;
@@ -27,17 +29,23 @@ import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.threed.SWTJOGLProcessor;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class MyFormUtil
 {
 
     private static final MyFormUtil instance = new MyFormUtil();
 
+    @JsMethod
     public static MyFormUtil getInstance()
     {
         return MyFormUtil.instance;
     }
 
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -45,6 +53,7 @@ public class MyFormUtil
     // Popup Menu Tab Init
     private Rectangle popupMenuRectangle = RectangleFactory.SINGLETON;
 
+    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         
@@ -77,6 +86,7 @@ public class MyFormUtil
 
     }
     
+    @JsMethod
     public Rectangle getPopupMenuRectangle()
     {
         //this.logUtil.putF("return popupMenuRectangle: " + this.popupMenuRectangle.toString(), this, this.commonStrings.PROCESS);

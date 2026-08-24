@@ -13,6 +13,8 @@
 */
 package org.allbinary.animation.image.sprite;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
@@ -21,11 +23,16 @@ import org.allbinary.direction.Direction;
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+
+@JsType
 public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedAnimation
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsConstructor
     public AllBinarySpriteRotationAnimation(final Sprite sprite, final Image image, final AnimationBehavior animationBehavior)
     {
         super(sprite, image,
@@ -52,6 +59,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
      */
   
     @Override
+    @JsMethod
     public void nextRotation()
     {
         //this.logUtil.putF(this.commonStrings.START, this, "nextFrame");
@@ -60,6 +68,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     }
 
     @Override
+    @JsMethod
     public void previousRotation()
     {
         //this.logUtil.putF(this.commonStrings.START, this, "previousFrame");
@@ -68,6 +77,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     }
 
     @Override
+    @JsMethod
     public void setFrameByDirection(Direction direction)
     {
         //this.logUtil.putF(this.commonStrings.START, this, "setFrame");
@@ -76,12 +86,14 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     }
 
     @Override
+    @JsMethod
     public void setFrameToAngle(Angle angle)
     {
         this.adjustFrameToAngle(angle);
     }
 
     @Override
+    @JsMethod
     public void setFrame(int index)
     {
         this.sprite.setFrame(index);
@@ -89,12 +101,14 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     }
 
     @Override
+    @JsMethod
     public void adjustFrameToAngle(Angle angle)
     {
         this.adjustFrame(angle.getValue());
     }
 
     @Override
+    @JsMethod
     public void adjustFrame(short angle)
     {
         this.setFrame(this.frameUtil.getFrameForAngle(angle,

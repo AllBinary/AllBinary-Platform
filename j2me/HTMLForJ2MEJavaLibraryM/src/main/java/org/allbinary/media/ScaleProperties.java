@@ -13,29 +13,42 @@
  */
 package org.allbinary.media;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author User
  */
+
+@JsType
 public class ScaleProperties {
     
+    @JsProperty
     public static final ScaleProperties instance = new ScaleProperties();
 
     //This should come from javascript browser
 //    public int width = 1280;
 //    public int height = 960;
     
+    @JsProperty
     public float scaleX;
+    @JsProperty
     public float scaleY;
     
+    @JsProperty
     public int scaleWidth;
+    @JsProperty
     public int scaleHeight;    
 
+    @JsProperty
     public boolean shouldScale;
     
+    @JsMethod
     public String toString() {
         return new StringMaker().append(CommonLabels.getInstance().COLON_SEP).appendboolean(this.shouldScale)
             .append("scaleX: ").appendfloat(this.scaleX)

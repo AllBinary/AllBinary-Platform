@@ -185,7 +185,7 @@ public class ScrollMapPlayerGameInput
     public void processInputKey(int key)
     throws Exception
     {
-        this.inputProcessorArray[key].processEvent(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER, GameKeyEvent.NONE);
+        this.inputProcessorArray[key].processEvent(AllBinaryGameLayerManager.getNullInstance(), GameKeyEvent.NONE);
     }
     
     public void processInput(AllBinaryLayerManager layerManager)

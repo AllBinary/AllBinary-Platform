@@ -13,19 +13,28 @@
 */
 package org.allbinary.input.motion.button;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author user
  */
+
+@JsType
 public class BaseTouchInput 
 {
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     
+    @JsConstructor
     BaseTouchInput()
     {
         
@@ -34,11 +43,13 @@ public class BaseTouchInput
     /**
      * @return the list
      */
+    @JsMethod
     public BasicArrayList getList()
     {
         return this.basicArrayListUtil.getImmutableInstance();
     }
     
+    @JsMethod
     public String toString()
     {
         return this.getClass().getName();

@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.configuration;
 
+import jsinterop.annotations.JsType;
+
 import java.util.Hashtable;
 
 import org.allbinary.game.configuration.persistance.GameConfigurationPersistanceSingleton;
@@ -25,12 +27,18 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class GameConfigurationCentral
 {
 
     private static Object SINGLETON = NullUtil.getInstance().NULL_OBJECT;
 
+    @JsMethod
     public static GameConfigurationCentral getInstance()
     {
         if(GameConfigurationCentral.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
@@ -40,32 +48,48 @@ public class GameConfigurationCentral
         return (GameConfigurationCentral) GameConfigurationCentral.SINGLETON;
     }
 
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
     
     //private static String[] ORIENTATIONS = {"Vertical", CommonPhoneStrings.getInstance().UP, CommonPhoneStrings.getInstance().DOWN, CommonPhoneStrings.getInstance().LEFT, CommonPhoneStrings.getInstance().RIGHT};
 
+    @JsProperty
     public final GameConfiguration SCALE;
+    @JsProperty
     public final GameConfiguration ORIENTATION;
+    @JsProperty
     public final GameConfiguration SENSOR_UPDATE_RATE;
+    @JsProperty
     public final GameConfiguration VIBRATION;
+    @JsProperty
     public final GameConfiguration CHALLENGE_LEVEL;
+    @JsProperty
     public final GameConfiguration COLLIDE_DAMAGE;
+    @JsProperty
     public final GameConfiguration DURABILITY_CHALLENGE_LEVEL;
+    @JsProperty
     public final GameConfiguration SPEED_CHALLENGE_LEVEL;
+    @JsProperty
     public final GameConfiguration ATTACK_CHALLENGE_LEVEL;
 
+    @JsProperty
     public final GameConfiguration CONTROL_LEVEL;
 
+    @JsProperty
     public final GameConfiguration PLAYER_INPUT_WAIT;
     
     // More is slower - tie too frame processing like a ship firing rate or
     // enemy activity level
+    @JsProperty
     public final GameConfiguration SPEED;
 
     // public final GameConfiguration GRAPHICS = new
     // GameConfiguration(SmallIntegerSingletonFactory.getInstance(0));
+    @JsProperty
     public final GameConfiguration SOUND_VOLUME;
+    @JsProperty
     public final GameConfiguration MAX_GAME_OBJECTS;
+    @JsProperty
     public final GameConfiguration MAX_LAYERS;
 
     // TWB - Ignore this but do not delete
@@ -83,6 +107,7 @@ public class GameConfigurationCentral
 
     private int gameControlFidelity = 36;
     
+    @JsConstructor
     private GameConfigurationCentral()
     {
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
@@ -161,6 +186,7 @@ public class GameConfigurationCentral
                 smallIntegerSingletonFactory.getAt(50));
     }
     
+    @JsMethod
     public void load(final AbeClientInformationInterface abeClientInformation)
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -196,10 +222,12 @@ public class GameConfigurationCentral
         // valueToKeep = this.SOME_GAME_CONFIGURATION.getValue();
     }
 
+    @JsMethod
     public void setGameControlFidelity(final int gameControlFidelity) {
         this.gameControlFidelity = gameControlFidelity;
     }
 
+    @JsMethod
     public int getGameControlFidelity()
     {
         //int fidelity = GameConfigurationCentral.getInstance().CONTROL_LEVEL.getValue().intValue();
@@ -208,6 +236,7 @@ public class GameConfigurationCentral
         return this.gameControlFidelity; //(FIDELITY[fidelity + 1]);
     }
     
+    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();

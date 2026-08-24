@@ -13,12 +13,19 @@
 */
 package org.allbinary.animation;
 
+import jsinterop.annotations.JsType;
+
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.paint.LocationPaintableInterface;
+import jsinterop.annotations.JsMethod;
 
+
+@JsType
 public interface AnimationInterface extends LocationPaintableInterface
 {
+    @JsMethod
     void nextFrame() throws Exception;
+    @JsMethod
     void paintThreedXYZ(Graphics graphics, int x, int y, int z);
 }

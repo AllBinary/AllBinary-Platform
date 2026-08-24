@@ -13,23 +13,33 @@
 */
 package org.allbinary.game.midlet;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
+
+@JsType
 public class DemoRunnable implements Runnable
 {
+    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final DemoGameMidlet demoGameMidlet;
 
     private final DemoGameMidletEvent startDemoGameMidletEvent;
     
+    @JsConstructor
     public DemoRunnable(DemoGameMidlet demoGameMidlet)
     {
         this.demoGameMidlet = demoGameMidlet;
@@ -40,6 +50,7 @@ public class DemoRunnable implements Runnable
     }
     
     @Override
+    @JsMethod
     public void run()
     {
         try

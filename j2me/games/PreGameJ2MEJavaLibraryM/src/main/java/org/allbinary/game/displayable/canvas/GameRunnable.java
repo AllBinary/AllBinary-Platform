@@ -13,25 +13,38 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import jsinterop.annotations.JsType;
 
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
+
+
+@JsType
 public class GameRunnable implements Runnable
 {
 
+    @JsProperty
     public final int WAIT = 240;
+    @JsProperty
     public final int FAST = 60;
+    @JsProperty
     public long waitInMillis = (long) this.WAIT;
     
+    @JsConstructor
     public GameRunnable() {
         
     }
     
     @Override
+    @JsMethod
     public void run()
     {
         DisplayInfoSingleton.getInstance().process();
     }
     
+    @JsMethod
     public void processLoopSleep()
     throws Exception
     {

@@ -77,7 +77,7 @@ public class TsUtil {
 //        return object.getClass().getClassLoader();
 //    }
     
-    public int toNumber(final char value) {
+    public int toNumberFromChar(final char value) {
         return (int) value;
     }
 
