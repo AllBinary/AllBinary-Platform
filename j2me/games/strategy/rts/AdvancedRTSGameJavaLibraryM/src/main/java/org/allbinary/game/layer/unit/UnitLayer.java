@@ -19,6 +19,7 @@ import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.J2MEUtil;
+import org.allbinary.ag.weapon.media.audio.ExplosionBasicSound;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
@@ -123,9 +124,7 @@ import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListS;
-import org.allbinary.view.ViewPosition;
 import org.allbinary.view.ViewPositionBase;
-import org.allbinary.weapon.media.audio.ExplosionBasicSound;
 
 /**
  * 

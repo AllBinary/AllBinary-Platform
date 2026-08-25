@@ -16,6 +16,7 @@ package org.allbinary.game.layer.building;
 import java.util.Hashtable;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.ag.weapon.media.audio.ExplosionBasicSound;
 
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.animation.NullIndexedAnimationFactory;
@@ -59,7 +60,6 @@ import org.allbinary.media.graphics.geography.map.GeographicMapDirectionUtil;
 import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayListS;
-import org.allbinary.weapon.media.audio.ExplosionBasicSound;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
 public class BuildingLayer
