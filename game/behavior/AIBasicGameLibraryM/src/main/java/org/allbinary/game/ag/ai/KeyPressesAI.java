@@ -13,28 +13,21 @@
 */
 package org.allbinary.game.ag.ai;
 
-import jsinterop.annotations.JsType;
-
 import java.util.Hashtable;
 
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.util.HashtableUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 import org.allbinary.game.ai.BasicAI;
 
 
-@JsType
 public class KeyPressesAI extends BasicAI {
 
    private boolean on = true;
-   @JsProperty
+   
    protected Integer[] keys;
 
-   @JsConstructor
    public KeyPressesAI(Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
       super(ownerLayerInterface, gameInput);
 
@@ -49,7 +42,6 @@ public class KeyPressesAI extends BasicAI {
    }
 
    @Override
-   @JsMethod
    public void processAI(AllBinaryLayerManager allBinaryLayerManager)
         throws Exception {
       if (this.on) {
@@ -60,7 +52,6 @@ public class KeyPressesAI extends BasicAI {
       }
    }
 
-   @JsMethod
    public void toggle() throws Exception {
       if (this.isOn()) {
          this.setOn(false);
@@ -69,22 +60,18 @@ public class KeyPressesAI extends BasicAI {
       }
    }
 
-   @JsMethod
    public void disable() throws Exception {
        this.setOn(false);
-    }
+   }
 
-   @JsMethod
    public void enable() throws Exception {
        this.setOn(true);
    }
    
-   @JsMethod
    private void setOn(boolean on) {
       this.on = on;
    }
 
-   @JsMethod
    protected boolean isOn() {
       return this.on;
    }

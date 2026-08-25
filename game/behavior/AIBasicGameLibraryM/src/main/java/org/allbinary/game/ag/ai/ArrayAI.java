@@ -13,23 +13,16 @@
 */
 package org.allbinary.game.ag.ai;
 
-import jsinterop.annotations.JsType;
-
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 import org.allbinary.game.ai.BasicAI;
 
-
-@JsType
 public class ArrayAI extends BasicAI
 {
    private final ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray;
 
-   @JsConstructor
    public ArrayAI(ArtificialIntelligenceInterface[] artificialIntelligenceInterface,
            AllBinaryLayer ownerLayerInterface,
       GameInput gameInput)
@@ -39,7 +32,6 @@ public class ArrayAI extends BasicAI
    }
 
    @Override
-   @JsMethod
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
       int size = this.artificialIntelligenceInterfaceArray.length;
@@ -49,7 +41,6 @@ public class ArrayAI extends BasicAI
       }
    }
 
-   @JsMethod
    public ArtificialIntelligenceInterface[] getArtificialIntelligenceInterface()
    {
       return this.artificialIntelligenceInterfaceArray;

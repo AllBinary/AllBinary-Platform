@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.ag.ai.tactical;
 
-import jsinterop.annotations.JsType;
-
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.game.ai.BasicAI;
@@ -22,26 +20,18 @@ import org.allbinary.game.input.GameInput;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
-
-@JsType
 public class LurchAI  extends BasicAI
 {
-   @JsProperty
    protected int currentRelativeAngle = 0;
    private int currentSpeed;
 
-   @JsConstructor
    public LurchAI(AllBinaryLayer ownerLayerInterface, GameInput gameInput)
    {
       super(ownerLayerInterface, gameInput);
    }
 
    @Override
-   @JsMethod
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) 
            throws Exception
    {
@@ -92,7 +82,6 @@ public class LurchAI  extends BasicAI
       }
    }
    
-   @JsMethod
    protected void reverse()
    {
       if (this.currentRelativeAngle == 180)
@@ -104,7 +93,6 @@ public class LurchAI  extends BasicAI
       }
    }
 
-   @JsMethod
    private void accelerate()
    {
       if (this.currentSpeed < 20)
@@ -113,7 +101,6 @@ public class LurchAI  extends BasicAI
       }
    }
 
-   @JsMethod
    private void drop()
    {
        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();

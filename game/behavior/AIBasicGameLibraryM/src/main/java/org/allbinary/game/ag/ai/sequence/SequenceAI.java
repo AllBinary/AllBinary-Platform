@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.ag.ai.sequence;
 
-import jsinterop.annotations.JsType;
-
 import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.ai.ArtificialIntelligenceTransitionInterface;
@@ -24,31 +22,24 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
-
-@JsType
 public class SequenceAI extends ArrayAI
 {
     private static final String SEQUENCE_AI = "Sequence AI";
     
    private int index;
 
-   @JsConstructor
    public SequenceAI(final ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
    {
       super(artificialIntelligenceInterfaceArray, ownerLayerInterface, gameInput);
    }
 
    @Override
-   @JsMethod
    public void processAI(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
       this.getArtificialIntelligenceInterface()[this.index].processAI(allBinaryLayerManager);
    }
 
-   @JsMethod
    public void next()
    {
       this.index++;
@@ -65,32 +56,27 @@ public class SequenceAI extends ArrayAI
 
    }
 
-   @JsMethod
    public int getIndex()
    {
       return this.index;
    }
 
-   @JsMethod
    public void setIndex(final int index)
    {
       this.index = index;
    }
 
-   @JsMethod
    public ArtificialIntelligenceInterface getSelectedArtificialIntelligenceInterface()
    {
       return this.getArtificialIntelligenceInterface()[this.index];
    }
    
    @Override
-   @JsMethod
    public String getName()
    {
        return SequenceAI.SEQUENCE_AI;
    }
    
-   @JsMethod
    public String toString()
    {
        final StringMaker stringBuffer = new StringMaker();
