@@ -36,10 +36,10 @@ implements ColorChangeListener
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     @JsConstructor
-    public GameScrollMenuPaintable(Paintable mainDemoStatePaintable, 
-            Paintable ownershipPaintable, 
-            Paintable helpPaintableInterface, 
-            BasicColor basicColor)
+    public GameScrollMenuPaintable(final Paintable mainDemoStatePaintable, 
+            final Paintable ownershipPaintable, 
+            final Paintable helpPaintableInterface, 
+            final BasicColor basicColor)
     {
         super(mainDemoStatePaintable, ownershipPaintable, helpPaintableInterface);
     
@@ -49,7 +49,7 @@ implements ColorChangeListener
 
     @Override
     @JsMethod
-    public void setState(int state)
+    public void setState(final int state)
     {
         //this.logUtil.putF("Setting Main Demo State Paintable", this, "setState");
         this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
@@ -58,31 +58,33 @@ implements ColorChangeListener
     
     @Override
     @JsMethod
-    public void onEvent(AllBinaryEventObject eventObject)
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
     }
     
     @JsMethod
-    protected void setColor(BasicColor basicColor)
+    protected void setColor(final BasicColor basicColor)
     {
-        MainGameDemoStatePaintable mainGameDemoStatePaintable = 
+        final MainGameDemoStatePaintable mainGameDemoStatePaintable = 
             (MainGameDemoStatePaintable) this.getMainDemoStatePaintable();
         
-        FormPaintable formPaintable = (FormPaintable) 
+        final FormPaintable formPaintable = (FormPaintable) 
         mainGameDemoStatePaintable.getMenuPaintableInterface();
         
-        ScrollSelectionForm scrollSelectionForm = 
+        final ScrollSelectionForm scrollSelectionForm = 
             (ScrollSelectionForm) formPaintable.getForm();
         
         mainGameDemoStatePaintable.getOwnershipPaintableInterface().setBasicColorP(basicColor);
         
         scrollSelectionForm.setButtonBasicColor(basicColor);
         
+        ABTextItem item;
+        ABStringComponent stringComponent;
         for(int index = scrollSelectionForm.size() - 1; index >= 0; index--)
         {
-            ABTextItem item = (ABTextItem) scrollSelectionForm.get(index);
+            item = (ABTextItem) scrollSelectionForm.get(index);
             
-            ABStringComponent stringComponent = item.getLabelStringComponent();
+            stringComponent = item.getLabelStringComponent();
             
             if(stringComponent != null)
             {

@@ -21,11 +21,11 @@ public class CommandTextItem extends ABTextItem {
 
     private final Command command;
 
-    public CommandTextItem(Command command, int layout, String altText, 
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    public CommandTextItem(final Command command, final int layout, final String altText, 
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         super(command.getLabel(), layout, altText, backgroundBasicColor, foregroundBasicColor);
-
+        
         this.command = command;
     }
 

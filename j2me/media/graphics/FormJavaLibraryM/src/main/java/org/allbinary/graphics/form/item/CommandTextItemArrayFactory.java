@@ -35,20 +35,20 @@ import jsinterop.annotations.JsConstructor;
 public class CommandTextItemArrayFactory
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
+    //protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final BasicArrayList list = new BasicArrayListD();
  
     private final Visitor visitorInterface;
 
     @JsConstructor
-    public CommandTextItemArrayFactory( 
-            final Visitor visitorInterface)
+    public CommandTextItemArrayFactory(final Visitor visitorInterface)
     {
         this.visitorInterface = visitorInterface;
     }
 
     @JsMethod
-    public final ABCustomItem[] getInstance(Vector<Object> vector, 
+    public final ABCustomItem[] getInstance(final Vector<Object> vector, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         int size = vector.size();
@@ -78,11 +78,8 @@ public class CommandTextItemArrayFactory
             //isNotPriority || command.getPriority() == 3
             if (command.getPriority() < priorityLimit)
             {
-                //this.logUtil.putF("Label: "
-                  //      + command.getLabel(), this, this.commonStrings.GET_INSTANCE);
-
-                //PreLogUtil.put("Label: "
-                  //      + command.getLabel(), this, this.commonStrings.GET_INSTANCE);
+                //this.logUtil.putF("Label: " + command.getLabel(), this, this.commonStrings.GET_INSTANCE);
+                //PreLogUtil.put("Label: " + command.getLabel(), this, this.commonStrings.GET_INSTANCE);
                 
                 Boolean aBoolean = (Boolean) this.visitorInterface.visit(command);
                 if(aBoolean.booleanValue())
