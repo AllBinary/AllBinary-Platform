@@ -35,7 +35,7 @@ public class BaseTouchInput
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     
     @JsConstructor
-    BaseTouchInput()
+    public BaseTouchInput()
     {
         
     }
