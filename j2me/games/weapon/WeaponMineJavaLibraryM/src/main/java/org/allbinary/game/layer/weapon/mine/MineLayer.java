@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.layer.weapon.mine;
 
+import org.allbinary.ag.weapon.media.audio.DropWeaponSound;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.layer.weapon.SimpleWeaponLayer;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
@@ -23,7 +24,6 @@ import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.physics.movement.NoMovementFactory;
 import org.allbinary.view.ViewPositionBase;
 import org.allbinary.view.event.ViewPositionEventHandler;
-import org.allbinary.weapon.media.audio.DropWeaponSound;
 
 public class MineLayer extends SimpleWeaponLayer
 {   

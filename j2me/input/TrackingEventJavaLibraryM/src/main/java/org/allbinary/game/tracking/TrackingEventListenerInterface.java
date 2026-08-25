@@ -13,11 +13,16 @@
 */
 package org.allbinary.game.tracking;
 
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsType;
 import org.allbinary.logic.util.event.EventListenerInterface;
 
+@JsType
 public interface TrackingEventListenerInterface 
    extends EventListenerInterface
 {
+    
+   @JsMethod
    void onMovement(TrackingEvent trackingEvent)
       throws Exception;
 }

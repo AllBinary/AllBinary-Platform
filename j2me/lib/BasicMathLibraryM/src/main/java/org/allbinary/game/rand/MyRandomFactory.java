@@ -15,15 +15,21 @@ package org.allbinary.game.rand;
 
 import java.util.Random;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 //Do not use in client code for money related things.
+@JsType
 public class MyRandomFactory
 {
     private static final MyRandomFactory instance = new MyRandomFactory();
 
+    @JsMethod
     public static MyRandomFactory getInstance()
     {
         return MyRandomFactory.instance;
@@ -33,28 +39,33 @@ public class MyRandomFactory
     
     private Random rand;
 
+    @JsConstructor
     private MyRandomFactory()
     {
         this.rand = new Random(System.currentTimeMillis());
     }
 
+    @JsMethod
     public void setSeed(long seed)
     {
         this.rand = new Random(seed);
     }
 
     //Example: 3 would result in the possible results 0, 1, 2, -1, -2.
+    @JsMethod
     public int getNextInt(int range)
     {
         int div = (Integer.MAX_VALUE / range) + 1;
         return (int) (this.rand.nextInt() / div);
     }
 
+    @JsMethod
     public int getAbsoluteNextInt(int range)
     {
         return this.mathUtil.abs(this.getNextInt(range));
     }
 
+    @JsMethod
     public int getAbsoluteNextIntAllowZero(int range)
     {
         if (range == 0)
@@ -67,10 +78,12 @@ public class MyRandomFactory
         }
     }
     
+    @JsMethod
     public void shuffle(final int[] intArray) {
         this.shuffleTotal(intArray, intArray.length * 7);
     }
     
+    @JsMethod
     public void shuffleTotal(final int[] intArray, final int shuffleTotal) {
         final int size = intArray.length;
         int randomIndex;
@@ -85,10 +98,12 @@ public class MyRandomFactory
         }
     }
 
+    @JsMethod
     public void shuffle2(final int[] intArray, final int[] intArray2) {
         this.shuffle2Total(intArray, intArray2, intArray.length * 7);
     }
     
+    @JsMethod
     public void shuffle2Total(final int[] intArray, final int[] intArray2, final int shuffleTotal) {
         final int size = intArray.length;
         int randomIndex;
@@ -107,6 +122,7 @@ public class MyRandomFactory
         }
     }
     
+    @JsMethod
     public static void main(final String[] args) {
         final MyRandomFactory randomFactory = MyRandomFactory.getInstance();
         

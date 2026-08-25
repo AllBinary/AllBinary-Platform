@@ -11,22 +11,22 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.weapon.media.audio;
+package org.allbinary.ag.weapon.media.audio;
 
 import org.allbinary.media.audio.CompositeSound;
 import org.allbinary.media.audio.Sound;
 
-public class ExplosionBasicSound extends CompositeSound
+public class DropWeaponSound extends CompositeSound
 {
-   private static Sound soundInterface = new ExplosionBasicSound();
+   private static Sound soundInterface = new DropWeaponSound();
    
-   private ExplosionBasicSound()
+   private DropWeaponSound()
    {
-       super("resource:/wav/explosion.wav");
+       super("resource:/wav/mine.wav");
    }
    
    public static Sound getInstance()
    {
-      return ExplosionBasicSound.soundInterface;
+      return DropWeaponSound.soundInterface;
    }
 }

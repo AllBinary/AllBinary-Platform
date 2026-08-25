@@ -14,7 +14,11 @@
 package org.allbinary.game.tracking;
 
 import javax.microedition.lcdui.Graphics;
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+@JsType
 public class Tracking 
 {
     //private final DisplayInfoSingleton displayInfoSingleton = 
@@ -34,6 +38,7 @@ public class Tracking
    private int trackingHeight[];
     */
    
+   @JsConstructor
    public Tracking()
    {
       /*
@@ -46,6 +51,7 @@ public class Tracking
       
    }
 
+   @JsMethod
    public void paint(Graphics graphics)
    {
 

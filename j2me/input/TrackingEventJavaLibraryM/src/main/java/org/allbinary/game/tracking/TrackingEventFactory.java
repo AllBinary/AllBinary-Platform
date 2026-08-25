@@ -13,17 +13,23 @@
 */
 package org.allbinary.game.tracking;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+@JsType
 public class TrackingEventFactory 
 implements AllBinaryEventObjectFactoryInterface
 {
+    @JsConstructor
     public TrackingEventFactory()
     {
     }
  
     @Override
+    @JsMethod
     public AllBinaryEventObject getInstance()
     {
         return new TrackingEvent(TrackingEventHandler.getInstance());

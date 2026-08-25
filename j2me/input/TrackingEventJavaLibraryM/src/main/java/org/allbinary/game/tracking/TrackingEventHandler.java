@@ -13,16 +13,21 @@
 */
 package org.allbinary.game.tracking;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+@JsType
 public class TrackingEventHandler extends BasicEventHandler
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
    private static final TrackingEventHandler instance = new TrackingEventHandler();
 
+   @JsMethod
    public static TrackingEventHandler getInstance()
    {
       return TrackingEventHandler.instance;
@@ -30,6 +35,7 @@ public class TrackingEventHandler extends BasicEventHandler
    
    //private final BasicArrayList list = new BasicArrayListD();
    
+   @JsConstructor
    private TrackingEventHandler()
    {
    }
@@ -76,6 +82,7 @@ public class TrackingEventHandler extends BasicEventHandler
    */
    
    @Override
+   @JsMethod
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 

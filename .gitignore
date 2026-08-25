@@ -10,6 +10,5 @@ bin/
 gen/
 j2me/games/platform/AllBinaryGameClientNoPlatformJavaDocApplicationM/src
 
-/allbinary_src/PreLoaderJavaLibrary/nbproject/private
 /automation/InputAutomationJavaApplicationM/src/main/resources
 /automation/InputAutomationGenericModuleJavaLibraryM/src/main/resources
