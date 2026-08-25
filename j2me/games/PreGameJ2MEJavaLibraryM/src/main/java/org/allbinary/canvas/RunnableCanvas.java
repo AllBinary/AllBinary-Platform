@@ -213,7 +213,6 @@ public class RunnableCanvas extends MyCanvas
     }
 
     @Override
-    @JsMethod
     protected void showNotify()
     {
         try
