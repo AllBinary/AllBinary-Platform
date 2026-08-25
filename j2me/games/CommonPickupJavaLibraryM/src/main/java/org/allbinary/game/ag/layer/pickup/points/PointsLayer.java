@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup.points;
+package org.allbinary.game.ag.layer.pickup.points;
 
 import javax.microedition.lcdui.Graphics;
 

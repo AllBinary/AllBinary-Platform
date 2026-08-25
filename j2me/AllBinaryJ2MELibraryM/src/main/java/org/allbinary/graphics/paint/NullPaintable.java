@@ -13,15 +13,22 @@
 */
 package org.allbinary.graphics.paint;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+@JsType
 public class NullPaintable extends Paintable
 {
    private static final NullPaintable SINGLETON = new NullPaintable();
    
+   @JsConstructor
    private NullPaintable()
    {
       
    }
    
+   @JsMethod
    public static Paintable getInstance()
    {
       return NullPaintable.SINGLETON;

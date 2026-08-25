@@ -11,25 +11,25 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup.life;
+package org.allbinary.game.ag.layer.pickup.health;
 
 /**
  *
  * @author Berthelot, Travis
  * @version 1.0
  */
-public class LifeResources {
+public class HealthResources {
 
-    private static final LifeResources SINGLETON = new LifeResources();
+    private static final HealthResources SINGLETON = new HealthResources();
     
-    public String RESOURCE = "life_drop_20_by_20.png";
+    public String RESOURCE = "health_drop_20_by_20.png";
 
-    private LifeResources()
+    private HealthResources()
     {
     }
 
-    public static LifeResources getInstance()
+    public static HealthResources getInstance()
     {
-        return LifeResources.SINGLETON;
+        return HealthResources.SINGLETON;
     }
 }

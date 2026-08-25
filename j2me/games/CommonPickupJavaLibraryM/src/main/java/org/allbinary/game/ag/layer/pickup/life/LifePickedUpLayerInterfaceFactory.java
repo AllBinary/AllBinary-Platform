@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup.life;
+package org.allbinary.game.ag.layer.pickup.life;
 
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;

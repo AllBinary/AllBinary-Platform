@@ -13,32 +13,39 @@
 */
 package org.allbinary.game.layer.drop;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
-
+@JsType
 public class DropLayerFactory 
 {
    private static final DropLayerFactory DROP_LAYER_FACTORY = new DropLayerFactory();
    
    private final BasicArrayList list = new BasicArrayListD();
 
+   @JsConstructor
    private DropLayerFactory()
    {
    }
 
+   @JsMethod
    public void clear()
    {
        this.list.clear();
    }
    
+   @JsMethod
    public static DropLayerFactory getInstance()
    {
       return DropLayerFactory.DROP_LAYER_FACTORY;
    }
    
+   @JsMethod
    public int getSize()
    {
       return this.list.size();
@@ -53,16 +60,19 @@ public class DropLayerFactory
    
    private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
    
+   @JsMethod
    public PickedUpLayerInterfaceFactoryInterface getRandomInstance()
    {
       return (PickedUpLayerInterfaceFactoryInterface) this.basicArrayListUtil.getRandom(this.list);
    }
 
+   @JsMethod
    public void add(PickedUpLayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
    {
       this.list.add(layerInterfaceFactoryInterface);
    }
    
+   @JsMethod
    public BasicArrayList getList() {
        return this.list;
        }   

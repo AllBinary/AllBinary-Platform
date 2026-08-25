@@ -11,35 +11,44 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup.life;
+package org.allbinary.game.ag.layer.pickup.health;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.game.life.Life;
-import org.allbinary.game.life.LifeVisitorInterface;
+import org.allbinary.game.health.HealthInterface;
+import org.allbinary.game.health.HealthVisitorInterface;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.view.ViewPosition;
 
-public class LifeLayer extends AllBinaryLayer
-        implements LifeVisitorInterface
+public class HealLayer extends AllBinaryLayer
+        implements HealthVisitorInterface
 {
-   public LifeLayer()
+
+   public HealLayer()
       throws Exception
    {
       super(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD());
    }
-   
-   @Override
+
+   @Override   
    public void paint(Graphics graphics)
    {
    }
    
    @Override
-   public void visit(Life lifeInterface)
+   public void visit(HealthInterface healthInterface)
    {
-      lifeInterface.add((short) 1);
+       //If not alive then heal should fail
+      if(healthInterface.isAlive())
+      {
+          healthInterface.healMax();
+      }
+      else
+      {
+          this.logUtil.putF("Heal attempt on dead: Does not currently occur", this, "visit");
+      }
    }
 }

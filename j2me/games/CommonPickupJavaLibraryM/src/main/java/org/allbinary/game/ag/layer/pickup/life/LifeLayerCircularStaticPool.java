@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup.life;
+package org.allbinary.game.ag.layer.pickup.life;
 
 import org.allbinary.game.life.Life;
 import org.allbinary.game.life.LifeInterfaceCompositeInterface;

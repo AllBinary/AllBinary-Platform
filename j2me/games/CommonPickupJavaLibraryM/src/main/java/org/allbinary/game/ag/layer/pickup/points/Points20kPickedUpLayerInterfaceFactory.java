@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup.points;
+package org.allbinary.game.ag.layer.pickup.points;
 
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.configuration.GameConfigurationUtil;
@@ -23,7 +23,7 @@ import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
 import org.allbinary.game.layer.pickup.PickupProcessorInterface;
 import org.allbinary.layer.AllBinaryLayer;
 
-public class Points30kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory
+public class Points20kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory
    implements PickupProcessorInterface
 {
    private static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
@@ -31,21 +31,21 @@ public class Points30kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfa
    public static void init()
       throws Exception
    {
-      Points30kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new Points30kPickedUpLayerInterfaceFactory();
+      Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new Points20kPickedUpLayerInterfaceFactory();
    }
    
    private PointsLayerCircularStaticPool pool = 
       new PointsLayerCircularStaticPool(
-          new PointsLayerFactory(GameConfigurationUtil.getInstance().getCompetitionValue() * 30000), 1
+          new PointsLayerFactory(GameConfigurationUtil.getInstance().getCompetitionValue() * 20000), 1
       );
    
-   private Points30kPickedUpLayerInterfaceFactory()
+   private Points20kPickedUpLayerInterfaceFactory()
       throws Exception
    {
       super(PickedUpLayerTypeFactory.getInstance().POINTS, 
     		  IconLayerFactory.getInstance(
-              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_3).getInstance(0), 10, 10),
-              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_3).getInstance(0));
+              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0), 10, 10),
+              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0));
    }
 
    public int getTotal()
@@ -55,7 +55,7 @@ public class Points30kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfa
    
    public static PickedUpLayerInterfaceFactoryInterface getInstance()
    {
-      return Points30kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
+      return Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
    }
 
    @Override

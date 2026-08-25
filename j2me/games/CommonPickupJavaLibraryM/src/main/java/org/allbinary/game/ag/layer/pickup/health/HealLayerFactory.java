@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup.points;
+package org.allbinary.game.ag.layer.pickup.health;
 
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerFactoryInterface;
@@ -20,20 +20,12 @@ import org.allbinary.layer.AllBinaryLayerFactoryInterface;
  *
  * @author user
  */
-public class PointsLayerFactory 
-implements AllBinaryLayerFactoryInterface
+public class HealLayerFactory implements AllBinaryLayerFactoryInterface
 {
-	private final int points;
-	
-	public PointsLayerFactory(int points)
-	{
-		this.points = points;
-	}
-
-        @Override
+    @Override
    public AllBinaryLayer getInstance() 
       throws Exception
    {
-      return new PointsLayer(this.points);
+      return new HealLayer();
    }
 }

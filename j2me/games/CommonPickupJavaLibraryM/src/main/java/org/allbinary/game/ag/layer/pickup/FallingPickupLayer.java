@@ -11,9 +11,11 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup;
+package org.allbinary.game.ag.layer.pickup;
 
 import org.allbinary.animation.NullAnimationFactory;
+import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
+import org.allbinary.game.layer.pickup.PickupLayer;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.game.tick.TickableInterface;
 import org.allbinary.graphics.PointFactory;

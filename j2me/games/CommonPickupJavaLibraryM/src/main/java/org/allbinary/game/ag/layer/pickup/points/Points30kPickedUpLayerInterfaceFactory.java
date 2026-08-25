@@ -11,9 +11,10 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup.health;
+package org.allbinary.game.ag.layer.pickup.points;
 
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
+import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
 import org.allbinary.game.layer.pickup.IconLayerFactory;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactory;
@@ -22,40 +23,39 @@ import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
 import org.allbinary.game.layer.pickup.PickupProcessorInterface;
 import org.allbinary.layer.AllBinaryLayer;
 
-public class HealPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory
+public class Points30kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory
    implements PickupProcessorInterface
 {
    private static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-
+   
    public static void init()
       throws Exception
    {
-      HealPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface =
-         new HealPickedUpLayerInterfaceFactory();
+      Points30kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new Points30kPickedUpLayerInterfaceFactory();
    }
-
-   private HealLayerCircularStaticPool pool = 
-      new HealLayerCircularStaticPool(
-          new HealLayerFactory(), 1
+   
+   private PointsLayerCircularStaticPool pool = 
+      new PointsLayerCircularStaticPool(
+          new PointsLayerFactory(GameConfigurationUtil.getInstance().getCompetitionValue() * 30000), 1
       );
    
-   private HealPickedUpLayerInterfaceFactory()
+   private Points30kPickedUpLayerInterfaceFactory()
       throws Exception
    {
-      super(PickedUpLayerTypeFactory.getInstance().HEAL,
-         IconLayerFactory.getInstance(
-         FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstance(0), 10, 10),
-         FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(HealthResources.getInstance().RESOURCE).getInstance(0));
+      super(PickedUpLayerTypeFactory.getInstance().POINTS, 
+    		  IconLayerFactory.getInstance(
+              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_3).getInstance(0), 10, 10),
+              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_3).getInstance(0));
    }
 
    public int getTotal()
    {
       return 1;
    }
-
+   
    public static PickedUpLayerInterfaceFactoryInterface getInstance()
    {
-      return HealPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
+      return Points30kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
    }
 
    @Override

@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup.health;
+package org.allbinary.game.ag.layer.pickup.health;
 
 import org.allbinary.game.health.HealthInterface;
 import org.allbinary.game.health.HealthInterfaceCompositeInterface;

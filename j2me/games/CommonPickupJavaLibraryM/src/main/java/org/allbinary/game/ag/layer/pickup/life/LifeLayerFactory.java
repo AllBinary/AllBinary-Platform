@@ -11,19 +11,21 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.pickup;
+package org.allbinary.game.ag.layer.pickup.life;
 
-import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
-public class FallingPickupLayerFactory 
-   implements AllBinaryLayerFactoryInterface
+/**
+ *
+ * @author user
+ */
+public class LifeLayerFactory implements AllBinaryLayerFactoryInterface
 {
     @Override
    public AllBinaryLayer getInstance() 
       throws Exception
    {
-       return new FallingPickupLayer(RemoteInfo.REMOTE_INFO);
+      return new LifeLayer();
    }
 }

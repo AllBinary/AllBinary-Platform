@@ -13,11 +13,17 @@
 */
 package org.allbinary.game.physics.acceleration;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
+@JsType
 public class BasicAccelerationProperties {
 
 	private int forward;
 	private int reverse;
 	
+	@JsConstructor
 	public BasicAccelerationProperties(
 			int forward, int reverse)
 	{
@@ -25,16 +31,20 @@ public class BasicAccelerationProperties {
 		this.setReverse(reverse);
 	}
 	
+	@JsMethod
 	public void setReverse(int reverse) {
 		this.reverse = reverse;
 	}
+	@JsMethod
 	public int getReverse() {
 		return this.reverse;
 	}
 	
+	@JsMethod
 	public void setForward(int forward) {
 		this.forward = forward;
 	}
+	@JsMethod
 	public int getForward() {
 		return this.forward;
 	}
