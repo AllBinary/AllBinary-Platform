@@ -13,16 +13,22 @@
 */
 package org.allbinary.logic.system;
 
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsType;
+
 import org.allbinary.KotlinUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
+@JsType
 public class SoftwareInformation
 {
     private final String name;
     private final String shortName;
     private final String version;
     
+    @JsConstructor
     public SoftwareInformation(final String name, final String version, final String shortName)
     {
         this.name = name;
@@ -32,20 +38,24 @@ public class SoftwareInformation
         this.shortName = new StringMaker().append(shortName).append(KotlinUtil.getShortName()).toString();
     }
     
+    @JsMethod
     public String getName()
     {
         return this.name;
     }
 
+    @JsMethod
     public String getVersion()
     {
         return this.version;
     }
 
+    @JsMethod
     public String toShortString() {
         return this.shortName;
     }
     
+    @JsMethod
     public String toString()
     {
         final String NAME = "Name: ";
