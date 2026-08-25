@@ -11,12 +11,13 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.ai;
+package org.allbinary.game.ag.ai;
 
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.bounds.BoundsVisitorInterface;
 import org.allbinary.bounds.LayerBounds;
+import org.allbinary.game.ai.BasicAI;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;

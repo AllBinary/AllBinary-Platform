@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.ai.scroller;
+package org.allbinary.game.ag.ai.scroller;
 
 import java.util.Hashtable;
 

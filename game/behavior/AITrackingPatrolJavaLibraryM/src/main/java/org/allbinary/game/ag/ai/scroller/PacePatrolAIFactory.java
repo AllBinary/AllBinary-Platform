@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.ai.scroller;
+package org.allbinary.game.ag.ai.scroller;
 
 import java.util.Hashtable;
 
@@ -21,15 +21,15 @@ import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
-public class TerrainPatrolAIFactory
+public class PacePatrolAIFactory 
     implements ArtificialIntelligenceInterfaceFactoryInterface
 {
     @Override
     public ArtificialIntelligenceInterface getInstance(
-          final Hashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+          Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
           throws Exception
     {
-        hashtable.put(BasePatrolAI.MAX_DISTANCE, SmallIntegerSingletonFactory.getInstance().getAt(220));
-    	return new TerrainPatrolAI(hashtable, ownerLayerInterface, gameInput);
+      hashtable.put(BasePatrolAI.MAX_DISTANCE, SmallIntegerSingletonFactory.getInstance().getAt(220));
+    	return new PacePatrolAI(hashtable, ownerLayerInterface, gameInput);
     }
 }

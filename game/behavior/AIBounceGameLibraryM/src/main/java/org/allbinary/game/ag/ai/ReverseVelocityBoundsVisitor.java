@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.ai;
+package org.allbinary.game.ag.ai;
 
 import org.allbinary.bounds.BoundsVisitorInterface;
 import org.allbinary.game.physics.velocity.VelocityInterface;

@@ -11,16 +11,17 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.ai.scroller;
+package org.allbinary.game.ag.ai.scroller;
 
 import java.util.Hashtable;
 
 import org.allbinary.ai.ArtificialIntelligenceInterface;
+import org.allbinary.game.ag.ai.ArrayAI;
 import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 
-public class HorizontalScreenPatrolFiringAIFactory
+public class RandomPatrolFlockingFiringAIFactory
     implements ArtificialIntelligenceInterfaceFactoryInterface
 {
     @Override
@@ -28,18 +29,18 @@ public class HorizontalScreenPatrolFiringAIFactory
           Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
           throws Exception
     {
-        //ArtificialIntelligenceInterface[] artificialIntelligenceInterface =
-            //new ArtificialIntelligenceInterface[1];
+        ArtificialIntelligenceInterface[] artificialIntelligenceInterface =
+            new ArtificialIntelligenceInterface[2];
         
-        //artificialIntelligenceInterface[0] = 
-        return new HorizontalScreenPatrolAI(hashtable, ownerLayerInterface, gameInput);
+        artificialIntelligenceInterface[0] = 
+            new RandomPatrolAI(hashtable, ownerLayerInterface, gameInput);
 
-        //artificialIntelligenceInterface[1] = 
-          //  new TimedFireAI(3200, ownerLayerInterface, gameInput);
+        artificialIntelligenceInterface[1] = 
+            new TimedFireAI(1800, ownerLayerInterface, gameInput);
 
         //artificialIntelligenceInterface[2] = 
           //  new FlockingAI(hashtable, ownerLayerInterface, gameInput);
         
-    	//return new ArrayAI(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
+    	return new ArrayAI(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
     }
 }

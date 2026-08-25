@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.ai.scroller;
+package org.allbinary.game.ag.ai.scroller;
 
 import java.util.Hashtable;
 
@@ -20,7 +20,7 @@ import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 
-public class RandomPatrolAIFactory
+public class HorizontalScreenPatrolFiringAIFactory
     implements ArtificialIntelligenceInterfaceFactoryInterface
 {
     @Override
@@ -28,6 +28,18 @@ public class RandomPatrolAIFactory
           Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
           throws Exception
     {
-    	return new RandomPatrolAI(hashtable, ownerLayerInterface, gameInput);
+        //ArtificialIntelligenceInterface[] artificialIntelligenceInterface =
+            //new ArtificialIntelligenceInterface[1];
+        
+        //artificialIntelligenceInterface[0] = 
+        return new HorizontalScreenPatrolAI(hashtable, ownerLayerInterface, gameInput);
+
+        //artificialIntelligenceInterface[1] = 
+          //  new TimedFireAI(3200, ownerLayerInterface, gameInput);
+
+        //artificialIntelligenceInterface[2] = 
+          //  new FlockingAI(hashtable, ownerLayerInterface, gameInput);
+        
+    	//return new ArrayAI(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
     }
 }

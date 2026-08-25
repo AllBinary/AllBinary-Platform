@@ -11,12 +11,13 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.ai;
+package org.allbinary.game.ag.ai;
 
 import java.util.Hashtable;
 
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.bounds.TopULayerBounds;
+import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.game.physics.velocity.VelocityInterface;
 import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;

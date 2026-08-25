@@ -11,8 +11,9 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.ai.scroller;
+package org.allbinary.game.ag.ai.scroller;
 
+import org.allbinary.game.ag.ai.scroller.PacePatrolAI;
 import java.util.Hashtable;
 
 import org.allbinary.game.input.GameInput;
