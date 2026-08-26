@@ -13,14 +13,19 @@
 */
 package org.allbinary.graphics.color;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.util.CircularIndexUtil;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
+@JsType
 public class BasicColorArrayIndexer {
    
    private BasicColor[] basicColorArray;
 
    private CircularIndexUtil circularIndexUtil;
 
+   @JsConstructor
    public BasicColorArrayIndexer(BasicColor[] basicColorArray)
    {
       this.basicColorArray = basicColorArray;
@@ -28,16 +33,19 @@ public class BasicColorArrayIndexer {
       this.circularIndexUtil = CircularIndexUtil.createInstance(this.basicColorArray.length);
    }
    
+   @JsMethod
    public void next()
    {
        this.circularIndexUtil.next();
    }
    
+   @JsMethod
    public BasicColor get()
    {
       return this.basicColorArray[this.circularIndexUtil.getIndex()];
    }
    
+   @JsMethod
    public BasicColor[] getBasicColorArray()
    {
       return this.basicColorArray;
