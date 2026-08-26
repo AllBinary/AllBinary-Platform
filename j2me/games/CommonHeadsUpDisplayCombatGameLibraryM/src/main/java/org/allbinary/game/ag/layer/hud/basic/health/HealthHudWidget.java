@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.hud.basic.health;
+package org.allbinary.game.ag.layer.hud.basic.health;
 
 import javax.microedition.lcdui.Graphics;
 
