@@ -28,6 +28,7 @@ import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.thread.SynchObject;
 
+//ImageCacheOpenGLESJavaLibrary
 public class OpenGLImageCache extends ImageCache
 {
     

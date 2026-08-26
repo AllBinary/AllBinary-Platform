@@ -15,6 +15,7 @@ package org.allbinary.image.opengles;
 
 import org.allbinary.image.ImageCache;
 
+//OpenGLESNullImageJavaLibrary
 public class OpenGLImageCacheFactory
 {
     private static ImageCache IMAGE_CACHE = ImageCache.NULL_IMAGE_CACHE;

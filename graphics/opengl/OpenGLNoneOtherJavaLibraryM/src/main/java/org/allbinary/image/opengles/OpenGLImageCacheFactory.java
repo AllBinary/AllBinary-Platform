@@ -13,8 +13,11 @@
 */
 package org.allbinary.image.opengles;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.image.ImageCache;
 
+//OpenGLNoneOtherJavaLibrary
+@JsType
 public class OpenGLImageCacheFactory
 {
     private static ImageCache IMAGE_CACHE = ImageCache.NULL_IMAGE_CACHE;
