@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.hud.basic.notification;
+package org.allbinary.game.ag.layer.hud.basic.notification;
 
 public interface GameNotificationHudCompositeInterface
 {

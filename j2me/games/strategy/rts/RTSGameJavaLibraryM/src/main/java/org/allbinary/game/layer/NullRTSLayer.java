@@ -13,12 +13,12 @@
  */
 package org.allbinary.game.layer;
 
+import org.allbinary.game.ag.layer.hud.basic.notification.GameNotificationHud;
 import org.allbinary.game.combat.destroy.event.DestroyedEvent;
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.form.NullRTSFormInputFactory;
 import org.allbinary.game.input.form.RTSFormInput;
 import org.allbinary.game.layer.capital.Capital;
-import org.allbinary.game.layer.hud.basic.notification.GameNotificationHud;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.util.event.AllBinaryEventObject;

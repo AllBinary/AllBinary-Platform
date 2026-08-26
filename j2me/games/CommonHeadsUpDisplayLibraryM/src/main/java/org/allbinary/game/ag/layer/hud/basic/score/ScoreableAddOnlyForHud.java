@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.hud.basic.score;
+package org.allbinary.game.ag.layer.hud.basic.score;
 
 import org.allbinary.game.score.Scoreable;
 

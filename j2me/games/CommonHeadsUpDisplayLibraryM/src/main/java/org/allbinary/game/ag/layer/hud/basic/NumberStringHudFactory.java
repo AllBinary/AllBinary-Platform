@@ -11,7 +11,7 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.game.layer.hud.basic;
+package org.allbinary.game.ag.layer.hud.basic;
 
 import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.graphics.color.BasicColorFactory;

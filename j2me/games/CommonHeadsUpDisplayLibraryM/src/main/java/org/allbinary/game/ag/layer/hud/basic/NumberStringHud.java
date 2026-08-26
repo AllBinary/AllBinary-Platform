@@ -11,9 +11,7 @@
 * Created By: Travis Berthelot
 * 
  */
-package org.allbinary.game.layer.hud.basic;
-
-import jsinterop.annotations.JsType;
+package org.allbinary.game.ag.layer.hud.basic;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
@@ -25,11 +23,7 @@ import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.logic.math.PrimitiveLongSingleton;
 import org.allbinary.logic.math.PrimitiveLongUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
-
-@JsType
 public class NumberStringHud extends BasicHud
     implements PaintableInterface {
     
@@ -47,7 +41,6 @@ public class NumberStringHud extends BasicHud
     private char[] valueString;
     private int valueTotalDigits;
 
-    @JsConstructor
     public NumberStringHud(final String prependString, final int max, final int location, final int direction, final int bufferZone, final BasicColor basicColor) {
         super(location, direction, bufferZone, basicColor);
 
@@ -71,24 +64,20 @@ public class NumberStringHud extends BasicHud
     }
     
     @Override
-    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         this.offset = font.stringWidth(this.prependString) + MyFontProcessor.defaultCharWidth(font);
         super.updateMeasurement(graphics);
     }
 
-    @JsMethod
     public int get() {
         return this.value;
     }
 
-    @JsMethod
     public void add(final int value) {
         this.set(this.value + value);
     }
 
-    @JsMethod
     public void set(final int value) {
         this.value = value;
         if (this.value > this.max) {
@@ -99,13 +88,11 @@ public class NumberStringHud extends BasicHud
         this.valueTotalDigits = this.primitiveLongUtil.getCurrentTotalDigits();
     }
 
-    @JsMethod
     public void reduce(final int value) {
         this.set(this.value - value);
     }
 
     @Override
-    @JsMethod
     public void paint(final Graphics graphics) {
         
         super.paintDX(graphics,
@@ -115,7 +102,6 @@ public class NumberStringHud extends BasicHud
         //super.paint(graphics, PREPEND_STRING, valueString, offset);
     }
 
-    @JsMethod
     public void paintXY(final Graphics graphics, final int x, final int y) {
         
         this.myFontProcessor.process(graphics);
@@ -137,7 +123,6 @@ public class NumberStringHud extends BasicHud
     }
 
     @Override
-    @JsMethod
     public void paintThreed(final Graphics graphics) {
     }
 

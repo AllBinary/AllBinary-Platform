@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.hud.basic.time;
+package org.allbinary.game.ag.layer.hud.basic.time;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;

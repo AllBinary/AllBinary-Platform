@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.hud.basic;
+package org.allbinary.game.ag.layer.hud.basic;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
@@ -19,8 +19,8 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.GameAdState;
-import org.allbinary.game.layer.hud.basic.notification.GameNotification;
-import org.allbinary.game.layer.hud.basic.notification.GameNotificationHud;
+import org.allbinary.game.ag.layer.hud.basic.notification.GameNotification;
+import org.allbinary.game.ag.layer.hud.basic.notification.GameNotificationHud;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.graphics.CustomGPoint;
 import org.allbinary.graphics.GPoint;

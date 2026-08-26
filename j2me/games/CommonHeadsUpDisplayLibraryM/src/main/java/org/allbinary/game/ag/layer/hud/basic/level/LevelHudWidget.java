@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.hud.basic.level;
+package org.allbinary.game.ag.layer.hud.basic.level;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;

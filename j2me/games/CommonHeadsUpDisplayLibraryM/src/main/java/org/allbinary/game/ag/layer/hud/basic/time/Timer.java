@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.hud.basic.time;
+package org.allbinary.game.ag.layer.hud.basic.time;
 
 import org.allbinary.logic.math.PrimitiveLongSingleton;
 import org.allbinary.logic.math.PrimitiveLongUtil;
