@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.life;
+package org.allbinary.game.ag.life;
 
 public class Life implements LifeInterface
 {

@@ -14,9 +14,9 @@
 package org.allbinary.game.ag.layer.pickup.life;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.game.ag.life.Life;
+import org.allbinary.game.ag.life.LifeVisitorInterface;
 
-import org.allbinary.game.life.Life;
-import org.allbinary.game.life.LifeVisitorInterface;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;

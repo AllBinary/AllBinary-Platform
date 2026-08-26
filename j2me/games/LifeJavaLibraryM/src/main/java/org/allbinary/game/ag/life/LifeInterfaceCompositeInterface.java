@@ -11,22 +11,10 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.life;
+package org.allbinary.game.ag.life;
 
 
-public interface LifeInterface
-{
-   short get();
-    
-   void set(short lives);
-    
-   void reset();
-   
-   void add(short lives);
+public interface LifeInterfaceCompositeInterface {
 
-   void deaths(short lives);
-
-   short getMaxlives();
-
-   boolean isAlive();
+   Life getLifeInterface();
 }

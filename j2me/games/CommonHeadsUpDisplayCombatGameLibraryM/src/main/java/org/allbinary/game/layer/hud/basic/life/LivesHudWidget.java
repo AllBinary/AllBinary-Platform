@@ -16,8 +16,8 @@ package org.allbinary.game.layer.hud.basic.life;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.game.ag.life.Life;
 import org.allbinary.game.graphics.hud.BasicHud;
-import org.allbinary.game.life.Life;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.paint.PaintableInterface;

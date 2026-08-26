@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.ag.layer.pickup.life;
 
-import org.allbinary.game.life.Life;
-import org.allbinary.game.life.LifeInterfaceCompositeInterface;
+import org.allbinary.game.ag.life.Life;
+import org.allbinary.game.ag.life.LifeInterfaceCompositeInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerCircularPool;
 import org.allbinary.layer.AllBinaryLayerFactoryInterface;

@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.vector;
+package org.allbinary.ag.game.vector;
 
 public class HealthVectorData 
 {
