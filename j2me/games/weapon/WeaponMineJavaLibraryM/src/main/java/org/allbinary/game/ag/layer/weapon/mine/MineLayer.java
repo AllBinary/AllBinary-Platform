@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.weapon.mine;
+package org.allbinary.game.ag.layer.weapon.mine;
 
 import org.allbinary.ag.weapon.media.audio.DropWeaponSound;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;

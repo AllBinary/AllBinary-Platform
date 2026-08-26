@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.vector;
+package org.allbinary.game.ag.vector;
 
 public class MineVectorData
 {

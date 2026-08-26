@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.weapon.mine;
+package org.allbinary.game.ag.layer.weapon.mine;
 
 import org.allbinary.game.layer.resources.BasicGameResources;
 import org.allbinary.logic.NullUtil;
