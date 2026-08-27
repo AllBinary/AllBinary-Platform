@@ -36,6 +36,7 @@ public class DirectoryOrIncludeFileExtensionBooleanFileVisitor
         this.includesString = includesString;
     }
     
+    @Override
     public Boolean visit(AbFile file)
     {
         if(file.isDirectory())

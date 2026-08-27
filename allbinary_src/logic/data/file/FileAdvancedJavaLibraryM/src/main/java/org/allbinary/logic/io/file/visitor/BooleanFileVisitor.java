@@ -34,6 +34,7 @@ public class BooleanFileVisitor
       PreLogUtil.put("Filter BasicArrayList: " + this.getFilterStringBasicArrayList().toString(), this, this.commonStrings.CONSTRUCTOR);
    }
 
+   @Override
    public Object visit(Object object)
    {
       return (Object) this.visit((AbFile) object);

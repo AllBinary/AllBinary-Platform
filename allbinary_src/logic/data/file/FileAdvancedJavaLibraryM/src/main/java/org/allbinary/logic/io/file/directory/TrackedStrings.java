@@ -31,6 +31,10 @@ public class TrackedStrings {
     public final String TARGET_PATH_WINDOWS = "\\target\\";
     public final String TARGET_PATH_UNIX = "/target/";
     
+    public final String HTML_TEMP = "HTMLTemp";
+    public final String APPLICATION = "Application";
+    public final String APP = "\\app";
+    
     public final String GIT_COMMAND = "git";
     public final String CHANGE_DIRECTORY_OPTION = "-C";
     public final String LIST_FILES_COMMAND = "ls-files";

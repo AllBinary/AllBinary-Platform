@@ -25,7 +25,7 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
     extends IncludeFileExtensionsBooleanFileVisitor {
 
     private final TrackedStrings trackedStrings = TrackedStrings.getInstance();
-    
+
     private final String includesString;
 
     public DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor(final BasicArrayList filterStringBasicArrayList) {
@@ -40,14 +40,13 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
         this.includesString = includesString;
     }
 
-    public Boolean visit(AbFile file)
-    {
-        if(file.isDirectory())
-        {
+    @Override
+    public Boolean visit(AbFile file) {
+        if (file.isDirectory()) {
             return Boolean.TRUE;
         }
-        
-        if(this.includesString == null || file.getAbsolutePath().indexOf(this.includesString) >= 0) {
+
+        if (this.includesString == null || file.getAbsolutePath().indexOf(this.includesString) >= 0) {
             return super.visit(file);
         } else {
             return Boolean.FALSE;
@@ -55,18 +54,34 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
 
     }
 
+    @Override
     public Boolean visit(AbFile file, String fileNameString) {
-        final String filePath = file.getAbsolutePath();
+        final String filePath = file.getPath();
 
-        if (!(filePath.contains(trackedStrings.TARGET_PATH_WINDOWS) || filePath.contains(trackedStrings.TARGET_PATH_UNIX)) && this.isGitTracked(file)) {
-            if (super.visit(file, fileNameString)) {
-                return Boolean.TRUE;
+        if (super.visit(file, fileNameString)) {
+            //System.out.println("path: " + filePath);
+            if (!(filePath.contains(this.trackedStrings.APPLICATION) || filePath.contains(this.trackedStrings.APP) || filePath.contains(this.trackedStrings.HTML_TEMP))) {
+            if (!(filePath.contains(this.trackedStrings.TARGET_PATH_WINDOWS) || filePath.contains(this.trackedStrings.TARGET_PATH_UNIX))) {
+                //System.out.println("Not target path");
+                if (this.isGitTracked(file)) {
+                    //System.out.println("path: " + filePath);
+                    //System.out.println("tracked");
+                    return Boolean.TRUE;
+                } else {
+                    //System.out.println("path: " + filePath);
+                    //System.out.println("not tracked");
+                }
+            } else {
+                //System.out.println("target path");
+            }
+            } else {
+                //System.out.println("app src path");
             }
         }
 
         return Boolean.FALSE;
     }
-    
+
     private boolean isGitTracked(final AbFile file) {
         try {
             final File nativeFile = AbFileNativeUtil.get(file);
@@ -82,17 +97,17 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
             return false;
         }
     }
-    
+
     public static void main(String[] args) {
         final CommonDataFileStrings commonFileStrings = CommonDataFileStrings.getInstance();
         final BasicArrayList list = new BasicArrayListD();
         list.add(commonFileStrings.JAVA);
-        final String filePath = 
+        final String filePath =
             //"G:\\mnt\\bc\\mydev\\working\\j2me\\CommonJavaLibraryM\\src\\main\\java\\org\\allbinary\\logic\\communication\\http\\HttpData.java";
             "G:\\mnt\\bc\\mydev\\games\\ZeptoRacer\\platform\\j2se\\ZeptoRacerStaticPathsJ2SEM\\target\\dependency\\org\\allbinary\\logic\\system\\security\\licensing\\ZeptoRacerPCClientInformation.java";
         final boolean result = new DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor(list)
             .visit(AbFile.createAbFileFromRawPath(filePath));
-            //.isGitTracked(AbFile.createAbFileFromRawPath(filePath));
+        //.isGitTracked(AbFile.createAbFileFromRawPath(filePath));
         System.out.println(filePath + " is Tracked: " + result);
     }
 
