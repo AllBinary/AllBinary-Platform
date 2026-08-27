@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.io.file;
 
-import java.io.Closeable;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -28,7 +26,6 @@ import org.allbinary.logic.io.AbFileLocalInputStream;
 import org.allbinary.logic.io.AbIOSystem;
 import org.allbinary.logic.io.DataOutputStreamFactory;
 import org.allbinary.logic.io.FileStreamFactory;
-import org.allbinary.logic.io.NullCloseable;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;

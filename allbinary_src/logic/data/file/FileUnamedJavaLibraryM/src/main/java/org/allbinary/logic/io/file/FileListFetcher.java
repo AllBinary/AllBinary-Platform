@@ -14,6 +14,7 @@
 package org.allbinary.logic.io.file;
 
 import org.allbinary.logic.io.file.directory.DirectoryBooleanFileVisitor;
+import org.allbinary.logic.io.file.directory.DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor;
 import org.allbinary.logic.io.file.directory.DirectoryOrIncludeFileExtensionBooleanFileVisitor;
 import org.allbinary.logic.io.file.directory.SubDirectory;
 import org.allbinary.logic.io.file.filter.VisitorFileFilter;
@@ -42,8 +43,6 @@ public class FileListFetcher
     {
         try
         {
-            
-
             final BasicArrayList files = this.subDirectory.search(AbFile.createAbFile(path));
             return files;
 
@@ -54,7 +53,7 @@ public class FileListFetcher
         }
         return null;
     }
-    
+
     public BasicArrayList getFiles(final String path, final String[] includeExtensions)
     {
         try
@@ -121,6 +120,51 @@ public class FileListFetcher
         return null;
     }
 
+    public BasicArrayList getTrackedFiles(final String path, final String[] includeExtensions)
+    {
+        try
+        {
+            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayListD();
+            final int size = includeExtensions.length;
+            for(int index = 0; index < size; index++) {
+                includeExtensionBasicArrayList.add(includeExtensions[index]);
+            }
+            final VisitorFileFilter visitorFileFilter = new VisitorFileFilter(
+                    new DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor(
+                            includeExtensionBasicArrayList));
+
+            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, AbFile.createAbFile(path));
+            return files;
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("Error: " + e + "\nMsg: " + e.getMessage());
+        }
+        return null;
+    }
+
+    public BasicArrayList getTrackedFiles(final String path, final String includeExtension)
+    {
+        try
+        {
+            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayListD();
+            includeExtensionBasicArrayList.add(includeExtension);
+            final VisitorFileFilter visitorFileFilter = new VisitorFileFilter(
+                    new DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor(
+                            includeExtensionBasicArrayList));
+
+            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, AbFile.createAbFile(path));
+            return files;
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("Error: " + e + "\nMsg: " + e.getMessage());
+        }
+        return null;
+    }
+    
     public BasicArrayList getDirectories(final String path)
     {
         try
