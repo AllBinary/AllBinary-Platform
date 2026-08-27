@@ -10,16 +10,20 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.android.input.motion.event;
+
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
-public class AnalogControllerConfigurationEvent extends AllBinaryEventObject
-{
-   public AnalogControllerConfigurationEvent(Object object)
-   {
-      super(object);
-   }
+@JsType
+public class AnalogControllerConfigurationEvent extends AllBinaryEventObject {
+
+    @JsConstructor
+    public AnalogControllerConfigurationEvent(Object object) {
+        super(object);
+    }
 
 }

@@ -13,11 +13,14 @@
 */
 package org.allbinary.game.tick;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.game.layer.AllBinaryGameLayer;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerProcessor;
 
+@JsType
 public class OptimizedTickableLayerProcessor extends LayerProcessor
 {
 
