@@ -16,8 +16,10 @@ package org.allbinary.logic.io.file.directory;
 import java.io.File;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
+import org.allbinary.logic.io.file.CommonDataFileStrings;
 import org.allbinary.logic.io.file.visitor.IncludeFileExtensionsBooleanFileVisitor;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
     extends IncludeFileExtensionsBooleanFileVisitor {
@@ -38,13 +40,14 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
         this.includesString = includesString;
     }
 
-    public Boolean visit(AbFile file) {
-        if (file.isDirectory()) {
+    public Boolean visit(AbFile file)
+    {
+        if(file.isDirectory())
+        {
             return Boolean.TRUE;
         }
-
-        final String filePath = file.getAbsolutePath();
-        if (this.includesString == null || (filePath.indexOf(this.includesString) >= 0 && (filePath.contains(trackedStrings.TARGET_PATH_WINDOWS) || filePath.contains(trackedStrings.TARGET_PATH_UNIX)) && this.isGitTracked(file))) {
+        
+        if(this.includesString == null || file.getAbsolutePath().indexOf(this.includesString) >= 0) {
             return super.visit(file);
         } else {
             return Boolean.FALSE;
@@ -52,6 +55,18 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
 
     }
 
+    public Boolean visit(AbFile file, String fileNameString) {
+        final String filePath = file.getAbsolutePath();
+
+        if (!(filePath.contains(trackedStrings.TARGET_PATH_WINDOWS) || filePath.contains(trackedStrings.TARGET_PATH_UNIX)) && this.isGitTracked(file)) {
+            if (super.visit(file, fileNameString)) {
+                return Boolean.TRUE;
+            }
+        }
+
+        return Boolean.FALSE;
+    }
+    
     private boolean isGitTracked(final AbFile file) {
         try {
             final File nativeFile = AbFileNativeUtil.get(file);
@@ -66,6 +81,19 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
         } catch (Exception e) {
             return false;
         }
+    }
+    
+    public static void main(String[] args) {
+        final CommonDataFileStrings commonFileStrings = CommonDataFileStrings.getInstance();
+        final BasicArrayList list = new BasicArrayListD();
+        list.add(commonFileStrings.JAVA);
+        final String filePath = 
+            //"G:\\mnt\\bc\\mydev\\working\\j2me\\CommonJavaLibraryM\\src\\main\\java\\org\\allbinary\\logic\\communication\\http\\HttpData.java";
+            "G:\\mnt\\bc\\mydev\\games\\ZeptoRacer\\platform\\j2se\\ZeptoRacerStaticPathsJ2SEM\\target\\dependency\\org\\allbinary\\logic\\system\\security\\licensing\\ZeptoRacerPCClientInformation.java";
+        final boolean result = new DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor(list)
+            .visit(AbFile.createAbFileFromRawPath(filePath));
+            //.isGitTracked(AbFile.createAbFileFromRawPath(filePath));
+        System.out.println(filePath + " is Tracked: " + result);
     }
 
 }
