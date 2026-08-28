@@ -136,8 +136,6 @@ public class GameMidlet extends ProgressMidlet
     @JsProperty
     protected final GameStrings gameStrings = GameStrings.getInstance();
     @JsProperty
-    protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
-    @JsProperty
     protected final GameStateFactory gameStateFactory = GameStateFactory.getInstance();
     @JsProperty
     protected final TsUtil tsUtil = TsUtil.getInstance();
@@ -230,7 +228,7 @@ public class GameMidlet extends ProgressMidlet
     {
         this.pauseAppBackground(true);
         
-        final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
+        final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
         
         gameAdState.getAdvertisements().stopAll();
     }
@@ -264,7 +262,7 @@ public class GameMidlet extends ProgressMidlet
     {
         this.unPauseAppBackground(true);
         
-        final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
+        final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
         
         gameAdState.getAdvertisements().startAll();
     }
@@ -329,7 +327,7 @@ public class GameMidlet extends ProgressMidlet
             PreLogUtil.put(GameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
             //this.logUtil.putF(this.commonStrings.START, this, METHOD_NAME);
 
-            final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
+            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
             
             gameAdState.getAdvertisements().stopAll();
             
@@ -366,7 +364,7 @@ public class GameMidlet extends ProgressMidlet
     {
         try
         {
-            final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
+            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
             
             gameAdState.getAdvertisements().startAll();
             
