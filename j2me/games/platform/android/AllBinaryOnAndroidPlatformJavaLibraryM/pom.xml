@@ -37,6 +37,14 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>CombatGameJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>OpenGLAndroidJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -140,17 +148,6 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>MusicAndroidJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>CombatGameJavaLibrary</artifactId>
-            <!--        
-            GameJ2MELibrary
-            -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->

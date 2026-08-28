@@ -157,8 +157,6 @@
         <module>../../FullScreenJavaLibraryM</module>
         -->
 
-        <module>../../lib/Basic2DVectorLibraryM</module>
-
         <module>../../../physics/VelocityLibraryM</module>
 
         <module>../../games/weapon/SoundsBasicWeaponsJavaLibraryM</module>
