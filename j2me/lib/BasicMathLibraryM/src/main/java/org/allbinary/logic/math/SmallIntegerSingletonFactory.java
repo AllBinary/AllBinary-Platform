@@ -15,6 +15,7 @@ package org.allbinary.logic.math;
 
 import jsinterop.annotations.JsType;
 
+import org.allbinary.AndroidUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import jsinterop.annotations.JsMethod;
@@ -49,7 +50,22 @@ public class SmallIntegerSingletonFactory
 
     @JsMethod
     public int getMin() {
-        final int minAllowed = (J2MEUtil.isJ2ME() ? 0 : 23);
+        final int minAllowed = (J2MEUtil.isJ2ME() ? 0 : AndroidUtil.isAndroid() ? 0x101 : 23);
+
+        //J2ME only needs 23, Androids starts with 0x101, but needs larger for Input, PC needs 0x2D0 for input
+        if(this.MIN <= minAllowed) {
+            if (J2MEUtil.isJ2ME()) {
+            } else if (AndroidUtil.isAndroid()) {
+                final LogUtil logUtil = LogUtil.getInstance();
+                logUtil.putF("Android InputFactory was initialized before GameMidlet: " + this.MIN, this, "getMin");
+                this.initWithRange(0x291, 6);
+            } else {
+                final LogUtil logUtil = LogUtil.getInstance();
+                logUtil.putF("InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: " + this.MIN, this, "getMin");
+                this.initWithRange(0x2D0, 6);
+            }
+        }
+
         if(this.MIN <= minAllowed) {
             final LogUtil logUtil = LogUtil.getInstance();
             logUtil.put("This means you loaded the InputFactory before determining the platform input size requirements.", this, "getMin", new Exception());
