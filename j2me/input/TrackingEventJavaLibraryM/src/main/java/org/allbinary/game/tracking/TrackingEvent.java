@@ -14,11 +14,12 @@
 package org.allbinary.game.tracking;
 
 import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 @JsType
 public class TrackingEvent extends AllBinaryEventObject
