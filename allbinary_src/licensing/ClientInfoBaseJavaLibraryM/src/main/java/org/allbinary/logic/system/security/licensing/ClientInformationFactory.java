@@ -14,7 +14,8 @@
 package org.allbinary.logic.system.security.licensing;
 
 import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
+
+import org.allbinary.logic.string.StringUtil;
 
 /**
  *
@@ -24,9 +25,9 @@ import jsinterop.annotations.JsMethod;
 @JsType
 public class ClientInformationFactory {
     
-    @JsMethod
     public ClientInformation getInstance() {
-        throw new RuntimeException();
+        final StringUtil stringUtil = StringUtil.getInstance();
+        return new ClientInformation(stringUtil.NULL_STRING, stringUtil.NULL_STRING, stringUtil.NULL_STRING, stringUtil.NULL_STRING);
     }
     
 }

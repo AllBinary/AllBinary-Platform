@@ -136,6 +136,8 @@ public class GameMidlet extends ProgressMidlet
     @JsProperty
     protected final GameStrings gameStrings = GameStrings.getInstance();
     @JsProperty
+    protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
+    @JsProperty
     protected final GameStateFactory gameStateFactory = GameStateFactory.getInstance();
     @JsProperty
     protected final TsUtil tsUtil = TsUtil.getInstance();
@@ -228,7 +230,7 @@ public class GameMidlet extends ProgressMidlet
     {
         this.pauseAppBackground(true);
         
-        final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+        final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
         
         gameAdState.getAdvertisements().stopAll();
     }
@@ -262,7 +264,7 @@ public class GameMidlet extends ProgressMidlet
     {
         this.unPauseAppBackground(true);
         
-        final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+        final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
         
         gameAdState.getAdvertisements().startAll();
     }
@@ -327,7 +329,7 @@ public class GameMidlet extends ProgressMidlet
             PreLogUtil.put(GameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
             //this.logUtil.putF(this.commonStrings.START, this, METHOD_NAME);
 
-            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+            final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
             
             gameAdState.getAdvertisements().stopAll();
             
@@ -364,7 +366,7 @@ public class GameMidlet extends ProgressMidlet
     {
         try
         {
-            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+            final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
             
             gameAdState.getAdvertisements().startAll();
             
@@ -991,7 +993,7 @@ public class GameMidlet extends ProgressMidlet
             this.allbinaryGameCanvasRunnableInterface;
         if (gameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
         {
-            this.logUtil.putF("Set Running False", this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+            this.logUtil.putF("Set Running False: " + gameCanvasRunnableInterface, this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
             gameCanvasRunnableInterface.setRunning(false);
         }
         else
@@ -1026,6 +1028,7 @@ public class GameMidlet extends ProgressMidlet
     public void setGameCanvasRunnableInterface(
         final GameCanvasRunnableInterface gameCanvasRunnableInterface)
     {
+        //this.logUtil.putF("Set Runnable: " + gameCanvasRunnableInterface, this, this.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
         this.allbinaryGameCanvasRunnableInterface = gameCanvasRunnableInterface;
         
 //        if (allbinaryGameCanvasRunnableInterface == NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
