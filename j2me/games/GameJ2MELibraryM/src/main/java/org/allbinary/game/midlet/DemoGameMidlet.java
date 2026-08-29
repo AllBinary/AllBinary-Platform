@@ -26,6 +26,7 @@ import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
+import org.allbinary.game.displayable.canvas.NullGameCanvasRunnable;
 
 
 @JsType
@@ -62,7 +63,9 @@ public class DemoGameMidlet extends GameMidlet
     public GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface()
             throws Exception
     {
-        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
+        this.logUtil.putF(this.commonStrings.NOT_IMPLEMENTED, this, this.commonStrings.CREATE);
+        return NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE;
+        //throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     @JsMethod

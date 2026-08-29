@@ -1,10 +1,12 @@
 package org.allbinary.game.score;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.game.GameInfo;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
+@JsType
 public class BasicHighScoresFactory extends HighScoresBase
 {
     protected final LogUtil logUtil = LogUtil.getInstance();

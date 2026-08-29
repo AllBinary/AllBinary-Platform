@@ -15,7 +15,9 @@ package org.allbinary.logic.system.security.licensing;
 
 import jsinterop.annotations.JsType;
 
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 
 /**
  *
@@ -26,8 +28,12 @@ import org.allbinary.logic.string.StringUtil;
 public class ClientInformationFactory {
     
     public ClientInformation getInstance() {
+        final LogUtil logUtil = LogUtil.getInstance();
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        logUtil.putF(commonStrings.NOT_IMPLEMENTED, this, commonStrings.GET_INSTANCE);
         final StringUtil stringUtil = StringUtil.getInstance();
         return new ClientInformation(stringUtil.NULL_STRING, stringUtil.NULL_STRING, stringUtil.NULL_STRING, stringUtil.NULL_STRING);
+        //throw new RuntimeException();
     }
     
 }

@@ -13,9 +13,12 @@
 */
 package org.allbinary.input.motion.gesture.observer;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.input.motion.gesture.configuration.MotionGestureConfiguration;
 import org.allbinary.input.motion.gesture.configuration.MotionGestureConfigurationFactory;
 
+@JsType
 public class MotionGestureReceiveInterfaceFactory
 {
     public static CompleteMotionGestureListenerInterface getInstance()

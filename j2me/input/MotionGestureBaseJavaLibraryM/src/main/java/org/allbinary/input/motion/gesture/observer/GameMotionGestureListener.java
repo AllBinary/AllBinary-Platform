@@ -13,6 +13,7 @@
 */
 package org.allbinary.input.motion.gesture.observer;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
@@ -24,6 +25,7 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
+@JsType
 public class GameMotionGestureListener implements MotionGestureEventListener
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -32,7 +34,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
     
     private BasicArrayList motionGestureCollection = new BasicArrayListD();
     private BasicArrayList touchGestureCollection = new BasicArrayListD();
-    private BasicArrayList scrolledGestureCollection = new BasicArrayListD();
+    //private BasicArrayList scrolledGestureCollection = new BasicArrayListD();
     private CompleteMotionGestureListenerInterface signed;
 
     public GameMotionGestureListener(
