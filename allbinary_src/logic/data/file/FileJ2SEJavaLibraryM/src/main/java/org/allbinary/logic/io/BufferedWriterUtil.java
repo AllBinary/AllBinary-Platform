@@ -39,7 +39,7 @@ public class BufferedWriterUtil {
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final CommonLabels commonLabels = CommonLabels.getInstance();
     
-    private final String REMOVING_OLD = "Remove old for overwritting: ";
+    private final String REMOVING_OLD = "Remove old for overwriting: ";
     
     public void overwrite(final String path, final String data) throws Exception
     {
