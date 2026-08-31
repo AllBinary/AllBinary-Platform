@@ -22,6 +22,7 @@ import java.util.Set;
  * @author User
  */
 //ArkTs does not have this.  So this is for the ArkTs build.
+//HTMLForJ2ME
 public class J2SEUtil {
     
     private static final J2SEUtil instance = new J2SEUtil();
