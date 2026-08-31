@@ -70,6 +70,10 @@ public class CommonDataFileStrings {
     public final String CPP = "cpp";
     @JsProperty
     public final String _CPP = ".cpp";
+    @JsProperty
+    public final String H = "h";
+    @JsProperty
+    public final String _H = ".h";
 
     @JsProperty
     public final String UNCRYPTED_EXTENSION = this.XML;
