@@ -34,7 +34,7 @@ import javax.microedition.lcdui.NullCanvas;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.midlet.MIDletStateChangeException;
 
-import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -47,6 +47,7 @@ import org.allbinary.system.Memory;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
+import org.allbinary.logic.NullUtil;
 
 // MIDlet methods not overridden are final
 
@@ -189,7 +190,7 @@ implements CommandListener
     public Hashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, "getStateHashtable");
-        return NullUtil.getInstance().NULL_TABLE;
+        return StdUtil.getInstance().NULL_TABLE;
     }
 
     @Override

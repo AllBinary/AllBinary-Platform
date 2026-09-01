@@ -15,7 +15,7 @@ package org.allbinary.game.terrain;
 
 import java.util.Hashtable;
 
-import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.EventStrings;
@@ -26,7 +26,7 @@ import org.allbinary.util.BasicArrayListD;
 public class TerrainEventHandler extends BasicEventHandler
 {
 
-   private static Hashtable hashtable = NullUtil.getInstance().NULL_TABLE;
+   private static Hashtable hashtable = StdUtil.getInstance().NULL_TABLE;
 
    public static void init()
    {

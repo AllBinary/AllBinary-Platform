@@ -20,7 +20,7 @@ import org.allbinary.game.tracking.TrackingEvent;
 import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
-import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 
 /**
  *
@@ -56,7 +56,7 @@ public class SimulatedBuildingPropertiesFactory extends BuildingPropertiesFactor
     
     @Override
     public Hashtable getHashtable() {
-        return NullUtil.getInstance().NULL_TABLE;
+        return StdUtil.getInstance().NULL_TABLE;
     }    
         
     @Override

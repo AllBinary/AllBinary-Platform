@@ -17,7 +17,7 @@ import java.io.FileReader;
 import java.io.LineNumberReader;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
@@ -308,7 +308,7 @@ public class LinuxHardware implements HardwareInterface
    
    public Hashtable difference(HardwareInterface hardwareInterface)
    {
-      return NullUtil.getInstance().NULL_TABLE;
+      return StdUtil.getInstance().NULL_TABLE;
    }
    
    public boolean isNextHardware(String nextLine)

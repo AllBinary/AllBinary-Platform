@@ -16,7 +16,7 @@ package org.allbinary.logic.control.validate;
 import jsinterop.annotations.JsType;
 
 import java.util.Hashtable;
-import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.string.StringUtil;
@@ -71,7 +71,7 @@ implements ValidatorBaseInterface
     @JsMethod
     public Hashtable toHashtable()
     {
-       return NullUtil.getInstance().NULL_TABLE;
+       return StdUtil.getInstance().NULL_TABLE;
     }
 
     /* (non-Javadoc)

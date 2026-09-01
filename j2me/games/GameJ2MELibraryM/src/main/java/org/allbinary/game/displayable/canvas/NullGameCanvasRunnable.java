@@ -20,7 +20,7 @@ import javax.microedition.lcdui.Item;
 
 import org.allbinary.game.state.GameState;
 import org.allbinary.game.state.GameStateFactory;
-import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
 
 /**
@@ -85,12 +85,12 @@ public class NullGameCanvasRunnable implements GameCanvasRunnableInterface {
 
     @Override
     public Hashtable getCurrentStateHashtable() throws Exception {
-        return NullUtil.getInstance().NULL_TABLE;
+        return StdUtil.getInstance().NULL_TABLE;
     }
 
     @Override
     public Hashtable getLoadStateHashtable() throws Exception {
-        return NullUtil.getInstance().NULL_TABLE;
+        return StdUtil.getInstance().NULL_TABLE;
     }
 
     @Override

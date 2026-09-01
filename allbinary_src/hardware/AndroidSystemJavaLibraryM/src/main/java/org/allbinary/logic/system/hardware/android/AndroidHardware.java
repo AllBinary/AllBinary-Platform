@@ -19,7 +19,7 @@ import java.io.LineNumberReader;
 import java.util.Hashtable;
 
 import org.allbinary.logic.io.NullCloseable;
-import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.hardware.HardwareInterface;
@@ -149,7 +149,7 @@ public class AndroidHardware implements HardwareInterface
     @Override
     public Hashtable difference(HardwareInterface hardwareInterface)
     {
-        return NullUtil.getInstance().NULL_TABLE;
+        return StdUtil.getInstance().NULL_TABLE;
     }
 
 }

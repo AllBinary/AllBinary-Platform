@@ -14,7 +14,7 @@
 package org.allbinary.logic.system.hardware;
 
 import java.util.Hashtable;
-import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.NoHardwareComponent;
@@ -55,6 +55,6 @@ public class NoHardware implements HardwareInterface
     @Override
     public Hashtable difference(HardwareInterface hardwareInterface)
     {
-        return NullUtil.getInstance().NULL_TABLE;
+        return StdUtil.getInstance().NULL_TABLE;
     }    
 }

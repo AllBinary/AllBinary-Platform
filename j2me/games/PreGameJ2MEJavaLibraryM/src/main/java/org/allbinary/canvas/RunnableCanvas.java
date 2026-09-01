@@ -20,6 +20,7 @@ import javax.microedition.lcdui.CommandListener;
 import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonLabels;
@@ -41,6 +42,8 @@ public class RunnableCanvas extends MyCanvas
     
     @JsProperty
     protected final NullUtil nullUtil = NullUtil.getInstance();
+    @JsProperty
+    protected final StdUtil stdUtil = StdUtil.getInstance();
     
     private Thread thread = NullThread.NULL_THREAD;
     private Thread currentThread = NullThread.NULL_THREAD;

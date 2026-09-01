@@ -28,6 +28,7 @@ public class NullUtil {
     /**
      * @return the instance
      */
+    //ActualPlatform
     public static NullUtil getInstance() {
         return NullUtil.instance;
     }
@@ -53,10 +54,4 @@ public class NullUtil {
     //ActualPlatform
     public final float[] NULL_FLOAT_ARRAY = new float[0];
     
-    //ActualPlatform
-    public final Vector<Object> EMPTY_VECTOR = new Vector<Object>();
-
-    //ActualPlatform
-    public final Hashtable NULL_TABLE = new Hashtable();
-
 }

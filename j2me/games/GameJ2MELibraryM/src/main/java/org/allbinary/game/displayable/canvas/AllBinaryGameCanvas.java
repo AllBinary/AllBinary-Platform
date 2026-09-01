@@ -224,7 +224,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private BasicArrayList localPlayerGameInputList = new BasicArrayListD();
             //NoPlayerGameInput.getInstance();
     private boolean isCheating;
-    private Hashtable hashtable = this.nullUtil.NULL_TABLE;
+    private Hashtable hashtable = this.stdUtil.NULL_TABLE;
     private boolean isSingleKeyRepeatableProcessing;
     private BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface = BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY;
     private Paintable touchButtonsPaintable = NullPaintable.getInstance();

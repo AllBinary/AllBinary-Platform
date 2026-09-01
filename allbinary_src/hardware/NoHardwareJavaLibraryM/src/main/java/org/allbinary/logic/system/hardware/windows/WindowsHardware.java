@@ -15,7 +15,7 @@ package org.allbinary.logic.system.hardware.windows;
 
 import java.util.Hashtable;
 
-import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.hardware.HardwareInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.BridgeInterface;
@@ -113,6 +113,6 @@ public class WindowsHardware implements HardwareInterface
    @Override
    public Hashtable difference(HardwareInterface hardwareInterface)
    {
-      return NullUtil.getInstance().NULL_TABLE;
+      return StdUtil.getInstance().NULL_TABLE;
    }
 }

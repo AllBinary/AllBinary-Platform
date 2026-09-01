@@ -569,14 +569,14 @@ public class StartCanvas extends RunnableCanvas
     {
         this.logUtil.putF(
             "Trying to continue a demo lol - only continue a game canvas not the demo", this, "getLoadStateHashtable");
-        return this.nullUtil.NULL_TABLE;
+        return this.stdUtil.NULL_TABLE;
     }
 
     @Override
     public Hashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF("Trying to save the AI lol", this, "getCurrentStateHashtable");
-        return this.nullUtil.NULL_TABLE;
+        return this.stdUtil.NULL_TABLE;
     }
 
     @Override
