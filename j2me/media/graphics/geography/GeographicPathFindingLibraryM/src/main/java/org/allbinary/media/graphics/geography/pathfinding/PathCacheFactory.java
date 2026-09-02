@@ -15,6 +15,7 @@ package org.allbinary.media.graphics.geography.pathfinding;
 
 import java.util.Hashtable;
 
+import org.allbinary.logic.StdUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 

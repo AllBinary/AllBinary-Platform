@@ -18,6 +18,7 @@ import java.util.HashMap;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.init.InitSql;
 import org.allbinary.business.init.db.UserDbInitInfo;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicStoreFrontsEntity extends InitSql

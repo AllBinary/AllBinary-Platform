@@ -22,6 +22,7 @@ import org.allbinary.business.init.db.InventoryDbInitInfo;
 import org.allbinary.business.init.db.LogDbInitInfo;
 import org.allbinary.business.init.db.StaticPagesDbInitInfo;
 import org.allbinary.business.init.db.UserDbInitInfo;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;

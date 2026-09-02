@@ -29,6 +29,7 @@ import org.allbinary.util.BasicArrayListD;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
+import org.allbinary.logic.StdUtil;
 
 @JsType
 public class ImageCacheBase
