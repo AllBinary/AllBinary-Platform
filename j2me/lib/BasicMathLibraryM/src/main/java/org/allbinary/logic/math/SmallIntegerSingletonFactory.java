@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
+import org.allbinary.logic.string.StringMaker;
 
 
 @JsType
@@ -57,11 +58,11 @@ public class SmallIntegerSingletonFactory
             if (J2MEUtil.isJ2ME()) {
             } else if (AndroidUtil.isAndroid()) {
                 final LogUtil logUtil = LogUtil.getInstance();
-                logUtil.putF("Android InputFactory was initialized before GameMidlet: " + this.MIN, this, "getMin");
+                logUtil.putF(new StringMaker().append("Android InputFactory was initialized before GameMidlet: ").appendint(this.MIN).toString(), this, "getMin");
                 this.initWithRange(0x291, 6);
             } else {
                 final LogUtil logUtil = LogUtil.getInstance();
-                logUtil.putF("InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: " + this.MIN, this, "getMin");
+                logUtil.putF(new StringMaker().append("InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: ").appendint(this.MIN).toString(), this, "getMin");
                 this.initWithRange(0x2D0, 6);
             }
         }
