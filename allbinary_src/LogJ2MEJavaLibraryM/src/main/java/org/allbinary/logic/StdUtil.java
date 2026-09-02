@@ -51,9 +51,5 @@ public class StdUtil {
     public final Hashtable createHashtable() {
         return new Hashtable();
     }
-
-    public final HashMap createHashMap() {
-        return StdUtil.getInstance().createHashMap();
-    }
     
 }
