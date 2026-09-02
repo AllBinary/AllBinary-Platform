@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.Vector;
 import org.allbinary.data.tables.generator.IdGeneratorEntity;
 import org.allbinary.data.tables.generator.IdGeneratorEntityFactory;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.string.CommonStrings;
 
