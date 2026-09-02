@@ -24,6 +24,7 @@ import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.automation.actions.script.condition.processors.BasicProfileActionScriptProcessor;
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -107,7 +108,7 @@ public class BasicProfileActionScriptInput
     
     public HashMap BasicProfileActionScriptInput_toHashMap()
     {
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
 
         hashMap.put(GenericProfileActionScriptInputData.TYPE, this.getInputRobotInterface().getName());
         hashMap.put(GenericProfileActionScriptInputData.DELAY, Integer.toString(this.getTime()));

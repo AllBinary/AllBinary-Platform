@@ -24,6 +24,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.group.BasicGroupItemData;
 import org.allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupItemsEntityFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -32,6 +33,7 @@ public class BasicGroupItemsRequestHelper extends ModifyTable
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
      
    private HttpServletRequest request;
         
@@ -59,7 +61,7 @@ public class BasicGroupItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {                  
-      this.id = this.request.getParameter(BasicItemData.ID);
+      this.id = this.request.getParameter(basicItemData.ID);
       
       this.itemOne = this.request.getParameter(BasicGroupItemData.ITEM_ONE);
       this.itemTwo = this.request.getParameter(BasicGroupItemData.ITEM_TWO);
@@ -78,9 +80,9 @@ public class BasicGroupItemsRequestHelper extends ModifyTable
 
    private HashMap getHashMap()
    {
-      HashMap values = new HashMap();            
+      HashMap values = StdUtil.getInstance().createHashMap();            
       
-      values.put(BasicItemData.ID,id);
+      values.put(basicItemData.ID,id);
       
       values.put(BasicGroupItemData.ITEM_ONE,this.itemOne);
       values.put(BasicGroupItemData.ITEM_TWO,this.itemTwo);
@@ -107,7 +109,7 @@ public class BasicGroupItemsRequestHelper extends ModifyTable
       {
          Calendar calendar=Calendar.getInstance();
          String time = new String(new Long(calendar.getTimeInMillis()).toString());
-         Vector values = new Vector();
+         Vector values = StdUtil.getInstance().createVector();
                   
          values.add(this.id);
          

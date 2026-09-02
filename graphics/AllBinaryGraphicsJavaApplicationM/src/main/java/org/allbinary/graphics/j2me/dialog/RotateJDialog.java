@@ -18,6 +18,7 @@ import org.allbinary.thread.ARunnable;
 import java.util.HashMap;
 
 import org.allbinary.gui.dialog.HashMapJDialogListenerInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -29,7 +30,7 @@ public class RotateJDialog extends javax.swing.JDialog
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private HashMap hashMap = new HashMap();
+    private HashMap hashMap = StdUtil.getInstance().createHashMap();
     
     /** Creates new form RotateJDialog */
     public RotateJDialog(java.awt.Frame parent, boolean modal) {

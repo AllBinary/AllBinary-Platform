@@ -27,6 +27,7 @@ import org.allbinary.business.user.commerce.inventory.item.BasicItemView;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItem;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItemView;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
 import org.allbinary.logic.communication.http.request.MultipartRequestParams;
@@ -44,6 +45,8 @@ public class InventoryItemView extends HttpStoreComponentView
     implements RequestMapInterface
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     protected final HttpServletRequest request;
     private String imageFileName;
@@ -83,7 +86,7 @@ public class InventoryItemView extends HttpStoreComponentView
         this.setRequestHashMap(new MultipartRequestParams(this.request).toHashMap());
 
         Object imageFileItemObject =
-            this.getRequestHashMap().get(BasicItemData.IMAGE);
+            this.getRequestHashMap().get(basicItemData.IMAGE);
 
         if (HttpFileUploadUtil.getInstance().isValid(imageFileItemObject))
         {
@@ -117,7 +120,7 @@ public class InventoryItemView extends HttpStoreComponentView
 
     public void addDomNodeInterfaces()
     {
-        Vector vector = new Vector();
+        Vector vector = StdUtil.getInstance().createVector();
 
         DownloadableItem downloadableItem;
         final int size = this.downloadableItemVector.size();
@@ -162,7 +165,7 @@ public class InventoryItemView extends HttpStoreComponentView
         for(int index = 0; index < size; index++)
         {
             String fieldName = (String) fieldNameArray[index];
-            if (fieldName.compareTo(BasicItemData.IMAGE) == 0)
+            if (fieldName.compareTo(basicItemData.IMAGE) == 0)
             {
                 StoreFrontInterface storeFrontInterface =
                     StoreFrontFactory.getInstance(
@@ -172,7 +175,7 @@ public class InventoryItemView extends HttpStoreComponentView
                     new InventoryUploadMediaUtil(
                     storeFrontInterface, this.itemInterface);
 
-                FileItem fileItem = (FileItem) this.getRequestHashMap().get(BasicItemData.IMAGE);
+                FileItem fileItem = (FileItem) this.getRequestHashMap().get(basicItemData.IMAGE);
 
                 this.itemInterface = inventoryUploadMediaUtil.saveFiles(
                     fileItem.get(), this.imageFileName, this.mediaData);

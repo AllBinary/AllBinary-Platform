@@ -67,7 +67,7 @@ public class DemoRunnable implements Runnable
             // mediaInit();
             
             this.demoGameMidlet.setGameCanvasRunnableInterface(
-                    this.demoGameMidlet.createDemoGameCanvasRunnableInterface());
+                ((DemoGameMidletJs) this.demoGameMidlet).createDemoGameCanvasRunnableInterface());
 
             this.demoGameMidlet.demoSetup();
             

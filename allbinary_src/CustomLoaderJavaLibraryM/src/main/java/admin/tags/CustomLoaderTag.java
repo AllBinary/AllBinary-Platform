@@ -19,6 +19,7 @@ import java.util.HashMap;
 import javax.servlet.jsp.JspTagException;
 
 import admin.taghelpers.CustomLoaderHelperFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
@@ -92,7 +93,7 @@ public class CustomLoaderTag extends CustomTagSupport
          
          if(this.command!=null)
          {
-            this.propertiesHashMap = new HashMap();
+            this.propertiesHashMap = StdUtil.getInstance().createHashMap();
             
             if(this.command.compareTo(org.allbinary.globals.GLOBALS2.SET)==0)
             {

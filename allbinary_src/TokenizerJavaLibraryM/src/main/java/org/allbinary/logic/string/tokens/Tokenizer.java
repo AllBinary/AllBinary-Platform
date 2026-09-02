@@ -16,6 +16,7 @@ package org.allbinary.logic.string.tokens;
 import java.util.Hashtable;
 
 import org.allbinary.TsUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
@@ -85,7 +86,7 @@ public class Tokenizer {
     //take a vector of strings is accepted and each string is broken in two by the specified seperator
     //and added to a hashmap
     public Hashtable getTokens(BasicArrayList stringVector) {
-        Hashtable tokenHashtable = new Hashtable();
+        Hashtable tokenHashtable = StdUtil.getInstance().createHashtable();
 
         String string = StringUtil.getInstance().EMPTY_STRING;
         int end = 0;

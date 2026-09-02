@@ -18,6 +18,7 @@ import java.util.Vector;
 
 import org.allbinary.data.tree.dom.BasicErrorNodeUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
@@ -33,7 +34,7 @@ public class EmailsNotUsed implements DomNodeInterface
 
    public EmailsNotUsed() throws Exception
    {
-      this.emailInfoVector = new Vector();
+      this.emailInfoVector = StdUtil.getInstance().createVector();
    }
 
    public Node toXmlNode(Document document) throws Exception

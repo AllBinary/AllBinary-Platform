@@ -21,6 +21,7 @@ import java.util.Vector;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.HistoryDbInitInfo;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.address.ShippingAddressData;
 import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
@@ -45,6 +46,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     protected final String tableName = "orderitems";
 
@@ -56,14 +58,14 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
 
     public void insert(String userName, OrderInterface order)
     {
-        Vector vector = new Vector();
+        Vector vector = StdUtil.getInstance().createVector();
         try
         {
 
             BasketInterface basket = order.getBasket();
 
             Set items = basket.getIds();
-            //HashMap numberOfEachItem = new HashMap();
+            //HashMap numberOfEachItem = StdUtil.getInstance().createHashMap();
 
             final String ZERO_STRING = TableDataFactory.getInstance().ZERO_STRING;
             final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
@@ -80,7 +82,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
 
             //Calendar calendar=Calendar.getInstance();
                 //String time = new String(new Long(calendar.getTimeInMillis()).toString());
-                vector = new Vector();
+                vector = StdUtil.getInstance().createVector();
 
             //vector.add(StringUtil.getInstance());
                 //vector.add("auto_increment");
@@ -163,8 +165,8 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
     {
         try
         {
-            HashMap whereHashMap = new HashMap();
-            HashMap updateHashMap = new HashMap();
+            HashMap whereHashMap = StdUtil.getInstance().createHashMap();
+            HashMap updateHashMap = StdUtil.getInstance().createHashMap();
             whereHashMap.put(OrderData.ID, orderId);
             whereHashMap.put(ShippingMethodData.GROUP, groupId);
             updateHashMap.put(OrderHistoryData.STATUS, status);
@@ -212,7 +214,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
         try
         {
             BasketReview basketReview = new BasketReview();
-            HashMap keyValues = new HashMap();
+            HashMap keyValues = StdUtil.getInstance().createHashMap();
             keyValues.put(OrderData.ID, orderId);
             Vector items = super.getRows(keyValues);
 
@@ -229,15 +231,15 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
                     HashMap itemHashMap = (HashMap) itemsArray[i];
 
                     //add missing entries that exist in basic inventory for item construction
-                    itemHashMap.put(BasicItemData.INBASKETS, EMPTY_STRING);
+                    itemHashMap.put(basicItemData.INBASKETS, EMPTY_STRING);
                     itemHashMap.put(entryData.ENABLE, EMPTY_STRING);
                     itemHashMap.put(entryData.TIMECREATED, EMPTY_STRING);
                     itemHashMap.put(entryData.LASTMODIFIED, EMPTY_STRING);
 
-                    itemHashMap.put(BasicItemData.GROUPS, EMPTY_STRING);
-                    itemHashMap.put(BasicItemData.OPTIONS, EMPTY_STRING);
-                    itemHashMap.put(BasicItemData.PERMISSIONS, EMPTY_STRING);
-                    itemHashMap.put(BasicItemData.SPECIALS, EMPTY_STRING);
+                    itemHashMap.put(basicItemData.GROUPS, EMPTY_STRING);
+                    itemHashMap.put(basicItemData.OPTIONS, EMPTY_STRING);
+                    itemHashMap.put(basicItemData.PERMISSIONS, EMPTY_STRING);
+                    itemHashMap.put(basicItemData.SPECIALS, EMPTY_STRING);
 
                     Item item = new Item(itemHashMap);
                     basketReview.addItem(item);
@@ -284,68 +286,68 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
         stringBuffer.append(StoreFrontData.getInstance().NAME);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.ID);
+        stringBuffer.append(basicItemData.ID);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.NUMBER);
+        stringBuffer.append(basicItemData.NUMBER);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.NEWORUSED);
+        stringBuffer.append(basicItemData.NEWORUSED);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.SUMMARY);
+        stringBuffer.append(basicItemData.SUMMARY);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.DISTRIBUTOR);
+        stringBuffer.append(basicItemData.DISTRIBUTOR);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.IDUSEDBYDISTRIBUTOR);
+        stringBuffer.append(basicItemData.IDUSEDBYDISTRIBUTOR);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.PRODUCEDBY);
+        stringBuffer.append(basicItemData.PRODUCEDBY);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.PRODUCTIONDATE);
+        stringBuffer.append(basicItemData.PRODUCTIONDATE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.STARTPRODUCTIONDATE);
+        stringBuffer.append(basicItemData.STARTPRODUCTIONDATE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.DESCRIPTION);
+        stringBuffer.append(basicItemData.DESCRIPTION);
         stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.KEYWORDS);
+        stringBuffer.append(basicItemData.KEYWORDS);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.CATEGORY);
+        stringBuffer.append(basicItemData.CATEGORY);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.TYPE);
+        stringBuffer.append(basicItemData.TYPE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.SMALLIMAGE);
+        stringBuffer.append(basicItemData.SMALLIMAGE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.MEDIUMIMAGE);
+        stringBuffer.append(basicItemData.MEDIUMIMAGE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.LARGEIMAGE);
+        stringBuffer.append(basicItemData.LARGEIMAGE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.WEIGHT);
+        stringBuffer.append(basicItemData.WEIGHT);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.PRICE);
+        stringBuffer.append(basicItemData.PRICE);
         //stringBuffer.append(" DECIMAL (11,2) NOT NULL,");
         stringBuffer.append(" VARCHAR(20) NOT NULL,");
 
-        stringBuffer.append(BasicItemData.COMMENT);
+        stringBuffer.append(basicItemData.COMMENT);
         stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.CUSTOMS);
+        stringBuffer.append(basicItemData.CUSTOMS);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.DOWNLOADS);
+        stringBuffer.append(basicItemData.DOWNLOADS);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(ShippingMethodData.COST);

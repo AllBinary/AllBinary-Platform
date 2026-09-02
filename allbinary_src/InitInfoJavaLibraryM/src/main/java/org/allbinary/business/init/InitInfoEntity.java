@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
@@ -74,7 +75,7 @@ public class InitInfoEntity extends InitSql
     {
         try
         {
-            HashMap keyAndValue = new HashMap();
+            HashMap keyAndValue = StdUtil.getInstance().createHashMap();
             keyAndValue.put(this.NOTHING, this.NOTHING);
             HashMap hashMap = getRow(keyAndValue);
             if (hashMap != null)
@@ -103,7 +104,7 @@ public class InitInfoEntity extends InitSql
     {
         try
         {
-            HashMap keyAndValue = new HashMap();
+            HashMap keyAndValue = StdUtil.getInstance().createHashMap();
             keyAndValue.put(this.NOTHING, this.NOTHING);
             HashMap hashMap = getRow(keyAndValue);
             if (hashMap != null)
@@ -136,7 +137,7 @@ public class InitInfoEntity extends InitSql
     {
         try
         {
-            Vector values = new Vector();
+            Vector values = StdUtil.getInstance().createVector();
             values.add(this.NOTHING);
             values.add(InitInfo.getInstance().getTesting());
             values.add(InitInfo.getInstance().getTestHtmlPath());

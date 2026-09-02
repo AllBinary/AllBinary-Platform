@@ -15,6 +15,7 @@ package org.allbinary.logic.communication.http.request;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
@@ -35,8 +36,8 @@ public class NameSpaceRequestParam
    private String value;
    public NameSpaceRequestParam(String nameSpace, String value) throws Exception
    {
-      this.nameSpaceVector = new Vector();
-      this.nameSpacePropertiesHashMap = new HashMap();
+      this.nameSpaceVector = StdUtil.getInstance().createVector();
+      this.nameSpacePropertiesHashMap = StdUtil.getInstance().createHashMap();
       this.value = value;
 
       int beginIndex = nameSpace.indexOf(NameSpaceRequestParamData.NAME);
@@ -141,7 +142,7 @@ public class NameSpaceRequestParam
 
       if(packagePropertiesHashMap == null)
       {
-         packagePropertiesHashMap = new HashMap();
+         packagePropertiesHashMap = StdUtil.getInstance().createHashMap();
       }
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
@@ -169,7 +170,7 @@ public class NameSpaceRequestParam
    {
       Tokenizer propertiesTokenizer = new Tokenizer(NameSpaceRequestParamData.PROPERTIESSEPARATOR);
 
-      HashMap packagePropertiesHashMap = new HashMap();
+      HashMap packagePropertiesHashMap = StdUtil.getInstance().createHashMap();
 
       BasicArrayList propertyVector = propertiesTokenizer.getTokensFromString(properties, new BasicArrayListD());
 

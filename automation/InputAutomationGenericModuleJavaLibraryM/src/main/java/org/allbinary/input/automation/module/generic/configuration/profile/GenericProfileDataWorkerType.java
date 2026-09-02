@@ -18,13 +18,14 @@ import java.util.HashMap;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.media.image.InputImageType;
+import org.allbinary.logic.StdUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 public class GenericProfileDataWorkerType 
     implements GenericProfileDataWorkerTypeInterface
 {
-    private static HashMap hashMap = new HashMap();
+    private static HashMap hashMap = StdUtil.getInstance().createHashMap();
     
     public static GenericProfileDataWorkerType SAVED_CAPTURE = 
         SavedCaptureGenericProfileDataWorkerType.SAVED_CAPTURE;

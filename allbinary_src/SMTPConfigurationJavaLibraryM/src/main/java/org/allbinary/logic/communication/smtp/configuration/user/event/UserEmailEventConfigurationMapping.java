@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.data.tables.TableMappingInterface;
+import org.allbinary.logic.StdUtil;
 
 public class UserEmailEventConfigurationMapping implements TableMappingInterface
 {
@@ -29,7 +30,7 @@ public class UserEmailEventConfigurationMapping implements TableMappingInterface
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
 
       hashMap.put(UserEmailEventConfigurationData.NAME, this.userEmailEventConfigurationInterface.getName());
       hashMap.put(UserEmailEventConfigurationData.LISTENER_CLASSPATH, this.userEmailEventConfigurationInterface.getEventListenerClassPath());
@@ -44,7 +45,7 @@ public class UserEmailEventConfigurationMapping implements TableMappingInterface
    
    public Vector toVector() throws Exception
    {
-      Vector vector = new Vector();
+      Vector vector = StdUtil.getInstance().createVector();
 
       vector.add(this.userEmailEventConfigurationInterface.getName());
       vector.add(this.userEmailEventConfigurationInterface.getEventListenerClassPath());

@@ -14,11 +14,12 @@
 package org.allbinary.log;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 public class LOGGING
 {
    private String name;
-   private static Vector logging = new Vector();
+   private static Vector logging = StdUtil.getInstance().createVector();
    
    private LOGGING(String value)
    {

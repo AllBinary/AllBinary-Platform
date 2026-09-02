@@ -19,6 +19,7 @@ import java.util.HashMap;
 import javax.servlet.jsp.JspTagException;
 
 import admin.taghelpers.BasicTextEmailHelperFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import tags.CustomTagSupport;
@@ -49,7 +50,7 @@ public class BasicTextEmailTag extends CustomTagSupport
    {
       try
       {
-         HashMap propertiesHashMap = new HashMap();
+         HashMap propertiesHashMap = StdUtil.getInstance().createHashMap();
          propertiesHashMap.put("Subject", this.subject);
          propertiesHashMap.put("Body", this.body);
 

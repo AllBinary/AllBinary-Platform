@@ -20,6 +20,7 @@ import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.sort.StringComparator;
 import org.allbinary.logic.visual.transform.info.CustomizerTransformInfoData;
@@ -54,7 +55,7 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
         try {
             final Node node = document.createElement(TransformTemplateCustomizersData.NAME);
 
-            final Vector unsortedCustomizerViewVector = new Vector();
+            final Vector unsortedCustomizerViewVector = StdUtil.getInstance().createVector();
 
             final int size = this.customizersVector.size();
             for (int index = 0; index < size; index++) {

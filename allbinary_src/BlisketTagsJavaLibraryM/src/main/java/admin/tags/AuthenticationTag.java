@@ -23,6 +23,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 import admin.taghelpers.AuthenticationHelperFactory;
 import admin.taghelpers.AuthenticationRequestHelperFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -381,7 +382,7 @@ public class AuthenticationTag extends CustomTagSupport
                 //if(command!=null) throw new JspTagException(e2);
                 //if(command!=null) throw new LicensingException();
 
-                this.propertiesHashMap = new HashMap();
+                this.propertiesHashMap = StdUtil.getInstance().createHashMap();
 
                 if (this.command.compareTo(org.allbinary.globals.GLOBALS2.NEWPASSWORD) == 0)
                 {

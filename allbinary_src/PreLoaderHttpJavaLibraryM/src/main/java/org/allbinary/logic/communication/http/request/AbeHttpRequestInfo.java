@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.logic.string.StringUtil;
@@ -101,7 +102,7 @@ public class AbeHttpRequestInfo
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
 
       hashMap.put(abeHttpRequestInfoData.HTTP_USER_AGENT, this.httpUserAgent);
       hashMap.put(abeHttpRequestInfoData.REMOTE_ADDRESS, this.remoteAddress);
@@ -115,7 +116,7 @@ public class AbeHttpRequestInfo
 
    public Vector toVector()
    {
-      Vector vector = new Vector();
+      Vector vector = StdUtil.getInstance().createVector();
 
       vector.add(this.httpUserAgent);
       vector.add(this.remoteAddress);

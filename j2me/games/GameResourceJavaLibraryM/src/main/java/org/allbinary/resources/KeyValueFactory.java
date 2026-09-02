@@ -14,6 +14,7 @@
 package org.allbinary.resources;
 
 import java.util.Hashtable;
+import org.allbinary.logic.StdUtil;
 
 /**
  *
@@ -31,7 +32,7 @@ public class KeyValueFactory
         return KeyValueFactory.instance;
     }
     
-    public final Hashtable MAP = new Hashtable();
+    public final Hashtable MAP = StdUtil.getInstance().createHashtable();
     
     public String get(String key) {
         

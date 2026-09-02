@@ -45,6 +45,7 @@ import org.allbinary.data.tables.TableDataFactory;
 import org.allbinary.data.tables.user.address.billing.BillingAddressesEntity;
 import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntity;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
@@ -67,7 +68,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
     public void insert(String userName, Order order)
     {
-        final Vector vector = new Vector();
+        final Vector vector = StdUtil.getInstance().createVector();
         try
         {
             final PaymentInterface paymentInterface = new PaymentEntity().getDefault(userName);
@@ -225,7 +226,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         {
             Calendar calendar = Calendar.getInstance();
             String time = new String(new Long(calendar.getTimeInMillis()).toString());
-            HashMap updateHashMap = new HashMap();
+            HashMap updateHashMap = StdUtil.getInstance().createHashMap();
             
             updateHashMap.put(OrderHistoryData.STATUS, status);
             
@@ -257,7 +258,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
             Calendar calendar = Calendar.getInstance();
             String time = new String(new Long(calendar.getTimeInMillis()).toString());
             
-            HashMap updateHashMap = new HashMap();
+            HashMap updateHashMap = StdUtil.getInstance().createHashMap();
             updateHashMap.put(PaymentData.METHOD, paymentMethod);
 
             updateHashMap.put(OrderHistoryData.TRANSDATE, time);
@@ -275,7 +276,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
     /*
     public String getUserOrdersTable(String userName,String fromDate,String toDate)
     {
-    HashMap whereHashMap = new HashMap();
+    HashMap whereHashMap = StdUtil.getInstance().createHashMap();
     whereHashMap.put(UserData.USERNAME,userName);
     
     return super.getTableWhereBetween(whereHashMap,OrderHistoryData.ORDERDATE,fromDate,toDate);
@@ -309,8 +310,8 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
      */
     public Vector getStoreOrders(StoreFrontInterface storeFrontInterface) throws Exception
     {
-        Vector orderReviewVector = new Vector();
-        HashMap whereHashMap = new HashMap();
+        Vector orderReviewVector = StdUtil.getInstance().createVector();
+        HashMap whereHashMap = StdUtil.getInstance().createHashMap();
         
         whereHashMap.put(StoreFrontData.getInstance().NAME, storeFrontInterface.getName());
         Vector orderHashMapVector = super.getRows(whereHashMap);
@@ -326,8 +327,8 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
     public Vector getOrders(String userName) throws Exception
     {
-        Vector orderReviewVector = new Vector();
-        HashMap whereHashMap = new HashMap();
+        Vector orderReviewVector = StdUtil.getInstance().createVector();
+        HashMap whereHashMap = StdUtil.getInstance().createHashMap();
         whereHashMap.put(UserData.USERNAME, userName);
         Vector orderHashMapVector = super.getRows(whereHashMap);
         
@@ -343,8 +344,8 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
     public Vector getOrders(String status, String fromDate, String toDate) throws Exception
     {
-        Vector orderReviewVector = new Vector();
-        HashMap whereHashMap = new HashMap();
+        Vector orderReviewVector = StdUtil.getInstance().createVector();
+        HashMap whereHashMap = StdUtil.getInstance().createHashMap();
         whereHashMap.put(OrderHistoryData.STATUS, status);
         Vector orderHashMapVector = super.getRowsWhereBetween(
             whereHashMap, OrderHistoryData.ORDERDATE, fromDate, toDate);
@@ -361,7 +362,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
     public Vector getOrders(String fromDate, String toDate) throws Exception
     {
-        Vector orderReviewVector = new Vector();
+        Vector orderReviewVector = StdUtil.getInstance().createVector();
         Vector orderHashMapVector = super.getRowsWhereBetween(OrderHistoryData.ORDERDATE, fromDate, toDate);
 
         final int size = orderHashMapVector.size();
@@ -376,7 +377,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
     public OrderHistory getOrder(String id) throws Exception
     {
-        HashMap whereHashMap = new HashMap();
+        HashMap whereHashMap = StdUtil.getInstance().createHashMap();
         whereHashMap.put(OrderData.ID, id);
 
         HashMap orderReviewHashMap = super.getRow(whereHashMap);

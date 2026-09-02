@@ -16,6 +16,7 @@ package org.allbinary.logic.visual.transform.template.util;
 import java.util.HashMap;
 
 import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
@@ -74,7 +75,7 @@ public class TransformTemplateCustomizerUtil
 
         final String[] ONE_EMPTY_STRING_ARRAY = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
 
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
         //hashMap.put(selectedTemplate + SPACE, EMPTY_STRING);
         hashMap.put(new String[] {viewName + SPACE}, ONE_EMPTY_STRING_ARRAY);
         hashMap.put(new String[] {storeName + SPACE}, ONE_EMPTY_STRING_ARRAY);

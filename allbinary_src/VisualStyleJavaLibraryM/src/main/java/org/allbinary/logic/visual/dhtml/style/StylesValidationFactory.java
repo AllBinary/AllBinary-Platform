@@ -18,6 +18,7 @@ import java.util.Vector;
 
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.NameSpaceRequestParamData;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.dhtml.style.css.CssElementData;
@@ -44,7 +45,7 @@ public class StylesValidationFactory {
 
         final CommonStrings commonStrings = CommonStrings.getInstance();
 
-        //Vector styles = new Vector();
+        //Vector styles = StdUtil.getInstance().createVector();
 
         //Get all styles nodes
         NodeList nodeList = document.getElementsByTagName(StylesData.getInstance().NAME);
@@ -95,11 +96,11 @@ public class StylesValidationFactory {
             this.logUtil.putF("No Style Present", this, commonStrings.GET_INSTANCE);
         }
 
-        return new Vector();
+        return StdUtil.getInstance().createVector();
     }
 
     public static Vector getInstance(HashMap hashMap) throws Exception {
-        //Vector styles = new Vector();
+        //Vector styles = StdUtil.getInstance().createVector();
 
         Document stylesDocument = (Document) hashMap.get(NameSpaceRequestParamData.DOCUMENT);
 

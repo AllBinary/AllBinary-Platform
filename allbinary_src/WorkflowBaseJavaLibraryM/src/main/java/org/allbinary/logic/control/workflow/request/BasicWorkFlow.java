@@ -24,6 +24,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -125,7 +126,7 @@ public class BasicWorkFlow
    
    public Vector toVector() throws Exception
    {
-      Vector values = new Vector();
+      Vector values = StdUtil.getInstance().createVector();
       
       values.add(this.workFlowName);
       values.add(this.storeName);
@@ -141,7 +142,7 @@ public class BasicWorkFlow
 
    public HashMap toHashMap() throws Exception
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
 
       hashMap.put(WorkFlowData.getInstance().NAME, this.workFlowName);
       hashMap.put(StoreFrontData.getInstance().NAME, this.storeName);

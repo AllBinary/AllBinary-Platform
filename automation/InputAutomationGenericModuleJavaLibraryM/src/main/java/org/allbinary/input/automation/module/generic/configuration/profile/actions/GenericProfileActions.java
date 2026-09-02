@@ -25,6 +25,7 @@ import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 import org.allbinary.input.automation.module.DefaultListModelHelper;
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfiles;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.CommonDataFileStrings;
 import org.allbinary.logic.io.path.AbPath;
@@ -217,7 +218,7 @@ public class GenericProfileActions
     
     public HashMap toHashMap()
     {
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
         
         this.logUtil.putF("HashMap: " + hashMap.toString(), this, "toHashMap()");
         

@@ -26,10 +26,10 @@ import org.allbinary.business.category.properties.root.RootCategoryPropertiesInt
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.io.path.PathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
@@ -214,7 +214,7 @@ public class RootStoreCategoryProperties
 
    public HashMap toHashMap()
    {
-      final HashMap categoryHashMap = new HashMap();
+      final HashMap categoryHashMap = StdUtil.getInstance().createHashMap();
       categoryHashMap.put(CategoryData.getInstance().NAME, this.getValue());
       //categoryHashMap.put(CategoryData.getInstance().LEVEL,new Integer(this.level).toString());
       return categoryHashMap;
@@ -222,7 +222,7 @@ public class RootStoreCategoryProperties
 
    public Vector toVector()
    {
-      Vector categoryVector = new Vector();
+      Vector categoryVector = StdUtil.getInstance().createVector();
       categoryVector.add(this.getValue());
       //categoryVector.add(new Integer(this.level).toString());
       return categoryVector;

@@ -14,6 +14,7 @@
 package tags;
 
 import java.util.HashMap;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -29,7 +30,7 @@ public class PropertiesTag extends CommandTag
       {
          this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       }
-      this.propertiesHashMap = new HashMap();
+      this.propertiesHashMap = StdUtil.getInstance().createHashMap();
    }
    
    protected HashMap getPropertiesHashMap()
@@ -43,7 +44,7 @@ public class PropertiesTag extends CommandTag
       {
          this.logUtil.putF("Tag Ended", this, "doEndTag");
       }
-      this.propertiesHashMap = new HashMap();
+      this.propertiesHashMap = StdUtil.getInstance().createHashMap();
       return EVAL_PAGE;
    }
 }

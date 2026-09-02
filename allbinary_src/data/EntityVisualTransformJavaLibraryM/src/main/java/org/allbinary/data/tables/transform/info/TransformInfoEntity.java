@@ -22,6 +22,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.Encoder;
@@ -106,7 +107,7 @@ implements TransformInfoEntityInterface
     {
     	TransformInfoData transformInfoData = TransformInfoData.getInstance();
     	
-        HashMap keysAndValues = new HashMap();
+        HashMap keysAndValues = StdUtil.getInstance().createHashMap();
         keysAndValues.put(transformInfoData.NAME, name);
         HashMap hashMap = super.getRow(keysAndValues);
 
@@ -139,7 +140,7 @@ implements TransformInfoEntityInterface
 
     public Vector getObjectConfigs(String storeName) throws Exception
     {
-        Vector objectConfigVector = new Vector();
+        Vector objectConfigVector = StdUtil.getInstance().createVector();
         Vector objectConfigColumnVector = this.getColumnWhere(
             TransformInfoData.getInstance().OBJECTCONFIG, StoreFrontData.getInstance().NAME, storeName);
 
@@ -162,7 +163,7 @@ implements TransformInfoEntityInterface
 
     public Vector getNames(String storeName) throws Exception
     {
-        Vector viewNameVector = new Vector();
+        Vector viewNameVector = StdUtil.getInstance().createVector();
         Vector columnVector = this.getColumnWhere(
             TransformInfoData.getInstance().NAME, StoreFrontData.getInstance().NAME, storeName);
 

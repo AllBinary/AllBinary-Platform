@@ -15,6 +15,7 @@ package org.allbinary.game.ag.ai;
 
 import java.util.Hashtable;
 
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -59,7 +60,7 @@ public class InputProbability
     
     public Hashtable toHashtable()
     {
-        Hashtable hashtable = new Hashtable();
+        Hashtable hashtable = StdUtil.getInstance().createHashtable();
         
         hashtable.put(InputProbability.INPUT_PROBABILITY, this);
         

@@ -30,6 +30,7 @@ public class BasicItemView implements DomNodeInterface
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
     
    private final ItemInterface itemInterface;
    private final Vector vector;
@@ -55,13 +56,13 @@ public class BasicItemView implements DomNodeInterface
          
          final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
          
-         hashMap.put(BasicItemData.IMAGE, EMPTY_STRING);
+         hashMap.put(this.basicItemData.IMAGE, EMPTY_STRING);
          
          StringUtil stringUtil = StringUtil.getInstance();
          
          Set keySet = hashMap.keySet();
          
-         Node node = document.createElement(BasicItemData.ITEM);
+         Node node = document.createElement(this.basicItemData.ITEM);
 
          final Object[] nameArray = keySet.toArray();
          final int size2 = nameArray.length;
@@ -76,7 +77,7 @@ public class BasicItemView implements DomNodeInterface
          }
 
          Node totalNode = ModDomHelper.createNameValueNodes(document,
-             BasicItemData.TOTAL, this.itemInterface.getTotal().toString());
+             this.basicItemData.TOTAL, this.itemInterface.getTotal().toString());
 
          node.appendChild(totalNode);
          

@@ -19,12 +19,13 @@ import java.util.Vector;
 
 import org.allbinary.business.user.commerce.inventory.item.Item;
 import org.allbinary.business.user.commerce.inventory.item.ItemView;
+import org.allbinary.logic.StdUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 public class BasketReview
 {
-   Vector items = new Vector();
+   Vector items = StdUtil.getInstance().createVector();
    
    public BasketReview()
    {

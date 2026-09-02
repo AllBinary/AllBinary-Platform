@@ -46,6 +46,7 @@ public class AddFileValidationView
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     private static final String ADDPRODUCT = "Finish";
     private static final String ADDANOTHERDOWNLOADABLE = "Add Another";
@@ -216,7 +217,7 @@ public class AddFileValidationView
 
             HashMap hashMap = this.getRequestHashMap();
             
-            hashMap.put(BasicItemData.ID, this.itemInterface.getId());
+            hashMap.put(basicItemData.ID, this.itemInterface.getId());
             
             Object licenseObject = hashMap.get(DownloadItemData.LICENSE_FILE);
 

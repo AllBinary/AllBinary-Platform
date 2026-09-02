@@ -15,6 +15,8 @@ package org.allbinary.data.tree.dom;
 
 import java.util.Vector;
 
+import org.allbinary.logic.StdUtil;
+
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -83,7 +85,7 @@ public class DomSearchHelper
    //Finds all nodes in the nodelist with the same tagname
    public static Vector getAllNodesNoThrow(String nodeName, NodeList nodeList)
    {
-      Vector nodeVector = new Vector();
+      Vector nodeVector = StdUtil.getInstance().createVector();
       
       int numberOfNodes = nodeList.getLength();         
       for(int index = 0; index < numberOfNodes; index++)

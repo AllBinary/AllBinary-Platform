@@ -16,6 +16,7 @@ package org.allbinary.business.user.role;
 import java.util.Vector;
 
 import org.allbinary.business.user.UserFactoryInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 
 /**
@@ -24,7 +25,7 @@ import org.allbinary.logic.string.StringValidationUtil;
  */
 public class UserRoleB extends UserRole
 {
-    public static Vector roleVector = new Vector();
+    public static Vector roleVector = StdUtil.getInstance().createVector();
 
     protected UserRoleB(
         BasicUserRole aBasicUserRole,

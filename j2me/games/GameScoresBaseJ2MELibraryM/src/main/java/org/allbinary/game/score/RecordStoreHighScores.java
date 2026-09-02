@@ -30,6 +30,7 @@ import org.allbinary.game.GameInfo;
 import org.allbinary.game.configuration.persistance.NullRecordComparator;
 import org.allbinary.game.configuration.persistance.NullRecordFilter;
 import org.allbinary.game.configuration.persistance.NullRecordStore;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -43,7 +44,7 @@ import org.allbinary.util.BasicArrayListD;
 public class RecordStoreHighScores extends HighScores
 {
 
-    private static final Hashtable hashTable = new Hashtable();
+    private static final Hashtable hashTable = StdUtil.getInstance().createHashtable();
 
     protected final LogUtil logUtil = LogUtil.getInstance();
     

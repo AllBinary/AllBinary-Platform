@@ -16,6 +16,7 @@ package org.allbinary.game.resource;
 import java.util.Hashtable;
 
 import org.allbinary.graphics.RelativeRelationship;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
@@ -25,7 +26,7 @@ public class ResourceRelativeRelationshipFactory
 {
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     
-   private final Hashtable hashtable = new Hashtable();
+   private final Hashtable hashtable = StdUtil.getInstance().createHashtable();
    
    private boolean initialized;
    

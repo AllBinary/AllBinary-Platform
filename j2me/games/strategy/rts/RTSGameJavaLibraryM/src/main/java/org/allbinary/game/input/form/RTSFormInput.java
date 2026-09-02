@@ -30,6 +30,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerInterfaceFactoryInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
@@ -45,7 +46,7 @@ public class RTSFormInput
 
     private final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
 
-    private final Hashtable hashtable = new Hashtable();
+    private final Hashtable hashtable = StdUtil.getInstance().createHashTable();
         
     protected final CollidableDestroyableDamageableLayer[] newUnconstructedRTSLayerInterfaceArray = new CollidableDestroyableDamageableLayer[7];
     protected final Group[] groupInterfaceArray;

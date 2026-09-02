@@ -60,7 +60,7 @@ public class LoggingInitInfo
             DomSearchHelper.getAllNodes(
                LogConfigData.getInstance().NAME, logConfigsNode.getChildNodes());
 	    
-         LoggingInitInfo.logConfigInfoVector = new Vector();
+         LoggingInitInfo.logConfigInfoVector = StdUtil.getInstance().createVector();
 	    
          iter = logConfigNodeVector;
          while(iter.hasNext())

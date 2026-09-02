@@ -20,6 +20,7 @@ import java.util.Vector;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.data.generator.ProductIdGenerator;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.time.TimeUtil;
@@ -78,7 +79,7 @@ public class DownloadableItem
     {
         this.id = (String) hashMap.get(DownloadItemData.ID);
 
-        this.basicItemId = (String) hashMap.get(BasicItemData.ID);
+        this.basicItemId = (String) hashMap.get(BasicItemData.getInstance().ID);
 
         this.enabled = (String) hashMap.get(EntryData.getInstance().ENABLE);
 
@@ -137,7 +138,7 @@ public class DownloadableItem
     {
         Calendar calendar = Calendar.getInstance();
         String time = new Long(calendar.getTimeInMillis()).toString();
-        Vector values = new Vector();
+        Vector values = StdUtil.getInstance().createVector();
 
         values.add(getId());
 
@@ -169,11 +170,11 @@ public class DownloadableItem
 
     public HashMap toHashMap()
     {
-        HashMap values = new HashMap();
+        HashMap values = StdUtil.getInstance().createHashMap();
 
         values.put(DownloadItemData.ID, this.getId());
 
-        values.put(BasicItemData.ID, this.basicItemId);
+        values.put(BasicItemData.getInstance().ID, this.basicItemId);
 
         values.put(EntryData.getInstance().ENABLE, this.enabled);
 

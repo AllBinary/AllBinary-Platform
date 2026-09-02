@@ -34,6 +34,7 @@ public class BasketRequestHelper
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
   
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
    private final WeblisketSession weblisketSession;
    
@@ -73,7 +74,7 @@ public class BasketRequestHelper
    
    private void getFormData()
    {
-      this.id = this.request.getParameter(BasicItemData.ID);
+      this.id = this.request.getParameter(basicItemData.ID);
       this.num = this.request.getParameter(BasketData.ITEMTOTALINBASKET);
    }
    
@@ -145,8 +146,8 @@ public class BasketRequestHelper
          while(index < this.MAX)
          {
             
-            String nextId = BasicItemData.ID + new Integer(index).toString();
-            String nextNum = BasicItemData.ITEMTOTALINBASKET + new Integer(index).toString();
+            String nextId = basicItemData.ID + new Integer(index).toString();
+            String nextNum = basicItemData.ITEMTOTALINBASKET + new Integer(index).toString();
             this.id = this.request.getParameter(nextId);
             this.num = this.request.getParameter(nextNum);
             index++;

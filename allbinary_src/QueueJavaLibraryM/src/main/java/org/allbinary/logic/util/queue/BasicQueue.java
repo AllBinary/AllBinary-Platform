@@ -14,10 +14,11 @@
 package org.allbinary.logic.util.queue;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 public class BasicQueue
 {
-   protected final Vector queueVector = new Vector();
+   protected final Vector queueVector = StdUtil.getInstance().createVector();
 
    protected BasicQueue()
    {

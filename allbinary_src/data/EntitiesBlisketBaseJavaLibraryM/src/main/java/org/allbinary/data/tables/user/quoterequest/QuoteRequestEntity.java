@@ -21,6 +21,7 @@ import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.business.quoterequest.QuoteRequestData;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.quoterequest.QuoteRequest;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
@@ -60,7 +61,7 @@ public class QuoteRequestEntity extends AbSqlBean
       
    public QuoteRequest get(String userName, int id) throws Exception
    {      
-      HashMap row = new HashMap();
+      HashMap row = StdUtil.getInstance().createHashMap();
       row.put(UserData.USERNAME, userName);
       row.put(QuoteRequestData.getInstance().ID, Integer.toString(id));
 

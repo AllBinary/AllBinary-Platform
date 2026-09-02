@@ -15,12 +15,13 @@ package org.allbinary.input.media.image;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 public class InputImageType
 {
-    private static HashMap hashMap = new HashMap();
+    private static HashMap hashMap = StdUtil.getInstance().createHashMap();
 
-    private final static Vector TYPE_VECTOR = new Vector();
+    private final static Vector TYPE_VECTOR = StdUtil.getInstance().createVector();
     
     public static InputImageType CAPTURE = new InputImageType("Capture", 0);
     public static InputImageType COMPARISON = new InputImageType("Comparison", 1);

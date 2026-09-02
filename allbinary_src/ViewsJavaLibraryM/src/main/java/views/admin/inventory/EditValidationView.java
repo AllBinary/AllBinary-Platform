@@ -49,7 +49,7 @@ public class EditValidationView extends InventoryItemView implements ValidationC
       
       if(hashMap==null) throw new Exception("No Request Params Found");
       
-      this.id = (String) hashMap.get(BasicItemData.ID);
+      this.id = (String) hashMap.get(basicItemData.ID);
    }
    
    public Boolean isValid() throws Exception

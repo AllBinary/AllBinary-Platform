@@ -17,6 +17,7 @@ import java.util.Vector;
 
 import org.allbinary.input.media.image.capture.CapturedImageWorkerResultsEvent;
 import org.allbinary.input.media.image.capture.CapturedImageWorkerResultsListener;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -33,7 +34,7 @@ public class ImageComparisonWorker
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final Vector bufferedImageVector = new Vector();
+    private final Vector bufferedImageVector = StdUtil.getInstance().createVector();
     
     private final ImageComparatorConstraintsInterface imageComparatorConstraintsInterface;
     

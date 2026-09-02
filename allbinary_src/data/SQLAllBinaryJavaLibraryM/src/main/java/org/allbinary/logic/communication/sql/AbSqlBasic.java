@@ -20,6 +20,7 @@ import java.sql.Statement;
 
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.DbConnectionInfo;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.connection.pool.SqlConnectionPool;
 import org.allbinary.logic.string.StringUtil;
@@ -43,6 +44,7 @@ public class AbSqlBasic
     protected final StringUtil stringUtil = StringUtil.getInstance();
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
+    protected final StdUtil stdUtil = StdUtil.getInstance();
     protected final SqlTypeStrings sqlTypeStrings = SqlTypeStrings.getInstance();
     protected final SqlStrings sqlStrings = SqlStrings.getInstance();
 

@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
@@ -60,7 +61,7 @@ public class PaymentGatewayInterfaceFactory
       BasicPaymentType paymentType)
       throws Exception
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       hashMap.put(PaymentGatewayData.NAME.toString(), paymentType.getName());
 
       return this.getInstance(hashMap);

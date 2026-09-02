@@ -17,6 +17,7 @@ package org.allbinary.input.automation.module;
 import java.util.Vector;
 
 import javax.swing.*;
+import org.allbinary.logic.StdUtil;
 
 public class DefaultListModelHelper
 {
@@ -26,7 +27,7 @@ public class DefaultListModelHelper
     
     public DefaultListModelHelper() throws Exception
     {
-        this.vector = new Vector();
+        this.vector = StdUtil.getInstance().createVector();
         this.defaultListModel = new DefaultListModel();
     }
 

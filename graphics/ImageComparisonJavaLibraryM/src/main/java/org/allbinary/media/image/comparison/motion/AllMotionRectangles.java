@@ -222,7 +222,7 @@ public class AllMotionRectangles extends MotionRectangles
         MotionRectangle motionRectangle, PixelDelta pixelDelta) throws Exception
     {
         /*
-        Vector pixelDeltasInTheSameRow = new Vector();
+        Vector pixelDeltasInTheSameRow = StdUtil.getInstance().createVector();
          
         iterator = motionRectangle.getPixelDeltaVector();
          

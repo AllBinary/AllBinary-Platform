@@ -18,6 +18,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.http.file.upload.AbFileUploadFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -53,7 +54,7 @@ public class MultipartRequestParams extends RequestParams
    {
       try
       {
-         HashMap specialRequest = new HashMap();
+         HashMap specialRequest = StdUtil.getInstance().createHashMap();
          List multipartRequestList = AbFileUploadFactory.getInstance().getFileItemStreamList(request);
          //List multipartRequestList = AbFileUploadFactory.getFileItemList(request);
 

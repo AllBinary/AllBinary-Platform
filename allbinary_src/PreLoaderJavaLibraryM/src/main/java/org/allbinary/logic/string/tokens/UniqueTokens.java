@@ -15,6 +15,7 @@ package org.allbinary.logic.string.tokens;
 
 import java.util.HashSet;
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.regex.replace.Replace;
@@ -25,7 +26,7 @@ import org.allbinary.util.BasicArrayListD;
 
 public class UniqueTokens
 {
-	private final Vector specialCharacters = new Vector();
+	private final Vector specialCharacters = StdUtil.getInstance().createVector();
 	
    public UniqueTokens()
    {

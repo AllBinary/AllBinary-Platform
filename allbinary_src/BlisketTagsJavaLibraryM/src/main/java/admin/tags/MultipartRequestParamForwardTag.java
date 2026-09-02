@@ -20,6 +20,7 @@ import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.Tag;
 
 import admin.taghelpers.MultipartRequestParamForwardHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.CustomTagSupport;
@@ -65,7 +66,7 @@ public class MultipartRequestParamForwardTag extends CustomTagSupport
 
             ParentInventoryTagHelper.getInstance().isValid(this, parentTag);
 
-            HashMap hashMap = new HashMap();
+            HashMap hashMap = StdUtil.getInstance().createHashMap();
             hashMap.put(AbTagData.PARENT, parentTag);
             
             MultipartRequestParamForwardHelper multipartRequestParamForwardHelper =

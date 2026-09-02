@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.data.tables.TableMappingInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileData;
 import org.allbinary.logic.io.path.AbPathData;
@@ -40,7 +41,7 @@ public class FileTableMapping
    //Used for inserting into database   
    public Vector toVector() throws Exception
    {
-      final Vector filePropertyVector = new Vector();
+      final Vector filePropertyVector = StdUtil.getInstance().createVector();
 
       filePropertyVector.add(this.file.getAbsolutePath());
       filePropertyVector.add(this.file.getCanonicalPath());
@@ -54,7 +55,7 @@ public class FileTableMapping
    //Used for updating viewinfo in database   
    public HashMap toHashMap() throws Exception
    {
-      final HashMap filePropertyHashMap = new HashMap();
+      final HashMap filePropertyHashMap = StdUtil.getInstance().createHashMap();
 
       final AbPathData pathData = AbPathData.getInstance();
       final PathUtil pathUtil = PathUtil.getInstance();

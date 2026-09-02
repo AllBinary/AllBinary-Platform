@@ -14,10 +14,11 @@
 package org.allbinary.logic.visual.media;
 
 import java.util.HashMap;
+import org.allbinary.logic.StdUtil;
 
 public class MediaData
 {
-   private static HashMap hashMap = new HashMap();
+   private static HashMap hashMap = StdUtil.getInstance().createHashMap();
 
    private String name;
    private String type;

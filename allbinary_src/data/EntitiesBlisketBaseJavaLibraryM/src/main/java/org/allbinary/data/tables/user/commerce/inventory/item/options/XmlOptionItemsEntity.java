@@ -4,7 +4,7 @@
  * 
  * By agreeing to this license you and any business entity you represent are
  * legally bound to the AllBinary Open License Version 1 legal agreement.
- * 
+ * `
  * You may obtain the AllBinary Open License Version 1 legal agreement from
  * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
  * 
@@ -28,6 +28,7 @@ public class XmlOptionItemsEntity extends AbSqlBean implements XmlOptionItemsEnt
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     protected final String tableName = "xmloptionitems";
 
@@ -60,7 +61,7 @@ public class XmlOptionItemsEntity extends AbSqlBean implements XmlOptionItemsEnt
     {
         try
         {
-            super.deleteWhere(BasicItemData.ID, value);
+            super.deleteWhere(basicItemData.ID, value);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 this.logUtil.putF(this.commonStrings.SUCCESS, this, this.commonStrings.delete);
@@ -77,7 +78,7 @@ public class XmlOptionItemsEntity extends AbSqlBean implements XmlOptionItemsEnt
     /*
      public String getTable(String itemId)
      {
-     return super.getTableWhere(BasicItemData.ID,itemId);
+     return super.getTableWhere(basicItemData.ID,itemId);
      }
      */
     public final String createTableStatement()
@@ -87,7 +88,7 @@ public class XmlOptionItemsEntity extends AbSqlBean implements XmlOptionItemsEnt
         stringBuffer.append(this.sqlStrings.CREATE_TABLE)
                 .append(tableName)
                 .append(this.sqlStrings.START)
-                .append(BasicItemData.ID)
+                .append(basicItemData.ID)
                 .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         //Option title like color or size
@@ -100,7 +101,7 @@ public class XmlOptionItemsEntity extends AbSqlBean implements XmlOptionItemsEnt
                 .append(EntryData.getInstance().LASTMODIFIED)
                 .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
                 .append(this.sqlStrings.PRIMARY_KEY)
-                .append(BasicItemData.ID)
+                .append(basicItemData.ID)
                 .append(this.sqlStrings.END);
 
         return stringBuffer.toString();
@@ -114,12 +115,12 @@ public class XmlOptionItemsEntity extends AbSqlBean implements XmlOptionItemsEnt
     /*
      public String getForm(String id)
      {
-     return super.getInputWhere(BasicItemData.ID,id);
+     return super.getInputWhere(basicItemData.ID,id);
      }
      */
     public void update(HashMap updatedValues)
     {
-        super.updateWhere(BasicItemData.ID, (String) updatedValues.get(BasicItemData.ID), updatedValues);
+        super.updateWhere(basicItemData.ID, (String) updatedValues.get(basicItemData.ID), updatedValues);
     }
 
     public String dropTable()

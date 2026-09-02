@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.business.user.UserInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.handler.EmailEventHandlerUtil;
@@ -41,7 +42,7 @@ public class UserEmailEventHandlerSingletons {
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    private final HashMap userEmailEventHandlerHashMap = new HashMap();
+    private final HashMap userEmailEventHandlerHashMap = StdUtil.getInstance().createHashMap();
 
     private UserEmailEventHandlerSingletons() {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {

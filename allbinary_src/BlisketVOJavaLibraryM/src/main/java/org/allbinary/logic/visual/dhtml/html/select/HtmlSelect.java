@@ -14,6 +14,7 @@
 package org.allbinary.logic.visual.dhtml.html.select;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.io.LineReader;
 import org.allbinary.logic.string.StringUtil;
@@ -48,7 +49,7 @@ public class HtmlSelect extends HtmlTag
       this.size = size;
       this.name = name;
       this.after = after;
-      this.options = new Vector();
+      this.options = StdUtil.getInstance().createVector();
    }
    
    public void addOption(String key)

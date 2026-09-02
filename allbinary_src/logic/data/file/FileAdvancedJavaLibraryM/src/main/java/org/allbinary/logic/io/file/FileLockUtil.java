@@ -16,6 +16,7 @@ package org.allbinary.logic.io.file;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.AbFileOutputStream;
@@ -38,7 +39,7 @@ public class FileLockUtil
     public Vector getAll(Vector vector, boolean isReturnOnFailure)
     throws Exception
     {
-        Vector fileLockVector = new Vector();
+        Vector fileLockVector = StdUtil.getInstance().createVector();
         
         final int size = vector.size();
         for (int index = 0; index < size; index++)
@@ -74,7 +75,7 @@ public class FileLockUtil
         Vector fileLockVector = this.getAll(vector, true);
         if(vector.size() != fileLockVector.size())
         {
-            return new Vector();
+            return StdUtil.getInstance().createVector();
         }
         else
         {

@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.data.tree.dom.ToDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -35,7 +36,7 @@ public class SearchParams
          
    public SearchParams(HttpServletRequest request)
    {
-      this.columnsAndSearchValues = new HashMap();
+      this.columnsAndSearchValues = StdUtil.getInstance().createHashMap();
       
       this.setLength(request.getParameter(SearchData.LENGTH));
       this.setOrder(request.getParameter(SearchData.ORDER));

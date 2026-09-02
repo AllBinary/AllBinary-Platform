@@ -28,7 +28,7 @@ public class CommandUriAction
         return CommandUriAction.instance;
     }
     
-    //private Hashtable hashtable = new Hashtable();
+    //private Hashtable hashtable = StdUtil.getInstance().createHashtable();
 
     public void add(Command command, String url)
     {

@@ -23,6 +23,7 @@ import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.commerce.inventory.order.OrderData;
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionInterface;
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionKeysFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
@@ -44,7 +45,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
     {
         try
         {
-            HashMap whereHashMap = new HashMap();
+            HashMap whereHashMap = StdUtil.getInstance().createHashMap();
             whereHashMap.put(OrderData.ID, (String) orderNumber);
             whereHashMap.put(UserData.USERNAME, userName);
             super.deleteWhere(whereHashMap);
@@ -66,7 +67,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
     {
         try
         {
-            Vector values = new Vector();
+            Vector values = StdUtil.getInstance().createVector();
 
             values.add(orderNumber);
             values.add(userName);
@@ -97,8 +98,8 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
      {
      try
      {
-     HashMap verisignHashMap = new HashMap();
-     HashMap updateKeyAndValue = new HashMap();
+     HashMap verisignHashMap = StdUtil.getInstance().createHashMap();
+     HashMap updateKeyAndValue = StdUtil.getInstance().createHashMap();
      updateKeyAndValue.put(PaymentTransactionKeys.ORDERNUMBER, orderNumber);         
      verisignHashMap = super.getRow(updateKeyAndValue);
          

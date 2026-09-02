@@ -106,7 +106,7 @@ public class UpdateFileValidationView
                 return Boolean.FALSE;
             }
 
-            Object object = this.getRequestHashMap().get(BasicItemData.IMAGE);
+            Object object = this.getRequestHashMap().get(basicItemData.IMAGE);
 
             if (HttpFileUploadUtil.getInstance().isValid(object))
             {
@@ -187,7 +187,7 @@ public class UpdateFileValidationView
             }
         }
 
-        Object object = this.getRequestHashMap().get(BasicItemData.IMAGE);
+        Object object = this.getRequestHashMap().get(basicItemData.IMAGE);
 
             if (HttpFileUploadUtil.getInstance().isValid(object))
             {
@@ -248,7 +248,7 @@ public class UpdateFileValidationView
     	
         if (size > fileData.MINIMAGEFILESIZE)
         {
-            if (fileItemFieldName.compareTo(BasicItemData.IMAGE) == 0)
+            if (fileItemFieldName.compareTo(basicItemData.IMAGE) == 0)
             {
                 if (size < fileData.MAXIMAGEFILESIZE)
                 {

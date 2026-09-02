@@ -20,6 +20,7 @@ import javax.servlet.jsp.JspTagException;
 
 import admin.taghelpers.StoreFrontHelperFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
@@ -108,7 +109,7 @@ public class StoreFrontTag extends CustomTagSupport
       {
          if(this.command!=null)
          {
-            this.propertiesHashMap = new HashMap();
+            this.propertiesHashMap = StdUtil.getInstance().createHashMap();
             this.propertiesHashMap.put(StoreFrontData.getInstance().NAME, this.storeName);
             
             if (this.command.compareTo(org.allbinary.globals.GLOBALS2.GETCURRENTLOCATION)==0)

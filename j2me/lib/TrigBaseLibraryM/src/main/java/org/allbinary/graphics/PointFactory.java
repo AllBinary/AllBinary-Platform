@@ -36,7 +36,7 @@ public class PointFactory
 
     //private static int total = 0;
 
-    //private static final Hashtable hashtable = new Hashtable();
+    //private static final Hashtable hashtable = StdUtil.getInstance().createHashtable();
 
     @JsMethod
     public void init()
@@ -87,7 +87,7 @@ public class PointFactory
 
             if (yHashtable == null)
             {
-                yHashtable = new Hashtable();
+                yHashtable = StdUtil.getInstance().createHashtable();
                 PointFactory.hashtable.put(xInteger, yHashtable);
             }
 

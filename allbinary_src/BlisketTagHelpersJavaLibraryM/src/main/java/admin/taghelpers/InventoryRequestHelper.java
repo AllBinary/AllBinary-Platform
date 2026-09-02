@@ -32,6 +32,7 @@ public class InventoryRequestHelper extends ModifyTable
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     //private final PageContext pageContext;
     //private final HttpServletRequest request;
@@ -89,12 +90,12 @@ public class InventoryRequestHelper extends ModifyTable
                 (TableMappingInterface) this.getItemInterface();
 
             String id = (String) dataMappingInterface.getKey();
-            InventoryEntityFactory.getInstance().getInventoryEntityInstance().deleteWhere(BasicItemData.ID, id);
+            InventoryEntityFactory.getInstance().getInventoryEntityInstance().deleteWhere(basicItemData.ID, id);
 
             StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Successfully Removed the item with ");
-            stringBuffer.append(BasicItemData.ID);
+            stringBuffer.append(basicItemData.ID);
             stringBuffer.append("=");
             stringBuffer.append(id);
             stringBuffer.append(" from to the Inventory table");

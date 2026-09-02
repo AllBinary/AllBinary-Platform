@@ -25,6 +25,7 @@ import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
@@ -86,7 +87,7 @@ public class ShippingMethodsFactory
       
       this.document = DomDocumentHelper.create(data);
       
-      this.shippingVector = new Vector();
+      this.shippingVector = StdUtil.getInstance().createVector();
 
       final NodeList nodeList = this.document.getElementsByTagName(ShippingMethodsData.NAME);
 

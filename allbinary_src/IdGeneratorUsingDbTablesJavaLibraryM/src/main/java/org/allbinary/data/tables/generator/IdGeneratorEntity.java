@@ -56,7 +56,7 @@ public class IdGeneratorEntity extends AbSqlBean
     public Long get(String name)
             throws Exception {
 
-        HashMap keysAndValues = new HashMap();
+        HashMap keysAndValues = StdUtil.getInstance().createHashMap();
         keysAndValues.put(this.NAME, name);
         HashMap hashMap = super.getRow(keysAndValues);
         
@@ -101,7 +101,7 @@ public class IdGeneratorEntity extends AbSqlBean
     
     public void update(String name, Long value)
     {
-        final HashMap map= new HashMap();
+        final HashMap map= StdUtil.getInstance().createHashMap();
 
         map.put(this.NAME, name);
         map.put(this.VALUE, value.toString());

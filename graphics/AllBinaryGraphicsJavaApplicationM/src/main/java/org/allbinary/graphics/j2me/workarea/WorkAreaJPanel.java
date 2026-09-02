@@ -31,6 +31,7 @@ import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEventService;
 import org.allbinary.graphics.j2me.workarea.properties.PropertiesJPanel;
 import org.allbinary.graphics.j2me.workarea.tools.ToolJPanel;
 import org.allbinary.log.LOGGING;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
 import org.w3c.dom.Document;
@@ -184,7 +185,7 @@ public class WorkAreaJPanel
     //hashMap keeps track of what jtree node goes with a specific canvas
     private HashMap getCanvasHashMap()
     {
-        final HashMap canvasJPanelHashMap = new HashMap();
+        final HashMap canvasJPanelHashMap = StdUtil.getInstance().createHashMap();
         final int size = this.canvasJPanelList.size();
         for (int index = 0; index < size; index++)
         {

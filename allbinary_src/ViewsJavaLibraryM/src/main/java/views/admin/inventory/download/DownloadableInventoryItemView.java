@@ -27,6 +27,7 @@ import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItem;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItemView;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.MultipartRequestParams;
 import org.allbinary.logic.communication.http.request.RequestMapInterface;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -45,6 +46,8 @@ public class DownloadableInventoryItemView
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
+    
     protected final HttpServletRequest request;
     protected String id;
     protected ItemInterface itemInterface;
@@ -81,12 +84,12 @@ public class DownloadableInventoryItemView
     {
         this.setRequestHashMap(new MultipartRequestParams(this.request).toHashMap());
 
-        this.id = (String) this.getRequestHashMap().get(BasicItemData.ID);
+        this.id = (String) this.getRequestHashMap().get(basicItemData.ID);
     }
 
     public void addDomNodeInterfaces()
     {
-        Vector vector = new Vector();
+        Vector vector = StdUtil.getInstance().createVector();
 
         if(this.downloadableItem != null)
         {

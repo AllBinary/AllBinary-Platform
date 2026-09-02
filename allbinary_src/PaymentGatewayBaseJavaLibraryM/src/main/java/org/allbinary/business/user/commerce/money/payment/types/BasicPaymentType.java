@@ -19,6 +19,7 @@ import java.util.Vector;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterfaceFactoryInterface;
 import org.allbinary.business.user.commerce.money.payment.gateway.modules.gateway.PaymentGatewayDomNodeFactoryInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.string.CommonSeps;
@@ -50,7 +51,7 @@ public class BasicPaymentType
    
    private void init(String paymentMethod)
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
 
       final String UNDERSCORE = "_";
 
@@ -104,7 +105,7 @@ public class BasicPaymentType
    
    public Vector toVector()
    {
-      Vector vector = new Vector();
+      Vector vector = StdUtil.getInstance().createVector();
       
       vector.add(this.name);
       vector.add(this.value);
@@ -114,7 +115,7 @@ public class BasicPaymentType
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       hashMap.put(PaymentGatewayData.NAME.toString(), this.name);
       hashMap.put(PaymentGatewayData.VALUE.toString(), this.value);
@@ -131,7 +132,7 @@ public class BasicPaymentType
    /*
    public synchronized static Vector getAllPaymentGateways()
    {
-      Vector result = new Vector();
+      Vector result = StdUtil.getInstance().createVector();
     
       iter = paymentMethods;
     

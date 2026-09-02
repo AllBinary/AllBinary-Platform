@@ -18,6 +18,7 @@ import java.util.Vector;
 
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
@@ -45,7 +46,7 @@ public class TransformInfoPropertiesDocument
    {
       try
       {
-         final HashMap transformInfoPropertiesHashMap = new HashMap();
+         final HashMap transformInfoPropertiesHashMap = StdUtil.getInstance().createHashMap();
 
          /*
          Node objectConfigNode = this.document.getElementsByTagName(

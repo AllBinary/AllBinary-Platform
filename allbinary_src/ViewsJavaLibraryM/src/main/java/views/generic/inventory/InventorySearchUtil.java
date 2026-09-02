@@ -68,6 +68,8 @@ public class InventorySearchUtil {
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
+    
     //private static final String START_PAGE = " StartPage:";
     //private static final String END_PAGE = " EndPage:";
     //private static final String XML_COLON = " Xml: ";
@@ -94,7 +96,7 @@ public class InventorySearchUtil {
         Vector column = inventorySearchUtil.getColumnWhereLike(
             inventoryEntityInterface,
             storeFrontInterface.getCategoryPath(),
-            BasicItemData.ID);
+            basicItemData.ID);
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
@@ -110,7 +112,7 @@ public class InventorySearchUtil {
             String subStore = (String) subStoreVector.get(index);
 
             Vector substoreIdColumn = inventorySearchUtil.getColumnWhereLike(
-                inventoryEntityInterface, subStore, BasicItemData.ID);
+                inventoryEntityInterface, subStore, basicItemData.ID);
 
             column.addAll(substoreIdColumn);
         }
@@ -164,7 +166,7 @@ public class InventorySearchUtil {
             HashMap columnValueHashMap = searchParams.get();
 
             String keyword = new Replace("-", CommonSeps.getInstance().SPACE).all(
-                (String) columnValueHashMap.get(BasicItemData.KEYWORDS));
+                (String) columnValueHashMap.get(basicItemData.KEYWORDS));
 
             if (StringValidationUtil.getInstance().isEmpty(keyword))
             {

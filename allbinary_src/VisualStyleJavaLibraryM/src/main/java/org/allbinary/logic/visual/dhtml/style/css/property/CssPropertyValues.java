@@ -21,6 +21,7 @@ import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -35,14 +36,14 @@ public class CssPropertyValues implements DomNodeInterface
    
    public CssPropertyValues()
    {
-      this.propertyValueVector = new Vector();
+      this.propertyValueVector = StdUtil.getInstance().createVector();
    }
 
    public CssPropertyValues(Node node) throws Exception
    {
-      HashMap indexPropertyValueHashMap = new HashMap();
+      HashMap indexPropertyValueHashMap = StdUtil.getInstance().createHashMap();
 
-      this.propertyValueVector = new Vector();
+      this.propertyValueVector = StdUtil.getInstance().createVector();
 
       //Child Nodes Are CssPropertyData.VALUE
       
@@ -97,7 +98,7 @@ public class CssPropertyValues implements DomNodeInterface
    /*
    public CssPropertyValues(HashMap hashMap)
    {
-      this.propertyValueVector = new Vector();
+      this.propertyValueVector = StdUtil.getInstance().createVector();
 
       Set set = hashMap.keySet();
       iter = set;
@@ -116,7 +117,7 @@ public class CssPropertyValues implements DomNodeInterface
    {
        final CommonSeps commonSeps = CommonSeps.getInstance();
        final CssPropertyValueData cssPropertyValueData = CssPropertyValueData.getInstance();
-      final HashMap hashMap = new HashMap();
+      final HashMap hashMap = StdUtil.getInstance().createHashMap();
       final StringMaker stringBuffer = new StringMaker();
       
       final int size = this.propertyValueVector.size();

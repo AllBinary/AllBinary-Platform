@@ -24,6 +24,7 @@ import org.allbinary.string.CommonSeps;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
+import org.allbinary.logic.StdUtil;
 
 
 @JsType
@@ -142,7 +143,7 @@ public class GameInfo
    @JsMethod
    public Hashtable toHashtable()
    {
-       final Hashtable hashtable = new Hashtable();
+       final Hashtable hashtable = StdUtil.getInstance().createHashtable();
 
        hashtable.put(this.gameInfoData.GAME_TYPE, this.getGameType().toString());
        hashtable.put(this.gameInfoData.GAME_MODE, this.gameMode.toString());

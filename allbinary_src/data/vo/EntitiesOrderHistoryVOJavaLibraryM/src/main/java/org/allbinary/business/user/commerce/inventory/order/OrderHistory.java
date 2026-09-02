@@ -30,6 +30,7 @@ import org.allbinary.business.user.commerce.money.payment.Payment;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -263,7 +264,7 @@ public class OrderHistory extends Order
 
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       hashMap.put(UserData.USERNAME,this.userName);
       
@@ -290,7 +291,7 @@ public class OrderHistory extends Order
    /*
    public Vector toVector()
    {
-      return new Vector();
+      return StdUtil.getInstance().createVector();
    }
    */
    

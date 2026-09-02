@@ -14,6 +14,7 @@
 package org.allbinary.logic.visual.dhtml.html;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.dhtml.html.input.HtmlInput;
@@ -38,7 +39,7 @@ public class HtmlForm
    public HtmlForm(String action)
    {
       this.action = action;
-      this.inputs = new Vector();
+      this.inputs = StdUtil.getInstance().createVector();
    }
 
    public void setPost()

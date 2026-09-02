@@ -23,6 +23,7 @@ import javax.help.HelpSet;
 import javax.help.event.HelpSetEvent;
 import javax.help.event.HelpSetListener;
 
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.help.JavaHelpSetNotifier;
 import org.allbinary.logic.java.object.InterfaceUtil;
@@ -43,7 +44,7 @@ public class InputRobotFactory
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final Hashtable hashtable = new Hashtable();
+    private final Hashtable hashtable = StdUtil.getInstance().createHashtable();
     private HelpSetListener helpSetListenerInterface;
     
     private InputRobotFactory()

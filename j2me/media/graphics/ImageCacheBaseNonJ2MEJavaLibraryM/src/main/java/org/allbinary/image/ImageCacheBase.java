@@ -40,7 +40,7 @@ public class ImageCacheBase
     protected final ImageFactory imageFactory = ImageFactory.getInstance();
 
     @JsProperty
-    protected final Hashtable hashtable = new Hashtable();
+    protected final Hashtable hashtable = StdUtil.getInstance().createHashtable();
 
     @JsProperty
     protected final int SIZE = 128;

@@ -21,6 +21,7 @@ import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.business.user.commerce.money.Money;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityInterface;
+import org.allbinary.logic.StdUtil;
 
 public class StoreFrontInventoryStatistics
    implements StoreFrontInventoryStatisticsInterface
@@ -61,7 +62,7 @@ public class StoreFrontInventoryStatistics
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       hashMap.put(StoreFrontInventoryStatisticsData.getInstance().NUMBEROFITEMS, this.getNumber().toString());
       hashMap.put(StoreFrontInventoryStatisticsData.getInstance().TOTALVALUE, this.getTotal().toString());

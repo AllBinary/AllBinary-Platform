@@ -41,7 +41,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
    {
       try
       {
-          Vector vector = new Vector();
+          Vector vector = StdUtil.getInstance().createVector();
           vector.add(this.name);
           vector.add(Long.valueOf(value).toString());
           this.idGeneratorEntity.insert(vector);

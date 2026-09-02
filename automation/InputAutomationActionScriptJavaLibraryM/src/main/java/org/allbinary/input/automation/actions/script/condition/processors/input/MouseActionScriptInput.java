@@ -20,6 +20,7 @@ import java.util.HashMap;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -149,7 +150,7 @@ public class MouseActionScriptInput
 
     public HashMap toHashMap()
     {
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
 
         //super.toHashMap().put(MouseActionScriptInputData.NAME, hashMap);
         
@@ -168,7 +169,7 @@ public class MouseActionScriptInput
             document, MouseActionScriptInputData.NAME, this.toHashMap());
         node.appendChild(mouseNode);
 
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
 
         hashMap.put(MouseActionScriptInputData.MOVE_X, 
             Integer.toString(this.getPoint().x));

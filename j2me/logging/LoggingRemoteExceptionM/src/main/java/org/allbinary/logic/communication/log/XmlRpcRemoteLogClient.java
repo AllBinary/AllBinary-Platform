@@ -49,7 +49,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             //this.logUtil.putF("Start Trying Server #" + this.getServer() + CommonLabels.getInstance().COLON_SEP + getClientInfo().getLicenseServer(this.getServer()), this, this.commonStrings.GET);
             // }
 
-            Vector param = new Vector();
+            Vector param = StdUtil.getInstance().createVector();
 
             String serverUrl = getClientInfo().getLicenseServer(this.getServer());
             

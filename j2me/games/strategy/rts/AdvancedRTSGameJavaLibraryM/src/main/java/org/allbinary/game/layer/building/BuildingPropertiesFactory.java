@@ -26,6 +26,7 @@ import org.allbinary.game.tracking.TrackingEvent;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.StdUtil;
 
 /**
  *
@@ -70,7 +71,7 @@ public class BuildingPropertiesFactory {
     }
 
     public Hashtable getHashtable() {
-        return new Hashtable();
+        return StdUtil.getInstance().createHashTable();
     }    
     
     public TrackingEvent getTrackingEvent(final BuildingLayer buildingLayer) {

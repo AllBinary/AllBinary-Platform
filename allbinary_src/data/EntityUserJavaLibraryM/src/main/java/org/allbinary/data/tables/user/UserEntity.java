@@ -28,6 +28,7 @@ import org.allbinary.business.user.role.UserRole;
 import org.allbinary.business.user.role.UserRoleData;
 import org.allbinary.business.user.role.UserRoleFactory;
 import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
@@ -82,8 +83,8 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
 
    public Vector getStoreManagers(StoreFrontInterface storeFrontInterface) throws Exception
    {
-      HashMap keysAndValues = new HashMap();
-      Vector usersVector = new Vector();
+      HashMap keysAndValues = StdUtil.getInstance().createHashMap();
+      Vector usersVector = StdUtil.getInstance().createVector();
       
       keysAndValues.put(UserRoleData.NAME.toString(), UserRoleFactory.getInstance().STOREMANAGER.toString());
       keysAndValues.put(UserData.PERMISSIONS, storeFrontInterface.getName());
@@ -108,8 +109,8 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
 
    public Vector getUsersWithRole(UserRole userRole) throws Exception
    {
-      HashMap keysAndValues = new HashMap();
-      Vector usersVector = new Vector();
+      HashMap keysAndValues = StdUtil.getInstance().createHashMap();
+      Vector usersVector = StdUtil.getInstance().createVector();
       
       keysAndValues.put(UserRoleData.NAME.toString(), userRole.toString());
       
@@ -129,8 +130,8 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
    public Vector getUsers(StoreFrontInterface storeFrontInterface)
       throws Exception
    {
-      HashMap keysAndValues = new HashMap();
-      Vector usersVector = new Vector();
+      HashMap keysAndValues = StdUtil.getInstance().createHashMap();
+      Vector usersVector = StdUtil.getInstance().createVector();
       
       keysAndValues.put(StoreFrontData.getInstance().NAME, storeFrontInterface.getName());
       
@@ -149,7 +150,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
    
    public UserInterface getUser(String userName) throws Exception
    {      
-      HashMap row = new HashMap();
+      HashMap row = StdUtil.getInstance().createHashMap();
       row.put(UserData.USERNAME,userName);
       HashMap userHashMap = super.getRow(row);
       if(userHashMap!=null)

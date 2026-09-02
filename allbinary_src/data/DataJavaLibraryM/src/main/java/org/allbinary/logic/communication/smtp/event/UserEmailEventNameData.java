@@ -16,10 +16,11 @@ package org.allbinary.logic.communication.smtp.event;
 import java.util.HashMap;
 
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
+import org.allbinary.logic.StdUtil;
 
 public class UserEmailEventNameData
 {
-   private static HashMap userNameEvenNameHashMap = new HashMap();
+   private static HashMap userNameEvenNameHashMap = StdUtil.getInstance().createHashMap();
    private static int nextId = 0;
    private int eventNameId;
    private String eventHandlerName;

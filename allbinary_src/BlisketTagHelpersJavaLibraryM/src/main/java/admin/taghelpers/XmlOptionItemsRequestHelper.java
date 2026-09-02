@@ -24,6 +24,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.option.XmlOptionItemData;
 import org.allbinary.data.tables.user.commerce.inventory.item.options.XmlOptionItemsEntityFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -32,6 +33,8 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
+    
    private HttpServletRequest request;
      
    private String id;
@@ -49,7 +52,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {
-      this.id = this.request.getParameter(BasicItemData.ID);
+      this.id = this.request.getParameter(basicItemData.ID);
       
       this.xmlFileStatus = this.request.getParameter(XmlOptionItemData.XML_FILE_STATUS);
       this.optionXmlFile = this.request.getParameter(XmlOptionItemData.OPTION_XML_FILE);
@@ -60,9 +63,9 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
 
    private HashMap getHashMap()
    {
-      HashMap values = new HashMap();            
+      HashMap values = StdUtil.getInstance().createHashMap();            
       
-      values.put(BasicItemData.ID,this.id);
+      values.put(basicItemData.ID,this.id);
       
       values.put(XmlOptionItemData.XML_FILE_STATUS, this.xmlFileStatus);
       values.put(XmlOptionItemData.OPTION_XML_FILE, this.optionXmlFile);
@@ -81,7 +84,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
       {
          Calendar calendar=Calendar.getInstance();
          String time = new String(new Long(calendar.getTimeInMillis()).toString());
-         Vector values = new Vector();
+         Vector values = StdUtil.getInstance().createVector();
 
          values.add(this.id);
          values.add(this.xmlFileStatus);

@@ -41,6 +41,7 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
+import org.allbinary.logic.StdUtil;
 
 
 @JsType
@@ -200,7 +201,7 @@ public class GameOptionsForm extends CommandForm
 
         GameConfigurationUtil.getInstance().updateCompetitionValue();
 
-        final Hashtable hashtable = new Hashtable();
+        final Hashtable hashtable = StdUtil.getInstance().createHashtable();
         
         final GameConfiguration SCALE = GameConfigurationCentral.getInstance().SCALE;
         

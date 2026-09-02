@@ -24,7 +24,7 @@ public class PathCacheFactory
 
    private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
 
-   private Hashtable hashtable = new Hashtable();
+   private Hashtable hashtable = StdUtil.getInstance().createHashtable();
 
    private PathCacheFactory()
    {

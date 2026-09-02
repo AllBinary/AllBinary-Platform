@@ -17,6 +17,7 @@ import java.util.HashMap;
 
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
@@ -42,7 +43,7 @@ public class PaymentGatewayView implements DomNodeInterface
 
    public HashMap toHashMap() throws Exception
    {
-      final HashMap hashMap = new HashMap();
+      final HashMap hashMap = StdUtil.getInstance().createHashMap();
       return hashMap;
    }
 

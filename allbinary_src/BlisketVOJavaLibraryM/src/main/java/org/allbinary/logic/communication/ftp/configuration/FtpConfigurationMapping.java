@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.data.tables.TableMappingInterface;
+import org.allbinary.logic.StdUtil;
 
 public class FtpConfigurationMapping implements TableMappingInterface
 {
@@ -29,7 +30,7 @@ public class FtpConfigurationMapping implements TableMappingInterface
 
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
 
       hashMap.put(FtpConfigurationData.SERVER, this.ftpConfigurationInterface.getServer());
       hashMap.put(FtpConfigurationData.USERNAME, this.ftpConfigurationInterface.getUserName());
@@ -46,7 +47,7 @@ public class FtpConfigurationMapping implements TableMappingInterface
    
    public Vector toVector() throws Exception
    {
-      Vector vector = new Vector();
+      Vector vector = StdUtil.getInstance().createVector();
       
       vector.add(this.ftpConfigurationInterface.getServer());
       vector.add(this.ftpConfigurationInterface.getUserName());

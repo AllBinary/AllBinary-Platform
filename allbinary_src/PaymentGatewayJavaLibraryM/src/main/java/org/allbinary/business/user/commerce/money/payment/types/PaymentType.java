@@ -19,6 +19,7 @@ import java.util.Vector;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
 import org.allbinary.business.user.commerce.money.payment.gateway.processor.PaymentProcessorInterfaceFactoryInterface;
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionInterfaceFactoryInterface;
+import org.allbinary.logic.StdUtil;
 
 public class PaymentType //implements TableMappingInterface
 {
@@ -77,7 +78,7 @@ public class PaymentType //implements TableMappingInterface
       
    public Vector toVector()
    {
-      Vector vector = new Vector();
+      Vector vector = StdUtil.getInstance().createVector();
       
       vector.addAll(this.getBasicPaymentType().toVector());
       
@@ -95,7 +96,7 @@ public class PaymentType //implements TableMappingInterface
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       hashMap.putAll(this.getBasicPaymentType().toHashMap());
       

@@ -19,7 +19,9 @@ import javax.microedition.lcdui.Command;
 
 import android.content.Intent;
 import android.net.Uri;
+
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -34,7 +36,7 @@ public class CommandUriAction
         return CommandUriAction.instance;
     }
     
-    private Hashtable hashtable = new Hashtable();
+    private Hashtable hashtable = StdUtil.getInstance().createHashtable();
 
     public void add(Command command, String url)
     {

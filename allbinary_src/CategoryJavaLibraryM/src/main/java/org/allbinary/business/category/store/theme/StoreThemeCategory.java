@@ -20,6 +20,7 @@ import org.allbinary.business.category.Category;
 import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
 import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.visual.theme.ThemeData;
 import org.allbinary.logic.visual.theme.ThemeValidation;
 import org.allbinary.logic.visual.theme.ThemesData;
@@ -42,7 +43,7 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
       super(categoryPropertiesFactoryInterface, level);
 
       this.transformInfoInterface = transformInfoInterface;
-      this.themeVector = new Vector();
+      this.themeVector = StdUtil.getInstance().createVector();
    }
    
    //New Category With Parent Child Relationships
@@ -57,7 +58,7 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
          categoryPropertiesFactoryInterface);
 
       this.transformInfoInterface = transformInfoInterface;
-      this.themeVector = new Vector();
+      this.themeVector = StdUtil.getInstance().createVector();
    }
 
    public StoreThemeCategory(
@@ -69,7 +70,7 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
       super(categoryPropertiesFactoryInterface, level);
 
       this.transformInfoInterface = transformInfoInterface;
-      this.themeVector = new Vector();
+      this.themeVector = StdUtil.getInstance().createVector();
       this.addThemes(node);
    }
    
@@ -86,7 +87,7 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
          categoryPropertiesFactoryInterface);
 
       this.transformInfoInterface = transformInfoInterface;
-      this.themeVector = new Vector();
+      this.themeVector = StdUtil.getInstance().createVector();
       this.addThemes(node);
    }
    

@@ -20,6 +20,7 @@ import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -93,7 +94,7 @@ public class CssProperty implements DomNodeInterface
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       hashMap.put(CssPropertyData.getInstance().NAME, this.propertyName);
       return hashMap;      
    }

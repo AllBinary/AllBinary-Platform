@@ -22,10 +22,11 @@ import org.allbinary.business.user.commerce.money.Money;
 import org.allbinary.business.user.commerce.money.MoneyException;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
+import org.allbinary.logic.StdUtil;
 
 public class Basket implements BasketInterface, Serializable
 {
-   private HashMap items = new HashMap();
+   private HashMap items = StdUtil.getInstance().createHashMap();
    
    public Basket()
    {

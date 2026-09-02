@@ -21,6 +21,7 @@ import org.allbinary.game.GameInfo;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.RemoteErrorHighScoresSingletonFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
@@ -33,7 +34,7 @@ public class RemoteHighScores extends HighScores {
 
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
 
-    private static final Hashtable hashTable = new Hashtable();
+    private static final Hashtable hashTable = StdUtil.getInstance().createHashtable();
     private final AbeClientInformationInterface abeClientInformation;
     private final SoftwareInformation softwareInformation;
     

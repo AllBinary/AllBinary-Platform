@@ -20,6 +20,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.control.crypt.SuperCrypt;
 import org.allbinary.logic.string.StringUtil;
 
@@ -548,7 +549,7 @@ public class PaymentGateway implements PaymentGatewayInterface
 
    public HashMap toHashMap(boolean isEncrypted) throws Exception
    {
-      HashMap paymentGatewayHashMap = new HashMap();
+      HashMap paymentGatewayHashMap = StdUtil.getInstance().createHashMap();
 
       paymentGatewayHashMap.put(
          EntryData.getInstance().ENABLE, this.enable);
@@ -673,7 +674,7 @@ public class PaymentGateway implements PaymentGatewayInterface
    
    public Vector toVector(boolean isEncrypted)
    {
-      Vector updateVector = new Vector();
+      Vector updateVector = StdUtil.getInstance().createVector();
       //updateVector.add(this.gatewayId);
       updateVector.add(this.enable);
       updateVector.add(this.storeName);

@@ -19,6 +19,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -33,6 +34,8 @@ public class SqlConnectionPool
         return SqlConnectionPool.instance;
     }
 
+    protected final StdUtil stdUtil = StdUtil.getInstance();
+    
     private HashMap connectionHashMap = null;
 
     private final String FIRST_NEW_CONNECTION_CREATED = "First New Connection Created: ";
@@ -61,7 +64,7 @@ public class SqlConnectionPool
     {
         if (this.connectionHashMap == null)
         {
-            this.connectionHashMap = new HashMap();
+            this.connectionHashMap = this.stdUtil.createHashMap();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
@@ -77,7 +80,7 @@ public class SqlConnectionPool
 
             if (connectionVector == null)
             {
-                connectionVector = new Vector();
+                connectionVector = this.stdUtil.createVector();
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
@@ -163,8 +166,8 @@ public class SqlConnectionPool
 
             if (this.connectionHashMap == null)
             {
-                this.connectionHashMap = new HashMap();
-                connectionVector = new Vector();
+                this.connectionHashMap = this.stdUtil.createHashMap();
+                connectionVector = this.stdUtil.createVector();
                 connectionVector.add(sqlConnection);
             } else
             {
@@ -173,7 +176,7 @@ public class SqlConnectionPool
 
                 if (connectionVector == null)
                 {
-                    connectionVector = new Vector();
+                    connectionVector = this.stdUtil.createVector();
                 }
 
                 connectionVector.add(sqlConnection);

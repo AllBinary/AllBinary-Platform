@@ -28,6 +28,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class UpdateOrderHelper
@@ -137,8 +138,8 @@ public class UpdateOrderHelper
       try
       {
          String success = "Successful update";
-         HashMap orderHashMap = new HashMap();
-         HashMap whereHashMap = new HashMap();
+         HashMap orderHashMap = StdUtil.getInstance().createHashMap();
+         HashMap whereHashMap = StdUtil.getInstance().createHashMap();
 
          orderHashMap.put(EntryData.getInstance().ID,this.entryId);
          orderHashMap.put(OrderData.ID,this.orderId);         

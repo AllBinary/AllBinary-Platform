@@ -54,7 +54,7 @@ public class DeleteFileValidationView
           throw new Exception("No Request Params Found");
       }
       
-      this.id = (String) hashMap.get(BasicItemData.ID);
+      this.id = (String) hashMap.get(basicItemData.ID);
 
       this.downloadItemId = (String) hashMap.get(DownloadItemData.ID);
    }

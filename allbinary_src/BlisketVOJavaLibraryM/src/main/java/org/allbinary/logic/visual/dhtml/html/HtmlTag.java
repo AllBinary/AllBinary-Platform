@@ -14,6 +14,7 @@
 package org.allbinary.logic.visual.dhtml.html;
 
 import java.util.HashMap;
+import org.allbinary.logic.StdUtil;
 
 public class HtmlTag
 {
@@ -21,7 +22,7 @@ public class HtmlTag
    
    public HtmlTag()
    {
-      this.otherAttributes = new HashMap();
+      this.otherAttributes = StdUtil.getInstance().createHashMap();
    }
    
    public void addAttribute(String key, String value)

@@ -15,6 +15,8 @@ package org.allbinary.graphics.color;
 
 import java.util.Hashtable;
 
+import org.allbinary.logic.StdUtil;
+
 public class BasicColorCacheFactory
 {
     private static final BasicColorCacheFactory instance = new BasicColorCacheFactory();
@@ -24,7 +26,7 @@ public class BasicColorCacheFactory
         return BasicColorCacheFactory.instance;
     }
 
-    private final Hashtable hashtable = new Hashtable();
+    private final Hashtable hashtable = StdUtil.getInstance().createHashtable();
 
     private BasicColorCacheFactory()
     {

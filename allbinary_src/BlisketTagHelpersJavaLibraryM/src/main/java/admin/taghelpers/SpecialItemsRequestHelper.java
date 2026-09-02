@@ -24,6 +24,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.special.SpecialItemData;
 import org.allbinary.data.tables.user.commerce.inventory.item.special.SpecialItemsEntityFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -32,6 +33,8 @@ public class SpecialItemsRequestHelper extends ModifyTable
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
+    
    private HttpServletRequest request;
      
    private String id;   
@@ -54,26 +57,26 @@ public class SpecialItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {
-      this.id = this.request.getParameter(BasicItemData.ID);
-      this.number = this.request.getParameter(BasicItemData.NUMBER);
+      this.id = this.request.getParameter(basicItemData.ID);
+      this.number = this.request.getParameter(basicItemData.NUMBER);
       this.enabled = this.request.getParameter(EntryData.getInstance().ENABLE);
       this.startTime = this.request.getParameter(SpecialItemData.START_TIME);
       this.endTime = this.request.getParameter(SpecialItemData.END_TIME);
-      this.price = this.request.getParameter(BasicItemData.PRICE);         
+      this.price = this.request.getParameter(basicItemData.PRICE);         
       this.timeEntered = this.request.getParameter(EntryData.getInstance().TIMECREATED);
       this.lastModified = this.request.getParameter(EntryData.getInstance().LASTMODIFIED);
    }
 
    private HashMap getHashMap()
    {
-      HashMap values = new HashMap();            
+      HashMap values = StdUtil.getInstance().createHashMap();            
       
-      values.put(BasicItemData.ID,this.id);
-      values.put(BasicItemData.NUMBER,this.number);
+      values.put(basicItemData.ID,this.id);
+      values.put(basicItemData.NUMBER,this.number);
       values.put(EntryData.getInstance().ENABLE,this.enabled);
       values.put(SpecialItemData.START_TIME,this.startTime);
       values.put(SpecialItemData.END_TIME,this.endTime);
-      values.put(BasicItemData.PRICE,this.price);
+      values.put(basicItemData.PRICE,this.price);
       
       Calendar calendar=Calendar.getInstance();
       String time = new String(new Long(calendar.getTimeInMillis()).toString());
@@ -89,7 +92,7 @@ public class SpecialItemsRequestHelper extends ModifyTable
       {
          Calendar calendar=Calendar.getInstance();
          String time = new String(new Long(calendar.getTimeInMillis()).toString());
-         Vector values = new Vector();
+         Vector values = StdUtil.getInstance().createVector();
          
          values.add(this.id);
          values.add(this.number);

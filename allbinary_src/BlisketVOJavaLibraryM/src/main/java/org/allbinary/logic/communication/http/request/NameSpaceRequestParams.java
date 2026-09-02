@@ -25,6 +25,7 @@ import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -477,7 +478,7 @@ public class NameSpaceRequestParams extends RequestParams
    public HashMap toHashMap() throws Exception
    {
       Document document = DomDocumentHelper.create();
-      final HashMap hashMap = new HashMap();
+      final HashMap hashMap = StdUtil.getInstance().createHashMap();
       final Set keys = this.getMap().keySet();
       final Object[] keyArray = keys.toArray();
       final int keySize = keyArray.length;

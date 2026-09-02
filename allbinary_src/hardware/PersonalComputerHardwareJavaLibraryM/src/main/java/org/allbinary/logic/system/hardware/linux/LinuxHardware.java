@@ -117,18 +117,18 @@ public class LinuxHardware implements HardwareInterface
    {
       try
       {
-         this.componentInterfaceVector = new Vector();
-         this.videoInterfaceVector = new Vector();
-         this.hardDriveControllerInterfaceVector = new Vector();
-         this.cpuInterfaceVector = new Vector();
-         this.usbInterfaceVector = new Vector();
-         this.ethernetInterfaceVector = new Vector();
-         this.multimediaInterfaceVector = new Vector();
-         this.fireWireInterfaceVector = new Vector();
-         this.bridgeInterfaceVector = new Vector();
-         this.hardDriveInterfaceVector = new Vector();
-         this.macInterfaceVector = new Vector();
-         this.monitorInterfaceVector = new Vector();
+         this.componentInterfaceVector = StdUtil.getInstance().createVector();
+         this.videoInterfaceVector = StdUtil.getInstance().createVector();
+         this.hardDriveControllerInterfaceVector = StdUtil.getInstance().createVector();
+         this.cpuInterfaceVector = StdUtil.getInstance().createVector();
+         this.usbInterfaceVector = StdUtil.getInstance().createVector();
+         this.ethernetInterfaceVector = StdUtil.getInstance().createVector();
+         this.multimediaInterfaceVector = StdUtil.getInstance().createVector();
+         this.fireWireInterfaceVector = StdUtil.getInstance().createVector();
+         this.bridgeInterfaceVector = StdUtil.getInstance().createVector();
+         this.hardDriveInterfaceVector = StdUtil.getInstance().createVector();
+         this.macInterfaceVector = StdUtil.getInstance().createVector();
+         this.monitorInterfaceVector = StdUtil.getInstance().createVector();
          
          FileReader pciFile = new FileReader(filePath);
          lineNumberReader = new LineNumberReader(pciFile);

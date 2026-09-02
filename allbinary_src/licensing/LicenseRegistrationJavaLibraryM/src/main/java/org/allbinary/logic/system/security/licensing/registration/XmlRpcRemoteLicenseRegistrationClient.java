@@ -65,7 +65,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             
             // }
 
-            Vector param = new Vector();
+            Vector param = StdUtil.getInstance().createVector();
 
             String serverUrl = getClientInfo().getLicenseServer(this.getServer());
 

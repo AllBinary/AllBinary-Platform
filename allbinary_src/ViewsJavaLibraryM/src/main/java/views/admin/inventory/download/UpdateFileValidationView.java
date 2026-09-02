@@ -214,7 +214,7 @@ public class UpdateFileValidationView
 
             HashMap hashMap = this.getRequestHashMap();
             
-            hashMap.put(BasicItemData.ID, this.itemInterface.getId());
+            hashMap.put(basicItemData.ID, this.itemInterface.getId());
             
             Object licenseObject = hashMap.get(DownloadItemData.LICENSE_FILE);
 

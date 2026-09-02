@@ -19,6 +19,7 @@ import java.util.Vector;
 import org.allbinary.data.tables.transform.info.TransformInfoEntity;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.string.StringMaker;
@@ -120,7 +121,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
                this.logUtil.putF(stringBuffer.toString(), this, "insert()");
             }
 
-            HashMap hashMap =  new HashMap();            
+            HashMap hashMap =  StdUtil.getInstance().createHashMap();            
             String title = specifiedTransformInfoInterface.getName().substring(
                this.getTransformInfoInterface().getStoreName().length());
 
@@ -206,7 +207,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
                   httpTransformInfoInterface.getPropertiesHashMap(),
                   httpTransformInfoInterface.getPageContext());
 
-            HashMap hashMap =  new HashMap();            
+            HashMap hashMap =  StdUtil.getInstance().createHashMap();            
             String title = specifiedTransformInfoInterface.getName().substring(
                this.getTransformInfoInterface().getStoreName().length());
 

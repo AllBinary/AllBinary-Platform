@@ -39,6 +39,7 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
+import org.allbinary.logic.StdUtil;
 
 //GameInputPersistanceLibrary
 
@@ -80,6 +81,8 @@ public class InputPersistance extends BasicPersitance
         final InputFactory inputFactory = InputFactory.getInstance();
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
+        final StdUtil stdUtil = StdUtil.getInstance();
+
         byte[] recordAsBytes;
         ByteArrayInputStream byteArrayInputStream;
         DataInputStream inputStream;
@@ -98,7 +101,7 @@ public class InputPersistance extends BasicPersitance
                 byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
                 inputStream = new DataInputStream(byteArrayInputStream);
                 
-                hashtable = new Hashtable();
+                hashtable = stdUtil.createHashtable();
 
                 //PreLogUtil.put("inputStream.available(): " + inputStream.available(), this, METHOD_NAME);
                 

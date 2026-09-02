@@ -30,7 +30,7 @@ public class TerrainEventHandler extends BasicEventHandler
 
    public static void init()
    {
-      TerrainEventHandler.hashtable = new Hashtable();
+      TerrainEventHandler.hashtable = StdUtil.getInstance().createHashtable();
    }
    
    public static TerrainEventHandler getInstance(final Object object)

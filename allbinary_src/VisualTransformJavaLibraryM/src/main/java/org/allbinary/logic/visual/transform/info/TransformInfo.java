@@ -22,6 +22,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.Encoder;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
@@ -539,7 +540,7 @@ public class TransformInfo implements TransformInfoInterface
     	TransformInfoData transformInfoData = 
     		TransformInfoData.getInstance();
     	
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
         hashMap.put(transformInfoData.NAME, this.name);
         hashMap.put(StoreFrontData.getInstance().NAME, this.storeName);
         hashMap.put(transformInfoData.OBJECTFILENAME, this.objectFileName);
@@ -565,7 +566,7 @@ public class TransformInfo implements TransformInfoInterface
 
     public java.util.Vector toVector()
     {
-        Vector vector = new Vector();
+        Vector vector = StdUtil.getInstance().createVector();
         vector.add(this.name);
         vector.add(this.storeName);
         vector.add(this.objectFileName);

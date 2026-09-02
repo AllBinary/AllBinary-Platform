@@ -15,6 +15,7 @@ package org.allbinary.logic.communication.smtp.event.handler;
 
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.smtp.event.EmailEvent;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
@@ -29,7 +30,7 @@ public class UserEmailEventHandler
    
    public UserEmailEventHandler()
    {
-      this.emailVector = new Vector();
+      this.emailVector = StdUtil.getInstance().createVector();
    }
    
    public synchronized void receiveEmailInfo(

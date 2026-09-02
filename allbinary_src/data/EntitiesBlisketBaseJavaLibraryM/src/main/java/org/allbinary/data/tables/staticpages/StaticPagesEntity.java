@@ -19,6 +19,7 @@ import java.util.Vector;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.init.db.StaticPagesDbInitInfo;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.search.SearchData;
@@ -29,6 +30,7 @@ public class StaticPagesEntity extends AbSqlBean implements StaticPagesEntityInt
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     private final String TABLENAME = "staticpages";
 
@@ -59,9 +61,9 @@ public class StaticPagesEntity extends AbSqlBean implements StaticPagesEntityInt
 
     public String getFile(String store, String keywords)
     {
-        HashMap whereHashMap = new HashMap();
+        HashMap whereHashMap = StdUtil.getInstance().createHashMap();
         whereHashMap.put(StoreFrontData.getInstance().NAME, store);
-        whereHashMap.put(BasicItemData.KEYWORDS, keywords);
+        whereHashMap.put(basicItemData.KEYWORDS, keywords);
         String file = super.getField(whereHashMap, SearchData.PAGE);
         return file;
     }
@@ -74,7 +76,7 @@ public class StaticPagesEntity extends AbSqlBean implements StaticPagesEntityInt
      */
     public void delete(String keywords)
     {
-        super.deleteWhere(BasicItemData.KEYWORDS, keywords);
+        super.deleteWhere(basicItemData.KEYWORDS, keywords);
     }
 
     public String dropTable()
@@ -91,7 +93,7 @@ public class StaticPagesEntity extends AbSqlBean implements StaticPagesEntityInt
      */
     public void update(HashMap updatedValues)
     {
-        super.updateWhere(BasicItemData.KEYWORDS, (String) updatedValues.get(BasicItemData.KEYWORDS), updatedValues);
+        super.updateWhere(basicItemData.KEYWORDS, (String) updatedValues.get(basicItemData.KEYWORDS), updatedValues);
     }
 
     public final String createTableStatement()
@@ -103,14 +105,14 @@ public class StaticPagesEntity extends AbSqlBean implements StaticPagesEntityInt
                 .append(this.sqlStrings.START)
                 .append(StoreFrontData.getInstance().NAME)
                 .append(this.sqlTypeStrings.SIXTY_CHAR_COLUMN_NOT_NULL)
-                .append(BasicItemData.KEYWORDS)
+                .append(basicItemData.KEYWORDS)
                 .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
                 .append(SearchData.PAGE)
                 .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
                 .append(this.sqlStrings.PRIMARY_KEY)
                 .append(StoreFrontData.getInstance().NAME)
                 .append(CommonSeps.getInstance().COMMA_SEP)  //, or , space
-                .append(BasicItemData.KEYWORDS)
+                .append(basicItemData.KEYWORDS)
                 .append(this.sqlStrings.END);
 
         return stringBuffer.toString();

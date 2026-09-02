@@ -24,6 +24,7 @@ import javax.swing.ListModel;
 
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfiguration;
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurations;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.help.JavaHelpSetNotifier;
 import org.allbinary.string.CommonStrings;
@@ -42,7 +43,7 @@ public class InputAutomationModuleFactoryFactory
         this.helpSetListenerInterface = helpSetListenerInterface;
         this.defaultListModelHelper = new DefaultListModelHelper();
         
-        this.hashMap = new HashMap();
+        this.hashMap = StdUtil.getInstance().createHashMap();
         
         final Collection collection = inputAutomationModuleConfigurations.getHashMap().values();
         final Iterator iterator = collection.iterator();

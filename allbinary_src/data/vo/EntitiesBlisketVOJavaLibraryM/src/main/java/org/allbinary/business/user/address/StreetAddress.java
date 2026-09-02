@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -339,7 +340,7 @@ public class StreetAddress
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       hashMap.put(StreetAddressData.ID,this.id);
       hashMap.put(StreetAddressData.NAME,this.name);

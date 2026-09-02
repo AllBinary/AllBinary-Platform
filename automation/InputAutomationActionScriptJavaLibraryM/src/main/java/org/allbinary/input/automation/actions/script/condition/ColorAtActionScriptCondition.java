@@ -23,6 +23,7 @@ import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.graphics.color.ColorCacheFactory;
 import org.allbinary.graphics.color.ColorCacheable;
 import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingleton;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
@@ -156,7 +157,7 @@ public class ColorAtActionScriptCondition
 
     public HashMap toHashMap()
     {
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
 
         hashMap.put(ColorAtActionScriptConditionData.LOCATION_X, Integer.toString(this.getPoint().x));
         hashMap.put(ColorAtActionScriptConditionData.LOCATION_Y, Integer.toString(this.getPoint().y));

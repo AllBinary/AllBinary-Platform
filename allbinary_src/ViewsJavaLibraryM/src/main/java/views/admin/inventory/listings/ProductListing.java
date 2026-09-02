@@ -25,6 +25,7 @@ import org.allbinary.data.tables.staticpages.StaticPagesEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.globals.GLOBALS2;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;
@@ -55,6 +56,8 @@ public class ProductListing implements ProductListingInterface
 
     private final Directory directory = Directory.getInstance();
     
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
+    
     private final StoreFrontsEntity storeFronts;
     private final StaticPagesEntity staticPages;
     private final InventoryEntity inventory;
@@ -77,7 +80,7 @@ public class ProductListing implements ProductListingInterface
             InventoryColumnUtil.getInstance();
 
         Vector keywords = inventoryColumnUtil.getColumnWhereLike(
-            this.inventory, storeFront.getCategoryPath(), BasicItemData.KEYWORDS);
+            this.inventory, storeFront.getCategoryPath(), basicItemData.KEYWORDS);
 
         BasicArrayList subStoreVector = storeFront.getSubStores();
 
@@ -89,7 +92,7 @@ public class ProductListing implements ProductListingInterface
             Vector substoreKeywords = inventoryColumnUtil.getColumnWhereLike(
                 this.inventory,
                 AbPathData.getInstance().SEPARATOR + subStore,
-                BasicItemData.CATEGORY);
+                basicItemData.CATEGORY);
 
             keywords.addAll(substoreKeywords);
         }
@@ -153,7 +156,7 @@ public class ProductListing implements ProductListingInterface
 
         //add keywords to search params
         SearchParams searchParams = this.searchRequest.getParams();
-        searchParams.add(BasicItemData.KEYWORDS, keywordData);
+        searchParams.add(basicItemData.KEYWORDS, keywordData);
         searchParams.setStartPage(CommonPhoneStrings.getInstance().ZERO);
         this.searchRequest.setParams(searchParams);
 
@@ -224,7 +227,7 @@ public class ProductListing implements ProductListingInterface
         final int size = keywordArray.length;
         for(int index = 0; index < size; index++)
         {
-            Vector insertVector = new Vector();
+            Vector insertVector = StdUtil.getInstance().createVector();
             String keywordData = (String) keywordArray[index];
             String fileName = (String) keywordFilenameHashMap.get(keywordData);
 
@@ -268,7 +271,7 @@ public class ProductListing implements ProductListingInterface
             //create a new hash map containing all off the keywords and
             //their associated Static page filenames
 
-            HashMap keywordFilenameHashMap = new HashMap();
+            HashMap keywordFilenameHashMap = StdUtil.getInstance().createHashMap();
 
             if (size == 0)
             {

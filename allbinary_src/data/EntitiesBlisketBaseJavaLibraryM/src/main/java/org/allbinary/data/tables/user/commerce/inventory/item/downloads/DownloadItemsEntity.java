@@ -21,6 +21,7 @@ import org.allbinary.business.init.db.InventoryDbInitInfo;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadItemData;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItem;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
@@ -29,6 +30,7 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     protected final String tableName = "downloaditems";
 
@@ -82,10 +84,10 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
 
     public Vector getForItem(String id)
     {
-        Vector returnVector = new Vector();
+        Vector returnVector = StdUtil.getInstance().createVector();
 
-        HashMap keysAndValues = new HashMap();
-        keysAndValues.put(BasicItemData.ID, id);
+        HashMap keysAndValues = StdUtil.getInstance().createHashMap();
+        keysAndValues.put(basicItemData.ID, id);
         Vector vector = super.getRows(keysAndValues);
 
         final int size = vector.size();
@@ -105,11 +107,11 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
 
     public Vector getForItem(String id, String downloadItemId)
     {
-        Vector returnVector = new Vector();
+        Vector returnVector = StdUtil.getInstance().createVector();
 
-        HashMap keysAndValues = new HashMap();
+        HashMap keysAndValues = StdUtil.getInstance().createHashMap();
 
-        keysAndValues.put(BasicItemData.ID, id);
+        keysAndValues.put(basicItemData.ID, id);
         keysAndValues.put(DownloadItemData.ID, downloadItemId);
 
         Vector vector = super.getRows(keysAndValues);
@@ -138,7 +140,7 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
                 .append(this.sqlStrings.START)
                 .append(DownloadItemData.ID)
                 .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
-                .append(BasicItemData.ID)
+                .append(basicItemData.ID)
                 .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
                 .append(EntryData.getInstance().ENABLE)
                 .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
@@ -193,13 +195,13 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
     /*
      public String getForm(String id)
      {
-     return super.getInputWhere(BasicItemData.ID,id);
+     return super.getInputWhere(basicItemData.ID,id);
      }
      */
     /*
      public String getTable(String itemId)
      {
-     return super.getTableWhere(BasicItemData.ID,itemId);
+     return super.getTableWhere(basicItemData.ID,itemId);
      }
      */
 }

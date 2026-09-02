@@ -14,6 +14,7 @@
 package org.allbinary.media.image.comparison.motion;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -33,7 +34,7 @@ public class MotionRectanglesWorker
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final Vector imageComparisonInfoVector = new Vector();
+    private final Vector imageComparisonInfoVector = StdUtil.getInstance().createVector();
     
     private final MotionRectangleConstraintsInterface motionRectangleConstraintsInterface;
     

@@ -20,6 +20,7 @@ import javax.servlet.ServletRequest;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.control.crypt.SuperCrypt;
 import org.allbinary.logic.string.StringUtil;
 import org.w3c.dom.Document;
@@ -301,7 +302,7 @@ public class Payment implements PaymentInterface, DomNodeInterface
 
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       hashMap.put(PaymentData.NAME, this.name);
       hashMap.put(PaymentData.TYPE, this.type);

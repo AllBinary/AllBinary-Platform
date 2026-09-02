@@ -43,6 +43,8 @@ public class InventorySearch implements InventoryViewSearchInterface
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     private final SearchRequest searchRequest;
 
@@ -64,7 +66,7 @@ public class InventorySearch implements InventoryViewSearchInterface
 
             String file = new StaticPagesEntity().getFile(
                 storeFront.getName(), new Replace("-", CommonSeps.getInstance().SPACE).all(
-                (String) columnValueHashMap.get(BasicItemData.KEYWORDS)));
+                (String) columnValueHashMap.get(basicItemData.KEYWORDS)));
 
             if (StringValidationUtil.getInstance().isEmpty(file))
             {

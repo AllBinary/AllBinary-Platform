@@ -24,6 +24,7 @@ import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.identification.BasicGroupFactory;
 import org.allbinary.game.part.PartInterface;
 import org.allbinary.game.part.weapon.BasicWeaponPart;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeographicMap;
@@ -242,7 +243,7 @@ public class RTSLayerUtil
     public final Hashtable createFakeRTSLayerHashtable(
             final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap)
     {
-        final Hashtable hashtable = new Hashtable();
+        final Hashtable hashtable = StdUtil.getInstance().createHashTable();
         
         final FakeLayerManager layerManager = new FakeLayerManager(GameInfo.NONE);
         layerManager.setGeographicMapInterface(new BasicGeographicMap[] { baseRaceTrackGeographicMap});

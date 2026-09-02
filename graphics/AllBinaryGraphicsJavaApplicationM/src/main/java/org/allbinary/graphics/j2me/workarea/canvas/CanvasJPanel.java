@@ -41,6 +41,7 @@ import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEventListen
 import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEventService;
 import org.allbinary.graphics.pipeline.RandomRotationFactory;
 import org.allbinary.log.LOGGING;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.GuiLog;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -143,7 +144,7 @@ public class CanvasJPanel extends javax.swing.JPanel
 
         this.workAreaJTreeJPanel.add(this.getTreeNode());
 
-        this.graphicItemHashMap = new HashMap();
+        this.graphicItemHashMap = StdUtil.getInstance().createHashMap();
         this.grid.grid = PointFactory.getInstance().createXY(0, 0);
         this.setCanvasDimension(new IntegerDimension(0, 0));
         this.selectedTool = null;
@@ -274,7 +275,7 @@ public class CanvasJPanel extends javax.swing.JPanel
     //This should be a tool
     public void explodeAll()
     {
-        Vector newPoints = new Vector();
+        Vector newPoints = StdUtil.getInstance().createVector();
         
         final Object[] graphicItemArray = this.getGraphicItemHashMap().keySet().toArray();
         final int size = graphicItemArray.length;

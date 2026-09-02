@@ -29,6 +29,7 @@ import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGateway
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
 import org.allbinary.data.generator.PaymentGatewayIdGenerator;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
@@ -62,7 +63,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
                 this.logUtil.putF(this.commonStrings.START, this, "add");
             }
 
-            Vector vector = new Vector();
+            Vector vector = StdUtil.getInstance().createVector();
 
             vector.add(new PaymentGatewayIdGenerator().getNext());
             //vector.add("auto_increment");
@@ -96,7 +97,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
             String time = new String(new Long(calendar.getTimeInMillis()).toString());
             paymentGatewayInterface.setLastModified(time);
 
-            HashMap whereKeyValuePairs = new HashMap();
+            HashMap whereKeyValuePairs = StdUtil.getInstance().createHashMap();
 
             whereKeyValuePairs.put(
             		StoreFrontData.getInstance().NAME.toString(),
@@ -133,8 +134,8 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
     {
         try
         {
-            HashMap paymentGatewayHashMap = new HashMap();
-            HashMap whereKeyAndValue = new HashMap();
+            HashMap paymentGatewayHashMap = StdUtil.getInstance().createHashMap();
+            HashMap whereKeyAndValue = StdUtil.getInstance().createHashMap();
 
             whereKeyAndValue.put(StoreFrontData.getInstance().NAME.toString(), storeName);
             whereKeyAndValue.put(
@@ -246,8 +247,8 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
     {
         try
         {
-            Vector paymentGatewayNameVector = new Vector();
-            //HashMap whereKeyAndValue = new HashMap();
+            Vector paymentGatewayNameVector = StdUtil.getInstance().createVector();
+            //HashMap whereKeyAndValue = StdUtil.getInstance().createHashMap();
 
             paymentGatewayNameVector =
                 super.getColumnWhere(
@@ -257,7 +258,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (paymentGatewayNameVector != null)
             {
-                Vector paymentGatewayVector = new Vector();
+                Vector paymentGatewayVector = StdUtil.getInstance().createVector();
                 int size = paymentGatewayNameVector.size();
                 for (int i = 0; i < size; i++)
                 {
@@ -274,7 +275,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
                 return paymentGatewayVector;
             } else
             {
-                return new Vector();
+                return StdUtil.getInstance().createVector();
             }
         } catch (Exception e)
         {
@@ -290,7 +291,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
     {
         try
         {
-            HashMap whereHashMap = new HashMap();
+            HashMap whereHashMap = StdUtil.getInstance().createHashMap();
             
             whereHashMap.put(StoreFrontData.getInstance().NAME.toString(), storeName);
             whereHashMap.put(PaymentGatewayData.NAME.toString(), paymentType.getName());

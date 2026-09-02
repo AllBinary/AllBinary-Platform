@@ -26,6 +26,7 @@ import admin.taghelpers.AuthenticationHelper;
 import admin.taghelpers.AuthenticationHelperFactory;
 import admin.taghelpers.AuthenticationHelperUtil;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.CloudStreamUtil;
 import org.allbinary.logic.io.StreamUtil;
@@ -90,9 +91,9 @@ public class DownloadFileServlet extends HttpServlet
             }
 
             //HashMap should have storename added
-            HashMap hashMap = new HashMap();
+            HashMap hashMap = StdUtil.getInstance().createHashMap();
 
-            //Vector roleVector = new Vector();
+            //Vector roleVector = StdUtil.getInstance().createVector();
 
             AuthenticationHelper authenticationHelper =
                 (AuthenticationHelper) new AuthenticationHelperFactory().getInstance(

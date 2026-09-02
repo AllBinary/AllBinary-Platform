@@ -17,6 +17,7 @@ import java.util.HashMap;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -153,7 +154,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         final String objectConfigDocumentString)
         throws Exception
     {
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
 
         String storeName = transformInfoHttpStoreInterface.getStoreName();
         //String viewName = this.getTransformInfoInterface().getName();

@@ -23,6 +23,7 @@ import android.content.res.Resources;
 import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
 import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -47,7 +48,7 @@ public class ResourceUtil
     //private Activity activity;
     private Object context = NullUtil.getInstance().NULL_OBJECT;
     private Object resources = NullUtil.getInstance().NULL_OBJECT;
-    private Hashtable hashMap = new Hashtable();
+    private Hashtable hashMap = StdUtil.getInstance().createHashtable();
 
     private ResourceUtil()
     {

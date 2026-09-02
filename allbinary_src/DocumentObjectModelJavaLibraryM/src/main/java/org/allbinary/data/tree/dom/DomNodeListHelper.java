@@ -15,6 +15,8 @@ package org.allbinary.data.tree.dom;
 
 import java.util.Vector;
 
+import org.allbinary.logic.StdUtil;
+
 import org.w3c.dom.NodeList;
 
 /**
@@ -25,7 +27,7 @@ public class DomNodeListHelper {
 
     public static Vector getVector(NodeList nodeList)
     {
-        Vector vector = new Vector();
+        Vector vector = StdUtil.getInstance().createVector();
         int size = nodeList.getLength();
         for(int index = 0; index < size; index++)
         {

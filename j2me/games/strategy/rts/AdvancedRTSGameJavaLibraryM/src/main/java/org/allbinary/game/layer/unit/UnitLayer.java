@@ -102,6 +102,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.Layer;
 import org.allbinary.layer.LayerInterfaceFactoryInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.math.BasicDecimal;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.math.AngleFactory;
@@ -322,7 +323,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     @Override
     public void updateWaypointBehavior(final BasicGeographicMap geographicMapInterface) throws Exception {
 
-        final Hashtable hashtable = new Hashtable();
+        final Hashtable hashtable = StdUtil.getInstance().createHashTable();
         hashtable.put(this.groupCommonFactory.ID, this.getGroupInterface());
         hashtable.put(Layer.ID, this);
         hashtable.put(AllBinaryGameLayerManager.ID, this.allBinaryGameLayerManagerP);

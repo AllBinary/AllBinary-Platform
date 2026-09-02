@@ -27,6 +27,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 
 import bundle.input.automation.InputAutomationBundleActivator;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.FileWrapperUtil;
 import org.allbinary.logic.io.file.directory.SubDirectory;
@@ -115,7 +116,7 @@ public class InputAutomationNewBundleRunnable
     {
         this.logUtil.putF(this.commonStrings.START, this, "getAllJarSymbolicNameHashMap");
         
-        final HashMap hashMap = new HashMap();
+        final HashMap hashMap = StdUtil.getInstance().createHashMap();
         final BasicArrayList jarFileBasicArrayList = this.getJarModuleFileBasicArrayList();
         
         this.logUtil.putF("Jar Module Files: " + jarFileBasicArrayList, this, "getAllJarSymbolicNameHashMap");

@@ -20,6 +20,7 @@ import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.UserDbInitInfo;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.workflow.DbWorkFlowFactory;
@@ -71,7 +72,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
     {
         try
         {
-            final HashMap keysAndValues = new HashMap();
+            final HashMap keysAndValues = StdUtil.getInstance().createHashMap();
 
             keysAndValues.put(WorkFlowData.getInstance().NAME, name);
             keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
@@ -95,7 +96,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
     {
         try
         {
-            final HashMap keysAndValues = new HashMap();
+            final HashMap keysAndValues = StdUtil.getInstance().createHashMap();
             keysAndValues.put(WorkFlowData.getInstance().NAME, name);
             keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
             final HashMap hashMap = super.getRow(keysAndValues);
@@ -122,8 +123,8 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
     {
         try
         {
-            Vector workFlowsVector = new Vector();
-            HashMap keysAndValues = new HashMap();
+            Vector workFlowsVector = StdUtil.getInstance().createVector();
+            HashMap keysAndValues = StdUtil.getInstance().createHashMap();
 
             keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
 
@@ -154,7 +155,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
     {
         try
         {
-            HashMap wherekeysAndValues = new HashMap();
+            HashMap wherekeysAndValues = StdUtil.getInstance().createHashMap();
             wherekeysAndValues.put(WorkFlowData.getInstance().NAME,
                     (String) updatedValues.get(WorkFlowData.getInstance().NAME));
             wherekeysAndValues.put(StoreFrontData.getInstance().NAME,

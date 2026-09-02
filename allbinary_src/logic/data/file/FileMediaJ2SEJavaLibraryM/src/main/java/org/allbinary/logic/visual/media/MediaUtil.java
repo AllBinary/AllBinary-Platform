@@ -3,6 +3,7 @@ package org.allbinary.logic.visual.media;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.util.HashMap;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
@@ -102,7 +103,7 @@ public class MediaUtil
     private static HashMap getImageBufferPropertyHashMap(
         final BufferedImage bufferedImage)
     {
-        final HashMap hashMap = new HashMap();
+        final HashMap hashMap = StdUtil.getInstance().createHashMap();
         final String[] propertyStringArray = bufferedImage.getPropertyNames();
         if (propertyStringArray != null)
         {

@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.data.tables.TableMappingInterface;
+import org.allbinary.logic.StdUtil;
 
 public class EmailServerConfigurationMapping implements TableMappingInterface
 {
@@ -30,7 +31,7 @@ public class EmailServerConfigurationMapping implements TableMappingInterface
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
 
       hashMap.put(EmailServerConfigurationData.SERVER, this.emailServerConfigurationInterface.getSmtpServer());
       hashMap.put(EmailServerConfigurationData.ACCOUNT, this.emailServerConfigurationInterface.getAccountName());
@@ -46,7 +47,7 @@ public class EmailServerConfigurationMapping implements TableMappingInterface
    
    public Vector toVector() throws Exception
    {
-      Vector vector = new Vector();
+      Vector vector = StdUtil.getInstance().createVector();
 
       vector.add(this.emailServerConfigurationInterface.getSmtpServer());
 

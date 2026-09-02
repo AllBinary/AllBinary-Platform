@@ -15,6 +15,7 @@ package org.allbinary.logic.visual.dhtml.style.css;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.w3c.dom.Node;
@@ -29,7 +30,7 @@ public class CssElementsValidationFactory
    public static Vector getInstance(final Vector cssElementStyleNodeList) throws Exception
    //NodeList cssElementStyleNodeList
    {
-      final Vector styles = new Vector();
+      final Vector styles = StdUtil.getInstance().createVector();
       
       final int size = cssElementStyleNodeList.size();
       Node cssElementStyleNode;
@@ -48,7 +49,7 @@ public class CssElementsValidationFactory
    
    public static Vector getInstance(final HashMap hashMap)
    {
-      final Vector styles = new Vector();
+      final Vector styles = StdUtil.getInstance().createVector();
       return styles;
    }
 }

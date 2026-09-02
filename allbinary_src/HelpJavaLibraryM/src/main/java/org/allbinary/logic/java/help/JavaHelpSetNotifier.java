@@ -18,9 +18,11 @@ import java.util.Vector;
 
 import javax.help.HelpSet;
 
+import org.allbinary.logic.StdUtil;
+
 public class JavaHelpSetNotifier
 {
-    private static Vector vector = new Vector();
+    private static Vector vector = StdUtil.getInstance().createVector();
     
     private JavaHelpSetNotifier()
     {

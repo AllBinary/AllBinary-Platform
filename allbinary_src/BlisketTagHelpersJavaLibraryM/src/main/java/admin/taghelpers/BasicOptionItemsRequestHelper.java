@@ -24,6 +24,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.option.BasicOptionItemData;
 import org.allbinary.data.tables.user.commerce.inventory.item.options.BasicOptionItemsEntityFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -32,6 +33,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
      
    private HttpServletRequest request;
      
@@ -55,10 +57,10 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {
-      this.optionItem = new Vector();
-      this.optionValue = new Vector();
+      this.optionItem = StdUtil.getInstance().createVector();
+      this.optionValue = StdUtil.getInstance().createVector();
    
-      this.id = this.request.getParameter(BasicItemData.ID);
+      this.id = this.request.getParameter(basicItemData.ID);
             
       this.optionOneTitle = this.request.getParameter(BasicOptionItemData.OPTION_ONE_TITLE);
       this.defaultOptionItem = this.request.getParameter(BasicOptionItemData.DEFAULT_OPTION_ITEM);
@@ -89,9 +91,9 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
 
    private HashMap getHashMap()
    {
-      final HashMap values = new HashMap();            
+      final HashMap values = StdUtil.getInstance().createHashMap();            
       
-      values.put(BasicItemData.ID,id);
+      values.put(basicItemData.ID,id);
       
       values.put(BasicOptionItemData.OPTION_ONE_ONE_ITEM,this.optionItem.get(0));
       values.put(BasicOptionItemData.OPTION_ONE_ONE_VALUE,this.optionValue.get(0));
@@ -126,7 +128,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
       {
          final Calendar calendar=Calendar.getInstance();
          final String time = new String(new Long(calendar.getTimeInMillis()).toString());
-         final Vector values = new Vector();
+         final Vector values = StdUtil.getInstance().createVector();
                   
          values.add(this.id);
       

@@ -29,6 +29,7 @@ public class CustomItemsEntity extends AbSqlBean implements CustomItemsEntityInt
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     protected final String tableName = "customitems";
 
@@ -61,7 +62,7 @@ public class CustomItemsEntity extends AbSqlBean implements CustomItemsEntityInt
     {
         try
         {
-            super.deleteWhere(BasicItemData.ID, value);
+            super.deleteWhere(basicItemData.ID, value);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 this.logUtil.putF(this.commonStrings.SUCCESS, this, this.commonStrings.delete);
@@ -78,7 +79,7 @@ public class CustomItemsEntity extends AbSqlBean implements CustomItemsEntityInt
     /*
      public String getTable(String itemId)
      {
-     return super.getTableWhere(BasicItemData.ID,itemId);
+     return super.getTableWhere(basicItemData.ID,itemId);
      }
      */
     public final String createTableStatement()
@@ -88,7 +89,7 @@ public class CustomItemsEntity extends AbSqlBean implements CustomItemsEntityInt
         stringBuffer.append(this.sqlStrings.CREATE_TABLE)
                 .append(tableName)
                 .append(this.sqlStrings.START)
-                .append(BasicItemData.ID)
+                .append(basicItemData.ID)
                 .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
                 .append(DynamicObjectData.NAME)
                 .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
@@ -99,7 +100,7 @@ public class CustomItemsEntity extends AbSqlBean implements CustomItemsEntityInt
                 .append(EntryData.getInstance().LASTMODIFIED)
                 .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
                 .append(this.sqlStrings.PRIMARY_KEY)
-                .append(BasicItemData.ID)
+                .append(basicItemData.ID)
                 .append(this.sqlStrings.END);
 
         return stringBuffer.toString();
@@ -113,11 +114,11 @@ public class CustomItemsEntity extends AbSqlBean implements CustomItemsEntityInt
     /*
      public String getForm(String id)
      {
-     return super.getInputWhere(BasicItemData.ID,id);
+     return super.getInputWhere(basicItemData.ID,id);
      }*/
     public void update(HashMap updatedValues)
     {
-        super.updateWhere(BasicItemData.ID, (String) updatedValues.get(BasicItemData.ID), updatedValues);
+        super.updateWhere(basicItemData.ID, (String) updatedValues.get(basicItemData.ID), updatedValues);
     }
 
     public String dropTable()

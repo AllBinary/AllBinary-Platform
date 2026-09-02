@@ -22,6 +22,7 @@ import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.KeySingletonFactory;
 import org.allbinary.input.KeyUtil;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
@@ -55,7 +56,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
       {
          NodeList nodeList = actionNode.getChildNodes();
          
-         Vector vector = new Vector();
+         Vector vector = StdUtil.getInstance().createVector();
          
          for (int index = 0; index < nodeList.getLength();
          index++)
@@ -228,7 +229,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    {
       this.logUtil.putF(CommonLabels.getInstance().START + text, this, "integerArrayValue");
       
-      Vector vector = new Vector();
+      Vector vector = StdUtil.getInstance().createVector();
       int index = 0;
       while (index < text.length())
       {
@@ -268,7 +269,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       //super.toHashMap().put(KeyActionScriptInputData.NAME, hashMap);
       for (int index = 0; index < this.getKeyArray().length;

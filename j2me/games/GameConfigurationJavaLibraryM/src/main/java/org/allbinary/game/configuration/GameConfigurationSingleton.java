@@ -15,6 +15,7 @@ package org.allbinary.game.configuration;
 
 import java.util.Hashtable;
 
+import org.allbinary.logic.StdUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
@@ -33,7 +34,7 @@ public class GameConfigurationSingleton
     private GameConfigurationSingleton()
     {
         this.list = new BasicArrayListD();
-        this.hashtable = new Hashtable();
+        this.hashtable = StdUtil.getInstance().createHashtable();
     }
     
     public GameConfiguration getInstanceByName(String name)

@@ -39,6 +39,8 @@ public class InventoryHelper extends TagHelper
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
+    
    private WeblisketSession weblisketSession;
    
    private HttpServletResponse response;
@@ -74,7 +76,7 @@ public class InventoryHelper extends TagHelper
     
    private void getFormData()
    {
-      this.id = this.request.getParameter(BasicItemData.ID);
+      this.id = this.request.getParameter(basicItemData.ID);
    }
 
    public String viewSummary()
@@ -110,7 +112,7 @@ public class InventoryHelper extends TagHelper
       {
           final StringUtil stringUtil = StringUtil.getInstance();
           
-         String keywords = (String) this.searchRequest.getParams().get().get(BasicItemData.KEYWORDS);
+         String keywords = (String) this.searchRequest.getParams().get().get(basicItemData.KEYWORDS);
          if(keywords == null || keywords.compareTo(stringUtil.EMPTY_STRING) == 0)
          {
             return "Please enter a keyword in the search field above the Search button.";

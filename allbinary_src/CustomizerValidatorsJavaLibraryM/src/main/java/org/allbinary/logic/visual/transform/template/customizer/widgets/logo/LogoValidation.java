@@ -18,6 +18,7 @@ import java.util.HashMap;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.Validation;
@@ -189,7 +190,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
     public HashMap toHashMap()
     {
         final StringUtil stringUtil = StringUtil.getInstance();
-        final HashMap hashMap = new HashMap();
+        final HashMap hashMap = StdUtil.getInstance().createHashMap();
         hashMap.put(LogoData.getInstance().IMAGE, stringUtil.EMPTY_STRING);
         if (this.logoFile != null)
         {

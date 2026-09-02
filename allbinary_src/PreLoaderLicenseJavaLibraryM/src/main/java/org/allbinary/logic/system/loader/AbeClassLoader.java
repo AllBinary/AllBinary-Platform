@@ -35,7 +35,7 @@ public class AbeClassLoader extends ClassLoader
 
     private final String LOAD_CLASS = "loadClass";
     
-    private static Map classes = new HashMap();
+    private static Map classes = StdUtil.getInstance().createHashMap();
     private final String ENCRYPTED_EXTENSION = AbPathData.getInstance().EXTENSION_SEP + "abc";
     private static String PATH;
     

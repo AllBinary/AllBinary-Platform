@@ -36,7 +36,7 @@ public class GenericCssStyleValidation extends Validation implements DomNodeInte
 
    public GenericCssStyleValidation()
    {
-      //this.styles = new Vector();
+      //this.styles = StdUtil.getInstance().createVector();
    }
 
    public GenericCssStyleValidation(Document document) throws Exception

@@ -16,12 +16,13 @@ package org.allbinary.input.automation.module.game.skill;
 import java.util.HashMap;
 import java.util.Vector;
 
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
 public class GameSkill
 {
-   private static HashMap hashMap = new HashMap();
+   private static HashMap hashMap = StdUtil.getInstance().createHashMap();
    
    private GameSkillType gameSkillType;
    private String extra;
@@ -39,7 +40,7 @@ public class GameSkill
         this.setExtra(extra);
         this.setTime(time);
         
-        this.vector = new Vector();
+        this.vector = StdUtil.getInstance().createVector();
         
         GameSkill.hashMap.put(new StringMaker().append(this.getGameSkillType().getName()).append(CommonSeps.getInstance().SPACE).append(extra).toString(), this);
    }

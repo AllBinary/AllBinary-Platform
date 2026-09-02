@@ -19,6 +19,7 @@ import java.util.Vector;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.media.image.InputImageType;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -26,7 +27,7 @@ import org.w3c.dom.NodeList;
 
 public class ImageTypes
 {
-    private Vector vector = new Vector();
+    private Vector vector = StdUtil.getInstance().createVector();
 
     public ImageTypes()
     {

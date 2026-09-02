@@ -79,7 +79,7 @@ implements CommandListener
     private final String _DISPLAY_ = " Display: ";
     private final String SETTING_NO_TITLE = "Setting: No Title, Display: ";
     
-    private Hashtable hashtable = new Hashtable();
+    private Hashtable hashtable = StdUtil.getInstance().createHashtable();
     private boolean midletDestroyed;
 
     @JsConstructor

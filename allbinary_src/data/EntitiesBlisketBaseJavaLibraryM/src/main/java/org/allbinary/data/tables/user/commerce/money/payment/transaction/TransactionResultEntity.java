@@ -24,6 +24,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderData;
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionKeysFactory;
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.TransactionResult;
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.TransactionResultInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
@@ -46,7 +47,7 @@ public class TransactionResultEntity extends AbSqlBean
     {
         try
         {
-            HashMap whereHashMap = new HashMap();
+            HashMap whereHashMap = StdUtil.getInstance().createHashMap();
             whereHashMap.put(OrderData.ID, (String) orderNumber);
             whereHashMap.put(UserData.USERNAME, userName);
             super.deleteWhere(whereHashMap);
@@ -68,7 +69,7 @@ public class TransactionResultEntity extends AbSqlBean
     {
         try
         {
-            Vector values = new Vector();
+            Vector values = StdUtil.getInstance().createVector();
 
             values.add(orderNumber);
             values.add(userName);
@@ -98,8 +99,8 @@ public class TransactionResultEntity extends AbSqlBean
     {
         try
         {
-            HashMap resultHashMap = new HashMap();
-            HashMap updateKeyAndValue = new HashMap();
+            HashMap resultHashMap = StdUtil.getInstance().createHashMap();
+            HashMap updateKeyAndValue = StdUtil.getInstance().createHashMap();
             updateKeyAndValue.put(OrderData.ID, orderNumber);
             resultHashMap = super.getRow(updateKeyAndValue);
 

@@ -24,6 +24,7 @@ import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.w3c.dom.Document;
@@ -215,7 +216,7 @@ public class Order implements OrderInterface, Serializable
 
    public HashMap toHashMapOrder()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       hashMap.put(PaymentData.METHOD,this.paymentMethod);
       hashMap.put(ShippingMethodData.NAME,this.shippingType);
       hashMap.put(StoreFrontData.getInstance().NAME,this.storeName);

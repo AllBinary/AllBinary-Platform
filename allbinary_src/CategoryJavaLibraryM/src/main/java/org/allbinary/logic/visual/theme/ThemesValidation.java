@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.control.validate.Validation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -27,7 +28,7 @@ public class ThemesValidation extends Validation implements DomNodeInterface
    
    public ThemesValidation()
    {
-      this.themeVector = new Vector();
+      this.themeVector = StdUtil.getInstance().createVector();
    }
 
    public ThemesValidation(Node node) throws Exception

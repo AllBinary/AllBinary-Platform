@@ -22,6 +22,7 @@ import org.allbinary.business.advertisement.AdvertisementInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.UserDbInitInfo;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
@@ -83,11 +84,11 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
     //AdvertisementsInterface
     public Vector get(String storeName)
     {
-        HashMap keysAndValues = new HashMap();
+        HashMap keysAndValues = StdUtil.getInstance().createHashMap();
         keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
         Vector hashMapVector = super.getRows(keysAndValues);
 
-        Vector vector = new Vector();
+        Vector vector = StdUtil.getInstance().createVector();
         final int size = hashMapVector.size();
         for (int index = 0; index < size; index++)
         {
@@ -100,7 +101,7 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
 
     public AdvertisementInterface get(String storeName, String advertismentName)
     {
-        HashMap keysAndValues = new HashMap();
+        HashMap keysAndValues = StdUtil.getInstance().createHashMap();
         keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
         keysAndValues.put(AdvertisementData.getInstance().NAME, advertismentName);
         HashMap hashMap = super.getRow(keysAndValues);

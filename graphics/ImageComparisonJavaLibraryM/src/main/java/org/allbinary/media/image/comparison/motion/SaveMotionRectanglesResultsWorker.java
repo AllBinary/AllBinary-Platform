@@ -14,6 +14,7 @@
 package org.allbinary.media.image.comparison.motion;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -34,7 +35,7 @@ public class SaveMotionRectanglesResultsWorker
     
     public SaveMotionRectanglesResultsWorker()
     {
-        this.motionRectanglesVector = new Vector();
+        this.motionRectanglesVector = StdUtil.getInstance().createVector();
     }
 
     public Vector getMotionRectanglesVector()

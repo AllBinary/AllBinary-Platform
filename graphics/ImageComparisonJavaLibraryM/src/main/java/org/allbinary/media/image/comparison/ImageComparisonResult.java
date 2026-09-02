@@ -15,6 +15,7 @@ package org.allbinary.media.image.comparison;
 
 import java.awt.image.BufferedImage;
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -60,7 +61,7 @@ public class ImageComparisonResult
     {
         this.name = name;
 
-        this.nonMatchingPixelVector = new Vector();
+        this.nonMatchingPixelVector = StdUtil.getInstance().createVector();
         
         this.bufferedImages[0] = bufferedImage;
         this.bufferedImages[1] = bufferedImage2;

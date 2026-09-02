@@ -117,6 +117,7 @@ import org.allbinary.util.EnumerationUtil;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
+import org.allbinary.logic.StdUtil;
 
 
 @JsType
@@ -1081,7 +1082,7 @@ public class GameMidlet extends ProgressMidlet
     public Hashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, "getCurrentStateHashtable");
-        final Hashtable hashtable = new Hashtable();
+        final Hashtable hashtable = StdUtil.getInstance().createHashtable();
 
         if (this.allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
         {

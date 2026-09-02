@@ -189,7 +189,7 @@ public class LogConfig
     /*
     public Vector getTypeNameVector() throws Exception
     {
-    Vector logKeyVector = new Vector();
+    Vector logKeyVector = StdUtil.getInstance().createVector();
     Document document = this.getDoc();
 
     NodeList logConfigTypesNodeList =

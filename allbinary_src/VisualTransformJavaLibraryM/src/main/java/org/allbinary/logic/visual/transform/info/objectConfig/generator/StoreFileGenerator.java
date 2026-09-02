@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.InputOutputTypeData;
@@ -88,7 +89,7 @@ public class StoreFileGenerator
                 transformInfoHttpStoreInterface.getStoreName().length() + 1);
 
             //& Replace TRANSFORM_COMPONENTS_PREVIEW TRANSFORM_COMPONENTS_SMALL_PREVIEW
-            HashMap outputMappingHashMap = new HashMap();
+            HashMap outputMappingHashMap = StdUtil.getInstance().createHashMap();
             outputMappingHashMap.put(TransformInfosData.getInstance().PREVIEW, "Preview");
             outputMappingHashMap.put(TransformInfosData.getInstance().SMALL_PREVIEW, "SmallPreview");
             outputMappingHashMap.put(CommonSeps.getInstance().SPACE, StringUtil.getInstance().EMPTY_STRING);

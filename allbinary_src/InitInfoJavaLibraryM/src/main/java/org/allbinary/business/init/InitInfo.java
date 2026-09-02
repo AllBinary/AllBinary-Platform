@@ -14,6 +14,7 @@
 package org.allbinary.business.init;
 
 import java.util.HashMap;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
@@ -263,7 +264,7 @@ public class InitInfo
 
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       hashMap.put(this.TESTING, this.getTesting());
       hashMap.put(this.MAINPATH, this.getMainPath());
       hashMap.put(this.TESTHTMLPATH, this.getTestHtmlPath());

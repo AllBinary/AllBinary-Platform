@@ -43,6 +43,7 @@ public class AddFileValidationView
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     private static final String ADDPRODUCT = "Add Product";
     private static final String NEXTSTEP = "Next Step";
@@ -128,7 +129,7 @@ public class AddFileValidationView
             }
 
             Object imageFileItemObject =
-                this.getRequestHashMap().get(BasicItemData.IMAGE);
+                this.getRequestHashMap().get(basicItemData.IMAGE);
 
             if (HttpFileUploadUtil.getInstance().isValid(imageFileItemObject))
             {
@@ -228,7 +229,7 @@ public class AddFileValidationView
                 }
             }
 
-            Object object = this.getRequestHashMap().get(BasicItemData.IMAGE);
+            Object object = this.getRequestHashMap().get(basicItemData.IMAGE);
 
             if (HttpFileUploadUtil.getInstance().isValid(object))
             {
@@ -323,7 +324,7 @@ public class AddFileValidationView
 
         if (size > fileData.MINIMAGEFILESIZE)
         {
-            if (fileItemFieldName.compareTo(BasicItemData.IMAGE) == 0)
+            if (fileItemFieldName.compareTo(basicItemData.IMAGE) == 0)
             {
                 if (size < fileData.MAXIMAGEFILESIZE)
                 {

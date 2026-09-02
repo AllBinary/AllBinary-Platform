@@ -1452,7 +1452,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @JsMethod
     public Hashtable getCurrentStateHashtable()
     {
-        final Hashtable hashtable = new Hashtable();
+        final Hashtable hashtable = this.stdUtil.createHashtable();
 
         final int level = this.gameLayerManager.getGameInfo().getCurrentLevel();
 

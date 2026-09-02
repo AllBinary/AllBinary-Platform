@@ -15,6 +15,7 @@ package org.allbinary.game.configuration.feature;
 
 import java.util.Hashtable;
 
+import org.allbinary.logic.StdUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class GameFeatureChoiceGroups {
@@ -24,7 +25,7 @@ public class GameFeatureChoiceGroups {
 	private static GameFeatureChoiceGroups gameFeatureChoiceGroupsMultiple = 
 		new GameFeatureChoiceGroups();
 	
-	private Hashtable hashtable  = new Hashtable();
+	private Hashtable hashtable  = StdUtil.getInstance().createHashtable();
 	
 	private GameFeatureChoiceGroups()
 	{

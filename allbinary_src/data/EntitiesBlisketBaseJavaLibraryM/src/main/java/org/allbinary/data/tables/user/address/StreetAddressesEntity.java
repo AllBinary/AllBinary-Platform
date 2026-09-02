@@ -23,6 +23,7 @@ import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.address.StreetAddress;
 import org.allbinary.business.user.address.StreetAddressData;
 import org.allbinary.data.tables.TableDataFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
@@ -50,7 +51,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
     {
         try
         {
-            HashMap whereHashMap = new HashMap();
+            HashMap whereHashMap = StdUtil.getInstance().createHashMap();
             whereHashMap.put(UserData.USERNAME, this.userName);
             whereHashMap.put(StreetAddressData.ID, (String) index.toString());
             super.deleteWhere(whereHashMap);
@@ -77,7 +78,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
     {
         try
         {
-            Vector values = new Vector();
+            Vector values = StdUtil.getInstance().createVector();
 
             values.add(index);
             values.add(this.userName);
@@ -118,7 +119,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
 
          //Calendar calendar=Calendar.getInstance();
             //String time = new String(new Long(calendar.getTimeInMillis()).toString());
-            HashMap whereKeyValuePairs = new HashMap();
+            HashMap whereKeyValuePairs = StdUtil.getInstance().createHashMap();
             whereKeyValuePairs.put(StreetAddressData.ID, address.getId());
             whereKeyValuePairs.put(UserData.USERNAME, this.userName);
 
@@ -149,8 +150,8 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
     {
         try
         {
-            Vector streetAddressVector = new Vector();
-            HashMap keyAndValue = new HashMap();
+            Vector streetAddressVector = StdUtil.getInstance().createVector();
+            HashMap keyAndValue = StdUtil.getInstance().createHashMap();
             keyAndValue.put(UserData.USERNAME, this.userName);
             Vector addressList = super.getRows(keyAndValue);
 
@@ -182,8 +183,8 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
     {
         try
         {
-            //Vector streetAddressVector = new Vector();
-            HashMap keyAndValue = new HashMap();
+            //Vector streetAddressVector = StdUtil.getInstance().createVector();
+            HashMap keyAndValue = StdUtil.getInstance().createHashMap();
             keyAndValue.put(UserData.USERNAME, this.userName);
             keyAndValue.put(StreetAddressData.ID, index.toString());
             HashMap addressHashMap = super.getRow(keyAndValue);
@@ -209,8 +210,8 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
     {
         try
         {
-            HashMap addressHashMap = new HashMap();
-            HashMap updateKeyAndValue = new HashMap();
+            HashMap addressHashMap = StdUtil.getInstance().createHashMap();
+            HashMap updateKeyAndValue = StdUtil.getInstance().createHashMap();
             updateKeyAndValue.put(StreetAddressData.DEFAULT, StreetAddressData.DEFAULT);
             updateKeyAndValue.put(UserData.USERNAME, this.userName);
 
@@ -245,8 +246,8 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
     {
         try
         {
-            HashMap updateKeyAndValue = new HashMap();
-            HashMap whereKeyAndValue = new HashMap();
+            HashMap updateKeyAndValue = StdUtil.getInstance().createHashMap();
+            HashMap whereKeyAndValue = StdUtil.getInstance().createHashMap();
 
             whereKeyAndValue.put(UserData.USERNAME, this.userName);
 

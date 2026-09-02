@@ -31,6 +31,7 @@ import org.allbinary.business.user.role.UserRole;
 import org.allbinary.business.user.role.UserRoleB;
 import org.allbinary.business.user.role.UserRoleData;
 import org.allbinary.business.user.username.UserName;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
@@ -473,7 +474,7 @@ public class User implements UserInterface
    
    public Vector toVector() throws Exception
    {
-      Vector values = new Vector();
+      Vector values = StdUtil.getInstance().createVector();
       values.add(this.userName);
       values.add(this.prefixName);
       values.add(this.firstName);
@@ -512,7 +513,7 @@ public class User implements UserInterface
    
    public HashMap toHashMap() throws Exception
    {
-      HashMap values = new HashMap();
+      HashMap values = StdUtil.getInstance().createHashMap();
 
       values.put(UserData.USERNAME,userName);
       values.put(UserData.PREFIXNAME,prefixName);

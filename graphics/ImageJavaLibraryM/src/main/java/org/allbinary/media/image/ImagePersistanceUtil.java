@@ -209,7 +209,7 @@ public class ImagePersistanceUtil {
 		
 		String ds3tfyDefaultColours = "bod,f35;acc,x01;nos,f10;cli,f10;cap,f10";
 		
-		Map result = new HashMap();
+		Map result = StdUtil.getInstance().createHashMap();
 		String[] records = ds3tfyDefaultColours.split(";");
 		for ( int i = 0; i < records.length; i++ ) {
 			String[] fields = records[i].split(",");

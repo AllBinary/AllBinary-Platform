@@ -229,8 +229,8 @@ public class CategoryRequestHelper extends ModifyTable
    {
       Map map = this.request.getParameterMap();
     
-      Vector addVector = new Vector();
-      Vector removeVector = new Vector();
+      Vector addVector = StdUtil.getInstance().createVector();
+      Vector removeVector = StdUtil.getInstance().createVector();
     
       Set keys = map.keySet();
     
@@ -239,7 +239,7 @@ public class CategoryRequestHelper extends ModifyTable
          String key = (String) keyIter.next();
          String[] values = (String[]) map.get(key);
     
-         HashMap hashMap = new HashMap();
+         HashMap hashMap = StdUtil.getInstance().createHashMap();
          hashMap.put(stringUtil.EMPTY_STRING;,new String(values[0]));
          if(key.startsWith(
          addVector.add(new Category(hashMap));
@@ -255,7 +255,7 @@ public class CategoryRequestHelper extends ModifyTable
    {
       try
       {
-         //Vector values = new Vector();
+         //Vector values = StdUtil.getInstance().createVector();
                   
          String success = "Successfully Added the following to the Category table";
 
@@ -388,7 +388,7 @@ public class CategoryRequestHelper extends ModifyTable
    {
       try
       {
-         //HashMap values = new HashMap();
+         //HashMap values = StdUtil.getInstance().createHashMap();
          
          //CategoryEntityFactory.getInstance().update(values);
          

@@ -21,6 +21,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryInterfac
 import org.allbinary.business.user.commerce.money.Money;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityFactory;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityInterface;
+import org.allbinary.logic.StdUtil;
 
 //import org.allbinary.business.context.modules.storefront.statistics.orders.history.*;
 
@@ -96,7 +97,7 @@ public class StoreFrontOrdersHistoryStatistics
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       StoreFrontOrdersHistoryStatisticsData storeFrontOrdersHistoryStatisticsData =
     	  StoreFrontOrdersHistoryStatisticsData.getInstance();

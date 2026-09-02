@@ -21,6 +21,7 @@ import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.business.category.properties.root.RootCategoryPropertiesInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringMaker;
@@ -40,8 +41,8 @@ public class Category
     private CategoryHierarchyInterface categoryHierarchyInterface;
     private CategoryPropertiesInterface categoryPropertiesInterface;
     //Vector of child Categories
-    private final Vector childCategoryVector = new Vector();
-    private final Vector typeVector = new Vector();
+    private final Vector childCategoryVector = StdUtil.getInstance().createVector();
+    private final Vector typeVector = StdUtil.getInstance().createVector();
     private final Integer PROPERTIES = new Integer(1);
     private final Integer CATEGORY = new Integer(0);
 
@@ -167,7 +168,7 @@ public class Category
 
     public synchronized boolean removeChild(CategoryInterface categoryInterface)
     {
-        final Vector removalVector = new Vector();
+        final Vector removalVector = StdUtil.getInstance().createVector();
 
         boolean bool_return = false;
 
@@ -212,7 +213,7 @@ public class Category
 
     private synchronized boolean removeDuplicateChild(CategoryInterface categoryInterface)
     {
-        final Vector removalVector = new Vector();
+        final Vector removalVector = StdUtil.getInstance().createVector();
 
         boolean bool_return = false;
 

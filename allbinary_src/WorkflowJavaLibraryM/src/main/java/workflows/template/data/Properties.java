@@ -16,6 +16,7 @@ package workflows.template.data;
 import java.util.HashMap;
 
 import javax.servlet.jsp.tagext.TagSupport;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
@@ -35,7 +36,7 @@ public class Properties
       {
          this.logUtil.putF("Start/Tag",this,this.commonStrings.CONSTRUCTOR);
       }
-      this.propertiesHashMap = new HashMap();
+      this.propertiesHashMap = StdUtil.getInstance().createHashMap();
    }
    
    protected HashMap getPropertiesHashMap()
@@ -49,7 +50,7 @@ public class Properties
       {
          this.logUtil.putF("Tag Ended",this,"doEndTag");
       }
-      this.propertiesHashMap = new HashMap();
+      this.propertiesHashMap = StdUtil.getInstance().createHashMap();
       return TagSupport.EVAL_PAGE;
    }
 }

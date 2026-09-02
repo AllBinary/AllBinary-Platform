@@ -18,6 +18,7 @@ import java.util.Vector;
 
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
 import org.w3c.dom.Document;
@@ -109,7 +110,7 @@ public class RootCategoryPropertiesAbstract
 
    public HashMap toHashMap()
    {
-      HashMap categoryHashMap = new HashMap();
+      HashMap categoryHashMap = StdUtil.getInstance().createHashMap();
       categoryHashMap.put(CategoryData.getInstance().NAME, this.category);
       //categoryHashMap.put(CategoryData.LEVEL,new Integer(this.level).toString());
       return categoryHashMap;
@@ -117,7 +118,7 @@ public class RootCategoryPropertiesAbstract
 
    public Vector toVector()
    {
-      Vector categoryVector = new Vector();
+      Vector categoryVector = StdUtil.getInstance().createVector();
       categoryVector.add(this.category);
       //categoryVector.add(new Integer(this.level).toString());
       return categoryVector;

@@ -14,6 +14,7 @@
 package org.allbinary.logic.visual.dhtml.html.table;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.dhtml.html.HtmlTag;
@@ -35,7 +36,7 @@ public class HtmlRow extends HtmlTag
    {
       this.before = new String(before);
       this.after = new String(after);      
-      this.htmlCellsVector = new Vector();
+      this.htmlCellsVector = StdUtil.getInstance().createVector();
    }
       
    public void addCell(HtmlCell htmlCell)

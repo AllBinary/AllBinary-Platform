@@ -25,6 +25,7 @@ import org.allbinary.business.user.commerce.money.payment.Payment;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.data.generator.PaymentIdGenerator;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
@@ -53,8 +54,8 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
     {
         try
         {
-            HashMap updateKeyAndValue = new HashMap();
-            HashMap whereKeyAndValue = new HashMap();
+            HashMap updateKeyAndValue = StdUtil.getInstance().createHashMap();
+            HashMap whereKeyAndValue = StdUtil.getInstance().createHashMap();
 
             whereKeyAndValue.put(UserData.USERNAME, userName);
 
@@ -88,8 +89,8 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
     {
         try
         {
-            Vector paymentVector = new Vector();
-            HashMap keyAndValue = new HashMap();
+            Vector paymentVector = StdUtil.getInstance().createVector();
+            HashMap keyAndValue = StdUtil.getInstance().createHashMap();
             keyAndValue.put(UserData.USERNAME, userName);
             Vector paymentList = super.getRows(keyAndValue);
 
@@ -122,8 +123,8 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
     {
         try
         {
-            HashMap paymentHashMap = new HashMap();
-            HashMap updateKeyAndValue = new HashMap();
+            HashMap paymentHashMap = StdUtil.getInstance().createHashMap();
+            HashMap updateKeyAndValue = StdUtil.getInstance().createHashMap();
             updateKeyAndValue.put(EntryData.getInstance().DEFAULT, EntryData.getInstance().DEFAULT);
             updateKeyAndValue.put(UserData.USERNAME, userName);
 
@@ -154,7 +155,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
     {
         try
         {
-            HashMap whereHashMap = new HashMap();
+            HashMap whereHashMap = StdUtil.getInstance().createHashMap();
             whereHashMap.put(UserData.USERNAME, userName);
             whereHashMap.put(PaymentData.ID, (String) index.toString());
             super.deleteWhere(whereHashMap);
@@ -177,7 +178,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
         try
         {
 
-            Vector vector = new Vector();
+            Vector vector = StdUtil.getInstance().createVector();
 
             //vector.add(StringUtil.getInstance());
             //vector.add("auto_increment");

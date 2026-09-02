@@ -14,6 +14,7 @@
 package org.allbinary.logic.visual.dhtml.html.table;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.dhtml.html.HtmlTag;
@@ -65,7 +66,7 @@ public class HtmlTable extends HtmlTag
       this.cellspacing = cellspacing;
       //this.style = new String(style);  
       this.after = after;
-      this.htmlRowsVector = new Vector();
+      this.htmlRowsVector = StdUtil.getInstance().createVector();
       addAttribute(this.BORDER,CommonPhoneStrings.getInstance().ZERO);
       addAttribute(this.CELLPADDING,this.cellpadding);
       addAttribute(this.CELLSPACING,this.cellspacing);      

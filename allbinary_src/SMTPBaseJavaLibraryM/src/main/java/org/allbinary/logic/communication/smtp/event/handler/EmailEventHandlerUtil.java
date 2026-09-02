@@ -17,6 +17,7 @@ import java.util.Vector;
 
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.modules.configuration.UserConfigurationInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.configuration.user.UserEmailConfigurationInterface;
 import org.allbinary.logic.communication.smtp.configuration.user.event.UserEmailEventsConfigurationInterface;
@@ -114,7 +115,7 @@ public class EmailEventHandlerUtil
             userEmailEventsConfigurationInterface.getEventListener(
                abeClientInformation, userEmailEventNameData, userInterface);
 
-         final Vector vector = new Vector();
+         final Vector vector = StdUtil.getInstance().createVector();
          //Add event listener
          vector.add(userEmailEventListenerInterface);
          return vector;

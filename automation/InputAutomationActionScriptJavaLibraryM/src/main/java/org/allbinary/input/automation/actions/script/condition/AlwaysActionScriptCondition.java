@@ -18,6 +18,7 @@ import java.util.HashMap;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -99,7 +100,7 @@ public class AlwaysActionScriptCondition
     
     public HashMap toHashMap()
     {
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
 
         hashMap.put(AlwaysActionScriptConditionData.IS_ON, Boolean.toString(this.isIsOn()));
 

@@ -28,6 +28,7 @@ import org.allbinary.graphics.j2me.StatusFactory;
 import org.allbinary.graphics.j2me.workarea.canvas.CanvasDom;
 import org.allbinary.graphics.j2me.workarea.canvas.IntegerDimension;
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonStrings;
@@ -117,7 +118,7 @@ public class LinesGraphicItem implements GraphicItemInterface
       this.treeNode = new DefaultMutableTreeNode(PointsDomUtil.getInstance().LINES + LinesGraphicItem.item);
       LinesGraphicItem.item++;
       this.points.init();
-      this.pointTreeNodeVector = new Vector();
+      this.pointTreeNodeVector = StdUtil.getInstance().createVector();
       this.fulcrumPoint = PointFactory.getInstance().createXY(0, 0);
    }
 

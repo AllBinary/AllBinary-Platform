@@ -23,6 +23,7 @@ import org.allbinary.graphics.j2me.workarea.WorkAreaJPanel;
 import org.allbinary.graphics.j2me.workarea.tools.GraphicItemFactory;
 import org.allbinary.graphics.j2me.workarea.tools.GraphicItemInterface;
 import org.allbinary.graphics.j2me.workarea.tools.LinesGraphicItem;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.util.BasicArrayList;
 import org.w3c.dom.Node;
 
@@ -67,7 +68,7 @@ public class CanvasDom
         String name = canvasNode.getNodeName();
         if (name.compareTo(CanvasDom.FRAME) == 0)
         {
-            this.graphicItemHashMap = new HashMap();
+            this.graphicItemHashMap = StdUtil.getInstance().createHashMap();
 
             Node angleNode = DomHelper.getInstance().searchNodeList(this.ROTATE, canvasNode.getChildNodes());
             Node angleTextNode = angleNode.getFirstChild();

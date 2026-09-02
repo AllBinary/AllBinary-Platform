@@ -18,6 +18,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.java.exception.ExceptionUtil;
@@ -46,7 +47,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
     {
         try
         {            
-            Vector param = new Vector();
+            Vector param = StdUtil.getInstance().createVector();
 
             String serverUrl = getClientInfo().getLicenseServer(this.getServer());
             

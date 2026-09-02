@@ -34,6 +34,7 @@ import org.allbinary.util.BasicArrayList;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
+import org.allbinary.logic.StdUtil;
 
 
 @JsType
@@ -80,7 +81,7 @@ public class MyCanvas extends Canvas
         this.name = name;
         this.childNameList = childNameList;
 
-        this.commandStack = new Stack();
+        this.commandStack = StdUtil.getInstance().createStack();
     }
 
     @Override

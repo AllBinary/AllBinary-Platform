@@ -23,6 +23,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.quoterequest.QuoteRequestData;
 import org.allbinary.business.user.UserData;
 import org.allbinary.data.generator.QuoteRequestIdGenerator;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
 import org.allbinary.logic.string.StringMaker;
@@ -179,7 +180,7 @@ public class QuoteRequest
 
    public Vector toVector()
    {
-      Vector values = new Vector();
+      Vector values = StdUtil.getInstance().createVector();
       //unique id is added in entity      
       values.add(this.id);
       values.add(this.userName);      
@@ -201,7 +202,7 @@ public class QuoteRequest
    {
 	   QuoteRequestData quoteRequestData = QuoteRequestData.getInstance();
 	   
-      HashMap values = new HashMap();
+      HashMap values = StdUtil.getInstance().createHashMap();
       values.put(UserData.USERNAME,userName);
       values.put(quoteRequestData.PROJECT_INFO,this.projectInfo);
       values.put(quoteRequestData.CUSTOMER_COMMENTS,this.userComments);

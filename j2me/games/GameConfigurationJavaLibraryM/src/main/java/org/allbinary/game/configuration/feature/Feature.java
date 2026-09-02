@@ -20,12 +20,13 @@ import java.util.Hashtable;
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
+import org.allbinary.logic.StdUtil;
 
 
 @JsType
 public class Feature
 {
-    private static Hashtable hashtable = new Hashtable();
+    private static Hashtable hashtable = StdUtil.getInstance().createHashtable();
 
     private final String name;
 

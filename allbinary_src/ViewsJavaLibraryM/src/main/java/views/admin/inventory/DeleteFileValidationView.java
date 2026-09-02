@@ -45,7 +45,7 @@ public class DeleteFileValidationView extends InventoryItemView implements Valid
       
       if(hashMap==null) throw new Exception("No Request Params Found");
       
-      this.id = (String) hashMap.get(BasicItemData.ID);
+      this.id = (String) hashMap.get(basicItemData.ID);
    }
    
    public Boolean isValid()

@@ -22,6 +22,7 @@ import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.io.path.AbPath;
@@ -64,7 +65,7 @@ public class PaymentTypeUtil {
 
     private String defaultName = null;
 
-    private Vector paymentTypeVector = new Vector();
+    private Vector paymentTypeVector = StdUtil.getInstance().createVector();
     
     private PaymentTypeUtil()
     {
@@ -200,7 +201,7 @@ public class PaymentTypeUtil {
 
    public Vector difference(Vector a_PaymentTypeVector)
    {
-      Vector diff = new Vector();
+      Vector diff = StdUtil.getInstance().createVector();
       int size = this.paymentTypeVector.size();
       for (int i = 0; i < size; i++)
       {

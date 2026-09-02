@@ -25,6 +25,7 @@ import java.util.Vector;
 
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.DbConnectionInfo;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
@@ -44,6 +45,7 @@ public class InitSql
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final SqlTypeStrings sqlTypeStrings = SqlTypeStrings.getInstance();
     protected final SqlStrings sqlStrings = SqlStrings.getInstance();
+    protected final StdUtil stdUtil = StdUtil.getInstance();
 
     protected final String INSERT = "insert";
     protected final String UPDATE = "update";
@@ -177,8 +179,8 @@ public class InitSql
 
             while (rset.next())
             {
-                result = new HashMap();
-                //Vector columnNames = new Vector();
+                result = stdUtil.createHashMap();
+                //Vector columnNames = StdUtil.getInstance().createVector();
                 int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {

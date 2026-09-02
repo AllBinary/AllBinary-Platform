@@ -22,6 +22,7 @@ import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.role.UserRole;
 import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.data.tables.user.UserEntityInterface;
+import org.allbinary.logic.StdUtil;
 
 public class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInterface
 {
@@ -30,7 +31,7 @@ public class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInter
    
    public StoreFrontUsersStatistics(StoreFrontInterface storeFrontInterface) throws Exception
    {
-      this.totalUsersByRoleHashMap = new HashMap();
+      this.totalUsersByRoleHashMap = StdUtil.getInstance().createHashMap();
       final UserEntityInterface userEntityInterface = UserEntityFactory.getInstance();
       //Vector userVector = userEntityInterface.getUsers(storeFrontInterface);
       final Vector userVector = userEntityInterface.getCustomers();
@@ -73,7 +74,7 @@ public class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInter
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       hashMap.put(StoreFrontUsersStatisticsData.getInstance().NUMBEROFUSERS, this.getNumberOfUsers().toString());
       

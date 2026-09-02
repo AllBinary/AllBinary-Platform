@@ -14,6 +14,7 @@
 package org.allbinary.logic.visual.dhtml.html;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 public class HtmlTags
 {
@@ -21,7 +22,7 @@ public class HtmlTags
    
    public HtmlTags()
    {
-      this.htmlTagVector = new Vector();
+      this.htmlTagVector = StdUtil.getInstance().createVector();
    }
 
    public HtmlTag get(int index)

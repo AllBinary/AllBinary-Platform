@@ -20,6 +20,7 @@ import org.allbinary.business.category.Category;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.business.init.db.InventoryDbInitInfo;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
@@ -63,7 +64,7 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
    
    public Category getAtLevel(String level)
    {
-      HashMap keysAndValues = new HashMap();
+      HashMap keysAndValues = StdUtil.getInstance().createHashMap();
       keysAndValues.put(CategoryData.LEVEL,level);
       Vector vectorOfChildCategoriesHashMaps = super.getRows(keysAndValues);
       return new Category(vectorOfChildCategoriesHashMaps);
@@ -78,7 +79,7 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
      /*
    public Categories getSubCategories(String category)
    {
-      HashMap startsWithKeysAndValues = new HashMap();
+      HashMap startsWithKeysAndValues = StdUtil.getInstance().createHashMap();
       startsWithKeysAndValues.put(CategoryData.CATEGORY, category);
       Vector vectorOfHashMaps = super.getRowsStartWith(new HashMap(), startsWithKeysAndValues);
       return new Categories(vectorOfHashMaps);
@@ -92,7 +93,7 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
       {
          Vector categoryVector = category.toVector();
 
-         Vector values = new Vector();
+         Vector values = StdUtil.getInstance().createVector();
          values.add(categoryVector.get(0));
          values.add(categoryVector.get(1));
          super.insert(values);

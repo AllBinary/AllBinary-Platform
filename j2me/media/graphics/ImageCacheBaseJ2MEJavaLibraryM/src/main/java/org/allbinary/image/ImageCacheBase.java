@@ -18,6 +18,7 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullImage;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -32,7 +33,7 @@ public class ImageCacheBase
     
     protected final ImageFactory imageFactory = ImageFactory.getInstance();
 
-    protected final Hashtable hashtable = new Hashtable();
+    protected final Hashtable hashtable = StdUtil.getInstance().createHashtable();
 
     protected final int SIZE = 128;
     protected final int[] widths = new int[this.SIZE];

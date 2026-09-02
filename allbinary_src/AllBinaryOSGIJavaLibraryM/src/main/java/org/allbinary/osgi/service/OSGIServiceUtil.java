@@ -14,6 +14,7 @@
 package org.allbinary.osgi.service;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -42,7 +43,7 @@ public class OSGIServiceUtil
         final BundleContext bundleContext, final ServiceReference[] serviceReferences)
         throws Exception
     {
-        final Vector vector = new Vector();
+        final Vector vector = StdUtil.getInstance().createVector();
         
         if(serviceReferences != null)
         {

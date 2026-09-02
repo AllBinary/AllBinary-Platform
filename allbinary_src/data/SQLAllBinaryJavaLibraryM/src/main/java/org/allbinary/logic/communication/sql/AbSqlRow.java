@@ -373,8 +373,8 @@ public class AbSqlRow extends AbSqlColumn
 
             while (rset.next())
             {
-                result = new HashMap();
-                //Vector columnNames = new Vector();
+                result = this.stdUtil.createHashMap();
+                //Vector columnNames = this.stdUtil.createVector();
                 int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -420,7 +420,7 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            final Vector rows = new Vector();
+            final Vector rows = this.stdUtil.createVector();
             final Set set = keysAndValues.keySet();
 
             final Object[] keyArray = set.toArray();
@@ -454,8 +454,8 @@ public class AbSqlRow extends AbSqlColumn
 
             while (rset.next())
             {
-                final HashMap result = new HashMap();
-                //Vector columnNames = new Vector();
+                final HashMap result = this.stdUtil.createHashMap();
+                //Vector columnNames = this.stdUtil.createVector();
                 final int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -498,7 +498,7 @@ public class AbSqlRow extends AbSqlColumn
                 this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ALL_ROWS);
             }
 
-            final Vector rows = new Vector();
+            final Vector rows = this.stdUtil.createVector();
             final String sqlStatement = stringBuffer.toString();
 
             final ResultSet rset = this.executeSQLStatement(sqlStatement);
@@ -506,8 +506,8 @@ public class AbSqlRow extends AbSqlColumn
 
             while (rset.next())
             {
-                final HashMap result = new HashMap();
-                //final Vector columnNames = new Vector();
+                final HashMap result = this.stdUtil.createHashMap();
+                //final Vector columnNames = this.stdUtil.createVector();
                 int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -545,7 +545,7 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            Vector rows = new Vector();
+            Vector rows = this.stdUtil.createVector();
             Set set = keysAndValues.keySet();
             iter = set;
 
@@ -598,8 +598,8 @@ public class AbSqlRow extends AbSqlColumn
 
             while (rset.next())
             {
-                HashMap result = new HashMap();
-                Vector columnNames = new Vector();
+                HashMap result = this.stdUtil.createHashMap();
+                Vector columnNames = this.stdUtil.createVector();
                 int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -621,7 +621,7 @@ public class AbSqlRow extends AbSqlColumn
             {
                 this.logUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getRowsWhereLike", e);
             }
-            return new Vector();
+            return this.stdUtil.createVector();
         }
     }
     */
@@ -636,7 +636,7 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            final Vector rows = new Vector();
+            final Vector rows = this.stdUtil.createVector();
             stringBuffer.append(this.sqlStrings.WHERE);
             final Set set = whereKeyValuePairs.keySet();
             
@@ -685,8 +685,8 @@ public class AbSqlRow extends AbSqlColumn
 
             while (rset.next())
             {
-                result = new HashMap();
-                columnNames = new Vector();
+                result = this.stdUtil.createHashMap();
+                columnNames = this.stdUtil.createVector();
                 columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -721,7 +721,7 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            final Vector rows = new Vector();
+            final Vector rows = this.stdUtil.createVector();
             stringBuffer.append(this.sqlStrings.WHERE);
             stringBuffer.append(betweenColumn);
             stringBuffer.append(this.sqlStrings.MORE_THAN_QUOTE);
@@ -750,8 +750,8 @@ public class AbSqlRow extends AbSqlColumn
             int columnCount;
             while (rset.next())
             {
-                result = new HashMap();
-                columnNames = new Vector();
+                result = this.stdUtil.createHashMap();
+                columnNames = this.stdUtil.createVector();
                 columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {

@@ -13,9 +13,12 @@
 */
 package org.allbinary.game.input.mapping;
 
-import jsinterop.annotations.JsType;
-
 import java.util.Hashtable;
+
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import org.allbinary.game.input.Input;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -25,10 +28,7 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
+import org.allbinary.logic.StdUtil;
 
 @JsType
 public class InputMapping
@@ -40,7 +40,7 @@ public class InputMapping
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
    //TWB - Use MapList someday
-    private final Hashtable hashtable = new Hashtable();
+    private final Hashtable hashtable = StdUtil.getInstance().createHashtable();
     private final BasicArrayList mappedList = new BasicArrayListD();
 
     @JsConstructor

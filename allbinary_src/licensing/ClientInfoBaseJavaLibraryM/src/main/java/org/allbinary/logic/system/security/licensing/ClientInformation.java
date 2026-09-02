@@ -29,6 +29,7 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
+import org.allbinary.logic.StdUtil;
 
 // This is the information sent to the license server
 
@@ -187,7 +188,7 @@ public class ClientInformation implements AbeClientInformationInterface
         
         final GenericOperatingSystem genericOperatingSystem = this.getOperatingSystemInterface();
 
-        final Hashtable clientInfoHashtable = new Hashtable();
+        final Hashtable clientInfoHashtable = StdUtil.getInstance().createHashtable();
         
         clientInfoHashtable.put(
                 abeClientInformationData.NAME, this.name);

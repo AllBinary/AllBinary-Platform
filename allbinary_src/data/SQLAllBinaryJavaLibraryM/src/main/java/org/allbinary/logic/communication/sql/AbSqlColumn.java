@@ -92,7 +92,7 @@ public class AbSqlColumn extends AbSqlTable
 
     public Vector getColumn(final String columnName)
     {
-        final Vector column = new Vector();
+        final Vector column = this.stdUtil.createVector();
 
         final StringMaker stringBuffer = new StringMaker();
 
@@ -150,7 +150,7 @@ public class AbSqlColumn extends AbSqlTable
         stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
         final String sqlStatement = stringBuffer.toString();
-        Vector column = new Vector();
+        Vector column = this.stdUtil.createVector();
         ResultSet rset;
         String field;
         try
@@ -188,7 +188,7 @@ public class AbSqlColumn extends AbSqlTable
     /*
     public Vector getColumnWhereLike(String columnName, String key, String value)
     {
-        Vector column = new Vector();
+        Vector column = this.stdUtil.createVector();
 
         StringMaker stringBuffer = new StringMaker();
 

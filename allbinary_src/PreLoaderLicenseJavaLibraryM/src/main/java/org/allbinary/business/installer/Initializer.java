@@ -80,7 +80,7 @@ public class Initializer
         
         //    this.request = request;
         //this.getFormData(request.getParameterMap());
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
         Set keys = map.keySet();
 
         final Object[] keyArray = keys.toArray();

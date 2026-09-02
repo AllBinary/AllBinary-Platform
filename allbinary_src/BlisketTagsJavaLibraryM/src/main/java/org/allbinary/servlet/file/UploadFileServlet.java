@@ -26,6 +26,7 @@ import admin.taghelpers.AuthenticationHelper;
 import admin.taghelpers.AuthenticationHelperFactory;
 import admin.taghelpers.AuthenticationHelperUtil;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.file.upload.FileUploadData;
 import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
@@ -80,9 +81,9 @@ public class UploadFileServlet extends HttpServlet
             }
 
             //HashMap should have storename added
-            HashMap hashMap = new HashMap();
+            HashMap hashMap = StdUtil.getInstance().createHashMap();
 
-            //Vector roleVector = new Vector();
+            //Vector roleVector = StdUtil.getInstance().createVector();
 
             AuthenticationHelper authenticationHelper =
                 (AuthenticationHelper) new AuthenticationHelperFactory().getInstance(

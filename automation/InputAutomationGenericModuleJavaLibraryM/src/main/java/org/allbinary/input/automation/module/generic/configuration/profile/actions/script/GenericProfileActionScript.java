@@ -24,6 +24,7 @@ import org.allbinary.input.automation.actions.script.condition.ProfileActionScri
 import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionData;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionJPanel;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
@@ -108,7 +109,7 @@ public class GenericProfileActionScript
     
     public HashMap toHashMap()
     {
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
 
         this.logUtil.putF("HashMap: " + hashMap.toString(), this, "toHashMap()");
         

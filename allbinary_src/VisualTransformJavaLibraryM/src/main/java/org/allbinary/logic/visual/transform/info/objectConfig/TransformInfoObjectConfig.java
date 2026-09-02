@@ -18,6 +18,7 @@ import java.util.Vector;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.InputOutputTypeData;
 import org.allbinary.logic.io.OutputTypeData;
@@ -269,14 +270,14 @@ public class TransformInfoObjectConfig
 	          }
 	          return viewNodeVector;
 	       }
-	       return new Vector();
+	       return StdUtil.getInstance().createVector();
     }
 
    //Best to not use this
    private Vector getTransformDomNodes(String nodeName) 
    throws Exception
    {
-      Vector viewVector = new Vector();
+      Vector viewVector = StdUtil.getInstance().createVector();
 
       Vector viewNodeVector = this.getNodeVector(nodeName);
       
@@ -294,7 +295,7 @@ public class TransformInfoObjectConfig
    public Vector getTransforms(String nodeName) 
    throws Exception
    {
-      Vector viewVector = new Vector();
+      Vector viewVector = StdUtil.getInstance().createVector();
 
       Vector viewNodeVector = this.getNodeVector(nodeName);
       
@@ -315,7 +316,7 @@ public class TransformInfoObjectConfig
          this.logUtil.putF("Started: " + group, this, "getTransformsGroup()");
       }
 
-      Vector viewVector = new Vector();
+      Vector viewVector = StdUtil.getInstance().createVector();
 
       final String GROUP = TransformInfosData.getInstance().GROUP;
       

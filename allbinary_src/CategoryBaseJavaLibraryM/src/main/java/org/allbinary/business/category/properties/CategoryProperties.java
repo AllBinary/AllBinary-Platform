@@ -20,6 +20,7 @@ import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.business.category.CategoryUtil;
 import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
 import org.allbinary.logic.io.path.AbPath;
@@ -182,14 +183,14 @@ public class CategoryProperties implements CategoryPropertiesInterface
    
    public HashMap toHashMap()
    {
-      HashMap categoryHashMap = new HashMap();
+      HashMap categoryHashMap = StdUtil.getInstance().createHashMap();
       categoryHashMap.put(CategoryData.getInstance().NAME, this.category);
       return categoryHashMap;
    }
    
    public Vector toVector()
    {
-      Vector categoryVector = new Vector();
+      Vector categoryVector = StdUtil.getInstance().createVector();
       categoryVector.add(this.category);
       //categoryVector.add(new Integer(this.level).toString());
       return categoryVector;

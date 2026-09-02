@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.log;
 
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 public class LogBuffer
 {
@@ -23,7 +24,7 @@ public class LogBuffer
    
    public LogBuffer()
    {
-      this.logEntryVector = new Vector();
+      this.logEntryVector = StdUtil.getInstance().createVector();
    }
 
    public void add(Log log)

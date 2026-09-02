@@ -80,11 +80,11 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
     /*
      public AffiliatesInterface get(String name)
      {
-     HashMap keysAndValues = new HashMap();
+     HashMap keysAndValues = StdUtil.getInstance().createHashMap();
      keysAndValues.put(StoreFrontData.NAME, name);
      Vector hashMapVector = super.getRows(keysAndValues);
       
-     Vector affiliateVector = new Vector();
+     Vector affiliateVector = StdUtil.getInstance().createVector();
      iter = hashMapVector;
      while(iter.hasNext())
      {
@@ -98,7 +98,7 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
 
      public AffiliateInterface get(String name, String affiliateName)
      {
-     HashMap keysAndValues = new HashMap();
+     HashMap keysAndValues = StdUtil.getInstance().createHashMap();
      keysAndValues.put(StoreFrontData.NAME, name);
      keysAndValues.put(AffiliateData.NAME, name);
      HashMap hashMap = super.getRow(keysAndValues);

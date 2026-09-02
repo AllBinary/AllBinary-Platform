@@ -23,6 +23,7 @@ import org.allbinary.business.user.commerce.inventory.item.BasicItem;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.business.user.commerce.money.MoneyException;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
@@ -32,6 +33,8 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
+    
     private final String tableName = "basicinventory";
 
     public InventoryEntity()
@@ -63,7 +66,7 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
     {
         try
         {
-            super.deleteWhere(BasicItemData.ID, value);
+            super.deleteWhere(basicItemData.ID, value);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 this.logUtil.putF(this.commonStrings.SUCCESS, this, this.commonStrings.delete);
@@ -85,16 +88,16 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
             this.logUtil.putF("Getting Items For: " + storeFrontInterface.getName(), this, "getItems");
         }
 
-        Vector itemVector = new Vector();
-        HashMap keysAndValues = new HashMap();
+        Vector itemVector = StdUtil.getInstance().createVector();
+        HashMap keysAndValues = StdUtil.getInstance().createHashMap();
 
         //AbSqlData.ANYSINGLECHARACTERMATCH +
         
 ///////////
       //TWB - GAE upgrade uses JIQL and it doesn't like LIKE in the SQL
         
-        //HashMap likeKeysAndValues = new HashMap();        
-        //likeKeysAndValues.put(BasicItemData.CATEGORY,
+        //HashMap likeKeysAndValues = StdUtil.getInstance().createHashMap();        
+        //likeKeysAndValues.put(basicItemData.CATEGORY,
         //  storeFrontInterface.getCategoryPath() + AbSqlData.ANYMULTICHARACTERMATCH);
 
         //Vector itemHashMapVector = super.getRowsWhereLike(keysAndValues, likeKeysAndValues);
@@ -111,7 +114,7 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
 
       ///////////
             	//TWB - GAE upgrade uses JIQL and it doesn't like LIKE in the SQL so I fixed it
-            	String category = (String) itemHashMap.get(BasicItemData.CATEGORY);
+            	String category = (String) itemHashMap.get(basicItemData.CATEGORY);
             	if(!StringValidationUtil.getInstance().isEmpty(category) && 
          			category.startsWith(storeFrontInterface.getCategoryPath()))
             	{
@@ -128,8 +131,8 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
     //I could create a factory to output the results that excepts a productId and xslt file
     public ItemInterface getItem(String id) throws MoneyException
     {
-        HashMap keysAndValues = new HashMap();
-        keysAndValues.put(BasicItemData.ID, id);
+        HashMap keysAndValues = StdUtil.getInstance().createHashMap();
+        keysAndValues.put(basicItemData.ID, id);
         HashMap itemHashMap = super.getRow(keysAndValues);
         if (itemHashMap != null)
         {
@@ -142,13 +145,13 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
 
     public String getWeight(String id)
     {
-        return super.getField(BasicItemData.ID, id, BasicItemData.WEIGHT);
+        return super.getField(basicItemData.ID, id, basicItemData.WEIGHT);
     }
 
     /*
     public String getTable(String itemId)
     {
-    return super.getTableWhere(BasicItemData.ID,itemId);
+    return super.getTableWhere(basicItemData.ID,itemId);
     }
      */
     public final String createTableStatement()
@@ -159,62 +162,62 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
         stringBuffer.append(this.tableName);
         stringBuffer.append(this.sqlStrings.START);
 
-        stringBuffer.append(BasicItemData.ID);
+        stringBuffer.append(basicItemData.ID);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.NUMBER);
+        stringBuffer.append(basicItemData.NUMBER);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.INBASKETS);
+        stringBuffer.append(basicItemData.INBASKETS);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.WEIGHT);
+        stringBuffer.append(basicItemData.WEIGHT);
         //stringBuffer.append(" DECIMAL (11,2) NOT NULL,");
         stringBuffer.append(" VARCHAR(20) NOT NULL,");
 
         stringBuffer.append(EntryData.getInstance().ENABLE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.NEWORUSED);
+        stringBuffer.append(basicItemData.NEWORUSED);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.SUMMARY);
+        stringBuffer.append(basicItemData.SUMMARY);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.DISTRIBUTOR);
+        stringBuffer.append(basicItemData.DISTRIBUTOR);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.IDUSEDBYDISTRIBUTOR);
+        stringBuffer.append(basicItemData.IDUSEDBYDISTRIBUTOR);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.PRODUCEDBY);
+        stringBuffer.append(basicItemData.PRODUCEDBY);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.PRODUCTIONDATE);
+        stringBuffer.append(basicItemData.PRODUCTIONDATE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.STARTPRODUCTIONDATE);
+        stringBuffer.append(basicItemData.STARTPRODUCTIONDATE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.DESCRIPTION);
+        stringBuffer.append(basicItemData.DESCRIPTION);
         stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.KEYWORDS);
+        stringBuffer.append(basicItemData.KEYWORDS);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.CATEGORY);
+        stringBuffer.append(basicItemData.CATEGORY);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.TYPE);
+        stringBuffer.append(basicItemData.TYPE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.SMALLIMAGE);
+        stringBuffer.append(basicItemData.SMALLIMAGE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.MEDIUMIMAGE);
+        stringBuffer.append(basicItemData.MEDIUMIMAGE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.LARGEIMAGE);
+        stringBuffer.append(basicItemData.LARGEIMAGE);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(EntryData.getInstance().LASTMODIFIED);
@@ -223,34 +226,34 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
         stringBuffer.append(EntryData.getInstance().TIMECREATED);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.PRICE);
+        stringBuffer.append(basicItemData.PRICE);
         //stringBuffer.append(" DECIMAL (11,2) NOT NULL,");
         stringBuffer.append(" VARCHAR(20) NOT NULL,");
 
-        stringBuffer.append(BasicItemData.COMMENT);
+        stringBuffer.append(basicItemData.COMMENT);
         stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
 
         //Special Inventory Types True or False
-        stringBuffer.append(BasicItemData.CUSTOMS);
+        stringBuffer.append(basicItemData.CUSTOMS);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.DOWNLOADS);
+        stringBuffer.append(basicItemData.DOWNLOADS);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.GROUPS);
+        stringBuffer.append(basicItemData.GROUPS);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.OPTIONS);
+        stringBuffer.append(basicItemData.OPTIONS);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.PERMISSIONS);
+        stringBuffer.append(basicItemData.PERMISSIONS);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append(BasicItemData.SPECIALS);
+        stringBuffer.append(basicItemData.SPECIALS);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
-        stringBuffer.append(BasicItemData.ID);
+        stringBuffer.append(basicItemData.ID);
         stringBuffer.append(this.sqlStrings.END);
 
         return stringBuffer.toString();
@@ -264,12 +267,12 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
     /*
     public String getItemForm(String id)
     {
-    return super.getInputWhere(BasicItemData.ID,id);
+    return super.getInputWhere(basicItemData.ID,id);
     }
      */
     public void update(HashMap updatedValues)
     {
-        super.updateWhere(BasicItemData.ID, (String) updatedValues.get(BasicItemData.ID), updatedValues);
+        super.updateWhere(basicItemData.ID, (String) updatedValues.get(basicItemData.ID), updatedValues);
     }
 
     public String dropTable()

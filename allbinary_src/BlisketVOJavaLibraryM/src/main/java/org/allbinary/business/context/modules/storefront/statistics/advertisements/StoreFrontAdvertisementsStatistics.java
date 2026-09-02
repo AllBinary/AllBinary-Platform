@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.logic.StdUtil;
 
 public class StoreFrontAdvertisementsStatistics
 implements StoreFrontAdvertisementsStatisticsInterface
@@ -42,7 +43,7 @@ implements StoreFrontAdvertisementsStatisticsInterface
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       //hashMap.put();
       return hashMap;

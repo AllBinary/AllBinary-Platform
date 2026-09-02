@@ -15,6 +15,7 @@ package org.allbinary.media.image.comparison.motion;
 
 import java.awt.*;
 import java.util.Vector;
+import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -49,7 +50,7 @@ public class ConsolidateMotionRectangles extends MotionRectangles
         final Vector vector = this.getVector();
         this.logUtil.putF("Start - Size Before: " + vector.size(), this, "consolidateMotionRectangleConstraints");
         
-        final Vector removeVector = new Vector();
+        final Vector removeVector = StdUtil.getInstance().createVector();
         
         final int size = vector.size();
         for (int index = 0; index < size; index++)

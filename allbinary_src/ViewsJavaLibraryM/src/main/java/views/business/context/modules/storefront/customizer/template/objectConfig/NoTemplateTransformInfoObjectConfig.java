@@ -17,6 +17,7 @@ import java.util.HashMap;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
@@ -61,7 +62,7 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
       String storeName = this.getTransformInfoInterface().getStoreName();
       String viewName = this.getTransformInfoInterface().getName();
 
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
       
       final String VARKEY = TransformInfoObjectConfigData.getInstance().VARKEY;
       

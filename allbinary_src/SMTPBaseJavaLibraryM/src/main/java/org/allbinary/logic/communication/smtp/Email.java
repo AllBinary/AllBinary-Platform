@@ -30,6 +30,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
@@ -215,7 +216,7 @@ public class Email
    {
       try
       {
-         HashMap hashMap = new HashMap();
+         HashMap hashMap = StdUtil.getInstance().createHashMap();
          
          hashMap.put(EmailData.SERVER, (String) this.properties.get(Email.SMTP_HOST));
          

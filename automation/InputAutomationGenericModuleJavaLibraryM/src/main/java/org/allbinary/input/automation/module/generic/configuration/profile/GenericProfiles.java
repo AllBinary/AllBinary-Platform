@@ -26,6 +26,7 @@ import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 import org.allbinary.input.automation.module.DefaultListModelHelper;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionData;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
@@ -57,7 +58,7 @@ public class GenericProfiles
 
         this.profilesDefaultListModelHelper = new DefaultListModelHelper();
         
-        this.hashMap = new HashMap();
+        this.hashMap = StdUtil.getInstance().createHashMap();
         
         if(new File(fileName).isFile())
         {

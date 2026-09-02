@@ -16,6 +16,7 @@ package org.allbinary.graphics.j2me.workarea.tools;
 import java.util.HashMap;
 
 import org.allbinary.log.LOGGING;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.util.BasicArrayList;
 import org.w3c.dom.Node;
 
@@ -37,7 +38,7 @@ public class GraphicItemFactory
 
    private GraphicItemFactory()
    {
-      this.graphicItems = new HashMap();
+      this.graphicItems = StdUtil.getInstance().createHashMap();
       this.graphicItems.put(LinesGraphicItem.getStaticName(), new LinesGraphicItemFactory());
    }
       
@@ -58,7 +59,7 @@ public class GraphicItemFactory
    {
       int numberOfItems = graphicItemNodeList.size();
       
-      HashMap graphicItemHashMap = new HashMap();
+      HashMap graphicItemHashMap = StdUtil.getInstance().createHashMap();
             
       if(LOGGING.contains(LOGGING.MENUEVENT))
       {

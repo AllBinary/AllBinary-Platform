@@ -16,6 +16,7 @@ package org.allbinary.logic.communication.smtp.configuration.user.event;
 import java.util.HashMap;
 
 import org.allbinary.business.user.UserInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
@@ -44,7 +45,7 @@ public class UserEmailEventsConfiguration implements UserEmailEventsConfiguratio
    
    private void init()
    {
-      this.emailEventHashMap = new HashMap();
+      this.emailEventHashMap = StdUtil.getInstance().createHashMap();
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {

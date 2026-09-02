@@ -21,6 +21,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.money.Money;
 import org.allbinary.business.user.commerce.money.MoneyException;
 import org.allbinary.data.generator.ProductIdGenerator;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
@@ -32,6 +33,7 @@ public class BasicItem implements ItemInterface
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
     
     protected String itemId;
     protected String number;
@@ -71,45 +73,45 @@ public class BasicItem implements ItemInterface
             this.logUtil.putF(this.commonStrings.START, this,"Constructor(HashMap)");
         }
 
-        this.itemId = (String) itemHashMap.get(BasicItemData.ID);
+        this.itemId = (String) itemHashMap.get(basicItemData.ID);
 
-        this.number = (String) itemHashMap.get(BasicItemData.NUMBER);
+        this.number = (String) itemHashMap.get(basicItemData.NUMBER);
 
         /*
-         * String numberString = (String) itemHashMap.get(BasicItemData.NUMBER);
+         * String numberString = (String) itemHashMap.get(basicItemData.NUMBER);
          * if(!StringValidationUtil.isEmpty(numberString)) { this.number = new
          * Long(0).valueOf(numberString); } else { this.number }
          */
 
-        this.inBaskets = (String) itemHashMap.get(BasicItemData.INBASKETS);
-        this.weight = (String) itemHashMap.get(BasicItemData.WEIGHT);
+        this.inBaskets = (String) itemHashMap.get(basicItemData.INBASKETS);
+        this.weight = (String) itemHashMap.get(basicItemData.WEIGHT);
         this.enabled = (String) itemHashMap.get(EntryData.getInstance().ENABLE);
-        this.newOrUsed = (String) itemHashMap.get(BasicItemData.NEWORUSED);
-        this.summary = (String) itemHashMap.get(BasicItemData.SUMMARY);
-        this.distributor = (String) itemHashMap.get(BasicItemData.DISTRIBUTOR);
-        this.idUsedByDistributor = (String) itemHashMap.get(BasicItemData.IDUSEDBYDISTRIBUTOR);
-        this.producedBy = (String) itemHashMap.get(BasicItemData.PRODUCEDBY);
-        this.productionDate = (String) itemHashMap.get(BasicItemData.PRODUCTIONDATE);
-        this.startProductionDate = (String) itemHashMap.get(BasicItemData.STARTPRODUCTIONDATE);
-        this.description = (String) itemHashMap.get(BasicItemData.DESCRIPTION);
-        this.keywords = (String) itemHashMap.get(BasicItemData.KEYWORDS);
-        this.category = (String) itemHashMap.get(BasicItemData.CATEGORY);
-        this.type = (String) itemHashMap.get(BasicItemData.TYPE);
-        this.smallImage = (String) itemHashMap.get(BasicItemData.SMALLIMAGE);
-        this.mediumImage = (String) itemHashMap.get(BasicItemData.MEDIUMIMAGE);
-        this.largeImage = (String) itemHashMap.get(BasicItemData.LARGEIMAGE);
+        this.newOrUsed = (String) itemHashMap.get(basicItemData.NEWORUSED);
+        this.summary = (String) itemHashMap.get(basicItemData.SUMMARY);
+        this.distributor = (String) itemHashMap.get(basicItemData.DISTRIBUTOR);
+        this.idUsedByDistributor = (String) itemHashMap.get(basicItemData.IDUSEDBYDISTRIBUTOR);
+        this.producedBy = (String) itemHashMap.get(basicItemData.PRODUCEDBY);
+        this.productionDate = (String) itemHashMap.get(basicItemData.PRODUCTIONDATE);
+        this.startProductionDate = (String) itemHashMap.get(basicItemData.STARTPRODUCTIONDATE);
+        this.description = (String) itemHashMap.get(basicItemData.DESCRIPTION);
+        this.keywords = (String) itemHashMap.get(basicItemData.KEYWORDS);
+        this.category = (String) itemHashMap.get(basicItemData.CATEGORY);
+        this.type = (String) itemHashMap.get(basicItemData.TYPE);
+        this.smallImage = (String) itemHashMap.get(basicItemData.SMALLIMAGE);
+        this.mediumImage = (String) itemHashMap.get(basicItemData.MEDIUMIMAGE);
+        this.largeImage = (String) itemHashMap.get(basicItemData.LARGEIMAGE);
         this.timeEntered = (String) itemHashMap.get(EntryData.getInstance().TIMECREATED);
         this.lastModified = (String) itemHashMap.get(EntryData.getInstance().LASTMODIFIED);
 
-        this.price = new Money((String) itemHashMap.get(BasicItemData.PRICE));
+        this.price = new Money((String) itemHashMap.get(basicItemData.PRICE));
 
-        this.comment = (String) itemHashMap.get(BasicItemData.COMMENT);
-        this.customs = (String) itemHashMap.get(BasicItemData.CUSTOMS);
-        this.setDownloads((String) itemHashMap.get(BasicItemData.DOWNLOADS));
-        this.groups = (String) itemHashMap.get(BasicItemData.GROUPS);
-        this.options = (String) itemHashMap.get(BasicItemData.OPTIONS);
-        this.permissions = (String) itemHashMap.get(BasicItemData.PERMISSIONS);
-        this.specials = (String) itemHashMap.get(BasicItemData.SPECIALS);
+        this.comment = (String) itemHashMap.get(basicItemData.COMMENT);
+        this.customs = (String) itemHashMap.get(basicItemData.CUSTOMS);
+        this.setDownloads((String) itemHashMap.get(basicItemData.DOWNLOADS));
+        this.groups = (String) itemHashMap.get(basicItemData.GROUPS);
+        this.options = (String) itemHashMap.get(basicItemData.OPTIONS);
+        this.permissions = (String) itemHashMap.get(basicItemData.PERMISSIONS);
+        this.specials = (String) itemHashMap.get(basicItemData.SPECIALS);
     }
 
     public BasicItem() throws Exception
@@ -476,31 +478,31 @@ public class BasicItem implements ItemInterface
             this.logUtil.putF(this.commonStrings.START, this, "toHashMap");
         }
 
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = StdUtil.getInstance().createHashMap();
 
-        hashMap.put(BasicItemData.ID, this.itemId);
-        hashMap.put(BasicItemData.NUMBER, this.number);
-        hashMap.put(BasicItemData.INBASKETS, this.inBaskets);
-        hashMap.put(BasicItemData.WEIGHT, this.weight);
+        hashMap.put(basicItemData.ID, this.itemId);
+        hashMap.put(basicItemData.NUMBER, this.number);
+        hashMap.put(basicItemData.INBASKETS, this.inBaskets);
+        hashMap.put(basicItemData.WEIGHT, this.weight);
         hashMap.put(EntryData.getInstance().ENABLE, this.enabled);
-        hashMap.put(BasicItemData.NEWORUSED, this.newOrUsed);
-        hashMap.put(BasicItemData.SUMMARY, this.summary);
-        hashMap.put(BasicItemData.DISTRIBUTOR, this.distributor);
-        hashMap.put(BasicItemData.IDUSEDBYDISTRIBUTOR,
+        hashMap.put(basicItemData.NEWORUSED, this.newOrUsed);
+        hashMap.put(basicItemData.SUMMARY, this.summary);
+        hashMap.put(basicItemData.DISTRIBUTOR, this.distributor);
+        hashMap.put(basicItemData.IDUSEDBYDISTRIBUTOR,
             this.idUsedByDistributor);
-        hashMap.put(BasicItemData.PRODUCEDBY, this.producedBy);
-        hashMap.put(BasicItemData.PRODUCTIONDATE, this.productionDate);
-        hashMap.put(BasicItemData.STARTPRODUCTIONDATE,
+        hashMap.put(basicItemData.PRODUCEDBY, this.producedBy);
+        hashMap.put(basicItemData.PRODUCTIONDATE, this.productionDate);
+        hashMap.put(basicItemData.STARTPRODUCTIONDATE,
             this.startProductionDate);
-        hashMap.put(BasicItemData.DESCRIPTION, this.description);
-        hashMap.put(BasicItemData.KEYWORDS, this.keywords);
-        hashMap.put(BasicItemData.CATEGORY, this.category);
-        hashMap.put(BasicItemData.TYPE, this.type);
-        // hashMap.put(BasicItemData.IMAGE,EMPTY);
+        hashMap.put(basicItemData.DESCRIPTION, this.description);
+        hashMap.put(basicItemData.KEYWORDS, this.keywords);
+        hashMap.put(basicItemData.CATEGORY, this.category);
+        hashMap.put(basicItemData.TYPE, this.type);
+        // hashMap.put(basicItemData.IMAGE,EMPTY);
 
-        hashMap.put(BasicItemData.SMALLIMAGE, this.smallImage);
-        hashMap.put(BasicItemData.MEDIUMIMAGE, this.mediumImage);
-        hashMap.put(BasicItemData.LARGEIMAGE, this.largeImage);
+        hashMap.put(basicItemData.SMALLIMAGE, this.smallImage);
+        hashMap.put(basicItemData.MEDIUMIMAGE, this.mediumImage);
+        hashMap.put(basicItemData.LARGEIMAGE, this.largeImage);
 
         // hashMap.put(EntryData.getInstance().TIMECREATED,this.timeEntered);
 
@@ -510,15 +512,15 @@ public class BasicItem implements ItemInterface
         hashMap.put(EntryData.getInstance().LASTMODIFIED, time);
 
         // if(this.price.isValid())
-        hashMap.put(BasicItemData.PRICE, this.price.toString());
+        hashMap.put(basicItemData.PRICE, this.price.toString());
 
-        hashMap.put(BasicItemData.COMMENT, this.comment);
-        hashMap.put(BasicItemData.CUSTOMS, this.customs);
-        hashMap.put(BasicItemData.DOWNLOADS, this.getDownloads());
-        hashMap.put(BasicItemData.GROUPS, this.groups);
-        hashMap.put(BasicItemData.OPTIONS, this.options);
-        hashMap.put(BasicItemData.PERMISSIONS, this.permissions);
-        hashMap.put(BasicItemData.SPECIALS, this.specials);
+        hashMap.put(basicItemData.COMMENT, this.comment);
+        hashMap.put(basicItemData.CUSTOMS, this.customs);
+        hashMap.put(basicItemData.DOWNLOADS, this.getDownloads());
+        hashMap.put(basicItemData.GROUPS, this.groups);
+        hashMap.put(basicItemData.OPTIONS, this.options);
+        hashMap.put(basicItemData.PERMISSIONS, this.permissions);
+        hashMap.put(basicItemData.SPECIALS, this.specials);
 
         return hashMap;
     }
@@ -530,7 +532,7 @@ public class BasicItem implements ItemInterface
             this.logUtil.putF(this.commonStrings.START, this, "toVector");
         }
 
-        Vector values = new Vector();
+        Vector values = StdUtil.getInstance().createVector();
         values.add(this.itemId);
         values.add(this.number);
         values.add(this.inBaskets);

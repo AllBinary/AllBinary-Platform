@@ -28,6 +28,7 @@ import org.allbinary.business.user.UserData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.AbFile;
@@ -1185,7 +1186,7 @@ public class StoreFront implements StoreFrontInterface
 
     public Vector toVector() throws Exception
     {
-        final Vector dataVector = new Vector();
+        final Vector dataVector = StdUtil.getInstance().createVector();
         dataVector.add(this.name);
         dataVector.add(this.homeHostName);
         dataVector.add(this.homeHostNamePath.toString());
@@ -1228,7 +1229,7 @@ public class StoreFront implements StoreFrontInterface
     {
     	final StoreFrontData storeFrontData = StoreFrontData.getInstance();
     	
-        final HashMap dataHashMap = new HashMap();
+        final HashMap dataHashMap = StdUtil.getInstance().createHashMap();
 
         dataHashMap.put(storeFrontData.NAME, this.name);
         dataHashMap.put(storeFrontData.HOMEHOSTNAME, this.homeHostName);

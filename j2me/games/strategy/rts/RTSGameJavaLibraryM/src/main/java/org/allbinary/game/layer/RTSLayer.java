@@ -53,6 +53,7 @@ import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.view.event.ViewPositionEventHandler;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.LayerDistanceUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
@@ -134,7 +135,7 @@ public class RTSLayer
      */
     private final String rootName;
 
-    protected final Hashtable hashtable = new Hashtable();
+    protected final Hashtable hashtable = StdUtil.getInstance().createHashTable();
     private final int BUILD_VALUE = 63;
     public final GeographicMapCellPositionAreaBase geographicMapCellPositionAreaBase;
     

@@ -16,6 +16,7 @@ package org.allbinary.input;
 import java.awt.event.KeyEvent;
 import java.util.Hashtable;
 
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -23,7 +24,7 @@ public class KeySingletonFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private static Hashtable keyStringHashtable = new Hashtable();
+   private static Hashtable keyStringHashtable = StdUtil.getInstance().createHashtable();
    //private static Integer[] integerArray = new Integer[0xFF];
    
    private static Integer[] keyArray =

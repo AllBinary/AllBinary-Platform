@@ -19,6 +19,7 @@ import java.util.Vector;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.UserData;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.SuperCrypt;
 import org.allbinary.logic.string.StringUtil;
@@ -98,7 +99,7 @@ public class Password
       this.password = StringUtil.getInstance().getNonNull(this.password);
 
       int random = new Random().nextInt(SuperCrypt.KEYMAX);
-      Vector vector = new Vector();
+      Vector vector = StdUtil.getInstance().createVector();
       vector.add(new Integer(random).toString());
       vector.add(secret);
       vector.add(new SuperCrypt(random).encrypt(this.password));
@@ -109,7 +110,7 @@ public class Password
    {
       this.password = StringUtil.getInstance().getNonNull(this.password);
 
-      HashMap values = new HashMap();
+      HashMap values = StdUtil.getInstance().createHashMap();
       int random = new Random().nextInt(SuperCrypt.KEYMAX);
       values.put(EntryData.getInstance().ENCRYPTION, new Integer(random).toString());
       values.put(UserData.SECRET, secret);

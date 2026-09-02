@@ -14,15 +14,14 @@
 package org.allbinary.logic.string.regex.replace;
 
 import java.util.HashMap;
-import java.util.Set;
-import org.allbinary.J2SEUtil;
 
+import org.allbinary.J2SEUtil;
 import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class Replace
@@ -40,7 +39,7 @@ public class Replace
    
    public Replace(final String key, final String value)
    {
-      this.hashMap = new HashMap();
+      this.hashMap = StdUtil.getInstance().createHashMap();
       this.hashMap.put(new String[] {key}, new String[] {value});
       
 //      if(LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
@@ -52,7 +51,7 @@ public class Replace
 
    public Replace(final String[] keys, final String[] values)
    {
-      this.hashMap = new HashMap();
+      this.hashMap = StdUtil.getInstance().createHashMap();
       this.hashMap.put(keys, values);
       
 //      if(LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))

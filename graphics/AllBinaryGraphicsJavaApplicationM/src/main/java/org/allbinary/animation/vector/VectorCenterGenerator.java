@@ -21,6 +21,7 @@ import org.allbinary.graphics.j2me.workarea.tools.GraphicItemInterface;
 import org.allbinary.graphics.j2me.workarea.tools.LinesGraphicItem;
 import org.allbinary.graphics.j2me.workarea.tools.Points;
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
@@ -108,7 +109,7 @@ public class VectorCenterGenerator {
     private void getInstance(BasicArrayList pointVector) throws Exception {
         try {
 
-            Vector newVector = new Vector();
+            Vector newVector = StdUtil.getInstance().createVector();
             int size = pointVector.size();
 
             for(int index = 0; index < size; index++)

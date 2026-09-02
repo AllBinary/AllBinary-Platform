@@ -15,11 +15,12 @@ package org.allbinary.media.image.cache;
 
 import java.util.HashMap;
 
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
 
 public class BufferedImageInfoFactory
 {
-    private static HashMap hashMap = new HashMap();
+    private static HashMap hashMap = StdUtil.getInstance().createHashMap();
 
     private BufferedImageInfoFactory()
     {

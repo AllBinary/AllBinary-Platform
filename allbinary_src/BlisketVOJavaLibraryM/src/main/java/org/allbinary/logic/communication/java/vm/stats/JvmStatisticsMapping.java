@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.data.tables.TableMappingInterface;
+import org.allbinary.logic.StdUtil;
 
 public class JvmStatisticsMapping extends JvmStatistics implements TableMappingInterface
 {
@@ -27,7 +28,7 @@ public class JvmStatisticsMapping extends JvmStatistics implements TableMappingI
 
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
+      HashMap hashMap = StdUtil.getInstance().createHashMap();
 
       hashMap.put(JvmStatisticsData.FREE_MEMORY_BYTES,this.getFreeMemoryBytesString());
       hashMap.put(JvmStatisticsData.FREE_MEMORY_KILOBYTES,this.getFreeMemoryKilobytesString());
@@ -53,7 +54,7 @@ public class JvmStatisticsMapping extends JvmStatistics implements TableMappingI
    
    public Vector toVector() throws Exception
    {
-      Vector vector = new Vector();
+      Vector vector = StdUtil.getInstance().createVector();
       
       vector.add(this.getFreeMemoryBytesString());
       vector.add(this.getFreeMemoryKilobytesString());

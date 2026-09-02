@@ -18,6 +18,7 @@ import java.util.Vector;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.Validation;
 import org.allbinary.logic.string.StringMaker;
@@ -40,7 +41,7 @@ public class MetasValidation extends Validation implements DomNodeInterface
    public MetasValidation(String storeName)
    {
       this.storeFrontInterface = StoreFrontFactory.getInstance(storeName);
-      this.metaValidationVector = new Vector();
+      this.metaValidationVector = StdUtil.getInstance().createVector();
 
       String contentValue = this.storeFrontInterface.getName() + " E-Commerce Site";
 

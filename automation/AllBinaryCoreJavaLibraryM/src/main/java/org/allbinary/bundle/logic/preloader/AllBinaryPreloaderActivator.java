@@ -21,6 +21,7 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
 import org.allbinary.bundle.logic.system.loader.CryptServiceFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -63,7 +64,7 @@ public class AllBinaryPreloaderActivator
     public void registerAsService()
     throws Exception
     {
-        Hashtable properties = new Hashtable();
+        Hashtable properties = StdUtil.getInstance().createHashtable();
         
         ServiceRegistration serviceRegistration =
             AllBinaryPreloaderActivator.context.registerService(CRYPT_REGISTRY_NAME,

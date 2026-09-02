@@ -22,6 +22,7 @@ import admin.taghelpers.BasketHelperFactory;
 import admin.taghelpers.BasketRequestHelperFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.user.commerce.inventory.basket.BasketData;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
@@ -163,7 +164,7 @@ public class BasketTag extends CustomTagSupport
       {       
          if(this.command!=null)
          {
-            this.propertiesHashMap = new HashMap();
+            this.propertiesHashMap = StdUtil.getInstance().createHashMap();
             this.propertiesHashMap.put(StoreFrontData.getInstance().NAME,this.storeName);
             
             if (this.command.compareTo(BasketData.INSERT)==0)

@@ -51,7 +51,7 @@ public class InitializerDatabase
         
         //    this.request = request;
         //this.getFormData(request.getParameterMap());
-        final HashMap hashMap = new HashMap();
+        final HashMap hashMap = StdUtil.getInstance().createHashMap();
         final Set keys = map.keySet();
 
         final Object[] keyArray = keys.toArray();

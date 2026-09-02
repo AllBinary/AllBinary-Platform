@@ -25,6 +25,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.custom.CustomItemData;
 import org.allbinary.data.tables.user.commerce.inventory.item.customs.CustomItemsEntityFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -33,6 +34,7 @@ public class CustomItemsRequestHelper extends ModifyTable
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    protected final BasicItemData basicItemData = BasicItemData.getInstance();
      
    private HttpServletRequest request;
      
@@ -52,7 +54,7 @@ public class CustomItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {
-      this.id = this.request.getParameter(BasicItemData.ID);
+      this.id = this.request.getParameter(basicItemData.ID);
 
       this.className = this.request.getParameter(DynamicObjectData.NAME);
       this.packageName = this.request.getParameter(CustomItemData.PACKAGE);
@@ -63,9 +65,9 @@ public class CustomItemsRequestHelper extends ModifyTable
 
    private HashMap getHashMap()
    {
-      HashMap values = new HashMap();            
+      HashMap values = StdUtil.getInstance().createHashMap();            
             
-      values.put(BasicItemData.ID,this.id);
+      values.put(basicItemData.ID,this.id);
       
       values.put(DynamicObjectData.NAME, this.className);
       values.put(CustomItemData.PACKAGE, this.packageName);
@@ -84,7 +86,7 @@ public class CustomItemsRequestHelper extends ModifyTable
       {
          Calendar calendar=Calendar.getInstance();
          String time = new String(new Long(calendar.getTimeInMillis()).toString());
-         Vector values = new Vector();
+         Vector values = StdUtil.getInstance().createVector();
 
          values.add(this.id);
          
