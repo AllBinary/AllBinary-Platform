@@ -13,7 +13,6 @@
  */
 package org.allbinary.logic;
 
-import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Stack;
 import java.util.Vector;
