@@ -15,7 +15,8 @@ package org.allbinary.business.user.password;
 
 import java.util.HashMap;
 import java.util.Random;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.UserData;
@@ -94,12 +95,12 @@ public class Password
       return stringUtil.EMPTY_STRING;
    }
 
-   public Vector toVector(String secret)
+   public BasicArrayList toVector(String secret)
    {
       this.password = StringUtil.getInstance().getNonNull(this.password);
 
       int random = new Random().nextInt(SuperCrypt.KEYMAX);
-      Vector vector = StdUtil.getInstance().createVector();
+      BasicArrayList vector = new BasicArrayListD();
       vector.add(new Integer(random).toString());
       vector.add(secret);
       vector.add(new SuperCrypt(random).encrypt(this.password));

@@ -14,7 +14,8 @@
 package org.allbinary.logic.visual.theme;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.logic.StdUtil;
@@ -24,11 +25,11 @@ import org.w3c.dom.Node;
 
 public class ThemesValidation extends Validation implements DomNodeInterface
 {
-   private Vector themeVector;
+   private BasicArrayList themeVector;
    
    public ThemesValidation()
    {
-      this.themeVector = StdUtil.getInstance().createVector();
+      this.themeVector = new BasicArrayListD();
    }
 
    public ThemesValidation(Node node) throws Exception

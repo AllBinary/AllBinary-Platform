@@ -15,7 +15,8 @@ package org.allbinary.logic.communication.log;
 
 import java.io.IOException;
 import java.util.Hashtable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
@@ -49,7 +50,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             //this.logUtil.putF("Start Trying Server #" + this.getServer() + CommonLabels.getInstance().COLON_SEP + getClientInfo().getLicenseServer(this.getServer()), this, this.commonStrings.GET);
             // }
 
-            Vector param = StdUtil.getInstance().createVector();
+            BasicArrayList param = new BasicArrayListD();
 
             String serverUrl = getClientInfo().getLicenseServer(this.getServer());
             

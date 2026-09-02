@@ -21,7 +21,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.DbConnectionInfo;
@@ -180,7 +181,7 @@ public class InitSql
             while (rset.next())
             {
                 result = stdUtil.createHashMap();
-                //Vector columnNames = StdUtil.getInstance().createVector();
+                //BasicArrayList columnNames = new BasicArrayListD();
                 int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -272,7 +273,7 @@ public class InitSql
         }
     }
       
-    public void insert(Vector values)
+    public void insert(BasicArrayList values)
     {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -282,7 +283,7 @@ public class InitSql
 
         try
         {
-            int size = values.size();
+            final int size = values.size();
             for (int i = 0; i < size - 1; i++)
             {
                 String value = this.getValue((String) values.get(i));
@@ -292,13 +293,13 @@ public class InitSql
                 stringBuffer.append(this.sqlStrings.SINGLE_QUOTE_COMMA_SEP);
             }
 
-            String value = this.getValue((String) values.lastElement());
+            final String value = this.getValue((String) values.get(values.size() - 1));
             //value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);
 
             stringBuffer.append(value);
             stringBuffer.append(this.INSERT_END);
 
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))

@@ -15,7 +15,8 @@ package views.generic.basket;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -75,7 +76,7 @@ public class BasketView extends HttpStoreComponentView implements DomNodeInterfa
             if(itemInterface!=null)
             {
             	BasicItemView basicItemView = 
-            		new BasicItemView(itemInterface, new Vector());
+            		new BasicItemView(itemInterface, new BasicArrayListD());
             	
                Node node = basicItemView.toXmlNode(document);
                

@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.advertisement.areas;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.advertisement.area.AdvertisementAreaInterface;
 import org.allbinary.data.tables.BasicDataTableInterface;
@@ -22,14 +23,14 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 public interface AdvertisementAreasEntityInterface extends BasicDataTableInterface
 {   
    //AdvertisementAreaInterface
-   Vector get(String storeName) throws Exception;
+   BasicArrayList get(String storeName) throws Exception;
 
    AdvertisementAreaInterface get(
       String storeName, String advertisementAreaName) throws Exception;
 
    void delete(String value);
 
-   void insert(Vector values);
+   void insert(BasicArrayList values);
 
    void update(HashMap updatedValues);
 }

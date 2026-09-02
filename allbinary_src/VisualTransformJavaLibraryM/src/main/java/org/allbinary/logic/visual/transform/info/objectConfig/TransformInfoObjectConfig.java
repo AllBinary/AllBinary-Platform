@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
@@ -241,7 +242,7 @@ public class TransformInfoObjectConfig
       attrNode.setValue(name);
    }
 
-   private Vector getNodeVector(String nodeName)
+   private BasicArrayList getNodeVector(String nodeName)
    throws Exception
    {
 	      NodeList componentsNodeList =
@@ -250,7 +251,7 @@ public class TransformInfoObjectConfig
 	       if(componentsNodeList != null &&
 	          componentsNodeList.getLength() > 0)
 	       {
-	          Vector viewNodeVector = DomSearchHelper.getAllNodes(
+	          BasicArrayList viewNodeVector = DomSearchHelper.getAllNodes(
 	          TransformInfoData.getInstance().NAME, componentsNodeList.item(0).getChildNodes());
 
 	          int numberOfViews = viewNodeVector.size();
@@ -270,16 +271,16 @@ public class TransformInfoObjectConfig
 	          }
 	          return viewNodeVector;
 	       }
-	       return StdUtil.getInstance().createVector();
+	       return new BasicArrayListD();
     }
 
    //Best to not use this
-   private Vector getTransformDomNodes(String nodeName) 
+   private BasicArrayList getTransformDomNodes(String nodeName) 
    throws Exception
    {
-      Vector viewVector = StdUtil.getInstance().createVector();
+      BasicArrayList viewVector = new BasicArrayListD();
 
-      Vector viewNodeVector = this.getNodeVector(nodeName);
+      BasicArrayList viewNodeVector = this.getNodeVector(nodeName);
       
        final int size = viewNodeVector.size();
        for (int index = 0; index < size; index++)
@@ -292,12 +293,12 @@ public class TransformInfoObjectConfig
       return viewVector;
    }
    
-   public Vector getTransforms(String nodeName) 
+   public BasicArrayList getTransforms(String nodeName) 
    throws Exception
    {
-      Vector viewVector = StdUtil.getInstance().createVector();
+      BasicArrayList viewVector = new BasicArrayListD();
 
-      Vector viewNodeVector = this.getNodeVector(nodeName);
+      BasicArrayList viewNodeVector = this.getNodeVector(nodeName);
       
        final int size = viewNodeVector.size();
        for (int index = 0; index < size; index++)
@@ -309,14 +310,14 @@ public class TransformInfoObjectConfig
       return viewVector;
    }
 
-   public Vector getTransformsGroup(String group) throws Exception
+   public BasicArrayList getTransformsGroup(String group) throws Exception
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("Started: " + group, this, "getTransformsGroup()");
       }
 
-      Vector viewVector = StdUtil.getInstance().createVector();
+      BasicArrayList viewVector = new BasicArrayListD();
 
       final String GROUP = TransformInfosData.getInstance().GROUP;
       
@@ -342,7 +343,7 @@ public class TransformInfoObjectConfig
             }
          }
 
-         Vector viewNodeVector = DomSearchHelper.getAllNodes(
+         BasicArrayList viewNodeVector = DomSearchHelper.getAllNodes(
             TransformInfoData.getInstance().NAME, componentsNode.getChildNodes());
 
          int numberOfViews = viewNodeVector.size();
@@ -380,22 +381,22 @@ public class TransformInfoObjectConfig
       return viewVector;
    }
 
-   public Vector getTransformDomNodes() throws Exception
+   public BasicArrayList getTransformDomNodes() throws Exception
    {
       return this.getTransformDomNodes(TransformInfosData.getInstance().GROUP);
    }
    
-   public Vector getTransforms() throws Exception
+   public BasicArrayList getTransforms() throws Exception
    {
       return this.getTransforms(TransformInfosData.getInstance().NAME);
    }
 
-   public Vector getGroupTransforms() throws Exception
+   public BasicArrayList getGroupTransforms() throws Exception
    {
       return this.getTransforms(TransformInfosData.getInstance().GROUP);
    }
    
-   public Vector getParentTransforms() throws Exception
+   public BasicArrayList getParentTransforms() throws Exception
    {
       return this.getTransforms(TransformInfoData.getInstance().PARENT);
    }

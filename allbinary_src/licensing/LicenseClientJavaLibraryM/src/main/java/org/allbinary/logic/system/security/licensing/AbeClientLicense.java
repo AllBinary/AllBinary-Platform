@@ -14,7 +14,6 @@
 package org.allbinary.logic.system.security.licensing;
 
 import java.util.Hashtable;
-import java.util.Vector;
 
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -60,7 +59,7 @@ public class AbeClientLicense implements AbeLicenseInterface
         this.id = (String) hashtable.get(
                 abeClientInformationData.LICENSEID);
         
-        Vector vector = (Vector)
+        BasicArrayList vector = (BasicArrayList)
             hashtable.get(abeClientInformationData.LICENSESERVERS);
         
         this.servers = new BasicArrayListD();

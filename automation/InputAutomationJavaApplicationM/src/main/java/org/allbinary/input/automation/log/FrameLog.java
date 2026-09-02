@@ -15,7 +15,8 @@ package org.allbinary.input.automation.log;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.automation.ImageOutputData;
 import org.allbinary.logic.java.number.LongUtil;
@@ -44,7 +45,7 @@ public class FrameLog
         this.infoStringBuffer.append(infoString);
     }
 
-    public void addActions(Vector<String> vectorOfStrings)
+    public void addActions(BasicArrayList vectorOfStrings)
     {
         final int size = vectorOfStrings.size();
         for (int index = 0; index < size; index++)

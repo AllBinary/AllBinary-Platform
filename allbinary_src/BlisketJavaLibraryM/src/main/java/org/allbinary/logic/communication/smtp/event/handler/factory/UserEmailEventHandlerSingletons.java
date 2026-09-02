@@ -14,7 +14,8 @@
 package org.allbinary.logic.communication.smtp.event.handler.factory;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.logic.StdUtil;
@@ -70,7 +71,7 @@ public class UserEmailEventHandlerSingletons {
             //Create New Handler and add listeners
             UserEmailEventHandler newUserEmailEventHandler = new UserEmailEventHandler();
 
-            Vector vector = EmailEventHandlerUtil.getUserEmailEventListenerVector(
+            BasicArrayList vector = EmailEventHandlerUtil.getUserEmailEventListenerVector(
                 abeClientInformation, userEmailEventNameData, userInterface);
 
             newUserEmailEventHandler.addListener(vector);

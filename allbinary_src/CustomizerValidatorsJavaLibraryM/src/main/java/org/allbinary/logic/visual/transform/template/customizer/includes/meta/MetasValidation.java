@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.includes.meta;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
@@ -35,13 +36,13 @@ public class MetasValidation extends Validation implements DomNodeInterface
 
     
    private StoreFrontInterface storeFrontInterface;
-   private Vector metaValidationVector;
+   private BasicArrayList metaValidationVector;
    
    //new
    public MetasValidation(String storeName)
    {
       this.storeFrontInterface = StoreFrontFactory.getInstance(storeName);
-      this.metaValidationVector = StdUtil.getInstance().createVector();
+      this.metaValidationVector = new BasicArrayListD();
 
       String contentValue = this.storeFrontInterface.getName() + " E-Commerce Site";
 
@@ -141,7 +142,7 @@ public class MetasValidation extends Validation implements DomNodeInterface
    {
       Node node = document.createElement(HtmlMetasData.getInstance().NAME);
 
-      MetaValidation[] metaArray = (MetaValidation[]) this.metaValidationVector.toArray(new MetaValidation[0]);
+      MetaValidation[] metaArray = (MetaValidation[]) this.metaValidationVector.toArrayType(new MetaValidation[this.metaValidationVector.size()]);
       int size = metaArray.length;
       for(int i = 0; i < size; i++)
       {

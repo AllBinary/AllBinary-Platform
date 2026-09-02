@@ -14,11 +14,12 @@
 package org.allbinary.business.user.role;
 
 import java.io.Serializable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BasicUserRole implements Serializable
 {
-   private static final Vector<Object> roleVector = new Vector<Object>();
+   private static final BasicArrayList roleVector = new BasicArrayListD();
    
    private final int m_int_RoleId;
    private final String role;
@@ -80,7 +81,7 @@ public class BasicUserRole implements Serializable
 
    public static synchronized BasicUserRole getRole(String role) throws Exception
    {
-      final Vector<Object> roleVector = BasicUserRole.getAll();
+      final BasicArrayList roleVector = BasicUserRole.getAll();
       final int size = roleVector.size();
       for (int index = 0; index < size; index++)
       {
@@ -94,7 +95,7 @@ public class BasicUserRole implements Serializable
       throw new Exception("Unable to get role - Unknown Role");
    }
 
-   public static Vector<Object> getAll()
+   public static BasicArrayList getAll()
    {
       return BasicUserRole.roleVector;
    }

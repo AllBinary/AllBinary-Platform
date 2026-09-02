@@ -13,7 +13,8 @@
 */
 package org.allbinary.business.advertisement.campaign;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.advertisement.AdvertisementInterface;
 import org.allbinary.business.advertisement.AdvertisementsInterface;
@@ -21,9 +22,9 @@ import org.allbinary.business.advertisement.search.AdvertisementSearchInterface;
 
 public class AdvertisementCampaigns implements AdvertisementCampaignsInterface
 {
-   private Vector advertisementsVector;
+   private BasicArrayList advertisementsVector;
    
-   public AdvertisementCampaigns(Vector vector)
+   public AdvertisementCampaigns(BasicArrayList vector)
    {
       this.advertisementsVector = this.advertisementsVector;
    }

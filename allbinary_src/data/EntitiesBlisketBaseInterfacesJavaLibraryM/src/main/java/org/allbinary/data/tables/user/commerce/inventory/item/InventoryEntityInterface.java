@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.user.commerce.inventory.item;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
@@ -24,16 +25,16 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 public interface InventoryEntityInterface extends BasicDataTableInterface
 {      
    ItemInterface getItem(String id) throws MoneyException;
-   Vector getItems(StoreFrontInterface storeFrontInterface) throws Exception;
+   BasicArrayList getItems(StoreFrontInterface storeFrontInterface) throws Exception;
    
    String getWeight(String id);
    
    //public String getItemForm(String id);
-   //public Vector getColumnWhereLike(String columnName,String key,String value);
+   //public BasicArrayList getColumnWhereLike(String columnName,String key,String value);
 
    void deleteWhere(String key,String value);
    
-   void insert(Vector values);
+   void insert(BasicArrayList values);
 
    void update(HashMap updatedValues);
 }

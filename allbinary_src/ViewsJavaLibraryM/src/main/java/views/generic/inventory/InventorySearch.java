@@ -14,7 +14,8 @@
 package views.generic.inventory;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
@@ -127,7 +128,7 @@ public class InventorySearch implements InventoryViewSearchInterface
         final InventorySearchUtil inventorySearchUtil =
             InventorySearchUtil.getInstance();
 
-        final Vector vector = inventorySearchUtil.getBasicItemIdColumn(this.searchRequest);
+        final BasicArrayList vector = inventorySearchUtil.getBasicItemIdColumn(this.searchRequest);
 
         return inventorySearchUtil.search(abeClientInformation, searchRequest, vector);
     }

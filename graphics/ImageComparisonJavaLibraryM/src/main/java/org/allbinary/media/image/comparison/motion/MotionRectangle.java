@@ -13,18 +13,21 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.awt.*;
+import java.awt.Rectangle;
 import java.util.Vector;
+
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class MotionRectangle implements Cloneable
 {
     private Rectangle rectangle;
-    private Vector pixelDeltaVector;
+    private BasicArrayList pixelDeltaVector;
     
     public MotionRectangle(Rectangle rectangle)
     {
         this.setRectangle(rectangle);
-        this.setPixelDeltaVector(new Vector());
+        this.setPixelDeltaVector(new BasicArrayListD());
     }
 
     public Rectangle getRectangle()
@@ -37,12 +40,12 @@ public class MotionRectangle implements Cloneable
         this.rectangle = rectangle;
     }
 
-    public Vector getPixelDeltaVector()
+    public BasicArrayList getPixelDeltaVector()
     {
         return this.pixelDeltaVector;
     }
 
-    public void setPixelDeltaVector(Vector pixelDeltaVector)
+    public void setPixelDeltaVector(BasicArrayList pixelDeltaVector)
     {
         this.pixelDeltaVector = pixelDeltaVector;
     }
@@ -51,7 +54,7 @@ public class MotionRectangle implements Cloneable
     {
         MotionRectangle motionRectangle = 
            new MotionRectangle((Rectangle) this.getRectangle().clone());
-        motionRectangle.setPixelDeltaVector((Vector) this.getPixelDeltaVector().clone());
+        motionRectangle.setPixelDeltaVector((BasicArrayList) this.getPixelDeltaVector().clone());
         return motionRectangle;
     }
 }

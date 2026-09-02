@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.generator;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface IdGeneratorEntityInterface extends BasicDataTableInterface
@@ -23,7 +24,7 @@ public interface IdGeneratorEntityInterface extends BasicDataTableInterface
 
    void deleteWhere(String key, String value);
    
-   void insert(Vector values);
+   void insert(BasicArrayList values);
 
    void update(HashMap updatedValues);
 }

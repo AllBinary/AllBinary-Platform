@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.user;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
@@ -56,7 +57,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       this.setTableName(this.tableName);
    }
    
-   public void insert(Vector values)
+   public void insert(BasicArrayList values)
    {
       try
       {
@@ -76,20 +77,20 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       }
    }
    
-   public Vector getAdministrators() throws Exception
+   public BasicArrayList getAdministrators() throws Exception
    {
       return this.getUsersWithRole(UserRoleFactory.getInstance().ADMINISTRATOR);
    }
 
-   public Vector getStoreManagers(StoreFrontInterface storeFrontInterface) throws Exception
+   public BasicArrayList getStoreManagers(StoreFrontInterface storeFrontInterface) throws Exception
    {
       HashMap keysAndValues = StdUtil.getInstance().createHashMap();
-      Vector usersVector = StdUtil.getInstance().createVector();
+      BasicArrayList usersVector = new BasicArrayListD();
       
       keysAndValues.put(UserRoleData.NAME.toString(), UserRoleFactory.getInstance().STOREMANAGER.toString());
       keysAndValues.put(UserData.PERMISSIONS, storeFrontInterface.getName());
       
-      Vector usersHashMapVector = super.getRows(keysAndValues);
+      BasicArrayList usersHashMapVector = super.getRows(keysAndValues);
       
       int size = usersHashMapVector.size();
       for (int i = 0; i < size; i++)
@@ -102,19 +103,19 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       return usersVector;
    }
    
-   public Vector getCustomers() throws Exception
+   public BasicArrayList getCustomers() throws Exception
    {
       return this.getUsersWithRole(UserRoleFactory.getInstance().CUSTOMER);
    }
 
-   public Vector getUsersWithRole(UserRole userRole) throws Exception
+   public BasicArrayList getUsersWithRole(UserRole userRole) throws Exception
    {
       HashMap keysAndValues = StdUtil.getInstance().createHashMap();
-      Vector usersVector = StdUtil.getInstance().createVector();
+      BasicArrayList usersVector = new BasicArrayListD();
       
       keysAndValues.put(UserRoleData.NAME.toString(), userRole.toString());
       
-      Vector usersHashMapVector = super.getRows(keysAndValues);
+      BasicArrayList usersHashMapVector = super.getRows(keysAndValues);
       
       final int size = usersHashMapVector.size();
       for (int index = 0; index < size; index++)
@@ -127,15 +128,15 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       return usersVector;
    }
    
-   public Vector getUsers(StoreFrontInterface storeFrontInterface)
+   public BasicArrayList getUsers(StoreFrontInterface storeFrontInterface)
       throws Exception
    {
       HashMap keysAndValues = StdUtil.getInstance().createHashMap();
-      Vector usersVector = StdUtil.getInstance().createVector();
+      BasicArrayList usersVector = new BasicArrayListD();
       
       keysAndValues.put(StoreFrontData.getInstance().NAME, storeFrontInterface.getName());
       
-      Vector usersHashMapVector = super.getRows(keysAndValues);
+      BasicArrayList usersHashMapVector = super.getRows(keysAndValues);
       
       final int size = usersHashMapVector.size();
       for (int index = 0; index < size; index++)

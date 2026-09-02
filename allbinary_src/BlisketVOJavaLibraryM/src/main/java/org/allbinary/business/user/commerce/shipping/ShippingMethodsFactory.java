@@ -13,7 +13,8 @@
 */
 package org.allbinary.business.user.commerce.shipping;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
@@ -65,7 +66,7 @@ public class ShippingMethodsFactory
    
    private Document document;
    
-   private Vector shippingVector;
+   private BasicArrayList shippingVector;
    
    public ShippingMethodsFactory(final AbeClientInformationInterface abeClientInformation, final StoreFrontInterface storeFrontInterface) throws Exception
    {
@@ -87,7 +88,7 @@ public class ShippingMethodsFactory
       
       this.document = DomDocumentHelper.create(data);
       
-      this.shippingVector = StdUtil.getInstance().createVector();
+      this.shippingVector = new BasicArrayListD();
 
       final NodeList nodeList = this.document.getElementsByTagName(ShippingMethodsData.NAME);
 
@@ -127,7 +128,7 @@ public class ShippingMethodsFactory
       }
    }
    
-   public Vector getInstance() throws Exception
+   public BasicArrayList getInstance() throws Exception
    {      
       return this.shippingVector;
    }

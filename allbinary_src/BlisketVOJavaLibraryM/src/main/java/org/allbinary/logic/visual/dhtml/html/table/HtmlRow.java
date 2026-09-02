@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.visual.dhtml.html.table;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.string.StringUtil;
@@ -30,13 +31,13 @@ public class HtmlRow extends HtmlTag
    private String before;
    private String after;         
       
-   private Vector htmlCellsVector;
+   private BasicArrayList htmlCellsVector;
    
    public HtmlRow(String before, String after)
    {
       this.before = new String(before);
       this.after = new String(after);      
-      this.htmlCellsVector = StdUtil.getInstance().createVector();
+      this.htmlCellsVector = new BasicArrayListD();
    }
       
    public void addCell(HtmlCell htmlCell)

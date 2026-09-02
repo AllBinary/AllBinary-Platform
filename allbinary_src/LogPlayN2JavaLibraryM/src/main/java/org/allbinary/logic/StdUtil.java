@@ -16,10 +16,10 @@ package org.allbinary.logic;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Stack;
-import java.util.Vector;
 import jsinterop.annotations.JsType;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsMethod;
+import org.allbinary.util.ABHashtable;
 
 /**
  *
@@ -42,30 +42,22 @@ public class StdUtil {
 
     //ActualPlatform
     @JsProperty
-    public final Vector<Object> EMPTY_VECTOR = new Vector<Object>();
-    //ActualPlatform
-    @JsProperty
-    public final Hashtable NULL_TABLE = StdUtil.getInstance().createHashtable();
+    public final Hashtable NULL_TABLE = this.createHashtable();
     
     //ActualPlatform
     @SuppressWarnings("unusable-by-js")
-    public final HashMap NULL_MAP = StdUtil.getInstance().createHashMap();
-
-
-    public final Vector createVector() {
-        return StdUtil.getInstance().createVector();
-    }
+    public final HashMap NULL_MAP = this.createHashMap();
     
     public final Stack createStack() {
         return new Stack();
     }
     
     public final Hashtable createHashtable() {
-        return new Hashtable();
+        return new ABHashtable();
     }
 
     public final HashMap createHashMap() {
-        return StdUtil.getInstance().createHashMap();
+        return new HashMap();
     }
     
 }

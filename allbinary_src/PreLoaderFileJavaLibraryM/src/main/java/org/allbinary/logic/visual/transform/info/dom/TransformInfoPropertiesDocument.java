@@ -14,7 +14,8 @@
 package org.allbinary.logic.visual.transform.info.dom;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
@@ -60,7 +61,7 @@ public class TransformInfoPropertiesDocument
          
          final NodeList transformInfosChildNodeList = transformInfosNode.getChildNodes();
          
-         final Vector transformInfoNodeVector = DomSearchHelper.getAllNodes(
+         final BasicArrayList transformInfoNodeVector = DomSearchHelper.getAllNodes(
             TransformInfoData.getInstance().NAME, transformInfosChildNodeList);
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))

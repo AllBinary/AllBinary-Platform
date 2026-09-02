@@ -14,7 +14,8 @@
 package views.business.context.modules.storefront.customizer.generic.page;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.transform.info.TransformInfoEntity;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
@@ -69,12 +70,12 @@ public class PageValidationView extends PageView implements ValidationComponentI
          TransformInfoObjectConfigInterface pageObjectConfigInterface =
                this.getTransformInfoInterface().getObjectConfigInterface();
             
-         //Vector generatorsToBeModified = objectConfig.getComponents();
+         //BasicArrayList generatorsToBeModified = objectConfig.getComponents();
          
          //this.insertIntoTransformInfos(pageObjectConfig);
 
-         //Vector allViewsToBeModified = objectConfig.getComponents();
-         Vector allViewsToBeModifiedVector = pageObjectConfigInterface.getGroupTransforms();
+         //BasicArrayList allViewsToBeModified = objectConfig.getComponents();
+         BasicArrayList allViewsToBeModifiedVector = pageObjectConfigInterface.getGroupTransforms();
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
@@ -192,7 +193,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
          TransformInfoHttpInterface httpTransformInfoInterface = 
             (TransformInfoHttpInterface) this.getTransformInfoInterface();
          
-         Vector allViewsToBeModifiedVector = objectConfig.getGroupTransforms();
+         BasicArrayList allViewsToBeModifiedVector = objectConfig.getGroupTransforms();
 
          final int size = allViewsToBeModifiedVector.size();
          for(int index = 0; index < size; index++)

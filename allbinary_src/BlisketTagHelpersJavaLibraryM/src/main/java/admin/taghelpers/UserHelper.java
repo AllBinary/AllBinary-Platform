@@ -14,7 +14,8 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
@@ -118,7 +119,7 @@ public class UserHelper extends Table
             userInterface.setEnable(enable);
          }
 
-         Vector values = userInterface.toVector();
+         BasicArrayList values = userInterface.toVector();
 
          UserEntityFactory.getInstance().insert(values);
 

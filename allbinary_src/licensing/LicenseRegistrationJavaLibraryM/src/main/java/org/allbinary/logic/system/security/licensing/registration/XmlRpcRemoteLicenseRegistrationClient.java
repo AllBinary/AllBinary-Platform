@@ -15,7 +15,8 @@ package org.allbinary.logic.system.security.licensing.registration;
 
 import java.io.IOException;
 import java.util.Hashtable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.string.CommonLabels;
@@ -65,7 +66,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             
             // }
 
-            Vector param = StdUtil.getInstance().createVector();
+            BasicArrayList param = new BasicArrayListD();
 
             String serverUrl = getClientInfo().getLicenseServer(this.getServer());
 

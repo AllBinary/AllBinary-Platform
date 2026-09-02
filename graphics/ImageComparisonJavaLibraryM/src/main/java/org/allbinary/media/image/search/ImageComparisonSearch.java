@@ -14,7 +14,8 @@
 package org.allbinary.media.image.search;
 
 import java.awt.image.BufferedImage;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -39,7 +40,7 @@ public class ImageComparisonSearch
    
    private int tolerance;
    
-   private Vector nonMatchingPixelVector;
+   private BasicArrayList nonMatchingPixelVector;
    
    private BufferedImage[] bufferedImages;
 
@@ -50,7 +51,7 @@ public class ImageComparisonSearch
       BufferedImage bufferedImage2,
       int tolerance)
    {
-      this.nonMatchingPixelVector = StdUtil.getInstance().createVector();
+      this.nonMatchingPixelVector = new BasicArrayListD();
       
       this.setBufferedImages(new BufferedImage[2]);
       this.getBufferedImages()[0] = bufferedImage;
@@ -111,7 +112,7 @@ public class ImageComparisonSearch
       this.nonMatchingPixelVector.add(pixel);
    }
    
-   public Vector getNonMatchingPixelVector()
+   public BasicArrayList getNonMatchingPixelVector()
    {
       return this.nonMatchingPixelVector;
    }

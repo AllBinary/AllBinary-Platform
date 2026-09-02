@@ -13,9 +13,6 @@
  */
 package org.allbinary.logic;
 
-import java.util.Hashtable;
-import java.util.Vector;
-
 /**
  *
  * @author User

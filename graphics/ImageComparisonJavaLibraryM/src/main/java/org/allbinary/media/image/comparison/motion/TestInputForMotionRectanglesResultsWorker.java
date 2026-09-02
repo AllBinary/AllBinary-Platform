@@ -17,7 +17,8 @@ import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.util.Hashtable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
@@ -40,14 +41,14 @@ public class TestInputForMotionRectanglesResultsWorker
    
    private boolean running;
    
-   private Vector motionRectanglesVector;
+   private BasicArrayList motionRectanglesVector;
 
    public TestInputForMotionRectanglesResultsWorker() throws Exception
    {
-      this.motionRectanglesVector = StdUtil.getInstance().createVector();
+      this.motionRectanglesVector = new BasicArrayListD();
    }
    
-   public Vector getMotionRectanglesVector()
+   public BasicArrayList getMotionRectanglesVector()
    {
       return this.motionRectanglesVector;
    }
@@ -94,7 +95,7 @@ public class TestInputForMotionRectanglesResultsWorker
          MotionRectangles motionRectangles = (MotionRectangles)
             this.getMotionRectanglesVector().get(0);
 
-         Vector motionRectangleVector = motionRectangles.getVector();
+         BasicArrayList motionRectangleVector = motionRectangles.getVector();
 
          if(motionRectangleVector.size() > 0)
          {

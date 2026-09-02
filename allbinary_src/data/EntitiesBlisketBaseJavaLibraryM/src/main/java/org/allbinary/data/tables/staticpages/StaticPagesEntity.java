@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.staticpages;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.init.db.StaticPagesDbInitInfo;
@@ -40,7 +41,7 @@ public class StaticPagesEntity extends AbSqlBean implements StaticPagesEntityInt
         this.setTableName(this.TABLENAME);
     }
 
-    public void insert(Vector values)
+    public void insert(BasicArrayList values)
     {
         try
         {

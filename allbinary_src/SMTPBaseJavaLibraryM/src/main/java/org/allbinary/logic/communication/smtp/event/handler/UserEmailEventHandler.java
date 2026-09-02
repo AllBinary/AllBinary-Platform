@@ -14,7 +14,8 @@
 package org.allbinary.logic.communication.smtp.event.handler;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.smtp.event.EmailEvent;
@@ -24,13 +25,13 @@ import org.allbinary.logic.communication.smtp.info.EmailInfo;
    
 public class UserEmailEventHandler
 {
-   private Vector emailVector;
+   private BasicArrayList emailVector;
    private EmailInfo emailInfo;
    private UserEmailEventNameData userEmailEventNameData;
    
    public UserEmailEventHandler()
    {
-      this.emailVector = StdUtil.getInstance().createVector();
+      this.emailVector = new BasicArrayListD();
    }
    
    public synchronized void receiveEmailInfo(
@@ -42,7 +43,7 @@ public class UserEmailEventHandler
       this.fireEmailEvent();
    }
    
-   public synchronized void addListener(Vector vector)
+   public synchronized void addListener(BasicArrayList vector)
    {
       final int size = vector.size();
       for(int index = 0; index < size; index++)

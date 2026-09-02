@@ -15,7 +15,8 @@ package org.allbinary.logic.communication.http.request;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
@@ -298,7 +299,7 @@ public class NameSpaceRequestParams extends RequestParams
    
    private int isElementValueTextNodeUnique(
    HashMap nextPackagePropertiesHashMap,
-   Vector elementNodeVector)
+   BasicArrayList elementNodeVector)
    throws Exception
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
@@ -328,7 +329,7 @@ public class NameSpaceRequestParams extends RequestParams
       Node node = rootNode;
       
       //vector contains hashmaps with one dom element
-      final Vector packageVector = nameSpaceRequestParam.getPackages();
+      final BasicArrayList packageVector = nameSpaceRequestParam.getPackages();
       
       //skip root
       //Add Children
@@ -347,7 +348,7 @@ public class NameSpaceRequestParams extends RequestParams
          HashMap nextPackagePropertiesHashMap =
          nameSpaceRequestParam.getPackageProperties(index);
          
-         Vector elementNodeVector =
+         BasicArrayList elementNodeVector =
          DomSearchHelper.getAllNodesNoThrow(
          nextPackageName, node.getChildNodes());
          
@@ -454,7 +455,7 @@ public class NameSpaceRequestParams extends RequestParams
       final NameSpaceRequestParam nameSpaceRequestParam = new NameSpaceRequestParam(key, value);
       
       //vector contains hashmaps with one dom element
-      final Vector packageVector = nameSpaceRequestParam.getPackages();
+      final BasicArrayList packageVector = nameSpaceRequestParam.getPackages();
 
       final int size = packageVector.size();
       for (int index = 0; index < size; index++)
@@ -708,7 +709,7 @@ public class NameSpaceRequestParams extends RequestParams
    //Returns null-1 if node is not found
    private int getNodeWithDuplicatePropertiesFromVector(
    HashMap nextPackagePropertiesHashMap,
-   Vector elementNodeVector)
+   BasicArrayList elementNodeVector)
    throws Exception
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))

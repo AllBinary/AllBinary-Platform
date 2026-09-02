@@ -70,7 +70,7 @@ public class ValidatorFactory
       return null;
    }
    
-   public java.util.Vector toVector()
+   public java.util.BasicArrayList toVector()
    {
       return null;
    }

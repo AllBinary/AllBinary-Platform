@@ -15,7 +15,8 @@ package views.admin.inventory;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -52,7 +53,7 @@ public class InventoryItemView extends HttpStoreComponentView
     private String imageFileName;
     private MediaData mediaData;
     protected ItemInterface itemInterface;
-    protected Vector downloadableItemVector;
+    protected BasicArrayList downloadableItemVector;
     private HashMap requestHashMap;
 
     public InventoryItemView(
@@ -120,7 +121,7 @@ public class InventoryItemView extends HttpStoreComponentView
 
     public void addDomNodeInterfaces()
     {
-        Vector vector = StdUtil.getInstance().createVector();
+        BasicArrayList vector = new BasicArrayListD();
 
         DownloadableItem downloadableItem;
         final int size = this.downloadableItemVector.size();

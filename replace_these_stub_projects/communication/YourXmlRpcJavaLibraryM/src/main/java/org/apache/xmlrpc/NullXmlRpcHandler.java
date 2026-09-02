@@ -13,7 +13,8 @@
  */
 package org.apache.xmlrpc;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.NullUtil;
 
@@ -26,7 +27,7 @@ public class NullXmlRpcHandler implements XmlRpcHandler {
     public static final NullXmlRpcHandler NULL_XML_RPC_HANDLER = new NullXmlRpcHandler();
     
     @Override
-    public Object execute (String method, Vector<Object> params)
+    public Object execute (String method, BasicArrayList params)
             throws Exception {
         return NullUtil.getInstance().NULL_OBJECT;
     }

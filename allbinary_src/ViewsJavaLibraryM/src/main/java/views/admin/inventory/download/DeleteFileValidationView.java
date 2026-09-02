@@ -14,7 +14,8 @@
 package views.admin.inventory.download;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadItemData;
@@ -81,7 +82,7 @@ public class DeleteFileValidationView
          DownloadItemsEntity downloadItemsEntity =
              DownloadItemsEntityFactory.getInstance().getDownloadItemsEntityInstance();
 
-         Vector vector =
+         BasicArrayList vector =
              downloadItemsEntity.getForItem(this.id, this.downloadItemId);
 
          if(vector.size() != 1)
@@ -126,7 +127,7 @@ public class DeleteFileValidationView
          DownloadItemsEntity downloadItemsEntity =
              DownloadItemsEntityFactory.getInstance().getDownloadItemsEntityInstance();
 
-         Vector vector =
+         BasicArrayList vector =
              downloadItemsEntity.getForItem(this.id, this.downloadItemId);
 
          if(vector.size() == 0)

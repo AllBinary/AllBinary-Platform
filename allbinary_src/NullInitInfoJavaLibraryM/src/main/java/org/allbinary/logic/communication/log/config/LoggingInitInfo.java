@@ -56,11 +56,11 @@ public class LoggingInitInfo
 
          Node logConfigsNode = logConfigsNodeList.item(0);
          
-         Vector logConfigNodeVector = 
+         BasicArrayList logConfigNodeVector = 
             DomSearchHelper.getAllNodes(
                LogConfigData.getInstance().NAME, logConfigsNode.getChildNodes());
 	    
-         LoggingInitInfo.logConfigInfoVector = StdUtil.getInstance().createVector();
+         LoggingInitInfo.logConfigInfoVector = new BasicArrayListD();
 	    
          iter = logConfigNodeVector;
          while(iter.hasNext())

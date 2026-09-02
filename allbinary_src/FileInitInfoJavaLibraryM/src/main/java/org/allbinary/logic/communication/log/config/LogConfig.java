@@ -14,7 +14,8 @@
 package org.allbinary.logic.communication.log.config;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.DomNodeHelper;
@@ -172,14 +173,14 @@ public class LogConfig
 
         Node logConfigTypesNode = logConfigTypesNodeList.item(0);
 
-        Vector logConfigTypeNodeVector =
+        BasicArrayList logConfigTypeNodeVector =
             DomSearchHelper.getAllNodes(
             LogConfigTypeData.getInstance().NAME, logConfigTypesNode.getChildNodes());
 
         final int size = logConfigTypeNodeVector.size();
         for (int i = 0; i < size; i++)
         {
-            Node node = (Node) logConfigTypeNodeVector.elementAt(i);
+            Node node = (Node) logConfigTypeNodeVector.get(i);
             LogConfigType logType = LogConfigTypes.getInstance(node);
             logKeyVector.add(logType);
         }
@@ -187,9 +188,9 @@ public class LogConfig
     }
 
     /*
-    public Vector getTypeNameVector() throws Exception
+    public BasicArrayList getTypeNameVector() throws Exception
     {
-    Vector logKeyVector = StdUtil.getInstance().createVector();
+    BasicArrayList logKeyVector = new BasicArrayListD();
     Document document = this.getDoc();
 
     NodeList logConfigTypesNodeList =
@@ -197,7 +198,7 @@ public class LogConfig
 
     Node logConfigTypesNode = logConfigTypesNodeList.item(0);
 
-    Vector logConfigTypeNodeVector =
+    BasicArrayList logConfigTypeNodeVector =
     DomSearchHelper.getAllNodes(
     LogConfigTypeData.NAME, logConfigTypesNode.getChildNodes());
 

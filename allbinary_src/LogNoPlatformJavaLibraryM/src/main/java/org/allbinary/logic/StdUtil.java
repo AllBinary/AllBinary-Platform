@@ -13,10 +13,8 @@
  */
 package org.allbinary.logic;
 
-import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Stack;
-import java.util.Vector;
 
 /**
  *
@@ -36,13 +34,7 @@ public class StdUtil {
     }
         
     //ActualPlatform
-    public final Vector<Object> EMPTY_VECTOR = new Vector<Object>();
-    //ActualPlatform
-    public final Hashtable NULL_TABLE = StdUtil.getInstance().createHashtable();
-
-    public final Vector createVector() {
-        return StdUtil.getInstance().createVector();
-    }
+    public final Hashtable NULL_TABLE = this.createHashtable();
     
     public final Stack createStack() {
         return new Stack();
@@ -50,10 +42,6 @@ public class StdUtil {
     
     public final Hashtable createHashtable() {
         return new Hashtable();
-    }
-
-    public final HashMap createHashMap() {
-        return StdUtil.getInstance().createHashMap();
     }
 
 }

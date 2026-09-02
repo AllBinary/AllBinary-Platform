@@ -15,7 +15,8 @@ package org.allbinary.business.user.commerce.inventory.item;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
@@ -33,9 +34,9 @@ public class BasicItemView implements DomNodeInterface
     protected final BasicItemData basicItemData = BasicItemData.getInstance();
     
    private final ItemInterface itemInterface;
-   private final Vector vector;
+   private final BasicArrayList vector;
 
-   public BasicItemView(ItemInterface itemInterface, Vector vector)
+   public BasicItemView(ItemInterface itemInterface, BasicArrayList vector)
    {
       this.itemInterface = itemInterface;
       this.vector = vector;

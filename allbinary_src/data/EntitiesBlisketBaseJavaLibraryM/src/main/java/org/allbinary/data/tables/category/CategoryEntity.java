@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.category;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.category.Category;
 import org.allbinary.business.category.CategoryData;
@@ -66,13 +67,13 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
    {
       HashMap keysAndValues = StdUtil.getInstance().createHashMap();
       keysAndValues.put(CategoryData.LEVEL,level);
-      Vector vectorOfChildCategoriesHashMaps = super.getRows(keysAndValues);
+      BasicArrayList vectorOfChildCategoriesHashMaps = super.getRows(keysAndValues);
       return new Category(vectorOfChildCategoriesHashMaps);
    }
    
    public Category getAll()
    {
-      Vector vectorOfChildCategoriesHashMaps = super.getAllRows();
+      BasicArrayList vectorOfChildCategoriesHashMaps = super.getAllRows();
       return new Category(vectorOfChildCategoriesHashMaps);
    }
    */
@@ -81,7 +82,7 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
    {
       HashMap startsWithKeysAndValues = StdUtil.getInstance().createHashMap();
       startsWithKeysAndValues.put(CategoryData.CATEGORY, category);
-      Vector vectorOfHashMaps = super.getRowsStartWith(new HashMap(), startsWithKeysAndValues);
+      BasicArrayList vectorOfHashMaps = super.getRowsStartWith(new HashMap(), startsWithKeysAndValues);
       return new Categories(vectorOfHashMaps);
    }
       */
@@ -91,9 +92,9 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
    {
       try
       {
-         Vector categoryVector = category.toVector();
+         BasicArrayList categoryVector = category.toVector();
 
-         Vector values = StdUtil.getInstance().createVector();
+         BasicArrayList values = new BasicArrayListD();
          values.add(categoryVector.get(0));
          values.add(categoryVector.get(1));
          super.insert(values);

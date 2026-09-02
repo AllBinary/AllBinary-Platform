@@ -14,7 +14,8 @@
 package views.admin.payment.gateways;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
@@ -34,9 +35,9 @@ public class PaymentGatewaysView extends HttpStoreComponentView
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private Vector paymentGatewayVector;
+   private BasicArrayList paymentGatewayVector;
 
-   public PaymentGatewaysView(TransformInfoInterface transformInfoInterface, Vector gatewayVector) throws Exception
+   public PaymentGatewaysView(TransformInfoInterface transformInfoInterface, BasicArrayList gatewayVector) throws Exception
    {
       super(transformInfoInterface);
       this.paymentGatewayVector = gatewayVector;

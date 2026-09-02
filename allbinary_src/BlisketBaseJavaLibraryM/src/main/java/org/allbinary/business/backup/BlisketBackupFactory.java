@@ -13,7 +13,8 @@
 */
 package org.allbinary.business.backup;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntity;
@@ -88,34 +89,36 @@ public class BlisketBackupFactory
         {
             this.logUtil.putF(this.commonStrings.START, this, "backupViews()");
 
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
 
-            String backupPath = stringBuffer.toString();
+            final String backupPath = stringBuffer.toString();
 
-            AbPath path = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
+            final AbPath path = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
 
-            BasicArrayList fileBasicArrayList = new BasicArrayListD();
+            final BasicArrayList fileBasicArrayList = new BasicArrayListD();
 
             //Backup other customizable generated files
-            StoreFrontsEntity storeFrontsEntity =
+            final StoreFrontsEntity storeFrontsEntity =
                 StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
 
-            Vector storeFrontNamesBasicArrayList = storeFrontsEntity.getStoreFrontNames();
+            final BasicArrayList storeFrontNamesBasicArrayList = storeFrontsEntity.getStoreFrontNames();
 
-            int size = storeFrontNamesBasicArrayList.size();
+            final int size = storeFrontNamesBasicArrayList.size();
+            String nextStore;
+            String viewsPath;
             for (int index = 0; index < size; index++)
             {
-                String nextStore = (String) storeFrontNamesBasicArrayList.get(index);
+                nextStore = (String) storeFrontNamesBasicArrayList.get(index);
 
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(PATH_GLOBALS.getInstance().VIEWS_PATH);
                 stringBuffer.append(nextStore);
 
-                String viewsPath = stringBuffer.toString();
+                viewsPath = stringBuffer.toString();
 
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append("Backup Store Views: ");
@@ -143,29 +146,32 @@ public class BlisketBackupFactory
         {
             this.logUtil.putF(this.commonStrings.START, this, "backupResources()");
 
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
 
-            String backupPath = stringBuffer.toString();
+            final String backupPath = stringBuffer.toString();
 
-            AbPath path = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
+            final AbPath path = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
 
-            BasicArrayList fileBasicArrayList = new BasicArrayListD();
+            final BasicArrayList fileBasicArrayList = new BasicArrayListD();
 
             //Backup other customizable generated files
-            StoreFrontsEntity storeFrontsEntity =
+            final StoreFrontsEntity storeFrontsEntity =
                 StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
 
-            Vector storeFrontNamesBasicArrayList = storeFrontsEntity.getStoreFrontNames();
+            final BasicArrayList storeFrontNamesBasicArrayList = storeFrontsEntity.getStoreFrontNames();
 
-            int size = storeFrontNamesBasicArrayList.size();
+            final int size = storeFrontNamesBasicArrayList.size();
+            String nextStore;
+            StoreFrontInterface storeFrontInterface;
+            String resourcesPath;
             for (int index = 0; index < size; index++)
             {
-                String nextStore = (String) storeFrontNamesBasicArrayList.get(index);
+                nextStore = (String) storeFrontNamesBasicArrayList.get(index);
 
-                StoreFrontInterface storeFrontInterface =
+                storeFrontInterface =
                     storeFrontsEntity.getStoreFrontInterface(nextStore);
 
                 stringBuffer.delete(0, stringBuffer.length());
@@ -174,7 +180,7 @@ public class BlisketBackupFactory
                 stringBuffer.append(storeFrontInterface.getCurrentHostNamePath());
                 stringBuffer.append(storeFrontInterface.getCategoryPath());
 
-                String resourcesPath = stringBuffer.toString();
+                resourcesPath = stringBuffer.toString();
 
                 stringBuffer.delete(0, stringBuffer.length());
 
@@ -203,27 +209,28 @@ public class BlisketBackupFactory
         {
             this.logUtil.putF(this.commonStrings.START, this, "backupJsps()");
 
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
 
-            String backupPath = stringBuffer.toString();
+            final String backupPath = stringBuffer.toString();
 
-            AbPath path = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
+            final AbPath path = new AbPath(backupPath, this.stringUtil.EMPTY_STRING);
 
-            BasicArrayList fileBasicArrayList = new BasicArrayListD();
+            final BasicArrayList fileBasicArrayList = new BasicArrayListD();
 
             //Backup other customizable generated files
-            StoreFrontsEntity storeFrontsEntity =
+            final StoreFrontsEntity storeFrontsEntity =
                 StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
 
-            Vector storeFrontNamesBasicArrayList = storeFrontsEntity.getStoreFrontNames();
+            final BasicArrayList storeFrontNamesBasicArrayList = storeFrontsEntity.getStoreFrontNames();
 
-            int size = storeFrontNamesBasicArrayList.size();
+            final int size = storeFrontNamesBasicArrayList.size();
+            String nextStore;
             for (int index = 0; index < size; index++)
             {
-                String nextStore = (String) storeFrontNamesBasicArrayList.get(index);
+                nextStore = (String) storeFrontNamesBasicArrayList.get(index);
 
                 PreLogUtil.put("Backup Store Jsps: " + nextStore, this, "backupJsps()");
 
@@ -262,8 +269,7 @@ public class BlisketBackupFactory
 
             ZipFileUtil.getInstance().create(zipFile, fileBasicArrayList);
 
-            this.logUtil.putF(
-                "Created Backup Zip File", this, "backup()");
+            this.logUtil.putF("Created Backup Zip File", this, "backup()");
 
         } catch (Exception e)
         {

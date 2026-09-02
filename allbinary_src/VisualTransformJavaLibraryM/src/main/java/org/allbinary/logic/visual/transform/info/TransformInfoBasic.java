@@ -14,7 +14,8 @@
 package org.allbinary.logic.visual.transform.info;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.jsp.PageContext;
 
@@ -164,7 +165,7 @@ public class TransformInfoBasic extends AbContext implements TransformInfoHttpIn
       return null;
    }
 
-   public Vector toVector() throws Exception
+   public BasicArrayList toVector() throws Exception
    {
       return null;
    }

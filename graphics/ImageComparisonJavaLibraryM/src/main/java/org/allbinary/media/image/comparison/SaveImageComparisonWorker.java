@@ -13,7 +13,8 @@
 */
 package org.allbinary.media.image.comparison;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -31,7 +32,7 @@ public class SaveImageComparisonWorker
     
     private boolean running;
     
-    private final Vector imageComparisonInfoVector = StdUtil.getInstance().createVector();
+    private final BasicArrayList imageComparisonInfoVector = new BasicArrayListD();
     
     public SaveImageComparisonWorker()
     {

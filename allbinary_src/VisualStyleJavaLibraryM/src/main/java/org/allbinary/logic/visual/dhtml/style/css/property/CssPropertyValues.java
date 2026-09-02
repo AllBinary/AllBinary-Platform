@@ -14,7 +14,8 @@
 package org.allbinary.logic.visual.dhtml.style.css.property;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomData;
 import org.allbinary.data.tree.dom.DomNodeHelper;
@@ -32,22 +33,22 @@ public class CssPropertyValues implements DomNodeInterface
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private Vector propertyValueVector;
+   private BasicArrayList propertyValueVector;
    
    public CssPropertyValues()
    {
-      this.propertyValueVector = StdUtil.getInstance().createVector();
+      this.propertyValueVector = new BasicArrayListD();
    }
 
    public CssPropertyValues(Node node) throws Exception
    {
       HashMap indexPropertyValueHashMap = StdUtil.getInstance().createHashMap();
 
-      this.propertyValueVector = StdUtil.getInstance().createVector();
+      this.propertyValueVector = new BasicArrayListD();
 
       //Child Nodes Are CssPropertyData.VALUE
       
-      Vector cssPropertyNodeVector = 
+      BasicArrayList cssPropertyNodeVector = 
       DomSearchHelper.getAllNodes(
          CssPropertyValueData.getInstance().NAME, node.getChildNodes());
 
@@ -98,7 +99,7 @@ public class CssPropertyValues implements DomNodeInterface
    /*
    public CssPropertyValues(HashMap hashMap)
    {
-      this.propertyValueVector = StdUtil.getInstance().createVector();
+      this.propertyValueVector = new BasicArrayListD();
 
       Set set = hashMap.keySet();
       iter = set;

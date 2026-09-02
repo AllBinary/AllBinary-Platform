@@ -14,7 +14,8 @@
 package org.allbinary.logic.communication.sql;
 
 import java.sql.ResultSet;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.init.db.DbConnectionInfo;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -90,9 +91,9 @@ public class AbSqlColumn extends AbSqlTable
         }
     }
 
-    public Vector getColumn(final String columnName)
+    public BasicArrayList getColumn(final String columnName)
     {
-        final Vector column = this.stdUtil.createVector();
+        final BasicArrayList column = new BasicArrayListD();
 
         final StringMaker stringBuffer = new StringMaker();
 
@@ -135,7 +136,7 @@ public class AbSqlColumn extends AbSqlTable
         }
     }
 
-    public Vector getColumnWhere(String columnName, String key, String value)
+    public BasicArrayList getColumnWhere(String columnName, String key, String value)
     {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -150,7 +151,7 @@ public class AbSqlColumn extends AbSqlTable
         stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
         final String sqlStatement = stringBuffer.toString();
-        Vector column = this.stdUtil.createVector();
+        BasicArrayList column = new BasicArrayListD();
         ResultSet rset;
         String field;
         try
@@ -186,9 +187,9 @@ public class AbSqlColumn extends AbSqlTable
     }
 
     /*
-    public Vector getColumnWhereLike(String columnName, String key, String value)
+    public BasicArrayList getColumnWhereLike(String columnName, String key, String value)
     {
-        Vector column = this.stdUtil.createVector();
+        BasicArrayList column = this.stdUtil.createVector();
 
         StringMaker stringBuffer = new StringMaker();
 

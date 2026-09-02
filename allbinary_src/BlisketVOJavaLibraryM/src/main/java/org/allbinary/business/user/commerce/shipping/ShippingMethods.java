@@ -13,7 +13,8 @@
 */
 package org.allbinary.business.user.commerce.shipping;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
@@ -28,7 +29,7 @@ public class ShippingMethods implements ShippingMethodsInterface
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-   private Vector shippingVector;
+   private BasicArrayList shippingVector;
 
    private ShippingInterface defaultShippingMethodInterface;
       
@@ -40,7 +41,7 @@ public class ShippingMethods implements ShippingMethodsInterface
          new ShippingMethodsFactory(abeClientInformation, storeFrontInterface).getInstance();
    }
    
-   public Vector get()
+   public BasicArrayList get()
    {
       return this.shippingVector;
    }

@@ -13,9 +13,8 @@
 */
 package org.allbinary.data.tree.dom;
 
-import java.util.Vector;
-
-import org.allbinary.logic.StdUtil;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -68,9 +67,9 @@ public class DomSearchHelper
    }
 
    //This may be dangerious - since nodes in vector may be lost if it is the last reference
-   public static Vector getAllNodes(String nodeName, NodeList nodeList) throws Exception
+   public static BasicArrayList getAllNodes(String nodeName, NodeList nodeList) throws Exception
    {
-      Vector vector = DomSearchHelper.getAllNodesNoThrow(nodeName, nodeList);
+      BasicArrayList vector = DomSearchHelper.getAllNodesNoThrow(nodeName, nodeList);
       if(vector == null)
       {
          throw new Exception(nodeName + " Node Not Found in search");
@@ -83,9 +82,9 @@ public class DomSearchHelper
    
    //This may be dangerious - since nodes in vector may be lost if it is the last reference
    //Finds all nodes in the nodelist with the same tagname
-   public static Vector getAllNodesNoThrow(String nodeName, NodeList nodeList)
+   public static BasicArrayList getAllNodesNoThrow(String nodeName, NodeList nodeList)
    {
-      Vector nodeVector = StdUtil.getInstance().createVector();
+      BasicArrayList nodeVector = new BasicArrayListD();
       
       int numberOfNodes = nodeList.getLength();         
       for(int index = 0; index < numberOfNodes; index++)

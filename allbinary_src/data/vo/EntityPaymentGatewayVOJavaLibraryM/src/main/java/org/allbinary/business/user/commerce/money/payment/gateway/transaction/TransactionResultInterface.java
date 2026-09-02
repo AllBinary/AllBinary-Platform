@@ -13,12 +13,13 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway.transaction;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public interface TransactionResultInterface
 {
     String toString();
-    Vector getValues();
+    BasicArrayList getValues();
     String getResult();
     String getPnRef();
     String getRespMsg();

@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.user.commerce.inventory.item;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.entry.EntryData;
@@ -43,7 +44,7 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
         this.setTableName(this.tableName);
     }
 
-    public void insert(Vector values)
+    public void insert(BasicArrayList values)
     {
         try
         {
@@ -81,14 +82,14 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
     }
 
     //I could create a factory to output the results that excepts a productId and xslt file
-    public Vector getItems(StoreFrontInterface storeFrontInterface) throws Exception
+    public BasicArrayList getItems(StoreFrontInterface storeFrontInterface) throws Exception
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
         {
             this.logUtil.putF("Getting Items For: " + storeFrontInterface.getName(), this, "getItems");
         }
 
-        Vector itemVector = StdUtil.getInstance().createVector();
+        BasicArrayList itemVector = new BasicArrayListD();
         HashMap keysAndValues = StdUtil.getInstance().createHashMap();
 
         //AbSqlData.ANYSINGLECHARACTERMATCH +
@@ -100,10 +101,10 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
         //likeKeysAndValues.put(basicItemData.CATEGORY,
         //  storeFrontInterface.getCategoryPath() + AbSqlData.ANYMULTICHARACTERMATCH);
 
-        //Vector itemHashMapVector = super.getRowsWhereLike(keysAndValues, likeKeysAndValues);
+        //BasicArrayList itemHashMapVector = super.getRowsWhereLike(keysAndValues, likeKeysAndValues);
 ///////////
 
-        Vector itemHashMapVector = super.getRows(keysAndValues);
+        BasicArrayList itemHashMapVector = super.getRows(keysAndValues);
 
         int size = itemHashMapVector.size();
         for (int i = 0; i < size; i++)

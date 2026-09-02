@@ -66,7 +66,7 @@ public class SetLicenseInitInfo
         {
             if (licenceServerVector == null)
             {
-                throw new Exception("null Vector Passed - Just Make Empty if you want");
+                throw new Exception("null BasicArrayList Passed - Just Make Empty if you want");
             }
 
             LicenseInitInfo licenseInitInfo = this.getLicenseInitInfo();

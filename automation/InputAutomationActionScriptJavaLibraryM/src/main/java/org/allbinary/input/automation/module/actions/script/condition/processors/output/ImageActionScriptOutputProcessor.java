@@ -14,7 +14,8 @@
 package org.allbinary.input.automation.module.actions.script.condition.processors.output;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.media.image.InputImageIOInterfaceFactory;
 import org.allbinary.input.media.image.InputImageType;
@@ -40,7 +41,7 @@ public class ImageActionScriptOutputProcessor
             "Start - Processing at: " + imageActionScriptOutputInterface.toString(), "ImageActionScriptOutputProcessor", commonStrings.PROCESS);
 
         final ImageTypes imageTypes = imageActionScriptOutputInterface.getImageTypes();
-        final Vector vector = imageTypes.getVector();
+        final BasicArrayList vector = imageTypes.getVector();
         
         final int size = vector.size();
         for(int index = 0; index < size; index++)

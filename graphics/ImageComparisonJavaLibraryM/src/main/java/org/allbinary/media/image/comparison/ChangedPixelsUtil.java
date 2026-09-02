@@ -14,7 +14,8 @@
 package org.allbinary.media.image.comparison;
 
 import java.awt.image.BufferedImage;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.util.cache.PoolInterface;
 import org.allbinary.media.image.cache.BufferedImageCacheable;
@@ -80,7 +81,7 @@ public class ChangedPixelsUtil
                 ChangedPixelsUtil.CLEAR_INT_ARRAY, ChangedPixelsUtil.OFFSET, ChangedPixelsUtil.SCAN_SIZE);
         }
         
-        final Vector vector = imageComparisonInfo.getNonMatchingPixelVector();
+        final BasicArrayList vector = imageComparisonInfo.getNonMatchingPixelVector();
         final int size = vector.size();
         for (int index = 0; index < size; index++)
         {

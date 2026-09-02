@@ -15,7 +15,8 @@ package org.allbinary.input.automation.actions.script.condition;
 
 
 import java.awt.event.ActionEvent;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.swing.*;
 import javax.swing.tree.TreePath;
@@ -45,8 +46,8 @@ public class BasicProfileActionScriptCondition
 
     //TWB - add inherited dialog boxes and remove inherited default nodes
     //private BasicProfileActionScriptProcessorNode basicProfileActionScriptProcessorNode;
-    private Vector profileActionProcessorInterfaceVector;
-    private Vector profileActionConditionInterfaceVector;
+    private BasicArrayList profileActionProcessorInterfaceVector;
+    private BasicArrayList profileActionConditionInterfaceVector;
     
     public BasicProfileActionScriptCondition(
         String label, Node node)
@@ -135,8 +136,8 @@ public class BasicProfileActionScriptCondition
     private void init()
     {
         //this.basicProfileActionScriptProcessorNode = new BasicProfileActionScriptProcessorNode();
-        this.setProfileActionProcessorInterfaceVector(new Vector());
-        this.setProfileActionConditionInterfaceVector(new Vector());
+        this.setProfileActionProcessorInterfaceVector(new BasicArrayListD());
+        this.setProfileActionConditionInterfaceVector(new BasicArrayListD());
         this.getJPopupMenu().add(this.getConditionJPopupMenu());
         this.getJPopupMenu().add(this.getInputJPopupMenu());
         this.getJPopupMenu().add(this.getOutputJPopupMenu());
@@ -235,7 +236,7 @@ public class BasicProfileActionScriptCondition
         Node node = document.createElement(
             GenericProfileActionScriptConditionData.NAME);
         
-        final Vector profileActionConditionInterfaceVector = this.getProfileActionConditionInterfaceVector();
+        final BasicArrayList profileActionConditionInterfaceVector = this.getProfileActionConditionInterfaceVector();
          
         final int size = profileActionConditionInterfaceVector.size();
         for (int index = 0; index < size; index++)
@@ -246,7 +247,7 @@ public class BasicProfileActionScriptCondition
             node.appendChild(profileActionConditionInterface.toXmlNode(document));
         }
         
-        final Vector profileActionProcessorInterfaceVector = this.getProfileActionProcessorInterfaceVector();
+        final BasicArrayList profileActionProcessorInterfaceVector = this.getProfileActionProcessorInterfaceVector();
         final int size2 = profileActionProcessorInterfaceVector.size();
         for (int index = 0; index < size2; index++)
         {
@@ -259,13 +260,13 @@ public class BasicProfileActionScriptCondition
         return node;
     }
     
-    public Vector getProfileActionConditionInterfaceVector()
+    public BasicArrayList getProfileActionConditionInterfaceVector()
     {
         return this.profileActionConditionInterfaceVector;
     }
     
     public void setProfileActionConditionInterfaceVector(
-        Vector profileActionConditionInterfaceVector)
+        BasicArrayList profileActionConditionInterfaceVector)
     {
         this.profileActionConditionInterfaceVector = 
             profileActionConditionInterfaceVector;
@@ -333,12 +334,12 @@ public class BasicProfileActionScriptCondition
         }
     }
     
-    public Vector getProfileActionProcessorInterfaceVector()
+    public BasicArrayList getProfileActionProcessorInterfaceVector()
     {
         return this.profileActionProcessorInterfaceVector;
     }
     
-    public void setProfileActionProcessorInterfaceVector(Vector profileActionProcessorInterfaceVector)
+    public void setProfileActionProcessorInterfaceVector(BasicArrayList profileActionProcessorInterfaceVector)
     {
         this.profileActionProcessorInterfaceVector = profileActionProcessorInterfaceVector;
     }
@@ -353,7 +354,7 @@ public class BasicProfileActionScriptCondition
     public boolean shouldProcess(Long frame)
     throws Exception
     {
-        final Vector profileActionConditionInterfaceVector = this.getProfileActionConditionInterfaceVector();
+        final BasicArrayList profileActionConditionInterfaceVector = this.getProfileActionConditionInterfaceVector();
         final int size = profileActionConditionInterfaceVector.size();
         for (int index = 0; index < size; index++)
         {
@@ -377,7 +378,7 @@ public class BasicProfileActionScriptCondition
             this.getProfileActionProcessorInterfaceVector().size()).append(
             " inputs").toString(), this, this.commonStrings.PROCESS);
         
-        final Vector profileActionProcessorInterfaceVector = this.getProfileActionProcessorInterfaceVector();
+        final BasicArrayList profileActionProcessorInterfaceVector = this.getProfileActionProcessorInterfaceVector();
         final int size = profileActionProcessorInterfaceVector.size();
         for (int index = 0; index < size; index++)
         {

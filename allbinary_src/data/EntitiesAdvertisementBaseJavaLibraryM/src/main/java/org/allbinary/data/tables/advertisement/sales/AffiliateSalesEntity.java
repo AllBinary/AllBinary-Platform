@@ -38,7 +38,7 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
     }
 
     /*
-     public void insert(Vector values)
+     public void insert(BasicArrayList values)
      {
      try
      {
@@ -82,9 +82,9 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
      {
      HashMap keysAndValues = StdUtil.getInstance().createHashMap();
      keysAndValues.put(StoreFrontData.NAME, name);
-     Vector hashMapVector = super.getRows(keysAndValues);
+     BasicArrayList hashMapVector = super.getRows(keysAndValues);
       
-     Vector affiliateVector = StdUtil.getInstance().createVector();
+     BasicArrayList affiliateVector = new BasicArrayListD();
      iter = hashMapVector;
      while(iter.hasNext())
      {

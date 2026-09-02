@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.context.module.storefronts;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFront;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
@@ -37,7 +38,7 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
       this.setTableName(this.tableName);
    }
    
-   public void insert(Vector values)
+   public void insert(BasicArrayList values)
    {
       try
       {
@@ -91,9 +92,9 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
       }
    }
       
-   public Vector getStoreFrontNames()
+   public BasicArrayList getStoreFrontNames()
    {
-      Vector storeFrontNames = super.getColumn(
+      BasicArrayList storeFrontNames = super.getColumn(
     		  StoreFrontData.getInstance().NAME);
       return storeFrontNames;
    }

@@ -13,7 +13,8 @@
 */
 package views.business.context.modules.storefront.customizer;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.transform.info.TransformInfoEntity;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
@@ -67,7 +68,7 @@ public class CustomizerUtil
     }
 
     //get all of the components for a component that is modified by the customizer view
-    public Vector getTransformInfoObjectConfigComponentNodesToCustomize(
+    public BasicArrayList getTransformInfoObjectConfigComponentNodesToCustomize(
     		TransformInfoInterface customizerTransformInfoInterface,
     		TransformInfoInterface transformInfoInterface) throws Exception
         {
@@ -94,7 +95,7 @@ public class CustomizerUtil
     }
 
     //get all components in objectconfig
-    public Vector getTransformInfoObjectConfigComponentNodes(
+    public BasicArrayList getTransformInfoObjectConfigComponentNodes(
         TransformInfoInterface transformInfoInterface)
         throws Exception
     {
@@ -109,7 +110,7 @@ public class CustomizerUtil
         return transformInfoObjectConfigInterface.getTransforms();
     }
 
-    public Vector getTransformInfoObjectConfigGroupComponentNodes(
+    public BasicArrayList getTransformInfoObjectConfigGroupComponentNodes(
         TransformInfoInterface transformInfoInterface)
         throws Exception
     {
@@ -143,7 +144,7 @@ public class CustomizerUtil
         TransformInfoEntity transformInfoEntityInterface =
         	TransformInfoEntityBuilder.getInstance();
 
-        Vector allViewsToBeModified =
+        BasicArrayList allViewsToBeModified =
             this.getTransformInfoObjectConfigGroupComponentNodes(transformInfoInterface);
 
         //get the view xml/data that will replace the old xml/data
@@ -280,11 +281,11 @@ public class CustomizerUtil
         }
 
         //Are they all TRANSFORM_INFOS_GROUP?
-        //Vector allViewsToBeModified = CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(transformInfoInterface);
+        //BasicArrayList allViewsToBeModified = CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(transformInfoInterface);
         TransformInfoObjectConfigInterface transformInfoObjectConfigInterface =
             transformInfoInterface.getObjectConfigInterface();
 
-        Vector allViewsToBeModified = transformInfoObjectConfigInterface.getGroupTransforms();
+        BasicArrayList allViewsToBeModified = transformInfoObjectConfigInterface.getGroupTransforms();
 
         TransformInfoEntity transformInfoEntityInterface =
         	TransformInfoEntityBuilder.getInstance();

@@ -14,7 +14,8 @@
 package org.allbinary.input.automation.module.actions.script.condition.processors.output;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.swing.*;
 
@@ -55,7 +56,7 @@ public class ImageActionScriptOutputJPanel
         
         ImageTypes imageTypes =
             this.capturedImageActionScriptOutputInterface.getImageTypes();
-        Vector vector = imageTypes.getVector();
+        BasicArrayList vector = imageTypes.getVector();
 
         int[] selectedArray = new int[vector.size()];
 
@@ -114,7 +115,7 @@ public class ImageActionScriptOutputJPanel
     private void setImageTypeJlistModel()
     {
         DefaultListModel defaultListModel = new DefaultListModel();
-        Vector vector = InputImageType.getAllAsVector();
+        BasicArrayList vector = InputImageType.getAllAsVector();
         
         final int size = vector.size();
         for (int index = 0; index < size; index++)

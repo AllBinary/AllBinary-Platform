@@ -14,7 +14,8 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.jsp.PageContext;
 
@@ -153,7 +154,7 @@ public class QuoteHelper extends BasicTable
 
          final String userName = this.weblisketSession.getUserName();
          
-         final Vector vector = quoteRequestEntity.getIds(userName);
+         final BasicArrayList vector = quoteRequestEntity.getIds(userName);
          
          int id = 0;
          

@@ -15,7 +15,8 @@ package org.allbinary.media.image.comparison.motion;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -52,9 +53,9 @@ public class ConstrainedMotionRectangles extends MotionRectangles
 
         BufferedImage bufferedImage = bufferedImageArray[1];
         
-        final Vector vector = StdUtil.getInstance().createVector();
+        final BasicArrayList vector = new BasicArrayListD();
         
-        final Vector vector2 = motionRectangles.getVector();
+        final BasicArrayList vector2 = motionRectangles.getVector();
         
         final int size = vector2.size();
         for (int index = 0; index < size; index++)

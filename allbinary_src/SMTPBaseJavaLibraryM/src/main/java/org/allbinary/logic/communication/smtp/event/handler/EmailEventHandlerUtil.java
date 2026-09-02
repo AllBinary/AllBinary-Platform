@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.communication.smtp.event.handler;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.modules.configuration.UserConfigurationInterface;
@@ -63,7 +64,7 @@ public class EmailEventHandlerUtil
     **/
    
    public UserEmailEventHandler getEventHandler(
-       final AbeClientInformationInterface abeClientInformation, final UserEmailEventNameData userEmailEventNameData, final Vector userVector)
+       final AbeClientInformationInterface abeClientInformation, final UserEmailEventNameData userEmailEventNameData, final BasicArrayList userVector)
    throws Exception
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
@@ -86,7 +87,7 @@ public class EmailEventHandlerUtil
       {
          final UserInterface userInterface = (UserInterface) userVector.get(index);
 
-         final Vector vector = 
+         final BasicArrayList vector = 
             EmailEventHandlerUtil.getUserEmailEventListenerVector(
                abeClientInformation, userEmailEventNameData, userInterface);
          
@@ -96,7 +97,7 @@ public class EmailEventHandlerUtil
       return userEmailEventHandler;
    }
 
-   public static Vector getUserEmailEventListenerVector(
+   public static BasicArrayList getUserEmailEventListenerVector(
        final AbeClientInformationInterface abeClientInformation,
       final UserEmailEventNameData userEmailEventNameData, final UserInterface userInterface)
       throws Exception
@@ -115,7 +116,7 @@ public class EmailEventHandlerUtil
             userEmailEventsConfigurationInterface.getEventListener(
                abeClientInformation, userEmailEventNameData, userInterface);
 
-         final Vector vector = StdUtil.getInstance().createVector();
+         final BasicArrayList vector = new BasicArrayListD();
          //Add event listener
          vector.add(userEmailEventListenerInterface);
          return vector;

@@ -14,7 +14,8 @@
 package org.allbinary.data.tree.dom;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.StdUtil;
@@ -39,9 +40,9 @@ public class FileTableMapping
    }
    
    //Used for inserting into database   
-   public Vector toVector() throws Exception
+   public BasicArrayList toVector() throws Exception
    {
-      final Vector filePropertyVector = StdUtil.getInstance().createVector();
+      final BasicArrayList filePropertyVector = new BasicArrayListD();
 
       filePropertyVector.add(this.file.getAbsolutePath());
       filePropertyVector.add(this.file.getCanonicalPath());

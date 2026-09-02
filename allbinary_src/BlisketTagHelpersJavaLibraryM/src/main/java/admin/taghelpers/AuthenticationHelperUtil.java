@@ -13,7 +13,8 @@
 */
 package admin.taghelpers;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.role.BasicUserRole;
 import org.allbinary.business.user.role.UserRole;
@@ -51,7 +52,7 @@ public class AuthenticationHelperUtil
 
         HttpFilePermissions downloadFilePermissions = new HttpFilePermissions(fullPath);
 
-        Vector userRoles = downloadFilePermissions.getUserRoles();
+        BasicArrayList userRoles = downloadFilePermissions.getUserRoles();
 
         UserRole userRole = authenticationHelper.getRole();
 

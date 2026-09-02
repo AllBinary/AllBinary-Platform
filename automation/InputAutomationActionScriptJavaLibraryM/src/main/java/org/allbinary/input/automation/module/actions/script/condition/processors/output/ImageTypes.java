@@ -14,7 +14,8 @@
 package org.allbinary.input.automation.module.actions.script.condition.processors.output;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
@@ -27,7 +28,7 @@ import org.w3c.dom.NodeList;
 
 public class ImageTypes
 {
-    private Vector vector = StdUtil.getInstance().createVector();
+    private BasicArrayList vector = new BasicArrayListD();
 
     public ImageTypes()
     {
@@ -69,7 +70,7 @@ public class ImageTypes
         return imageTypes;
     }
 
-    public Vector getVector()
+    public BasicArrayList getVector()
     {
         return this.vector;
     }

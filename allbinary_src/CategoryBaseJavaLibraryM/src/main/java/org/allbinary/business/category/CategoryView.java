@@ -13,7 +13,8 @@
 */
 package org.allbinary.business.category;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesView;
@@ -52,7 +53,7 @@ public class CategoryView implements DomNodeInterface
       nodeAttributes.setNamedItem(nameAttr);
        */
 
-      Vector childCategoryVector = this.categoryInterface.getChildNodes();
+      BasicArrayList childCategoryVector = this.categoryInterface.getChildNodes();
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {

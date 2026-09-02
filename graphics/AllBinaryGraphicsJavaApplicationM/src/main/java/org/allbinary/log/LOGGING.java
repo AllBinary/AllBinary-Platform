@@ -13,13 +13,14 @@
 */
 package org.allbinary.log;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 public class LOGGING
 {
    private String name;
-   private static Vector logging = StdUtil.getInstance().createVector();
+   private static BasicArrayList logging = new BasicArrayListD();
    
    private LOGGING(String value)
    {

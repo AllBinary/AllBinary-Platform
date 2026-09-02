@@ -15,7 +15,8 @@ package org.allbinary.graphics.form.item;
 
 import jsinterop.annotations.JsType;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.ImageItem;
@@ -48,7 +49,7 @@ public class CommandTextItemArrayFactory
     }
 
     @JsMethod
-    public final ABCustomItem[] getInstance(final Vector<Object> vector, 
+    public final ABCustomItem[] getInstance(final BasicArrayList vector, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         int size = vector.size();

@@ -48,7 +48,7 @@ public class LogConfigTypes
       try
       {
          LoggingInitInfo loggingInitInfo = new LoggingInitInfo();
-         Vector logConfigTypeVector = loggingInitInfo.getTypeVector();
+         BasicArrayList logConfigTypeVector = loggingInitInfo.getTypeVector();
          printWriter.print("Number Of Log Configs: " + loggingInitInfo.getNumberOfLogConfigs() + "<br/>");
          printWriter.print("Number Of Log Config Type Names: " + logConfigTypeVector.size() + "<br/>");
     

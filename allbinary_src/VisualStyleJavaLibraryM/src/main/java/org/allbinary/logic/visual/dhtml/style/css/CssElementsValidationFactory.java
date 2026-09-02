@@ -14,7 +14,8 @@
 package org.allbinary.logic.visual.dhtml.style.css;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.control.validate.ValidationInterface;
@@ -27,10 +28,10 @@ public class CssElementsValidationFactory
    }
    
    //Nodes with CssElementData.NAME
-   public static Vector getInstance(final Vector cssElementStyleNodeList) throws Exception
+   public static BasicArrayList getInstance(final BasicArrayList cssElementStyleNodeList) throws Exception
    //NodeList cssElementStyleNodeList
    {
-      final Vector styles = StdUtil.getInstance().createVector();
+      final BasicArrayList styles = new BasicArrayListD();
       
       final int size = cssElementStyleNodeList.size();
       Node cssElementStyleNode;
@@ -47,9 +48,9 @@ public class CssElementsValidationFactory
       return styles;
    }
    
-   public static Vector getInstance(final HashMap hashMap)
+   public static BasicArrayList getInstance(final HashMap hashMap)
    {
-      final Vector styles = StdUtil.getInstance().createVector();
+      final BasicArrayList styles = new BasicArrayListD();
       return styles;
    }
 }

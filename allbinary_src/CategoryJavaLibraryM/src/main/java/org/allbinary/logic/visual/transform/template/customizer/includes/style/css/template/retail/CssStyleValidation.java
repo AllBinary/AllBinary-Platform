@@ -14,7 +14,8 @@
 package org.allbinary.logic.visual.transform.template.customizer.includes.style.css.template.retail;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.logic.StdUtil;
@@ -33,11 +34,11 @@ public class CssStyleValidation extends Validation implements DomNodeInterface
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     
-   protected Vector cssStyleElementVector;
+   protected BasicArrayList cssStyleElementVector;
 
    public CssStyleValidation()
    {
-      this.cssStyleElementVector = StdUtil.getInstance().createVector();
+      this.cssStyleElementVector = new BasicArrayListD();
    }
 
    public CssStyleValidation(Document document) throws Exception

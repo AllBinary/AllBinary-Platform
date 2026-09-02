@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.user.commerce.inventory.item.downloads;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.InventoryDbInitInfo;
@@ -40,7 +41,7 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
         this.setTableName(this.tableName);
     }
 
-    public void insert(Vector values)
+    public void insert(BasicArrayList values)
     {
         try
         {
@@ -82,13 +83,13 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
         super.updateWhere(DownloadItemData.ID, (String) updatedValues.get(DownloadItemData.ID), updatedValues);
     }
 
-    public Vector getForItem(String id)
+    public BasicArrayList getForItem(String id)
     {
-        Vector returnVector = StdUtil.getInstance().createVector();
+        BasicArrayList returnVector = new BasicArrayListD();
 
         HashMap keysAndValues = StdUtil.getInstance().createHashMap();
         keysAndValues.put(basicItemData.ID, id);
-        Vector vector = super.getRows(keysAndValues);
+        BasicArrayList vector = super.getRows(keysAndValues);
 
         final int size = vector.size();
         for(int index = 0; index < size; index++)
@@ -105,16 +106,16 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
         return returnVector;
     }
 
-    public Vector getForItem(String id, String downloadItemId)
+    public BasicArrayList getForItem(String id, String downloadItemId)
     {
-        Vector returnVector = StdUtil.getInstance().createVector();
+        BasicArrayList returnVector = new BasicArrayListD();
 
         HashMap keysAndValues = StdUtil.getInstance().createHashMap();
 
         keysAndValues.put(basicItemData.ID, id);
         keysAndValues.put(DownloadItemData.ID, downloadItemId);
 
-        Vector vector = super.getRows(keysAndValues);
+        BasicArrayList vector = super.getRows(keysAndValues);
 
         final int size = vector.size();
         for(int index = 0; index < size; index++)

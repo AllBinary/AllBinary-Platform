@@ -16,7 +16,8 @@ package org.allbinary.data.tables.user.commerce.inventory.order;
 import java.util.HashMap;
 import java.util.ListIterator;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
@@ -58,7 +59,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
 
     public void insert(String userName, OrderInterface order)
     {
-        Vector vector = StdUtil.getInstance().createVector();
+        BasicArrayList vector = new BasicArrayListD();
         try
         {
 
@@ -82,7 +83,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
 
             //Calendar calendar=Calendar.getInstance();
                 //String time = new String(new Long(calendar.getTimeInMillis()).toString());
-                vector = StdUtil.getInstance().createVector();
+                vector = new BasicArrayListD();
 
             //vector.add(StringUtil.getInstance());
                 //vector.add("auto_increment");
@@ -185,12 +186,12 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
     {
         try
         {
-            Vector itemStatusVector = super.getColumnWhere(OrderHistoryData.STATUS, OrderData.ID, orderId);
-            ListIterator itemStatusIter = itemStatusVector.listIterator();
+            final BasicArrayList itemStatusVector = super.getColumnWhere(OrderHistoryData.STATUS, OrderData.ID, orderId);
+            final int size = itemStatusVector.size();
 
-            while(itemStatusIter.hasNext())
+            for(int index = 0; index < size; index++)
             {
-                String status = (String) itemStatusIter.next();
+                String status = (String) itemStatusVector.get(index);
 
                 if(status.compareTo(OrderHistoryData.SHIPPED) != 0)
                 {
@@ -216,7 +217,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
             BasketReview basketReview = new BasketReview();
             HashMap keyValues = StdUtil.getInstance().createHashMap();
             keyValues.put(OrderData.ID, orderId);
-            Vector items = super.getRows(keyValues);
+            BasicArrayList items = super.getRows(keyValues);
 
             EntryData entryData = EntryData.getInstance();
 

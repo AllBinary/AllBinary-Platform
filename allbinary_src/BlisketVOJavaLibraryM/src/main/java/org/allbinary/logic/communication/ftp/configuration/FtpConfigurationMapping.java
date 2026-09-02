@@ -14,7 +14,8 @@
 package org.allbinary.logic.communication.ftp.configuration;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.StdUtil;
@@ -45,9 +46,9 @@ public class FtpConfigurationMapping implements TableMappingInterface
       return FtpConfigurationData.NAME;
    }
    
-   public Vector toVector() throws Exception
+   public BasicArrayList toVector() throws Exception
    {
-      Vector vector = StdUtil.getInstance().createVector();
+      BasicArrayList vector = new BasicArrayListD();
       
       vector.add(this.ftpConfigurationInterface.getServer());
       vector.add(this.ftpConfigurationInterface.getUserName());

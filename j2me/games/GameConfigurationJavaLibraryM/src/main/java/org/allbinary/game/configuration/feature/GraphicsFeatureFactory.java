@@ -68,9 +68,9 @@ public class GraphicsFeatureFactory
 
     @JsProperty
     public final GraphicsFeature VECTOR_GRAPHICS = 
-        new GraphicsFeature("Vector Graphics");
+        new GraphicsFeature("BasicArrayList Graphics");
     
     @JsProperty
     public final GraphicsFeature VECTOR_TO_IMAGE_GRAPHICS = 
-        new GraphicsFeature("Vector To Image Graphics");
+        new GraphicsFeature("BasicArrayList To Image Graphics");
 }

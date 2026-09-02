@@ -14,7 +14,8 @@
 package org.allbinary.input.media.image.capture;
 
 import java.awt.image.BufferedImage;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -32,7 +33,7 @@ public class SaveCapturedImageWorker extends BasicEventHandler
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private boolean running;
-    private Vector capturedImageWorkerResultsEventVector = StdUtil.getInstance().createVector();
+    private BasicArrayList capturedImageWorkerResultsEventVector = new BasicArrayListD();
     
     public SaveCapturedImageWorker() throws Exception {
     }

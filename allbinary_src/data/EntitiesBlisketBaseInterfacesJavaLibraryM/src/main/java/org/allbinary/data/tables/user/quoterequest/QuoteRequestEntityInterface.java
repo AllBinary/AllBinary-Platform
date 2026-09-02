@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.user.quoterequest;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.quoterequest.QuoteRequest;
 import org.allbinary.data.tables.BasicDataTableInterface;
@@ -22,12 +23,12 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 public interface QuoteRequestEntityInterface extends BasicDataTableInterface
 {      
 	QuoteRequest get(String userName, int id) throws Exception;
-	Vector getIds(String userName);
+	BasicArrayList getIds(String userName);
    //public QuoteRequest[] get(String userName);
    
    void deleteWhere(String key,String value);
    
-   void insert(Vector values);
+   void insert(BasicArrayList values);
 
    void update(String userName, HashMap updatedValues);
 

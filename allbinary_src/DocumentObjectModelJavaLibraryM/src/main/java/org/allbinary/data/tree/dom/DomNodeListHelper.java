@@ -13,7 +13,8 @@
 */
 package org.allbinary.data.tree.dom;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.StdUtil;
 
@@ -25,9 +26,9 @@ import org.w3c.dom.NodeList;
  */
 public class DomNodeListHelper {
 
-    public static Vector getVector(NodeList nodeList)
+    public static BasicArrayList getVector(NodeList nodeList)
     {
-        Vector vector = StdUtil.getInstance().createVector();
+        BasicArrayList vector = new BasicArrayListD();
         int size = nodeList.getLength();
         for(int index = 0; index < size; index++)
         {

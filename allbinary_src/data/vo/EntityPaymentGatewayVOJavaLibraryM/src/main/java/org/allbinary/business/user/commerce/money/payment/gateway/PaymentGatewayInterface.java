@@ -14,7 +14,8 @@
 package org.allbinary.business.user.commerce.money.payment.gateway;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.TableMappingInterface;
 
@@ -147,5 +148,5 @@ public interface PaymentGatewayInterface
    void setTimeEntered(String value);
    
    HashMap toHashMap(boolean isEncrypted) throws Exception;
-   Vector toVector(boolean isEncrypted);
+   BasicArrayList toVector(boolean isEncrypted);
 }

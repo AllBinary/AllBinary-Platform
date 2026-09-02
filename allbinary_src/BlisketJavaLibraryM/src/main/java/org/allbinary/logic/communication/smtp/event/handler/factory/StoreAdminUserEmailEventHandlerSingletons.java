@@ -14,7 +14,8 @@
 package org.allbinary.logic.communication.smtp.event.handler.factory;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.data.tables.user.UserEntityFactory;
@@ -64,7 +65,7 @@ public class StoreAdminUserEmailEventHandlerSingletons {
             }
 
             //Each store admin user my subscribe to emails with their email configuration
-            Vector userVector =
+            BasicArrayList userVector =
                 UserEntityFactory.getInstance().getStoreManagers(storeFrontInterface);
 
             //Create New Handler and add listeners

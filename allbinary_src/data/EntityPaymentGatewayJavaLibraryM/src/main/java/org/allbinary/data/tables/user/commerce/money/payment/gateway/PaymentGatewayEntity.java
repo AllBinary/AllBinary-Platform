@@ -15,7 +15,8 @@ package org.allbinary.data.tables.user.commerce.money.payment.gateway;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
@@ -63,13 +64,13 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
                 this.logUtil.putF(this.commonStrings.START, this, "add");
             }
 
-            Vector vector = StdUtil.getInstance().createVector();
+            BasicArrayList vector = new BasicArrayListD();
 
             vector.add(new PaymentGatewayIdGenerator().getNext());
             //vector.add("auto_increment");
             //values.add(StringUtil.getInstance());
 
-            vector.addAll(new PaymentGatewayEncryptedMapping(paymentGatewayInterface).toVector());
+            vector.addAllList(new PaymentGatewayEncryptedMapping(paymentGatewayInterface).toVector());
             Calendar calendar = Calendar.getInstance();
             String time = new String(new Long(calendar.getTimeInMillis()).toString());
             vector.add(time);
@@ -243,11 +244,11 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         }
     }
 
-    public Vector findPaymentTypeVectorByStore(String storeName)
+    public BasicArrayList findPaymentTypeVectorByStore(String storeName)
     {
         try
         {
-            Vector paymentGatewayNameVector = StdUtil.getInstance().createVector();
+            BasicArrayList paymentGatewayNameVector = new BasicArrayListD();
             //HashMap whereKeyAndValue = StdUtil.getInstance().createHashMap();
 
             paymentGatewayNameVector =
@@ -258,7 +259,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (paymentGatewayNameVector != null)
             {
-                Vector paymentGatewayVector = StdUtil.getInstance().createVector();
+                BasicArrayList paymentGatewayVector = new BasicArrayListD();
                 int size = paymentGatewayNameVector.size();
                 for (int i = 0; i < size; i++)
                 {
@@ -275,7 +276,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
                 return paymentGatewayVector;
             } else
             {
-                return StdUtil.getInstance().createVector();
+                return new BasicArrayListD();
             }
         } catch (Exception e)
         {

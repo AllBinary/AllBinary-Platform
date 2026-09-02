@@ -13,8 +13,10 @@
 */
 package org.allbinary.input.automation.actions.script.condition;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
+
 import java.util.HashMap;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;

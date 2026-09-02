@@ -289,9 +289,9 @@ public class OrderHistory extends Order
    }
    
    /*
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
-      return StdUtil.getInstance().createVector();
+      return new BasicArrayListD();
    }
    */
    

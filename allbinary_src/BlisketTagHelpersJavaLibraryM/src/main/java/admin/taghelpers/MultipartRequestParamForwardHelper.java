@@ -14,7 +14,8 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.jsp.PageContext;
 
@@ -36,13 +37,13 @@ public class MultipartRequestParamForwardHelper
     private final RequestMapInterface requestMapInterface;
     private final String page;
     private final String command;
-    private final Vector paramVector;
+    private final BasicArrayList paramVector;
 
     public MultipartRequestParamForwardHelper(
         HelperTag parentHelperTag,
         String page,
         String command,
-        Vector paramVector,
+        BasicArrayList paramVector,
         PageContext pageContext)
         throws Exception
     {

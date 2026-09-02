@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.workflow;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
@@ -49,7 +50,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
         this.setTableName(this.tableName);
     }
 
-    public void insert(final Vector values)
+    public void insert(final BasicArrayList values)
     {
         try
         {
@@ -119,16 +120,16 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
         }
     }
 
-    public Vector get(String storeName)
+    public BasicArrayList get(String storeName)
     {
         try
         {
-            Vector workFlowsVector = StdUtil.getInstance().createVector();
+            BasicArrayList workFlowsVector = new BasicArrayListD();
             HashMap keysAndValues = StdUtil.getInstance().createHashMap();
 
             keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
 
-            Vector hashMapVector = super.getRows(keysAndValues);
+            BasicArrayList hashMapVector = super.getRows(keysAndValues);
 
             int size = hashMapVector.size();
             for (int i = 0; i < size; i++)

@@ -14,7 +14,8 @@
 package admin.tags;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.Tag;
@@ -32,7 +33,7 @@ public class MultipartRequestParamForwardTag extends CustomTagSupport
 
     private String command;
 
-    private Vector paramVector;
+    private BasicArrayList paramVector;
 
     /**
      * @param page the page to set
@@ -53,7 +54,7 @@ public class MultipartRequestParamForwardTag extends CustomTagSupport
     /**
      * @param paramVector the paramVector to set
      */
-    public void setParamVector(Vector paramVector)
+    public void setParamVector(BasicArrayList paramVector)
     {
         this.paramVector = paramVector;
     }

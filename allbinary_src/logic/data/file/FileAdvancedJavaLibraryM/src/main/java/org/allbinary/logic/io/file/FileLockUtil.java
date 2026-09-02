@@ -15,7 +15,8 @@ package org.allbinary.logic.io.file;
 
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -36,10 +37,10 @@ public class FileLockUtil
     {
     }
     
-    public Vector getAll(Vector vector, boolean isReturnOnFailure)
+    public BasicArrayList getAll(BasicArrayList vector, boolean isReturnOnFailure)
     throws Exception
     {
-        Vector fileLockVector = StdUtil.getInstance().createVector();
+        BasicArrayList fileLockVector = new BasicArrayListD();
         
         final int size = vector.size();
         for (int index = 0; index < size; index++)
@@ -63,19 +64,19 @@ public class FileLockUtil
         return fileLockVector;
     }
 
-    public Vector getAllPossible(Vector vector)
+    public BasicArrayList getAllPossible(BasicArrayList vector)
     throws Exception
     {
         return this.getAll(vector, false);
     }
 
-    public Vector getAllOrNone(Vector vector)
+    public BasicArrayList getAllOrNone(BasicArrayList vector)
     throws Exception
     {
-        Vector fileLockVector = this.getAll(vector, true);
+        BasicArrayList fileLockVector = this.getAll(vector, true);
         if(vector.size() != fileLockVector.size())
         {
-            return StdUtil.getInstance().createVector();
+            return new BasicArrayListD();
         }
         else
         {

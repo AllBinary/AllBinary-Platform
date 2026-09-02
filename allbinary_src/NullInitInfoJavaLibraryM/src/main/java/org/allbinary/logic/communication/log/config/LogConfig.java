@@ -146,7 +146,7 @@ public class LogConfig
 
         Node logConfigTypesNode = logConfigTypesNodeList.item(0);
 
-        Vector logConfigTypeNodeVector =
+        BasicArrayList logConfigTypeNodeVector =
             DomSearchHelper.getAllNodes(
             LogConfigTypeData.getInstance().NAME, logConfigTypesNode.getChildNodes());
 
@@ -162,9 +162,9 @@ public class LogConfig
     }
 
     /*
-    public Vector getTypeNameVector() throws Exception
+    public BasicArrayList getTypeNameVector() throws Exception
     {
-    Vector logKeyVector = StdUtil.getInstance().createVector();
+    BasicArrayList logKeyVector = new BasicArrayListD();
     Document document = this.getDoc();
 
     NodeList logConfigTypesNodeList =
@@ -172,7 +172,7 @@ public class LogConfig
 
     Node logConfigTypesNode = logConfigTypesNodeList.item(0);
 
-    Vector logConfigTypeNodeVector =
+    BasicArrayList logConfigTypeNodeVector =
     DomSearchHelper.getAllNodes(
     LogConfigTypeData.NAME, logConfigTypesNode.getChildNodes());
 

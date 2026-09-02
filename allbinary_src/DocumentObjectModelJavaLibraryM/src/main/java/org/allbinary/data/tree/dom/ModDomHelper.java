@@ -15,7 +15,8 @@ package org.allbinary.data.tree.dom;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.java.object.clazz.ClassUtil;
 import org.allbinary.logic.string.StringUtil;
@@ -140,7 +141,7 @@ public class ModDomHelper
    
    public static Node createNameValueNodes(
    Document document, String rootNodeName, 
-   String duplicateNodeName, Vector valueVector) throws Exception
+   String duplicateNodeName, BasicArrayList valueVector) throws Exception
    {
        StringUtil stringUtil = StringUtil.getInstance();
        
@@ -160,7 +161,7 @@ public class ModDomHelper
 
    public static Node createNameValueIndexNodes(
    Document document, String rootNodeName, 
-   String duplicateNodeName, Vector valueVector) throws Exception
+   String duplicateNodeName, BasicArrayList valueVector) throws Exception
    {
        StringUtil stringUtil = StringUtil.getInstance();
        

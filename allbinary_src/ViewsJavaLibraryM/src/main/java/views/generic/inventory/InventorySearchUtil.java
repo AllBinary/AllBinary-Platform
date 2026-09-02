@@ -15,7 +15,8 @@ package views.generic.inventory;
 
 import java.util.HashMap;
 import java.util.ListIterator;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.InventoryData;
@@ -81,7 +82,7 @@ public class InventorySearchUtil {
     //private final String PARTIAL_LIST_DOC_CURRENTPAGE = "Storing Partial Listing Doc: CurrentPage: ";
     //private final String STORING_CURRENT_PAGE = "Storing Doc: CurrentPage: ";
 
-    public Vector getBasicItemIdColumn(
+    public BasicArrayList getBasicItemIdColumn(
         SearchRequest searchRequest) throws Exception
     {
         InventoryEntity inventoryEntityInterface =
@@ -93,7 +94,7 @@ public class InventorySearchUtil {
         InventoryColumnUtil inventorySearchUtil =
             InventoryColumnUtil.getInstance();
 
-        Vector column = inventorySearchUtil.getColumnWhereLike(
+        BasicArrayList column = inventorySearchUtil.getColumnWhereLike(
             inventoryEntityInterface,
             storeFrontInterface.getCategoryPath(),
             basicItemData.ID);
@@ -111,10 +112,10 @@ public class InventorySearchUtil {
         {
             String subStore = (String) subStoreVector.get(index);
 
-            Vector substoreIdColumn = inventorySearchUtil.getColumnWhereLike(
+            BasicArrayList substoreIdColumn = inventorySearchUtil.getColumnWhereLike(
                 inventoryEntityInterface, subStore, basicItemData.ID);
 
-            column.addAll(substoreIdColumn);
+            column.addAllList(substoreIdColumn);
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
@@ -149,7 +150,7 @@ public class InventorySearchUtil {
         return success;
     }
 
-    public String[] search(final AbeClientInformationInterface abeClientInformation, SearchRequest searchRequest, Vector column)
+    public String[] search(final AbeClientInformationInterface abeClientInformation, SearchRequest searchRequest, BasicArrayList column)
     {
         try
         {
@@ -200,11 +201,9 @@ public class InventorySearchUtil {
                 }
 
                 final int MAXPAGES = 100;
-                String[] productListingPages = new String[MAXPAGES];
-                Document[] documents = new Document[MAXPAGES];
-                Node[] inventoryNodes = new Node[MAXPAGES];
-
-                ListIterator iter = column.listIterator();
+                final String[] productListingPages = new String[MAXPAGES];
+                final Document[] documents = new Document[MAXPAGES];
+                final Node[] inventoryNodes = new Node[MAXPAGES];
 
                 keyword = keyword.toUpperCase();
 
@@ -243,9 +242,11 @@ public class InventorySearchUtil {
                 */
 
                 int currentPage = -1;
-                while (iter.hasNext())
+                final int size = column.size();
+                
+                for(int index = 0; index < size; index++)
                 {
-                    String product = new String((String) iter.next());
+                    String product = new String((String) column.get(index));
 
                     ItemInterface itemInterface =
                         inventoryEntityInterface.getItem(product);
@@ -273,7 +274,7 @@ public class InventorySearchUtil {
                         //only create document item if item is on a requested page
                         if (currentPage + 1 >= startPage && currentPage + 1 <= endPage)
                         {
-                            Node itemNode = new BasicItemView(itemInterface, new Vector()).toXmlNode(
+                            Node itemNode = new BasicItemView(itemInterface, new BasicArrayListD()).toXmlNode(
                                 viewDocumentInterface.getDoc());
 
                             itemNode.appendChild(ModDomHelper.createNameValueNodes(

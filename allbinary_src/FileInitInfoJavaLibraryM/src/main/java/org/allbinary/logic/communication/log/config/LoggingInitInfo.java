@@ -13,9 +13,6 @@
 */
 package org.allbinary.logic.communication.log.config;
 
-
-import java.util.Vector;
-
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.PATH_GLOBALS;
@@ -86,7 +83,7 @@ public class LoggingInitInfo
 
          final Node logConfigsNode = logConfigsNodeList.item(0);
          
-         final Vector logConfigNodeVector = 
+         final BasicArrayList logConfigNodeVector = 
             DomSearchHelper.getAllNodes(
                LogConfigData.getInstance().NAME, logConfigsNode.getChildNodes());
 	    
@@ -95,7 +92,7 @@ public class LoggingInitInfo
          final int size = logConfigNodeVector.size();
          for (int i = 0; i < size; i++)
          {
-            final Node node = (Node) logConfigNodeVector.elementAt(i);
+            final Node node = (Node) logConfigNodeVector.get(i);
             LogConfig logConfigInfo = new LogConfig(node);
             LoggingInitInfo.logConfigInfoList.add(logConfigInfo);
          }

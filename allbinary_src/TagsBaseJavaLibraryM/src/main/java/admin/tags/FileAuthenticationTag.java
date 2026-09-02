@@ -14,7 +14,8 @@
 package admin.tags;
 
 import java.util.Calendar;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspTagException;
@@ -61,7 +62,7 @@ public class FileAuthenticationTag extends CustomTagSupport
     private String sessionUserName;
     private BasicUserRole role;
     private String timeout;
-    private Vector roles;
+    private BasicArrayList roles;
 
     public FileAuthenticationTag()
     {
@@ -87,7 +88,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         this.newPassword = value;
     }
 
-    public void setRoles(Vector values)
+    public void setRoles(BasicArrayList values)
     {
         this.roles = values;
     }

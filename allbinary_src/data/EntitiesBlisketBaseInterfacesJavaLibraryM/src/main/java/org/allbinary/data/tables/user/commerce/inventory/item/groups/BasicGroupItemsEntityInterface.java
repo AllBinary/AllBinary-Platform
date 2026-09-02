@@ -15,7 +15,8 @@ package org.allbinary.data.tables.user.commerce.inventory.item.groups;
 
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.BasicDataTableInterface;
 
@@ -23,7 +24,7 @@ public interface BasicGroupItemsEntityInterface extends BasicDataTableInterface
 {
    void delete(String value);
    
-   void insert(Vector values);
+   void insert(BasicArrayList values);
 
    void update(HashMap updatedValues);
 }

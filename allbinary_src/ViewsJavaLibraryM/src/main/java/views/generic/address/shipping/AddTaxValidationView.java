@@ -13,7 +13,8 @@
 */
 package views.generic.address.shipping;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
@@ -64,7 +65,7 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
 	    new ShippingAddressesEntity(this.getWeblisketSession().getUserName());
 	 
 	 //make sure a tax address does not exist
-	 Vector streetAddressList = billingAddressesEntity.get();
+	 BasicArrayList streetAddressList = billingAddressesEntity.get();
 	 
 	 if(streetAddressList == null)
 	 {
@@ -122,7 +123,7 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
 	    new ShippingAddressesEntity(this.getWeblisketSession().getUserName());
 	 
 	 //make sure a tax address does not exist
-	 Vector streetAddressList = billingAddressesEntity.get();
+	 BasicArrayList streetAddressList = billingAddressesEntity.get();
 	 
          final int size = streetAddressList.size();
          for(int index = 0; index < size; index++)

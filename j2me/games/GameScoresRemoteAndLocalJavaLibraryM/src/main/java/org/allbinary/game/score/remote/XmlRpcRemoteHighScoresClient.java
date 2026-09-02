@@ -15,7 +15,8 @@ package org.allbinary.game.score.remote;
 
 import java.io.IOException;
 import java.util.Hashtable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
 import org.allbinary.logic.StdUtil;
@@ -47,7 +48,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
     {
         try
         {            
-            Vector param = StdUtil.getInstance().createVector();
+            BasicArrayList param = new BasicArrayListD();
 
             String serverUrl = getClientInfo().getLicenseServer(this.getServer());
             

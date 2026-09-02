@@ -13,7 +13,8 @@
 */
 package views.generic.address.shipping;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -37,7 +38,7 @@ public class ShippingAddressesView
 
    private HttpServletRequest request;
    
-   protected Vector streetAddressList;
+   protected BasicArrayList streetAddressList;
    
    public ShippingAddressesView(TransformInfoInterface transformInfoInterface) throws Exception
    {

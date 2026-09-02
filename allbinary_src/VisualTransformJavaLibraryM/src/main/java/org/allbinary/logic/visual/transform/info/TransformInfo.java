@@ -15,7 +15,8 @@ package org.allbinary.logic.visual.transform.info;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
@@ -564,9 +565,9 @@ public class TransformInfo implements TransformInfoInterface
         return hashMap;
     }
 
-    public java.util.Vector toVector()
+    public BasicArrayList toVector()
     {
-        Vector vector = StdUtil.getInstance().createVector();
+        BasicArrayList vector = new BasicArrayListD();
         vector.add(this.name);
         vector.add(this.storeName);
         vector.add(this.objectFileName);

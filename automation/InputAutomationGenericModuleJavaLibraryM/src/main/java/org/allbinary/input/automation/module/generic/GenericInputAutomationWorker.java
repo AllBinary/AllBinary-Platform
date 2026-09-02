@@ -15,7 +15,8 @@ package org.allbinary.input.automation.module.generic;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.automation.module.AbstractInputAutomationWorker;
 import org.allbinary.input.automation.module.InputAutomationActionInterface;
@@ -72,7 +73,7 @@ public class GenericInputAutomationWorker
         
         this.setGenericProfile(genericProfile);
 
-        final Vector vector = this.getGenericProfile().getGenericProfileDataWorkerTypeVector();
+        final BasicArrayList vector = this.getGenericProfile().getGenericProfileDataWorkerTypeVector();
         final int size = vector.size();
         for(int index = 0; index < size; index++)
         {
@@ -129,7 +130,7 @@ public class GenericInputAutomationWorker
                         (GenericProfileAction) hashMap.get(actionNameString);
                     final GenericProfileActionScript genericProfileActionScript =
                         genericProfileAction.getGenericProfileActionScript();
-                    final Vector vector = genericProfileActionScript.getProfileActionConditionInterfaceVector();
+                    final BasicArrayList vector = genericProfileActionScript.getProfileActionConditionInterfaceVector();
                     CaptureWorkerUtil.processProfileActionConditions(vector, getFrame());
                 }
                 this.lastFrame = this.getFrame();

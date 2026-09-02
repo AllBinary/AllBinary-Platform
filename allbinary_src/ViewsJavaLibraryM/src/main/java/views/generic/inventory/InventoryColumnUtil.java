@@ -14,7 +14,8 @@
 package views.generic.inventory;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
@@ -38,7 +39,7 @@ public class InventoryColumnUtil
     //private final String NEXTCATEGORY = "Next Item Category: ";
 
     //Doesn't really get keywords
-    public Vector getColumnWhereLike(
+    public BasicArrayList getColumnWhereLike(
         InventoryEntity inventoryEntity, String category, String column)
     {
         this.logUtil.putF("Start Category: " + category, this, "getKeywords");
@@ -46,13 +47,13 @@ public class InventoryColumnUtil
         /////////
         // TWB - GAE upgrade uses JIQL and it doesn't like LIKE in the SQL so I
         // fixed it
-        // Vector keywords = this.inventory.getColumnWhereLike(
+        // BasicArrayList keywords = this.inventory.getColumnWhereLike(
         // basicItemData.KEYWORDS, basicItemData.CATEGORY,
         // storeFront.getCategoryPath() + AbSqlData.ANYMULTICHARACTERMATCH);
 
-        Vector keywords = StdUtil.getInstance().createVector();
+        BasicArrayList keywords = new BasicArrayListD();
 
-        Vector vectorOfHashMaps = inventoryEntity.getAllRows();
+        BasicArrayList vectorOfHashMaps = inventoryEntity.getAllRows();
 
         int size = vectorOfHashMaps.size();
         for (int index = 0; index < size; index++)

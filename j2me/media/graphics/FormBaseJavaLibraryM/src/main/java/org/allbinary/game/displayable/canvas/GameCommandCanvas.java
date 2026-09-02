@@ -16,7 +16,8 @@ package org.allbinary.game.displayable.canvas;
 
 import jsinterop.annotations.JsType;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Font;
@@ -252,7 +253,7 @@ public class GameCommandCanvas
         
         final ABCustomItem[] items = new CommandTextItemArrayFactory(
                 new AllCommandsVisitor()).getInstance(
-                (Vector<Object>) this.getCommandStack(), 
+                (BasicArrayList) this.getCommandStack(), 
                 this.backgroundBasicColor, this.foregroundBasicColor
                 );
 

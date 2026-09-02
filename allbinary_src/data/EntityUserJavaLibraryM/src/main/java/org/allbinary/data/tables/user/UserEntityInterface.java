@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.user;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.UserInterface;
@@ -23,15 +24,15 @@ import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface UserEntityInterface extends BasicDataTableInterface
 {
-   Vector getAdministrators() throws Exception;
+   BasicArrayList getAdministrators() throws Exception;
    
-   Vector getStoreManagers(StoreFrontInterface storeFrontInterface) throws Exception;
+   BasicArrayList getStoreManagers(StoreFrontInterface storeFrontInterface) throws Exception;
    
-   Vector getCustomers() throws Exception;
+   BasicArrayList getCustomers() throws Exception;
 
-   Vector getUsersWithRole(UserRole userRole) throws Exception;
+   BasicArrayList getUsersWithRole(UserRole userRole) throws Exception;
    
-   Vector getUsers(StoreFrontInterface storeFrontInterface) throws Exception;
+   BasicArrayList getUsers(StoreFrontInterface storeFrontInterface) throws Exception;
    
    UserInterface getUser(String userName) throws Exception;
       
@@ -41,7 +42,7 @@ public interface UserEntityInterface extends BasicDataTableInterface
 
    void deleteWhere(String key, String value);
 
-   void insert(Vector values);
+   void insert(BasicArrayList values);
    
    void update(String userName, HashMap updatedValues);
 }

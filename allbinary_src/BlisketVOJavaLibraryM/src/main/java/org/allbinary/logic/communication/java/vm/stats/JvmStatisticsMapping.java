@@ -14,7 +14,8 @@
 package org.allbinary.logic.communication.java.vm.stats;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.StdUtil;
@@ -52,9 +53,9 @@ public class JvmStatisticsMapping extends JvmStatistics implements TableMappingI
       return JvmStatisticsData.NAME;
    }
    
-   public Vector toVector() throws Exception
+   public BasicArrayList toVector() throws Exception
    {
-      Vector vector = StdUtil.getInstance().createVector();
+      BasicArrayList vector = new BasicArrayListD();
       
       vector.add(this.getFreeMemoryBytesString());
       vector.add(this.getFreeMemoryKilobytesString());

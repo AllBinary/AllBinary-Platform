@@ -14,7 +14,8 @@
 package org.allbinary.business.user.commerce.money.payment.gateway;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
@@ -667,14 +668,14 @@ public class PaymentGateway implements PaymentGatewayInterface
       return paymentGatewayHashMap;
    }
 
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
       return this.toVector(true);
    }
    
-   public Vector toVector(boolean isEncrypted)
+   public BasicArrayList toVector(boolean isEncrypted)
    {
-      Vector updateVector = StdUtil.getInstance().createVector();
+      BasicArrayList updateVector = new BasicArrayListD();
       //updateVector.add(this.gatewayId);
       updateVector.add(this.enable);
       updateVector.add(this.storeName);

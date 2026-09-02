@@ -18,7 +18,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -75,12 +76,11 @@ public class SqlConnectionPool
             return DriverManager.getConnection(url);
         } else
         {
-            Vector connectionVector =
-                (Vector) this.connectionHashMap.get(url);
+            BasicArrayList connectionVector = (BasicArrayList) this.connectionHashMap.get(url);
 
             if (connectionVector == null)
             {
-                connectionVector = this.stdUtil.createVector();
+                connectionVector = new BasicArrayListD();
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
@@ -162,21 +162,20 @@ public class SqlConnectionPool
         //Connection could be closed
         if (!sqlConnection.isClosed())
         {
-            Vector connectionVector;
+            BasicArrayList connectionVector;
 
             if (this.connectionHashMap == null)
             {
                 this.connectionHashMap = this.stdUtil.createHashMap();
-                connectionVector = this.stdUtil.createVector();
+                connectionVector = new BasicArrayListD();
                 connectionVector.add(sqlConnection);
             } else
             {
-                connectionVector =
-                    (Vector) this.connectionHashMap.get(url);
+                connectionVector = (BasicArrayList) this.connectionHashMap.get(url);
 
                 if (connectionVector == null)
                 {
-                    connectionVector = this.stdUtil.createVector();
+                    connectionVector = new BasicArrayListD();
                 }
 
                 connectionVector.add(sqlConnection);

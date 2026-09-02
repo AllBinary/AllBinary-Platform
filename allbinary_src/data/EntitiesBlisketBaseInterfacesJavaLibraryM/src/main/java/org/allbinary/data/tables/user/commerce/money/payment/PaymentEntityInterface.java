@@ -13,7 +13,8 @@
 */
 package org.allbinary.data.tables.user.commerce.money.payment;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.data.tables.BasicDataTableInterface;
@@ -26,13 +27,13 @@ public interface PaymentEntityInterface extends BasicDataTableInterface
       
    PaymentInterface getDefault(String userName);
 
-   Vector get(String userName);
+   BasicArrayList get(String userName);
    
    void add(String userName, PaymentInterface paymentInterface);
 
    void remove(String userName, Integer index);
    
-   void insert(Vector values);
+   void insert(BasicArrayList values);
 
    //public void update(HashMap updatedValues);
 }

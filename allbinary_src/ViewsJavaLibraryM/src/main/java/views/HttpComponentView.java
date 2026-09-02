@@ -14,7 +14,8 @@
 package views;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
@@ -40,7 +41,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
     protected final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
-    private Vector domNodeInterfaceVector;
+    private BasicArrayList domNodeInterfaceVector;
     private TransformDocumentInterface transformDocumentInterface;
 
     public HttpComponentView(TransformInfoInterface transformInfoInterface)
@@ -53,7 +54,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
             this.logUtil.putF("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR);
         }
 
-        this.domNodeInterfaceVector = StdUtil.getInstance().createVector();
+        this.domNodeInterfaceVector = new BasicArrayListD();
 
         this.setTransformDocumentInterface(
             TransformHttpRequestDocumentFactory.getInstance(

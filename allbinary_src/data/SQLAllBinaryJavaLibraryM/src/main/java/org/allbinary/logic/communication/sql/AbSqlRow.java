@@ -17,7 +17,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.init.db.DbConnectionInfo;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -288,7 +289,7 @@ public class AbSqlRow extends AbSqlColumn
         }
     }
 
-    public void insert(final Vector values)
+    public void insert(final BasicArrayList values)
     {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -307,7 +308,7 @@ public class AbSqlRow extends AbSqlColumn
                 stringBuffer.append(this.sqlStrings.SINGLE_QUOTE_COMMA_SEP);
             }
 
-            String value = this.getValue((String) values.lastElement());
+            String value = this.getValue((String) values.get(values.size() - 1));
             value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);
 
             stringBuffer.append(value);
@@ -374,7 +375,7 @@ public class AbSqlRow extends AbSqlColumn
             while (rset.next())
             {
                 result = this.stdUtil.createHashMap();
-                //Vector columnNames = this.stdUtil.createVector();
+                //BasicArrayList columnNames = this.stdUtil.createVector();
                 int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -406,11 +407,11 @@ public class AbSqlRow extends AbSqlColumn
         }
     }
 
-    public Vector getRows(final HashMap keysAndValues) {
+    public BasicArrayList getRows(final HashMap keysAndValues) {
         return this.getRows(keysAndValues, StringUtil.getInstance().EMPTY_STRING);
     }
     
-    public Vector getRows(final HashMap keysAndValues, final String more)
+    public BasicArrayList getRows(final HashMap keysAndValues, final String more)
     {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -420,7 +421,7 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            final Vector rows = this.stdUtil.createVector();
+            final BasicArrayList rows = new BasicArrayListD();
             final Set set = keysAndValues.keySet();
 
             final Object[] keyArray = set.toArray();
@@ -455,7 +456,7 @@ public class AbSqlRow extends AbSqlColumn
             while (rset.next())
             {
                 final HashMap result = this.stdUtil.createHashMap();
-                //Vector columnNames = this.stdUtil.createVector();
+                //BasicArrayList columnNames = this.stdUtil.createVector();
                 final int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -484,7 +485,7 @@ public class AbSqlRow extends AbSqlColumn
         }
     }
 
-    public Vector getAllRows()
+    public BasicArrayList getAllRows()
     {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -498,7 +499,7 @@ public class AbSqlRow extends AbSqlColumn
                 this.logUtil.putF(this.sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ALL_ROWS);
             }
 
-            final Vector rows = this.stdUtil.createVector();
+            final BasicArrayList rows = new BasicArrayListD();
             final String sqlStatement = stringBuffer.toString();
 
             final ResultSet rset = this.executeSQLStatement(sqlStatement);
@@ -507,7 +508,7 @@ public class AbSqlRow extends AbSqlColumn
             while (rset.next())
             {
                 final HashMap result = this.stdUtil.createHashMap();
-                //final Vector columnNames = this.stdUtil.createVector();
+                //final BasicArrayList columnNames = this.stdUtil.createVector();
                 int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -534,7 +535,7 @@ public class AbSqlRow extends AbSqlColumn
     }
 
     /*
-    public Vector getRowsWhereLike(HashMap keysAndValues, HashMap likeKeysAndValues)
+    public BasicArrayList getRowsWhereLike(HashMap keysAndValues, HashMap likeKeysAndValues)
     {
         StringMaker stringBuffer = new StringMaker();
         
@@ -545,7 +546,7 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            Vector rows = this.stdUtil.createVector();
+            BasicArrayList rows = this.stdUtil.createVector();
             Set set = keysAndValues.keySet();
             iter = set;
 
@@ -599,7 +600,7 @@ public class AbSqlRow extends AbSqlColumn
             while (rset.next())
             {
                 HashMap result = this.stdUtil.createHashMap();
-                Vector columnNames = this.stdUtil.createVector();
+                BasicArrayList columnNames = this.stdUtil.createVector();
                 int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -626,7 +627,7 @@ public class AbSqlRow extends AbSqlColumn
     }
     */
 
-    public Vector getRowsWhereBetween(final HashMap whereKeyValuePairs,
+    public BasicArrayList getRowsWhereBetween(final HashMap whereKeyValuePairs,
         final String betweenColumn, final String smallest, final String largest)
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -636,7 +637,7 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            final Vector rows = this.stdUtil.createVector();
+            final BasicArrayList rows = new BasicArrayListD();
             stringBuffer.append(this.sqlStrings.WHERE);
             final Set set = whereKeyValuePairs.keySet();
             
@@ -678,7 +679,7 @@ public class AbSqlRow extends AbSqlColumn
             final ResultSetMetaData resultSetMetaData = rset.getMetaData();
 
             HashMap result;
-            Vector columnNames;
+            BasicArrayList columnNames;
             int columnCount;
             String columnName;
             String field;
@@ -686,7 +687,7 @@ public class AbSqlRow extends AbSqlColumn
             while (rset.next())
             {
                 result = this.stdUtil.createHashMap();
-                columnNames = this.stdUtil.createVector();
+                columnNames = new BasicArrayListD();
                 columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -712,7 +713,7 @@ public class AbSqlRow extends AbSqlColumn
         }
     }
 
-    public Vector getRowsWhereBetween(final String betweenColumn, final String smallest, final String largest)
+    public BasicArrayList getRowsWhereBetween(final String betweenColumn, final String smallest, final String largest)
     {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -721,7 +722,7 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            final Vector rows = this.stdUtil.createVector();
+            final BasicArrayList rows = new BasicArrayListD();
             stringBuffer.append(this.sqlStrings.WHERE);
             stringBuffer.append(betweenColumn);
             stringBuffer.append(this.sqlStrings.MORE_THAN_QUOTE);
@@ -746,12 +747,12 @@ public class AbSqlRow extends AbSqlColumn
             String columnName;
             String field;
             HashMap result;
-            Vector columnNames;
+            BasicArrayList columnNames;
             int columnCount;
             while (rset.next())
             {
                 result = this.stdUtil.createHashMap();
-                columnNames = this.stdUtil.createVector();
+                columnNames = new BasicArrayListD();
                 columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {

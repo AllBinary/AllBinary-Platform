@@ -14,7 +14,8 @@
 package org.allbinary.input.automation.module.generic;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -28,7 +29,7 @@ public class CaptureWorkerUtil
     {
     }
     
-    public static void processProfileActionConditions(Vector vector, Long frame)
+    public static void processProfileActionConditions(BasicArrayList vector, Long frame)
         throws Exception
     {
         final LogUtil logUtil = LogUtil.getInstance();

@@ -15,7 +15,8 @@ package org.allbinary.logic.communication.http.request;
 
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 import org.allbinary.logic.StdUtil;
@@ -114,9 +115,9 @@ public class AbeHttpRequestInfo
       return hashMap;
    }
 
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
-      Vector vector = StdUtil.getInstance().createVector();
+      BasicArrayList vector = new BasicArrayListD();
 
       vector.add(this.httpUserAgent);
       vector.add(this.remoteAddress);

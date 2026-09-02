@@ -3,7 +3,8 @@ package org.apache.xmlrpc;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
 import org.allbinary.logic.NullUtil;
@@ -37,13 +38,13 @@ public class XmlRpcClient implements XmlRpcHandler
     }
 
     @Override
-    public Object execute(String method, Vector<Object> params)
+    public Object execute(String method, BasicArrayList params)
             throws XmlRpcException, IOException
     {
         return NullUtil.getInstance().NULL_OBJECT;
     }
 
-    public Object execute(String method, Vector<Object> params, CryptInterface cryptInterface)
+    public Object execute(String method, BasicArrayList params, CryptInterface cryptInterface)
             throws XmlRpcException, IOException
     {
         return NullUtil.getInstance().NULL_OBJECT;

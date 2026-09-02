@@ -13,7 +13,8 @@
 */
 package org.allbinary.data.tables.user.commerce.inventory.order;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.inventory.basket.BasketReview;
 import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
@@ -31,7 +32,7 @@ public interface OrderItemsEntityInterface extends BasicDataTableInterface
    
    void insert(String userName,OrderInterface order);
    
-   void insert(Vector values);
+   void insert(BasicArrayList values);
 
    //public void update(HashMap updatedValues);
 }

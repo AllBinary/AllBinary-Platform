@@ -15,7 +15,8 @@ package org.allbinary.business.user.quoterequest;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -178,9 +179,9 @@ public class QuoteRequest
       }
    }
 
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
-      Vector values = StdUtil.getInstance().createVector();
+      BasicArrayList values = new BasicArrayListD();
       //unique id is added in entity      
       values.add(this.id);
       values.add(this.userName);      

@@ -14,11 +14,11 @@
 package org.allbinary.logic.visual.dhtml.style;
 
 import java.util.HashMap;
-import java.util.Vector;
 
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.NameSpaceRequestParamData;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.dhtml.style.css.CssElementData;
@@ -41,11 +41,11 @@ public class StylesValidationFactory {
     private StylesValidationFactory() {
     }
 
-    public Vector getInstance(Document document) throws Exception {
+    public BasicArrayList getInstance(Document document) throws Exception {
 
         final CommonStrings commonStrings = CommonStrings.getInstance();
 
-        //Vector styles = StdUtil.getInstance().createVector();
+        //BasicArrayList styles = new BasicArrayListD();
 
         //Get all styles nodes
         NodeList nodeList = document.getElementsByTagName(StylesData.getInstance().NAME);
@@ -64,7 +64,7 @@ public class StylesValidationFactory {
         for (int index = 0; index < nodeList.getLength(); index++) {
             Node stylesNode = nodeList.item(index);
             //Get all style nodes
-            Vector styleNodeList =
+            BasicArrayList styleNodeList =
                 DomSearchHelper.getAllNodes(
                     StyleData.getInstance().NAME, stylesNode.getChildNodes());
 
@@ -78,7 +78,7 @@ public class StylesValidationFactory {
                 Node styleNode = (Node) styleNodeList.get(styleNodesIndex);
 
                 //Nodes with CssElementData.NAME
-                Vector cssElementStyleNodeList =
+                BasicArrayList cssElementStyleNodeList =
                     DomSearchHelper.getAllNodes(
                         CssElementData.getInstance().NAME, styleNode.getChildNodes());
 
@@ -96,11 +96,11 @@ public class StylesValidationFactory {
             this.logUtil.putF("No Style Present", this, commonStrings.GET_INSTANCE);
         }
 
-        return StdUtil.getInstance().createVector();
+        return new BasicArrayListD();
     }
 
-    public static Vector getInstance(HashMap hashMap) throws Exception {
-        //Vector styles = StdUtil.getInstance().createVector();
+    public static BasicArrayList getInstance(HashMap hashMap) throws Exception {
+        //BasicArrayList styles = new BasicArrayListD();
 
         Document stylesDocument = (Document) hashMap.get(NameSpaceRequestParamData.DOCUMENT);
 

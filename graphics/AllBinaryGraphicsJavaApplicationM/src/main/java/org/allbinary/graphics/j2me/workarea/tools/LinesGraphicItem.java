@@ -14,7 +14,8 @@
 package org.allbinary.graphics.j2me.workarea.tools;
 
 import java.awt.*;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
@@ -44,7 +45,7 @@ public class LinesGraphicItem implements GraphicItemInterface
     private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
    private DefaultMutableTreeNode treeNode;
-   private Vector pointTreeNodeVector;
+   private BasicArrayList pointTreeNodeVector;
 
    private GPoint currentMousePoint;
    private GPoint fulcrumPoint;
@@ -118,7 +119,7 @@ public class LinesGraphicItem implements GraphicItemInterface
       this.treeNode = new DefaultMutableTreeNode(PointsDomUtil.getInstance().LINES + LinesGraphicItem.item);
       LinesGraphicItem.item++;
       this.points.init();
-      this.pointTreeNodeVector = StdUtil.getInstance().createVector();
+      this.pointTreeNodeVector = new BasicArrayListD();
       this.fulcrumPoint = PointFactory.getInstance().createXY(0, 0);
    }
 

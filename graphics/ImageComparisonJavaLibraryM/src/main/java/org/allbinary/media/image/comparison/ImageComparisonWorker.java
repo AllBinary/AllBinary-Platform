@@ -13,7 +13,8 @@
 */
 package org.allbinary.media.image.comparison;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.media.image.capture.CapturedImageWorkerResultsEvent;
 import org.allbinary.input.media.image.capture.CapturedImageWorkerResultsListener;
@@ -34,7 +35,7 @@ public class ImageComparisonWorker
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final Vector bufferedImageVector = StdUtil.getInstance().createVector();
+    private final BasicArrayList bufferedImageVector = new BasicArrayListD();
     
     private final ImageComparatorConstraintsInterface imageComparatorConstraintsInterface;
     

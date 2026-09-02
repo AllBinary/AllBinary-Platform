@@ -229,8 +229,8 @@ public class CategoryRequestHelper extends ModifyTable
    {
       Map map = this.request.getParameterMap();
     
-      Vector addVector = StdUtil.getInstance().createVector();
-      Vector removeVector = StdUtil.getInstance().createVector();
+      BasicArrayList addVector = new BasicArrayListD();
+      BasicArrayList removeVector = new BasicArrayListD();
     
       Set keys = map.keySet();
     
@@ -255,7 +255,7 @@ public class CategoryRequestHelper extends ModifyTable
    {
       try
       {
-         //Vector values = StdUtil.getInstance().createVector();
+         //BasicArrayList values = new BasicArrayListD();
                   
          String success = "Successfully Added the following to the Category table";
 

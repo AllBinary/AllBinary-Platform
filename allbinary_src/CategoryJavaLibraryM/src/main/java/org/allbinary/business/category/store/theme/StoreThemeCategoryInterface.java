@@ -13,7 +13,8 @@
 */
 package org.allbinary.business.category.store.theme;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.data.tables.TableMappingInterface;
@@ -28,5 +29,5 @@ public interface StoreThemeCategoryInterface
    CompositeTransformInfoInterface
 {
    void addTheme(ThemeValidation themeValidation);
-   Vector getThemes();
+   BasicArrayList getThemes();
 }

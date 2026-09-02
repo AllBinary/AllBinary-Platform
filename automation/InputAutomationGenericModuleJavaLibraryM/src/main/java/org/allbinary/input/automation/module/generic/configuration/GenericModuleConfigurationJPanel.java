@@ -14,7 +14,8 @@
 package org.allbinary.input.automation.module.generic.configuration;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfile;
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfileDataWorkerType;
@@ -462,7 +463,7 @@ public class GenericModuleConfigurationJPanel
         this.logUtil.putF(this.commonStrings.START, this, "updateProfileOptions");
         
         GenericProfile genericProfile = this.getSelectedGenericProfile();
-        Vector vector = genericProfile.getGenericProfileDataWorkerTypeVector();
+        BasicArrayList vector = genericProfile.getGenericProfileDataWorkerTypeVector();
         
         this.screenCaptureJRadioButton.setSelected(false);
         this.savedCaptureJRadioButton.setSelected(false);

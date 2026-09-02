@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.user.commerce.inventory.order;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.order.Order;
@@ -58,11 +59,11 @@ public interface OrderHistoryEntityInterface extends BasicDataTableInterface
    
   // public String getOrderForm(String orderId);
 
-   Vector getStoreOrders(StoreFrontInterface storeFrontInterface) throws Exception;
+   BasicArrayList getStoreOrders(StoreFrontInterface storeFrontInterface) throws Exception;
    
-   Vector getOrders(String userName) throws Exception;
+   BasicArrayList getOrders(String userName) throws Exception;
    
-   Vector getOrders(String status, String fromDate, String toDate) throws Exception;
+   BasicArrayList getOrders(String status, String fromDate, String toDate) throws Exception;
    
    OrderHistory getOrder(String id) throws Exception;
 

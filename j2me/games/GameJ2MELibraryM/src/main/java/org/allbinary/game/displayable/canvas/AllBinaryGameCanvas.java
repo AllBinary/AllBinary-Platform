@@ -16,7 +16,8 @@ package org.allbinary.game.displayable.canvas;
 import jsinterop.annotations.JsType;
 
 import java.util.Hashtable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
@@ -519,7 +520,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 = gameLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory();
 
         final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(
-                (Vector<Object>) this.getCommandStack(), this.gameLayerManager
+                (BasicArrayList) this.getCommandStack(), this.gameLayerManager
                 .getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
 
         final Rectangle rectangle = this.formUtil.createFormRectangle();
@@ -585,7 +586,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 .getCommandTextItemArrayFactory();
 
         final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(
-                (Vector<Object>) this.getCommandStack(), this.gameLayerManager
+                (BasicArrayList) this.getCommandStack(), this.gameLayerManager
                 .getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
 
         final int size = items.length;

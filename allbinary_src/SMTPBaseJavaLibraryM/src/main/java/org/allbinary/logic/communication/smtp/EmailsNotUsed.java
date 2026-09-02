@@ -14,7 +14,8 @@
 package org.allbinary.logic.communication.smtp;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.BasicErrorNodeUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
@@ -30,11 +31,11 @@ public class EmailsNotUsed implements DomNodeInterface
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-   protected Vector emailInfoVector;
+   protected BasicArrayList emailInfoVector;
 
    public EmailsNotUsed() throws Exception
    {
-      this.emailInfoVector = StdUtil.getInstance().createVector();
+      this.emailInfoVector = new BasicArrayListD();
    }
 
    public Node toXmlNode(Document document) throws Exception

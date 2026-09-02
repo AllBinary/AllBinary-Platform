@@ -16,7 +16,8 @@ package org.allbinary.game.displayable.canvas;
 import jsinterop.annotations.JsType;
 
 import java.util.Hashtable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -392,7 +393,7 @@ public class DemoCanvas extends RunnableCanvas
             DemoLimitedCommandTextItemArrayFactory.getInstance().getCommandTextItemArrayFactory();
         
         final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(
-            (Vector<Object>) this.getCommandStack(), 
+            (BasicArrayList) this.getCommandStack(), 
             this.basicColorFactory.BLACK, this.basicColorFactory.WHITE);
 
         final FormType formType = FormTypeFactory.getInstance().getFormType();

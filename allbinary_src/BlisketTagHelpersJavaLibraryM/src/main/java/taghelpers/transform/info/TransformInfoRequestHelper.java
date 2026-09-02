@@ -14,7 +14,8 @@
 package taghelpers.transform.info;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.jsp.PageContext;
 
@@ -75,7 +76,7 @@ public class TransformInfoRequestHelper extends ModifyTable
       try
       {
          String success = "Added TransformInfo Successfully";         
-         Vector values = this.transformInfoInterface.toVector();
+         BasicArrayList values = this.transformInfoInterface.toVector();
 
          TransformInfoEntityBuilder.getInstance().insert(values);         
 

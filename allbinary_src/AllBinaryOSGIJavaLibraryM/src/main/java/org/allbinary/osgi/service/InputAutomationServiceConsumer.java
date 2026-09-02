@@ -14,7 +14,8 @@
 package org.allbinary.osgi.service;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -49,7 +50,7 @@ public class InputAutomationServiceConsumer
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.PROCESS);
         
-        final Vector vector = this.osgiServiceUtil.getServicesObjectVector(
+        final BasicArrayList vector = this.osgiServiceUtil.getServicesObjectVector(
             this.getBundleContext(), this.getServiceReferences());
         
         this.logUtil.putF("Processing " + vector.size() + " Services", this, this.commonStrings.PROCESS);

@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.transform.info;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.jsp.PageContext;
 
@@ -64,7 +65,7 @@ implements TransformInfoEntityInterface
         this.transformInfoFactoryInterface = transformInfoFactoryInterface;
     }
 
-    public void insert(Vector values)
+    public void insert(BasicArrayList values)
     {
         try
         {
@@ -138,10 +139,10 @@ implements TransformInfoEntityInterface
         //throw new Exception("TransformInfo Not Found: " + name);
     }
 
-    public Vector getObjectConfigs(String storeName) throws Exception
+    public BasicArrayList getObjectConfigs(String storeName) throws Exception
     {
-        Vector objectConfigVector = StdUtil.getInstance().createVector();
-        Vector objectConfigColumnVector = this.getColumnWhere(
+        BasicArrayList objectConfigVector = new BasicArrayListD();
+        BasicArrayList objectConfigColumnVector = this.getColumnWhere(
             TransformInfoData.getInstance().OBJECTCONFIG, StoreFrontData.getInstance().NAME, storeName);
 
         int size = objectConfigColumnVector.size();
@@ -161,10 +162,10 @@ implements TransformInfoEntityInterface
         return objectConfigVector;
     }
 
-    public Vector getNames(String storeName) throws Exception
+    public BasicArrayList getNames(String storeName) throws Exception
     {
-        Vector viewNameVector = StdUtil.getInstance().createVector();
-        Vector columnVector = this.getColumnWhere(
+        BasicArrayList viewNameVector = new BasicArrayListD();
+        BasicArrayList columnVector = this.getColumnWhere(
             TransformInfoData.getInstance().NAME, StoreFrontData.getInstance().NAME, storeName);
 
         int size = columnVector.size();

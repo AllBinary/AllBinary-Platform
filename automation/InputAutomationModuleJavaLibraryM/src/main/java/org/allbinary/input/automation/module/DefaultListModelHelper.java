@@ -14,7 +14,8 @@
 package org.allbinary.input.automation.module;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.swing.*;
 import org.allbinary.logic.StdUtil;
@@ -23,11 +24,11 @@ public class DefaultListModelHelper
 {
     private DefaultListModel defaultListModel;
     
-    private Vector vector;
+    private BasicArrayList vector;
     
     public DefaultListModelHelper() throws Exception
     {
-        this.vector = StdUtil.getInstance().createVector();
+        this.vector = new BasicArrayListD();
         this.defaultListModel = new DefaultListModel();
     }
 

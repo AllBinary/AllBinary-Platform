@@ -14,7 +14,8 @@
 package views.admin.user;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.UserDomNode;
 import org.allbinary.business.user.UsersData;
@@ -30,7 +31,7 @@ public class UsersView extends HttpContextView implements DomNodeInterface
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   protected Vector userVector;
+   protected BasicArrayList userVector;
    
    public UsersView(TransformInfoInterface transformInfoInterface) throws Exception
    {

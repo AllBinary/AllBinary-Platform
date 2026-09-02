@@ -1,9 +1,10 @@
 package org.apache.xmlrpc;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public interface XmlRpcHandler
 {
-    Object execute (String method, Vector<Object> params)
+    Object execute (String method, BasicArrayList params)
             throws Exception;
 }

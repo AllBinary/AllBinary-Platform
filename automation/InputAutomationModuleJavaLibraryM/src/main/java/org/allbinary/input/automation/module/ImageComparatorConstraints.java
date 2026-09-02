@@ -13,9 +13,12 @@
 */
 package org.allbinary.input.automation.module;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.util.Vector;
+
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.collision.RectangleCollisionUtil;
 import org.allbinary.graphics.GPoint;
@@ -27,7 +30,7 @@ public class ImageComparatorConstraints
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private Vector avoidVector;
+    private BasicArrayList avoidVector;
     
     private int maxNonMatchingPixelDeltas;
     
@@ -37,10 +40,10 @@ public class ImageComparatorConstraints
         int doImageComparisonEveryNthFrame)
     {
         this.doImageComparisonEveryNthFrame = doImageComparisonEveryNthFrame;
-        this.setAvoidVector(new Vector());
+        this.setAvoidVector(new BasicArrayListD());
     }
     
-    public Vector getAvoidVector()
+    public BasicArrayList getAvoidVector()
     {
         return this.avoidVector;
     }
@@ -53,7 +56,7 @@ public class ImageComparatorConstraints
     {
         boolean isCollsionWithAvoidRectangles = false;
         
-        final Vector avoidVector = this.getAvoidVector();
+        final BasicArrayList avoidVector = this.getAvoidVector();
         final int size = avoidVector.size();
         for (int index = 0; index < size; index++)
         {
@@ -72,7 +75,7 @@ public class ImageComparatorConstraints
     {
         boolean isCollsionWithAvoidRectangles = false;
         
-        final Vector avoidVector = this.getAvoidVector();
+        final BasicArrayList avoidVector = this.getAvoidVector();
         final int size = avoidVector.size();
         for (int index = 0; index < size; index++)
         {
@@ -88,7 +91,7 @@ public class ImageComparatorConstraints
         return isCollsionWithAvoidRectangles;
     }
     
-    public void setAvoidVector(Vector avoidVector)
+    public void setAvoidVector(BasicArrayList avoidVector)
     {
         this.avoidVector = avoidVector;
     }
@@ -124,7 +127,7 @@ public class ImageComparatorConstraints
     
     public void log()
     {
-        final Vector avoidVector = this.getAvoidVector();
+        final BasicArrayList avoidVector = this.getAvoidVector();
         final int size = avoidVector.size();
         for (int index = 0; index < size; index++)
         {

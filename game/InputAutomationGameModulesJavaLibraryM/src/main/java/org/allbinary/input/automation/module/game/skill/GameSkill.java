@@ -14,7 +14,8 @@
 package org.allbinary.input.automation.module.game.skill;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -28,7 +29,7 @@ public class GameSkill
    private String extra;
    private int time;
    
-   private Vector vector;
+   private BasicArrayList vector;
     
     private final String GAME_SKILL_LABEL = "GameSkill: ";
     private final String EXTRA_LABEL = "Extra: ";
@@ -40,7 +41,7 @@ public class GameSkill
         this.setExtra(extra);
         this.setTime(time);
         
-        this.vector = StdUtil.getInstance().createVector();
+        this.vector = new BasicArrayListD();
         
         GameSkill.hashMap.put(new StringMaker().append(this.getGameSkillType().getName()).append(CommonSeps.getInstance().SPACE).append(extra).toString(), this);
    }
@@ -80,7 +81,7 @@ public class GameSkill
        this.vector.add(gameSkillPropertyInterface);
     }
    
-    public Vector getProperties()
+    public BasicArrayList getProperties()
     {
        return this.vector;
     }

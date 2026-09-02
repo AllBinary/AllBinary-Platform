@@ -14,7 +14,8 @@
 package org.allbinary.media.image.comparison.motion;
 
 import java.awt.*;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -31,7 +32,7 @@ public class ConsolidateMotionRectangles extends MotionRectangles
     {
         super(NAME, motionRectangles.getImageComparisonResult());
         
-        final Vector vector = motionRectangles.getVector();        
+        final BasicArrayList vector = motionRectangles.getVector();        
         final int size = vector.size();
         for (int index = 0; index < size; index++)
         {
@@ -47,10 +48,10 @@ public class ConsolidateMotionRectangles extends MotionRectangles
 
     private void consolidateMotionRectangles()
     {
-        final Vector vector = this.getVector();
+        final BasicArrayList vector = this.getVector();
         this.logUtil.putF("Start - Size Before: " + vector.size(), this, "consolidateMotionRectangleConstraints");
         
-        final Vector removeVector = StdUtil.getInstance().createVector();
+        final BasicArrayList removeVector = new BasicArrayListD();
         
         final int size = vector.size();
         for (int index = 0; index < size; index++)
@@ -123,9 +124,9 @@ public class ConsolidateMotionRectangles extends MotionRectangles
         this.remove(removeVector);
     }
 
-    private void remove(Vector removeVector)
+    private void remove(BasicArrayList removeVector)
     {
-        final Vector vector = this.getVector();
+        final BasicArrayList vector = this.getVector();
         
         //Remove the consolidated rectangles
         final int size = removeVector.size();

@@ -14,14 +14,14 @@
 package org.allbinary.data.tables;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
 
 public interface TableMappingInterface
 {
    Object getKey() throws Exception;
    
    //Used for inserting into database   
-   Vector toVector() throws Exception;
+   BasicArrayList toVector() throws Exception;
    //Used for updating viewinfo in database   
    HashMap toHashMap() throws Exception;
 }

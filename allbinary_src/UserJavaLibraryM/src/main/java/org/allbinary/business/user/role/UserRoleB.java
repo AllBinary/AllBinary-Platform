@@ -13,7 +13,8 @@
 */
 package org.allbinary.business.user.role;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.UserFactoryInterface;
 import org.allbinary.logic.StdUtil;
@@ -25,7 +26,7 @@ import org.allbinary.logic.string.StringValidationUtil;
  */
 public class UserRoleB extends UserRole
 {
-    public static Vector roleVector = StdUtil.getInstance().createVector();
+    public static BasicArrayList roleVector = new BasicArrayListD();
 
     protected UserRoleB(
         BasicUserRole aBasicUserRole,
@@ -41,7 +42,7 @@ public class UserRoleB extends UserRole
       UserRoleFactory.getInstance();
       if(!StringValidationUtil.getInstance().isEmpty(role))
       {
-         final Vector roleVector = UserRoleB.getAll();
+         final BasicArrayList roleVector = UserRoleB.getAll();
          final int size = roleVector.size();
          for(int index = 0; index < size; index++)
          {
@@ -56,7 +57,7 @@ public class UserRoleB extends UserRole
       throw new Exception("Unable to get role - Unknown Role = " + role);
    }
 
-   public static Vector getAll()
+   public static BasicArrayList getAll()
    {
       UserRoleFactory.getInstance();
       return UserRoleB.roleVector;

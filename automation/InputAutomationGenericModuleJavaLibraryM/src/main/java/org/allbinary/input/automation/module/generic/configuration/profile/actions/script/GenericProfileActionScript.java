@@ -14,7 +14,8 @@
 package org.allbinary.input.automation.module.generic.configuration.profile.actions.script;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -41,7 +42,7 @@ public class GenericProfileActionScript
     
     private GenericProfileActionJPanel genericProfileActionJPanel;
     
-    private Vector profileActionConditionInterfaceVector;
+    private BasicArrayList profileActionConditionInterfaceVector;
 
     private final static String NAME = "Root";
     
@@ -53,7 +54,7 @@ public class GenericProfileActionScript
 
         this.genericProfileActionJPanel = genericProfileActionJPanel;
         
-        this.setProfileActionConditionInterfaceVector(new Vector());
+        this.setProfileActionConditionInterfaceVector(new BasicArrayListD());
 
         Node actionScriptNode = DomSearchHelper.getNode(
             GenericProfileActionData.SCRIPT,
@@ -86,7 +87,7 @@ public class GenericProfileActionScript
         throws Exception
     {
         this.genericProfileActionJPanel = genericProfileActionJPanel;
-        this.setProfileActionConditionInterfaceVector(new Vector());
+        this.setProfileActionConditionInterfaceVector(new BasicArrayListD());
     }
 
     public void addCondition(
@@ -116,13 +117,13 @@ public class GenericProfileActionScript
         return hashMap;
     }
     
-    public Vector getProfileActionConditionInterfaceVector()
+    public BasicArrayList getProfileActionConditionInterfaceVector()
     {
         return this.profileActionConditionInterfaceVector;
     }
 
     public void setProfileActionConditionInterfaceVector(
-        Vector profileActionConditionInterfaceVector)
+        BasicArrayList profileActionConditionInterfaceVector)
     {
         this.profileActionConditionInterfaceVector = 
             profileActionConditionInterfaceVector;
@@ -132,7 +133,7 @@ public class GenericProfileActionScript
     {
         Node node = document.createElement(GenericProfileActionData.SCRIPT);
 
-        final Vector vector = this.getProfileActionConditionInterfaceVector();
+        final BasicArrayList vector = this.getProfileActionConditionInterfaceVector();
         final int size = vector.size();
         for (int index = 0; index < size; index++)
         {

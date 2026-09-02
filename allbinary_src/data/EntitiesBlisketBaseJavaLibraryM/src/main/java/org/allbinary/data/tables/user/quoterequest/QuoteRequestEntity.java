@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.user.quoterequest;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.UserDbInitInfo;
@@ -39,7 +40,7 @@ public class QuoteRequestEntity extends AbSqlBean
       this.setTableName(this.tableName);
    }
    
-   public void insert(Vector values)
+   public void insert(BasicArrayList values)
    {
       try
       {
@@ -77,7 +78,7 @@ public class QuoteRequestEntity extends AbSqlBean
       }
    }   
    
-   public Vector getIds(String userName)
+   public BasicArrayList getIds(String userName)
    {
 	   return super.getColumnWhere(QuoteRequestData.getInstance().ID, UserData.USERNAME, userName);
    }

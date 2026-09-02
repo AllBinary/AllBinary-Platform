@@ -15,7 +15,8 @@ package org.allbinary.logic.system.security.licensing.client;
 
 import java.io.IOException;
 import java.util.Hashtable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
 import org.allbinary.logic.StdUtil;
@@ -58,7 +59,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             this.logUtil.putF(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, this.commonStrings.GET);
             // }
 
-            final Vector param = StdUtil.getInstance().createVector();
+            final BasicArrayList param = new BasicArrayListD();
 
             final XmlRpcClient xmlRpcClient = new XmlRpcClient(server);
             this.setClient(xmlRpcClient);

@@ -14,7 +14,8 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
@@ -193,7 +194,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
         {
             String success = "Added Successfully";
 
-            Vector values = this.modifyingStoreFrontInterface.toVector();
+            BasicArrayList values = this.modifyingStoreFrontInterface.toVector();
 
             StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().insert(values);
 

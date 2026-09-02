@@ -16,7 +16,8 @@ package views.admin.inventory.listings;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
@@ -79,7 +80,7 @@ public class ProductListing implements ProductListingInterface
         InventoryColumnUtil inventoryColumnUtil =
             InventoryColumnUtil.getInstance();
 
-        Vector keywords = inventoryColumnUtil.getColumnWhereLike(
+        BasicArrayList keywords = inventoryColumnUtil.getColumnWhereLike(
             this.inventory, storeFront.getCategoryPath(), basicItemData.KEYWORDS);
 
         BasicArrayList subStoreVector = storeFront.getSubStores();
@@ -89,12 +90,12 @@ public class ProductListing implements ProductListingInterface
         {
             String subStore = (String) subStoreVector.get(index);
             //AbSqlData.ANYSINGLECHARACTERMATCH
-            Vector substoreKeywords = inventoryColumnUtil.getColumnWhereLike(
+            BasicArrayList substoreKeywords = inventoryColumnUtil.getColumnWhereLike(
                 this.inventory,
                 AbPathData.getInstance().SEPARATOR + subStore,
                 basicItemData.CATEGORY);
 
-            keywords.addAll(substoreKeywords);
+            keywords.addAllList(substoreKeywords);
         }
 
         //if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().S))
@@ -145,7 +146,7 @@ public class ProductListing implements ProductListingInterface
     }
 
     private void create(String keywordData,
-        HashMap keywordFilenameHashMap, Vector vector, AbPath staticPath)
+        HashMap keywordFilenameHashMap, BasicArrayList vector, AbPath staticPath)
         throws Exception
     {
         StringMaker stringBuffer = new StringMaker();
@@ -227,7 +228,7 @@ public class ProductListing implements ProductListingInterface
         final int size = keywordArray.length;
         for(int index = 0; index < size; index++)
         {
-            Vector insertVector = StdUtil.getInstance().createVector();
+            BasicArrayList insertVector = new BasicArrayListD();
             String keywordData = (String) keywordArray[index];
             String fileName = (String) keywordFilenameHashMap.get(keywordData);
 
@@ -286,7 +287,7 @@ public class ProductListing implements ProductListingInterface
 
             final InventorySearchUtil inventorySearchUtil = InventorySearchUtil.getInstance();
 
-            final Vector vector = inventorySearchUtil.getBasicItemIdColumn(this.searchRequest);
+            final BasicArrayList vector = inventorySearchUtil.getBasicItemIdColumn(this.searchRequest);
 
             for(int index = 0; index < size; index++)
             {
@@ -339,7 +340,7 @@ public class ProductListing implements ProductListingInterface
                 } else
                 {
 
-                    Vector storeFrontVector = this.storeFronts.getStoreFrontNames();
+                    BasicArrayList storeFrontVector = this.storeFronts.getStoreFrontNames();
 
                     final int size = storeFrontVector.size();
                     for(int index = 0; index < size; index++)

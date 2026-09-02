@@ -14,7 +14,6 @@
 package org.allbinary.business.category.properties;
 
 import java.util.HashMap;
-import java.util.Vector;
 
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryInterface;
@@ -188,9 +187,9 @@ public class CategoryProperties implements CategoryPropertiesInterface
       return categoryHashMap;
    }
    
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
-      Vector categoryVector = StdUtil.getInstance().createVector();
+      BasicArrayList categoryVector = new BasicArrayListD();
       categoryVector.add(this.category);
       //categoryVector.add(new Integer(this.level).toString());
       return categoryVector;

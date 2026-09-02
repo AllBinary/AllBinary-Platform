@@ -13,16 +13,17 @@
 */
 package org.allbinary.logic.visual.dhtml.html;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 public class HtmlTags
 {
-   private Vector htmlTagVector;
+   private BasicArrayList htmlTagVector;
    
    public HtmlTags()
    {
-      this.htmlTagVector = StdUtil.getInstance().createVector();
+      this.htmlTagVector = new BasicArrayListD();
    }
 
    public HtmlTag get(int index)

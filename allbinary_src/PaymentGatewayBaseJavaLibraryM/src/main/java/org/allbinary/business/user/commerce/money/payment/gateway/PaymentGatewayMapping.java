@@ -14,7 +14,8 @@
 package org.allbinary.business.user.commerce.money.payment.gateway;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.TableMappingInterface;
 
@@ -34,7 +35,7 @@ public class PaymentGatewayMapping implements TableMappingInterface
    }   
    
    //This is used for db updates
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
       return this.paymentGatewayInterface.toVector(false);
    }

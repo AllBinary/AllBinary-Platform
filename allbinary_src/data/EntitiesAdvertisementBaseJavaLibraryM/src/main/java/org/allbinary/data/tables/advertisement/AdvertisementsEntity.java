@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.advertisement;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.advertisement.AdvertisementData;
@@ -43,7 +44,7 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
     }
 
     /*
-     public void insert(Vector values)
+     public void insert(BasicArrayList values)
      {
      try
      {
@@ -82,13 +83,13 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
     }
 
     //AdvertisementsInterface
-    public Vector get(String storeName)
+    public BasicArrayList get(String storeName)
     {
         HashMap keysAndValues = StdUtil.getInstance().createHashMap();
         keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
-        Vector hashMapVector = super.getRows(keysAndValues);
+        BasicArrayList hashMapVector = super.getRows(keysAndValues);
 
-        Vector vector = StdUtil.getInstance().createVector();
+        BasicArrayList vector = new BasicArrayListD();
         final int size = hashMapVector.size();
         for (int index = 0; index < size; index++)
         {
@@ -96,7 +97,7 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
         // if(hashMap!=null)
             // vector.add((AdvertisementInterface) new Advertisement(hashMap));
         }
-        return (Vector) vector;
+        return vector;
     }
 
     public AdvertisementInterface get(String storeName, String advertismentName)

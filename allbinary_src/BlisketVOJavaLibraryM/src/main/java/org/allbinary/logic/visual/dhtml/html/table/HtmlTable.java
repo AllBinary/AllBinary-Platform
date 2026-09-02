@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.visual.dhtml.html.table;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.string.StringUtil;
@@ -56,7 +57,7 @@ public class HtmlTable extends HtmlTag
    private String name;
    private String after;      
    
-   private Vector htmlRowsVector;
+   private BasicArrayList htmlRowsVector;
    
    public HtmlTable(String before, String cellpadding, String cellspacing, String after)
    {
@@ -66,7 +67,7 @@ public class HtmlTable extends HtmlTag
       this.cellspacing = cellspacing;
       //this.style = new String(style);  
       this.after = after;
-      this.htmlRowsVector = StdUtil.getInstance().createVector();
+      this.htmlRowsVector = new BasicArrayListD();
       addAttribute(this.BORDER,CommonPhoneStrings.getInstance().ZERO);
       addAttribute(this.CELLPADDING,this.cellpadding);
       addAttribute(this.CELLSPACING,this.cellspacing);      

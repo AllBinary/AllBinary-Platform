@@ -15,7 +15,7 @@ package org.allbinary.media.image.search;
 
 public class StatisticalMatchConstraints
 {
-    //private Vector 
+    //private BasicArrayList 
     public StatisticalMatchConstraints()
     {
     }

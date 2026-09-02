@@ -13,7 +13,8 @@
 */
 package views.generic.shipping;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
@@ -74,7 +75,7 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
          StreetAddress streetAddress 
                = shippingAddressesEntityInterface.getDefault();
          
-         Vector shippingVector = this.shippingMethods.get();
+         BasicArrayList shippingVector = this.shippingMethods.get();
          
          final int size = shippingVector.size();
          for (int index = 0; index < size; index++)

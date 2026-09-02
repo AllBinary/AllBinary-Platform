@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.generator;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.logic.StdUtil;
 
@@ -71,7 +72,7 @@ public class IdGeneratorEntity extends AbSqlBean
         return Long.parseLong(value);
     }
 
-    public void insert(Vector values) {
+    public void insert(BasicArrayList values) {
         try {
             //Calendar calendar = Calendar.getInstance();
             //String time = new String(new Long(calendar.getTimeInMillis()).toString());

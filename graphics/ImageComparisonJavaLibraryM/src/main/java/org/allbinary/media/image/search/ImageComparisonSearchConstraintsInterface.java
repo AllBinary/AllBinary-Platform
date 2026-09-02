@@ -13,9 +13,10 @@
 */
 package org.allbinary.media.image.search;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public interface ImageComparisonSearchConstraintsInterface
 {
-    Vector getStatisticalMatchConstraintsVector();
+    BasicArrayList getStatisticalMatchConstraintsVector();
 }

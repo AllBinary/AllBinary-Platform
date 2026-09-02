@@ -15,7 +15,8 @@ package org.allbinary.graphics.j2me.workarea.canvas;
 
 import java.awt.*;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
@@ -49,6 +50,7 @@ import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.w3c.dom.Node;
 
 public class CanvasJPanel extends javax.swing.JPanel
@@ -275,7 +277,7 @@ public class CanvasJPanel extends javax.swing.JPanel
     //This should be a tool
     public void explodeAll()
     {
-        Vector newPoints = StdUtil.getInstance().createVector();
+        BasicArrayList newPoints = new BasicArrayListD();
         
         final Object[] graphicItemArray = this.getGraphicItemHashMap().keySet().toArray();
         final int size = graphicItemArray.length;

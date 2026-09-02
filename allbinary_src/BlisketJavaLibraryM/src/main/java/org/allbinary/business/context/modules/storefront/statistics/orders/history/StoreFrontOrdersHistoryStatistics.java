@@ -14,7 +14,8 @@
 package org.allbinary.business.context.modules.storefront.statistics.orders.history;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryInterface;
@@ -42,7 +43,7 @@ public class StoreFrontOrdersHistoryStatistics
       this.totalMoney = new Money();
    
       final OrderHistoryEntityInterface orderHistoryEntityInterface = OrderHistoryEntityFactory.getInstance();
-      final Vector orderHistoryInterfaceVector = orderHistoryEntityInterface.getStoreOrders(storeFrontInterface);
+      final BasicArrayList orderHistoryInterfaceVector = orderHistoryEntityInterface.getStoreOrders(storeFrontInterface);
       
       long numberOfOrders = 0;
       OrderHistoryInterface orderHistoryInterface;
@@ -111,7 +112,7 @@ public class StoreFrontOrdersHistoryStatistics
       return hashMap;
    }
 
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
       return null;
    }

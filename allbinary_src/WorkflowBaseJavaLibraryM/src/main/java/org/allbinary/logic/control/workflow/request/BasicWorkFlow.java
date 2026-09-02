@@ -16,7 +16,8 @@ package org.allbinary.logic.control.workflow.request;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.jsp.PageContext;
 
@@ -124,9 +125,9 @@ public class BasicWorkFlow
       return (Object) this.getName();
    }
    
-   public Vector toVector() throws Exception
+   public BasicArrayList toVector() throws Exception
    {
-      Vector values = StdUtil.getInstance().createVector();
+      BasicArrayList values = new BasicArrayListD();
       
       values.add(this.workFlowName);
       values.add(this.storeName);

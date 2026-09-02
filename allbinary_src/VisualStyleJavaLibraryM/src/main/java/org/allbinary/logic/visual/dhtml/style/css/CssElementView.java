@@ -14,7 +14,8 @@
 package org.allbinary.logic.visual.dhtml.style.css;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomData;
 import org.allbinary.data.tree.dom.DomNodeHelper;
@@ -44,12 +45,12 @@ public class CssElementView implements DomNodeInterface
    private String title;
    private String description;
    
-   protected Vector cssElementVector;
-   protected Vector cssPropertyVector;
+   protected BasicArrayList cssElementVector;
+   protected BasicArrayList cssPropertyVector;
    
    public CssElementView()
    {
-      this.cssPropertyVector = StdUtil.getInstance().createVector();
+      this.cssPropertyVector = new BasicArrayListD();
       final StringUtil stringUtil = StringUtil.getInstance();
       this.title = stringUtil.EMPTY_STRING;
       this.description = stringUtil.EMPTY_STRING;
@@ -98,7 +99,7 @@ public class CssElementView implements DomNodeInterface
          }
          
          //Nodes with CssElementData.NAME
-         Vector cssElementStyleNodeVector =
+         BasicArrayList cssElementStyleNodeVector =
          DomSearchHelper.getAllNodes(
             CssElementData.getInstance().NAME, node.getChildNodes());
 

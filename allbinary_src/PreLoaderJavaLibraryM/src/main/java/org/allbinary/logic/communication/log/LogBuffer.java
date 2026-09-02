@@ -13,18 +13,19 @@
 */
 package org.allbinary.logic.communication.log;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 public class LogBuffer
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   Vector logEntryVector;
+   BasicArrayList logEntryVector;
    
    public LogBuffer()
    {
-      this.logEntryVector = StdUtil.getInstance().createVector();
+      this.logEntryVector = new BasicArrayListD();
    }
 
    public void add(Log log)

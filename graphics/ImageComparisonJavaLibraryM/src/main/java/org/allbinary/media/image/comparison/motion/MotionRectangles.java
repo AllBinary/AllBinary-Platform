@@ -13,7 +13,8 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.media.image.comparison.ImageComparisonResult;
 
@@ -21,7 +22,7 @@ public class MotionRectangles
 {
     private final String name;
     
-    private Vector rectangleVector;
+    private BasicArrayList rectangleVector;
 
     private ImageComparisonResult imageComparisonResult;
     
@@ -34,15 +35,15 @@ public class MotionRectangles
     {
         this.name = name;
         this.setImageComparisonResult(imageComparisonResult);
-        this.setVector(new Vector());
+        this.setVector(new BasicArrayListD());
     }
         
-    public Vector getVector()
+    public BasicArrayList getVector()
     {
         return this.rectangleVector;
     }
     
-    public void setVector(Vector rectangleVector)
+    public void setVector(BasicArrayList rectangleVector)
     {
         this.rectangleVector = rectangleVector;
     }

@@ -13,7 +13,8 @@
 */
 package org.allbinary.business.user.role;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -31,9 +32,9 @@ public class StoreRoleFactory {
         return StoreRoleFactory.instance;
     }
 
-    private final Vector<Object> roles = new Vector<Object>();
-    private final Vector<Object> subscriberRoles = new Vector<Object>();
-    private final Vector<Object> wholesaleRoles = new Vector<Object>();
+    private final BasicArrayList roles = new BasicArrayListD();
+    private final BasicArrayList subscriberRoles = new BasicArrayListD();
+    private final BasicArrayList wholesaleRoles = new BasicArrayListD();
 
     private StoreRoleFactory()
     {
@@ -52,7 +53,7 @@ public class StoreRoleFactory {
     /**
      * @return the roles
      */
-    public Vector<Object> getRoles()
+    public BasicArrayList getRoles()
     {
         return this.roles;
     }
@@ -60,7 +61,7 @@ public class StoreRoleFactory {
     /**
      * @return the subscriberRoles
      */
-    public Vector<Object> getSubscriberRoles()
+    public BasicArrayList getSubscriberRoles()
     {
         return this.subscriberRoles;
     }
@@ -68,7 +69,7 @@ public class StoreRoleFactory {
     /**
      * @return the wholesaleRoles
      */
-    public Vector<Object> getWholesaleRoles()
+    public BasicArrayList getWholesaleRoles()
     {
         return this.wholesaleRoles;
     }

@@ -15,7 +15,8 @@ package org.allbinary.business.user.commerce.inventory.item.download;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
@@ -134,11 +135,11 @@ public class DownloadableItem
         //this.lastModified = itemInterface.getLastModified();
     }
 
-    public Vector toVector()
+    public BasicArrayList toVector()
     {
         Calendar calendar = Calendar.getInstance();
         String time = new Long(calendar.getTimeInMillis()).toString();
-        Vector values = StdUtil.getInstance().createVector();
+        BasicArrayList values = new BasicArrayListD();
 
         values.add(getId());
 

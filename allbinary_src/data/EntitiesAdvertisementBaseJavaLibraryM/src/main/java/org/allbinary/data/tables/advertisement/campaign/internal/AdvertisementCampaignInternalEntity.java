@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.advertisement.campaign.internal;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaign;
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaignData;
@@ -45,7 +46,7 @@ public class AdvertisementCampaignInternalEntity extends AbSqlBean
     }
 
     /*
-     public void insert(Vector values)
+     public void insert(BasicArrayList values)
      {
      try
      {
@@ -88,9 +89,9 @@ public class AdvertisementCampaignInternalEntity extends AbSqlBean
     {
         HashMap keysAndValues = StdUtil.getInstance().createHashMap();
         keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
-        Vector hashMapVector = super.getRows(keysAndValues);
+        BasicArrayList hashMapVector = super.getRows(keysAndValues);
 
-        Vector vector = StdUtil.getInstance().createVector();
+        BasicArrayList vector = new BasicArrayListD();
         final int size = hashMapVector.size();
         for (int index = 0; index < size; index++)
         {

@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.workflow;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.BasicDataTableInterface;
 import org.allbinary.logic.control.workflow.WorkFlowInterface;
@@ -23,13 +24,13 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 public interface WorkFlowEntityInterface 
    extends BasicDataTableInterface
 {
-   Vector get(String storeName);
+   BasicArrayList get(String storeName);
 
    WorkFlowInterface get(String name, String storeName) throws Exception, LicensingException;
 
    void delete(String name, String storeName);
    
-   void insert(Vector values);
+   void insert(BasicArrayList values);
 
    void update(HashMap updatedValues);
 }

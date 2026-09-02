@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.user.commerce.inventory.item.customs;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.entry.EntryData;
@@ -39,7 +40,7 @@ public class CustomItemsEntity extends AbSqlBean implements CustomItemsEntityInt
         this.setTableName(this.tableName);
     }
 
-    public void insert(Vector values)
+    public void insert(BasicArrayList values)
     {
         try
         {

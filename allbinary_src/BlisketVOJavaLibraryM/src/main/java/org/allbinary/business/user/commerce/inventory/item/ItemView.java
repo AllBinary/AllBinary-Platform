@@ -15,7 +15,8 @@ package org.allbinary.business.user.commerce.inventory.item;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.address.StreetAddressData;
 import org.allbinary.data.tree.dom.ModDomHelper;
@@ -26,9 +27,9 @@ import org.w3c.dom.Node;
 public class ItemView
 {
     private final OrderItemInterface itemInterface;
-    private final Vector vector;
+    private final BasicArrayList vector;
 
-    public ItemView(OrderItemInterface itemInterface, Vector vector)
+    public ItemView(OrderItemInterface itemInterface, BasicArrayList vector)
     {
         this.itemInterface = itemInterface;
         this.vector = vector;

@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.visual.dhtml.html.select;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.io.LineReader;
@@ -38,7 +39,7 @@ public class HtmlSelect extends HtmlTag
    private String size;
    private String selected;
    
-   private Vector options;
+   private BasicArrayList options;
    
    private String multiple = "multiple";
    private boolean isMultipleSelect = false;
@@ -49,7 +50,7 @@ public class HtmlSelect extends HtmlTag
       this.size = size;
       this.name = name;
       this.after = after;
-      this.options = StdUtil.getInstance().createVector();
+      this.options = new BasicArrayListD();
    }
    
    public void addOption(String key)

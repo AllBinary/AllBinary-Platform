@@ -14,7 +14,8 @@
 package org.allbinary.business.user.commerce.money.payment.types;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 /**
@@ -43,7 +44,7 @@ public class BasicPaymentTypeUtil {
 
     }
 
-   private Vector paymentTypeVector = StdUtil.getInstance().createVector();
+   private BasicArrayList paymentTypeVector = new BasicArrayListD();
 
    public void add(BasicPaymentType paymentType)
    {
@@ -71,9 +72,9 @@ public class BasicPaymentTypeUtil {
       return this.paymentTypeVector.contains(paymentType);
    }
 
-   public Vector difference(Vector a_PaymentTypeVector)
+   public BasicArrayList difference(BasicArrayList a_PaymentTypeVector)
    {
-      Vector diff = StdUtil.getInstance().createVector();
+      BasicArrayList diff = new BasicArrayListD();
       int size = this.paymentTypeVector.size();
       for (int i = 0; i < size; i++)
       {

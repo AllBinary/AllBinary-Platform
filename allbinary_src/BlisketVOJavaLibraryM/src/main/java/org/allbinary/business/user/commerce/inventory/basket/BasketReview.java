@@ -15,7 +15,8 @@ package org.allbinary.business.user.commerce.inventory.basket;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.inventory.item.Item;
 import org.allbinary.business.user.commerce.inventory.item.ItemView;
@@ -25,7 +26,7 @@ import org.w3c.dom.Node;
 
 public class BasketReview
 {
-   Vector items = StdUtil.getInstance().createVector();
+   BasicArrayList items = new BasicArrayListD();
    
    public BasketReview()
    {
@@ -42,7 +43,7 @@ public class BasketReview
       this.items.add(item);
    }
    
-   public Vector getItems()
+   public BasicArrayList getItems()
    {
       return this.items;
    }
@@ -131,7 +132,7 @@ public class BasketReview
       for (int index = 0; index < size; index++)       
       {
          Item item = (Item) itemArray[index];
-         node.appendChild(new ItemView(item, new Vector()).toXmlNode(document));
+         node.appendChild(new ItemView(item, new BasicArrayListD()).toXmlNode(document));
       }
       return node;
    }   

@@ -29,7 +29,7 @@ public class AcceptableResponse
         AcceptableResponseUtil acceptableResponseUtil =
             AcceptableResponseUtil.getInstance();
 
-        acceptableResponseUtil.candidateVector.add(index, candidate);
-        acceptableResponseUtil.tagNameVector.add(index, tagName);
+        acceptableResponseUtil.candidateVector.addAt(index, candidate);
+        acceptableResponseUtil.tagNameVector.addAt(index, tagName);
     }
 }

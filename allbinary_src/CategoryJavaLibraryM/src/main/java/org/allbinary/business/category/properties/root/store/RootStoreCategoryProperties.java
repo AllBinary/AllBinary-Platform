@@ -14,7 +14,8 @@
 package org.allbinary.business.category.properties.root.store;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -220,9 +221,9 @@ public class RootStoreCategoryProperties
       return categoryHashMap;
    }
 
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
-      Vector categoryVector = StdUtil.getInstance().createVector();
+      BasicArrayList categoryVector = new BasicArrayListD();
       categoryVector.add(this.getValue());
       //categoryVector.add(new Integer(this.level).toString());
       return categoryVector;

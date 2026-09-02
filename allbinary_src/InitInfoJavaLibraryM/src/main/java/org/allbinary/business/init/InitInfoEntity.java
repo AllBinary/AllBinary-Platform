@@ -14,7 +14,8 @@
 package org.allbinary.business.init;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.logic.StdUtil;
@@ -137,7 +138,7 @@ public class InitInfoEntity extends InitSql
     {
         try
         {
-            Vector values = StdUtil.getInstance().createVector();
+            BasicArrayList values = new BasicArrayListD();
             values.add(this.NOTHING);
             values.add(InitInfo.getInstance().getTesting());
             values.add(InitInfo.getInstance().getTestHtmlPath());

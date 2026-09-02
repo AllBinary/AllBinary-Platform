@@ -14,7 +14,8 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.jsp.PageContext;
 
@@ -53,7 +54,7 @@ public class DownloadItemsRequestHelper extends ModifyTable
     {
         try
         {
-            Vector vector = this.downloadableItem.toVector();
+            BasicArrayList vector = this.downloadableItem.toVector();
 
             DownloadItemsEntityFactory.getInstance().getDownloadItemsEntityInstance().insert(vector);
 

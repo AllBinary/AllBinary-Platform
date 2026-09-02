@@ -15,7 +15,8 @@ package org.allbinary.business.user.modules;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -472,9 +473,9 @@ public class User implements UserInterface
       return this.password.get();
    }
    
-   public Vector toVector() throws Exception
+   public BasicArrayList toVector() throws Exception
    {
-      Vector values = StdUtil.getInstance().createVector();
+      BasicArrayList values = new BasicArrayListD();
       values.add(this.userName);
       values.add(this.prefixName);
       values.add(this.firstName);
@@ -499,7 +500,7 @@ public class User implements UserInterface
       
       values.add(this.permissions);
       
-      values.addAll(this.password.toVector(this.secret));
+      values.addAllList(this.password.toVector(this.secret));
       
       values.add(this.enable);
       

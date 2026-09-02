@@ -15,7 +15,8 @@ package org.allbinary.data.tables.user.commerce.money.payment.transaction;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.UserDbInitInfo;
@@ -67,11 +68,11 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
     {
         try
         {
-            Vector values = StdUtil.getInstance().createVector();
+            BasicArrayList values = new BasicArrayListD();
 
             values.add(orderNumber);
             values.add(userName);
-            values.addAll(paymentTransactionInterface.toVector());
+            values.addAllList(paymentTransactionInterface.toVector());
 
             Calendar calendar = Calendar.getInstance();
             String time = new String(new Long(calendar.getTimeInMillis()).toString());

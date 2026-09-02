@@ -15,7 +15,8 @@ package admin.tags;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspTagException;
@@ -40,7 +41,7 @@ public class AuthenticationTag extends CustomTagSupport
     private String userName;
     private String password;
     private String newPassword;
-    private Vector roles;
+    private BasicArrayList roles;
     private HashMap propertiesHashMap;
 
     public AuthenticationTag()
@@ -70,7 +71,7 @@ public class AuthenticationTag extends CustomTagSupport
         this.newPassword = value;
     }
 
-    public void setRoles(Vector values)
+    public void setRoles(BasicArrayList values)
     {
         this.roles = values;
     }

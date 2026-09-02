@@ -13,13 +13,14 @@
 */
 package org.allbinary.business.user.commerce.shipping;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
 
 public interface ShippingMethodsInterface
 {         
-   Vector get();
+   BasicArrayList get();
 
    ShippingInterface getShippingInterface(String name) throws Exception;
 

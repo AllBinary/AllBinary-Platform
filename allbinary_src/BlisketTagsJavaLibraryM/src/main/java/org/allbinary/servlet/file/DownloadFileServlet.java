@@ -93,7 +93,7 @@ public class DownloadFileServlet extends HttpServlet
             //HashMap should have storename added
             HashMap hashMap = StdUtil.getInstance().createHashMap();
 
-            //Vector roleVector = StdUtil.getInstance().createVector();
+            //BasicArrayList roleVector = new BasicArrayListD();
 
             AuthenticationHelper authenticationHelper =
                 (AuthenticationHelper) new AuthenticationHelperFactory().getInstance(

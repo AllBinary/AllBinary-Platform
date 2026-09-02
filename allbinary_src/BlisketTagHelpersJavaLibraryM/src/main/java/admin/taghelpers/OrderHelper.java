@@ -14,7 +14,8 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
@@ -83,7 +84,7 @@ public class OrderHelper
 
             //Otherwise set if only one payment gateway is available
             PaymentGatewayEntity paymentGatewayEntityInterface = (PaymentGatewayEntity) PaymentGatewayEntityFactory.getInstance();
-            Vector paymentTypeVector =
+            BasicArrayList paymentTypeVector =
                 paymentGatewayEntityInterface.findPaymentTypeVectorByStore(
                 this.weblisketSession.getStoreName());
 

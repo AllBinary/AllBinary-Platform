@@ -13,7 +13,8 @@
 */
 package views.business.context;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringValidationUtil;
@@ -76,7 +77,7 @@ public class RootContextView extends HttpStoreComponentView
                this.getTransformInfoInterface(), 
                this.getTransformInfoInterface().getObjectConfigInterface().toXmlDoc());
 
-         Vector componentsVector = objectConfig.getTransforms();
+         BasicArrayList componentsVector = objectConfig.getTransforms();
          if(componentsVector.size() == 0)
          {
             throw new Exception("Template View Not Set - No Components");

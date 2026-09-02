@@ -13,7 +13,8 @@
 */
 package views.generic.inventory;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.inventory.item.BasicItemView;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
@@ -63,7 +64,7 @@ public class InventorySearchProductUtil {
                     TransformStoreDocumentFactory.getInstance(searchRequest);
 
                 viewDocumentInterface.getBaseNode().appendChild(
-                    new BasicItemView(itemInterface, new Vector()).toXmlNode(
+                    new BasicItemView(itemInterface, new BasicArrayListD()).toXmlNode(
                     viewDocumentInterface.getDoc()));
 
                 String success = DomDocumentHelper.toString(viewDocumentInterface.getDoc());

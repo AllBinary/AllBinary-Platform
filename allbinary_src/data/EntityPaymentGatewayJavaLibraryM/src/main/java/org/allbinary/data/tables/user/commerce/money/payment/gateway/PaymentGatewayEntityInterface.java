@@ -13,7 +13,8 @@
 */
 package org.allbinary.data.tables.user.commerce.money.payment.gateway;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterface;
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
@@ -23,7 +24,7 @@ public interface PaymentGatewayEntityInterface extends BasicDataTableInterface
 {
    PaymentGatewayInterface getPaymentGatewayInterface(String storeName, BasicPaymentType paymentType);
    
-   Vector findPaymentTypeVectorByStore(String storeName);
+   BasicArrayList findPaymentTypeVectorByStore(String storeName);
  
    void remove(String storeName, BasicPaymentType paymentType);
 

@@ -14,7 +14,8 @@
 package org.allbinary.logic.string.tokens;
 
 import java.util.HashSet;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.io.path.AbPathData;
@@ -26,7 +27,7 @@ import org.allbinary.util.BasicArrayListD;
 
 public class UniqueTokens
 {
-	private final Vector specialCharacters = StdUtil.getInstance().createVector();
+	private final BasicArrayList specialCharacters = new BasicArrayListD();
 	
    public UniqueTokens()
    {
@@ -56,7 +57,7 @@ public class UniqueTokens
 	   this.specialCharacters.add("`");
    }
    
-   public HashSet getWhithoutDashesAndSkipNumberOnlyTokens(Vector stringVector) throws Exception
+   public HashSet getWhithoutDashesAndSkipNumberOnlyTokens(BasicArrayList stringVector) throws Exception
    {
       try
       {         
@@ -67,7 +68,7 @@ public class UniqueTokens
          
          while(index < stringVector.size())
          {
-            String keywords = (String) stringVector.elementAt(index);
+            String keywords = (String) stringVector.get(index);
             Tokenizer tokenizer = new Tokenizer(commonSeps.COMMA);
             BasicArrayList keywordVector = tokenizer.getTokensFromString(keywords, new BasicArrayListD());
                         
@@ -119,7 +120,7 @@ public class UniqueTokens
    {      
       for(int index=0; index< this.specialCharacters.size(); index++)
       {
-         if(subCleaningString.compareTo((String) this.specialCharacters.elementAt(index))==0)
+         if(subCleaningString.compareTo((String) this.specialCharacters.get(index))==0)
             return true;
       }
       return false;

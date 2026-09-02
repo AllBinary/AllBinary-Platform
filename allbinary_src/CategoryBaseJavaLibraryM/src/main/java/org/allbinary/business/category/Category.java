@@ -14,7 +14,8 @@
 package org.allbinary.business.category;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.category.hierarchy.CategoryHierarchy;
 import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
@@ -40,9 +41,9 @@ public class Category
     
     private CategoryHierarchyInterface categoryHierarchyInterface;
     private CategoryPropertiesInterface categoryPropertiesInterface;
-    //Vector of child Categories
-    private final Vector childCategoryVector = StdUtil.getInstance().createVector();
-    private final Vector typeVector = StdUtil.getInstance().createVector();
+    //BasicArrayList of child Categories
+    private final BasicArrayList childCategoryVector = new BasicArrayListD();
+    private final BasicArrayList typeVector = new BasicArrayListD();
     private final Integer PROPERTIES = new Integer(1);
     private final Integer CATEGORY = new Integer(0);
 
@@ -158,7 +159,7 @@ public class Category
         return this.childCategoryVector.add(categoryInterface);
     }
 
-    public Vector getChildNodes()
+    public BasicArrayList getChildNodes()
     {
         return this.childCategoryVector;
     }
@@ -168,7 +169,7 @@ public class Category
 
     public synchronized boolean removeChild(CategoryInterface categoryInterface)
     {
-        final Vector removalVector = StdUtil.getInstance().createVector();
+        final BasicArrayList removalVector = new BasicArrayListD();
 
         boolean bool_return = false;
 
@@ -196,7 +197,7 @@ public class Category
         return bool_return;
     }
 
-    private final void removal(Vector removalVector)
+    private final void removal(BasicArrayList removalVector)
     {
         final int removalSize = removalVector.size();
         for (int index = 0; index < removalSize; index++)
@@ -213,7 +214,7 @@ public class Category
 
     private synchronized boolean removeDuplicateChild(CategoryInterface categoryInterface)
     {
-        final Vector removalVector = StdUtil.getInstance().createVector();
+        final BasicArrayList removalVector = new BasicArrayListD();
 
         boolean bool_return = false;
 
@@ -348,9 +349,9 @@ public class Category
         return categoryHashMap;
     }
 
-    public Vector toVector() throws Exception
+    public BasicArrayList toVector() throws Exception
     {
-        Vector categoryVector = this.categoryPropertiesInterface.toVector();
+        BasicArrayList categoryVector = this.categoryPropertiesInterface.toVector();
         categoryVector.add(this.childCategoryVector);
         return categoryVector;
     }

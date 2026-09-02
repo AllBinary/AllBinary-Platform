@@ -14,7 +14,8 @@
 package org.allbinary.business.context.modules.storefront.statistics.advertisements;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.logic.StdUtil;
@@ -49,7 +50,7 @@ implements StoreFrontAdvertisementsStatisticsInterface
       return hashMap;
    }
 
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
       return null;
    }

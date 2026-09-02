@@ -14,7 +14,8 @@
 package org.allbinary.logic.communication.smtp.configuration.user.event;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.StdUtil;
@@ -43,9 +44,9 @@ public class UserEmailEventConfigurationMapping implements TableMappingInterface
       return UserEmailEventConfigurationData.NAME;
    }
    
-   public Vector toVector() throws Exception
+   public BasicArrayList toVector() throws Exception
    {
-      Vector vector = StdUtil.getInstance().createVector();
+      BasicArrayList vector = new BasicArrayListD();
 
       vector.add(this.userEmailEventConfigurationInterface.getName());
       vector.add(this.userEmailEventConfigurationInterface.getEventListenerClassPath());

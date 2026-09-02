@@ -15,7 +15,8 @@ package org.allbinary.media.image.comparison.motion;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.automation.ImageOutputData;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -171,7 +172,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
                 bufferedImageCacheables[index].getBufferedImage().getGraphics();
         }
         
-        final Vector rectangelList = motionRectangles.getVector();
+        final BasicArrayList rectangelList = motionRectangles.getVector();
         final int size = rectangelList.size();
         for(int index2 = 0; index2 < size; index2++)
         {

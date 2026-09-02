@@ -16,7 +16,8 @@ package org.allbinary.logic.system.hardware.linux;
 import java.io.FileReader;
 import java.io.LineNumberReader;
 import java.util.Hashtable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -50,18 +51,18 @@ public class LinuxHardware implements HardwareInterface
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-   private Vector componentInterfaceVector;
-   private Vector videoInterfaceVector;
-   private Vector hardDriveControllerInterfaceVector;
-   private Vector cpuInterfaceVector;
-   private Vector usbInterfaceVector;
-   private Vector ethernetInterfaceVector;
-   private Vector multimediaInterfaceVector;
-   private Vector fireWireInterfaceVector;
-   private Vector bridgeInterfaceVector;
-   private Vector hardDriveInterfaceVector;
-   private Vector macInterfaceVector;
-   private Vector monitorInterfaceVector;
+   private BasicArrayList componentInterfaceVector;
+   private BasicArrayList videoInterfaceVector;
+   private BasicArrayList hardDriveControllerInterfaceVector;
+   private BasicArrayList cpuInterfaceVector;
+   private BasicArrayList usbInterfaceVector;
+   private BasicArrayList ethernetInterfaceVector;
+   private BasicArrayList multimediaInterfaceVector;
+   private BasicArrayList fireWireInterfaceVector;
+   private BasicArrayList bridgeInterfaceVector;
+   private BasicArrayList hardDriveInterfaceVector;
+   private BasicArrayList macInterfaceVector;
+   private BasicArrayList monitorInterfaceVector;
    
    private final static String PCIFILE = "/proc/pci";
    private final String NAME = "Linux Hardware Profile";
@@ -117,18 +118,18 @@ public class LinuxHardware implements HardwareInterface
    {
       try
       {
-         this.componentInterfaceVector = StdUtil.getInstance().createVector();
-         this.videoInterfaceVector = StdUtil.getInstance().createVector();
-         this.hardDriveControllerInterfaceVector = StdUtil.getInstance().createVector();
-         this.cpuInterfaceVector = StdUtil.getInstance().createVector();
-         this.usbInterfaceVector = StdUtil.getInstance().createVector();
-         this.ethernetInterfaceVector = StdUtil.getInstance().createVector();
-         this.multimediaInterfaceVector = StdUtil.getInstance().createVector();
-         this.fireWireInterfaceVector = StdUtil.getInstance().createVector();
-         this.bridgeInterfaceVector = StdUtil.getInstance().createVector();
-         this.hardDriveInterfaceVector = StdUtil.getInstance().createVector();
-         this.macInterfaceVector = StdUtil.getInstance().createVector();
-         this.monitorInterfaceVector = StdUtil.getInstance().createVector();
+         this.componentInterfaceVector = new BasicArrayListD();
+         this.videoInterfaceVector = new BasicArrayListD();
+         this.hardDriveControllerInterfaceVector = new BasicArrayListD();
+         this.cpuInterfaceVector = new BasicArrayListD();
+         this.usbInterfaceVector = new BasicArrayListD();
+         this.ethernetInterfaceVector = new BasicArrayListD();
+         this.multimediaInterfaceVector = new BasicArrayListD();
+         this.fireWireInterfaceVector = new BasicArrayListD();
+         this.bridgeInterfaceVector = new BasicArrayListD();
+         this.hardDriveInterfaceVector = new BasicArrayListD();
+         this.macInterfaceVector = new BasicArrayListD();
+         this.monitorInterfaceVector = new BasicArrayListD();
          
          FileReader pciFile = new FileReader(filePath);
          lineNumberReader = new LineNumberReader(pciFile);

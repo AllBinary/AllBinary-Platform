@@ -14,7 +14,8 @@
 package org.allbinary.business.user.commerce.money.payment.types;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterfaceFactoryInterface;
@@ -103,9 +104,9 @@ public class BasicPaymentType
       return this.getName();
    }
    
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
-      Vector vector = StdUtil.getInstance().createVector();
+      BasicArrayList vector = new BasicArrayListD();
       
       vector.add(this.name);
       vector.add(this.value);
@@ -130,9 +131,9 @@ public class BasicPaymentType
 
 
    /*
-   public synchronized static Vector getAllPaymentGateways()
+   public synchronized static BasicArrayList getAllPaymentGateways()
    {
-      Vector result = StdUtil.getInstance().createVector();
+      BasicArrayList result = new BasicArrayListD();
     
       iter = paymentMethods;
     

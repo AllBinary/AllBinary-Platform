@@ -14,7 +14,8 @@
 package org.allbinary.input.automation.module.generic.configuration.profile;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
@@ -30,13 +31,13 @@ public class GenericProfile
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private String name;
-    private Vector vector;
+    private BasicArrayList vector;
     private GenericProfileActions genericProfileActions;
     
     public GenericProfile(Node node)
     {
         this.setName(DomNodeHelper.getTextNodeValue(node));
-        this.vector = StdUtil.getInstance().createVector();
+        this.vector = new BasicArrayListD();
         
         NodeList nodeList = node.getChildNodes();
         
@@ -61,10 +62,10 @@ public class GenericProfile
     {
         this.setName(name);
         
-        this.vector = StdUtil.getInstance().createVector();
+        this.vector = new BasicArrayListD();
     }
     
-    public Vector getGenericProfileDataWorkerTypeVector()
+    public BasicArrayList getGenericProfileDataWorkerTypeVector()
     {
         return this.vector;
     }

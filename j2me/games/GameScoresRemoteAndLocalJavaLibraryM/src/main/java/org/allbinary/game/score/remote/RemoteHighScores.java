@@ -15,7 +15,8 @@ package org.allbinary.game.score.remote;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.score.HighScore;
@@ -99,11 +100,11 @@ public class RemoteHighScores extends HighScores {
     //This is called when the data comes back in the response
     public void update(final Hashtable hashtable) {
         this.getList().clear();
-        final Vector vector = (Vector) hashtable.get((Object) RemoteHighScoresData.getInstance().HIGH_SCORES);
+        final BasicArrayList vector = (Vector) hashtable.get((Object) RemoteHighScoresData.getInstance().HIGH_SCORES);
         if (vector != null) {
             final int size = vector.size();
             for (int index = 0; index < size; index++) {
-                final Vector highScoreVector = (Vector) vector.elementAt(index);
+                final BasicArrayList highScoreVector = (Vector) vector.elementAt(index);
                 final String displayName = (String) highScoreVector.elementAt(0);
                 final String score = (String) highScoreVector.elementAt(1);
 

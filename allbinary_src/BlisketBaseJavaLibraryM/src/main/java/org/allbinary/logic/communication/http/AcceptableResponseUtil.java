@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.communication.http;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.TsUtil;
 import org.allbinary.logic.StdUtil;
@@ -31,8 +32,8 @@ public class AcceptableResponseUtil
     {
         TsUtil.getInstance().hashCode(AcceptableResponseFactory.getInstance().HTML);
     }
-    public final Vector candidateVector = StdUtil.getInstance().createVector();
-    public final Vector tagNameVector = StdUtil.getInstance().createVector();
+    public final BasicArrayList candidateVector = new BasicArrayListD();
+    public final BasicArrayList tagNameVector = new BasicArrayListD();
 
     public String get(int index)
     {

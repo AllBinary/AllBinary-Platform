@@ -14,7 +14,8 @@
 package org.allbinary.business.context.configuration;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.StdUtil;
@@ -41,9 +42,9 @@ public class ContextConfigurationTableMapping implements TableMappingInterface
       return ContextConfigurationData.getInstance().NAME;
    }
    
-   public Vector toVector() throws Exception
+   public BasicArrayList toVector() throws Exception
    {
-      Vector vector = StdUtil.getInstance().createVector();
+      BasicArrayList vector = new BasicArrayListD();
 
       return vector;
    }   

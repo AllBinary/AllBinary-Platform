@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.visual.transform.generator;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -73,7 +74,7 @@ public class TransformsGeneratorUtil
             this.logUtil.putF("Started Group: " + group,this, "generateComponentsFromObjectConfig()");
         }
 
-        Vector transformInfoObjectConfigComponentVector =
+        BasicArrayList transformInfoObjectConfigComponentVector =
             transformInfoObjectConfigInterface.getTransformsGroup(group);
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))

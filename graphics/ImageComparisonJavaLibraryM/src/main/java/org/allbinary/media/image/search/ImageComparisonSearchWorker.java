@@ -14,7 +14,8 @@
 package org.allbinary.media.image.search;
 
 import java.awt.image.BufferedImage;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -35,7 +36,7 @@ public class ImageComparisonSearchWorker
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final Vector imageComparisonInfoVector;
+    private final BasicArrayList imageComparisonInfoVector;
     
     private long index;
     
@@ -46,7 +47,7 @@ public class ImageComparisonSearchWorker
     public ImageComparisonSearchWorker(
         ImageComparisonSearchConstraintsInterface imageSearchConstraintsInterface)
     {
-        this.imageComparisonInfoVector = StdUtil.getInstance().createVector();
+        this.imageComparisonInfoVector = new BasicArrayListD();
         
         this.imageSearchConstraintsInterface =
             imageSearchConstraintsInterface;

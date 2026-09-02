@@ -15,7 +15,8 @@ package org.allbinary.input.automation.module.game.test;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.automation.module.AbstractInputAutomationWorker;
 import org.allbinary.input.automation.module.InputAutomationActionInterface;
@@ -83,7 +84,7 @@ public class TestInputAutomationCaptureWorker
                     (GenericProfileAction) hashMap.get(actionNameString);
                 GenericProfileActionScript genericProfileActionScript =
                     genericProfileAction.getGenericProfileActionScript();
-                Vector vector = genericProfileActionScript.getProfileActionConditionInterfaceVector();
+                BasicArrayList vector = genericProfileActionScript.getProfileActionConditionInterfaceVector();
                 //CaptureWorkerUtil.processProfileActionConditions(vector,
                   //  capturedBufferedImageCacheable);
             }

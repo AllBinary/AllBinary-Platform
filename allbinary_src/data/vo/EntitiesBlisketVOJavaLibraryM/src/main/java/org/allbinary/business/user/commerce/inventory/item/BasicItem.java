@@ -15,7 +15,8 @@ package org.allbinary.business.user.commerce.inventory.item;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.money.Money;
@@ -525,14 +526,14 @@ public class BasicItem implements ItemInterface
         return hashMap;
     }
 
-    public Vector toVector()
+    public BasicArrayList toVector()
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             this.logUtil.putF(this.commonStrings.START, this, "toVector");
         }
 
-        Vector values = StdUtil.getInstance().createVector();
+        BasicArrayList values = new BasicArrayListD();
         values.add(this.itemId);
         values.add(this.number);
         values.add(this.inBaskets);

@@ -13,7 +13,8 @@
 */
 package org.allbinary.osgi.service;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.osgi.framework.BundleContext;
@@ -39,11 +40,11 @@ public class OSGIServiceUtil
     {
     }
     
-    public Vector getServicesObjectVector(
+    public BasicArrayList getServicesObjectVector(
         final BundleContext bundleContext, final ServiceReference[] serviceReferences)
         throws Exception
     {
-        final Vector vector = StdUtil.getInstance().createVector();
+        final BasicArrayList vector = new BasicArrayListD();
         
         if(serviceReferences != null)
         {

@@ -13,7 +13,8 @@
 */
 package org.allbinary.graphics.form.item.validation;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.graphics.form.item.ABTextFieldItem;
 import org.allbinary.logic.control.validate.ValidatorBase;
@@ -46,9 +47,9 @@ public class NumberTextFieldItemValidator extends ValidatorBase
         return BooleanFactory.getInstance().TRUE;
     }
 
-    protected Vector<Object> toNumberVector(Integer value)
+    protected BasicArrayList toNumberVector(Integer value)
     {
-        return new Vector<Object>();
+        return new BasicArrayListD();
     }
         
     @Override

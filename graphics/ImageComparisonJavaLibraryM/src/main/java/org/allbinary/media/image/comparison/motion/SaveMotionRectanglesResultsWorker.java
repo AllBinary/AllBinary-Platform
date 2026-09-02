@@ -13,7 +13,8 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -31,14 +32,14 @@ public class SaveMotionRectanglesResultsWorker
     
     private boolean running;
     
-    private Vector motionRectanglesVector;
+    private BasicArrayList motionRectanglesVector;
     
     public SaveMotionRectanglesResultsWorker()
     {
-        this.motionRectanglesVector = StdUtil.getInstance().createVector();
+        this.motionRectanglesVector = new BasicArrayListD();
     }
 
-    public Vector getMotionRectanglesVector()
+    public BasicArrayList getMotionRectanglesVector()
     {
         return this.motionRectanglesVector;
     }

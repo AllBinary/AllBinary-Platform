@@ -13,7 +13,8 @@
 */
 package views.generic.order.history;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -66,7 +67,7 @@ implements DomNodeInterface
          
          //Note all generic views should be removed from admin pages because a user
          //could pass in false hidden data
-         final Vector orderReviewVector = 
+         final BasicArrayList orderReviewVector = 
             orderHistoryEntity.getOrders(
                this.getWeblisketSession().getUserName());
          

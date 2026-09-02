@@ -14,14 +14,15 @@
 package org.allbinary.input.media.image;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 public class InputImageType
 {
     private static HashMap hashMap = StdUtil.getInstance().createHashMap();
 
-    private final static Vector TYPE_VECTOR = StdUtil.getInstance().createVector();
+    private final static BasicArrayList TYPE_VECTOR = new BasicArrayListD();
     
     public static InputImageType CAPTURE = new InputImageType("Capture", 0);
     public static InputImageType COMPARISON = new InputImageType("Comparison", 1);
@@ -53,7 +54,7 @@ public class InputImageType
         return (InputImageType) InputImageType.hashMap.get(imageTypeString);
     }
     
-    public static Vector getAllAsVector()
+    public static BasicArrayList getAllAsVector()
     {
         return InputImageType.TYPE_VECTOR;
     }

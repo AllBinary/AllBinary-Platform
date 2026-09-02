@@ -14,7 +14,8 @@
 package views.admin.customizers;
 
 import java.util.Arrays;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.data.tree.dom.DomNodeInterface;
@@ -41,7 +42,7 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    protected final Vector customizersVector;
+    protected final BasicArrayList customizersVector;
 
     public CustomizersView(TransformInfoInterface transformInfoInterface) throws Exception {
         super(transformInfoInterface);
@@ -55,7 +56,7 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
         try {
             final Node node = document.createElement(TransformTemplateCustomizersData.NAME);
 
-            final Vector unsortedCustomizerViewVector = StdUtil.getInstance().createVector();
+            final BasicArrayList unsortedCustomizerViewVector = new BasicArrayListD();
 
             final int size = this.customizersVector.size();
             for (int index = 0; index < size; index++) {

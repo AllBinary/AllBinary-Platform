@@ -14,7 +14,8 @@
 package views.admin.orderhistory;
 
 import java.util.Calendar;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -166,7 +167,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             {
                Node preprocessingNode = document.createElement(OrderHistoryData.PREPROCESSING);
              
-               Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PREPROCESSING ,fromDate, toDate);
+               BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PREPROCESSING ,fromDate, toDate);
              
                iter = orderHistoryVector;
                while(iter.hasNext())
@@ -181,7 +182,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             {
                Node shippedNode = document.createElement(OrderHistoryData.SHIPPED);
              
-               Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.SHIPPED ,fromDate, toDate);
+               BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.SHIPPED ,fromDate, toDate);
              
                iter = orderHistoryVector;
                while(iter.hasNext())
@@ -196,7 +197,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             {
                Node partiallyShippedNode = document.createElement(OrderHistoryData.PARTIALLYSHIPPED);
              
-               Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PARTIALLYSHIPPED ,fromDate, toDate);
+               BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PARTIALLYSHIPPED ,fromDate, toDate);
              
                iter = orderHistoryVector;
                while(iter.hasNext())
@@ -211,7 +212,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             {
                Node processingNode = document.createElement(OrderHistoryData.PROCESSING);
              
-               Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PROCESSING ,fromDate, toDate);
+               BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PROCESSING ,fromDate, toDate);
              
                iter = orderHistoryVector();
                while(iter.hasNext())
@@ -226,7 +227,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             {
                Node cancelledNode = document.createElement(OrderHistoryData.CANCELLED);
              
-               Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.CANCELLED ,fromDate, toDate);
+               BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.CANCELLED ,fromDate, toDate);
              
                iter = orderHistoryVector;
                while(iter.hasNext())
@@ -239,7 +240,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
              */
          
             /*
-            Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(fromDate, toDate);
+            BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(fromDate, toDate);
              
             iter = orderHistoryVector;
             while(iter.hasNext())
@@ -256,7 +257,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                this.logUtil.putF("Adding Preprocessing Orders", this, "toXmlNode");
             }
             
-            Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PREPROCESSING ,fromDate, toDate);
+            BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PREPROCESSING ,fromDate, toDate);
             
             final int size = orderHistoryVector.size();
             for(int index = 0; index < size; index++)
@@ -273,7 +274,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                this.logUtil.putF("Adding Shipped Orders",this, "toXmlNode");
             }
 
-            Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.SHIPPED ,fromDate, toDate);
+            BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.SHIPPED ,fromDate, toDate);
             
             final int size = orderHistoryVector.size();
             for(int index = 0; index < size; index++)
@@ -290,7 +291,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                this.logUtil.putF("Adding Partially Shipped Orders", this, "toDomNode");
             }
             
-            Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PARTIALLYSHIPPED ,fromDate, toDate);
+            BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PARTIALLYSHIPPED ,fromDate, toDate);
             
             final int size = orderHistoryVector.size();
             for(int index = 0; index < size; index++)
@@ -307,7 +308,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                this.logUtil.putF("Adding Processing Orders", this, "toXmlNode");
             }
             
-            Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PROCESSING ,fromDate, toDate);
+            BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PROCESSING ,fromDate, toDate);
             
             final int size = orderHistoryVector.size();
             for(int index = 0; index < size; index++)
@@ -324,7 +325,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                this.logUtil.putF("Adding Cancelled Orders", this, "view");
             }
             
-            Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.CANCELLED ,fromDate, toDate);
+            BasicArrayList orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.CANCELLED ,fromDate, toDate);
             
             final int size = orderHistoryVector.size();
             for(int index = 0; index < size; index++)

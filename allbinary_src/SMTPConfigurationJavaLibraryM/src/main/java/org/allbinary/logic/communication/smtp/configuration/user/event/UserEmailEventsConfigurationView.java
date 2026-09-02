@@ -15,7 +15,8 @@ package org.allbinary.logic.communication.smtp.configuration.user.event;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.DomSearchHelper;
@@ -40,7 +41,7 @@ public class UserEmailEventsConfigurationView implements DomNodeInterface
       
       NodeList childNodeList = node.getChildNodes();
 
-      Vector emailEventConfigurationNodeVector = 
+      BasicArrayList emailEventConfigurationNodeVector = 
          DomSearchHelper.getAllNodesNoThrow(
             UserEmailEventConfigurationData.NAME, childNodeList);
 

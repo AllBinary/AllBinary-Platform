@@ -14,7 +14,8 @@
 package views.generic.inventory;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.user.commerce.inventory.InventoryData;
@@ -56,7 +57,7 @@ public class InventoryView extends HttpStoreComponentView
          
          Node inventoryNode = document.createElement(InventoryData.INVENTORY);
          
-         Vector itemVector = inventoryEntityInterface.getItems(
+         BasicArrayList itemVector = inventoryEntityInterface.getItems(
             StoreFrontFactory.getInstance(this.getTransformInfoInterface().getStoreName()));
          
          inventoryNode.appendChild(
@@ -72,7 +73,7 @@ public class InventoryView extends HttpStoreComponentView
             ItemInterface itemInterface = (ItemInterface) itemVector.get(index);
             if(itemInterface!=null)
             {
-               Node node = new BasicItemView(itemInterface, new Vector()).toXmlNode(document);
+               Node node = new BasicItemView(itemInterface, new BasicArrayListD()).toXmlNode(document);
                inventoryNode.appendChild(node);
             }
             else

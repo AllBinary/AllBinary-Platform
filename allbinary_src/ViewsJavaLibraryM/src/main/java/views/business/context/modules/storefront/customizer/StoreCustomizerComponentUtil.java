@@ -14,7 +14,8 @@
 package views.business.context.modules.storefront.customizer;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
@@ -48,7 +49,7 @@ public class StoreCustomizerComponentUtil
 
         final CustomizerUtil customizerUtil = CustomizerUtil.getInstance();
 
-        Vector allCustomizedViews =
+        BasicArrayList allCustomizedViews =
             customizerUtil.getTransformInfoObjectConfigGroupComponentNodes(
             transformInfoInterface);
 
@@ -58,7 +59,7 @@ public class StoreCustomizerComponentUtil
             TransformInfo nextTransformInfoInterface =
                 (TransformInfo) allCustomizedViews.get(index);
 
-            Vector allViewsToBeModified =
+            BasicArrayList allViewsToBeModified =
                 customizerUtil.getTransformInfoObjectConfigComponentNodesToCustomize(
                 transformInfoInterface, nextTransformInfoInterface);
 
@@ -74,7 +75,7 @@ public class StoreCustomizerComponentUtil
 
     private final void generate(
         final AbeClientInformationInterface abeClientInformation,
-        TransformInfoInterface transformInfoInterface, Vector allViewsToBeModifiedVector)
+        TransformInfoInterface transformInfoInterface, BasicArrayList allViewsToBeModifiedVector)
         throws Exception
     {
         final CustomizerUtil customizerUtil = CustomizerUtil.getInstance();
@@ -115,7 +116,7 @@ public class StoreCustomizerComponentUtil
     this.getTransformInfoInterface().getName(),this,"generateModifiedViews()");
     }
 
-    Vector allCustomizedViews =
+    BasicArrayList allCustomizedViews =
     CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(
     this.getTransformInfoInterface());
 
@@ -131,7 +132,7 @@ public class StoreCustomizerComponentUtil
     transformInfoObjectConfigComponentNode.getName(),this,"generateModifiedViews()");
     }
 
-    Vector allViewsToBeModified =
+    BasicArrayList allViewsToBeModified =
     CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodesToCustomize(
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponentNode);
@@ -170,7 +171,7 @@ public class StoreCustomizerComponentUtil
     this.getTransformInfoInterface().getName(),this,"generateModifiedViews()");
     }
 
-    Vector allCustomizedViews =
+    BasicArrayList allCustomizedViews =
     CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(
     this.getTransformInfoInterface());
 
@@ -186,7 +187,7 @@ public class StoreCustomizerComponentUtil
     transformInfoObjectConfigComponentNode.getName(),this,"generateModifiedViews()");
     }
 
-    Vector allViewsToBeModified =
+    BasicArrayList allViewsToBeModified =
     CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodesToCustomize(
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponentNode);
@@ -227,7 +228,7 @@ public class StoreCustomizerComponentUtil
     this.getTransformInfoInterface().getName(),this,"generateModifiedViews()");
     }
 
-    Vector allCustomizedViews =
+    BasicArrayList allCustomizedViews =
     CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(
     this.getTransformInfoInterface());
 
@@ -243,7 +244,7 @@ public class StoreCustomizerComponentUtil
     transformInfoObjectConfigComponentNode.getName(),this,"generateModifiedViews()");
     }
 
-    Vector allViewsToBeModified =
+    BasicArrayList allViewsToBeModified =
     CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodesToCustomize(
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponentNode);

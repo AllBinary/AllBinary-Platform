@@ -32,11 +32,11 @@ public class GenericCssStyleValidation extends Validation implements DomNodeInte
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     
-   //private Vector styles;
+   //private BasicArrayList styles;
 
    public GenericCssStyleValidation()
    {
-      //this.styles = StdUtil.getInstance().createVector();
+      //this.styles = new BasicArrayListD();
    }
 
    public GenericCssStyleValidation(Document document) throws Exception

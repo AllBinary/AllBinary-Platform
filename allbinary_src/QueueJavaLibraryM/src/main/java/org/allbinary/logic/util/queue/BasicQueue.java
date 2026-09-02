@@ -13,12 +13,12 @@
 */
 package org.allbinary.logic.util.queue;
 
-import java.util.Vector;
-import org.allbinary.logic.StdUtil;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BasicQueue
 {
-   protected final Vector queueVector = StdUtil.getInstance().createVector();
+   protected final BasicArrayList queueVector = new BasicArrayListD();
 
    protected BasicQueue()
    {
@@ -38,7 +38,7 @@ public class BasicQueue
 
    protected synchronized Object removeLast()
    {
-      Object object = this.queueVector.lastElement();
+      Object object = this.queueVector.get(this.queueVector.size() - 1);
       this.queueVector.remove(object);
       return object;
    }

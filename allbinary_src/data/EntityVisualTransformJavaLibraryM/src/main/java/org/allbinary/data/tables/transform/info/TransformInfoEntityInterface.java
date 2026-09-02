@@ -14,7 +14,8 @@
 package org.allbinary.data.tables.transform.info;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.jsp.PageContext;
 
@@ -27,13 +28,13 @@ public interface TransformInfoEntityInterface
    TransformInfoInterface get(String name, HashMap propertiesHashMap, PageContext pageContext) throws Exception;
    //public TransformInfoInterface get(String name) throws Exception;
 
-   Vector getObjectConfigs(String storeName) throws Exception;
+   BasicArrayList getObjectConfigs(String storeName) throws Exception;
    
-   Vector getNames(String storeName) throws Exception;
+   BasicArrayList getNames(String storeName) throws Exception;
    
    void delete(String name);
    
-   void insert(Vector values);
+   void insert(BasicArrayList values);
 
    void update(HashMap updatedValues);
 }

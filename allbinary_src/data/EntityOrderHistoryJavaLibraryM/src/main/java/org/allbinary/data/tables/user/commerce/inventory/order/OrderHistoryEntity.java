@@ -16,7 +16,8 @@ package org.allbinary.data.tables.user.commerce.inventory.order;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Random;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
@@ -68,7 +69,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
     public void insert(String userName, Order order)
     {
-        final Vector vector = StdUtil.getInstance().createVector();
+        final BasicArrayList vector = new BasicArrayListD();
         try
         {
             final PaymentInterface paymentInterface = new PaymentEntity().getDefault(userName);
@@ -201,7 +202,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         }
     }
 
-    public void insert(Vector values)
+    public void insert(BasicArrayList values)
     {
         try
         {
@@ -308,13 +309,13 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
     }
     
      */
-    public Vector getStoreOrders(StoreFrontInterface storeFrontInterface) throws Exception
+    public BasicArrayList getStoreOrders(StoreFrontInterface storeFrontInterface) throws Exception
     {
-        Vector orderReviewVector = StdUtil.getInstance().createVector();
+        BasicArrayList orderReviewVector = new BasicArrayListD();
         HashMap whereHashMap = StdUtil.getInstance().createHashMap();
         
         whereHashMap.put(StoreFrontData.getInstance().NAME, storeFrontInterface.getName());
-        Vector orderHashMapVector = super.getRows(whereHashMap);
+        BasicArrayList orderHashMapVector = super.getRows(whereHashMap);
         int size = orderHashMapVector.size();
         for (int i = 0; i < size; i++)
         {
@@ -325,12 +326,12 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         return orderReviewVector;
     }
 
-    public Vector getOrders(String userName) throws Exception
+    public BasicArrayList getOrders(String userName) throws Exception
     {
-        Vector orderReviewVector = StdUtil.getInstance().createVector();
+        BasicArrayList orderReviewVector = new BasicArrayListD();
         HashMap whereHashMap = StdUtil.getInstance().createHashMap();
         whereHashMap.put(UserData.USERNAME, userName);
-        Vector orderHashMapVector = super.getRows(whereHashMap);
+        BasicArrayList orderHashMapVector = super.getRows(whereHashMap);
         
         final int size = orderHashMapVector.size();
         for (int index = 0; index < size; index++)
@@ -342,12 +343,12 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         return orderReviewVector;
     }
 
-    public Vector getOrders(String status, String fromDate, String toDate) throws Exception
+    public BasicArrayList getOrders(String status, String fromDate, String toDate) throws Exception
     {
-        Vector orderReviewVector = StdUtil.getInstance().createVector();
+        BasicArrayList orderReviewVector = new BasicArrayListD();
         HashMap whereHashMap = StdUtil.getInstance().createHashMap();
         whereHashMap.put(OrderHistoryData.STATUS, status);
-        Vector orderHashMapVector = super.getRowsWhereBetween(
+        BasicArrayList orderHashMapVector = super.getRowsWhereBetween(
             whereHashMap, OrderHistoryData.ORDERDATE, fromDate, toDate);
 
         final int size = orderHashMapVector.size();
@@ -360,10 +361,10 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         return orderReviewVector;
     }
 
-    public Vector getOrders(String fromDate, String toDate) throws Exception
+    public BasicArrayList getOrders(String fromDate, String toDate) throws Exception
     {
-        Vector orderReviewVector = StdUtil.getInstance().createVector();
-        Vector orderHashMapVector = super.getRowsWhereBetween(OrderHistoryData.ORDERDATE, fromDate, toDate);
+        BasicArrayList orderReviewVector = new BasicArrayListD();
+        BasicArrayList orderHashMapVector = super.getRowsWhereBetween(OrderHistoryData.ORDERDATE, fromDate, toDate);
 
         final int size = orderHashMapVector.size();
         for (int index = 0; index < size; index++)

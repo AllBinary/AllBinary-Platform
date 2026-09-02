@@ -14,7 +14,8 @@
 package views.generic.address.billing;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,7 +39,7 @@ implements DomNodeInterface
    
    private HttpServletRequest request;
 
-   protected Vector streetAddresses;
+   protected BasicArrayList streetAddresses;
    
    public BillingAddressesView(TransformInfoInterface transformInfoInterface) throws Exception
    {

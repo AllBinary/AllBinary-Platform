@@ -14,7 +14,8 @@
 package views.business.context.modules.storefront.customizer.template;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.logic.communication.http.request.RequestParams;
@@ -88,7 +89,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     this.getTransformInfoInterface().getObjectConfigInterface().toXmlDoc());
 
                 //Iterate throught components specified in objectConfig
-                final Vector componentVector = objectConfig.getGroupTransforms();
+                final BasicArrayList componentVector = objectConfig.getGroupTransforms();
                 final int size = componentVector.size();
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))

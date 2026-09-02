@@ -15,7 +15,8 @@ package views.admin.inventory.download;
 
 import java.io.ByteArrayInputStream;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -89,7 +90,7 @@ public class DownloadableInventoryItemView
 
     public void addDomNodeInterfaces()
     {
-        Vector vector = StdUtil.getInstance().createVector();
+        BasicArrayList vector = new BasicArrayListD();
 
         if(this.downloadableItem != null)
         {

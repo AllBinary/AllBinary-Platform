@@ -14,7 +14,8 @@
 package org.allbinary.data.generator;
 
 import java.io.IOException;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.data.tables.generator.IdGeneratorEntity;
 import org.allbinary.data.tables.generator.IdGeneratorEntityFactory;
 import org.allbinary.logic.StdUtil;
@@ -42,7 +43,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
    {
       try
       {
-          Vector vector = StdUtil.getInstance().createVector();
+          BasicArrayList vector = new BasicArrayListD();
           vector.add(this.name);
           vector.add(Long.valueOf(value).toString());
           this.idGeneratorEntity.insert(vector);

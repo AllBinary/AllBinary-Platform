@@ -346,7 +346,7 @@ public class StartCanvas extends RunnableCanvas
 //            DemoLimitedCommandTextItemArrayFactory.getInstance().getCommandTextItemArrayFactory();
 //        
 //        CustomItem[] items = commandTextItemArrayFactory.getInstance(
-//            (Vector<Object>) this.getCommandStack(), 
+//            (BasicArrayList) this.getCommandStack(), 
 //            basicColorFactory.BLACK, 
 //            basicColorFactory.WHITE);
 //

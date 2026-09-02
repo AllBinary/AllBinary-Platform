@@ -15,7 +15,8 @@ package admin.taghelpers;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
@@ -43,8 +44,8 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
    private String defaultOptionItem;
    private String defaultOptionValue;
    
-   private Vector optionItem;
-   private Vector optionValue;
+   private BasicArrayList optionItem;
+   private BasicArrayList optionValue;
    
    private String timeEntered;
    private String lastModified;
@@ -57,8 +58,8 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {
-      this.optionItem = StdUtil.getInstance().createVector();
-      this.optionValue = StdUtil.getInstance().createVector();
+      this.optionItem = new BasicArrayListD();
+      this.optionValue = new BasicArrayListD();
    
       this.id = this.request.getParameter(basicItemData.ID);
             
@@ -128,7 +129,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
       {
          final Calendar calendar=Calendar.getInstance();
          final String time = new String(new Long(calendar.getTimeInMillis()).toString());
-         final Vector values = StdUtil.getInstance().createVector();
+         final BasicArrayList values = new BasicArrayListD();
                   
          values.add(this.id);
       

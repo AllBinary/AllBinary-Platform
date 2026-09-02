@@ -15,7 +15,8 @@ package org.allbinary.business.user.commerce.money.payment.gateway.transaction;
 
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -76,12 +77,12 @@ public class TransactionResult implements TransactionResultInterface
       return this.keyValuePairs;
    }
    
-   private Vector getAllPossibleKeys()
+   private BasicArrayList getAllPossibleKeys()
    {
 	   PaymentTransactionKeysFactory paymentTransactionKeysFactory = 
 		   PaymentTransactionKeysFactory.getInstance();
 	   
-      Vector verisignResponseKeys = StdUtil.getInstance().createVector();
+      BasicArrayList verisignResponseKeys = new BasicArrayListD();
       verisignResponseKeys.add(paymentTransactionKeysFactory.RESULT.toString());
       verisignResponseKeys.add(paymentTransactionKeysFactory.PNREF.toString());
       verisignResponseKeys.add(paymentTransactionKeysFactory.RESPMSG.toString());
@@ -107,10 +108,10 @@ public class TransactionResult implements TransactionResultInterface
       return verisignResponseKeys;
    }
    
-   public Vector getValues()
+   public BasicArrayList getValues()
    {
-      Vector keyVector = this.getAllPossibleKeys();
-      Vector valueVector = StdUtil.getInstance().createVector();
+      BasicArrayList keyVector = this.getAllPossibleKeys();
+      BasicArrayList valueVector = new BasicArrayListD();
       int size = keyVector.size();
       for (int i = 0; i < size; i++)
       {

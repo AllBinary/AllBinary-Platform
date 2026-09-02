@@ -14,7 +14,8 @@
 package org.allbinary.media.image.comparison.motion;
 
 import java.awt.*;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.media.image.comparison.ImageComparisonResult;
 import org.allbinary.media.image.comparison.pixel.PixelDelta;
@@ -49,7 +50,7 @@ public class AllMotionRectangles extends MotionRectangles
     private void createMotionRectangles(ImageComparisonResult imageComparisonInfo)
     throws Exception
     {
-        final Vector vector = imageComparisonInfo.getNonMatchingPixelVector();
+        final BasicArrayList vector = imageComparisonInfo.getNonMatchingPixelVector();
         final int size = vector.size();
         
         
@@ -78,7 +79,7 @@ public class AllMotionRectangles extends MotionRectangles
     private boolean addPixelDeltaToExistingMotionRectangle(PixelDelta pixelDelta)
     throws Exception
     {
-        final Vector vector = this.getVector();
+        final BasicArrayList vector = this.getVector();
         final int size = vector.size();
         for (int index = 0; index < size; index++)
         {
@@ -222,7 +223,7 @@ public class AllMotionRectangles extends MotionRectangles
         MotionRectangle motionRectangle, PixelDelta pixelDelta) throws Exception
     {
         /*
-        Vector pixelDeltasInTheSameRow = StdUtil.getInstance().createVector();
+        BasicArrayList pixelDeltasInTheSameRow = new BasicArrayListD();
          
         iterator = motionRectangle.getPixelDeltaVector();
          

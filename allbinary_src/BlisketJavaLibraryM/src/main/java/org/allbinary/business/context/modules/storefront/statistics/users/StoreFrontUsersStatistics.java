@@ -15,7 +15,8 @@ package org.allbinary.business.context.modules.storefront.statistics.users;
 
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.UserInterface;
@@ -33,8 +34,8 @@ public class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInter
    {
       this.totalUsersByRoleHashMap = StdUtil.getInstance().createHashMap();
       final UserEntityInterface userEntityInterface = UserEntityFactory.getInstance();
-      //Vector userVector = userEntityInterface.getUsers(storeFrontInterface);
-      final Vector userVector = userEntityInterface.getCustomers();
+      //BasicArrayList userVector = userEntityInterface.getUsers(storeFrontInterface);
+      final BasicArrayList userVector = userEntityInterface.getCustomers();
       this.totalNumberOfUsers = new Long(userVector.size());
       
       final int size = userVector.size();
@@ -93,7 +94,7 @@ public class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInter
       return hashMap;
    }
    
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
       return null;
    }

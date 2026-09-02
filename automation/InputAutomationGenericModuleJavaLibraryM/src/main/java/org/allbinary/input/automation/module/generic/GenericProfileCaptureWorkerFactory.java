@@ -14,7 +14,8 @@
 package org.allbinary.input.automation.module.generic;
 
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfile;
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfileDataWorkerType;
@@ -32,7 +33,7 @@ public class GenericProfileCaptureWorkerFactory
         GenericProfile genericProfile)
     throws Exception
     {
-        final Vector vector = genericProfile.getGenericProfileDataWorkerTypeVector();
+        final BasicArrayList vector = genericProfile.getGenericProfileDataWorkerTypeVector();
         final int size = vector.size();
         for(int index = 0; index < size; index++)
         {

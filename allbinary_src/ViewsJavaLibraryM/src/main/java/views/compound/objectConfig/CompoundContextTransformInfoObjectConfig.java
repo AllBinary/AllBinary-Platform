@@ -15,7 +15,8 @@ package views.compound.objectConfig;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.document.DocumentToNode;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -92,7 +93,7 @@ public class CompoundContextTransformInfoObjectConfig
       TransformInterface rootComponentInterface = TransformFactory.getInstance().getInstance(
           abeClientInformation, stringBuffer.toString(), this.getTransformInfoInterface());
 
-      Vector viewVector = this.getTransformDomNodes();
+      BasicArrayList viewVector = this.getTransformDomNodes();
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {

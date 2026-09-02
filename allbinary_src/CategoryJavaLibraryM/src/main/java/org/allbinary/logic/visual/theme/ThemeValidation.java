@@ -14,7 +14,8 @@
 package org.allbinary.logic.visual.theme;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryFactoryInterface;
@@ -302,9 +303,9 @@ public class ThemeValidation
       return (Object) this.getName();
    }
    
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
-      Vector vector = StdUtil.getInstance().createVector();
+      BasicArrayList vector = new BasicArrayListD();
       
       vector.add(this.getName());
       vector.add(this.getPath());

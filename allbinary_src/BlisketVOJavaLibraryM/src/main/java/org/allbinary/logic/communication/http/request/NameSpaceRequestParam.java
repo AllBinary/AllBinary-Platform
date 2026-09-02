@@ -14,7 +14,8 @@
 package org.allbinary.logic.communication.http.request;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -28,7 +29,7 @@ public class NameSpaceRequestParam
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private Vector nameSpaceVector;
+   private BasicArrayList nameSpaceVector;
 
    //A hashmap of hashmaps
    private HashMap nameSpacePropertiesHashMap;
@@ -36,7 +37,7 @@ public class NameSpaceRequestParam
    private String value;
    public NameSpaceRequestParam(String nameSpace, String value) throws Exception
    {
-      this.nameSpaceVector = StdUtil.getInstance().createVector();
+      this.nameSpaceVector = new BasicArrayListD();
       this.nameSpacePropertiesHashMap = StdUtil.getInstance().createHashMap();
       this.value = value;
 
@@ -123,7 +124,7 @@ public class NameSpaceRequestParam
       }
    }
    
-   public Vector getPackages()
+   public BasicArrayList getPackages()
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
       org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))

@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.communication.http.file.upload;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.role.BasicUserRoleFactory;
 import org.allbinary.logic.StdUtil;
@@ -29,7 +30,7 @@ public class HttpFilePermissions
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final AbFile file;
-    private final Vector userRoles = StdUtil.getInstance().createVector();
+    private final BasicArrayList userRoles = new BasicArrayListD();
 
     public HttpFilePermissions(AbPath fullPath)
         throws Exception
@@ -63,7 +64,7 @@ public class HttpFilePermissions
     /**
      * @return the userRoles
      */
-    public Vector getUserRoles()
+    public BasicArrayList getUserRoles()
     {
         return this.userRoles;
     }

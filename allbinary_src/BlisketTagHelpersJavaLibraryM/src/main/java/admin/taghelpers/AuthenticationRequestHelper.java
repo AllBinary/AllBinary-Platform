@@ -14,7 +14,8 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
@@ -248,7 +249,7 @@ public class AuthenticationRequestHelper
    }
    
    //Add role to session if it is a valid role
-   public Boolean isRoleValid(String userName,String password, Vector roles)
+   public Boolean isRoleValid(String userName,String password, BasicArrayList roles)
    {
       try
       {

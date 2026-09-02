@@ -21,7 +21,7 @@ import org.allbinary.graphics.GPoint;
 public interface ImageComparatorConstraintsInterface
 {
     int getMaxNonMatchingPixelDeltas();
-    //Vector getAvoidVector();
+    //BasicArrayList getAvoidVector();
 
     boolean isCollisionWithAvoidRectangles(Rectangle rectangle);
     boolean isCollisionWithAvoidRectangles(GPoint point);

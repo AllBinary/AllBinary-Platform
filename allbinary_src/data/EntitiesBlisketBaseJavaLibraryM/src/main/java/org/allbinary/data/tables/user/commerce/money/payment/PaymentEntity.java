@@ -16,7 +16,8 @@ package org.allbinary.data.tables.user.commerce.money.payment;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Random;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.UserDbInitInfo;
@@ -85,14 +86,14 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
         }
     }
 
-    public Vector get(String userName)
+    public BasicArrayList get(String userName)
     {
         try
         {
-            Vector paymentVector = StdUtil.getInstance().createVector();
+            BasicArrayList paymentVector = new BasicArrayListD();
             HashMap keyAndValue = StdUtil.getInstance().createHashMap();
             keyAndValue.put(UserData.USERNAME, userName);
-            Vector paymentList = super.getRows(keyAndValue);
+            BasicArrayList paymentList = super.getRows(keyAndValue);
 
             final int size = paymentList.size();
             for (int index = 0; index < size; index++)
@@ -178,7 +179,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
         try
         {
 
-            Vector vector = StdUtil.getInstance().createVector();
+            BasicArrayList vector = new BasicArrayListD();
 
             //vector.add(StringUtil.getInstance());
             //vector.add("auto_increment");

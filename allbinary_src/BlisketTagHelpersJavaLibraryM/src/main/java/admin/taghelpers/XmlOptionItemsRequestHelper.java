@@ -15,7 +15,8 @@ package admin.taghelpers;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
@@ -84,7 +85,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
       {
          Calendar calendar=Calendar.getInstance();
          String time = new String(new Long(calendar.getTimeInMillis()).toString());
-         Vector values = StdUtil.getInstance().createVector();
+         BasicArrayList values = new BasicArrayListD();
 
          values.add(this.id);
          values.add(this.xmlFileStatus);

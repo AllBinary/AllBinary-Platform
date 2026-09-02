@@ -13,7 +13,8 @@
 */
 package views.admin.payment.gateways;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
 import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
@@ -38,11 +39,11 @@ public class SelectNewView extends PaymentGatewayViewAbstract
          PaymentGatewayEntityInterface paymentGatewayEntityInterface = 
             PaymentGatewayEntityFactory.getInstance();
 
-         Vector existingGateways =
+         BasicArrayList existingGateways =
             paymentGatewayEntityInterface.findPaymentTypeVectorByStore(
                this.getPaymentGatewayPrimaryKey().getStoreName());
 
-         Vector allGatewaysLessExisting = BasicPaymentTypeUtil.getInstance().difference(existingGateways);
+         BasicArrayList allGatewaysLessExisting = BasicPaymentTypeUtil.getInstance().difference(existingGateways);
 
          return new PaymentGatewaysView(
             this.getTransformInfoInterface(), allGatewaysLessExisting).view();

@@ -15,7 +15,8 @@ package org.allbinary.business.context.modules.storefront;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -1184,9 +1185,9 @@ public class StoreFront implements StoreFrontInterface
         //FileUtil.copy(viewStoreImagesDirectoryAbPath, storeAbPath);
     }
 
-    public Vector toVector() throws Exception
+    public BasicArrayList toVector() throws Exception
     {
-        final Vector dataVector = StdUtil.getInstance().createVector();
+        final BasicArrayList dataVector = new BasicArrayListD();
         dataVector.add(this.name);
         dataVector.add(this.homeHostName);
         dataVector.add(this.homeHostNamePath.toString());

@@ -14,7 +14,8 @@
 package org.allbinary.logic.visual.dhtml.style.css.property;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.control.validate.ValidationInterface;
@@ -28,9 +29,9 @@ public class CssPropertiesValidationFactory
    }
    
    //Create Properties from Nodes with CssPropertyData.NAME
-   public static Vector getInstance(NodeList nodeList) throws Exception
+   public static BasicArrayList getInstance(NodeList nodeList) throws Exception
    {
-      Vector propertiesVector = StdUtil.getInstance().createVector();
+      BasicArrayList propertiesVector = new BasicArrayListD();
       
       for(int index = 0; index < nodeList.getLength(); index++)
       {
@@ -49,9 +50,9 @@ public class CssPropertiesValidationFactory
       return propertiesVector;
    }
    
-   public static Vector getInstance(HashMap hashMap)
+   public static BasicArrayList getInstance(HashMap hashMap)
    {
-      Vector styles = StdUtil.getInstance().createVector();
+      BasicArrayList styles = new BasicArrayListD();
       return styles;
    }
 }

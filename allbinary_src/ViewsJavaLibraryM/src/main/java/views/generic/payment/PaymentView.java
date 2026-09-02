@@ -13,7 +13,8 @@
 */
 package views.generic.payment;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.money.payment.Payment;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
@@ -41,7 +42,7 @@ public class PaymentView  extends HttpStoreComponentView implements DomNodeInter
          Node paymentNode = document.createElement(PaymentData.PAYMENT);
          document.appendChild(paymentNode);
          
-         Vector paymentVector = PaymentEntityFactory.getInstance().getPaymentEntityInstance().get(
+         BasicArrayList paymentVector = PaymentEntityFactory.getInstance().getPaymentEntityInstance().get(
                  this.getWeblisketSession().getUserName());
          int size = paymentVector.size();
          for (int index = 0; index < size; index++)

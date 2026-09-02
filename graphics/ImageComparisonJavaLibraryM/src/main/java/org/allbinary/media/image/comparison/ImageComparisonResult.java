@@ -14,7 +14,8 @@
 package org.allbinary.media.image.comparison;
 
 import java.awt.image.BufferedImage;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -39,7 +40,7 @@ public class ImageComparisonResult
     public final int imageHeight;
     public final int imageWidth;
     
-    private final Vector nonMatchingPixelVector;
+    private final BasicArrayList nonMatchingPixelVector;
 
     private final Long frameOne;
     private final Long frameTwo;
@@ -61,7 +62,7 @@ public class ImageComparisonResult
     {
         this.name = name;
 
-        this.nonMatchingPixelVector = StdUtil.getInstance().createVector();
+        this.nonMatchingPixelVector = new BasicArrayListD();
         
         this.bufferedImages[0] = bufferedImage;
         this.bufferedImages[1] = bufferedImage2;
@@ -129,7 +130,7 @@ public class ImageComparisonResult
         this.nonMatchingPixelVector.add(pixel);
     }
     
-    public Vector getNonMatchingPixelVector()
+    public BasicArrayList getNonMatchingPixelVector()
     {
         return this.nonMatchingPixelVector;
     }

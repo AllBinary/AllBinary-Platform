@@ -14,7 +14,8 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.jsp.PageContext;
 
@@ -151,7 +152,7 @@ public class StoreFrontsHelper extends BasicTable
         try
         {
             String success = CommonSeps.getInstance().SPACE;
-            Vector storeNamesVector = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().getStoreFrontNames();
+            BasicArrayList storeNamesVector = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().getStoreFrontNames();
 
             HtmlSelect storeSelect = new HtmlSelect(
                 StringUtil.getInstance().EMPTY_STRING, this.commonPhoneStrings.ONE, 

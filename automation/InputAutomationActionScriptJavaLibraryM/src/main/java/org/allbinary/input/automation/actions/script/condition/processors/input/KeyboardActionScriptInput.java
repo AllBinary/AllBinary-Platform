@@ -15,7 +15,8 @@ package org.allbinary.input.automation.actions.script.condition.processors.input
 
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
@@ -56,7 +57,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
       {
          NodeList nodeList = actionNode.getChildNodes();
          
-         Vector vector = StdUtil.getInstance().createVector();
+         BasicArrayList vector = new BasicArrayListD();
          
          for (int index = 0; index < nodeList.getLength();
          index++)
@@ -94,7 +95,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
                throw new Exception("Action Script Input Unknown Node");
             }
          }
-         this.setKeyArray((Integer[]) vector.toArray(new Integer[vector.size()]));
+         this.setKeyArray((Integer[]) vector.toArrayType(new Integer[vector.size()]));
       }
       else
       {
@@ -229,7 +230,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    {
       this.logUtil.putF(CommonLabels.getInstance().START + text, this, "integerArrayValue");
       
-      Vector vector = StdUtil.getInstance().createVector();
+      BasicArrayList vector = new BasicArrayListD();
       int index = 0;
       while (index < text.length())
       {
@@ -261,8 +262,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
          index++;
       }
 
-      Integer[] integerArray = (Integer[]) 
-         vector.toArray(new Integer[vector.size()]);
+      Integer[] integerArray = (Integer[]) vector.toArrayType(new Integer[vector.size()]);
       
       return integerArray;
    }

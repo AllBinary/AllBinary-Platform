@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
@@ -37,16 +38,16 @@ public interface TransformInfoObjectConfigInterface
    
    String getName() throws Exception;
 
-   Vector getTransformsGroup(String group) throws Exception;
+   BasicArrayList getTransformsGroup(String group) throws Exception;
    //set a single parent compoenent that is the template
    //void set(TransformInfoInterface transformInfoInterface) throws Exception;
    //void set(String aParentViewName) throws Exception;
    //String get() throws Exception;
    //InputStream createInputStream() throws Exception;
 
-   Vector getTransforms() throws Exception;
-   Vector getParentTransforms() throws Exception;
-   Vector getGroupTransforms() throws Exception;
+   BasicArrayList getTransforms() throws Exception;
+   BasicArrayList getParentTransforms() throws Exception;
+   BasicArrayList getGroupTransforms() throws Exception;
    
    String getOutputTypeName() throws Exception;
    void setOutputTypeName(String value);

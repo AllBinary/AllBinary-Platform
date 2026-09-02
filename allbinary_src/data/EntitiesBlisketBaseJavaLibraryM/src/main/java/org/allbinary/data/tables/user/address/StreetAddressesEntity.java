@@ -15,7 +15,8 @@ package org.allbinary.data.tables.user.address;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.UserDbInitInfo;
@@ -78,7 +79,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
     {
         try
         {
-            Vector values = StdUtil.getInstance().createVector();
+            BasicArrayList values = new BasicArrayListD();
 
             values.add(index);
             values.add(this.userName);
@@ -146,14 +147,14 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
     }
 
     //retrieve one users addresses
-    public Vector get()
+    public BasicArrayList get()
     {
         try
         {
-            Vector streetAddressVector = StdUtil.getInstance().createVector();
+            BasicArrayList streetAddressVector = new BasicArrayListD();
             HashMap keyAndValue = StdUtil.getInstance().createHashMap();
             keyAndValue.put(UserData.USERNAME, this.userName);
-            Vector addressList = super.getRows(keyAndValue);
+            BasicArrayList addressList = super.getRows(keyAndValue);
 
             final int size = addressList.size();
             for (int index = 0; index < size; index++)
@@ -183,7 +184,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
     {
         try
         {
-            //Vector streetAddressVector = StdUtil.getInstance().createVector();
+            //BasicArrayList streetAddressVector = new BasicArrayListD();
             HashMap keyAndValue = StdUtil.getInstance().createHashMap();
             keyAndValue.put(UserData.USERNAME, this.userName);
             keyAndValue.put(StreetAddressData.ID, index.toString());

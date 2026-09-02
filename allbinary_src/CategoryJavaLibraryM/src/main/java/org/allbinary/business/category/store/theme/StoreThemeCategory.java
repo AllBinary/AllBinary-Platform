@@ -14,7 +14,8 @@
 package org.allbinary.business.category.store.theme;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.category.Category;
 import org.allbinary.business.category.CategoryInterface;
@@ -31,8 +32,8 @@ import org.w3c.dom.NodeList;
 public class StoreThemeCategory extends Category implements StoreThemeCategoryInterface
 {
    private TransformInfoInterface transformInfoInterface;
-   //Vector of themes
-   private Vector themeVector;
+   //BasicArrayList of themes
+   private BasicArrayList themeVector;
 
    //New Loner Category
    public StoreThemeCategory(
@@ -43,7 +44,7 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
       super(categoryPropertiesFactoryInterface, level);
 
       this.transformInfoInterface = transformInfoInterface;
-      this.themeVector = StdUtil.getInstance().createVector();
+      this.themeVector = new BasicArrayListD();
    }
    
    //New Category With Parent Child Relationships
@@ -58,7 +59,7 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
          categoryPropertiesFactoryInterface);
 
       this.transformInfoInterface = transformInfoInterface;
-      this.themeVector = StdUtil.getInstance().createVector();
+      this.themeVector = new BasicArrayListD();
    }
 
    public StoreThemeCategory(
@@ -70,7 +71,7 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
       super(categoryPropertiesFactoryInterface, level);
 
       this.transformInfoInterface = transformInfoInterface;
-      this.themeVector = StdUtil.getInstance().createVector();
+      this.themeVector = new BasicArrayListD();
       this.addThemes(node);
    }
    
@@ -87,7 +88,7 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
          categoryPropertiesFactoryInterface);
 
       this.transformInfoInterface = transformInfoInterface;
-      this.themeVector = StdUtil.getInstance().createVector();
+      this.themeVector = new BasicArrayListD();
       this.addThemes(node);
    }
    
@@ -121,7 +122,7 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
       this.themeVector.add(themeValidation);
    }
    
-   public Vector getThemes()
+   public BasicArrayList getThemes()
    {
       return this.themeVector;
    }
@@ -153,9 +154,9 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
       return categoryHashMap;
    }
 
-   public Vector toVector() throws Exception
+   public BasicArrayList toVector() throws Exception
    {
-      Vector categoryVector = super.toVector();
+      BasicArrayList categoryVector = super.toVector();
       //categoryVector.add(this.themeVector);
       return categoryVector;
    }

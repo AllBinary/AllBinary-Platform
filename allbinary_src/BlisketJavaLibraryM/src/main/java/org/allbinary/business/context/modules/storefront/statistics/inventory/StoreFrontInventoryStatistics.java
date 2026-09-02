@@ -14,7 +14,8 @@
 package org.allbinary.business.context.modules.storefront.statistics.inventory;
 
 import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
@@ -35,7 +36,7 @@ public class StoreFrontInventoryStatistics
       
       InventoryEntityInterface inventoryEntityInterface = 
          InventoryEntityFactory.getInstance().getInventoryEntityInstance();
-      Vector itemVector = inventoryEntityInterface.getItems(storeFrontInterface);
+      BasicArrayList itemVector = inventoryEntityInterface.getItems(storeFrontInterface);
       
       final int size = itemVector.size();
       for (int index = 0; index < size; index++)      
@@ -70,7 +71,7 @@ public class StoreFrontInventoryStatistics
       return hashMap;
    }
    
-   public Vector toVector()
+   public BasicArrayList toVector()
    {
       return null;
    }

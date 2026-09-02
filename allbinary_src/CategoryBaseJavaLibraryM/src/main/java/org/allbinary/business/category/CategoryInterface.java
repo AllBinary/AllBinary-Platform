@@ -13,7 +13,8 @@
 */
 package org.allbinary.business.category;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesInterface;
@@ -23,7 +24,7 @@ import org.allbinary.logic.io.path.AbPath;
 
 public interface CategoryInterface extends TableMappingInterface, ValidationInterface
 {
-   Vector getChildNodes();
+   BasicArrayList getChildNodes();
    
    boolean addChildProperty(CategoryPropertiesInterface categoryPropertiesInterface);
    boolean addChild(CategoryInterface categoryInterface);

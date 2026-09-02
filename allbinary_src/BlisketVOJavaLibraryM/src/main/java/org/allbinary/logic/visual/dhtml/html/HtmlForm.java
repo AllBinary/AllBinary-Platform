@@ -13,7 +13,8 @@
 */
 package org.allbinary.logic.visual.dhtml.html;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.string.StringUtil;
@@ -34,12 +35,12 @@ public class HtmlForm
    
    private String method;
    private String action;
-   Vector inputs;
+   BasicArrayList inputs;
    
    public HtmlForm(String action)
    {
       this.action = action;
-      this.inputs = StdUtil.getInstance().createVector();
+      this.inputs = new BasicArrayListD();
    }
 
    public void setPost()

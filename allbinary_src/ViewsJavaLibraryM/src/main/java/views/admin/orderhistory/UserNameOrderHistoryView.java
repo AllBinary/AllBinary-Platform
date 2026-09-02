@@ -13,7 +13,8 @@
 */
 package views.admin.orderhistory;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -97,7 +98,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
          
          //Note all generic views should be removed from admin pages because a user
          //could pass in false hidden data
-         Vector orderReviewVector = orderHistoryEntity.getOrders(this.userName);
+         BasicArrayList orderReviewVector = orderHistoryEntity.getOrders(this.userName);
          int size = orderReviewVector.size();
          for (int index = 0; index < size; index++)
          {

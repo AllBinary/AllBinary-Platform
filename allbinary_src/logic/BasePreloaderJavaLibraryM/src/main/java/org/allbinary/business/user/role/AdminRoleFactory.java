@@ -13,7 +13,8 @@
 */
 package org.allbinary.business.user.role;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class AdminRoleFactory
 {
@@ -25,17 +26,17 @@ public class AdminRoleFactory
         return AdminRoleFactory.instance;
     }
     
-    private final Vector<Object> adminRoles = new Vector<Object>();
-    private final Vector<Object> storeAdminRoles = new Vector<Object>();
-    private final Vector<Object> storeManagementRoles = new Vector<Object>();
-    private final Vector<Object> productManagementRoles = new Vector<Object>();
-    private final Vector<Object> reviewManagementRoles = new Vector<Object>();
-    private final Vector<Object> customerManagementRoles = new Vector<Object>();
-    private final Vector<Object> workflowManagementRoles = new Vector<Object>();
-    private final Vector<Object> orderManagementRoles = new Vector<Object>();
-    private final Vector<Object> adjusterManagementRoles = new Vector<Object>();
-    private final Vector<Object> shippingManagementRoles = new Vector<Object>();
-    private final Vector<Object> webManagementRoles = new Vector<Object>();
+    private final BasicArrayList adminRoles = new BasicArrayListD();
+    private final BasicArrayList storeAdminRoles = new BasicArrayListD();
+    private final BasicArrayList storeManagementRoles = new BasicArrayListD();
+    private final BasicArrayList productManagementRoles = new BasicArrayListD();
+    private final BasicArrayList reviewManagementRoles = new BasicArrayListD();
+    private final BasicArrayList customerManagementRoles = new BasicArrayListD();
+    private final BasicArrayList workflowManagementRoles = new BasicArrayListD();
+    private final BasicArrayList orderManagementRoles = new BasicArrayListD();
+    private final BasicArrayList adjusterManagementRoles = new BasicArrayListD();
+    private final BasicArrayList shippingManagementRoles = new BasicArrayListD();
+    private final BasicArrayList webManagementRoles = new BasicArrayListD();
 
     private AdminRoleFactory()
     {
@@ -96,7 +97,7 @@ public class AdminRoleFactory
     /**
      * @return the productManagementRoles
      */
-    public Vector<Object> getProductManagementRoles()
+    public BasicArrayList getProductManagementRoles()
     {
         return this.productManagementRoles;
     }
@@ -104,7 +105,7 @@ public class AdminRoleFactory
     /**
      * @return the adminRoles
      */
-    public Vector<Object> getAdminRoles()
+    public BasicArrayList getAdminRoles()
     {
         return this.adminRoles;
     }
@@ -112,7 +113,7 @@ public class AdminRoleFactory
     /**
      * @return the storeAdminRoles
      */
-    public Vector<Object> getStoreAdminRoles()
+    public BasicArrayList getStoreAdminRoles()
     {
         return this.storeAdminRoles;
     }
@@ -120,7 +121,7 @@ public class AdminRoleFactory
     /**
      * @return the storeManagementRoles
      */
-    public Vector<Object> getStoreManagementRoles()
+    public BasicArrayList getStoreManagementRoles()
     {
         return this.storeManagementRoles;
     }
@@ -128,7 +129,7 @@ public class AdminRoleFactory
     /**
      * @return the reviewManagementRoles
      */
-    public Vector<Object> getReviewManagementRoles()
+    public BasicArrayList getReviewManagementRoles()
     {
         return this.reviewManagementRoles;
     }
@@ -136,7 +137,7 @@ public class AdminRoleFactory
     /**
      * @return the customerManagementRoles
      */
-    public Vector<Object> getCustomerManagementRoles()
+    public BasicArrayList getCustomerManagementRoles()
     {
         return this.customerManagementRoles;
     }
@@ -144,7 +145,7 @@ public class AdminRoleFactory
     /**
      * @return the workflowManagementRoles
      */
-    public Vector<Object> getWorkflowManagementRoles()
+    public BasicArrayList getWorkflowManagementRoles()
     {
         return this.workflowManagementRoles;
     }
@@ -152,7 +153,7 @@ public class AdminRoleFactory
     /**
      * @return the webManagementRoles
      */
-    public Vector<Object> getWebManagementRoles()
+    public BasicArrayList getWebManagementRoles()
     {
         return this.webManagementRoles;
     }
@@ -160,7 +161,7 @@ public class AdminRoleFactory
     /**
      * @return the shippingManagementRoles
      */
-    public Vector<Object> getShippingManagementRoles()
+    public BasicArrayList getShippingManagementRoles()
     {
         return this.shippingManagementRoles;
     }
@@ -168,7 +169,7 @@ public class AdminRoleFactory
     /**
      * @return the adjusterManagementRoles
      */
-    public Vector<Object> getAdjusterManagementRoles()
+    public BasicArrayList getAdjusterManagementRoles()
     {
         return this.adjusterManagementRoles;
     }
@@ -176,7 +177,7 @@ public class AdminRoleFactory
     /**
      * @return the orderManagementRoles
      */
-    public Vector<Object> getOrderManagementRoles()
+    public BasicArrayList getOrderManagementRoles()
     {
         return this.orderManagementRoles;
     }

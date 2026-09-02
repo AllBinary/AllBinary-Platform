@@ -13,7 +13,8 @@
 */
 package views.admin.workflow;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.workflow.WorkFlowEntityFactory;
 import org.allbinary.data.tree.dom.DomNodeInterface;
@@ -30,7 +31,7 @@ public class WorkFlowsView extends HttpStoreComponentView implements DomNodeInte
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private Vector workFlowsVector;
+   private BasicArrayList workFlowsVector;
    
    public WorkFlowsView(TransformInfoInterface transformInfoInterface) throws Exception, LicensingException
    {

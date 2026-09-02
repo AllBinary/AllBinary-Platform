@@ -13,7 +13,8 @@
 */
 package views.generic.address.shipping;
 
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.address.ShippingAddressData;
 import org.allbinary.business.user.address.StreetAddress;
@@ -36,7 +37,7 @@ public class TaxValidationView extends ShippingAddressView implements Validation
       ShippingAddressesEntity billingAddressesEntity =
          new ShippingAddressesEntity(this.getWeblisketSession().getUserName());
       
-      Vector streetAddressList = billingAddressesEntity.get();
+      BasicArrayList streetAddressList = billingAddressesEntity.get();
       
       if(streetAddressList == null)
       {
