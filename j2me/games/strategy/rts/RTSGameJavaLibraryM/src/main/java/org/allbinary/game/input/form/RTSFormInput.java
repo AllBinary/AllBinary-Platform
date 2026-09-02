@@ -46,7 +46,7 @@ public class RTSFormInput
 
     private final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
 
-    private final Hashtable hashtable = StdUtil.getInstance().createHashTable();
+    private final Hashtable hashtable = StdUtil.getInstance().createHashtable();
         
     protected final CollidableDestroyableDamageableLayer[] newUnconstructedRTSLayerInterfaceArray = new CollidableDestroyableDamageableLayer[7];
     protected final Group[] groupInterfaceArray;

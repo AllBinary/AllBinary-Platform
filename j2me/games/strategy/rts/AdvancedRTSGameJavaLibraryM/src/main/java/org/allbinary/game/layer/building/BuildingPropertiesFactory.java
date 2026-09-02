@@ -71,7 +71,7 @@ public class BuildingPropertiesFactory {
     }
 
     public Hashtable getHashtable() {
-        return StdUtil.getInstance().createHashTable();
+        return StdUtil.getInstance().createHashtable();
     }    
     
     public TrackingEvent getTrackingEvent(final BuildingLayer buildingLayer) {
