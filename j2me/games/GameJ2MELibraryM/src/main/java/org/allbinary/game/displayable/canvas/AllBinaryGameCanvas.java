@@ -519,9 +519,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final CommandTextItemArrayFactory commandTextItemArrayFactory
                 = gameLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory();
 
-        final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(
-                (BasicArrayList) this.getCommandStack(), this.gameLayerManager
-                .getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
+        final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(this.getCommandStack(), 
+            this.gameLayerManager.getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
 
         final Rectangle rectangle = this.formUtil.createFormRectangle();
 
@@ -585,9 +584,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final CommandTextItemArrayFactory commandTextItemArrayFactory = gameLimitedCommandTextItemArrayFactory
                 .getCommandTextItemArrayFactory();
 
-        final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(
-                (BasicArrayList) this.getCommandStack(), this.gameLayerManager
-                .getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
+        final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(this.getCommandStack(), 
+            this.gameLayerManager.getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
 
         final int size = items.length;
         for (int index = 0; index < size; index++) {

@@ -87,7 +87,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
              * client.toString(), this, this.commonStrings.GET); }
              */
 
-            param.addElement(hashtable);
+            param.add(hashtable);
 
             // KeySpecFactory.DES,
             Object result = xmlRpcClient.execute(this.getRemoteMethod(), param, cryptInterface);

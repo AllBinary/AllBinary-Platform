@@ -392,8 +392,7 @@ public class DemoCanvas extends RunnableCanvas
         final CommandTextItemArrayFactory commandTextItemArrayFactory = 
             DemoLimitedCommandTextItemArrayFactory.getInstance().getCommandTextItemArrayFactory();
         
-        final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(
-            (BasicArrayList) this.getCommandStack(), 
+        final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(this.getCommandStack(),
             this.basicColorFactory.BLACK, this.basicColorFactory.WHITE);
 
         final FormType formType = FormTypeFactory.getInstance().getFormType();

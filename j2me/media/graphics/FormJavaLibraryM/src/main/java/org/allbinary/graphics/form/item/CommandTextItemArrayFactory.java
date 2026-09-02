@@ -13,10 +13,9 @@
 */
 package org.allbinary.graphics.form.item;
 
+import java.util.Stack;
 import jsinterop.annotations.JsType;
 
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.ImageItem;
@@ -49,7 +48,7 @@ public class CommandTextItemArrayFactory
     }
 
     @JsMethod
-    public final ABCustomItem[] getInstance(final BasicArrayList vector, 
+    public final ABCustomItem[] getInstance(final Stack vector, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         int size = vector.size();
@@ -74,7 +73,7 @@ public class CommandTextItemArrayFactory
         Command command;
         for (int index = 0; index < size; index++)
         {
-            command = (Command) vector.elementAt(index);
+            command = (Command) vector.get(index);
 
             //isNotPriority || command.getPriority() == 3
             if (command.getPriority() < priorityLimit)

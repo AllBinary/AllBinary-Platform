@@ -252,8 +252,7 @@ public class GameCommandCanvas
     public ScrollSelectionForm createForm() throws Exception {
         
         final ABCustomItem[] items = new CommandTextItemArrayFactory(
-                new AllCommandsVisitor()).getInstance(
-                (BasicArrayList) this.getCommandStack(), 
+                new AllCommandsVisitor()).getInstance(this.getCommandStack(), 
                 this.backgroundBasicColor, this.foregroundBasicColor
                 );
 
