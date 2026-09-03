@@ -72,7 +72,7 @@ public class CommandTextItemArrayFactory
         Command command;
         for (int index = 0; index < size; index++)
         {
-            command = (Command) vector.get(index);
+            command = (Command) vector.elementAt(index);
 
             //isNotPriority || command.getPriority() == 3
             if (command.getPriority() < priorityLimit)
