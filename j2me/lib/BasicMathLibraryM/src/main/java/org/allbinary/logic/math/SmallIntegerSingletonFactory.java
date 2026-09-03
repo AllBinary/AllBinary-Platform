@@ -14,13 +14,13 @@
 package org.allbinary.logic.math;
 
 import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import org.allbinary.AndroidUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.logic.communication.log.LogUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 import org.allbinary.logic.string.StringMaker;
 
 
@@ -51,7 +51,7 @@ public class SmallIntegerSingletonFactory
 
     @JsMethod
     public int getMin() {
-        final int minAllowed = (J2MEUtil.isJ2ME() ? 0 : AndroidUtil.isAndroid() ? 0x101 : 23);
+        final int minAllowed = this.getMinAllowed();
 
         //J2ME only needs 23, Androids starts with 0x101, but needs larger for Input, PC needs 0x2D0 for input
         if(this.MIN <= minAllowed) {
@@ -72,6 +72,19 @@ public class SmallIntegerSingletonFactory
             logUtil.put("This means you loaded the InputFactory before determining the platform input size requirements.", this, "getMin", new Exception());
         }
         return this.MIN;
+    }
+    
+    private int getMinAllowed() {
+        if(J2MEUtil.isJ2ME()) {
+            return 0;
+        } else {
+            if(AndroidUtil.isAndroid()) {
+                return 0x101;
+            } else {
+                return 23;
+            }
+                    
+        }
     }
     
     @JsMethod

@@ -36,12 +36,12 @@ public class StdUtil {
     //ActualPlatform
     public final Hashtable NULL_TABLE = this.createHashtable();
         
-    public final Stack createStack() {
-        return new Stack();
+    public final Stack<Object> createStack() {
+        return new Stack<Object>();
     }
     
-    public final Hashtable createHashtable() {
-        return new Hashtable();
+    public final Hashtable<Object, Object> createHashtable() {
+        return new Hashtable<Object, Object>();
     }
     
 }
