@@ -47,10 +47,10 @@ public class CommandTextItemArrayFactory
     }
 
     @JsMethod
-    public final ABCustomItem[] getInstance(final Vector vector, 
+    public final ABCustomItem[] getInstance(final Vector<Object> vector, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
-        int size = vector.size();
+        final int size = vector.size();
 
         this.list.clear();
         
@@ -93,9 +93,9 @@ public class CommandTextItemArrayFactory
             }
         }
 
-        ABCustomItem[] textItemArray = new ABCustomItem[this.list.size()];
+        final ABCustomItem[] textItemArray = new ABCustomItem[this.list.size()];
         
-        int size2 = textItemArray.length;
+        final int size2 = textItemArray.length;
         for (int index = 0; index < size2; index++)
         {
             textItemArray[index] = (ABCustomItem) this.list.objectArray[index];
