@@ -13,9 +13,11 @@
 */
 package org.allbinary.graphics.form.item;
 
-import java.util.Stack;
-import jsinterop.annotations.JsType;
+import java.util.Vector;
 
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.ImageItem;
@@ -27,9 +29,6 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-
 
 @JsType
 public class CommandTextItemArrayFactory
@@ -48,7 +47,7 @@ public class CommandTextItemArrayFactory
     }
 
     @JsMethod
-    public final ABCustomItem[] getInstance(final Stack vector, 
+    public final ABCustomItem[] getInstance(final Vector vector, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         int size = vector.size();
