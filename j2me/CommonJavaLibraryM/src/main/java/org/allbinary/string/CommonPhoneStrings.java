@@ -13,6 +13,9 @@
 */
 package org.allbinary.string;
 
+import jsinterop.annotations.JsType;
+
+@JsType
 public class CommonPhoneStrings
 {
     private final static CommonPhoneStrings instance = new CommonPhoneStrings();

@@ -13,11 +13,14 @@
  */
 package org.allbinary.logic;
 
+import jsinterop.annotations.JsType;
+
 /**
  *
  * @author User
  */
 //ActualPlatform
+@JsType
 public class NullUtil {
     
     private static final NullUtil instance = new NullUtil();

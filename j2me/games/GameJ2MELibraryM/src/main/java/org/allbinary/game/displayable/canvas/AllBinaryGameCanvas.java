@@ -578,11 +578,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         scrollSelectionForm.deleteAll();
 
-        final GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory
-                = GameLimitedCommandTextItemArrayFactory.getInstance();
+        final GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory = 
+            GameLimitedCommandTextItemArrayFactory.getInstance();
 
-        final CommandTextItemArrayFactory commandTextItemArrayFactory = gameLimitedCommandTextItemArrayFactory
-                .getCommandTextItemArrayFactory();
+        final CommandTextItemArrayFactory commandTextItemArrayFactory = 
+            gameLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory();
 
         final ABCustomItem[] items = commandTextItemArrayFactory.getInstance(this.getCommandStack(), 
             this.gameLayerManager.getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
