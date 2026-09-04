@@ -13,13 +13,15 @@
  */
 package org.allbinary.logic;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Stack;
+import java.util.Vector;
 import jsinterop.annotations.JsType;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsMethod;
+import org.allbinary.util.ABHashMap;
+
 import org.allbinary.util.ABHashtable;
+import org.allbinary.util.ABStack;
+import org.allbinary.util.ABVector;
 
 /**
  *
@@ -42,22 +44,30 @@ public class StdUtil {
 
     //ActualPlatform
     @JsProperty
-    public final Hashtable NULL_TABLE = this.createHashtable();
+    public final ABVector<Object> EMPTY_VECTOR = this.createVector();
+    
+    //ActualPlatform
+    @JsProperty
+    public final ABHashtable NULL_TABLE = this.createHashtable();
     
     //ActualPlatform
     @SuppressWarnings("unusable-by-js")
-    public final HashMap NULL_MAP = this.createHashMap();
+    public final ABHashMap NULL_MAP = this.createHashMap();
     
-    public final Stack<Object> createStack() {
-        return new Stack<Object>();
-    }
-    
-    public final Hashtable<Object, Object> createHashtable() {
-        return new Hashtable<Object, Object>();
+    public final ABStack<Object> createStack() {
+        return new ABStack<Object>();
     }
 
-    public final HashMap<Object, Object> createHashMap() {
-        return new HashMap<Object, Object>();
+    public final ABVector<Object> createVector() {
+        return new ABVector<Object>();
+    }
+    
+    public final ABHashtable<Object, Object> createHashtable() {
+        return new ABHashtable<Object, Object>();
+    }
+
+    public final ABHashMap<Object, Object> createHashMap() {
+        return new ABHashMap<Object, Object>();
     }
     
 }

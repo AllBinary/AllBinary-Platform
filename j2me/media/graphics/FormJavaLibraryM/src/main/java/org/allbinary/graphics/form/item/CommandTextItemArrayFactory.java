@@ -13,8 +13,6 @@
 */
 package org.allbinary.graphics.form.item;
 
-import java.util.Vector;
-
 import jsinterop.annotations.JsType;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
@@ -25,6 +23,7 @@ import javax.microedition.lcdui.ImageItem;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.ScreenInfo;
+import org.allbinary.logic.VectorUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.util.BasicArrayList;
@@ -47,10 +46,11 @@ public class CommandTextItemArrayFactory
     }
 
     @JsMethod
-    public final ABCustomItem[] getInstance(final Vector<Object> vector, 
+    public final ABCustomItem[] getInstance(final Object vector, 
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
-        final int size = vector.size();
+        final VectorUtil vectorUtil = VectorUtil.getInstance();
+        final int size = vectorUtil.getSize(vector);
 
         this.list.clear();
         
@@ -72,7 +72,7 @@ public class CommandTextItemArrayFactory
         Command command;
         for (int index = 0; index < size; index++)
         {
-            command = (Command) vector.elementAt(index);
+            command = (Command) vectorUtil.elementAt(vector, index);
 
             //isNotPriority || command.getPriority() == 3
             if (command.getPriority() < priorityLimit)

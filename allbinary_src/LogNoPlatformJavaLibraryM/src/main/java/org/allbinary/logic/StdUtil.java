@@ -16,6 +16,7 @@ package org.allbinary.logic;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Stack;
+import java.util.Vector;
 
 /**
  *
@@ -33,12 +34,19 @@ public class StdUtil {
     public static StdUtil getInstance() {
         return StdUtil.instance;
     }
-        
+
+    //ActualPlatform
+    public final Vector<Object> EMPTY_VECTOR = this.createVector();
+    
     //ActualPlatform
     public final Hashtable NULL_TABLE = this.createHashtable();
     
     public final Stack<Object> createStack() {
         return new Stack<Object>();
+    }
+
+    public final Vector<Object> createVector() {
+        return new Vector<Object>();
     }
     
     public final Hashtable<Object, Object> createHashtable() {

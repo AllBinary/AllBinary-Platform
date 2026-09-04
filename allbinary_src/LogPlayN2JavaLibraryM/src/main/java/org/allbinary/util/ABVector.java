@@ -13,7 +13,7 @@
  */
 package org.allbinary.util;
 
-import java.util.Hashtable;
+import java.util.Vector;
 import jsinterop.annotations.JsType;
 
 /**
@@ -21,6 +21,6 @@ import jsinterop.annotations.JsType;
  * @author User
  */
 @JsType
-public class ABHashtable<K,V> extends Hashtable {
+public class ABVector<E> extends Vector {
     
 }

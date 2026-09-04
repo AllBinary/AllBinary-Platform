@@ -32,7 +32,7 @@ public class StdUtil {
     public static StdUtil getInstance() {
         return StdUtil.instance;
     }
-        
+
     //ActualPlatform
     public final Hashtable NULL_TABLE = this.createHashtable();
         
