@@ -13,12 +13,12 @@
 */
 package org.allbinary.game.layer;
 
-import java.util.Hashtable;
+import org.allbinary.util.ABHashtable;
 
 public interface LayerPlacementInterface {
 
    int getWidth();
    int getHeight();
    LayerPlacementType getLayerType();
-   Hashtable getInstance() throws Exception;
+   ABHashtable getInstance() throws Exception;
 }

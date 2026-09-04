@@ -16,7 +16,6 @@ package org.allbinary.logic.system.hardware.android;
 import java.io.Closeable;
 import java.io.FileReader;
 import java.io.LineNumberReader;
-import java.util.Hashtable;
 
 import org.allbinary.logic.io.NullCloseable;
 import org.allbinary.logic.StdUtil;
@@ -27,6 +26,7 @@ import org.allbinary.logic.system.hardware.components.android.UnknownHardware;
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
@@ -147,7 +147,7 @@ public class AndroidHardware implements HardwareInterface
     }
 
     @Override
-    public Hashtable difference(HardwareInterface hardwareInterface)
+    public ABHashtable difference(HardwareInterface hardwareInterface)
     {
         return StdUtil.getInstance().NULL_TABLE;
     }

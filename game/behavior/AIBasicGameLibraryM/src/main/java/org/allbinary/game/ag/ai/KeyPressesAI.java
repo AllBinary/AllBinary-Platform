@@ -13,14 +13,12 @@
 */
 package org.allbinary.game.ag.ai;
 
-import java.util.Hashtable;
-
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.util.HashtableUtil;
 import org.allbinary.game.ai.BasicAI;
-
+import org.allbinary.util.ABHashtable;
 
 public class KeyPressesAI extends BasicAI {
 
@@ -28,7 +26,7 @@ public class KeyPressesAI extends BasicAI {
    
    protected Integer[] keys;
 
-   public KeyPressesAI(Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+   public KeyPressesAI(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
       super(ownerLayerInterface, gameInput);
 
       this.keys = new Integer[hashtable.size()];

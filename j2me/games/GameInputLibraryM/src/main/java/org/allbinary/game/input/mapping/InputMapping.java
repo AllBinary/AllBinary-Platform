@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.input.mapping;
 
-import java.util.Hashtable;
-
 import jsinterop.annotations.JsType;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
@@ -29,6 +27,7 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 @JsType
 public class InputMapping
@@ -40,7 +39,7 @@ public class InputMapping
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
    //TWB - Use MapList someday
-    private final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    private final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
     private final BasicArrayList mappedList = new BasicArrayListD();
 
     @JsConstructor
@@ -154,7 +153,7 @@ public class InputMapping
     }
 
     @JsMethod
-    public Hashtable getHashtable()
+    public ABHashtable getHashtable()
     {
         return this.hashtable;
     }

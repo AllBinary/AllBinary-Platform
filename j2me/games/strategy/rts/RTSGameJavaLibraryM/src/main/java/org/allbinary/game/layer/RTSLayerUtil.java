@@ -13,8 +13,6 @@
  */
 package org.allbinary.game.layer;
 
-import java.util.Hashtable;
-
 import org.allbinary.game.identification.GroupCommonFactory;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -28,6 +26,7 @@ import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeographicMap;
+import org.allbinary.util.ABHashtable;
 
 public class RTSLayerUtil
 {
@@ -240,10 +239,10 @@ public class RTSLayerUtil
         list.clear();
     }
     
-    public final Hashtable createFakeRTSLayerHashtable(
+    public final ABHashtable createFakeRTSLayerHashtable(
             final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap)
     {
-        final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
         
         final FakeLayerManager layerManager = new FakeLayerManager(GameInfo.NONE);
         layerManager.setGeographicMapInterface(new BasicGeographicMap[] { baseRaceTrackGeographicMap});

@@ -13,18 +13,17 @@
 */
 package org.allbinary.game.ag.ai;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.time.NoTimeDelayHelper;
+import org.allbinary.util.ABHashtable;
 
 public class BasicProbabilityAIDataFactory
 {
-    public Hashtable getInstance()
+    public ABHashtable getInstance()
     {        
-        Integer[][] likelyhoodIntegerArray = new Integer[Canvas.KEY_NUM9 + 1][2];
+        final Integer[][] likelyhoodIntegerArray = new Integer[Canvas.KEY_NUM9 + 1][2];
 
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
@@ -48,7 +47,7 @@ public class BasicProbabilityAIDataFactory
         likelyhoodIntegerArray[Canvas.KEY_NUM1][0] = smallIntegerSingletonFactory.getAt(30);
         likelyhoodIntegerArray[Canvas.KEY_NUM1][1] = smallIntegerSingletonFactory.getAt(40);
 
-        Integer[] repeatLikelyhoodIntegerArray = new Integer[Canvas.KEY_NUM9 + 1];
+        final Integer[] repeatLikelyhoodIntegerArray = new Integer[Canvas.KEY_NUM9 + 1];
 
         repeatLikelyhoodIntegerArray[Canvas.UP] = smallIntegerSingletonFactory.getAt(0);
 
@@ -64,7 +63,7 @@ public class BasicProbabilityAIDataFactory
         
         repeatLikelyhoodIntegerArray[Canvas.KEY_NUM1] = smallIntegerSingletonFactory.getAt(10);
 
-        InputProbability inputProbability = new InputProbability(
+        final InputProbability inputProbability = new InputProbability(
                 likelyhoodIntegerArray, repeatLikelyhoodIntegerArray, 42, NoTimeDelayHelper.SINGLETON);
 
         return inputProbability.toHashtable();

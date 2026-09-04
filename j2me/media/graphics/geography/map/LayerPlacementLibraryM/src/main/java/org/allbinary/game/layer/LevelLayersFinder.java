@@ -15,10 +15,10 @@
 package org.allbinary.game.layer;
 
 import java.util.Enumeration;
-import java.util.Hashtable;
 
 import org.allbinary.layer.Layer;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.EnumerationUtil;
@@ -38,7 +38,7 @@ public class LevelLayersFinder {
 
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
     
-    public BasicArrayList get(final Hashtable hashtable)
+    public BasicArrayList get(final ABHashtable hashtable)
     {
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
@@ -46,12 +46,12 @@ public class LevelLayersFinder {
 
         final Enumeration enumeration = hashtable.keys();
 
-        Hashtable layerHashtableCanBeNull;
+        ABHashtable layerHashtableCanBeNull;
         Integer integerCanBeNull;
         Integer cachedIntegerCanBeNull;
         while(this.enumerationUtil.hasMoreElements(enumeration))
         {
-            layerHashtableCanBeNull = (Hashtable) hashtable.get((Object) this.enumerationUtil.nextElement(enumeration));
+            layerHashtableCanBeNull = (ABHashtable) hashtable.get((Object) this.enumerationUtil.nextElement(enumeration));
 
             integerCanBeNull = (Integer) layerHashtableCanBeNull.get((Object) Layer.ID);
 

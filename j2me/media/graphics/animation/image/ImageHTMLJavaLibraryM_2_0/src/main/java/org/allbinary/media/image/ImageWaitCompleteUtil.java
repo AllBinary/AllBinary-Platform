@@ -13,15 +13,13 @@
  */
 package org.allbinary.media.image;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.GameFeatureImageCacheFactory;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.HashtableUtil;
 import org.microemu.device.playn.PlaynImage;
 
@@ -98,7 +96,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     {
         this.allTimeDelayHelper.setStartTimeTNT();
         
-        final Hashtable hashtable = GameFeatureImageCacheFactory.getInstance().getHashtableP();
+        final ABHashtable hashtable = GameFeatureImageCacheFactory.getInstance().getHashtableP();
 
         final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
         final int size = objectArray.length;

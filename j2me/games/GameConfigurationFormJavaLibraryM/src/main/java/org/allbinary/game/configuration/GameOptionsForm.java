@@ -14,8 +14,8 @@
 package org.allbinary.game.configuration;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.Command;
@@ -39,9 +39,8 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 
 @JsType
@@ -98,7 +97,7 @@ public class GameOptionsForm extends CommandForm
     private void addTextFieldsIfSimulated()
     {
         String key = OrientationData.getInstance().ORIENTATION_SENSOR_INPUT;
-        final Hashtable hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
+        final ABHashtable hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
         if(hashtable != null)
         {
             Object listCanBeNull = hashtable.get(key);
@@ -115,7 +114,7 @@ public class GameOptionsForm extends CommandForm
     @JsMethod
     private void addTextFields()
     {
-        final Hashtable hashtable = GameConfigurationTextInput.getHashtable();
+        final ABHashtable hashtable = GameConfigurationTextInput.getHashtable();
         final int size = hashtable.size();
 
         final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
@@ -201,7 +200,7 @@ public class GameOptionsForm extends CommandForm
 
         GameConfigurationUtil.getInstance().updateCompetitionValue();
 
-        final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
         
         final GameConfiguration SCALE = GameConfigurationCentral.getInstance().SCALE;
         

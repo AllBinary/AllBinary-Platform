@@ -13,8 +13,6 @@
 */
 package org.allbinary.media.graphics.geography.map.racetrack.drop;
 
-import java.util.Hashtable;
-
 import org.allbinary.game.identification.GroupCommonFactory;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
@@ -38,6 +36,7 @@ import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 import org.allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeographicMap;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellTypeFactory;
+import org.allbinary.util.ABHashtable;
 
 /**
  * 
@@ -137,7 +136,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
 
         return nonRoadGeographicMapCellPosition;
     }
-    private final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    private final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
 
     @Override
     public void update(final AllBinaryGameLayerManager allBinaryGameLayerManager,

@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.score.remote;
 
-import java.util.Hashtable;
-
 import org.allbinary.game.GameInfoData;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.score.HighScore;
@@ -25,6 +23,7 @@ import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.HashtableUtil;
 
 public class RemoteHighScoresSubmissionProcessor
@@ -49,7 +48,7 @@ public class RemoteHighScoresSubmissionProcessor
 
             final GameInfoData gameInfoData = GameInfoData.getInstance();
             
-            final Hashtable hashtable = abeClientInformation.toHashtable();
+            final ABHashtable hashtable = abeClientInformation.toHashtable();
 
             //hashtable.put(RemoteHighScoresData.getInstance().GAME_INFO, highScore.getGameInfo().toString());
 
@@ -82,7 +81,7 @@ public class RemoteHighScoresSubmissionProcessor
             
             if (XmlRpcAbeClient.isOnline)
             {
-                final Hashtable resultHashtable = (Hashtable) new XmlRpcRemoteHighScoresClient(
+                final ABHashtable resultHashtable = (ABHashtable) new XmlRpcRemoteHighScoresClient(
                         abeClientInformation, "highscoresubmissionservicessl.php",
                         "HighScoreSubmissionService.process").get(hashtable, this.noCrypt);
 

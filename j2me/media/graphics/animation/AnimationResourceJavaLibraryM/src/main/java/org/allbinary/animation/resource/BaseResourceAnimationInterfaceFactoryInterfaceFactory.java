@@ -14,8 +14,9 @@
 package org.allbinary.animation.resource;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
@@ -27,10 +28,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
+import org.allbinary.util.ABHashtable;
 
 @JsType
 public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
@@ -43,16 +41,16 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    private final Hashtable hashtable;
-    private final Hashtable rectangleHashtable;
-    private final Hashtable rectangleArrayOfArraysHashtable;
+    private final ABHashtable hashtable;
+    private final ABHashtable rectangleHashtable;
+    private final ABHashtable rectangleArrayOfArraysHashtable;
 
     private final String name;
 
     private boolean initialized;
 
     @JsConstructor
-    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name, final Hashtable hashtable, final Hashtable rectangleHashtable, final Hashtable rectangleArrayHashtable)
+    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name, final ABHashtable hashtable, final ABHashtable rectangleHashtable, final ABHashtable rectangleArrayHashtable)
     {
         this.hashtable = hashtable;
         this.rectangleHashtable = rectangleHashtable;
@@ -173,19 +171,19 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
     @Override
     @JsMethod
-    public Hashtable getHashtable()
+    public ABHashtable getHashtable()
     {
         return this.hashtable;
     }
 
     @JsMethod
-    public Hashtable getRectangleHashtable()
+    public ABHashtable getRectangleHashtable()
     {
         return this.rectangleHashtable;
     }
 
     @JsMethod
-    public Hashtable getRectangleArrayOfArraysHashtable()
+    public ABHashtable getRectangleArrayOfArraysHashtable()
     {
         return this.rectangleArrayOfArraysHashtable;
     }

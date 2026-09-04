@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.configuration.feature;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.Item;
 import javax.microedition.lcdui.NullImage;
@@ -25,6 +23,7 @@ import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 
@@ -39,7 +38,7 @@ public class GameFeatureFormUtil
         return GameFeatureFormUtil.instance;
     }
     
-    public ChoiceGroup getChoiceGroup(Hashtable hashtable, String name, int option)
+    public ChoiceGroup getChoiceGroup(ABHashtable hashtable, String name, int option)
     {
         final StringMaker stringMaker = new StringMaker();
         
@@ -67,7 +66,7 @@ public class GameFeatureFormUtil
         return choiceGroup;
     }
 
-    public void addChoiceGroup(CommandForm form, Hashtable hashtable, int option)
+    public void addChoiceGroup(CommandForm form, ABHashtable hashtable, int option)
     {
         final StringMaker stringMaker = new StringMaker();
 

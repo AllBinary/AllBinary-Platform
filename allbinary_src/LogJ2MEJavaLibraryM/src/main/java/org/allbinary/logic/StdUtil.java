@@ -13,8 +13,9 @@
  */
 package org.allbinary.logic;
 
-import java.util.Hashtable;
-import java.util.Stack;
+import org.allbinary.util.ABHashtable;
+import org.allbinary.util.ABStack;
+import org.allbinary.util.ABVector;
 
 /**
  *
@@ -34,14 +35,21 @@ public class StdUtil {
     }
 
     //ActualPlatform
-    public final Hashtable NULL_TABLE = this.createHashtable();
+    public final ABVector<Object> EMPTY_VECTOR = this.createVector();
+    
+    //ActualPlatform
+    public final ABHashtable NULL_TABLE = this.createHashtable();
         
-    public final Stack<Object> createStack() {
-        return new Stack<Object>();
+    public final ABStack<Object> createStack() {
+        return new ABStack<Object>();
+    }
+
+    public final ABVector<Object> createVector() {
+        return new ABVector<Object>();
     }
     
-    public final Hashtable<Object, Object> createHashtable() {
-        return new Hashtable<Object, Object>();
+    public final ABHashtable<Object, Object> createHashtable() {
+        return new ABHashtable<Object, Object>();
     }
     
 }

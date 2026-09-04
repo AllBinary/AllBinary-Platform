@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.ag.ai.scroller;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.game.ai.BasicAI;
@@ -25,37 +23,40 @@ import org.allbinary.game.layer.weapon.WeaponLayer;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.math.MathUtil;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 
 public class FlockingAI extends BasicAI
 {
     private final int allowedDistance;
     
-    public FlockingAI(Hashtable hashtable,
-            AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+    public FlockingAI(final ABHashtable hashtable,
+            final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
        throws Exception
     {
         super(ownerLayerInterface, gameInput);
         
-        Integer allowedDistance = (Integer) hashtable.get(BasePatrolAI.MAX_DISTANCE);
+        final Integer allowedDistance = (Integer) hashtable.get(BasePatrolAI.MAX_DISTANCE);
         this.allowedDistance = allowedDistance.intValue();
     }
     
     @Override
-    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
+    public void processAI(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
         int maxDistance = 0;
         AllBinaryLayer farAllbinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
         
-        GroupLayerManagerListener groupLayerManagerListener = 
+        final GroupLayerManagerListener groupLayerManagerListener = 
             GroupLayerManagerListener.getInstance();
         
-        BasicArrayList list = groupLayerManagerListener.getList(BasicGroupFactory.getInstance().ENEMY);
+        final BasicArrayList list = groupLayerManagerListener.getList(BasicGroupFactory.getInstance().ENEMY);
         
         final int size = list.size();
+        AllBinaryLayer allBinaryLayer;
+        AllBinaryLayer ownerLayerInterface;
         for(int index = 0; index < size; index++)
         {
-            AllBinaryLayer allBinaryLayer = (AllBinaryLayer) list.get(index);
+            allBinaryLayer = (AllBinaryLayer) list.get(index);
             
             if(allBinaryLayer.getType() != WeaponLayer.getStaticType())
             {
@@ -79,7 +80,7 @@ public class FlockingAI extends BasicAI
             // Go towards flock
             if (farAllbinaryLayer != AllBinaryLayer.NULL_ALLBINARY_LAYER)
             {
-                AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
+                ownerLayerInterface = this.getOwnerLayerInterface();
                 
                 if (farAllbinaryLayer.getXP() < ownerLayerInterface.getXP())
                 {
@@ -104,18 +105,18 @@ public class FlockingAI extends BasicAI
         }
     }
     
-    private int getXYDistance(AllBinaryLayer allBinaryLayer)
+    private int getXYDistance(final AllBinaryLayer allBinaryLayer)
     {
-        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
+        final AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         
-        int xTotalDistance = (allBinaryLayer.getXP() + allBinaryLayer.getHalfWidth()) - 
+        final int xTotalDistance = (allBinaryLayer.getXP() + allBinaryLayer.getHalfWidth()) - 
                 (ownerLayerInterface.getXP() + ownerLayerInterface.getHalfWidth());
 
-        int yTotalDistance = (allBinaryLayer.getYP() + allBinaryLayer.getHalfHeight()) - 
+        final int yTotalDistance = (allBinaryLayer.getYP() + allBinaryLayer.getHalfHeight()) - 
         (ownerLayerInterface.getYP() + ownerLayerInterface.getHalfHeight());
         
         final MathUtil mathUtil = MathUtil.getInstance();
-        int totalDistance = mathUtil.abs(xTotalDistance) + mathUtil.abs(yTotalDistance);
+        final int totalDistance = mathUtil.abs(xTotalDistance) + mathUtil.abs(yTotalDistance);
         
         return totalDistance;
     }

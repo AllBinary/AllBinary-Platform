@@ -13,9 +13,6 @@
  */
 package org.allbinary.game.layer;
 
-
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.input.form.RTSFormInput;
@@ -59,6 +56,7 @@ import org.allbinary.math.LayerDistanceUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.view.ViewPositionBase;
 
@@ -135,7 +133,7 @@ public class RTSLayer
      */
     private final String rootName;
 
-    protected final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    protected final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
     private final int BUILD_VALUE = 63;
     public final GeographicMapCellPositionAreaBase geographicMapCellPositionAreaBase;
     

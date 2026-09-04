@@ -14,6 +14,9 @@
 package org.allbinary.canvas;
 
 import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import javax.microedition.lcdui.CommandListener;
 
@@ -30,10 +33,6 @@ import org.allbinary.thread.RunnableInterface;
 import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
 
 @JsType
 public class RunnableCanvas extends MyCanvas 

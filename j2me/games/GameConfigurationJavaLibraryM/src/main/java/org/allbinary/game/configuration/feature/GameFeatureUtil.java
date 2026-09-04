@@ -13,23 +13,22 @@
 */
 package org.allbinary.game.configuration.feature;
 
-import jsinterop.annotations.JsType;
-
 import java.util.Enumeration;
-import java.util.Hashtable;
 
 import javax.microedition.lcdui.ChoiceGroup;
-import org.allbinary.TsUtil;
 
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.string.CommonLabels;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.EnumerationUtil;
-import org.allbinary.util.HashtableUtil;
+import jsinterop.annotations.JsType;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsProperty;
 
+import org.allbinary.TsUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.util.ABHashtable;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.EnumerationUtil;
+import org.allbinary.util.HashtableUtil;
 
 @JsType
 public class GameFeatureUtil
@@ -214,7 +213,7 @@ public class GameFeatureUtil
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), this, "updateExclusive");
 
         final Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
-        final Hashtable hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
+        final ABHashtable hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
         final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
 
         BasicArrayList basicArrayList;

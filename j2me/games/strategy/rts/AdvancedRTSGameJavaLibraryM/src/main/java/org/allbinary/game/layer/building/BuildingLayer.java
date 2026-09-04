@@ -13,11 +13,9 @@
  */
 package org.allbinary.game.layer.building;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.ag.weapon.media.audio.ExplosionBasicSound;
 
+import org.allbinary.ag.weapon.media.audio.ExplosionBasicSound;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.animation.NullIndexedAnimationFactory;
 import org.allbinary.game.identification.GroupFactory;
@@ -61,6 +59,7 @@ import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayListS;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
+import org.allbinary.util.ABHashtable;
 
 public class BuildingLayer
     extends AdvancedRTSGameLayer
@@ -103,7 +102,7 @@ public class BuildingLayer
     private final Paintable damageFloatersPaintableInterface;
     private final Paintable healthBar;
 
-    private final Hashtable pathsHashtable;
+    private final ABHashtable pathsHashtable;
 
     public BuildingLayer(
             final RemoteInfo remoteInfo,

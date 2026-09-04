@@ -13,8 +13,7 @@
 */
 package org.allbinary.game.ai;
 
-import java.util.Hashtable;
-
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
@@ -35,13 +34,13 @@ public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
        return ArtificialIntelligenceInterfaceFactoryInterfaceFactory.SINGLETON;
    }
    
-   public ArtificialIntelligenceInterfaceFactoryInterface getInstanceFromCollection(final Hashtable hashtable)
+   public ArtificialIntelligenceInterfaceFactoryInterface getInstanceFromCollection(final ABHashtable hashtable)
    {
-      Integer typeInteger = (Integer) hashtable.get((Object) BasicAI.ID);
+      final Integer typeInteger = (Integer) hashtable.get((Object) BasicAI.ID);
        
       int type = typeInteger.intValue();
       
-      ArtificialIntelligenceInterfaceFactoryInterface artificialIntelligenceInterfaceFactoryInterface = 
+      final ArtificialIntelligenceInterfaceFactoryInterface artificialIntelligenceInterfaceFactoryInterface = 
             (ArtificialIntelligenceInterfaceFactoryInterface) this.list.objectArray[type - 1];
       
       return artificialIntelligenceInterfaceFactoryInterface;

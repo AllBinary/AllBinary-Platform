@@ -13,9 +13,8 @@
 */
 package org.allbinary.game.configuration;
 
-import java.util.Hashtable;
-
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
@@ -24,7 +23,7 @@ public class GameConfigurationSingleton
     private static GameConfigurationSingleton SINGLETON = new GameConfigurationSingleton();
     
     private BasicArrayList list;
-    private Hashtable hashtable;
+    private ABHashtable hashtable;
         
     public static GameConfigurationSingleton getInstance()
     {
@@ -52,7 +51,7 @@ public class GameConfigurationSingleton
         this.list.add(gameConfiguration);
     }
     
-    public Hashtable getHashtable()
+    public ABHashtable getHashtable()
     {
         return this.hashtable;
     }

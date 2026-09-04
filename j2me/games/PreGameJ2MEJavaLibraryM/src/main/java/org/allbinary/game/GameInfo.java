@@ -15,8 +15,6 @@ package org.allbinary.game;
 
 import jsinterop.annotations.JsType;
 
-import java.util.Hashtable;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -25,6 +23,7 @@ import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 
 @JsType
@@ -50,8 +49,8 @@ public class GameInfo
    private int currentLevel;
    
    @JsConstructor
-   public GameInfo(GameType gameType, GameMode gameMode, PlayerType playerType,
-           int highestLevel, int currentLevel)
+   public GameInfo(final GameType gameType, final GameMode gameMode, 
+       final PlayerType playerType, int highestLevel, int currentLevel)
    {
        this.gameType = gameType;
        this.gameMode = gameMode;
@@ -141,9 +140,9 @@ public class GameInfo
    }
    
    @JsMethod
-   public Hashtable toHashtable()
+   public ABHashtable toHashtable()
    {
-       final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+       final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
 
        hashtable.put(this.gameInfoData.GAME_TYPE, this.getGameType().toString());
        hashtable.put(this.gameInfoData.GAME_MODE, this.gameMode.toString());

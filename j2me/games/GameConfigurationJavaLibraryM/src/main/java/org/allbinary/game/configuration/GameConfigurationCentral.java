@@ -14,8 +14,9 @@
 package org.allbinary.game.configuration;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import org.allbinary.game.configuration.persistance.GameConfigurationPersistanceSingleton;
 import org.allbinary.game.configuration.persistance.KeyValuePersistance;
@@ -26,11 +27,8 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
 
 @JsType
 public class GameConfigurationCentral
@@ -203,7 +201,7 @@ public class GameConfigurationCentral
 
             if (list.size() > 0)
             {
-                final Hashtable hashtable = keyValuePersistance.get(0);
+                final ABHashtable hashtable = keyValuePersistance.get(0);
                 final Object object = (Object) this.SCALE.getName();
                 final String value = (String) hashtable.get(object);
 

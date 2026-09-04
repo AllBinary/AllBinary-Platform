@@ -13,14 +13,13 @@
 */
 package org.allbinary.game.ag.ai;
 
-import java.util.Hashtable;
-
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
@@ -28,7 +27,7 @@ public class NumberOnOwnGroupSequenceAIFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   public ArtificialIntelligenceInterface getInstance(final Hashtable hashtable,
+   public ArtificialIntelligenceInterface getInstance(final ABHashtable hashtable,
       final ArtificialIntelligenceInterface[] artificialIntelligenceInterface,
       final AllBinaryLayer ownerLayerInterface,
       final GameInput gameInput)

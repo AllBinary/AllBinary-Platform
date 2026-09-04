@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.ag.layer.weapon.mine;
 
-import java.util.Hashtable;
-
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
@@ -25,6 +23,7 @@ import org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.util.ABHashtable;
 
 public class MineCountedPickedUpLayerInterfaceFactory 
     extends CountedPickedUpLayerInterfaceFactory 
@@ -66,7 +65,7 @@ public class MineCountedPickedUpLayerInterfaceFactory
     private final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
     
     @Override
-    public AllBinaryLayer getNextInstance(final Hashtable hashtable, final int x, final int y, final int z)
+    public AllBinaryLayer getNextInstance(final ABHashtable hashtable, final int x, final int y, final int z)
             throws Exception
     {
         final AllBinaryLayer sourceLayerInterface = (AllBinaryLayer) hashtable.get((Object) this.smallIntegerSingletonFactory.getAt(0));

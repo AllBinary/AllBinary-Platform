@@ -13,8 +13,6 @@
 */
 package org.allbinary.input.automation.module;
 
-
-import java.util.Hashtable;
 import java.util.Set;
 
 import org.allbinary.input.automation.robot.InputRobotFactory;
@@ -22,6 +20,7 @@ import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
 import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInterface;
+import org.allbinary.util.ABHashtable;
 
 public class TestInputAutomationActionWorker 
     extends AbstractInputAutomationWorker
@@ -55,7 +54,7 @@ public class TestInputAutomationActionWorker
 
         //this.startCaptureWorkers();
 
-        final Hashtable hashtable = InputRobotFactory.getInstance().get();
+        final ABHashtable hashtable = InputRobotFactory.getInstance().get();
         final Set set = hashtable.keySet();
                 
         final Object[] inputTypeNameArray = set.toArray();

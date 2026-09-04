@@ -13,19 +13,18 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
-import java.util.Hashtable;
-
 import org.allbinary.string.CommonStrings;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.util.ABHashtable;
 
 public class GeographicMapCellPositionFactory extends GeographicMapCellPositionBaseFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final static Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    private final static ABHashtable hashtable = StdUtil.getInstance().createHashtable();
     
   //For the Non Caching version - Turning off caching here requires turning of caching of paths as well
     @Override
@@ -56,7 +55,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
         }
     }
 
-    public static Hashtable getHashtable()
+    public static ABHashtable getHashtable()
     {
         return GeographicMapCellPositionFactory.hashtable;
     }

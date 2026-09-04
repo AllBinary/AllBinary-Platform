@@ -13,20 +13,19 @@
 */
 package org.allbinary.game.ag.ai.scroller;
 
-import java.util.Hashtable;
-
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.util.ABHashtable;
 
 public class TerrainPatrolAIFactory
     implements ArtificialIntelligenceInterfaceFactoryInterface
 {
     @Override
     public ArtificialIntelligenceInterface getInstance(
-          final Hashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+          final ABHashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
           throws Exception
     {
         hashtable.put(BasePatrolAI.MAX_DISTANCE, SmallIntegerSingletonFactory.getInstance().getAt(220));

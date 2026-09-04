@@ -14,11 +14,14 @@
 package org.allbinary.image;
 
 import java.io.InputStream;
-import java.util.Hashtable;
 
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullImage;
+
 import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -26,10 +29,8 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 @JsType
 public class ImageCacheBase
@@ -41,7 +42,7 @@ public class ImageCacheBase
     protected final ImageFactory imageFactory = ImageFactory.getInstance();
 
     @JsProperty
-    protected final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    protected final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
 
     @JsProperty
     protected final int SIZE = 128;
@@ -193,7 +194,7 @@ public class ImageCacheBase
     }
 
     @JsMethod
-    public Hashtable getHashtableP()
+    public ABHashtable getHashtableP()
     {
         return this.hashtable;
     }

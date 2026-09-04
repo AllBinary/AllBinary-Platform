@@ -13,14 +13,13 @@
 */
 package org.allbinary.game.ag.ai;
 
-import java.util.Hashtable;
-
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.ABHashtable;
 
 public class MultiKeyPressesAI extends KeyPressesAI
 {
@@ -28,7 +27,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     
-    public MultiKeyPressesAI(final Hashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+    public MultiKeyPressesAI(final ABHashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
             throws Exception
     {
         super(hashtable, ownerLayerInterface, gameInput);

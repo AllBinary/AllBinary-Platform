@@ -15,8 +15,6 @@ package org.allbinary.game.displayable.canvas;
 
 import jsinterop.annotations.JsType;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.ItemStateListener;
 
@@ -24,6 +22,7 @@ import org.allbinary.game.state.GameStateCompositeInterface;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.thread.RunnableInterface;
 import jsinterop.annotations.JsMethod;
+import org.allbinary.util.ABHashtable;
 
 
 @JsType
@@ -52,11 +51,11 @@ public interface GameCanvasRunnableInterface
    @JsMethod
    void initCommands(CommandListener cmdListener);
    @JsMethod
-   Hashtable getCurrentStateHashtable()throws Exception;
+   ABHashtable getCurrentStateHashtable()throws Exception;
    @JsMethod
-   Hashtable getLoadStateHashtable()throws Exception;
+   ABHashtable getLoadStateHashtable()throws Exception;
    @JsMethod
-   void setLoadStateHashtable(Hashtable hashtable) throws Exception;
+   void setLoadStateHashtable(ABHashtable hashtable) throws Exception;
    //void addCommand(Command command);
    
    @JsMethod

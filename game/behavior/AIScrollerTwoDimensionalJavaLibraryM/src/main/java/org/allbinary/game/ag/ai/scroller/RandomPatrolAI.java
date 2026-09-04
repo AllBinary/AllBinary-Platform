@@ -13,21 +13,20 @@
 */
 package org.allbinary.game.ag.ai.scroller;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.game.input.GameInput;
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.util.ABHashtable;
 
 public class RandomPatrolAI extends BasePatrolAI
 {
     private boolean changedDirection = true;
     
-    public RandomPatrolAI(Hashtable hashtable,
-            AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+    public RandomPatrolAI(final ABHashtable hashtable,
+            final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
        throws Exception
     {
         super(hashtable, ownerLayerInterface, gameInput);
@@ -41,7 +40,7 @@ public class RandomPatrolAI extends BasePatrolAI
     }
 
     @Override
-    public void processAI(AllBinaryLayerManager allBinaryLayerManager)
+    public void processAI(final AllBinaryLayerManager allBinaryLayerManager)
     throws Exception
     {
         // this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.PROCESS);

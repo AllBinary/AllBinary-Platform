@@ -13,14 +13,16 @@
 */
 package org.allbinary.input.media.image.capture;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.Hashtable;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;;
 
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 
 public class ScreenScavangerRobot
 {
@@ -33,12 +35,12 @@ public class ScreenScavangerRobot
     
     public BufferedImage[] getScreenAsBufferedImages() throws Exception {
 	this.logUtil.putF(this.commonStrings.START, this, "getScreenAsBufferedImages");
-	Dimension dimScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	Rectangle rectScreenSize = new Rectangle(dimScreenSize);
-	Hashtable robotHashtable = InputRobotFactory.getInstance().get();
+	final Dimension dimScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	final Rectangle rectScreenSize = new Rectangle(dimScreenSize);
+	final ABHashtable robotHashtable = InputRobotFactory.getInstance().get();
 	BufferedImage[] bufferedImageArray = new BufferedImage[1];
 	int index = 0;
-	InputRobotInterface inputRobotInterface
+	final InputRobotInterface inputRobotInterface
 	    = (InputRobotInterface) robotHashtable.get("Java Robot");
 	bufferedImageArray[index]
 	    = inputRobotInterface.createScreenCapture(rectScreenSize);

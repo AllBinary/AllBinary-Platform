@@ -13,12 +13,11 @@
  */
 package org.allbinary.logic;
 
-import java.util.Vector;
 import jsinterop.annotations.JsType;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsMethod;
-import org.allbinary.util.ABHashMap;
 
+import org.allbinary.util.ABHashMap;
 import org.allbinary.util.ABHashtable;
 import org.allbinary.util.ABStack;
 import org.allbinary.util.ABVector;

@@ -14,18 +14,18 @@
 package org.allbinary.logic.communication.log;
 
 import java.io.IOException;
-import java.util.Hashtable;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 
 import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
 
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.util.ABHashtable;
 
 public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 {
@@ -63,7 +63,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             this.setClient(xmlRpcClient);
             xmlRpcClient.setBasicAuthentication(null, null);
 
-            Hashtable hashtable = (Hashtable) object;
+            ABHashtable hashtable = (ABHashtable) object;
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Client Info: \n" + hashtable.toString());

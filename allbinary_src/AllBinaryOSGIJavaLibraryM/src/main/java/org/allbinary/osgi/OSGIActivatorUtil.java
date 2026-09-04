@@ -13,8 +13,8 @@
 */
 package org.allbinary.osgi;
 
-import java.util.Hashtable;
-
+import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.NullServiceReferenceFactory;
 import org.osgi.framework.ServiceReference;
@@ -33,14 +33,14 @@ public class OSGIActivatorUtil
     throws Exception
     {
         OSGIActivatorUtil.registerAsService(
-            bundleContext, object, serviceName, new Hashtable());
+            bundleContext, object, serviceName, StdUtil.getInstance().createHashtable());
     }
     
     public static void registerAsService(
         final BundleContext bundleContext,
         final Object object,
         final String serviceName,
-        final Hashtable properties)
+        final ABHashtable properties)
     throws Exception
     {
         final ServiceRegistration serviceRegistration =

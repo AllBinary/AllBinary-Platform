@@ -13,19 +13,7 @@
 */
 package org.allbinary.game.midlet;
 
-import jsinterop.annotations.JsType;
-
-/**
- *Detailed description This class is the main MIDlet for all GameMidlets
- *it sets the main canvas and starts a thread for the specified canvas.
- *
- *@author Travis Berthelot
- *Date: 11/19/02
- *
- */
-
 import java.util.Enumeration;
-import java.util.Hashtable;
 
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
@@ -33,6 +21,11 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.NullCanvas;
 import javax.microedition.midlet.MIDletStateChangeException;
+
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import org.allbinary.J2MEUtil;
 import org.allbinary.TsUtil;
@@ -114,11 +107,17 @@ import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.EnumerationUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
+/**
+ *Detailed description This class is the main MIDlet for all GameMidlets
+ *it sets the main canvas and starts a thread for the specified canvas.
+ *
+ *@author Travis Berthelot
+ *Date: 11/19/02
+ *
+ */
 
 @JsType
 public class GameMidlet extends ProgressMidlet
@@ -1073,20 +1072,20 @@ public class GameMidlet extends ProgressMidlet
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.SAVE);
 
-        final Hashtable hashtable = this.getCurrentStateHashtable();
+        final ABHashtable hashtable = this.getCurrentStateHashtable();
         GamePersistanceSingleton.getInstance().save(this.abeClientInformation, hashtable);
     }
 
     @Override
     @JsMethod
-    public Hashtable getCurrentStateHashtable() throws Exception
+    public ABHashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, "getCurrentStateHashtable");
-        final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
 
         if (this.allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
         {
-            final Hashtable currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
+            final ABHashtable currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
             final Enumeration enumeration = currentHashtable.keys();
             Object key;
             while (this.enumerationUtil.hasMoreElements(enumeration))

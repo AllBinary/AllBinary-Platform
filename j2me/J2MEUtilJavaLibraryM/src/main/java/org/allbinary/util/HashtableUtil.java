@@ -14,7 +14,6 @@
 package org.allbinary.util;
 
 import java.util.Enumeration;
-import java.util.Hashtable;
 
 public class HashtableUtil
 {
@@ -29,7 +28,7 @@ public class HashtableUtil
 
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
     
-    public void putAll(final Hashtable fromHashtable, final Hashtable hashtable)
+    public void putAll(final ABHashtable fromHashtable, final ABHashtable hashtable)
     {
         final Enumeration enumeration = fromHashtable.keys();
         Object keyCanBeNull;
@@ -50,7 +49,7 @@ public class HashtableUtil
         }
     }
 
-    public Object[] getKeysAsArray(final Hashtable hashtable)
+    public Object[] getKeysAsArray(final ABHashtable hashtable)
     {
         //return hashtable.keySet().toArray();
 
@@ -66,7 +65,7 @@ public class HashtableUtil
         return objectArray;
     }
 
-    public BasicArrayList getKeysAsList(final Hashtable hashtable)
+    public BasicArrayList getKeysAsList(final ABHashtable hashtable)
     {
         //throw new IllegalArgumentException("Should not use - to much object creation");
         //return hashtable.keySet().toArray();

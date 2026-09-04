@@ -13,8 +13,6 @@
  */
 package org.allbinary.game.part;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
@@ -27,6 +25,7 @@ import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.math.PrimitiveLongUtil;
+import org.allbinary.util.ABHashtable;
 
 public class CountedLayerInterfaceFactoryPart
     implements PartInterface, UpdateMyFontInterface {
@@ -64,7 +63,7 @@ public class CountedLayerInterfaceFactoryPart
         this.total = total;
     }
 
-    public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y, int z)
+    public AllBinaryLayer getInstance(final ABHashtable hashtable, final int x, final int y, final int z)
         throws Exception {
         if (this.total > 0) {
             this.setTotal(this.total - 1);
@@ -79,7 +78,7 @@ public class CountedLayerInterfaceFactoryPart
         return this.total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(final int total) {
         this.total = total;
 
         //this.totalString = this.primitiveLongUtil.getString(total);
@@ -89,12 +88,12 @@ public class CountedLayerInterfaceFactoryPart
     }
 
     @Override
-    public void paint(Graphics graphics) {
+    public void paint(final Graphics graphics) {
         this.myFontProcessor.process(graphics);
     }
 
     @Override
-    public void paintThreed(Graphics graphics) {
+    public void paintThreed(final Graphics graphics) {
     }
 
     @Override
@@ -102,7 +101,7 @@ public class CountedLayerInterfaceFactoryPart
         return this.animationInterface;
     }
 
-    public void setAnimationInterface(Animation animationInterface) {
+    public void setAnimationInterface(final Animation animationInterface) {
         this.animationInterface = animationInterface;
     }
 
@@ -116,7 +115,7 @@ public class CountedLayerInterfaceFactoryPart
     /**
      * @param totalStringWidth the totalStringWidth to set
      */
-    private void setXOffset(int totalStringWidth) {
+    private void setXOffset(final int totalStringWidth) {
         this.xOffset = totalStringWidth;
     }
 
@@ -144,7 +143,7 @@ public class CountedLayerInterfaceFactoryPart
      * @param countedPickedUpLayerInterfaceFactory the
      * countedPickedUpLayerInterfaceFactory to set
      */
-    public void setCountedPickedUpLayerInterfaceFactory(CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory) {
+    public void setCountedPickedUpLayerInterfaceFactory(final CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory) {
         this.countedPickedUpLayerInterfaceFactory = countedPickedUpLayerInterfaceFactory;
     }
 }

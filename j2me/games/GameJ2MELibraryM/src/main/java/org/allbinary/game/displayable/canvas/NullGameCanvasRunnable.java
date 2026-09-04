@@ -13,7 +13,6 @@
  */
 package org.allbinary.game.displayable.canvas;
 
-import java.util.Hashtable;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
@@ -22,6 +21,7 @@ import org.allbinary.game.state.GameState;
 import org.allbinary.game.state.GameStateFactory;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.util.ABHashtable;
 
 /**
  *
@@ -84,17 +84,17 @@ public class NullGameCanvasRunnable implements GameCanvasRunnableInterface {
     }
 
     @Override
-    public Hashtable getCurrentStateHashtable() throws Exception {
+    public ABHashtable getCurrentStateHashtable() throws Exception {
         return StdUtil.getInstance().NULL_TABLE;
     }
 
     @Override
-    public Hashtable getLoadStateHashtable() throws Exception {
+    public ABHashtable getLoadStateHashtable() throws Exception {
         return StdUtil.getInstance().NULL_TABLE;
     }
 
     @Override
-    public void setLoadStateHashtable(Hashtable hashtable) throws Exception {
+    public void setLoadStateHashtable(ABHashtable hashtable) throws Exception {
 
     }
 

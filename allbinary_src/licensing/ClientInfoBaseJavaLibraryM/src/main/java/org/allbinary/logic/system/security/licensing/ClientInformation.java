@@ -14,8 +14,8 @@
 package org.allbinary.logic.system.security.licensing;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.TsUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -27,9 +27,8 @@ import org.allbinary.logic.system.os.NoOperatingSystem;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 // This is the information sent to the license server
 
@@ -181,14 +180,14 @@ public class ClientInformation implements AbeClientInformationInterface
      */
     @Override
     @JsMethod
-    public Hashtable toHashtable()
+    public ABHashtable toHashtable()
     {
         final AbeClientInformationData abeClientInformationData = 
             AbeClientInformationData.getInstance();
         
         final GenericOperatingSystem genericOperatingSystem = this.getOperatingSystemInterface();
 
-        final Hashtable clientInfoHashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable clientInfoHashtable = StdUtil.getInstance().createHashtable();
         
         clientInfoHashtable.put(
                 abeClientInformationData.NAME, this.name);

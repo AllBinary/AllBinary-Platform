@@ -14,7 +14,6 @@
 package org.allbinary.data.resource;
 
 import java.io.InputStream;
-import java.util.Hashtable;
 
 import android.app.Activity;
 import android.content.Context;
@@ -30,6 +29,7 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.HashtableUtil;
 
 //Android
@@ -48,7 +48,7 @@ public class ResourceUtil
     //private Activity activity;
     private Object context = NullUtil.getInstance().NULL_OBJECT;
     private Object resources = NullUtil.getInstance().NULL_OBJECT;
-    private Hashtable hashMap = StdUtil.getInstance().createHashtable();
+    private ABHashtable hashMap = StdUtil.getInstance().createHashtable();
 
     private ResourceUtil()
     {

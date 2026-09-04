@@ -12,11 +12,10 @@
  */
 package org.allbinary.game.layer;
 
-import java.util.Hashtable;
-
 import org.allbinary.game.layer.waypoint.WorkWaypoint;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeographicMap;
+import org.allbinary.util.ABHashtable;
 
 public class AdvancedRTSLayerUtil
 {
@@ -27,9 +26,9 @@ public class AdvancedRTSLayerUtil
         return AdvancedRTSLayerUtil.instance;
     }
     
-    public final Hashtable createFakeRTSLayerHashtable(final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap)
+    public final ABHashtable createFakeRTSLayerHashtable(final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap)
     {
-        final Hashtable hashtable = RTSLayerUtil.getInstance().createFakeRTSLayerHashtable(baseRaceTrackGeographicMap);
+        final ABHashtable hashtable = RTSLayerUtil.getInstance().createFakeRTSLayerHashtable(baseRaceTrackGeographicMap);
         
         hashtable.put(WorkWaypoint.ID, 
                 SmallIntegerSingletonFactory.getInstance().getAt(50));

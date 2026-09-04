@@ -13,9 +13,10 @@
 */
 package org.allbinary.input.automation.robot;
 
-import java.awt.*;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+
 import java.util.Collection;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -29,6 +30,7 @@ import org.allbinary.logic.java.help.JavaHelpSetNotifier;
 import org.allbinary.logic.java.object.InterfaceUtil;
 import org.allbinary.logic.system.loader.SecuredNativeLibraryInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 
 public class InputRobotFactory
 {
@@ -44,7 +46,7 @@ public class InputRobotFactory
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    private final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
     private HelpSetListener helpSetListenerInterface;
     
     private InputRobotFactory()
@@ -173,7 +175,7 @@ public class InputRobotFactory
         }
     }
     
-    public Hashtable get() throws Exception
+    public ABHashtable get() throws Exception
     {
         return this.hashtable;
     }

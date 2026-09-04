@@ -13,14 +13,13 @@
  */
 package org.allbinary.game.layer.building;
 
-import java.util.Hashtable;
-
 import org.allbinary.game.combat.damage.DamageFloaters;
 import org.allbinary.game.tracking.TrackingEvent;
 import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 /**
  *
@@ -55,7 +54,7 @@ public class SimulatedBuildingPropertiesFactory extends BuildingPropertiesFactor
     }
     
     @Override
-    public Hashtable getHashtable() {
+    public ABHashtable getHashtable() {
         return StdUtil.getInstance().NULL_TABLE;
     }    
         

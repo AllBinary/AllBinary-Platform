@@ -14,17 +14,17 @@
 package org.allbinary.input;
 
 import java.awt.event.KeyEvent;
-import java.util.Hashtable;
 
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 
 public class KeySingletonFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private static Hashtable keyStringHashtable = StdUtil.getInstance().createHashtable();
+   private static ABHashtable keyStringHashtable = StdUtil.getInstance().createHashtable();
    //private static Integer[] integerArray = new Integer[0xFF];
    
    private static Integer[] keyArray =
@@ -251,7 +251,7 @@ public class KeySingletonFactory
    {
    }
    
-   public static Hashtable getHashtable()
+   public static ABHashtable getHashtable()
    {
       return KeySingletonFactory.keyStringHashtable;
    }

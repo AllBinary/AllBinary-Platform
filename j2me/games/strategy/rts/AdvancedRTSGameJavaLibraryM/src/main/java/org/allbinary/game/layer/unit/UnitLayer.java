@@ -13,8 +13,6 @@
  */
 package org.allbinary.game.layer.unit;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 
@@ -122,6 +120,7 @@ import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositio
 import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMap;
 import org.allbinary.string.CommonPhoneStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListS;
@@ -323,7 +322,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     @Override
     public void updateWaypointBehavior(final BasicGeographicMap geographicMapInterface) throws Exception {
 
-        final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
         hashtable.put(this.groupCommonFactory.ID, this.getGroupInterface());
         hashtable.put(Layer.ID, this);
         hashtable.put(AllBinaryGameLayerManager.ID, this.allBinaryGameLayerManagerP);

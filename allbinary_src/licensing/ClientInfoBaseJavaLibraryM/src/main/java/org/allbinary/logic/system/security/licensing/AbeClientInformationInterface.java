@@ -14,13 +14,11 @@
 package org.allbinary.logic.system.security.licensing;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
-
-import org.allbinary.logic.system.os.GenericOperatingSystem;
-import org.allbinary.util.BasicArrayList;
 import jsinterop.annotations.JsMethod;
 
+import org.allbinary.logic.system.os.GenericOperatingSystem;
+import org.allbinary.util.ABHashtable;
+import org.allbinary.util.BasicArrayList;
 
 @JsType
 public interface AbeClientInformationInterface
@@ -53,7 +51,7 @@ public interface AbeClientInformationInterface
     int getNumberOfLicenseServers();
 
     @JsMethod
-    Hashtable toHashtable();
+    ABHashtable toHashtable();
 
     @JsMethod
     boolean isSameId(String alicenseId);

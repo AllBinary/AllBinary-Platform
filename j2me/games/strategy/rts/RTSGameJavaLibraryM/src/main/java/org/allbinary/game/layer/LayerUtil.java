@@ -14,18 +14,17 @@
 
 package org.allbinary.game.layer;
 
-import java.util.Hashtable;
-
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.PositionStrings;
+import org.allbinary.util.ABHashtable;
 
 public class LayerUtil
 {
     private static final String HASHTABLE = "Hashtable: ";
     
-    public static String toString(Hashtable hashtable, int x, int y, int z)
+    public static String toString(final ABHashtable hashtable, final int x, final int y, final int z)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
         final PositionStrings positionStrings = PositionStrings.getInstance();

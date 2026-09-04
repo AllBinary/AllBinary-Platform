@@ -14,8 +14,8 @@
 package org.allbinary.game.midlet;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
@@ -24,9 +24,8 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 import org.allbinary.game.displayable.canvas.NullGameCanvasRunnable;
+import org.allbinary.util.ABHashtable;
 
 
 @JsType
@@ -42,7 +41,7 @@ public class DemoGameMidlet extends GameMidlet
     @JsMethod
     protected boolean isContinue() throws Exception
     {
-        Hashtable hashtable = this.getStartStateHashtable();
+        ABHashtable hashtable = this.getStartStateHashtable();
         if (hashtable != null && hashtable.size() > 0)
         {
             return true;
@@ -125,7 +124,7 @@ public class DemoGameMidlet extends GameMidlet
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.start();
         
-        Hashtable hashtable = this.getStartStateHashtable();
+        ABHashtable hashtable = this.getStartStateHashtable();
         this.setStartStateHashtable(StdUtil.getInstance().NULL_TABLE);
 
         PrimaryThreadPool.getInstance().runTask(new CreateGameRunnable(this, hashtable));

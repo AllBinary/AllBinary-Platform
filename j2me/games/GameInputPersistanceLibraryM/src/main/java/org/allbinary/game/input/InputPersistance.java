@@ -13,16 +13,17 @@
 */
 package org.allbinary.game.input;
 
-import jsinterop.annotations.JsType;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.util.Hashtable;
 
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
+
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.TsUtil;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
@@ -37,12 +38,10 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 //GameInputPersistanceLibrary
-
 @JsType
 public class InputPersistance extends BasicPersitance
 {
@@ -73,7 +72,7 @@ public class InputPersistance extends BasicPersitance
         Input gameActionInput;
         Input input;
 
-        Hashtable hashtable;
+        ABHashtable hashtable;
         
         final GameKeyMappingFactory gameKeyFactory = GameKeyMappingFactory.getInstance();            
         final StringMaker stringBuffer = new StringMaker();
@@ -170,7 +169,7 @@ public class InputPersistance extends BasicPersitance
     }
 
     @JsMethod
-    public void save(final AbeClientInformationInterface abeClientInformation, final Hashtable hashtable) throws Exception
+    public void save(final AbeClientInformationInterface abeClientInformation, final ABHashtable hashtable) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
 

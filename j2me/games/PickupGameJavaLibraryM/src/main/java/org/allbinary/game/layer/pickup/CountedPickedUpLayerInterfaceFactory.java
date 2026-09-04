@@ -14,18 +14,16 @@
 package org.allbinary.game.layer.pickup;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
 
 @JsType
 public class CountedPickedUpLayerInterfaceFactory 
@@ -39,8 +37,8 @@ public class CountedPickedUpLayerInterfaceFactory
 
     @JsConstructor
     public CountedPickedUpLayerInterfaceFactory(
-            PickedUpLayerType pickeUpLayerType, IconLayer iconLayer,
-            Animation animationInterface)
+            final PickedUpLayerType pickeUpLayerType, final IconLayer iconLayer,
+            final Animation animationInterface)
     {
         super(pickeUpLayerType, iconLayer, animationInterface);
 
@@ -55,7 +53,7 @@ public class CountedPickedUpLayerInterfaceFactory
 
     @Override
     @JsMethod
-    public AllBinaryLayer getNextInstance(Hashtable hashtable, int x, int y, int z)
+    public AllBinaryLayer getNextInstance(final ABHashtable hashtable, final int x, final int y, final int z)
     throws Exception
     {
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);

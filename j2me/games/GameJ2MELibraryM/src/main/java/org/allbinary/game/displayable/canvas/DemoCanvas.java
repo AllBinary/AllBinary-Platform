@@ -14,10 +14,9 @@
 package org.allbinary.game.displayable.canvas;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -116,12 +115,9 @@ import org.allbinary.thread.NullThread;
 import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
 
 @JsType
 public class DemoCanvas extends RunnableCanvas 
@@ -627,7 +623,7 @@ public class DemoCanvas extends RunnableCanvas
 
     @Override
     @JsMethod
-    public void setLoadStateHashtable(Hashtable hashtable) throws Exception
+    public void setLoadStateHashtable(ABHashtable hashtable) throws Exception
     {
         this.logUtil.putF(
             "Trying to continue a demo lol - only continue a game canvas not the demo", this, "setLoadStateHashtable");
@@ -635,7 +631,7 @@ public class DemoCanvas extends RunnableCanvas
 
     @Override
     @JsMethod
-    public Hashtable getLoadStateHashtable() throws Exception
+    public ABHashtable getLoadStateHashtable() throws Exception
     {
         this.logUtil.putF(
             "Trying to continue a demo lol - only continue a game canvas not the demo", this, "getLoadStateHashtable");
@@ -644,7 +640,7 @@ public class DemoCanvas extends RunnableCanvas
 
     @Override
     @JsMethod
-    public Hashtable getCurrentStateHashtable() throws Exception
+    public ABHashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF("Trying to save the AI lol", this, "getCurrentStateHashtable");
         return this.stdUtil.NULL_TABLE;

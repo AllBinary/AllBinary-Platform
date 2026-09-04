@@ -14,13 +14,13 @@
 package org.allbinary.game.layer;
 
 import java.util.Enumeration;
-import java.util.Hashtable;
 
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.LayerInterfaceFactory;
 import org.allbinary.layer.LayerInterfaceVisitor;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.EnumerationUtil;
 
@@ -56,7 +56,7 @@ public class LayerPlacer
 
       final LayerInterfaceFactory layerInterfaceFactory = LayerInterfaceFactory.getInstance();
       
-      final Hashtable hashtable = layerPlacementInterface.getInstance();
+      final ABHashtable hashtable = layerPlacementInterface.getInstance();
 
       //J2ME does not have this so just leave it out for now
       //Set set = hashtable.keySet();
@@ -68,7 +68,7 @@ public class LayerPlacer
       
       final Enumeration enumeration = hashtable.keys();
       GPoint point;
-      Hashtable layerHashtable;
+      ABHashtable layerHashtable;
       int x;
       int y;
       int z;
@@ -78,7 +78,7 @@ public class LayerPlacer
       {
          point = (GPoint) this.enumerationUtil.nextElement(enumeration);
 
-         layerHashtable = (Hashtable) hashtable.get(point);
+         layerHashtable = (ABHashtable) hashtable.get(point);
 
          x = point.getX() + relativePoint.getX();
          y = point.getY() + relativePoint.getY();

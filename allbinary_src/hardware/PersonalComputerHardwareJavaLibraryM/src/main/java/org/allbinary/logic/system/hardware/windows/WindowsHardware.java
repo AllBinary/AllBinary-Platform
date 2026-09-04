@@ -13,11 +13,9 @@
 */
 package org.allbinary.logic.system.hardware.windows;
 
-import java.util.Hashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
-
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.hardware.HardwareInterface;
 import org.allbinary.logic.system.hardware.components.ComponentFactory;
@@ -34,6 +32,7 @@ import org.allbinary.logic.system.hardware.components.interfaces.MonitorInterfac
 import org.allbinary.logic.system.hardware.components.interfaces.UsbInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.VideoInterface;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.util.ABHashtable;
 
 public class WindowsHardware implements HardwareInterface
 {
@@ -194,7 +193,7 @@ public class WindowsHardware implements HardwareInterface
       return true;
    }
    
-   public Hashtable difference(HardwareInterface hardwareInterface)
+   public ABHashtable difference(HardwareInterface hardwareInterface)
    {
       return StdUtil.getInstance().NULL_TABLE;
    }

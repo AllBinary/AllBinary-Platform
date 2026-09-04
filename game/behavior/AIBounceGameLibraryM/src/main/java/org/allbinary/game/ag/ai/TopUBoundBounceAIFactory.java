@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.ag.ai;
 
-import java.util.Hashtable;
-
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.bounds.TopULayerBounds;
 import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
@@ -26,32 +24,33 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.util.ABHashtable;
 
 public class TopUBoundBounceAIFactory
     implements ArtificialIntelligenceInterfaceFactoryInterface
 {
     @Override
     public ArtificialIntelligenceInterface getInstance(
-          Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+          final ABHashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
           throws Exception
     {
-      VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface =
+      final VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface =
               (VelocityInterfaceCompositeInterface) ownerLayerInterface;
 
-      VelocityInterface velocityInterface = (VelocityInterface)
+      final VelocityInterface velocityInterface = (VelocityInterface)
           velocityInterfaceCompositeInterface.getVelocityProperties();
 
-      int maxDistancePerTick = 
+      final int maxDistancePerTick = 
           (velocityInterface.getMaxForwardVelocity() >> velocityInterface.getVelocityXBasicDecimalP().getScaledFactor());
-      int halfWidth = ownerLayerInterface.getWidth() * 2 + maxDistancePerTick + 1;// / 2;
-      int halfHeight = ownerLayerInterface.getHeight() * 2 + maxDistancePerTick + 1;// / 2;
+      final int halfWidth = ownerLayerInterface.getWidth() * 2 + maxDistancePerTick + 1;// / 2;
+      final int halfHeight = ownerLayerInterface.getHeight() * 2 + maxDistancePerTick + 1;// / 2;
 
       // + 90 is for DoNotLoseYourBalls
-      GPoint point = PointFactory.getInstance().createXY(halfWidth, halfHeight + 60);
+      final GPoint point = PointFactory.getInstance().createXY(halfWidth, halfHeight + 60);
 
-      DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+      final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
-      Rectangle rectangle = new Rectangle(point,
+      final Rectangle rectangle = new Rectangle(point,
               (displayInfo.getLastWidth() - halfWidth - point.getX()),
               (displayInfo.getLastHeight() - halfHeight - point.getY()));
 

@@ -13,8 +13,6 @@
  */
 package org.allbinary.input.motion.button;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.AnimationBehaviorFactory;
@@ -28,6 +26,7 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.media.image.ImageCompleteUtil;
@@ -43,7 +42,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
     public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(final String name)
     {
-        super(name, new Hashtable(), new Hashtable(), new Hashtable());
+        super(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable());
     }
 
     @Override

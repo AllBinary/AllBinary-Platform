@@ -14,10 +14,8 @@
 package org.allbinary.game.score.remote;
 
 import java.util.Enumeration;
-import java.util.Hashtable;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 
+import org.allbinary.util.BasicArrayList;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScores;
@@ -27,6 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.EnumerationUtil;
 
 public class RemoteHighScores extends HighScores {
@@ -35,7 +34,7 @@ public class RemoteHighScores extends HighScores {
 
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
 
-    private static final Hashtable hashTable = StdUtil.getInstance().createHashtable();
+    private static final ABHashtable hashTable = StdUtil.getInstance().createHashtable();
     private final AbeClientInformationInterface abeClientInformation;
     private final SoftwareInformation softwareInformation;
     
@@ -98,7 +97,7 @@ public class RemoteHighScores extends HighScores {
     }
 
     //This is called when the data comes back in the response
-    public void update(final Hashtable hashtable) {
+    public void update(final ABHashtable hashtable) {
         this.getList().clear();
         final BasicArrayList vector = (BasicArrayList) hashtable.get((Object) RemoteHighScoresData.getInstance().HIGH_SCORES);
         if (vector != null) {

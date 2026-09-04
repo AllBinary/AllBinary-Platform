@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.ag.ai.scroller;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.direction.Direction;
@@ -30,6 +28,7 @@ import org.allbinary.layer.LayerInterface;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
@@ -44,8 +43,8 @@ public class PacePatrolAI extends BasePatrolAI
     private int firingDistance;
     protected boolean isFollowLimitedByTerrain = false;
 
-    public PacePatrolAI(Hashtable hashtable,
-            AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+    public PacePatrolAI(final ABHashtable hashtable,
+            final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
             throws Exception
     {
         super(hashtable, ownerLayerInterface, gameInput);
@@ -56,14 +55,14 @@ public class PacePatrolAI extends BasePatrolAI
     }
 
     @Override
-    public void processAI(AllBinaryLayerManager allBinaryLayerManager)
+    public void processAI(final AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
         this.update();
 
-        Direction direction = this.setFiringDirectionForTargetIfInRange();
+        final Direction direction = this.setFiringDirectionForTargetIfInRange();
 
-        DirectionFactory directionFactory = 
+        final DirectionFactory directionFactory = 
             DirectionFactory.getInstance();
 
         // this.logUtil.putF("Key: " + this.keyDirection, this, this.commonStrings.PROCESS);
@@ -177,7 +176,7 @@ public class PacePatrolAI extends BasePatrolAI
     }
 
     @Override
-    public void onEvent(AllBinaryEventObject eventObject)
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
         /*
@@ -188,7 +187,7 @@ public class PacePatrolAI extends BasePatrolAI
     }
 
     @Override
-    public void onMovement(TrackingEvent trackingEvent)
+    public void onMovement(final TrackingEvent trackingEvent)
     {
         this.trackingList.clear();
         this.trackingList.add(trackingEvent);
@@ -199,7 +198,7 @@ public class PacePatrolAI extends BasePatrolAI
         return this.firingDistance;
     }
 
-    public void setFiringDistance(int firingDistance)
+    public void setFiringDistance(final int firingDistance)
     {
         this.firingDistance = firingDistance;
     }

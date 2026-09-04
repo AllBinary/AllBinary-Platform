@@ -15,16 +15,9 @@ package org.allbinary.midlet;
 
 import jsinterop.annotations.JsType;
 
-/**
- *Detailed description: This class is the main MIDlet for all MIDlets and
- *it sets the main canvas and starts a thread for the specified canvas.
- *
- *@author Travis Berthelot
- *Date: 11/19/02
- *
- */
-
-import java.util.Hashtable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -44,11 +37,17 @@ import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.system.Memory;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 import org.allbinary.logic.NullUtil;
+import org.allbinary.util.ABHashtable;
 
+/**
+ *Detailed description: This class is the main MIDlet for all MIDlets and
+ *it sets the main canvas and starts a thread for the specified canvas.
+ *
+ *@author Travis Berthelot
+ *Date: 11/19/02
+ *
+ */
 // MIDlet methods not overridden are final
 
 @JsType
@@ -79,7 +78,7 @@ implements CommandListener
     private final String _DISPLAY_ = " Display: ";
     private final String SETTING_NO_TITLE = "Setting: No Title, Display: ";
     
-    private Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    private ABHashtable hashtable = StdUtil.getInstance().createHashtable();
     private boolean midletDestroyed;
 
     @JsConstructor
@@ -148,14 +147,14 @@ implements CommandListener
     }
     
     @JsMethod
-    protected void destroyAppInRunnable(boolean unconditional, boolean isProgress)
+    protected void destroyAppInRunnable(final boolean unconditional, final boolean isProgress)
     {
         
     }
 
     @Override
     @JsMethod
-    protected void destroyApp(boolean unconditional)
+    protected void destroyApp(final boolean unconditional)
     {
         final String METHOD_NAME = "AllBinaryMidlet::destroyApp";
         try
@@ -173,21 +172,21 @@ implements CommandListener
     }
     
     @JsMethod
-    public void setStartStateHashtable(Hashtable hashtable) throws Exception
+    public void setStartStateHashtable(final ABHashtable hashtable) throws Exception
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "setStartStateHashtable");
         this.hashtable = hashtable;
     }
 
     @JsMethod
-    public Hashtable getStartStateHashtable() throws Exception
+    public ABHashtable getStartStateHashtable() throws Exception
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(this.hashtable)).toString(), this, "getStartStateHashtable");
         return this.hashtable;
     }
 
     @JsMethod
-    public Hashtable getCurrentStateHashtable() throws Exception
+    public ABHashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, "getStateHashtable");
         return StdUtil.getInstance().NULL_TABLE;
@@ -195,7 +194,7 @@ implements CommandListener
 
     @Override
     @JsMethod
-    public void commandAction(Command command, Displayable displayable)
+    public void commandAction(final Command command, final Displayable displayable)
     {
     }
 }

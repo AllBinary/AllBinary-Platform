@@ -14,16 +14,13 @@
 package org.allbinary.business.user.commerce.money.payment.gateway.transaction;
 
 import java.util.HashMap;
-import java.util.Hashtable;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
-import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
@@ -45,7 +42,7 @@ public class TransactionResult implements TransactionResultInterface
          BasicArrayList tokens = tokenizer.getTokensFromString(result, new BasicArrayListD());
          Tokenizer tokenizer2 = new Tokenizer(CommonSeps.getInstance().EQUALS);
          
-         Hashtable hashtable = tokenizer2.getTokens(tokens);
+         ABHashtable hashtable = tokenizer2.getTokens(tokens);
          //TWB - does this actually work?
          this.keyValuePairs.putAll(hashtable);
       }

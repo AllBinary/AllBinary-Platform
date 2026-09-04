@@ -16,7 +16,6 @@ package org.allbinary.game.input.mapping;
 import jsinterop.annotations.JsType;
 
 import java.util.Enumeration;
-import java.util.Hashtable;
 
 import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 import org.allbinary.game.input.Input;
@@ -35,6 +34,7 @@ import org.allbinary.util.EnumerationUtil;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
+import org.allbinary.util.ABHashtable;
 
 //GameInputNoPersistanceLibrary
 
@@ -152,13 +152,13 @@ public class PersistentInputMapping
         int totalMappedTo = 0;
         //TWB - Use selected profile/id for future imp
         final int size = list.size();
-        Hashtable hashtable;
+        ABHashtable hashtable;
         Enumeration enumeration;
         Input mappedToInput;
         Input gameActionInput;
         for(int index = 0; index < size; index++)
         {
-            hashtable = (Hashtable) list.objectArray[index];
+            hashtable = (ABHashtable) list.objectArray[index];
             enumeration = hashtable.keys();
 
             while(this.enumerationUtil.hasMoreElements(enumeration))

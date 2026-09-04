@@ -13,8 +13,6 @@
 */
 package org.allbinary.bundle.logic.preloader;
 
-import java.util.Hashtable;
-
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -24,6 +22,7 @@ import org.allbinary.bundle.logic.system.loader.CryptServiceFactory;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 
 public class AllBinaryPreloaderActivator
     implements BundleActivator
@@ -64,9 +63,9 @@ public class AllBinaryPreloaderActivator
     public void registerAsService()
     throws Exception
     {
-        Hashtable properties = StdUtil.getInstance().createHashtable();
+        final ABHashtable properties = StdUtil.getInstance().createHashtable();
         
-        ServiceRegistration serviceRegistration =
+        final ServiceRegistration serviceRegistration =
             AllBinaryPreloaderActivator.context.registerService(CRYPT_REGISTRY_NAME,
             new CryptServiceFactory(), properties);
         

@@ -13,9 +13,8 @@
 */
 package org.allbinary.media.graphics.geography.pathfinding;
 
-import java.util.Hashtable;
-
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
@@ -25,7 +24,7 @@ public class PathCacheFactory
 
    private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
 
-   private Hashtable hashtable = StdUtil.getInstance().createHashtable();
+   private final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
 
    private PathCacheFactory()
    {

@@ -13,9 +13,6 @@
 */
 package org.allbinary.game.ag.ai.scroller;
 
-import org.allbinary.game.ag.ai.scroller.PacePatrolAI;
-import java.util.Hashtable;
-
 import org.allbinary.game.input.GameInput;
 import org.allbinary.game.terrain.BasicTerrainInfo;
 import org.allbinary.game.terrain.TerrainEvent;
@@ -25,6 +22,7 @@ import org.allbinary.game.terrain.TerrainEventListener;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 
 /**
@@ -40,7 +38,7 @@ public class TerrainPatrolAI extends PacePatrolAI
     
     private final BasicTerrainInfo CLIFF = new BasicTerrainInfo(this.DOWN);
 
-    public TerrainPatrolAI(final Hashtable hashtable,
+    public TerrainPatrolAI(final ABHashtable hashtable,
             final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
        throws Exception
     {

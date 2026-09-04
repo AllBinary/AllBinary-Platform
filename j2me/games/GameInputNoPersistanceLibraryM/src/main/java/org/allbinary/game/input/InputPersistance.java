@@ -14,8 +14,8 @@
 package org.allbinary.game.input;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
@@ -30,12 +30,10 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 //GameInputNoPersistanceLibrary
-
 @JsType
 public class InputPersistance extends BasicPersitance
 {
@@ -71,7 +69,7 @@ public class InputPersistance extends BasicPersitance
 
         //DataInputStream inputStream;
 
-        Hashtable hashtable;
+        ABHashtable hashtable;
         //GameKeyMappingFactory gameKeyFactory = GameKeyMappingFactory.getInstance();            
         final StringMaker stringBuffer = new StringMaker();
         
@@ -149,7 +147,7 @@ public class InputPersistance extends BasicPersitance
     }
 
     @JsMethod
-    public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
+    public void save(final AbeClientInformationInterface abeClientInformation, ABHashtable hashtable) throws Exception
     {
         PreLogUtil.put(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
         //this.logUtil.putF("Saving: ").append(hashtable, this, this.commonStrings.SAVE);

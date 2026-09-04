@@ -14,16 +14,16 @@
 package org.allbinary.image;
 
 import java.io.InputStream;
-import java.util.Hashtable;
 
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullImage;
-import org.allbinary.logic.StdUtil;
 
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
@@ -33,7 +33,7 @@ public class ImageCacheBase
     
     protected final ImageFactory imageFactory = ImageFactory.getInstance();
 
-    protected final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    protected final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
 
     protected final int SIZE = 128;
     protected final int[] widths = new int[this.SIZE];
@@ -167,7 +167,7 @@ public class ImageCacheBase
         return stringBuffer.toString();
     }
 
-    public Hashtable getHashtableP()
+    public ABHashtable getHashtableP()
     {
         return this.hashtable;
     }

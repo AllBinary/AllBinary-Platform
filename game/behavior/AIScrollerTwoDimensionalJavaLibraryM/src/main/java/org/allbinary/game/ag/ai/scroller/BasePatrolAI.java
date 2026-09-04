@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.ag.ai.scroller;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.game.ai.BasicAI;
@@ -24,6 +22,7 @@ import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.util.ABHashtable;
 
 public class BasePatrolAI extends BasicAI
 {
@@ -48,8 +47,8 @@ public class BasePatrolAI extends BasicAI
     protected int lastKeyDirection = Canvas.RIGHT;
     protected int keyDirection = Canvas.RIGHT;
     
-    public BasePatrolAI(Hashtable hashtable,
-            AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+    public BasePatrolAI(final ABHashtable hashtable,
+            final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
             throws Exception
     {
         super(ownerLayerInterface, gameInput);
@@ -74,10 +73,10 @@ public class BasePatrolAI extends BasicAI
 
     private void updateTotalDistance()
     {
-        VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = (VelocityInterfaceCompositeInterface) this
-                .getOwnerLayerInterface();
+        final VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = 
+            (VelocityInterfaceCompositeInterface) this.getOwnerLayerInterface();
 
-        BasicVelocityProperties velocityProperties =
+        final BasicVelocityProperties velocityProperties =
                 velocityInterfaceCompositeInterface.getVelocityProperties();
 
         this.xTotalDistance += velocityProperties.getVelocityXBasicDecimalP().getScaled();
@@ -90,7 +89,7 @@ public class BasePatrolAI extends BasicAI
     private void changeDirectionIfReachedPacingAreaMax()
     {
         final MathUtil mathUtil = MathUtil.getInstance();
-        int totalDistance = mathUtil.abs(this.xTotalDistance);
+        final int totalDistance = mathUtil.abs(this.xTotalDistance);
 
         if (totalDistance > this.currentDistance)
         {

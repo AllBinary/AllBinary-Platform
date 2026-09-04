@@ -13,10 +13,12 @@
 */
 package org.allbinary.game.input.mapping;
 
-import jsinterop.annotations.JsType;
-
 import java.util.Enumeration;
-import java.util.Hashtable;
+
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 import org.allbinary.game.input.Input;
@@ -30,14 +32,11 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.EnumerationUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 //GameInputPersistanceLibrary
-
 @JsType
 public class PersistentInputMapping
 {
@@ -153,13 +152,13 @@ public class PersistentInputMapping
         //TWB - Use selected profile/id for future imp
         final int size = list.size();
         //this.logUtil.putF("size: " + size, this, this.commonStrings.INIT);
-        Hashtable hashtable;
+        ABHashtable hashtable;
         Enumeration enumeration;
         Input mappedToInput;
         Input gameActionInput;
         for(int index = 0; index < size; index++)
         {
-            hashtable = (Hashtable) list.objectArray[index];
+            hashtable = (ABHashtable) list.objectArray[index];
             //this.logUtil.putF("hashtable.keySet().size(): " + hashtable.keySet().size(), this, this.commonStrings.INIT);
             enumeration = hashtable.keys();
             

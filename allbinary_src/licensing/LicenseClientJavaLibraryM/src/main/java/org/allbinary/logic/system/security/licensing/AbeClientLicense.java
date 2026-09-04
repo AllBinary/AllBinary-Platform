@@ -13,24 +13,23 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-import java.util.Hashtable;
-
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 public class AbeClientLicense implements AbeLicenseInterface
 {
-    private Hashtable hashtable;
+    private ABHashtable hashtable;
     private String id;
     private BasicArrayList servers;
     private String special;
     private LicenseType licenseType;
 
-    public AbeClientLicense(Hashtable hashtable)
+    public AbeClientLicense(ABHashtable hashtable)
     {
         this.hashtable = StdUtil.getInstance().createHashtable();
 
@@ -83,9 +82,9 @@ public class AbeClientLicense implements AbeLicenseInterface
 
     // Check to see if xml from server makes sense with what is needed
     // Should only fail is server is not working correctly
-    public static boolean hasRequiredKeys(Hashtable resultHashtable)
+    public static boolean hasRequiredKeys(ABHashtable resultHashtable)
     {
-        AbeClientInformationData abeClientInformationData = 
+        final AbeClientInformationData abeClientInformationData = 
             AbeClientInformationData.getInstance();
         
         if (resultHashtable.containsKey(abeClientInformationData.LICENSEID)

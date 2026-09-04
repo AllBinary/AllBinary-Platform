@@ -14,7 +14,6 @@
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -28,6 +27,7 @@ import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.util.ABHashtable;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -79,7 +79,7 @@ public class BasicProfileActionScriptInput
         this.logUtil.putF(this.commonStrings.START + label, this, this.commonStrings.CONSTRUCTOR);
         
         final InputRobotFactory inputRobotFactory = InputRobotFactory.getInstance();
-        final Hashtable hashtable = (Hashtable) inputRobotFactory.get();
+        final ABHashtable hashtable = (ABHashtable) inputRobotFactory.get();
         final Set set = hashtable.keySet();
         final Iterator iterator = set.iterator();
         this.setInputRobotInterface(inputRobotFactory.get((String) iterator.next()));

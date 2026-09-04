@@ -13,10 +13,10 @@
 */
 package org.allbinary.layer;
 
-import java.util.Hashtable;
+import org.allbinary.util.ABHashtable;
 
 public interface LayerInterfaceFactoryInterface {
 
-    AllBinaryLayer getNextInstance(Hashtable hashtable, int x, int y, int z)
+    AllBinaryLayer getNextInstance(final ABHashtable hashtable, final int x, final int y, final int z)
            throws Exception;
 }

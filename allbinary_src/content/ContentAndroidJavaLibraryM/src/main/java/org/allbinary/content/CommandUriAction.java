@@ -13,8 +13,6 @@
 */
 package org.allbinary.content;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Command;
 
 import android.content.Intent;
@@ -24,6 +22,7 @@ import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 
 public class CommandUriAction
 {
@@ -36,7 +35,7 @@ public class CommandUriAction
         return CommandUriAction.instance;
     }
     
-    private Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    private ABHashtable hashtable = StdUtil.getInstance().createHashtable();
 
     public void add(Command command, String url)
     {

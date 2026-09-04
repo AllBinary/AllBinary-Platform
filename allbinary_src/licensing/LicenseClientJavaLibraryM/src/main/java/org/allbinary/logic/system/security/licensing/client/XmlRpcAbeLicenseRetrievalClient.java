@@ -14,12 +14,10 @@
 package org.allbinary.logic.system.security.licensing.client;
 
 import java.io.IOException;
-import java.util.Hashtable;
+
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
-import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.java.exception.ExceptionUtil;
@@ -28,6 +26,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.system.security.licensing.AbeClientLicense;
 import org.allbinary.logic.system.security.licensing.AbeLicenseInterface;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.util.ABHashtable;
+
 import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
 
@@ -65,7 +65,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             this.setClient(xmlRpcClient);
             xmlRpcClient.setBasicAuthentication(null, null);
 
-            final Hashtable hashtable = this.getClientInfo().toHashtable();
+            final ABHashtable hashtable = this.getClientInfo().toHashtable();
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             this.logUtil.putF(CLIENT_INFO + hashtable.toString(), this, this.commonStrings.GET);
@@ -93,7 +93,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             this.logUtil.putF(RESULT + result.toString(), this, this.commonStrings.GET);
             // }
 
-            final Hashtable resultHashtable = (Hashtable) result;
+            final ABHashtable resultHashtable = (ABHashtable) result;
 
             if (!AbeClientLicense.hasRequiredKeys(resultHashtable))
             {

@@ -15,11 +15,9 @@ package org.allbinary.logic.system.hardware.linux;
 
 import java.io.FileReader;
 import java.io.LineNumberReader;
-import java.util.Hashtable;
-import org.allbinary.util.BasicArrayList;
+
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.logic.StdUtil;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
@@ -43,6 +41,7 @@ import org.allbinary.logic.system.hardware.components.interfaces.VideoInterface;
 import org.allbinary.logic.system.hardware.components.linux.Cpu;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 
 public class LinuxHardware implements HardwareInterface
@@ -280,6 +279,7 @@ public class LinuxHardware implements HardwareInterface
       return (VideoInterface) this.videoInterfaceVector.get(index);
    }
    
+   @Override
    public HardwareComponentInterface getComponent(int index)
    {
       return (HardwareComponentInterface) this.componentInterfaceVector.get(index);
@@ -302,12 +302,14 @@ public class LinuxHardware implements HardwareInterface
       return hardwareBuffer.toString();
    }
    
+   @Override
    public boolean compareTo(HardwareInterface hardwareInterface)
    {
       return true;
    }
    
-   public Hashtable difference(HardwareInterface hardwareInterface)
+   @Override
+   public ABHashtable difference(HardwareInterface hardwareInterface)
    {
       return StdUtil.getInstance().NULL_TABLE;
    }

@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
@@ -98,6 +96,7 @@ import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactory;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
@@ -558,14 +557,14 @@ public class StartCanvas extends RunnableCanvas
     }
 
     @Override
-    public void setLoadStateHashtable(Hashtable hashtable) throws Exception
+    public void setLoadStateHashtable(ABHashtable hashtable) throws Exception
     {
         this.logUtil.putF(
             "Trying to continue a demo lol - only continue a game canvas not the demo", this, "setLoadStateHashtable");
     }
 
     @Override
-    public Hashtable getLoadStateHashtable() throws Exception
+    public ABHashtable getLoadStateHashtable() throws Exception
     {
         this.logUtil.putF(
             "Trying to continue a demo lol - only continue a game canvas not the demo", this, "getLoadStateHashtable");
@@ -573,7 +572,7 @@ public class StartCanvas extends RunnableCanvas
     }
 
     @Override
-    public Hashtable getCurrentStateHashtable() throws Exception
+    public ABHashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF("Trying to save the AI lol", this, "getCurrentStateHashtable");
         return this.stdUtil.NULL_TABLE;

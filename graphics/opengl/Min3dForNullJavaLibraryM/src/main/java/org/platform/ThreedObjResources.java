@@ -13,9 +13,8 @@
  */
 package org.platform;
 
-import java.util.Hashtable;
-
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 /**
  *
@@ -32,7 +31,7 @@ public class ThreedObjResources {
         return ThreedObjResources.instance;
     }
     
-    public final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    public final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
 
     public String get(final String resourceName) {
         final String resourceName2 = (String) this.hashtable.get(resourceName);

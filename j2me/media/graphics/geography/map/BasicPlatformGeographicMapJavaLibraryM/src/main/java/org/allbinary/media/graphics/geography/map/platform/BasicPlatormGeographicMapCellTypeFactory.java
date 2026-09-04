@@ -14,11 +14,11 @@
 package org.allbinary.media.graphics.geography.map.platform;
 
 import java.util.Enumeration;
-import java.util.Hashtable;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.EnumerationUtil;
 
@@ -36,7 +36,7 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
 
     private final int maxTileId;
     
-    public BasicPlatormGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap, final int maxTileId) {
+    public BasicPlatormGeographicMapCellTypeFactory(final ABHashtable tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
 

@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.ag.ai.scroller;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.game.ai.BasicAI;
@@ -29,6 +27,7 @@ import org.allbinary.media.audio.PlayerQueue;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.Sound;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.ABHashtable;
 
 public class HorizontalScreenPatrolAI
 extends BasicAI
@@ -51,8 +50,8 @@ extends BasicAI
     
     public static final Integer SOUND = SmallIntegerSingletonFactory.getInstance().getAt(433);
     
-    public HorizontalScreenPatrolAI(Hashtable hashtable,
-            AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+    public HorizontalScreenPatrolAI(final ABHashtable hashtable,
+            final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
        throws Exception
     {
         super(ownerLayerInterface, gameInput);
@@ -67,7 +66,7 @@ extends BasicAI
 
     //Current go left always and fire when towards the middle
     @Override
-    public void processAI(AllBinaryLayerManager allBinaryLayerManager)
+    public void processAI(final AllBinaryLayerManager allBinaryLayerManager)
     throws Exception
     {
         //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.PROCESS);

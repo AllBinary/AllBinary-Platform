@@ -14,10 +14,9 @@
 package org.allbinary.game.displayable.canvas;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
@@ -143,13 +142,10 @@ import org.allbinary.thread.SecondaryThreadPool;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
 
 @JsType
 public class AllBinaryGameCanvas
@@ -225,7 +221,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private BasicArrayList localPlayerGameInputList = new BasicArrayListD();
             //NoPlayerGameInput.getInstance();
     private boolean isCheating;
-    private Hashtable hashtable = this.stdUtil.NULL_TABLE;
+    private ABHashtable hashtable = this.stdUtil.NULL_TABLE;
     private boolean isSingleKeyRepeatableProcessing;
     private BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface = BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY;
     private Paintable touchButtonsPaintable = NullPaintable.getInstance();
@@ -1419,7 +1415,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void loadState() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.LOAD);
-        Hashtable hashtable = this.getLoadStateHashtable();
+        ABHashtable hashtable = this.getLoadStateHashtable();
 
         if (hashtable != null && hashtable.size() > 0)
         {
@@ -1432,7 +1428,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     @Override
     @JsMethod
-    public Hashtable getLoadStateHashtable() throws Exception
+    public ABHashtable getLoadStateHashtable() throws Exception
     {
         this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString(this.hashtable)).toString(), this, "getLoadStateHashtable");
         return this.hashtable;
@@ -1440,7 +1436,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     @Override
     @JsMethod
-    public void setLoadStateHashtable(final Hashtable hashtable)
+    public void setLoadStateHashtable(final ABHashtable hashtable)
     {
         this.logUtil.putF(
                 new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString(hashtable)).toString(), this, "setLoadStateHashtable");
@@ -1449,9 +1445,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     @Override
     @JsMethod
-    public Hashtable getCurrentStateHashtable()
+    public ABHashtable getCurrentStateHashtable()
     {
-        final Hashtable hashtable = this.stdUtil.createHashtable();
+        final ABHashtable hashtable = this.stdUtil.createHashtable();
 
         final int level = this.gameLayerManager.getGameInfo().getCurrentLevel();
 

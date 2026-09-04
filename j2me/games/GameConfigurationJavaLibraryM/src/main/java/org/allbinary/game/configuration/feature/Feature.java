@@ -14,19 +14,17 @@
 package org.allbinary.game.configuration.feature;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
-
-import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
-import org.allbinary.logic.StdUtil;
 
+import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
+import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 @JsType
 public class Feature
 {
-    private static Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    private static ABHashtable hashtable = StdUtil.getInstance().createHashtable();
 
     private final String name;
 

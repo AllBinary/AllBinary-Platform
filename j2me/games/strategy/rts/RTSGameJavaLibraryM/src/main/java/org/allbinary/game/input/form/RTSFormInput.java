@@ -14,8 +14,6 @@
 
 package org.allbinary.game.input.form;
 
-import java.util.Hashtable;
-
 import org.allbinary.game.identification.GroupCommonFactory;
 import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
@@ -35,6 +33,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
+import org.allbinary.util.ABHashtable;
 
 /**
  *
@@ -46,7 +45,7 @@ public class RTSFormInput
 
     private final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
 
-    private final Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    private final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
         
     protected final CollidableDestroyableDamageableLayer[] newUnconstructedRTSLayerInterfaceArray = new CollidableDestroyableDamageableLayer[7];
     protected final Group[] groupInterfaceArray;
@@ -287,7 +286,7 @@ public class RTSFormInput
         this.selectedStickyItemIndex = selectedStickyItemIndex;
     }
 
-    public Hashtable getHashtable()
+    public ABHashtable getHashtable()
     {
         return this.hashtable;
     }

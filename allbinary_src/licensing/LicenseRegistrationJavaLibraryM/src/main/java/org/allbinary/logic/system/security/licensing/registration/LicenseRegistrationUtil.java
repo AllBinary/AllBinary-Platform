@@ -13,13 +13,12 @@
 */
 package org.allbinary.logic.system.security.licensing.registration;
 
-import java.util.Hashtable;
-
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.canvas.SpecialMessageUtil;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.util.ABHashtable;
 
 public class LicenseRegistrationUtil
 {
@@ -36,10 +35,11 @@ public class LicenseRegistrationUtil
             final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.put(CommonLabels.getInstance().START_LABEL + "License Registration", "LicenseRegistrationUtil", commonStrings.PROCESS);
             
-            RegistrationConfiguration.getInstance().setRegistrationCode(registrationId);
-            RegistrationConfiguration.getInstance().write();
+            final RegistrationConfiguration registrationConfiguration = RegistrationConfiguration.getInstance();
+            registrationConfiguration.setRegistrationCode(registrationId);
+            registrationConfiguration.write();
 
-            final Hashtable hashtable = abeClientInformation.toHashtable();
+            final ABHashtable hashtable = abeClientInformation.toHashtable();
 
             hashtable.put(RegistrationConfiguration.getInstance().NAME, registrationId);
             hashtable.put("message", SpecialMessageUtil.getInstance().get());

@@ -13,13 +13,12 @@
  */
 package org.allbinary.media.graphics.geography.map.topview;
 
-import java.util.Hashtable;
-
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 
@@ -67,7 +66,7 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
 //
 //    }
     
-    public BasicTopViewGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap, final int maxTileId) {
+    public BasicTopViewGeographicMapCellTypeFactory(final ABHashtable tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 

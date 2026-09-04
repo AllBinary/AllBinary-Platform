@@ -13,15 +13,15 @@
 */
 package org.allbinary.game.configuration;
 
-import java.util.Hashtable;
-
 import javax.microedition.lcdui.TextField;
+
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.util.ABHashtable;
 
 public class GameConfigurationTextInput
 {
-    private static Hashtable hashtable = StdUtil.getInstance().createHashtable();
+    private static ABHashtable hashtable = StdUtil.getInstance().createHashtable();
     
     public static GameConfigurationTextInput SIMULATOR_IP = 
         new GameConfigurationTextInput("IP: ", "192.168.1.3");
@@ -67,7 +67,7 @@ public class GameConfigurationTextInput
         return this.label;
     }
 
-    public static Hashtable getHashtable()
+    public static ABHashtable getHashtable()
     {
         return GameConfigurationTextInput.hashtable;
     }

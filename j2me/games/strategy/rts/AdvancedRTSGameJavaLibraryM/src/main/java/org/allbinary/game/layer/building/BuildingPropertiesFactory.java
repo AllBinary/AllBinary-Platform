@@ -13,8 +13,6 @@
  */
 package org.allbinary.game.layer.building;
 
-import java.util.Hashtable;
-
 import org.allbinary.game.combat.damage.DamageFloaters;
 import org.allbinary.game.combat.damage.PtsDamageFloaters;
 import org.allbinary.game.configuration.feature.Features;
@@ -27,6 +25,7 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABHashtable;
 
 /**
  *
@@ -70,7 +69,7 @@ public class BuildingPropertiesFactory {
         return healthBar;
     }
 
-    public Hashtable getHashtable() {
+    public ABHashtable getHashtable() {
         return StdUtil.getInstance().createHashtable();
     }    
     

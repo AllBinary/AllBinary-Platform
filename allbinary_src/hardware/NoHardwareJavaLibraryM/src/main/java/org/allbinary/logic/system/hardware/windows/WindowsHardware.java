@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.system.hardware.windows;
 
-import java.util.Hashtable;
-
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.hardware.HardwareInterface;
@@ -30,6 +28,7 @@ import org.allbinary.logic.system.hardware.components.interfaces.MediaInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.MonitorInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.UsbInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.VideoInterface;
+import org.allbinary.util.ABHashtable;
 
 public class WindowsHardware implements HardwareInterface
 {
@@ -111,7 +110,7 @@ public class WindowsHardware implements HardwareInterface
    }
    
    @Override
-   public Hashtable difference(HardwareInterface hardwareInterface)
+   public ABHashtable difference(HardwareInterface hardwareInterface)
    {
       return StdUtil.getInstance().NULL_TABLE;
    }

@@ -13,12 +13,11 @@
 */
 package org.allbinary.game.ag.ai;
 
-import java.util.Hashtable;
-
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.util.ABHashtable;
 
 public class NullAIFactory 
     implements ArtificialIntelligenceInterfaceFactoryInterface
@@ -27,7 +26,7 @@ public class NullAIFactory
     
     @Override
     public ArtificialIntelligenceInterface getInstance(
-          Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+          final ABHashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
     {
         //return new NullAI();
     	return NullAIFactory.NULL_AI;

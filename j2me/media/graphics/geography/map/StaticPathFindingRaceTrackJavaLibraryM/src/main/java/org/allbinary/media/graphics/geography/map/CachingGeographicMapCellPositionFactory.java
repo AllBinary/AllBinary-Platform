@@ -13,14 +13,14 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
-import java.util.Hashtable;
 import org.allbinary.graphics.CellPosition;
+import org.allbinary.util.ABHashtable;
 
 public class CachingGeographicMapCellPositionFactory extends
         BasicGeographicMapCellPositionFactory
 {
     protected CachingGeographicMapCellPositionFactory(
-            BasicGeographicMap geographicMapInterface) throws Exception
+            final BasicGeographicMap geographicMapInterface) throws Exception
     {
         super(geographicMapInterface);
     }
@@ -29,7 +29,7 @@ public class CachingGeographicMapCellPositionFactory extends
     public GeographicMapCellPosition createInstance(final int i_column, final int i_row,
             final int width, final int height) throws Exception
     {
-        final Hashtable hashtable = GeographicMapCellPositionFactory.getHashtable();
+        final ABHashtable hashtable = GeographicMapCellPositionFactory.getHashtable();
         
         final String cellPositionKey = CellPosition.toStringColRow(i_column, i_row);
 

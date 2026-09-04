@@ -14,22 +14,20 @@
 package org.allbinary.logic.system.security.licensing.registration;
 
 import java.io.IOException;
-import java.util.Hashtable;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
-import org.allbinary.init.crypt.jcehelper.CryptInterface;
-import org.allbinary.logic.StdUtil;
-import org.allbinary.string.CommonLabels;
 
 import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
 
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
+import org.allbinary.init.crypt.jcehelper.CryptInterface;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.util.ABHashtable;
 
 public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
 {
@@ -79,7 +77,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             this.setClient(xmlRpcClient);
             xmlRpcClient.setBasicAuthentication(null, null);
 
-            Hashtable hashtable = (Hashtable) object;
+            ABHashtable hashtable = (ABHashtable) object;
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Client Info: \n" + hashtable.toString());

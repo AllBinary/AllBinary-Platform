@@ -14,26 +14,26 @@
 package org.allbinary.game.configuration.persistance;
 
 import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.util.Hashtable;
 
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
-import org.allbinary.TsUtil;
 
+import org.allbinary.TsUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.HashtableUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
 @JsType
@@ -64,7 +64,7 @@ public class KeyValuePersistance extends BasicPersitance
 
         final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
    
-        Hashtable<String, String> hashtable;
+        ABHashtable<String, String> hashtable;
         
         String name;
         String value;
@@ -86,7 +86,7 @@ public class KeyValuePersistance extends BasicPersitance
             if(recordAsBytes != null) {
                 byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
                 inputStream = new DataInputStream(byteArrayInputStream);
-                hashtable = new Hashtable<String, String>();
+                hashtable = new ABHashtable<String, String>();
 
                 for (int index = 0; index < size; index++) {
                     name = inputStream.readUTF();
@@ -112,7 +112,7 @@ public class KeyValuePersistance extends BasicPersitance
     }
     
     @JsMethod
-    public void save(final AbeClientInformationInterface abeClientInformation, final Hashtable hashtable) throws Exception
+    public void save(final AbeClientInformationInterface abeClientInformation, final ABHashtable hashtable) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         
@@ -158,9 +158,9 @@ public class KeyValuePersistance extends BasicPersitance
     }
 
     @JsMethod
-    public Hashtable get(int index)
+    public ABHashtable get(int index)
     {
-        final Hashtable hashtable = (Hashtable) this.valueList.objectArray[index];
+        final ABHashtable hashtable = (ABHashtable) this.valueList.objectArray[index];
         return hashtable;
     }
 }

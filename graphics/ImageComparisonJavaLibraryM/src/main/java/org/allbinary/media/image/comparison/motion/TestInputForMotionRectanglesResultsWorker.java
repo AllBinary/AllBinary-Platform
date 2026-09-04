@@ -13,22 +13,22 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.awt.*;
+import java.awt.Rectangle;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import java.util.Hashtable;
+
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
-import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.ABHashtable;
 
 public class TestInputForMotionRectanglesResultsWorker
    implements MotionRectanglesResultsListener
@@ -100,9 +100,9 @@ public class TestInputForMotionRectanglesResultsWorker
          if(motionRectangleVector.size() > 0)
          {
 
-         Rectangle rectangle = (Rectangle) motionRectangleVector.get(0);
+         final Rectangle rectangle = (Rectangle) motionRectangleVector.get(0);
          
-         Hashtable robotHashtable = InputRobotFactory.getInstance().get();
+         final ABHashtable robotHashtable = InputRobotFactory.getInstance().get();
          final Object[] inputTypeNameArray = robotHashtable.keySet().toArray();
          final int size = inputTypeNameArray.length;
          for(int index = 0; index < size; index++)

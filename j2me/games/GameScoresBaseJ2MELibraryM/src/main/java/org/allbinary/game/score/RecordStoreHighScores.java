@@ -17,15 +17,14 @@ import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
-import java.util.Hashtable;
 
 import javax.microedition.rms.RecordComparator;
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 import javax.microedition.rms.RecordStoreException;
 import javax.microedition.rms.RecordStoreNotFoundException;
-import org.allbinary.TsUtil;
 
+import org.allbinary.TsUtil;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.configuration.persistance.NullRecordComparator;
 import org.allbinary.game.configuration.persistance.NullRecordFilter;
@@ -38,13 +37,14 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.persistance.PlatformRecordIdUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 public class RecordStoreHighScores extends HighScores
 {
 
-    private static final Hashtable hashTable = StdUtil.getInstance().createHashtable();
+    private static final ABHashtable hashTable = StdUtil.getInstance().createHashtable();
 
     protected final LogUtil logUtil = LogUtil.getInstance();
     

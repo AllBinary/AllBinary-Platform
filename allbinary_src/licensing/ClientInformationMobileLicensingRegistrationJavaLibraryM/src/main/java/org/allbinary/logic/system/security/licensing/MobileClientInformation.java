@@ -14,16 +14,14 @@
 package org.allbinary.logic.system.security.licensing;
 
 import jsinterop.annotations.JsType;
-
-import java.util.Hashtable;
-
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.registration.RegistrationConfiguration;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+import org.allbinary.util.ABHashtable;
 
 
 @JsType
@@ -68,9 +66,9 @@ public class MobileClientInformation
  
     @Override
     @JsMethod
-    public Hashtable toHashtable()
+    public ABHashtable toHashtable()
     {
-        final Hashtable hashtable = super.toHashtable();
+        final ABHashtable hashtable = super.toHashtable();
         
         final RegistrationConfiguration registrationConfiguration = RegistrationConfiguration.getInstance();
         

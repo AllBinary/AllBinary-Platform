@@ -13,12 +13,11 @@
 */
 package org.allbinary.layer;
 
-import java.util.Hashtable;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
@@ -44,7 +43,7 @@ public class LayerInterfaceFactory
    
    private final String HASHTABLE_LABEL = "Hashtable: ";
 
-   public AllBinaryLayer getNexInstance(final Hashtable hashtable, final int x, final int y, int z)
+   public AllBinaryLayer getNexInstance(final ABHashtable hashtable, final int x, final int y, int z)
            throws Exception
    {
        final CommonStrings commonStrings = CommonStrings.getInstance();

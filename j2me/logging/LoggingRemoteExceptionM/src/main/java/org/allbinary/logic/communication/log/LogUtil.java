@@ -14,17 +14,15 @@
 package org.allbinary.logic.communication.log;
 
 import java.io.IOException;
-import java.util.Hashtable;
 
 import org.apache.xmlrpc.XmlRpcException;
-
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-
 import org.allbinary.canvas.SpecialMessageUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.ABHashtable;
 
 //ActualPlatform
 public class LogUtil {
@@ -108,7 +106,7 @@ public class LogUtil {
                         throw new RuntimeException();
                     }
 
-                    Hashtable hashtable = this.abeClientInformation.toHashtable();
+                    final ABHashtable hashtable = this.abeClientInformation.toHashtable();
 
                     this.stringBuffer.delete(0, this.stringBuffer.length());
                     this.stringBuffer.append(message);
