@@ -14,6 +14,7 @@
 package org.allbinary.util;
 
 import java.util.Hashtable;
+import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
@@ -22,5 +23,15 @@ import jsinterop.annotations.JsType;
  */
 @JsType
 public class ABHashtable<K,V> extends Hashtable {
+    
+    //GWT does not have the other constructors.
+//    public ABHashtable(final int initialCapacity) {
+//        super();
+//    }
+
+    @JsConstructor
+    public ABHashtable() {
+        super();
+    }
     
 }
