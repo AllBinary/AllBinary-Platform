@@ -21,6 +21,6 @@ import jsinterop.annotations.JsType;
  * @author User
  */
 @JsType
-public class ABHashMap<K,V> extends HashMap {
+public class ABHashMap<K,V> extends HashMap<K,V> {
     
 }

@@ -19,6 +19,6 @@ import java.util.Vector;
  *
  * @author User
  */
-public class ABVector<E> extends Vector {
+public class ABVector<E> extends Vector<E> {
     
 }

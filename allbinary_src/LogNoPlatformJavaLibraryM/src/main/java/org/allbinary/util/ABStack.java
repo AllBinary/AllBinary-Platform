@@ -19,6 +19,6 @@ import java.util.Stack;
  *
  * @author User
  */
-public class ABStack<E> extends Stack {
+public class ABStack<E> extends Stack<E> {
     
 }

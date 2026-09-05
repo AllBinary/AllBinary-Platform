@@ -21,6 +21,6 @@ import jsinterop.annotations.JsType;
  * @author User
  */
 @JsType
-public class ABVector<E> extends Vector {
+public class ABVector<E> extends Vector<E> {
     
 }

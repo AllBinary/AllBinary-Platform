@@ -19,7 +19,7 @@ import java.util.Hashtable;
  *
  * @author User
  */
-public class ABHashtable<K,V> extends Hashtable {
+public class ABHashtable<K,V> extends Hashtable<K,V> {
  
     public ABHashtable(final int initialCapacity) {
         super(initialCapacity);

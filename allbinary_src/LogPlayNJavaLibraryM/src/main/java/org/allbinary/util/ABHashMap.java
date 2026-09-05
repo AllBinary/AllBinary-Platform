@@ -19,6 +19,6 @@ import java.util.HashMap;
  *
  * @author User
  */
-public class ABHashMap<K,V> extends HashMap {
+public class ABHashMap<K,V> extends HashMap<K,V> {
     
 }

@@ -21,6 +21,6 @@ import jsinterop.annotations.JsType;
  * @author User
  */
 @JsType
-public class ABStack<E> extends Stack {
+public class ABStack<E> extends Stack<E> {
     
 }

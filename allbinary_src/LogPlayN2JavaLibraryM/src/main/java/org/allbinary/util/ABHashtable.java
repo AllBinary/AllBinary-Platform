@@ -22,7 +22,7 @@ import jsinterop.annotations.JsType;
  * @author User
  */
 @JsType
-public class ABHashtable<K,V> extends Hashtable {
+public class ABHashtable<K,V> extends Hashtable<K,V> {
     
     //GWT does not have the other constructors.
 //    public ABHashtable(final int initialCapacity) {
