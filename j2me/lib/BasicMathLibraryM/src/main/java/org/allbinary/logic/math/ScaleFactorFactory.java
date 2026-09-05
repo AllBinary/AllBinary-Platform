@@ -13,6 +13,9 @@
 */
 package org.allbinary.logic.math;
 
+import jsinterop.annotations.JsType;
+
+@JsType
 public class ScaleFactorFactory
 {
     private static final ScaleFactorFactory instance = new ScaleFactorFactory();
