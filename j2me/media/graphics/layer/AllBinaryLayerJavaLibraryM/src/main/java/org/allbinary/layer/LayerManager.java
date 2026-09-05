@@ -12,6 +12,7 @@ import org.allbinary.util.BasicArrayListD;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
+import org.allbinary.logic.ABSystemWrapper;
 
 
 @JsType
@@ -22,6 +23,8 @@ public class LayerManager
 
     @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    private final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
     
     private final LayerManagerLoggingBase layerManagerLogging;
     private final BasicArrayList list = new BasicArrayListD();
@@ -127,8 +130,8 @@ public class LayerManager
     		this.list.clear();
                 this.layerManagerLogging.clear();
 
-    		System.gc();
-    		System.gc();
+                this.systemWrapper.gc();
+                this.systemWrapper.gc();
     	}
     }
 

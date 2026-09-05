@@ -14,6 +14,10 @@
 package org.allbinary.logic.system.os;
 
 //ActualPlatform
+
+import jsinterop.annotations.JsType;
+
+@JsType
 public class SystemProperties {
 
     private static final SystemProperties instance = new SystemProperties();

@@ -122,6 +122,7 @@ import org.allbinary.input.motion.button.TouchButtonFactory;
 import org.allbinary.input.motion.button.TouchButtonsPaintableFactory;
 import org.allbinary.input.motion.button.TouchScreenFactory;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
+import org.allbinary.logic.ABSystemWrapper;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -155,7 +156,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         IntermissionEnableListenerInterface, PopupMenuInterface,
         DisplayChangeEventListener, UpdateMyFontInterface
 {
-
     @JsProperty
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     @JsProperty
@@ -187,7 +187,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected final FormUtil formUtil = FormUtil.getInstance();
     @JsProperty
     protected final MyFormUtil myFormUtil = MyFormUtil.getInstance();
-
+    
     private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
     private MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
 
@@ -610,7 +610,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.touchButtonFactory.toggle(this.isPaused(), BasicArrayListUtil.getInstance().getImmutableInstance());
 
-        System.gc();
+        this.systemWrapper.gc();
 
         //this.logUtil.putF(this.commonStrings.END, this, METHOD_NAME);
     }
@@ -623,7 +623,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         // PreLogUtil.put(commonStrings.START, this, gameStrings.UNPAUSE);
 
         this.closeMenu();
-        System.gc();
+        this.systemWrapper.gc();
         super.unPause();
         this.touchButtonFactory.toggle(this.isPaused(), BasicArrayListUtil.getInstance().getImmutableInstance());
 

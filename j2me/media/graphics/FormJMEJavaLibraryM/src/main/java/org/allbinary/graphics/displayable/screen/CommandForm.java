@@ -13,14 +13,15 @@
  */
 package org.allbinary.graphics.displayable.screen;
 
-import jsinterop.annotations.JsType;
-
-import java.util.Stack;
-
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Form;
 import javax.microedition.lcdui.NullCommandListener;
+
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.displayable.canvas.MenuListener;
@@ -31,9 +32,8 @@ import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+import org.allbinary.logic.StdUtil;
+import org.allbinary.util.ABStack;
 
 
 @JsType
@@ -62,7 +62,7 @@ public class CommandForm extends Form
     private final Processor repaintProcessor =
             ScreenRepaintProcessorFactory.getInstance().create(this);
     
-   private Stack<Object> commandStack;
+   private ABStack<Object> commandStack;
    
    @JsConstructor
    public CommandForm(CommandListener commandListener, String formTitle,
@@ -70,7 +70,7 @@ public class CommandForm extends Form
    {
       super(formTitle);
             
-      this.commandStack = new Stack<Object>();
+      this.commandStack = StdUtil.getInstance().createStack();
       
        try {
 

@@ -24,6 +24,7 @@ import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.logic.ABSystemWrapper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -79,7 +80,7 @@ public class AllBinaryMediaManager
 
         new Sounds(soundsFactoryInterface).closeAll();
 
-        System.gc();
+        ABSystemWrapper.getInstance().gc();
     }
 
     public static Player createPlayer(String resource) throws Exception

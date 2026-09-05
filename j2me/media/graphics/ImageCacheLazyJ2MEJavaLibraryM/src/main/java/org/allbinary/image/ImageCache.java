@@ -14,6 +14,9 @@
 package org.allbinary.image;
 
 import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import java.io.InputStream;
 
@@ -42,9 +45,7 @@ import org.allbinary.thread.ConcurrentImageLoadingProcessor;
 import org.allbinary.thread.SynchObject;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+import org.allbinary.logic.ABSystemWrapper;
 
 
 @JsType
@@ -55,6 +56,8 @@ public class ImageCache extends ImageCacheBase {
     
     @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    private final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
 
     private final BaseImageLoadingProcessor concurrentImageLoadingProcessor = new ConcurrentImageLoadingProcessor(this);
     
@@ -404,7 +407,7 @@ public class ImageCache extends ImageCacheBase {
             this.volume += width * height;
             if (this.volume > 32000) {
                 //this.logUtil.putF(new StringMaker().append("Image for: ").append(caller).toString(), this, this.commonStrings.GET);
-                System.gc();
+                this.systemWrapper.gc();
                 //System.gc();
                 this.volume = 0;
                 //this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
@@ -451,8 +454,8 @@ public class ImageCache extends ImageCacheBase {
                 this.logUtil.put("Exception: Trying Again After GC", this, this.commonStrings.GET, e);
 
                 this.logUtil.putF(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, this.commonStrings.GET);
-                System.gc();
-                System.gc();
+                this.systemWrapper.gc();
+                this.systemWrapper.gc();
                 this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
                 Thread.sleep(100);
                 image = this.createImageFromInputStream(key, inputStream);

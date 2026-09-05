@@ -20,7 +20,6 @@ import javax.microedition.media.PlayerListener;
 import javax.microedition.media.TimeBase;
 
 import org.allbinary.logic.string.StringUtil;
-
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 

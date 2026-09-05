@@ -13,11 +13,14 @@
 */
 package org.allbinary.game.score.displayable;
 
-import jsinterop.annotations.JsType;
-
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
+
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import org.allbinary.J2MEUtil;
 import org.allbinary.game.GameInfo;
@@ -45,9 +48,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.ARunnable;
 import org.allbinary.thread.SecondaryThreadPool;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
+import org.allbinary.logic.ABSystemWrapper;
 
 
 @JsType
@@ -57,7 +58,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     @JsProperty
     public static final String NAME = "HighScoresCanvas";
-    
+
     private Paintable paintable = NullPaintable.getInstance();
 
     private final HighScoreCommandsFactory highScoreCommandsFactory = 
@@ -152,14 +153,16 @@ public class HighScoresCanvas extends GameCommandCanvas
                         highScoresCanvas.hasPainted = false;
                     }
                     final StringMaker stringMaker = new StringMaker();
-                    logUtil.putF(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
+                    final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
+                    final long currentTimeMillis = systemWrapper.currentTimeMillis();
+                    logUtil.putF(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").appendlong(currentTimeMillis).toString(), this, commonStrings.RUN);
                     highScoresCanvas.repaintBehavior.onChangeRepaint(highScoresCanvas);
                     if (!isHTML) {
                         while (!highScoresCanvas.hasPainted) {
                         }
                     }
                     stringMaker.delete(0, stringMaker.length());
-                    logUtil.putF(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
+                    logUtil.putF(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").appendlong(currentTimeMillis).toString(), this, commonStrings.RUN);
                     highScoresCanvas.executeUpdate();
                 } catch (Exception e) {
                     logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);

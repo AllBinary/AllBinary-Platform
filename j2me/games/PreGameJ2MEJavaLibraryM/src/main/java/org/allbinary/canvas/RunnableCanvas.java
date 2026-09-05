@@ -22,6 +22,7 @@ import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
 import org.allbinary.graphics.displayable.MyCanvas;
+import org.allbinary.logic.ABSystemWrapper;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -43,7 +44,9 @@ public class RunnableCanvas extends MyCanvas
     protected final NullUtil nullUtil = NullUtil.getInstance();
     @JsProperty
     protected final StdUtil stdUtil = StdUtil.getInstance();
-    
+  
+    protected final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
+
     private Thread thread = NullThread.NULL_THREAD;
     private Thread currentThread = NullThread.NULL_THREAD;
 
@@ -314,13 +317,14 @@ public class RunnableCanvas extends MyCanvas
             //this.logUtil.putF(stringMaker.append(this.IS_RUNNING).appendboolean(this.isRunning()).append(" isSingleThread: ").appendboolean(this.isSingleThread()).toString(), this, this.PROCESS_LOOP_SLEEP);
             if (this.isRunning() && !this.isSingleThread()) {
                 stringMaker.delete(0, stringMaker.length());
-                this.logUtil.putF(stringMaker.append(this.START_PAUSE).appendlong(System.currentTimeMillis()).append(this.PAUSE_SLEEP).appendlong(this.pauseWait).toString(), this, this.PROCESS_LOOP_SLEEP);
+                final long currentTimeMillis = this.systemWrapper.currentTimeMillis();
+                this.logUtil.putF(stringMaker.append(this.START_PAUSE).appendlong(currentTimeMillis).append(this.PAUSE_SLEEP).appendlong(this.pauseWait).toString(), this, this.PROCESS_LOOP_SLEEP);
                 while (this.isPaused() && this.isRunning() && !this.isSingleThread()) {
                     this.processSleep();
 
                     if (!this.isPausable()) {
                         stringMaker.delete(0, stringMaker.length());
-                        this.logUtil.putF(stringMaker.append(this.END_PAUSE).appendlong(System.currentTimeMillis()).toString(), this, this.PROCESS_LOOP_SLEEP);
+                        this.logUtil.putF(stringMaker.append(this.END_PAUSE).appendlong(currentTimeMillis).toString(), this, this.PROCESS_LOOP_SLEEP);
                         return;
                     }
                 }

@@ -22,6 +22,7 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.gd.resource.GDResources;
+import org.allbinary.logic.ABSystemWrapper;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.system.Memory;
 
@@ -30,6 +31,7 @@ public class ImageCache extends ImageCacheBase
     public static final ImageCache NULL_IMAGE_CACHE = new ImageCache();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
 
     public ImageCache()
     // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
@@ -66,7 +68,7 @@ public class ImageCache extends ImageCacheBase
             if (this.volume > 32000)
             {
                 //this.logUtil.putF(new StringMaker().append("Image for: ").append(caller).toString(), this, this.commonStrings.GET);
-                System.gc();
+                this.systemWrapper.gc();
                 //System.gc();
                 this.volume = 0;
                 //this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
@@ -114,8 +116,8 @@ public class ImageCache extends ImageCacheBase
                 this.logUtil.put("Exception: Trying Again After GC", this, this.commonStrings.GET, e);
                 
                 this.logUtil.putF(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, this.commonStrings.GET);
-                System.gc();
-                System.gc();
+                this.systemWrapper.gc();
+                this.systemWrapper.gc();
                 this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
                 Thread.sleep(100);
                 image = this.createImageFromInputStream(key, inputStream);

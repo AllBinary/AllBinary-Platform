@@ -21,12 +21,15 @@ import org.allbinary.animation.IndexedAnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.logic.ABSystemWrapper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class TitleAnimation extends SpecialAnimation 
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    protected final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
 
     public float deltaX;
     public float deltaY;
@@ -66,7 +69,7 @@ public class TitleAnimation extends SpecialAnimation
     {
         super(animationBehavior);
         
-        this.lastFrameStartTime = System.currentTimeMillis();
+        this.lastFrameStartTime = this.systemWrapper.currentTimeMillis();
 
         this.animationInterfaceArray = animationInterfaceArray;
 
@@ -86,7 +89,7 @@ public class TitleAnimation extends SpecialAnimation
     @Override
     public void nextFrame()
     {
-        final long currentTime = System.currentTimeMillis();
+        final long currentTime = this.systemWrapper.currentTimeMillis();
         final long totalTimeElapsed = currentTime - this.lastFrameStartTime;
 
         final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.getAnimationBehavior();

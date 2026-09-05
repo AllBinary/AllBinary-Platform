@@ -19,6 +19,7 @@ import javax.microedition.lcdui.TextField;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
+import org.allbinary.logic.ABSystemWrapper;
 
 public class SaveGameForm extends CommandForm
 {
@@ -46,7 +47,7 @@ public class SaveGameForm extends CommandForm
 
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
-        String timeString = Long.toString(System.currentTimeMillis());
+        String timeString = Long.toString(ABSystemWrapper.getInstance().currentTimeMillis());
         this.append(new TextField("Name: ", timeString, 30, TextField.ANY)); 
         
         this.initCommands(commandListener);
