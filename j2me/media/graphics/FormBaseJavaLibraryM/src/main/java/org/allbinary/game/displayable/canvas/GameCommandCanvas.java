@@ -14,15 +14,15 @@
 
 package org.allbinary.game.displayable.canvas;
 
-import jsinterop.annotations.JsType;
-
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
-
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.NullCommandListener;
+
+import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.commands.GameCommandsFactory;
@@ -71,10 +71,6 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
 
 @JsType
 public class GameCommandCanvas
