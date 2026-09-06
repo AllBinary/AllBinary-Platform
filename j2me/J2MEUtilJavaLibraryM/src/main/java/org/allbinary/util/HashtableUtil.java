@@ -14,7 +14,9 @@
 package org.allbinary.util;
 
 import java.util.Enumeration;
+import jsinterop.annotations.JsType;
 
+@JsType
 public class HashtableUtil
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();

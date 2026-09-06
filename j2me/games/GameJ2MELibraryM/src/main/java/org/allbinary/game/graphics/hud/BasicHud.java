@@ -14,6 +14,9 @@
 package org.allbinary.game.graphics.hud;
 
 import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsProperty;
 
 import javax.microedition.lcdui.Graphics;
 
@@ -32,14 +35,9 @@ import org.allbinary.graphics.font.UpdateMyFontInterface;
 import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
 
 @JsType
 public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListener
