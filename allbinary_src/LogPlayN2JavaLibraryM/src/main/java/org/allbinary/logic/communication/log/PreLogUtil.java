@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.communication.log;
 
+import jsinterop.annotations.JsType;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
@@ -20,6 +21,7 @@ import org.allbinary.logic.string.StringUtil;
 import playn.core.PlayN;
 
 //ActualPlatform
+@JsType
 public class PreLogUtil
 {
     
