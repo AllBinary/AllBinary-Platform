@@ -27,6 +27,16 @@ public class HealthIncludingLifeBar
 extends Paintable
 implements HealthListenerInterface
 {
+    public static HealthIncludingLifeBar createHealthIncludingLifeBar(
+        final AllBinaryLayer layerInterface,
+        final Life life,
+        final Health healthInterface,
+        final int location,
+        final int direction)
+        throws Exception {
+        return new HealthIncludingLifeBar(layerInterface, life, healthInterface, new HealthBarTwodAnimation(layerInterface, location), direction);
+    }
+    
     private final HealthBarAnimation animationInterface;
 
     private final Life life;
@@ -37,10 +47,10 @@ implements HealthListenerInterface
     protected final AllBinaryLayer allbinaryLayer;
     
     public HealthIncludingLifeBar(
-            AllBinaryLayer layerInterface,
-            Life life,
-            Health healthInterface, 
-            HealthBarAnimation animationInterface, int direction)
+            final AllBinaryLayer layerInterface,
+            final Life life,
+            final Health healthInterface, 
+            final HealthBarAnimation animationInterface, final int direction)
             throws Exception
     {
         this.allbinaryLayer = layerInterface;
@@ -52,16 +62,6 @@ implements HealthListenerInterface
         this.healthInterface.addListener(this);
 
         this.onHealthChange();
-    }
-
-    public HealthIncludingLifeBar(AllBinaryLayer layerInterface,
-            Life life,
-            Health healthInterface, 
-            int location,
-            int direction)
-            throws Exception
-    {
-        this(layerInterface, life, healthInterface, new HealthBarTwodAnimation(layerInterface, location), direction);
     }
   
     @Override

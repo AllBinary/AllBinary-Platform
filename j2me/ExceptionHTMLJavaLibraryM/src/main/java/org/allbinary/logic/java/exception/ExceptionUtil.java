@@ -13,7 +13,10 @@
  */
 package org.allbinary.logic.java.exception;
 
+import jsinterop.annotations.JsType;
+
 //ActualPlatform
+@JsType
 public class ExceptionUtil
 {
 
