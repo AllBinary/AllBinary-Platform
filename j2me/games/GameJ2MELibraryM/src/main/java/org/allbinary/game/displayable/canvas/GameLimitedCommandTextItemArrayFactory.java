@@ -13,14 +13,11 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
 import org.allbinary.graphics.form.item.LimitCommandsVisitor;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class GameLimitedCommandTextItemArrayFactory
 {
     private static final GameLimitedCommandTextItemArrayFactory instance = 
@@ -29,13 +26,11 @@ public class GameLimitedCommandTextItemArrayFactory
     private final CommandTextItemArrayFactory commandTextItemArrayFactory =
         new CommandTextItemArrayFactory(new LimitCommandsVisitor());
 
-    @JsMethod
     public static GameLimitedCommandTextItemArrayFactory getInstance()
     {
         return GameLimitedCommandTextItemArrayFactory.instance;
     }
 
-    @JsMethod
     public CommandTextItemArrayFactory getCommandTextItemArrayFactory()
     {
         return this.commandTextItemArrayFactory;

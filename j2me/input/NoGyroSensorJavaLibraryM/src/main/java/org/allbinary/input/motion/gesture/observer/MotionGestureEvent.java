@@ -14,7 +14,6 @@
 
 package org.allbinary.input.motion.gesture.observer;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
@@ -25,11 +24,8 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.string.CommonLabels;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class MotionGestureEvent extends AllBinaryEventObject {
     
     private MotionGestureInput motionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
@@ -39,7 +35,6 @@ public class MotionGestureEvent extends AllBinaryEventObject {
     private GPoint previousPoint = PointFactory.getInstance().ZERO_ZERO;
     private GPoint currentPoint = PointFactory.getInstance().ZERO_ZERO;
     
-    @JsConstructor
     public MotionGestureEvent(Object source, int id, MotionGestureInput motionGesture) {
         super(source);
         
@@ -47,12 +42,10 @@ public class MotionGestureEvent extends AllBinaryEventObject {
         this.setMotionGesture(motionGesture);
     }
 
-    @JsMethod
     public MotionGestureInput getMotionGesture() {
         return this.motionGesture;
     }
 
-    @JsMethod
     public void setMotionGesture(MotionGestureInput motionGesture) {
         this.motionGesture = motionGesture;
     }
@@ -60,7 +53,6 @@ public class MotionGestureEvent extends AllBinaryEventObject {
     /**
      * @return the previousPoint
      */
-    @JsMethod
     public GPoint getPreviousPoint()
     {
         return this.previousPoint;
@@ -69,7 +61,6 @@ public class MotionGestureEvent extends AllBinaryEventObject {
     /**
      * @param previousPoint the previousPoint to set
      */
-    @JsMethod
     public void setPreviousPoint(GPoint previousPoint)
     {
         this.previousPoint = previousPoint;
@@ -78,7 +69,6 @@ public class MotionGestureEvent extends AllBinaryEventObject {
     /**
      * @return the currentPoint
      */
-    @JsMethod
     public GPoint getCurrentPoint()
     {
         return this.currentPoint;
@@ -87,7 +77,6 @@ public class MotionGestureEvent extends AllBinaryEventObject {
     /**
      * @param currentPoint the currentPoint to set
      */
-    @JsMethod
     public void setCurrentPoint(GPoint currentPoint)
     {
         this.currentPoint = currentPoint;
@@ -97,7 +86,6 @@ public class MotionGestureEvent extends AllBinaryEventObject {
     private static final String PREVIOUS = " Previous: ";
     private static final String HASHCODE = " hashcode: ";
 
-    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -113,7 +101,6 @@ public class MotionGestureEvent extends AllBinaryEventObject {
         return stringBuffer.toString();
     }
 
-    @JsMethod
     public int getId()
     {
         return this.id;

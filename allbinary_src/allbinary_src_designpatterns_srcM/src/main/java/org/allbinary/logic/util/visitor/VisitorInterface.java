@@ -13,13 +13,9 @@
 */
 package org.allbinary.logic.util.visitor;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface VisitorInterface
 {
-   @JsMethod
    Object visit(Object object);
 }

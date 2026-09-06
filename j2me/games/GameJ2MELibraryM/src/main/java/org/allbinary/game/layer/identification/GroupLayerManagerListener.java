@@ -13,10 +13,6 @@
 */
 package org.allbinary.game.layer.identification;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.identification.GroupInterfaceCompositeInterface;
@@ -34,7 +30,6 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
-@JsType
 public class GroupLayerManagerListener
 extends LayerManagerEventListener
 {
@@ -42,26 +37,22 @@ extends LayerManagerEventListener
     private static GroupLayerManagerListener SINGLETON = 
         new GroupLayerManagerListener();
 
-    @JsMethod
     public static GroupLayerManagerListener getInstance()
     {
         return GroupLayerManagerListener.SINGLETON;
     }
 
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
     
     //private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final BasicArrayList list = new BasicArrayListD();
 
-    @JsConstructor
     private GroupLayerManagerListener()
     {
         LayerManagerEventHandler.getInstance().addListener(this);
     }
 
-    @JsMethod
     public void clear()
     {
         BasicArrayList groupList;
@@ -73,35 +64,30 @@ extends LayerManagerEventListener
         }
     }
 
-    @JsMethod
     public int getGroupSizeFromInterface(final GroupInterfaceCompositeInterface groupInterfaceCompositeInterface)
     {
         final Group[] groupInterfaceArray = groupInterfaceCompositeInterface.getGroupInterface();
         return this.getGroupSize(groupInterfaceArray[0]);
     }
 
-    @JsMethod
     public int getGroupSize(final Group groupInterface)
     {
         final int id = (int) groupInterface.getGroupId();
         return this.getGroupSizeById(id);
     }
 
-    @JsMethod
     public BasicArrayList getList(final Group groupInterface)
     {
         final int id = (int) groupInterface.getGroupId();
         return this.getListById(id);
     }
 
-    @JsMethod
     private BasicArrayList getListById(final int groupId)
     {
         final BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
         return groupList;
     }
 
-    @JsMethod
     private int getGroupSizeById(final int groupId)
     {
         final BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
@@ -112,7 +98,6 @@ extends LayerManagerEventListener
         return size;
     }
 
-    @JsMethod
     public boolean areAllOtherGroupsEmpty(final Group groupInterface)
     {
         final int id = (int) groupInterface.getGroupId();
@@ -134,7 +119,6 @@ extends LayerManagerEventListener
         return true;
     }
 
-    @JsMethod
     private boolean isIdInList(final int id, final BasicArrayList excludeGroupList)
     {
         final int size = excludeGroupList.size();
@@ -157,7 +141,6 @@ extends LayerManagerEventListener
     }
 
   //Note: The PlayerLayer could be in the group list so 1 might be the minimum
-    @JsMethod
     public boolean areAllOtherGroupsLessThan(
             final BasicArrayList excludeGroupList, final int maxSize)
     {
@@ -196,7 +179,6 @@ extends LayerManagerEventListener
         return true;
     }
 
-    @JsMethod
     public void init(int total)
     {
         while (this.list.size() <= total + 1)
@@ -209,14 +191,12 @@ extends LayerManagerEventListener
     }
 
     @Override
-    @JsMethod
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     @Override
-    @JsMethod
     public void onCreateLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
         throws Exception
     {
@@ -281,7 +261,6 @@ extends LayerManagerEventListener
     }
 
     @Override
-    @JsMethod
     public void onDeleteLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
             throws Exception
     {
@@ -334,7 +313,6 @@ extends LayerManagerEventListener
         }        
     }
 
-    @JsMethod
     public void log()
     {
         final StringMaker stringBuffer = new StringMaker();

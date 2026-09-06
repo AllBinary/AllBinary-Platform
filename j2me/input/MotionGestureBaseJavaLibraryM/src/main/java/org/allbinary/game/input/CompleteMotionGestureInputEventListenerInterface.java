@@ -13,15 +13,11 @@
 */
 package org.allbinary.game.input;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.util.event.EventListenerInterface;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface CompleteMotionGestureInputEventListenerInterface extends EventListenerInterface
 {
-    @JsMethod
     void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent);
 }

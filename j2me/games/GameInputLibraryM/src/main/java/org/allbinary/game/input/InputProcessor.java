@@ -13,26 +13,19 @@
 */
 package org.allbinary.game.input;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Canvas;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class InputProcessor
 {
-    @JsProperty
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
-    @JsMethod
     public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         
     }
 
-    @JsMethod
     public void keyReleasedByDevice(final Canvas canvas, final int keyCode, final int deviceId)
     {
         

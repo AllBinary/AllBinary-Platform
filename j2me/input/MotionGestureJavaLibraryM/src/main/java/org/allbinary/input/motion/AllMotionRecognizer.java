@@ -13,7 +13,6 @@
 */
 package org.allbinary.input.motion;
 
-import jsinterop.annotations.JsType;
 import org.allbinary.graphics.CustomGPoint;
 import org.allbinary.graphics.GPointCircularPool;
 import org.allbinary.input.motion.button.TouchButtonRecognizer;
@@ -24,7 +23,6 @@ import org.allbinary.logic.communication.log.LogUtil;
  * 
  * @author user
  */
-@JsType
 public class AllMotionRecognizer extends MotionRecognizer
 {
     protected final LogUtil logUtil = LogUtil.getInstance();

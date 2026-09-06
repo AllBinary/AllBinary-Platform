@@ -13,9 +13,6 @@
 */
 package org.allbinary.game.configuration.persistance;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -36,25 +33,21 @@ import org.allbinary.util.ABHashtable;
 import org.allbinary.util.HashtableUtil;
 
 
-@JsType
 public class KeyValuePersistance extends BasicPersitance
 {
     
     private final TsUtil tsUtil = TsUtil.getInstance();
     
-    @JsConstructor
     protected KeyValuePersistance(final String recordId)
     {
         super(recordId);
     }
         
-    @JsMethod
     public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         this.loadAllSize(abeClientInformation, 1);
     }
     
-    @JsMethod
     public void loadAllSize(final AbeClientInformationInterface abeClientInformation, int size) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
@@ -111,7 +104,6 @@ public class KeyValuePersistance extends BasicPersitance
 
     }
     
-    @JsMethod
     public void save(final AbeClientInformationInterface abeClientInformation, final ABHashtable hashtable) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
@@ -157,7 +149,6 @@ public class KeyValuePersistance extends BasicPersitance
 
     }
 
-    @JsMethod
     public ABHashtable get(int index)
     {
         final ABHashtable hashtable = (ABHashtable) this.valueList.objectArray[index];

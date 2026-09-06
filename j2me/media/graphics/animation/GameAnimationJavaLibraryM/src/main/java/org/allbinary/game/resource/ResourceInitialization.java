@@ -13,11 +13,9 @@
 */
 package org.allbinary.game.resource;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.init.Init;
 
-@JsType
 public class ResourceInitialization extends Init
 {
     //int portion

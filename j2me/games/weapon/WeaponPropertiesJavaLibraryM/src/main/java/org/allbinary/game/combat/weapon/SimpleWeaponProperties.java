@@ -13,18 +13,14 @@
 */
 package org.allbinary.game.combat.weapon;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class SimpleWeaponProperties
 {
     private int damage;
     private short dissipation;
     private int range;
     
-    @JsMethod
     public void set(SimpleWeaponProperties simpleWeaponProperties)
     {
         this.setDamage(simpleWeaponProperties.getDamage());
@@ -32,25 +28,21 @@ public class SimpleWeaponProperties
         this.setRange(simpleWeaponProperties.getRange());
     }
     
-    @JsMethod
     public void setDamage(int damage)
     {
         this.damage = damage;
     }
     
-    @JsMethod
     public int getDamage()
     {
         return this.damage;
     }
     
-    @JsMethod
     public void setDissipation(short dissipation)
     {
         this.dissipation = dissipation;
     }
     
-    @JsMethod
     public short getDissipation()
     {
         return this.dissipation;
@@ -59,13 +51,11 @@ public class SimpleWeaponProperties
     /**
      * @return the range
      */
-    @JsMethod
     public int getRange()
     {
         return this.range;
     }
 
-    @JsMethod
     public void setRange(int range)
     {
         this.range = range;

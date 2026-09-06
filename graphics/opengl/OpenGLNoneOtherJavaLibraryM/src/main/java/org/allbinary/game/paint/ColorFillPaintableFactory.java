@@ -13,12 +13,10 @@
 */
 package org.allbinary.game.paint;
 
-import jsinterop.annotations.JsType;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 
-@JsType
 public class ColorFillPaintableFactory
 {
     private static final ColorFillPaintableFactory instance = new ColorFillPaintableFactory();

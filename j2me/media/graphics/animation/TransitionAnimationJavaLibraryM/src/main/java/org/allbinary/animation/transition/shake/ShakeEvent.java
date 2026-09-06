@@ -13,14 +13,10 @@
 */
 package org.allbinary.animation.transition.shake;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class ShakeEvent
 {
-    @JsConstructor
     ShakeEvent()
     {
         

@@ -13,16 +13,12 @@
 */
 package org.allbinary.graphics.form;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Graphics;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class ItemPaintable
 {
-    @JsMethod
     public void paint(Graphics graphics, int currentIndex, int x, int y)
     {
     }

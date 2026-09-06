@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.score;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
@@ -30,11 +29,8 @@ import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.util.BasicArrayList;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class HighScoresPaintable 
 extends Paintable
 implements ColorChangeListener, UpdateMyFontInterface
@@ -52,13 +48,11 @@ implements ColorChangeListener, UpdateMyFontInterface
     private int anchor = Anchor.TOP_LEFT;
     private int charHeight;
 
-    @JsConstructor
     public HighScoresPaintable()
     {
     }
 
     @Override
-    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         this.charHeight = font.getHeight();
@@ -66,7 +60,6 @@ implements ColorChangeListener, UpdateMyFontInterface
     }
     
     @Override    
-    @JsMethod
     public void onEvent(AllBinaryEventObject eventObject)
     {
         //this.logUtil.putF("Color Change Event: " + basicColor.getName(), this, "onEvent");
@@ -75,7 +68,6 @@ implements ColorChangeListener, UpdateMyFontInterface
     }
 
     @Override
-    @JsMethod
     public void paint(Graphics graphics)
     {
         this.myFontProcessor.process(graphics);
@@ -139,19 +131,16 @@ implements ColorChangeListener, UpdateMyFontInterface
     }
 
     @Override
-    @JsMethod
     public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;
     }
 
-    @JsMethod
     public BasicColor getBasicColorP()
     {
         return this.basicColor;
     }
 
-    @JsMethod
     public void setHighScores(HighScores highScores)
     {
         this.highScores = highScores;

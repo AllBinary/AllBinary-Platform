@@ -13,13 +13,9 @@
 */
 package org.allbinary.game.configuration.feature;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsConstructor;
 
-@JsType
 public class SensorFeature extends Feature
 {    
-    @JsConstructor
     SensorFeature(String name)
     {
         super(name);

@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.score;
 
-import jsinterop.annotations.JsType;
 
 //import com.sun.org.apache.bcel.internal.util.ByteSequence;
 
@@ -23,11 +22,8 @@ import java.io.DataOutputStream;
 import org.allbinary.game.GameInfo;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class HighScore
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -39,7 +35,6 @@ public class HighScore
 
     private final String scoreString;
     
-    @JsConstructor
     public HighScore(int id, String name, GameInfo gameInfo, long score)
     {
         this.id = id;
@@ -51,25 +46,21 @@ public class HighScore
         //this.logUtil.putF(this.toString(), this, this.commonStrings.CONSTRUCTOR);
     }
 
-    @JsMethod
     public int getId()
     {
         return this.id;
     }
 
-    @JsMethod
     public String getName()
     {
         return this.name;
     }
 
-    @JsMethod
     public long getScore()
     {
         return this.score;
     }
 
-    @JsMethod
     public byte[] getAsBytes() throws Exception
     {
         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -79,25 +70,21 @@ public class HighScore
         return byteArrayOutputStream.toByteArray();
     }
 
-    @JsMethod
     public GameInfo getGameInfo()
     {
         return this.gameInfo;
     }
 
-    @JsMethod
     public String getScoreString()
     {
         return this.scoreString;
     }
 
-    @JsMethod
     public void setName(String name)
     {
         this.name = name;
     }
     
-    @JsMethod
     public String toString() {
         final CommonSeps commonSeps = CommonSeps.getInstance();
         return new StringMaker().append(this.name).append(commonSeps.COLON).appendlong(this.score).append(commonSeps.FORWARD_SLASH).append(this.scoreString).toString();

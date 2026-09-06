@@ -13,18 +13,13 @@
 */
 package org.allbinary.graphics.paint;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Graphics;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface PaintableInterface 
 {
-    @JsMethod
     void paint(Graphics graphics);
     
-    @JsMethod
     void paintThreed(Graphics graphics);
 }

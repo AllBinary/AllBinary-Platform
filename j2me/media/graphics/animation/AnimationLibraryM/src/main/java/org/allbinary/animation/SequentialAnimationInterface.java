@@ -13,15 +13,10 @@
 */
 package org.allbinary.animation;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface SequentialAnimationInterface extends AnimationInterface, SequenceInterface {
 
-    @JsMethod
     int getSize();
-    @JsMethod
     void previousFrame();
 }

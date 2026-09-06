@@ -13,13 +13,10 @@
 */
 package org.allbinary.logic.system.hardware;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
 import org.allbinary.util.ABHashtable;
 
-@JsType
 public interface HardwareInterface
 {
     /*
@@ -46,15 +43,11 @@ public interface HardwareInterface
     public VideoInterface getVideo(int index);
     */
     
-    @JsMethod
     HardwareComponentInterface getComponent(int index);
  
-    @JsMethod
     String toString();
     
-    @JsMethod
     boolean compareTo(HardwareInterface hardwareInterface);
     
-    @JsMethod
     ABHashtable difference(HardwareInterface hardwareInterface);
 }

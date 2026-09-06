@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.configuration;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
@@ -24,14 +23,11 @@ import org.allbinary.init.Init;
 import org.allbinary.input.gyro.OrientationData;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class InGameFeatures extends Init
 {
     @Override
-    @JsMethod
     public void init()
     {
         final String LABEL = "Screen Buttons";
@@ -86,7 +82,6 @@ public class InGameFeatures extends Init
         }
     }
 
-    @JsMethod
     private void addToInGameMenu() {
         
         final OrientationData orientationData = OrientationData.getInstance();
@@ -102,7 +97,6 @@ public class InGameFeatures extends Init
             inGameExclusiveOrientationSensorVector);
     }
 
-    @JsMethod
     public boolean isAny()
     {
         final Features features = Features.getInstance();

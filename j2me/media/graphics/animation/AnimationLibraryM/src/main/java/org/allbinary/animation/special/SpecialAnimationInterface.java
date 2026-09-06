@@ -13,17 +13,12 @@
 */
 package org.allbinary.animation.special;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.animation.IndexedAnimationInterface;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface SpecialAnimationInterface extends IndexedAnimationInterface
 {
-    @JsMethod
     void setLastFrame();
-    @JsMethod
     boolean isComplete();
 }

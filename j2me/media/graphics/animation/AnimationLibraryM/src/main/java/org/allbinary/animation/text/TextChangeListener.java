@@ -13,15 +13,12 @@
  */
 package org.allbinary.animation.text;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
 
-@JsType
 public class TextChangeListener {
     
     private static final TextChangeListener instance = new TextChangeListener();
@@ -29,12 +26,10 @@ public class TextChangeListener {
     /**
      * @return the instance
      */
-    @JsMethod
     public static TextChangeListener getInstance() {
         return instance;
     }
     
-    @JsMethod
     void onMeasure() {
         
     }

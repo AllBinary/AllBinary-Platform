@@ -13,16 +13,12 @@
 */
 package org.allbinary.midlet;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.midlet.MIDlet;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class MidletFactoryInterface {
 
-	@JsMethod
 	public MIDlet getInstance()
 	{
 	    return AllBinaryMidlet.getNullInstance();

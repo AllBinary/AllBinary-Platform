@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Canvas;
 
@@ -31,16 +30,11 @@ import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class GameCanvasInputProcessor
 extends InputProcessor
 {
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final AllBinaryGameCanvas allBinaryGameCanvas;
@@ -54,7 +48,6 @@ extends InputProcessor
     private final InputToGameKeyMapping inputToGameKeyMapping =
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
-    @JsConstructor
     public GameCanvasInputProcessor(final AllBinaryGameCanvas allBinaryGameCanvas)
     {
         this.allBinaryGameCanvas = allBinaryGameCanvas;
@@ -68,7 +61,6 @@ extends InputProcessor
         
     //TWB - This is raw input from Canvas that does not include TouchButton Input
     @Override
-    @JsMethod
     public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         try
@@ -114,12 +106,10 @@ extends InputProcessor
     }
     
     @Override
-    @JsMethod
     public void keyReleasedByDevice(final Canvas canvas, final int keyCode, final int deviceId) {
         this.removeGameKeyEvent(canvas, keyCode, deviceId, false);
     }
     
-    @JsMethod
     private void removeGameKeyEvent(final Canvas canvas, final int keyCode, final int deviceId, final boolean repeated)
     {
         try

@@ -13,17 +13,14 @@
  */
 package org.allbinary.graphics.paint;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Graphics;
-import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author user
  */
 
-@JsType
 public class LocationPaintable
     implements LocationPaintableInterface {
 
@@ -32,13 +29,11 @@ public class LocationPaintable
     /**
      * @return the instance
      */
-    @JsMethod
     public static LocationPaintable getInstance() {
         return LocationPaintable.instance;
     }
     
     @Override
-    @JsMethod
     public void paintXY(final Graphics graphics, final int x, final int y) {
     }
 

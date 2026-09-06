@@ -13,17 +13,13 @@
 */
 package org.allbinary.game.midlet;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsConstructor;
 
-@JsType
 public class DemoGameMidletState
 {    
     //private static int index = 0;
     
     //private int id;
     
-    @JsConstructor
     public DemoGameMidletState()
     {
     //    id = index++;

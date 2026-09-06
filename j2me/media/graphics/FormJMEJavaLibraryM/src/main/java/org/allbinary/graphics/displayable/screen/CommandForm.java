@@ -18,10 +18,6 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Form;
 import javax.microedition.lcdui.NullCommandListener;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.displayable.canvas.MenuListener;
@@ -36,12 +32,10 @@ import org.allbinary.logic.StdUtil;
 import org.allbinary.util.ABStack;
 
 
-@JsType
 public class CommandForm extends Form
         implements MyCommandInterface, MenuListener
 {
     private static Object NULL_COMMAND_FORM = NullUtil.getInstance().NULL_OBJECT;
-    @JsMethod
     public static CommandForm getNullCommandForm() {
         
         if(CommandForm.NULL_COMMAND_FORM == NullUtil.getInstance().NULL_OBJECT) {
@@ -53,10 +47,8 @@ public class CommandForm extends Form
         return (CommandForm) CommandForm.NULL_COMMAND_FORM;
     }
 
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final Processor repaintProcessor =
@@ -64,7 +56,6 @@ public class CommandForm extends Form
     
    private ABStack<Object> commandStack;
    
-   @JsConstructor
    public CommandForm(CommandListener commandListener, String formTitle,
            BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
    {
@@ -82,39 +73,33 @@ public class CommandForm extends Form
       
    }
 
-    @JsMethod
     public void initCommands(final CommandListener cmdListener)
     {
     }
     
     @Override
-    @JsMethod
     public void open()
     {
         this.logUtil.putF(this.commonStrings.START, this, "open");
     }
 
     @Override
-    @JsMethod
     public void close() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLOSE);
     }
 
-    @JsMethod
     public void update() throws Exception {
         this.repaintProcessor.process();
     }
     
     @Override    
-    @JsMethod
     public int getSourceId()
     {
         return 0;
     }
 
     @Override
-    @JsMethod
     public void addCommand(Command command)
     {
        this.commandStack.push(command);
@@ -122,7 +107,6 @@ public class CommandForm extends Form
     }
    
     @Override
-    @JsMethod
     public void removeAllCommands()
    {
        final int size = this.commandStack.size();

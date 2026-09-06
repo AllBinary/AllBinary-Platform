@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
@@ -38,21 +37,16 @@ import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.threed.SWTJOGLProcessor;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author user
  */
 
-@JsType
 public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontInterface
 {
     private static final String NAME = "MENU";
 
-    @JsProperty
     protected final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
     private final DrawVerticalStringUtil drawStringUtil = DrawVerticalStringUtil.getInstance();
 
@@ -68,7 +62,6 @@ public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontIn
 
     private Animation animationInterface;
 
-    @JsConstructor
     public BasicPopupMenuPaintable(final Rectangle rectangle, 
             final BasicColor backgroundBasicColor, 
             final BasicColor foregroundBasicColor)
@@ -110,7 +103,6 @@ public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontIn
     }
 
     @Override
-    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
         
@@ -146,7 +138,6 @@ public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontIn
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
         
-    @JsMethod
     public void init(final Rectangle rectangle) throws Exception
     {
         this.rectangle = rectangle;
@@ -171,7 +162,6 @@ public class BasicPopupMenuPaintable extends Paintable implements UpdateMyFontIn
     }
     
    @Override
-   @JsMethod
    public void paint(final Graphics graphics)
    {
        this.myFontProcessor.process(graphics);

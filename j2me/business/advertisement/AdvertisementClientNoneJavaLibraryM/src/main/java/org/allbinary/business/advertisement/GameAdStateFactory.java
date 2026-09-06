@@ -1,18 +1,14 @@
 package org.allbinary.business.advertisement;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.GameAdState;
 import org.allbinary.logic.system.SoftwareInformation;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class GameAdStateFactory implements GameAdStateFactoryInterface
 {
     private static final GameAdStateFactory instance = new GameAdStateFactory();
 
-    @JsMethod
     public static GameAdStateFactory getInstance()
     {
         return GameAdStateFactory.instance;
@@ -24,14 +20,12 @@ public class GameAdStateFactory implements GameAdStateFactoryInterface
 
     private GameAdState gameAdState = this.gameAdStateArray[0];
 
-    @JsMethod
     public GameAdState getCurrentInstance()
     {
         return this.gameAdState;
     }
     
     @Override
-    @JsMethod
     public GameAdStateBase getInstanceForApp(final SoftwareInformation softwareInformation)
     throws Exception
     {
@@ -47,7 +41,6 @@ public class GameAdStateFactory implements GameAdStateFactoryInterface
         //}
     }
     
-    @JsMethod
     public boolean isEnabled()
     {
     	return false;

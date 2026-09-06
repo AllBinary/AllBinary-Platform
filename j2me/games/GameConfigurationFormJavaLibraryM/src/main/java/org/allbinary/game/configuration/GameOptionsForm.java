@@ -13,9 +13,6 @@
 */
 package org.allbinary.game.configuration;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.Command;
@@ -43,7 +40,6 @@ import org.allbinary.logic.StdUtil;
 import org.allbinary.util.ABHashtable;
 
 
-@JsType
 public class GameOptionsForm extends CommandForm
     //CommandForm
 {
@@ -55,7 +51,6 @@ public class GameOptionsForm extends CommandForm
     }
     */
 
-    @JsConstructor
     public GameOptionsForm(final CommandListener commandListener, final String title,
             final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor)
         throws Exception
@@ -86,14 +81,12 @@ public class GameOptionsForm extends CommandForm
 
     }
 
-    @JsMethod
     public void closeClientInformation(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         super.close();
         this.save(abeClientInformation);
     }
 
-    @JsMethod
     private void addTextFieldsIfSimulated()
     {
         String key = OrientationData.getInstance().ORIENTATION_SENSOR_INPUT;
@@ -111,7 +104,6 @@ public class GameOptionsForm extends CommandForm
         }
     }
     
-    @JsMethod
     private void addTextFields()
     {
         final ABHashtable hashtable = GameConfigurationTextInput.getHashtable();
@@ -131,7 +123,6 @@ public class GameOptionsForm extends CommandForm
         }
     }
 
-    @JsMethod
     private void addConfiguration()
     {
         final String METHOD_NAME = "addConfiguration";
@@ -166,7 +157,6 @@ public class GameOptionsForm extends CommandForm
     }
 
     @Override
-    @JsMethod
     public void initCommands(final CommandListener cmdListener)
     {
         final GameCommandsFactory gameCommandsFactory = 
@@ -179,7 +169,6 @@ public class GameOptionsForm extends CommandForm
         this.setCommandListener(cmdListener);
     }
 
-    @JsMethod
     public void save(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         final int size = this.size();

@@ -13,17 +13,11 @@
 */
 package org.allbinary.game.score;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface ScoreableInterface
 {
-   @JsMethod
    int getPoints();
-   @JsMethod
    void addPoints(int points);
-   @JsMethod
    void removePoints(int points);
 }

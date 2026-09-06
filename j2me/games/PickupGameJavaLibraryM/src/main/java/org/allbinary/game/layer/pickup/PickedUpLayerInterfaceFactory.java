@@ -13,22 +13,17 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.layer.AllBinaryLayer;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class PickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactoryBase {
 
     private final PickedUpLayerType pickedUpLayerType;
     private final IconLayer iconLayer;
     private final Animation animationInterface;
 
-    @JsConstructor
     protected PickedUpLayerInterfaceFactory(
             PickedUpLayerType pickeUpLayerType,
             IconLayer iconLayer, Animation animationInterface) 
@@ -41,19 +36,16 @@ public class PickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory
     }
 
     @Override
-    @JsMethod
     public AllBinaryLayer getIconLayer() {
         return this.iconLayer;
     }
 
     @Override
-    @JsMethod
     public Animation getAnimationInterface() {
         return this.animationInterface;
     }
 
     @Override
-    @JsMethod
     public PickedUpLayerType getPickedUpLayerType() {
         return this.pickedUpLayerType;
     }

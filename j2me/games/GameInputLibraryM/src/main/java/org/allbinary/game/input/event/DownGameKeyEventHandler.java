@@ -13,15 +13,11 @@
 */
 package org.allbinary.game.input.event;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.input.LocalPlayerInputIdFactory;
 import org.allbinary.logic.util.event.EventListenerInterface;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase
 {
     private static final DownGameKeyEventHandler instance = new DownGameKeyEventHandler();
@@ -36,7 +32,6 @@ public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase
         new DownGameKeyEventHandlerBase(),        
     };
 
-    @JsMethod
     public static DownGameKeyEventHandler getInstance()
     {
         return DownGameKeyEventHandler.instance;
@@ -44,26 +39,22 @@ public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase
     
     private final LocalPlayerInputIdFactory playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
     
-   @JsMethod
    public DownGameKeyEventHandlerBase getInstanceForDevice(int deviceId)
    {
        final int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
        return DownGameKeyEventHandler.instanceArray[playerInputId];
    }
    
-   @JsMethod
    public DownGameKeyEventHandlerBase getInstanceForPlayer(int playerInputId)
    {
        return DownGameKeyEventHandler.instanceArray[playerInputId];
    }
    
-    @JsConstructor
     private DownGameKeyEventHandler()
     {
     }
 
     @Override
-    @JsMethod
     public void removeAllListeners()
     {
         super.removeAllListeners();
@@ -75,7 +66,6 @@ public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase
     }
 
     @Override
-    @JsMethod
     public void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
     {
         super.removeListenerSingleThreaded(eventListenerInterface);
@@ -87,7 +77,6 @@ public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase
     }
     
     @Override
-    @JsMethod
     public synchronized void removeListener(EventListenerInterface eventListenerInterface)
     {
         super.removeListener(eventListenerInterface);

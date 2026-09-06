@@ -13,7 +13,6 @@
 */
 package org.allbinary.thread;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.J2MEUtil;
 import org.allbinary.canvas.RunnableCanvas;
@@ -26,37 +25,29 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class ThreadFactoryUtil
 {
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final ThreadFactoryUtil instance = new ThreadFactoryUtil();
 
-    @JsMethod
     public static ThreadFactoryUtil getInstance()
     {
         return ThreadFactoryUtil.instance;
     }
 
-    @JsMethod
     public Thread getInstanceGameCanvasRunnable(final GameCanvasRunnableInterface runnable)
     {
         return this.getInstanceType(runnable, runnable.getType());
     }
 
-    @JsMethod
     public Thread getInstanceForRunnable(final ABRunnable runnable)
     {
         return this.getInstanceType(runnable, runnable.getType());
     }
     
-    @JsMethod
     private Thread getInstanceType(final Runnable runnable, final int type)
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -91,7 +82,6 @@ public class ThreadFactoryUtil
         return thread;
     }
     
-    @JsMethod
     public void start(final Thread thread) {
         
         thread.start();

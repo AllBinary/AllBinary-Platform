@@ -13,20 +13,14 @@
 */
 package org.allbinary.game.layer.special;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.input.GameInputProcessor;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class SpecialGameInputInterfaceProcessor extends GameInputProcessor
 {
-    @JsProperty
     protected final SpecialGameInputInterface specialGameInputInterface;
     
-    @JsConstructor
     public SpecialGameInputInterfaceProcessor(SpecialGameInputInterface collidableDestroyableDamageableLayer)
     {
         this.specialGameInputInterface = collidableDestroyableDamageableLayer;

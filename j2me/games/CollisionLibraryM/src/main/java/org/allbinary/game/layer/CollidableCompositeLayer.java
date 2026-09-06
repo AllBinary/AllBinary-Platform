@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.layer;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
@@ -28,8 +27,6 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.view.ViewPositionBase;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 import org.allbinary.logic.NullUtil;
 
 /*
@@ -44,7 +41,6 @@ import org.allbinary.logic.NullUtil;
  * as SpecialGameLayer or MagicalGameLayer.
  */
 
-@JsType
 public class CollidableCompositeLayer 
 extends AllBinaryGameLayer
 implements CollidableInterfaceCompositeInterface
@@ -52,7 +48,6 @@ implements CollidableInterfaceCompositeInterface
     
     private static Object NULL_COLLIDABLE_COMPOSITE_LAYER = NullUtil.getInstance().NULL_OBJECT;
     
-    @JsMethod
     public static CollidableCompositeLayer getNullInstance() {
         
         if(CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER == NullUtil.getInstance().NULL_OBJECT) {
@@ -66,7 +61,6 @@ implements CollidableInterfaceCompositeInterface
 
     private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance().createBehavior();
 
-    @JsConstructor
     public CollidableCompositeLayer(
             final String name, final Rectangle layerInfo, final ViewPositionBase viewPosition,
             final CollidableBaseBehaviorFactory collidableBaseBehaviorFactory)
@@ -78,7 +72,6 @@ implements CollidableInterfaceCompositeInterface
         }
     }
 
-    @JsMethod
     public ArtificialIntelligenceInterface getArtificialIntelligenceInterface()
     {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
@@ -86,27 +79,23 @@ implements CollidableInterfaceCompositeInterface
     }
     
     @Override
-    @JsMethod
     public CollidableBaseBehavior getCollidableInferface()
     {
         return this.collidableInferface;
     }
 
-    @JsMethod
     public void setCollidableInferface(final CollidableBaseBehavior collidableInferface)
     {
         this.collidableInferface = collidableInferface;
     }
     
     @Override
-    @JsMethod
     public boolean implmentsCollidableInterface()
     {
         return true;
     }
     
     @Override
-    @JsMethod
     public void toStringAppend(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
@@ -119,7 +108,6 @@ implements CollidableInterfaceCompositeInterface
 
     }
     
-    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();

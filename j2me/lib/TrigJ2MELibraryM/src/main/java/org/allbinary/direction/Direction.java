@@ -13,14 +13,10 @@
 */
 package org.allbinary.direction;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.string.StringMaker;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class Direction
 {
     private static Direction[] directionArray = new Direction[13];
@@ -30,7 +26,6 @@ public class Direction
     private int value;
     private int frameFactor;
 
-    @JsConstructor
     Direction(String name, String otherName, int value, int frameFactor)
     {
         this.name = name;
@@ -41,7 +36,6 @@ public class Direction
         Direction.directionArray[value] = this;
     }
 
-    @JsMethod
     public static Direction getInstance(int direction)
     {
         // return (GeographicMapDirectionData)
@@ -49,31 +43,26 @@ public class Direction
         return Direction.directionArray[direction];
     }
 
-    @JsMethod
     public int getValue()
     {
         return this.value;
     }
 
-    @JsMethod
     public int getFrameFactor()
     {
         return this.frameFactor;
     }
 
-    @JsMethod
     public String getOtherName()
     {
         return this.otherName;
     }
 
-    @JsMethod
     public String getName()
     {
         return this.name;
     }
 
-    @JsMethod
     public String toString()
     {
         StringMaker stringBuffer = new StringMaker();

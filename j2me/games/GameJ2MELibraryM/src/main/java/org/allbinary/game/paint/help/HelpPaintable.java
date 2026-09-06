@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.paint.help;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
@@ -27,41 +26,28 @@ import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class HelpPaintable extends Paintable implements UpdateMyFontInterface
 {
-    @JsProperty
     protected final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
-    @JsProperty
     protected final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
-    @JsProperty
     protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
 
-    @JsProperty
     protected int anchor = Anchor.TOP_LEFT;
     
-    @JsProperty
     protected final String title;
-    @JsProperty
     protected String[] inputInfo = StringUtil.getInstance().getArrayInstance();
 
     //protected ColorFillPaintable colorFillPaintable;
 
-    @JsProperty
     protected BasicColor basicColor;
     //private int color;
-    @JsProperty
     protected int titleBeginWidth;
     private int[] beginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
     private int charHeight;
 
-    @JsConstructor
     public HelpPaintable(final String title, final BasicColor backgroundBasicColor, final BasicColor basicColor)
     {
         this.title = title;
@@ -73,7 +59,6 @@ public class HelpPaintable extends Paintable implements UpdateMyFontInterface
     }
 
     @Override
-    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         final Font font = graphics.getFont();
 
@@ -89,7 +74,6 @@ public class HelpPaintable extends Paintable implements UpdateMyFontInterface
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
-    @JsMethod
     public void setInputInfoP(final String[] inputInfo)
     {
         this.inputInfo = inputInfo;
@@ -103,7 +87,6 @@ public class HelpPaintable extends Paintable implements UpdateMyFontInterface
 //    }
     
     @Override
-    @JsMethod
     public void paint(final Graphics graphics)
     {
         this.myFontProcessor.process(graphics);

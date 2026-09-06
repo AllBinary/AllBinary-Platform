@@ -13,23 +13,18 @@
 */
 package org.allbinary.layer.event;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.LayerManager;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class LayerManagerEvent extends AllBinaryEventObject
 {
     private AllBinaryLayer layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
     private final String crud;
 
-    @JsConstructor
     public LayerManagerEvent(LayerManager layerManager, String crud)
     {
         super(layerManager);
@@ -40,7 +35,6 @@ public class LayerManagerEvent extends AllBinaryEventObject
     /**
      * @return the layerInterface
      */
-    @JsMethod
     public AllBinaryLayer getLayerInterface()
     {
         return this.layerInterface;
@@ -50,13 +44,11 @@ public class LayerManagerEvent extends AllBinaryEventObject
      * @param layerInterface
      *            the layerInterface to set
      */
-    @JsMethod
     public void setLayerInterface(AllBinaryLayer layerInterface)
     {
         this.layerInterface = layerInterface;
     }
 
-    @JsMethod
     public String toString()
     {
         StringMaker stringBuffer = new StringMaker();

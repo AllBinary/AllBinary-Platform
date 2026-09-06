@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.score;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Graphics;
 
@@ -22,16 +21,12 @@ import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class HighScoresCanvasInputProcessor extends PlayerGameInput
 {
     private final HighScoresCanvas highScoresCanvas;
     
-    @JsConstructor
     public HighScoresCanvasInputProcessor(HighScoresCanvas highScoresCanvas)
     {
         super(new BasicArrayListD(), new BasicArrayListD(), -1);
@@ -39,20 +34,17 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
         this.highScoresCanvas = highScoresCanvas;
     }
 
-    @JsMethod
     public void open()
     {
         
     }
     
-    @JsMethod
     public void close()
     {
         
     }
     
     @Override
-    @JsMethod
     public synchronized void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         super.onPressGameKeyEvent(gameKeyEvent);
@@ -61,7 +53,6 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
     }
     
     @Override
-    @JsMethod
     public synchronized void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         super.onDownGameKeyEvent(gameKeyEvent);
@@ -70,7 +61,6 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
     }
 
     @Override
-    @JsMethod
     public synchronized void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         super.onUpGameKeyEvent(gameKeyEvent);
@@ -78,13 +68,11 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
         this.update();
     }
     
-    @JsMethod
     public void paint(Graphics graphics)
     {
         
     }
 
-    @JsMethod
     public HighScoresCanvas getHighScoresCanvas()
     {
         return this.highScoresCanvas;

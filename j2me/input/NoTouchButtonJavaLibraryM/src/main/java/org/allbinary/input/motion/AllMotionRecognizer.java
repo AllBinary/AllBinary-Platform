@@ -13,13 +13,11 @@
 */
 package org.allbinary.input.motion;
 
-import jsinterop.annotations.JsType;
 
 /**
  * 
  * @author user
  */
-@JsType
 public class AllMotionRecognizer
 {    
     private final int id;

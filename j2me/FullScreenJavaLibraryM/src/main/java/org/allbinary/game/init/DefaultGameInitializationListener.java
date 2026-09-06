@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.init;
 
-import jsinterop.annotations.JsType;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -25,7 +24,6 @@ import org.allbinary.graphics.threed.SWTJOGLProcessor;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 
-@JsType
 public class DefaultGameInitializationListener
     implements GameInitializedListenerInterface
 {

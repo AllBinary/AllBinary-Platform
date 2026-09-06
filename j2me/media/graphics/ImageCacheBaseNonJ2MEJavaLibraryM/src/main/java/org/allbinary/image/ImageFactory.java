@@ -13,11 +13,9 @@
  */
 package org.allbinary.image;
 
-import jsinterop.annotations.JsType;
 
 import java.io.InputStream;
 import javax.microedition.lcdui.Image;
-import jsinterop.annotations.JsMethod;
 
 /**
  *
@@ -25,7 +23,6 @@ import jsinterop.annotations.JsMethod;
  */
 //ImageCacheBaseAndroidJavaLibrary
 
-@JsType
 public class ImageFactory {
 
     private static final ImageFactory instance = new ImageFactory();
@@ -33,24 +30,20 @@ public class ImageFactory {
     /**
      * @return the instance
      */
-    @JsMethod
     public static ImageFactory getInstance() {
         return ImageFactory.instance;
     }
     
-    @JsMethod
     public Image createImageUrl(final String url) throws Exception
     {
         return Image.createImage(url);
     }
     
-    @JsMethod
     public Image createImage(final String caller, final int width, final int height) throws Exception
     {
         return Image.createImageWH(width, height);
     }
     
-    @JsMethod
     public Image createImageFromInputStream(final Object key, final InputStream inputStream) throws Exception
     {
         final Image image = Image.createImageFromInputStream(inputStream);

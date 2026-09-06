@@ -13,13 +13,9 @@
 */
 package org.allbinary.layer;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface AllBinaryLayerFactoryInterface 
 {
-    @JsMethod
     AllBinaryLayer getInstance() throws Exception;
 }

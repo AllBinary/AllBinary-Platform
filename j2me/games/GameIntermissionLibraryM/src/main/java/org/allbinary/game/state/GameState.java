@@ -13,25 +13,19 @@
 */
 package org.allbinary.game.state;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class GameState {
 
 	private String name;
 	//private int state;
 
-	@JsConstructor
 	public GameState(String name, int state)
 	{
 		this.name = name;
 		//this.state = state;
 	}
 	
-	@JsMethod
 	public String toString()
 	{
 		return this.name;

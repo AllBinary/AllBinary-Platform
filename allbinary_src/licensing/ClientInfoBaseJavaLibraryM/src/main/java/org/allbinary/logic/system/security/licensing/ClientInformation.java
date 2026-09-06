@@ -13,9 +13,6 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.TsUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -32,7 +29,6 @@ import org.allbinary.util.ABHashtable;
 
 // This is the information sent to the license server
 
-@JsType
 public class ClientInformation implements AbeClientInformationInterface
 {
     private GenericOperatingSystem operatingSystemInterface = NoOperatingSystem.NO_OPERATING_SYSTEM;
@@ -48,7 +44,6 @@ public class ClientInformation implements AbeClientInformationInterface
     private String licenseId = StringUtil.getInstance().EMPTY_STRING;
     private BasicArrayList licenseServers = BasicArrayListUtil.getInstance().getImmutableInstance();
 
-    @JsConstructor
     public ClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
         this.name = name;
@@ -60,7 +55,6 @@ public class ClientInformation implements AbeClientInformationInterface
     }
 
     @Override
-    @JsMethod
     public void init()
     {
         
@@ -73,7 +67,6 @@ public class ClientInformation implements AbeClientInformationInterface
      * getOperatingSystemInterface()
      */
     @Override
-    @JsMethod
     public GenericOperatingSystem getOperatingSystemInterface()
     {
         return this.operatingSystemInterface;
@@ -87,7 +80,6 @@ public class ClientInformation implements AbeClientInformationInterface
      * ()
      */
     @Override
-    @JsMethod
     public String getName()
     {
         return this.name;
@@ -100,7 +92,6 @@ public class ClientInformation implements AbeClientInformationInterface
      * getSpecialName()
      */
     @Override
-    @JsMethod
     public String getSpecialName()
     {
         return this.specialName;
@@ -114,7 +105,6 @@ public class ClientInformation implements AbeClientInformationInterface
      * ()
      */
     @Override
-    @JsMethod
     public String getVersion()
     {
         return this.version;
@@ -127,7 +117,6 @@ public class ClientInformation implements AbeClientInformationInterface
      * getLicenseId()
      */
     @Override
-    @JsMethod
     public String getLicenseId()
     {
         return this.licenseId;
@@ -140,7 +129,6 @@ public class ClientInformation implements AbeClientInformationInterface
      * getLicenseServers()
      */
     @Override
-    @JsMethod
     public BasicArrayList getLicenseServers()
     {
         return this.licenseServers;
@@ -153,7 +141,6 @@ public class ClientInformation implements AbeClientInformationInterface
      * getLicenseServer(int)
      */
     @Override
-    @JsMethod
     public String getLicenseServer(int index)
     {
         return (String) this.licenseServers.objectArray[index];
@@ -166,7 +153,6 @@ public class ClientInformation implements AbeClientInformationInterface
      * getNumberOfLicenseServers()
      */
     @Override
-    @JsMethod
     public int getNumberOfLicenseServers()
     {
         return this.licenseServers.size();
@@ -179,7 +165,6 @@ public class ClientInformation implements AbeClientInformationInterface
      * toHashtable()
      */
     @Override
-    @JsMethod
     public ABHashtable toHashtable()
     {
         final AbeClientInformationData abeClientInformationData = 
@@ -224,7 +209,6 @@ public class ClientInformation implements AbeClientInformationInterface
     }
 
     @Override
-    @JsMethod
     public boolean isSameId(String alicenseId)
     {
         if (this.tsUtil.compareTo(this.getLicenseId(), alicenseId) == 0)
@@ -238,7 +222,6 @@ public class ClientInformation implements AbeClientInformationInterface
     }
 
     @Override
-    @JsMethod
     public boolean isLargerOrDifferentServerList(BasicArrayList list)
     {
         final int size = list.size() - 1;
@@ -266,39 +249,33 @@ public class ClientInformation implements AbeClientInformationInterface
         return false;
     }
 
-    @JsMethod
     protected void setHardSale(boolean hardSale)
     {
         this.hardSale = hardSale;
     }
 
     @Override
-    @JsMethod
     public boolean isHardSale()
     {
         return this.hardSale;
     }
 
-    @JsMethod
     protected void setOperatingSystemInterface(GenericOperatingSystem operatingSystemInterface)
     {
         this.operatingSystemInterface = operatingSystemInterface;
     }
 
-    @JsMethod
     protected void setLicenseId(String licenseId)
     {
         this.licenseId = licenseId;
     }
 
-    @JsMethod
     protected void setLicenseServers(BasicArrayList licenseServers)
     {
         this.licenseServers = licenseServers;
     }
 
     @Override
-    @JsMethod
     public String toShortString() {
         return this.shortName;
     }

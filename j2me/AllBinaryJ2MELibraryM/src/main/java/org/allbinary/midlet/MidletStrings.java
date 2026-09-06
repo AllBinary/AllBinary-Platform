@@ -13,22 +13,16 @@
 */
 package org.allbinary.midlet;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class MidletStrings
 {
     private static final MidletStrings instance = new MidletStrings();
 
-    @JsMethod
     public static MidletStrings getInstance()
     {
         return MidletStrings.instance;
     }
     
-    @JsProperty
     public final String COMMAND_ACTION =  "commandAction";
 }

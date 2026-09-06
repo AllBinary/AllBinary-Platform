@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.resource;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureControlledInterface;
@@ -26,24 +25,18 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 /**
  * 
  * @author user
  */
 
-@JsType
 public class FeaturedResourceFactory
 {
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final BasicArrayList list = new BasicArrayListD();
 
-    @JsConstructor
     public FeaturedResourceFactory()
     {
     }
@@ -62,7 +55,6 @@ public class FeaturedResourceFactory
     private final String IS_FEATURE = " isFeature: ";
     private final String GAME_FEATURE_CONTROLLED = "GameFeatureControlledInterface: ";
     
-    @JsMethod
     public void init(int level) throws Exception
     {
         int size = this.list.size();
@@ -125,13 +117,11 @@ public class FeaturedResourceFactory
         }
     }
     
-    @JsMethod
     public void clear()
     {
         this.list.clear();
     }
 
-    @JsMethod
     public void add(GameFeatureControlledInterface featureInterface)
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(featureInterface)).toString(), this, this.commonStrings.ADD);
@@ -139,7 +129,6 @@ public class FeaturedResourceFactory
         this.list.add(featureInterface);
     }
 
-    @JsMethod
     public BasicArrayList getList()
     {
         return this.list;

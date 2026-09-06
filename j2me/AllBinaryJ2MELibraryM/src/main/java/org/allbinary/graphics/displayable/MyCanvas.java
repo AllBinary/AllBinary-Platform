@@ -13,7 +13,6 @@
 */
 package org.allbinary.graphics.displayable;
 
-import jsinterop.annotations.JsType;
 
 import java.util.Stack;
 
@@ -31,27 +30,18 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.audio.Sound;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 import org.allbinary.logic.StdUtil;
 
 
-@JsType
 public class MyCanvas extends Canvas 
     implements DisplayableInterface, MyCommandInterface
 {
 
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
-    @JsProperty
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
-    @JsProperty
     protected final StringUtil stringUtil = StringUtil.getInstance();
-    @JsProperty
     protected final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
     
     private final String name;
@@ -69,7 +59,6 @@ public class MyCanvas extends Canvas
 //        this( CommonStrings.getInstance().UNKNOWN, new BasicArrayListD());
 //    }
     
-    @JsConstructor
     public MyCanvas(final String name, final BasicArrayList childNameList)
     {
         this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR);
@@ -85,7 +74,6 @@ public class MyCanvas extends Canvas
     }
 
     @Override
-    @JsMethod
     public void setFullScreenMode(boolean mode)
     {
         //PreLogUtil.put("Old W: " + this.getWidth() + " H: " + this.getHeight() +  " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
@@ -98,26 +86,22 @@ public class MyCanvas extends Canvas
     }
 
     @Override
-    @JsMethod
     protected void sizeChanged(int w, int h)
     {
         this.displayInfo.update(this, this.canvasStrings.SIZE_CHANGED);
     }
     
-    @JsMethod
     public Stack<Object> getCommandStack()
     {
         return this.commandStack;
     }
 
-    @JsMethod
     public synchronized boolean isCommand(Command command)
     {
         return this.commandStack.contains(command);
     }
 
     @Override
-    @JsMethod
     public synchronized void addCommand(Command command)
     {
         if(!this.commandStack.contains(command))
@@ -128,7 +112,6 @@ public class MyCanvas extends Canvas
     }
 
     @Override
-    @JsMethod
     public synchronized void removeCommand(Command command)
     {
         //commandStack.remove(command);
@@ -137,7 +120,6 @@ public class MyCanvas extends Canvas
     }
 
     @Override
-    @JsMethod
     public synchronized void removeAllCommands()
     {
         int size = this.commandStack.size();
@@ -148,32 +130,27 @@ public class MyCanvas extends Canvas
     }
 
     @Override
-    @JsMethod
     public void setCommandListener(CommandListener l)
     {
         super.setCommandListener(l);
         this.commandListener = l;
     }
 
-    @JsMethod
     public CommandListener getCustomCommandListener()
     {
         return this.commandListener;
     }
 
-    @JsMethod
     public synchronized boolean isPaused()
     {
         return this.paused;
     }
 
-    @JsMethod
     public void removePauseCommand()
     {
         this.removeCommand(MyCommandsFactory.getInstance().PAUSE_COMMAND);
     }
 
-    @JsMethod
     public synchronized void pause()
     {
         this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.PAUSE);
@@ -182,7 +159,6 @@ public class MyCanvas extends Canvas
         this.setPaused(true);
     }
 
-    @JsMethod
     public synchronized void unPause()
     {
         this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.UN_PAUSE);
@@ -192,7 +168,6 @@ public class MyCanvas extends Canvas
         this.setPaused(false);
     }
 
-    @JsMethod
     protected void process() throws Exception
     {
         this.displayInfo.process();
@@ -208,24 +183,20 @@ public class MyCanvas extends Canvas
         //GameStatisticsFactory.getInstance();
 
     @Override
-    @JsMethod
     protected void paint(Graphics graphics)
     {
         //baseGameStatistics.nextRefresh();
         //displayInfoSingleton.update(this);
     }
 
-    @JsMethod
     public void draw(Graphics graphics)
     {
     }
 
-    @JsMethod
     public boolean hasChild(MyCanvas displayable) {
         return this.childNameList.contains(displayable.name);
     }
     
-    @JsMethod
     public void destroy()
     {
         this.logUtil.putF("Destroyed MyCanvas", this, "destroy");
@@ -243,23 +214,19 @@ public class MyCanvas extends Canvas
     }
     */
 
-    @JsMethod
     protected void setPaused(boolean isPaused)
     {
         this.paused = isPaused;
     }
 
-    @JsMethod
     public void keyPressedByDevice(int keyCode, int deviceId)
     {
     }
 
-    @JsMethod
     public void keyRepeatedByDevice(int keyCode, int deviceId)
     {
     }
 
-    @JsMethod
     public void keyReleasedByDevice(int keyCode, int deviceId)
     {
     }
@@ -267,7 +234,6 @@ public class MyCanvas extends Canvas
     private final TouchJ2ME touchME = new TouchJ2ME();
     
     @Override
-    @JsMethod
     protected void pointerDragged(int x, int y)
     {
         //this.logUtil.putF(this.commonStrings.START, this, "pointerDragged");
@@ -277,7 +243,6 @@ public class MyCanvas extends Canvas
     }
 
     @Override
-    @JsMethod
     protected void pointerPressed(int x, int y)
     {
         //this.logUtil.putF(this.commonStrings.START, this, "pointerPressed");
@@ -287,7 +252,6 @@ public class MyCanvas extends Canvas
     }
 
     @Override
-    @JsMethod
     protected void pointerReleased(int x, int y)
     {
         //this.logUtil.putF(this.commonStrings.START, this, "pointerReleased");
@@ -296,7 +260,6 @@ public class MyCanvas extends Canvas
         this.touchME.pointerReleased(x, y);
     }
     
-    @JsMethod
     public void nextSong(final Sound nextSongSound, final int leftVolume, final int rightVolume) {
         
     }

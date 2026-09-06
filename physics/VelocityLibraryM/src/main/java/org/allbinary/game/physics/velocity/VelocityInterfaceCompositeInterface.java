@@ -13,13 +13,9 @@
 */
 package org.allbinary.game.physics.velocity;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
 
-@JsType
 public interface VelocityInterfaceCompositeInterface {
-    @JsMethod
     BasicVelocityProperties getVelocityProperties();
 }

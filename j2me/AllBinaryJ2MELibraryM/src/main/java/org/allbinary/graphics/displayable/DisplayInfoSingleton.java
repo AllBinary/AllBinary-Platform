@@ -13,7 +13,6 @@
  */
 package org.allbinary.graphics.displayable;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Displayable;
 
@@ -34,21 +33,15 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class DisplayInfoSingleton
 {
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
     private static final DisplayInfoSingleton SINGLETON = new DisplayInfoSingleton();
     
-    @JsMethod
     public static final DisplayInfoSingleton getInstance()
     {
         return DisplayInfoSingleton.SINGLETON;
@@ -58,11 +51,8 @@ public class DisplayInfoSingleton
     private final CommonSeps commonSeps = CommonSeps.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    @JsProperty
     public final String ORIENTATION = "ORIENTATION";
-    @JsProperty
     public final String ADJUSTING_FOR_SCALING_IN_PORTRAIT = "Adjusting for Scaling in portrait display ratio: ";
-    @JsProperty
     public final String ADJUSTING_FOR_SCALING_IN_LANDSCAPE = "Adjusting for Scaling in landscape display ratio: ";
     
     private int[] last = new int[4];
@@ -88,13 +78,9 @@ public class DisplayInfoSingleton
         4000
     */
     
-    @JsProperty
     public final int WIDTH = 0;
-    @JsProperty
     public final int HEIGHT = 1;
-    @JsProperty
     public final int CUSTOM_WIDTH = 2;
-    @JsProperty
     public final int CUSTOM_HEIGHT = 3;
 
     private BaseScalable scalableListener = new BaseScalable();
@@ -102,7 +88,6 @@ public class DisplayInfoSingleton
     private float displayRatio;
     private float ratio = 1.0f;
 
-    @JsConstructor
     private DisplayInfoSingleton() {
         
         //TsUtil only
@@ -120,13 +105,11 @@ public class DisplayInfoSingleton
         }
     }
     
-    @JsMethod
     public int[] getLastHalf()
     {
         return this.lastHalf;
     }
 
-    @JsMethod
     public int[] getLast()
     {
         return this.last;
@@ -135,7 +118,6 @@ public class DisplayInfoSingleton
     /**
      * @return the fullWidth
      */
-    @JsMethod
     public int[] getFull()
     {
         return this.full;
@@ -144,7 +126,6 @@ public class DisplayInfoSingleton
     /**
      * @return the scaleLargestTo
      */
-    @JsMethod
     public float getScaleLargestTo()
     {
         return this.scaleLargestTo;
@@ -153,7 +134,6 @@ public class DisplayInfoSingleton
     /**
      * @param scaleLargestTo the scaleLargestTo to set
      */
-    @JsMethod
     public void setScaleLargestTo(final int scaleLargestTo)
     {
         this.scaleLargestTo = (float) scaleLargestTo;
@@ -168,7 +148,6 @@ public class DisplayInfoSingleton
     private final String PORTRAIT = "Portrait";
     private final String LANDSCAPE = "Landscape";
     
-    @JsMethod
     public void setLastSize(final int aLastWidth, final int aLastHeight, final String reason)
     {
         if(this.full[this.WIDTH] != aLastWidth || this.full[this.HEIGHT] != aLastHeight)
@@ -177,7 +156,6 @@ public class DisplayInfoSingleton
         }
     }
 
-    @JsMethod
     private void setLastSizeForce(int aLastWidth, int aLastHeight, final String reason) {            
         final StringMaker stringMaker = new StringMaker();
         this.logUtil.putF(stringMaker.append(CommonLabels.getInstance().START_LABEL).append(reason).toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
@@ -268,7 +246,6 @@ public class DisplayInfoSingleton
         this.add(this.SET_LAST_SIZE_METHOD_NAME);
     }
     
-    @JsMethod
     public boolean isPortraitWH(final int lastWidth, final int lastHeight)
     {
         if(lastHeight > lastWidth)
@@ -280,13 +257,11 @@ public class DisplayInfoSingleton
         }
     }
 
-    @JsMethod
     public boolean isPortrait()
     {
         return this.isPortraitWH(this.last[this.WIDTH], this.last[this.HEIGHT]);
     }
 
-    @JsProperty
     public final DisplayChangeEvent displayChangeEvent = new DisplayChangeEvent(this);
 
     private final String FIRE_METHOD_NAME = "fire";
@@ -295,7 +270,6 @@ public class DisplayInfoSingleton
 
     private final BasicArrayList list = new BasicArrayListD();
 
-    @JsMethod
     public void add(final String reason)
     {
         //PreLogUtil.putF("Display Change Event").append(this.toString(), this, this.commonStrings.UPDATE);
@@ -306,7 +280,6 @@ public class DisplayInfoSingleton
         this.list.add(reason);
     }
 
-    @JsMethod
     public void process() {
         try
         {
@@ -320,7 +293,6 @@ public class DisplayInfoSingleton
         }
     }
 
-    @JsMethod
     public void processForced() {
         try
         {
@@ -336,7 +308,6 @@ public class DisplayInfoSingleton
         
     }
     
-    @JsMethod
     public void update(final Displayable displayable, final String reason)
     {
         int aLastWidth = displayable.getWidth();
@@ -467,14 +438,12 @@ public class DisplayInfoSingleton
     private final String LAST = "last";
     private final String LAST_HALF = "lastHalf";
 
-    @JsMethod
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();
         return this.toStringAppend(stringBuffer);
     }
     
-    @JsMethod
     public String toStringAppend(final StringMaker stringBuffer)
     {
         stringBuffer.append(this.DISPLAY_INFO);
@@ -511,7 +480,6 @@ public class DisplayInfoSingleton
     /**
      * @return the top
      */
-    @JsMethod
     public int getTop()
     {
         return this.top;
@@ -520,61 +488,51 @@ public class DisplayInfoSingleton
     /**
      * @return the left
      */
-    @JsMethod
     public int getLeft()
     {
         return this.left;
     }
 
-    @JsMethod
     public int getLastWidth()
     {
         return this.last[this.WIDTH];
     }
 
-    @JsMethod
     public int getLastHeight()
     {
         return this.last[this.HEIGHT];
     }
 
-    @JsMethod
     public int getLastHalfWidth()
     {
         return this.lastHalf[this.WIDTH];
     }
 
-    @JsMethod
     public int getLastHalfHeight()
     {
         return this.lastHalf[this.HEIGHT];
     }
 
-    @JsMethod
     public int getCustomLastWidth()
     {
         return this.last[this.CUSTOM_WIDTH];
     }
 
-    @JsMethod
     public int getCustomLastHeight()
     {
         return this.last[this.CUSTOM_HEIGHT];
     }
     
-    @JsMethod
     public int getRawLastWidth()
     {
         return this.last[this.WIDTH];
     }
 
-    @JsMethod
     public int getRawLastHeight()
     {
         return this.last[this.HEIGHT];
     }
     
-    @JsMethod
     public void setCustom(final int width, final int height) {
 
         //this.logUtil.put(new StringMaker().append(" w: ").appendint(width).append(" h: ").appendint(height).append(" ratio: ").appendfloat(ratio).toString(), this, "setCustom", new Exception());
@@ -585,13 +543,11 @@ public class DisplayInfoSingleton
         this.lastHalf[this.CUSTOM_HEIGHT] = (this.last[this.CUSTOM_HEIGHT] >> 1);
     }
     
-    @JsMethod
     public void setScalableListener(BaseScalable scalableListener)
     {
         this.scalableListener = scalableListener;
     }
 
-    @JsMethod
     public ScalableListener getScalableListener() {
         return this.scalableListener;
     }
@@ -599,7 +555,6 @@ public class DisplayInfoSingleton
     /**
      * @return the ratio
      */
-    @JsMethod
     public float getRatio()
     {
         return this.ratio;
@@ -608,13 +563,11 @@ public class DisplayInfoSingleton
     /**
      * @return the displayRatio
      */
-    @JsMethod
     public float getDisplayRatio()
     {
         return this.displayRatio;
     }
     
-    @JsMethod
     public void setOffset(int left, int top)
     {
         this.left = left;
@@ -623,7 +576,6 @@ public class DisplayInfoSingleton
     /**
      * @return the xOffset
      */
-    @JsMethod
     public int getxOffset()
     {
         return this.xOffset;
@@ -632,7 +584,6 @@ public class DisplayInfoSingleton
     /**
      * @return the yOffset
      */
-    @JsMethod
     public int getyOffset()
     {
         return this.yOffset;

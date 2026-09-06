@@ -13,38 +13,28 @@
 */
 package org.allbinary.game.multiplayer.layer;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.string.StringUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class MultiplayerBehavior
 {
-    @JsProperty
     public static final MultiplayerBehavior NULL_MULTIPLAYER_BEHAVIOR = new MultiplayerBehavior(StringUtil.getInstance().EMPTY_STRING);
 
-    @JsConstructor
     protected MultiplayerBehavior(String username)
     {
     }
     
-    @JsMethod
     public void startTick()
     {
         
     }
     
-    @JsMethod
     public void endTick()
     {
 
     }
     
-    @JsMethod
     public long getApproximateElapsed()
     {
         return 0;

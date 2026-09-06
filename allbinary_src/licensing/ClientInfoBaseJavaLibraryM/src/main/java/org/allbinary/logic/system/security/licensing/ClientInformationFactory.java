@@ -13,7 +13,6 @@
  */
 package org.allbinary.logic.system.security.licensing;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
@@ -24,7 +23,6 @@ import org.allbinary.string.CommonStrings;
  * @author User
  */
 
-@JsType
 public class ClientInformationFactory {
     
     public ClientInformation getInstance() {

@@ -13,7 +13,6 @@
  */
 package org.allbinary.animation.text;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
@@ -21,34 +20,25 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.font.FontDebugFactory;
 import org.allbinary.logic.string.StringUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 /**
  *
  * @author User
  */
 
-@JsType
 public class CustomTextAnimation extends TextAnimation
     implements TextInterface
 {
     
-    @JsProperty
     protected final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
     
-    @JsProperty
     protected final int fontSize;
     
-    @JsProperty
     protected Font font;
 
     private String lastText = StringUtil.getInstance().INIT_STRING;
-    @JsProperty
     protected boolean hasChanged = true;
     
-    @JsConstructor
     public CustomTextAnimation(final String text, final int fontSize, final AnimationBehavior animationBehavior)
     {
         super(text, animationBehavior);
@@ -77,7 +67,6 @@ public class CustomTextAnimation extends TextAnimation
 //    }
     
     @Override
-    @JsMethod
     public void paintXY(final Graphics graphics, final int x, final int y)
     {
         this.myFontProcessor.process(graphics);
@@ -93,7 +82,6 @@ public class CustomTextAnimation extends TextAnimation
     }
   
     @Override
-    @JsMethod
     public void setScale(final float scaleX, final float scaleY) {
         if(scaleX != scaleY) {
             throw new RuntimeException();
@@ -108,7 +96,6 @@ public class CustomTextAnimation extends TextAnimation
     }
     
     @Override
-    @JsMethod
     public void setText(final String text)
     {
         //this.logUtil.putF(new StringMaker().append(" text: ").append(text).toString(), this, this.commonStrings.PROCESS);        
@@ -125,14 +112,12 @@ public class CustomTextAnimation extends TextAnimation
     }
 
     @Override
-    @JsMethod
     public String getText() {
         return this.lastText;
     }
 
     private int textWidth;
     @Override
-    @JsMethod
     public int getWidth() {
         if(this.hasChanged) {
             this.textWidth = this.font.stringWidth(this.textArrayP[0]);
@@ -142,7 +127,6 @@ public class CustomTextAnimation extends TextAnimation
     }
 
     @Override
-    @JsMethod
     public int getFontHeight() {
         return this.font.getHeight();
     }

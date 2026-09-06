@@ -13,19 +13,15 @@
 */
 package org.allbinary.game.combat.destroy;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.layer.NamedInterface;
-import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author USER
  */
 
-@JsType
 public interface DestroyableInterface extends NamedInterface
 {
-    @JsMethod
     boolean isDestroyed() throws Exception;
 }

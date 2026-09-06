@@ -13,15 +13,11 @@
  */
 package org.allbinary.game.identification;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class Group implements GroupInterface {
 
     private String name = StringUtil.getInstance().EMPTY_STRING;
@@ -29,19 +25,16 @@ public class Group implements GroupInterface {
 
     private String string = StringUtil.getInstance().EMPTY_STRING;
 
-    @JsConstructor
     public Group(String teamName, short teamId) {
         this.teamId = teamId;
         this.setName(teamName);
     }
 
     @Override
-    @JsMethod
     public String getGroupName() {
         return this.name;
     }
 
-    @JsMethod
     public void setName(final String name) {
         this.name = name;
 
@@ -58,12 +51,10 @@ public class Group implements GroupInterface {
     }
 
     @Override
-    @JsMethod
     public short getGroupId() {
         return this.teamId;
     }
 
-    @JsMethod
     public String toString() {
         return this.string;
     }

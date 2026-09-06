@@ -13,35 +13,26 @@
 */
 package org.allbinary.game.health;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayer;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class HealthBarAnimation extends Animation
 {
     private final BasicColorFactory basicColorFactory = 
             BasicColorFactory.getInstance();
     
-    @JsProperty
     protected int x2;
 
-    @JsProperty
     protected int thickness;
 
     private int location;
 
-    @JsProperty
     protected AllBinaryLayer allbinaryLayer;
 
-    @JsConstructor
     public HealthBarAnimation(final AllBinaryLayer layerInterface, final int location)
     throws Exception
     {
@@ -71,7 +62,6 @@ public class HealthBarAnimation extends Animation
         }
     }
 
-    @JsMethod
     public void onHealthChange(final int newX2)
     {
         this.x2 = newX2;
@@ -99,7 +89,6 @@ public class HealthBarAnimation extends Animation
         }
     }
 
-    @JsMethod
     protected int getY()
     {
         final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();

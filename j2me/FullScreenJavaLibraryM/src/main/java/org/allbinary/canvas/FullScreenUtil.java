@@ -13,17 +13,14 @@
 */
 package org.allbinary.canvas;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 
 import javax.microedition.lcdui.CommandListener;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class FullScreenUtil
 {
     private static final FullScreenUtil instance = new FullScreenUtil();
@@ -31,12 +28,10 @@ public class FullScreenUtil
     /**
      * @return the instance
      */
-    @JsMethod
     public static FullScreenUtil getInstance() {
         return FullScreenUtil.instance;
     }    
 
-    @JsMethod
     public final void initOnRun(final Canvas fullScreenInterface, final CommandListener commandListener)
         throws Exception
     {
@@ -48,7 +43,6 @@ public class FullScreenUtil
         }
     }
 
-    @JsMethod
     public final void init(final Canvas fullScreenInterface)
     {
         final MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
@@ -65,7 +59,6 @@ public class FullScreenUtil
         }
     }
 
-    @JsMethod
     public final boolean isScreenChange(boolean isFullScreen)
     {
         MainFeatureFactory mainFeatureFactory =
@@ -81,7 +74,6 @@ public class FullScreenUtil
         return false;
     }
 
-    @JsMethod
     public final boolean isScreenChangeCanvas(final Canvas fullScreenInterface)
     {
         return this.isScreenChange(fullScreenInterface.isFullScreenMode());

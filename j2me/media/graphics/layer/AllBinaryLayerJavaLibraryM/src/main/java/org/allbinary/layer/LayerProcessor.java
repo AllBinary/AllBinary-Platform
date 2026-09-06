@@ -13,25 +13,18 @@
 */
 package org.allbinary.layer;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class LayerProcessor implements LayerProcessorInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final LayerManager layerManager;
 
-    @JsConstructor
     public LayerProcessor(final LayerManager layerManager)
     {
         this.layerManager = layerManager;
@@ -45,7 +38,6 @@ public class LayerProcessor implements LayerProcessorInterface
     */
     
     @Override
-    @JsMethod
     public void processAt(AllBinaryLayerManager allBinaryLayerManager,
                           AllBinaryLayer layerInterface, int index) throws Exception
     {
@@ -53,7 +45,6 @@ public class LayerProcessor implements LayerProcessorInterface
     }
 
     @Override
-    @JsMethod
     public boolean isProcessorLayer(AllBinaryLayer layerInterface)
             throws Exception
     {
@@ -61,14 +52,12 @@ public class LayerProcessor implements LayerProcessorInterface
     }
 
     @Override
-    @JsMethod
     public LayerManager getLayerManager()
     {
         return this.layerManager;
     }
 
     @Override
-    @JsMethod
     public void process(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {

@@ -14,7 +14,6 @@
 
 package org.allbinary.game.displayable.canvas;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -22,24 +21,17 @@ import javax.microedition.lcdui.CommandListener;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class CommandRunnable implements Runnable
 {
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final CommandFormInputProcessor commandFormInputProcessor;
     private final Command command;
     
-    @JsConstructor
     public CommandRunnable(
             CommandFormInputProcessor commandFormInputProcessor, Command command)
     {
@@ -48,7 +40,6 @@ public class CommandRunnable implements Runnable
     }
 
    @Override
-   @JsMethod
    public void run()
    {
       try

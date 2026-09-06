@@ -13,15 +13,12 @@
  */
 package org.allbinary.game.midlet;
 
-import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsType;
 import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 
 /**
  *
  * @author User
  */
-@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
 public interface DemoGameMidletJs {
     
     public GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface()

@@ -13,24 +13,19 @@
 */
 package org.allbinary.game.configuration.event;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.configuration.GameConfiguration;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class ChangedGameFeatureListener extends BaseChangedGameFeatureListener
 {
     private static final ChangedGameFeatureListener gameFeatureListener = new ChangedGameFeatureListener();
     
-    @JsMethod
     public static ChangedGameFeatureListener getInstance()
     {
         return ChangedGameFeatureListener.gameFeatureListener;
     }
 
-    @JsMethod
     public boolean isChangedGameConfiguration(GameConfiguration gameConfiguration)
     {
         return this.list.contains(gameConfiguration);

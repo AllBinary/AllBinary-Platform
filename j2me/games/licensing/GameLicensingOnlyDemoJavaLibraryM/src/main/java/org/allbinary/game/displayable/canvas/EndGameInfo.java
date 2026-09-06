@@ -13,20 +13,15 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.GameInfo;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.string.StringUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class EndGameInfo {
     
     //private final String NORMAL_GAME_OVER = "Game Over";
-    @JsProperty
     protected final String NORMAL_GAME_OVER_WIN = "You Won";
 
     private final String TEASER_DEMO_GAME_END_LAST_LEVEL = "End of Demo.";
@@ -37,7 +32,6 @@ public class EndGameInfo {
     private String gameOverStr = StringUtil.getInstance().EMPTY_STRING;
     private String winStr = this.gameOverStr;
 
-    @JsMethod
     public final void update(final GameInfo gameInfo, final MyCanvas myCanvas)
     {
         if (gameInfo.isLastLevel()) {
@@ -52,7 +46,6 @@ public class EndGameInfo {
     /**
      * @return the gameOverStr
      */
-    @JsMethod
     public String getGameOverStr()
     {
         return this.gameOverStr;
@@ -61,7 +54,6 @@ public class EndGameInfo {
     /**
      * @param gameOverStr the gameOverStr to set
      */
-    @JsMethod
     public void setGameOverStr(String gameOverStr)
     {
         this.gameOverStr = gameOverStr;
@@ -70,7 +62,6 @@ public class EndGameInfo {
     /**
      * @return the winStr
      */
-    @JsMethod
     public String getWinStr()
     {
         return this.winStr;
@@ -79,7 +70,6 @@ public class EndGameInfo {
     /**
      * @param winStr the winStr to set
      */
-    @JsMethod
     public void setWinStr(String winStr)
     {
         this.winStr = winStr;

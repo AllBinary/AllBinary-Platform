@@ -13,13 +13,9 @@
 */
 package org.allbinary.game.multiplayer.layer;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface MultiPlayerGameLayerInterface
 {
-    @JsMethod
     MultiplayerBehavior getMultiplayerBehavior();
 }

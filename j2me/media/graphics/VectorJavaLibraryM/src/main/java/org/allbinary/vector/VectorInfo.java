@@ -13,11 +13,7 @@
 */
 package org.allbinary.vector;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
-@JsType
 public class VectorInfo 
 {
    private int width;
@@ -25,7 +21,6 @@ public class VectorInfo
    private int[][] points;
    private int totalFrames;
    
-   @JsConstructor
    public VectorInfo(int width, int height, int[][] points, int totalFrames)
    {
        this.width = width;
@@ -34,49 +29,41 @@ public class VectorInfo
        this.totalFrames = totalFrames;
    }
 
-   @JsMethod
    public int getWidth()
    {
       return this.width;
    }
 
-   @JsMethod
    private void setWidth(int width)
    {
       this.width = width;
    }
 
-   @JsMethod
    public int getHeight()
    {
       return this.height;
    }
 
-   @JsMethod
    private void setHeight(int height)
    {
       this.height = height;
    }
 
-   @JsMethod
    public int[][] getPoints()
    {
       return this.points;
    }
 
-   @JsMethod
    private void setPoints(int[][] points)
    {
       this.points = points;
    }
 
-   @JsMethod
    public int getTotalFrames()
    {
       return this.totalFrames;
    }
 
-   @JsMethod
    private void setTotalFrames(int totalFrames)
    {
       this.totalFrames = totalFrames;

@@ -13,10 +13,6 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
@@ -25,17 +21,14 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.util.ABHashtable;
 import org.allbinary.util.BasicArrayList;
 
-@JsType
 public class CountedPickedUpLayerInterfaceFactory 
     extends PickedUpLayerInterfaceFactory 
     implements CountedPickedUpLayerInterfaceFactoryInterface
 {
-    @JsProperty
     public static final CountedPickedUpLayerInterfaceFactory NULL_COUNTED_PICKUP_LAYER_FACTORY = new CountedPickedUpLayerInterfaceFactory(PickedUpLayerTypeFactory.getInstance().NONE, IconLayer.NULL_ICON_LAYER, NullAnimationFactory.getFactoryInstance().getInstance(0));
 
     private final int id;
 
-    @JsConstructor
     public CountedPickedUpLayerInterfaceFactory(
             final PickedUpLayerType pickeUpLayerType, final IconLayer iconLayer,
             final Animation animationInterface)
@@ -52,7 +45,6 @@ public class CountedPickedUpLayerInterfaceFactory
     }
 
     @Override
-    @JsMethod
     public AllBinaryLayer getNextInstance(final ABHashtable hashtable, final int x, final int y, final int z)
     throws Exception
     {
@@ -60,14 +52,12 @@ public class CountedPickedUpLayerInterfaceFactory
     }
     
     @Override
-    @JsMethod
     public int getTotal()
     {
         return -1;
     }
 
     @Override
-    @JsMethod
     public int getId()
     {
         return this.id;

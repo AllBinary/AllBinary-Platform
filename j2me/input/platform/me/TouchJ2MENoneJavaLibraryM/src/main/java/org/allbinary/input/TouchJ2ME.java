@@ -13,9 +13,6 @@
 */
 package org.allbinary.input;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 /**
  *
@@ -23,25 +20,20 @@ import jsinterop.annotations.JsConstructor;
  */
 //TouchJ2MENone
 
-@JsType
 public class TouchJ2ME
 {
-    @JsConstructor
     public TouchJ2ME()
     {
     }
 
-    @JsMethod
     public void pointerDragged(int x, int y)
     {
     }
 
-    @JsMethod
     public void pointerPressed(int x, int y)
     {
     }
 
-    @JsMethod
     public void pointerReleased(int x, int y)
     {
     }

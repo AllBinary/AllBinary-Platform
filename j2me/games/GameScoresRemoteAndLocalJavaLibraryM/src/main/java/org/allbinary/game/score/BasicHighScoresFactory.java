@@ -12,7 +12,6 @@
 * 
 */
 package org.allbinary.game.score;
-import jsinterop.annotations.JsType;
 import org.allbinary.thread.ARunnable;
 
 
@@ -27,7 +26,6 @@ import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.thread.SecondaryThreadPool;
 
-@JsType
 public class BasicHighScoresFactory extends HighScoresBase
 {
     protected final LogUtil logUtil = LogUtil.getInstance();

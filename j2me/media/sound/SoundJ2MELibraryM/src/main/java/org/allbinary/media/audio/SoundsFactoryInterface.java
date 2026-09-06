@@ -13,22 +13,15 @@
 */
 package org.allbinary.media.audio;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface SoundsFactoryInterface //extends InitInterface
 {
-    @JsMethod
     void init();
 
-    @JsMethod
     Sound[] getSoundInterfaceArray() throws Exception;
     
-    @JsMethod
     void setInitialized(boolean initialized);
 
-    @JsMethod
     boolean isInitialized();    
 }

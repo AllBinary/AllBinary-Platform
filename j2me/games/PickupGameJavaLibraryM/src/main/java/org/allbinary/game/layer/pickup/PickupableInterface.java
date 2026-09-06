@@ -13,10 +13,8 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import jsinterop.annotations.JsType;
 
 
-@JsType
 public interface PickupableInterface {
 
 }

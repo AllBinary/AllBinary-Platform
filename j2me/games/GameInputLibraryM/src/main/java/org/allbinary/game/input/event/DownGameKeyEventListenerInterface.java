@@ -13,17 +13,13 @@
 */
 package org.allbinary.game.input.event;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.util.event.EventListenerInterface;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface DownGameKeyEventListenerInterface 
    extends EventListenerInterface
 {
-    @JsMethod
     void onDownGameKeyEvent(GameKeyEvent gameKeyEvent) throws Exception;
     
     //void onDownGameKey(GameKey gameKey) throws Exception;

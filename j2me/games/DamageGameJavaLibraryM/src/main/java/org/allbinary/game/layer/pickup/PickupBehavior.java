@@ -13,10 +13,6 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.health.HealthInterfaceCompositeInterface;
 import org.allbinary.game.layer.CollidableCompositeLayer;
@@ -29,13 +25,11 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonStrings;
 
 
-@JsType
 public class PickupBehavior implements PickupBehaviorInterface
 {
 
     public static Object NULL_PICKUP_BEHAVIOR = NullUtil.getInstance().NULL_OBJECT;
     
-    @JsMethod
     public static PickupBehavior getNullInstance() {
         if(PickupBehavior.NULL_PICKUP_BEHAVIOR == NullUtil.getInstance().NULL_OBJECT) {
             PickupBehavior.NULL_PICKUP_BEHAVIOR = new PickupBehavior(CollidableCompositeLayer.getNullInstance(), 0);
@@ -43,14 +37,12 @@ public class PickupBehavior implements PickupBehaviorInterface
         return (PickupBehavior) PickupBehavior.NULL_PICKUP_BEHAVIOR;
     }
     
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final int countedIndex;
     
     private final CollidableCompositeLayer ownerLayerInterface;
 
-    @JsConstructor
     public PickupBehavior(final CollidableCompositeLayer ownerLayerInterface, final int countedIndex)
     {
         this.ownerLayerInterface = ownerLayerInterface;
@@ -59,7 +51,6 @@ public class PickupBehavior implements PickupBehaviorInterface
     }
     
     @Override
-    @JsMethod
     public void doPickup(final PickupProcessorInterface pickupProcessorInterface)
     {
         try
@@ -85,7 +76,6 @@ public class PickupBehavior implements PickupBehaviorInterface
     }
     
     @Override
-    @JsMethod
     public void doPickupLayer(PickedUpLayerInterface pickupLayerInterface)
     {
         try
@@ -127,7 +117,6 @@ public class PickupBehavior implements PickupBehaviorInterface
         }
     }
     
-    @JsMethod
     protected void add(
             CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface)
     {
@@ -135,7 +124,6 @@ public class PickupBehavior implements PickupBehaviorInterface
         this.addAt(countedPickedUpLayerInterfaceFactoryInterface, partIndex);
     }
 
-    @JsMethod
     protected void addAt(
             final CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface,
             final int partIndex)
@@ -146,7 +134,6 @@ public class PickupBehavior implements PickupBehaviorInterface
         countedLayerInterfaceFactory.setTotal(countedLayerInterfaceFactory.getTotal() + countedPickedUpLayerInterfaceFactoryInterface.getTotal());
     }
     
-    @JsMethod
     public CountedLayerInterfaceFactoryPart getFirstAvailableCountedLayerInterfaceFactory(
             PickedUpLayerType[] pickedUpLayerTypeArray)
     {
@@ -186,7 +173,6 @@ public class PickupBehavior implements PickupBehaviorInterface
         return CountedLayerInterfaceFactoryPart.NULL_COUNTED_LAYER_INTERFACE_FACTORY;
     }
 
-    @JsMethod
     public CountedLayerInterfaceFactoryPart getCountedLayerInterfaceFactoryForSlot(
             int slotIndex) throws Exception
     {
@@ -218,7 +204,6 @@ public class PickupBehavior implements PickupBehaviorInterface
         return CountedLayerInterfaceFactoryPart.NULL_COUNTED_LAYER_INTERFACE_FACTORY;
     }
 
-    @JsMethod
     public int getCountedIndex()
     {
         return this.countedIndex;

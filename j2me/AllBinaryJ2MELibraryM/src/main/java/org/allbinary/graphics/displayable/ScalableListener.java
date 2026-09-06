@@ -13,25 +13,18 @@
  */
 package org.allbinary.graphics.displayable;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author user
  */
-@JsType
 public interface ScalableListener
 {
-    @JsMethod
     float getRatio(final float ratio);
     
-    @JsMethod
     int getLeft(final int xOffset);
 
-    @JsMethod
     int getTop(final int yOffset);
     
-    @JsMethod
     void scale(float ratio);
 }

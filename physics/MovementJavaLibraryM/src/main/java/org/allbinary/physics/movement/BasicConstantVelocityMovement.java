@@ -13,7 +13,6 @@
 */
 package org.allbinary.physics.movement;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.layer.AllBinaryGameLayer;
 import org.allbinary.game.physics.velocity.BasicVelocityProperties;
@@ -22,15 +21,12 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.math.BasicDecimal;
 import org.allbinary.logic.math.vector.AxisMathVectorUtil;
 import org.allbinary.math.AngleFactory;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 /**
  * 
  * @author user
  */
 
-@JsType
 public class BasicConstantVelocityMovement 
 extends Movement 
 implements VelocityInterfaceCompositeInterface
@@ -41,7 +37,6 @@ implements VelocityInterfaceCompositeInterface
 
     private final AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
     
-    @JsConstructor
     public BasicConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties)
     {
         this.setSpeedBasicDecimal(basicDecimal);
@@ -49,7 +44,6 @@ implements VelocityInterfaceCompositeInterface
     }
 
     @Override
-    @JsMethod
     public void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
     {
         this.speedBasicDecimal = speedBasicDecimal;
@@ -60,7 +54,6 @@ implements VelocityInterfaceCompositeInterface
                 angleFactory.getAt(angle), angleFactory.getAt(otherAngle));
     }
 
-    @JsMethod
     public void moveOutsideRadius(AllBinaryLayer layer, long radius, int angle, int otherAngle)
     {
         int scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
@@ -73,7 +66,6 @@ implements VelocityInterfaceCompositeInterface
     }
 
     @Override
-    @JsMethod
     public void process(AllBinaryGameLayer layer) throws Exception
     {
         layer.moveDXYZ(
@@ -83,39 +75,33 @@ implements VelocityInterfaceCompositeInterface
                 );
     }
 
-    @JsMethod
     public String toString()
     {
     	return this.velocityProperties.toString();
     }
 
     @Override
-    @JsMethod
     public void stop()
     {
         this.velocityProperties.zero();
     }
 
     @Override
-    @JsMethod
     public BasicVelocityProperties getVelocityProperties()
     {
         return this.velocityProperties;
     }
 
-    @JsMethod
     public void setVelocityProperties(BasicVelocityProperties velocityProperties)
     {
         this.velocityProperties = velocityProperties;
     }
 
-    @JsMethod
     protected void setSpeedBasicDecimal(BasicDecimal speedBasicDecimal)
     {
         this.speedBasicDecimal = speedBasicDecimal;
     }
 
-    @JsMethod
     protected BasicDecimal getSpeedBasicDecimal()
     {
         return this.speedBasicDecimal;

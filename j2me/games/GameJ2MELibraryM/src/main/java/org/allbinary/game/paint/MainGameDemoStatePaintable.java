@@ -13,22 +13,17 @@
 */
 package org.allbinary.game.paint;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.paint.Paintable;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class MainGameDemoStatePaintable extends Paintable
 {
     private final Paintable ownershipPaintableInterface;
     private final Paintable menuPaintableInterface;
 
-    @JsConstructor
     public MainGameDemoStatePaintable(Paintable ownershipPaintableInterface,
             Paintable menuPaintableInterface)
     {
@@ -39,7 +34,6 @@ public class MainGameDemoStatePaintable extends Paintable
     }
 
     @Override
-    @JsMethod
     public void paint(Graphics graphics)
     {
         this.menuPaintableInterface.paint(graphics);
@@ -50,7 +44,6 @@ public class MainGameDemoStatePaintable extends Paintable
     /**
      * @return the ownershipPaintableInterface
      */
-    @JsMethod
     public Paintable getOwnershipPaintableInterface()
     {
         return this.ownershipPaintableInterface;
@@ -59,7 +52,6 @@ public class MainGameDemoStatePaintable extends Paintable
     /**
      * @return the menuPaintableInterface
      */
-    @JsMethod
     public Paintable getMenuPaintableInterface()
     {
         return this.menuPaintableInterface;

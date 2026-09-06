@@ -13,15 +13,11 @@
 */
 package org.allbinary.game.input;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface PlayerGameInputCompositeInterface
 //Might change inputprocessor to recognize composite and remove the extends
    extends GameInputInterface
 {
-   @JsMethod
    PlayerGameInput getPlayerGameInput();
 }

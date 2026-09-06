@@ -13,25 +13,18 @@
 */
 package org.allbinary.logic.control.validate;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 import org.allbinary.util.ABHashtable;
 
 import org.allbinary.util.BasicArrayList;
 
-@JsType
 public interface ValidatorBaseInterface
 {
-    @JsMethod
     Boolean isValid();
 
-    @JsMethod
     String validationInfo();
 
-    @JsMethod
     ABHashtable toHashtable();
 
-    @JsMethod
     BasicArrayList toList();
 
 }

@@ -13,9 +13,6 @@
 */
 package org.allbinary.game.collision;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 /**
  *
@@ -23,18 +20,15 @@ import jsinterop.annotations.JsConstructor;
  * @version 1.0
  */
 
-@JsType
 public class CollisionType {
 
     private final String name;
 
-    @JsConstructor
     CollisionType(String name)
     {
         this.name = name;
     }
 
-    @JsMethod
     public String toString()
     {
         return this.name;

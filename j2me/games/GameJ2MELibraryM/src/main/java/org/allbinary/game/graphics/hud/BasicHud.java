@@ -13,10 +13,6 @@
  */
 package org.allbinary.game.graphics.hud;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 import javax.microedition.lcdui.Graphics;
 
@@ -39,26 +35,19 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonStrings;
 
-@JsType
 public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListener
 {
 
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
-    @JsProperty
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
-    @JsProperty
     protected final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
 
     private final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
-    @JsProperty
     protected final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
-    @JsProperty
-    protected MyFontProcessor myFontProcessor = updateMyFontProcessor;
+    protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
 
     private int location;
     private int direction;
@@ -73,15 +62,11 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
 
     private BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
     private int color;
-    @JsProperty
     protected int updateMaxWidth;
-    @JsProperty
     protected int updateMaxHeight;
 
-    @JsProperty
     protected int offsetY;
     
-    @JsConstructor
     public BasicHud(final int location, final int direction, final int bufferZone, final BasicColor basicColor) {
 
         this.setLocation(location);
@@ -95,7 +80,6 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
     }
 
     @Override
-    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         try {
 
@@ -114,12 +98,10 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
-    @JsMethod
     public int getLocation() {
         return this.location;
     }
 
-    @JsMethod
     public int getDirection() {
         return this.direction;
     }
@@ -133,7 +115,6 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
 
    }
      */
-    @JsMethod
     protected HudGraphicsPosition getHudGraphicsPositionWH(final int width, final int height, final int maxWidth, final int maxHeight)
         throws Exception {
         
@@ -176,12 +157,10 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
         return new HudGraphicsPosition(this.getPoint(x, y), anchor);
     }
 
-    @JsMethod
     public void onEvent(final AllBinaryEventObject eventObject) {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
-    @JsMethod
     public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent) {
         
             //this.logUtil.putF(this.commonStrings.START, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
@@ -190,17 +169,14 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
         this.myFontProcessor = this.updateMyFontProcessor;
     }
 
-    @JsMethod
     protected GPoint getPoint(final int x, final int y) {
         return PointFactory.getInstance().createXY(x, y);
     }
 
-    @JsMethod
     public int getBufferZone() {
         return this.bufferZone;
     }
 
-    @JsMethod
     public void setBufferZone(final int bufferZone) {
         this.bufferZone = bufferZone;
 
@@ -211,17 +187,14 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
         }
     }
 
-    @JsMethod
     public void setLocation(final int location) {
         this.location = location;
     }
 
-    @JsMethod
     public void setDirection(final int direction) {
         this.direction = direction;
     }
 
-    @JsMethod
     protected HudGraphicsPosition getHudGraphicsPosition() {
         return this.hudGraphicsPosition;
     }
@@ -229,7 +202,6 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
     /**
      * @return the color
      */
-    @JsMethod
     public int getColor() {
         return this.color;
     }
@@ -237,7 +209,6 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
     /**
      * @return the x
      */
-    @JsMethod
     public int getX() {
         return this.x;
     }
@@ -245,32 +216,26 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
     /**
      * @param x the x to set
      */
-    @JsMethod
     public void setX(final int x) {
         this.x = x;
     }
 
-    @JsMethod
     public void setBasicColorP(final BasicColor basicColor) {
         this.basicColor = basicColor;
     }
 
-    @JsMethod
     public BasicColor getBasicColorP() {
         return this.basicColor;
     }
 
-    @JsMethod
     protected void setY(final int y) {
         this.y = y;
     }
 
-    @JsMethod
     protected int getY() {
         return this.y;
     }
 
-    @JsMethod
     public void paintSSO(final Graphics graphics, final String string, final String string2, final int offset) {
         
         this.myFontProcessor.process(graphics);
@@ -287,7 +252,6 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
             this.hudGraphicsPosition.getAnchor());
     }
 
-    @JsMethod
     public void paintSSOO(final Graphics graphics, final String string, final String string2, final int offset, final int offset2) {
         
         this.myFontProcessor.process(graphics);
@@ -303,7 +267,6 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
             this.hudGraphicsPosition.getAnchor());
     }
 
-    @JsMethod
     public void paintDXY(final Graphics graphics,
         final char[] charArray, final int offset, final int len,
         final char[] charArray2, final int offset2, final int len2,
@@ -328,7 +291,6 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
             this.hudGraphicsPosition.getAnchor());
     }
 
-    @JsMethod
     public void paintDX(final Graphics graphics,
         final char[] charArray, final int offset, final int len,
         final char[] charArray2, final int offset2, final int len2,
@@ -353,7 +315,6 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
             this.hudGraphicsPosition.getAnchor());
     }
 
-    @JsMethod
     public void paintOffsetAndLength(final Graphics graphics, final char[] charArray, final int offset, final int len) {
         
         this.myFontProcessor.process(graphics);
@@ -369,7 +330,6 @@ public class BasicHud implements UpdateMyFontInterface //DisplayChangeEventListe
             this.hudGraphicsPosition.getAnchor());
     }
 
-    @JsMethod
     public void paintString(final Graphics graphics, final String string) {
         
         this.myFontProcessor.process(graphics);

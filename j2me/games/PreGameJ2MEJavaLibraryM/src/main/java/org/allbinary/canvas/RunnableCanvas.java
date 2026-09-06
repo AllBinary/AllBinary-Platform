@@ -13,10 +13,6 @@
 */
 package org.allbinary.canvas;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 import javax.microedition.lcdui.CommandListener;
 
@@ -35,14 +31,11 @@ import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
 
-@JsType
 public class RunnableCanvas extends MyCanvas 
     implements RunnableInterface
 {
     
-    @JsProperty
     protected final NullUtil nullUtil = NullUtil.getInstance();
-    @JsProperty
     protected final StdUtil stdUtil = StdUtil.getInstance();
   
     protected final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
@@ -53,21 +46,16 @@ public class RunnableCanvas extends MyCanvas
     private boolean running;
 
     // private int wait;
-    @JsProperty
     protected final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(NullWaitGameRunnable.getInstance().WAIT);
 
     //protected ProcessPaintable processPaintable;
-    @JsProperty
     protected Processor runnableCanvasRefreshHelper = Processor.getInstance();
 
-    @JsProperty
     protected final CommonLabels commonLabels = CommonLabels.getInstance();
     
-    @JsProperty
     protected final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
 
 
-    @JsProperty
     protected final String SET_RUNNING = "setRunning";
     private final String IS_RUNNING = "isRunning";
     private final String THREAD = "Thread: ";
@@ -81,7 +69,6 @@ public class RunnableCanvas extends MyCanvas
     private final String END_PAUSE = "end pause - game thread sleep at: ";
     private final String PROCESS_LOOP_SLEEP = "processLoopSleep";
 
-    @JsConstructor
     public RunnableCanvas(final CommandListener commandListener, final BasicArrayList childNameList, final boolean hasParam)
     {
         super(CommonStrings.getInstance().UNKNOWN, childNameList);
@@ -100,13 +87,11 @@ public class RunnableCanvas extends MyCanvas
     }
 
     //Empty method for overriding 
-    @JsMethod
     public void initCommands(CommandListener cmdListener)
     {
         this.logUtil.putF(this.commonStrings.NOT_IMPLEMENTED, this, "initCommands");
     }
 
-    @JsMethod
     public boolean isMainCanvas()
     {
         if (this.getCustomCommandListener() != null)
@@ -123,14 +108,12 @@ public class RunnableCanvas extends MyCanvas
      */
 
     @Override
-    @JsMethod
     public void setThread(Thread thread)
     {
         this.thread = thread;
     }
 
     @Override
-    @JsMethod
     public void setRunning(boolean running)
     {
         this.running = running;
@@ -148,7 +131,6 @@ public class RunnableCanvas extends MyCanvas
     }
 
     @Override
-    @JsMethod
     public synchronized boolean isRunning()
     {
         if (this.thread == this.currentThread)
@@ -181,7 +163,6 @@ public class RunnableCanvas extends MyCanvas
         }
     }
 
-    @JsMethod
     public TimeDelayHelper getLoopTimeHelperP()
     {
         return this.loopTimeHelper;
@@ -189,7 +170,6 @@ public class RunnableCanvas extends MyCanvas
     
     private long pauseWait = 0;
 
-    @JsMethod
     protected void setWait(int wait)
     {
         this.loopTimeHelper.delay = wait;
@@ -199,19 +179,16 @@ public class RunnableCanvas extends MyCanvas
         this.logUtil.putF(new StringMaker().append("setWait - delay: ").appendint(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR);
     }
 
-    @JsMethod
     protected int getWait()
     {
         return this.loopTimeHelper.delay;
     }
     
-    @JsMethod
     public void setCurrentThread()
     {
         this.currentThread = Thread.currentThread();
     }
 
-    @JsMethod
     protected void setCurrentThreadFake()
     {
         this.currentThread = this.thread;
@@ -231,7 +208,6 @@ public class RunnableCanvas extends MyCanvas
 
     private boolean notified = false;
 
-    @JsMethod
     private void stopWaiting()
     throws Exception
     {
@@ -243,7 +219,6 @@ public class RunnableCanvas extends MyCanvas
         this.repaint();
     }
     
-    @JsMethod
     public synchronized void waitOnNotify(long wait)
         throws Exception
     {
@@ -282,7 +257,6 @@ public class RunnableCanvas extends MyCanvas
     private int attemptFrameTime = preferredFrameTime;
     */
 
-    @JsMethod
     public void processSleep() throws Exception
     {
         //this.logUtil.putF(PAUSE_SLEEP + this.pauseWait, this, this.commonStrings.PROCESS);
@@ -290,20 +264,17 @@ public class RunnableCanvas extends MyCanvas
         Thread.sleep(this.pauseWait);
     }
 
-    @JsMethod
     public boolean isPausable()
     {
         return false;
     }
     
-    @JsMethod
     public void processGameSleep(long sleep) throws Exception
     {
         //this.logUtil.putF(GAME_SLEEP + sleep, this, this.commonStrings.PROCESS);
         Thread.sleep(sleep);
     }
     
-    @JsMethod
     public void processLoopSleep() throws Exception
     {
         //this.logUtil.putF(this.commonStrings.START, this, PROCESS_LOOP_SLEEP);
@@ -378,26 +349,22 @@ public class RunnableCanvas extends MyCanvas
         }
     }
 
-    @JsMethod
     public boolean isSingleThread()
     {
         return false;
     }
     
     @Override
-    @JsMethod
     public void run()
     {
         this.setCurrentThread();
     }
     
     //Hack for GD
-    @JsMethod
     public void end2() throws Exception {
         
     }
     
-    @JsMethod
     public int getType() {
         return -1;
     }

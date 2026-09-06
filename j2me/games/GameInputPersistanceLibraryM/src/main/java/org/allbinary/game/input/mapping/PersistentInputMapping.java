@@ -15,10 +15,6 @@ package org.allbinary.game.input.mapping;
 
 import java.util.Enumeration;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 import org.allbinary.game.input.Input;
@@ -37,13 +33,10 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.EnumerationUtil;
 
 //GameInputPersistanceLibrary
-@JsType
 public class PersistentInputMapping
 {
-    @JsProperty
     public static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
-    @JsMethod
     public static PersistentInputMapping getNullInstance() {
         
         if(PersistentInputMapping.instance == NullUtil.getInstance().NULL_OBJECT) {
@@ -53,10 +46,8 @@ public class PersistentInputMapping
         return (PersistentInputMapping) PersistentInputMapping.instance;
     }
     
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
     
@@ -67,31 +58,26 @@ public class PersistentInputMapping
     
     private final InputPersistance inputPersistance;
 
-    @JsConstructor
     protected PersistentInputMapping(String name)
     {
         this.inputPersistance = new InputPersistance(name);
     }
     
-    @JsMethod
     public int getTotalMapped()
     {
         return this.getInputMapping().getHashtable().size();
     }
     
-    @JsMethod
     protected boolean isDefaultNew()
     {
         return false;
     }
     
-    @JsMethod
     protected InputToGameKeyMapping getDefault()
     {
         return InputToGameKeyMapping.getNullInstance();
     }
         
-    @JsMethod
     public void setDefault(final AbeClientInformationInterface abeClientInformation)
     //InputToGameKeyMapping inputToGameKeyMapping
     throws Exception
@@ -102,7 +88,6 @@ public class PersistentInputMapping
         this.save(abeClientInformation);
     }
 
-    @JsMethod
     public void update(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         this.inputPersistance.deleteAll(abeClientInformation);
@@ -110,7 +95,6 @@ public class PersistentInputMapping
     }
     
     private InputMappingEvent inputMappingEvent = new InputMappingEvent(this); 
-    @JsMethod
     public void save(final AbeClientInformationInterface abeClientInformation)
     //InputToGameKeyMapping inputToGameKeyMapping
     throws Exception
@@ -124,7 +108,6 @@ public class PersistentInputMapping
         }
     }
     
-    @JsMethod
     public void init(final AbeClientInformationInterface abeClientInformation) 
     throws Exception
     {
@@ -185,33 +168,28 @@ public class PersistentInputMapping
         this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
     }
 
-    @JsMethod
     public void setInputMappingEventListenerInterface(
             InputMappingEventListenerInterface inputMappingEventListenerInterface)
     {
         this.inputMappingEventListenerInterface = inputMappingEventListenerInterface;
     }
 
-    @JsMethod
     private InputMappingEventListenerInterface getInputMappingEventListenerInterface()
     {
         return this.inputMappingEventListenerInterface;
     }
 
-    @JsMethod
     public InputToGameKeyMapping getInputMapping()
     {
         return this.inputMapping;
     }
     
     //TWB - Hack Method for Platform Independence - Maybe a better place for this
-    @JsMethod
     public boolean isDelete(Input input) throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
-    @JsMethod
     public boolean isSystemInput(Input input) throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);

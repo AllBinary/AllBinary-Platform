@@ -13,14 +13,10 @@
 */
 package org.allbinary.graphics.opengles;
 
-import jsinterop.annotations.JsType;
 import org.allbinary.game.configuration.feature.Feature;
-import jsinterop.annotations.JsConstructor;
 
-@JsType
 public class OpenGLFeature extends Feature
 {            
-    @JsConstructor
     OpenGLFeature(String name)
     {
         super(name);

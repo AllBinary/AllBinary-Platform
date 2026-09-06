@@ -13,16 +13,12 @@
 */
 package org.allbinary.graphics.displayable.event;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.util.event.EventListenerInterface;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface DisplayChangeEventListener extends EventListenerInterface
 {
-    @JsMethod
     void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
     throws Exception;
 }

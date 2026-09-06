@@ -13,38 +13,27 @@
 */
 package org.allbinary.game.layer.resources;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class BasicGameResources
 {
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected static final StringMaker stringBuffer = new StringMaker();
     
-    @JsProperty
     public String RESOURCE = StringUtil.getInstance().EMPTY_STRING;
-    @JsProperty
     public String RESOURCE_DESTROY = StringUtil.getInstance().EMPTY_STRING;
 
-    @JsConstructor
     protected BasicGameResources()
     {
     }
 
-    @JsMethod
     public void init(String ROOT, String[] SIZE)
     {
         try
@@ -67,7 +56,6 @@ public class BasicGameResources
         }
     }
     
-    @JsMethod
     protected void append(String ROOT, String sizeString)
         throws Exception
     {
@@ -91,7 +79,6 @@ public class BasicGameResources
         this.RESOURCE_DESTROY = BasicGameResources.stringBuffer.toString();
     }
 
-    @JsMethod
     protected String getString()
             throws Exception
     {

@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.physics.velocity;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionUtil;
@@ -25,27 +24,18 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.Angle;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonSeps;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class BasicVelocityProperties implements BasicVelocityInterface
 {
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected final BasicDecimal velocityXBasicDecimal;
-    @JsProperty
     protected final BasicDecimal velocityYBasicDecimal;
-    @JsProperty
     protected final BasicDecimal velocityZBasicDecimal;
 
     private final AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
     
-    @JsConstructor
     public BasicVelocityProperties()
     {
         this.velocityXBasicDecimal = new BasicDecimal(0);
@@ -54,7 +44,6 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
 
     @Override
-    @JsMethod
     public void zero()
     {
         this.velocityXBasicDecimal.setint(0);
@@ -63,7 +52,6 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
 
     @Override
-    @JsMethod
     public BasicDecimal getVelocityXBasicDecimalP()
     {
         return this.velocityXBasicDecimal;
@@ -77,7 +65,6 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     */
     
     @Override
-    @JsMethod
     public BasicDecimal getVelocityYBasicDecimalP()
     {
         return this.velocityYBasicDecimal;
@@ -90,17 +77,14 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
     */
 
-    @JsMethod
     public BasicDecimal getVelocityZBasicDecimalP()
     {
         return this.velocityZBasicDecimal;
     }
     
-    @JsProperty
     protected final DirectionUtil directionUtil = DirectionUtil.getInstance();
     
     @Override
-    @JsMethod
     public void setVelocityWithBigDecimalAndDirection(final BasicDecimal magnitudeBasicDecimal, final Direction direction, final Direction otherDirection)
     {
         final Angle angle = this.directionUtil.getAngle(direction);
@@ -109,7 +93,6 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
 
     @Override
-    @JsMethod
     public void setVelocityWithDirection(final long magnitude, final Direction direction, final Direction otherDirection)
     {
         final Angle angle = this.directionUtil.getAngle(direction);
@@ -118,7 +101,6 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
 
     @Override
-    @JsMethod
     public void addVelocityWithBigDecimalAndDirection(final BasicDecimal magnitudeBasicDecimal, final Direction direction, final Direction otherDirection)
     {
         final Angle angle = this.directionUtil.getAngle(direction);
@@ -127,7 +109,6 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
     
     @Override
-    @JsMethod
     public void addVelocityWithDirection(final long magnitude, final Direction direction, final Direction otherDirection)
     {
         final Angle angle = this.directionUtil.getAngle(direction);
@@ -136,7 +117,6 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
 
     @Override
-    @JsMethod
     public void setVelocityWithBigDecimal(final BasicDecimal magnitudeBasicDecimal, final Angle angle, final Angle otherAngle)
     {
         final long magnitude = magnitudeBasicDecimal.getUnscaled();
@@ -144,7 +124,6 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
 
     @Override
-    @JsMethod
     public void addVelocityWithBigDecimal(final BasicDecimal magnitudeBasicDecimal, final Angle angle, final Angle otherAngle)
     {
         final long magnitude = magnitudeBasicDecimal.getUnscaled();
@@ -152,20 +131,17 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
 
     @Override
-    @JsMethod
     public void setVelocity(final long magnitude, final Angle angle, final Angle otherAngle)
     {
         this.setVelocityi(magnitude, (int) angle.getValue(), (int) otherAngle.getValue());
     }
 
     @Override
-    @JsMethod
     public void addVelocity(final long magnitude, final Angle angle, final Angle otherAngle)
     {
         this.addVelocityi(magnitude, (int) angle.getValue(), (int) otherAngle.getValue());
     }
 
-    @JsMethod
     public void setVelocityi(final long magnitude, final int angle, final int otherAngle)
     {
         final long xVector = (this.axisMathVectorUtil.calculateX(magnitude, angle) / this.velocityXBasicDecimal.getScaledFactorValue());
@@ -193,7 +169,6 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
 
     @Override
-    @JsMethod
     public void addVelocityi(final long magnitude, final int angle, final int otherAngle)
     {
         final long xVector = (this.axisMathVectorUtil.calculateX(magnitude, angle) / this.velocityXBasicDecimal.getScaledFactorValue());
@@ -206,7 +181,6 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         this.velocityZBasicDecimal.addlong(zVector);
     }
 
-    @JsMethod
     public String toString()
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();

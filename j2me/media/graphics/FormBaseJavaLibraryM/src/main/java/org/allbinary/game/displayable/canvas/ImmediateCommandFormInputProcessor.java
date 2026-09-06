@@ -13,29 +13,22 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class ImmediateCommandFormInputProcessor
     extends CommandFormInputProcessor
 {
 
     private final TimeDelayHelper timeHelper = new TimeDelayHelper(25);
     
-    @JsProperty
     protected GameCommandCanvas gameCommandCanvas;
     
-    @JsConstructor
     public ImmediateCommandFormInputProcessor(
         BasicArrayList gameKeyEventList,
         int playerInputId, 
@@ -48,7 +41,6 @@ public class ImmediateCommandFormInputProcessor
     }
 
     @Override
-    @JsMethod
     public synchronized void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         try
@@ -71,7 +63,6 @@ public class ImmediateCommandFormInputProcessor
     }
     
     @Override
-    @JsMethod
     public synchronized void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         try
@@ -94,7 +85,6 @@ public class ImmediateCommandFormInputProcessor
     }
 
     @Override
-    @JsMethod
     public synchronized void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         try
@@ -117,7 +107,6 @@ public class ImmediateCommandFormInputProcessor
     }
 
     @Override
-    @JsMethod
     public void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
     {
         try

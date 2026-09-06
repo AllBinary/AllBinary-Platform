@@ -13,18 +13,14 @@
  */
 package org.allbinary.game.midlet;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
 
-@JsType
 public class LicensedDemoSetupFactory {
  
-    @JsMethod
     public DemoSetup getInstance() {
         return new DemoSetup();
     }

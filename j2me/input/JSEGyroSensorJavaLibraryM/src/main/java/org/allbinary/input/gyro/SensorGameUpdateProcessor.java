@@ -13,45 +13,37 @@
 */
 package org.allbinary.input.gyro;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
 import org.allbinary.input.AllBinarySensor;
 import org.allbinary.input.NoAllBinarySensor;
 import org.allbinary.input.accelerometer.AccelerometerSensorFactory;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class SensorGameUpdateProcessor
 {
     private AllBinarySensor inputSensor;
 
-    @JsMethod
     protected void setInputSensor(AllBinarySensor inputSensor)
     {
         this.inputSensor = inputSensor;
     }
 
-    @JsMethod
     public AllBinarySensor getInputSensor()
     {
         return this.inputSensor;
     }
     
     //public void process(AllBinaryGameLayerManager layerManager) throws Exception
-    @JsMethod
     public void process(Object object) throws Exception
     {
     }
 
     //public void sendNotifications(AllBinaryGameLayerManager layerManager) throws Exception
-    @JsMethod
     public void sendNotifications(Object object) throws Exception
     {
     }
     
-    @JsMethod
     public boolean isAnySensor()
     {
         if(this.inputSensor == NoAllBinarySensor.getInstance())
@@ -64,7 +56,6 @@ public class SensorGameUpdateProcessor
         }
     }
     
-    @JsMethod
     protected void setNoSensors()
     {
         GyroSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(

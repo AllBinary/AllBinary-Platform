@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.input;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventListenerInterface;
@@ -24,22 +23,16 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class PlayerGameInput extends GameInput 
       implements GameKeyEventListenerInterface
 {
 
-    @JsProperty
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private final int playerInputId;
 
-   @JsConstructor
    public PlayerGameInput(final BasicArrayList gameKeyEventList, final BasicArrayList removalGameKeyEventList, final int playerInputId)
    {
       super(gameKeyEventList, removalGameKeyEventList);
@@ -56,7 +49,6 @@ public class PlayerGameInput extends GameInput
    */
 
    @Override
-   @JsMethod
    public synchronized void onPressGameKeyEvent(final GameKeyEvent gameKeyEvent)
    {
        //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_PRESS_GAME_KEY);
@@ -65,14 +57,12 @@ public class PlayerGameInput extends GameInput
    }
    
    @Override
-   @JsMethod
    public synchronized void onDownGameKeyEvent(final GameKeyEvent gameKeyEvent)
    {
        //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_DOWN_GAME_KEY);
        this.add(gameKeyEvent);
    }
 
-   @JsMethod
    public synchronized void onDownKeyEvent(final GameKeyEvent gameKeyEvent)
    {
        //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_DOWN_GAME_KEY);
@@ -80,28 +70,24 @@ public class PlayerGameInput extends GameInput
        this.addForRemoval(gameKeyEvent);
    }
    
-   @JsMethod
    public synchronized void onDownKey(final Integer gameKeyEvent)
    {
        PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, this.gameInputStrings.ON_DOWN_GAME_KEY);
    }
    
    @Override
-   @JsMethod
    public synchronized void onUpGameKeyEvent(final GameKeyEvent gameKeyEvent)
    {
        //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_UP_GAME_KEY);
        this.addForRemoval(gameKeyEvent);
    }
 
-   @JsMethod
    public synchronized void onUpKeyEvent(final Integer gameKeyEvent)
    {
        //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_UP_GAME_KEY);
    }
    
    @Override
-   @JsMethod
    public void onEvent(final AllBinaryEventObject eventObject)
    {
        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -117,7 +103,6 @@ public class PlayerGameInput extends GameInput
     /**
      * @return the playerInputId
      */
-    @JsMethod
     public int getPlayerInputId() {
         return this.playerInputId;
     }

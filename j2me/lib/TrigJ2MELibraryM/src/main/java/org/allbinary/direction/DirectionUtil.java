@@ -13,20 +13,15 @@
 */
 package org.allbinary.direction;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class DirectionUtil
 {
     private static final DirectionUtil instance = new DirectionUtil();
 
-    @JsMethod
     public static DirectionUtil getInstance()
     {
         return DirectionUtil.instance;
@@ -35,7 +30,6 @@ public class DirectionUtil
     private Angle[] directionArray = new Angle[10];
     private Angle[] directionArray2 = new Angle[10];
 
-    @JsConstructor
     private DirectionUtil()
     {
         AngleFactory angleFactory = AngleFactory.getInstance();
@@ -58,13 +52,11 @@ public class DirectionUtil
         // directionArray2Direction.UP_RIGHT, angleFactory.RIGHT);
     }
 
-    @JsMethod
     public Angle getAngle(Direction direction)
     {
         return this.directionArray2[direction.getValue()];
     }
 
-    @JsMethod
     public Angle getFrameAngle(Direction direction)
     {
         return this.directionArray[direction.getValue()];

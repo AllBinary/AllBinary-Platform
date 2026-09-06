@@ -13,13 +13,9 @@
 */
 package org.allbinary.game.midlet;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
-@JsType
 public class DemoSetup
 {
-    @JsMethod
     public void init(GameMidlet gameMidlet)
     {
     }

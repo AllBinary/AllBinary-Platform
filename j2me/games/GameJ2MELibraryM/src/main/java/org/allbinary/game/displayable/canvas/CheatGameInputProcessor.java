@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.PlayerGameInput;
@@ -25,21 +24,15 @@ import org.allbinary.game.layer.special.SpecialGameInputInterface;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class CheatGameInputProcessor extends PlayerGameInput 
 {
     private final String PROCESS_GAME = "processGame";
 
     private final AllBinaryGameCanvas gameCanvas;
-    @JsProperty
     public static SpecialGameInputInterface inputProcessor = SpecialGameInputFactory.NO_SPECIAL_GAME_INPUT;
 
-    @JsConstructor
     public CheatGameInputProcessor(AllBinaryGameCanvas gameCanvas)
     {
         super(new BasicArrayListD(), new BasicArrayListD(), -1);
@@ -54,7 +47,6 @@ public class CheatGameInputProcessor extends PlayerGameInput
 //    public static int z;
 
     @Override    
-    @JsMethod
     public synchronized void update()
     {
         try

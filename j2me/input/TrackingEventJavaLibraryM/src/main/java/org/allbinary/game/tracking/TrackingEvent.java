@@ -13,20 +13,15 @@
 */
 package org.allbinary.game.tracking;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
-@JsType
 public class TrackingEvent extends AllBinaryEventObject
 {
     private AllBinaryLayer layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
 
-    @JsConstructor
     public TrackingEvent(Object allBinaryLayerInterface)
     {
         super(allBinaryLayerInterface);
@@ -36,31 +31,26 @@ public class TrackingEvent extends AllBinaryEventObject
         }
     }
 
-    @JsMethod
     public void init(Object object)
     {
        this.setSource(object);
     }
 
-    @JsMethod
     public AllBinaryLayer getLayerInterface()
     {
         return this.layerInterface;
     }
 
-    @JsMethod
     private void setLayerInterface(AllBinaryLayer layerInterface)
     {
         this.layerInterface = layerInterface;
     }
 
-    @JsMethod
     public void setLayerInterfaceForCircularStaticPool(AllBinaryLayer layerInterface)
     {
         this.layerInterface = layerInterface;
     }
 
-    @JsMethod
     public String toString()
     {
         StringMaker stringBuffer = new StringMaker();

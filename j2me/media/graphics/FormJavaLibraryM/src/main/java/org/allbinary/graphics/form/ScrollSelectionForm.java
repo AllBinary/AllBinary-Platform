@@ -13,7 +13,6 @@
 */
 package org.allbinary.graphics.form;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
@@ -29,15 +28,10 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.RectangleCollisionUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class ScrollSelectionForm extends PaintableForm
 {
-    @JsMethod
     private static ScrollSelectionForm createForm(final String title, final ABCustomItem[] items,
                                                   final ItemPaintableFactory formPaintableFactory, final int border,
                                                   final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
@@ -56,7 +50,6 @@ public class ScrollSelectionForm extends PaintableForm
 
     }
     private static Object NULL_SCROLL_SELECTION_FORM = NullUtil.getInstance().NULL_OBJECT;
-    @JsMethod
     public static ScrollSelectionForm getNullScrollSelectionForm() {
         
         if(ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM == NullUtil.getInstance().NULL_OBJECT) {
@@ -69,7 +62,6 @@ public class ScrollSelectionForm extends PaintableForm
     }
     
     private static Object NULL_SCROLL_SELECTION_HORIZONTAL_FORM = NullUtil.getInstance().NULL_OBJECT;
-    @JsMethod
     public static ScrollSelectionForm getNullScrollSelectionFormHorizontal() {
         
         if(ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM == NullUtil.getInstance().NULL_OBJECT) {
@@ -90,13 +82,11 @@ public class ScrollSelectionForm extends PaintableForm
 
         private final ScrollSelectionForm scrollSelectionForm;
         
-        @JsConstructor
         ScrollSelectionFormHorizontalPaintable(final ScrollSelectionForm scrollSelectionForm) {
             this.scrollSelectionForm = scrollSelectionForm;
         }
         
         @Override
-        @JsMethod
         public int paint(final Graphics graphics, final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
             return this.scrollSelectionForm.paintItemHorizontal(graphics, index, item, dx, dy);
         }
@@ -107,13 +97,11 @@ public class ScrollSelectionForm extends PaintableForm
 
         private final ScrollSelectionForm scrollSelectionForm;
 
-        @JsConstructor
         ScrollSelectionFormVerticalPaintable(final ScrollSelectionForm scrollSelectionForm) {
             this.scrollSelectionForm = scrollSelectionForm;
         }
 
         @Override
-        @JsMethod
         public int paint(final Graphics graphics, final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
             return this.scrollSelectionForm.paintItemVertical(graphics, index, item, dx, dy);
         }
@@ -124,13 +112,11 @@ public class ScrollSelectionForm extends PaintableForm
 
         private final ScrollSelectionForm scrollSelectionForm;
 
-        @JsConstructor
         ScrollSelectionFormTempHorizontalPaintable(final ScrollSelectionForm scrollSelectionForm) {
             this.scrollSelectionForm = scrollSelectionForm;
         }
 
         @Override
-        @JsMethod
         public int paint(final Graphics graphics, final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
             return this.scrollSelectionForm.paintItemTempHorizontal(graphics, index, item, dx, dy);
         }
@@ -141,13 +127,11 @@ public class ScrollSelectionForm extends PaintableForm
 
         private final ScrollSelectionForm scrollSelectionForm;
 
-        @JsConstructor
         ScrollSelectionFormHorizontalDx(final ScrollSelectionForm multipleScrollSelectionForm) {
             this.scrollSelectionForm = multipleScrollSelectionForm;
         }
 
         @Override
-        @JsMethod
         public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
             return this.scrollSelectionForm.getSelectedIndexForPointHorizontalDx(index, item, dx, dy);
         }
@@ -158,13 +142,11 @@ public class ScrollSelectionForm extends PaintableForm
 
         private final ScrollSelectionForm scrollSelectionForm;
 
-        @JsConstructor
         ScrollSelectionFormVericalDx(final ScrollSelectionForm multipleScrollSelectionForm) {
             this.scrollSelectionForm = multipleScrollSelectionForm;
         }
 
         @Override
-        @JsMethod
         public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
             return this.scrollSelectionForm.getSelectedIndexForPointVerticalDx(index, item, dx, dy);
         }
@@ -175,13 +157,11 @@ public class ScrollSelectionForm extends PaintableForm
 
         private final ScrollSelectionForm scrollSelectionForm;
 
-        @JsConstructor
         ScrollSelectionFormTempHorizontalDx(final ScrollSelectionForm multipleScrollSelectionForm) {
             this.scrollSelectionForm = multipleScrollSelectionForm;
         }
 
         @Override
-        @JsMethod
         public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
             return this.scrollSelectionForm.getSelectedIndexForPointTempHorizontalDx(index, item, dx, dy);
         }
@@ -191,22 +171,17 @@ public class ScrollSelectionForm extends PaintableForm
     
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     
-    @JsProperty
     protected final int border;
-    @JsProperty
     protected final int halfBorder;
     private BasicColor buttonBasicColor;
     
-    @JsProperty
     protected ItemIndexPaintable scrollSelectionFormFormTypeItemIndexPaintable = ItemIndexPaintable.getInstance();
     private ItemIndexDx formTypeItemIndexDx = ItemIndexDx.getInstance();
     
-    @JsProperty
     protected ItemPaintable paintable = ItemPaintableFactory.getInstance();
 
     private final int adjustedExtraBorder;
     
-    @JsConstructor
     public ScrollSelectionForm(
             final String title, final ABCustomItem[] items,
             final ItemPaintableFactory formPaintableFactory, final int border, final int adjustedExtraBorder,
@@ -232,7 +207,6 @@ public class ScrollSelectionForm extends PaintableForm
     }
 
     @Override
-    @JsMethod
     public void init(final Rectangle rectangle, final FormType formType)
     throws Exception
     {
@@ -265,47 +239,39 @@ public class ScrollSelectionForm extends PaintableForm
 
     }
     
-    @JsMethod
     public int paintItemHorizontal(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y) {
         final int width = item.getMinimumWidth();
         return x + width + this.border;
     }
 
-    @JsMethod
     public int paintItemVertical(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y) {
         final int height = item.getMinimumHeight();
         return y + height + this.border;
     }
     
-    @JsMethod
     public int paintItemTempHorizontal(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y) {
         return 0;
     }
 
-    @JsMethod
     public int getSelectedIndexForPointHorizontalDx(final int index, final ABCustomItem item, int dx, final int dy) {
         return dx - this.halfBorder;
     }
 
-    @JsMethod
     public int getSelectedIndexForPointVerticalDx(final int index, final ABCustomItem item, int dx, final int dy) {
         return dx + this.getDiffX(item);
     }
 
-    @JsMethod
     public int getSelectedIndexForPointTempHorizontalDx(final int index, final ABCustomItem item, int dx, final int dy) {
         return dx + this.getDiffX(item);
     }
     
     @Override
-    @JsMethod
     public int append(final ABCustomItem item)
     {
         //((FormItemInterface) item).setOwner(this);
         return super.append(item);
     }
 
-    @JsMethod
     public ABCustomItem getSelectedItem(final GPoint point)
         throws Exception
     {
@@ -321,7 +287,6 @@ public class ScrollSelectionForm extends PaintableForm
         }
     }
 
-    @JsMethod
     public int getItemIndex(final ABCustomItem item)
         throws Exception
     {
@@ -340,7 +305,6 @@ public class ScrollSelectionForm extends PaintableForm
         return  -1;
     }
 
-    @JsMethod
     public int getStartIndex()
     {
         return 0;
@@ -348,7 +312,6 @@ public class ScrollSelectionForm extends PaintableForm
 
     private static final String GET_SELECTED_INDEX = "getSelectedIndexForPoint";
     
-    @JsMethod
     public int getSelectedIndexForPoint(final GPoint point) throws Exception
     {
         final int start = this.getStartIndex();
@@ -435,7 +398,6 @@ public class ScrollSelectionForm extends PaintableForm
         return -1;
     }
 
-    @JsMethod
     public int processInputKey(final int gameKeyCode) throws Exception
     {
         //this.logUtil.putF("Start - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
@@ -498,7 +460,6 @@ public class ScrollSelectionForm extends PaintableForm
         return -1;
     }
     
-    @JsMethod
     public boolean isInForm(final GPoint point)
     {
         //this.logUtil.putF(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, IS_IN_FORM);
@@ -512,7 +473,6 @@ public class ScrollSelectionForm extends PaintableForm
         return false;
     }
 
-    @JsMethod
     public int paintItem(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y)
         throws Exception
     {        
@@ -532,7 +492,6 @@ public class ScrollSelectionForm extends PaintableForm
 
     }
 
-    @JsMethod
     public int paintUnselectedItem(final Graphics graphics, final int index, final ABCustomItem item, final int x, final int y)
         throws Exception
     {
@@ -542,7 +501,6 @@ public class ScrollSelectionForm extends PaintableForm
         return this.scrollSelectionFormFormTypeItemIndexPaintable.paint(graphics, index, item, x, y);
     }
 
-    @JsMethod
     protected int getDiffX(final ABCustomItem item)
     {
         return 0;
@@ -551,7 +509,6 @@ public class ScrollSelectionForm extends PaintableForm
     /**
      * @return the dx
      */
-    @JsMethod
     public int getDx()
     {
         return this.x;
@@ -560,19 +517,16 @@ public class ScrollSelectionForm extends PaintableForm
     /**
      * @return the dy
      */
-    @JsMethod
     public int getDy()
     {
         return this.y;
     }
 
-    @JsMethod
     public void setButtonBasicColor(final BasicColor buttonBasicColor)
     {
         this.buttonBasicColor = buttonBasicColor;
     }
 
-    @JsMethod
     private BasicColor getButtonBasicColor()
     {
         return this.buttonBasicColor;

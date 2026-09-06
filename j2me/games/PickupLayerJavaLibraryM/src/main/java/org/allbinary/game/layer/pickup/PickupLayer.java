@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
@@ -28,11 +27,8 @@ import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.view.ViewPositionBase;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class PickupLayer 
    extends MultiPlayerGameLayer
    implements PickedUpLayerInterface, PickupableInterface
@@ -41,7 +37,6 @@ public class PickupLayer
    private boolean destroyed;
    private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
 
-   @JsConstructor
    public PickupLayer(
            final String name, final RemoteInfo remoteInfo, final int total,
            final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
@@ -59,7 +54,6 @@ public class PickupLayer
       this.init(pickedUpLayerInterfaceFactoryInterface, animationInterface);
    }
 
-   @JsMethod
    public void init(
       final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
       final Animation animationInterface)
@@ -69,14 +63,12 @@ public class PickupLayer
       this.setDestroyed(false);
    }
 
-   @JsMethod
    public void initXYZ(int x, int y, int z)
    {
       this.setPosition(x, y, z);
    }
 
    @Override
-   @JsMethod
    public void paint(Graphics graphics)
    {
        final ViewPositionBase viewPosition = this.getViewPosition();
@@ -87,7 +79,6 @@ public class PickupLayer
    }
 
    @Override
-   @JsMethod
    public void paintThreed(Graphics graphics)
    {
        final ViewPositionBase viewPosition = this.getViewPosition();
@@ -98,27 +89,23 @@ public class PickupLayer
    }
    
    @Override
-   @JsMethod
    public PickedUpLayerInterfaceFactoryInterface getPickedUpLayerInterfaceFactoryInterface()
    {
       return this.pickedUpLayerInterfaceFactoryInterface;
    }
 
    @Override
-   @JsMethod
    public void setPickedUp()
    {
       this.setDestroyed(true);
    }
 
    @Override
-   @JsMethod
    public boolean isDestroyed()
    {
       return this.destroyed;
    }
 
-   @JsMethod
    public void setDestroyed(boolean destroyed)
    {
       this.destroyed = destroyed;
@@ -129,20 +116,17 @@ public class PickupLayer
    }
 
    @Override
-   @JsMethod
    public void damage(int damage, int damageType)
    {
    }
 
    @Override
-   @JsMethod
    public int getDamage(int damageType)
    {
       return 0;
    }
    
    @Override
-   @JsMethod
    public void set(GL gl) throws Exception
    {
        //OpenGLSurfaceChangedInterface

@@ -13,24 +13,19 @@
 */
 package org.allbinary.game.combat.damage;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.graphics.paint.Paintable;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class DamageFloaters extends Paintable
 {
     private static final DamageFloaters SINGLETON = new DamageFloaters();
     
-    @JsMethod
     public static DamageFloaters getInstance()
     {
         return DamageFloaters.SINGLETON;
     }
     
-    @JsMethod
     public void add(int damage)
     {
     }

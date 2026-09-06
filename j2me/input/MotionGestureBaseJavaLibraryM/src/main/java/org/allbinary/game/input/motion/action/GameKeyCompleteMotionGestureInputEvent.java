@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.input.motion.action;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.input.CompleteMotionGestureInputEvent;
 import org.allbinary.game.input.GameKey;
@@ -23,11 +22,8 @@ import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class GameKeyCompleteMotionGestureInputEvent extends
         CompleteMotionGestureInputEvent implements GameKeyEventSourceInterface
 {
@@ -40,7 +36,6 @@ public class GameKeyCompleteMotionGestureInputEvent extends
 
     private InputToGameKeyMapping inputToGameKeyMapping;
 
-    @JsConstructor
     public GameKeyCompleteMotionGestureInputEvent(String name,
             MotionGestureInput motionGestureInput, InputToGameKeyMapping inputToGameKeyMapping)
     {
@@ -55,13 +50,11 @@ public class GameKeyCompleteMotionGestureInputEvent extends
     }
 
     @Override
-    @JsMethod
     public int getSourceId()
     {
         return this.SOURCE_ID;
     }
 
-    @JsMethod
     public void update()
     {
         try
@@ -78,25 +71,21 @@ public class GameKeyCompleteMotionGestureInputEvent extends
         }
     }
 
-    @JsMethod
     protected void setGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         this.gameKeyEvent = gameKeyEvent;
     }
 
-    @JsMethod
     public GameKeyEvent getGameKeyEvent()
     {
         return this.gameKeyEvent;
     }
 
-    @JsMethod
     protected void setGameKey(GameKey gameKey)
     {
         this.gameKey = gameKey;
     }
 
-    @JsMethod
     public GameKey getGameKey()
     {
         return this.gameKey;

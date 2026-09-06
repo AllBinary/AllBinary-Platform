@@ -13,16 +13,12 @@
 */
 package org.allbinary.android.input.motion;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.layer.AllBinaryLayerManager;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class AnalogControllerVisitor {
 
-    @JsMethod
     public void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor)
     {
     	

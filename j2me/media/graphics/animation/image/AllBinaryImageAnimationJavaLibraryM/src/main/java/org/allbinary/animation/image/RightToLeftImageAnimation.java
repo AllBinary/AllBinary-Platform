@@ -13,7 +13,6 @@
 */
 package org.allbinary.animation.image;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
@@ -22,22 +21,18 @@ import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 /**
  *
  * @author user
  */
 
-@JsType
 public class RightToLeftImageAnimation
     extends ImageSegmentAnimation
 {
     private int startWidth;
     private int currentWidth;
     
-    @JsConstructor
     public RightToLeftImageAnimation(final Image image, final AnimationBehavior animationBehavior)
         throws Exception
     {
@@ -47,7 +42,6 @@ public class RightToLeftImageAnimation
     }
 
     @Override
-    @JsMethod
     public void nextFrame()
     {
         super.previousFrame();
@@ -56,7 +50,6 @@ public class RightToLeftImageAnimation
     }
 
     @Override
-    @JsMethod
     public void previousFrame()
     {
         super.nextFrame();
@@ -65,7 +58,6 @@ public class RightToLeftImageAnimation
     }
 
     @Override
-    @JsMethod
     public void setFrame(final int index)
     {
         super.setFrame(index);
@@ -73,7 +65,6 @@ public class RightToLeftImageAnimation
         this.update();
     }
 
-    @JsMethod
     private void update()
     {
         this.startWidth = this.getDrawWidth() * this.getFrame() / this.getSize();
@@ -83,7 +74,6 @@ public class RightToLeftImageAnimation
     private int anchor = Anchor.TOP_LEFT;    
     
     @Override
-    @JsMethod
     public void paintXY(final Graphics graphics, final int x, final int y)
     {
         //Image src, int x_src, int y_src, int width, int height, int transform,

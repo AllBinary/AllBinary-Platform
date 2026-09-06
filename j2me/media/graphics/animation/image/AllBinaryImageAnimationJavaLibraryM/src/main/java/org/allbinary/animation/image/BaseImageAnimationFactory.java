@@ -13,7 +13,6 @@
  */
 package org.allbinary.animation.image;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Image;
 
@@ -27,38 +26,28 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.ScaleProperties;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsMethod
     public static BaseImageAnimationFactory createFactoryBase(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
         return new BaseImageAnimationFactory(image, sequenceArray, width, height, 0, 0, animationBehaviorFactory);
     }
 
-    @JsProperty
     protected final AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
         
     private final Image image;
     
-    @JsProperty
     public final AnimationBehaviorFactory animationBehaviorFactory;
 
     private final int[] sequenceArray;
 
-    @JsProperty
     protected final AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor;
 
-    @JsProperty
     protected ScaleProperties scaleProperties = ScaleProperties.instance;
 
-    @JsConstructor
     public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
 
@@ -83,7 +72,6 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     }
 
     @Override
-    @JsMethod
     public Animation getInstance(final int instanceId) throws Exception {
         return NullAnimationFactory.getFactoryInstance().getInstance(instanceId);
     }
@@ -91,7 +79,6 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     /**
      * @return the image
      */
-    @JsMethod
     public Image getImage() {
         return this.image;
     }
@@ -99,13 +86,11 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     /**
      * @return the sequenceArray
      */
-    @JsMethod
     public int[] getSequenceArray() {
         return this.sequenceArray;
     }
 
     @Override
-    @JsMethod
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
         this.scaleProperties = scaleProperties;
@@ -125,7 +110,6 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     /**
      * @return the animationFactoryInitializationVisitor
      */
-    @JsMethod
     public AnimationFactoryInitializationVisitor getAnimationFactoryInitializationVisitorP() {
         return this.animationFactoryInitializationVisitor;
     }
@@ -133,12 +117,10 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     /**
      * @return the scaleProperties
      */
-    @JsMethod
     public ScaleProperties getScalePropertiesP() {
         return this.scaleProperties;
     }
     
-    @JsMethod
     public String toString() {
         final CommonSeps commonSeps = CommonSeps.getInstance();
         final CommonLabels commonLabels = CommonLabels.getInstance();

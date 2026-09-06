@@ -13,16 +13,12 @@
 */
 package org.allbinary.game.input.event;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.util.event.EventListenerInterface;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface UpKeyEventListenerInterface 
    extends EventListenerInterface
 {
-    @JsMethod
     void onUpKeyEvent(final Integer keyAsInteger) throws Exception;
 }

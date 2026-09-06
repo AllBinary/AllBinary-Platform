@@ -13,14 +13,10 @@
 */
 package org.allbinary.graphics.paint;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public class ProcessPaintable extends Paintable
 {
-    @JsMethod
     public void process()
     {
         

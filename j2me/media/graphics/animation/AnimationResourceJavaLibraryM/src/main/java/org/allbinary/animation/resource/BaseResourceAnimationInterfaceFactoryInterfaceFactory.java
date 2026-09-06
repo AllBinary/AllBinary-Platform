@@ -13,10 +13,6 @@
  */
 package org.allbinary.animation.resource;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 import org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
@@ -30,15 +26,12 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.ABHashtable;
 
-@JsType
 public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         implements FeatureResourceAnimationInterfaceFactoryInterface
 {
 
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final ABHashtable hashtable;
@@ -49,7 +42,6 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
     private boolean initialized;
 
-    @JsConstructor
     public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name, final ABHashtable hashtable, final ABHashtable rectangleHashtable, final ABHashtable rectangleArrayHashtable)
     {
         this.hashtable = hashtable;
@@ -58,13 +50,11 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         this.name = name;
     }
     
-    @JsMethod
     public String getName() {
         return this.name;
     }
     
     @Override
-    @JsMethod
     public void init(final int level) throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -73,12 +63,10 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         this.setInitialized(true);
     }
 
-    @JsMethod
     protected void initImageCache(final ImageCache imageCache, final int level) throws Exception
     {
     }
 
-    @JsMethod
     public void add(
             final String resource,
             final BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface)
@@ -95,7 +83,6 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     }
 
     @Override
-    @JsMethod
     public BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(final String resource) throws Exception
     {
         final Object basicAnimationInterfaceFactoryInterfaceCanBeNull = this.hashtable.get(resource);
@@ -109,7 +96,6 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     }
 
     @Override
-    @JsMethod
     public Rectangle getRectangle(final String resource) throws Exception
     {
         final Object rectangleCanBeNull = this.rectangleHashtable.get(resource);
@@ -121,34 +107,29 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         return (Rectangle) rectangleCanBeNull;
     }
 
-    @JsMethod
     public void addRectangle(final String resource, final Rectangle rectangle) throws Exception
     {
         this.rectangleHashtable.put(resource, rectangle);
     }
 
     @Override
-    @JsMethod
     public Rectangle[][] getRectangleArrayOfArrays(final String resource) throws Exception
     {
         return (Rectangle[][]) this.rectangleArrayOfArraysHashtable.get(resource);
     }
 
-    @JsMethod
     public void addRectangleArrayOfArrays(final String resource, final Rectangle[][] rectangleArrayOfArrays) throws Exception
     {
         this.rectangleArrayOfArraysHashtable.put(resource, rectangleArrayOfArrays);
     }
 
     @Override    
-    @JsMethod
     public boolean isFeature()
     {
         return false;
     }
 
     @Override
-    @JsMethod
     public boolean isLoadingLevel(final int level)
     {
         final ResourceLoadingLevelFactory resourceLoadingLevelFactory
@@ -163,38 +144,32 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         }
     }
 
-    @JsMethod
     public String toString()
     {
         return new StringMaker().append(this.getClass().getName()).append(CommonSeps.getInstance().SEMICOLON).append(CommonSeps.getInstance().SPACE).append(this.name).toString();
     }
 
     @Override
-    @JsMethod
     public ABHashtable getHashtable()
     {
         return this.hashtable;
     }
 
-    @JsMethod
     public ABHashtable getRectangleHashtable()
     {
         return this.rectangleHashtable;
     }
 
-    @JsMethod
     public ABHashtable getRectangleArrayOfArraysHashtable()
     {
         return this.rectangleArrayOfArraysHashtable;
     }
 
-    @JsMethod
     protected void setInitialized(boolean initialized)
     {
         this.initialized = initialized;
     }
 
-    @JsMethod
     public boolean isInitialized()
     {
         return this.initialized;

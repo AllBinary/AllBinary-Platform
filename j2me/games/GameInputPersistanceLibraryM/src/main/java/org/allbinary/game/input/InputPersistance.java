@@ -21,9 +21,6 @@ import java.io.DataOutputStream;
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.TsUtil;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
@@ -42,20 +39,17 @@ import org.allbinary.logic.StdUtil;
 import org.allbinary.util.ABHashtable;
 
 //GameInputPersistanceLibrary
-@JsType
 public class InputPersistance extends BasicPersitance
 {
     private final TsUtil tsUtil = TsUtil.getInstance();
 
     private final HashtableUtil hashtableUtil = HashtableUtil.getInstance();
 
-    @JsConstructor
     public InputPersistance(final String name)
     {
         super(name);
     }
 
-    @JsMethod
     public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
@@ -168,7 +162,6 @@ public class InputPersistance extends BasicPersitance
         }
     }
 
-    @JsMethod
     public void save(final AbeClientInformationInterface abeClientInformation, final ABHashtable hashtable) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;

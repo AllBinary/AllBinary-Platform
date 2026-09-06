@@ -13,18 +13,12 @@
 */
 package org.allbinary.thread;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface RunnableInterface extends Runnable
 {
-    @JsMethod
     boolean isRunning();
-    @JsMethod
     void setRunning(boolean isRunning);
     //Thread getThread();
-    @JsMethod
     void setThread(Thread thread)throws Exception;
 }

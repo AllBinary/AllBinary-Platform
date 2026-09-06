@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.configuration;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.ChoiceGroup;
@@ -29,17 +28,13 @@ import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class LoadGameForm extends CommandForm
 {
 
     private boolean areChoices;
     
-    @JsConstructor
     public LoadGameForm(final CommandListener commandListener, final String title,
             final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor)
             throws Exception
@@ -54,7 +49,6 @@ public class LoadGameForm extends CommandForm
     }
 
     @Override
-    @JsMethod
     public void initCommands(final CommandListener cmdListener)
     {
         final GameCommandsFactory gameCommandsFactory = 
@@ -69,7 +63,6 @@ public class LoadGameForm extends CommandForm
     }
 
     @Override
-    @JsMethod
     public void update() throws Exception
     {
         final BasicArrayList list = GamePersistanceSingleton.getInstance().getIds();
@@ -88,7 +81,6 @@ public class LoadGameForm extends CommandForm
         super.update();
     }
 
-    @JsMethod
     private void add(final BasicArrayList list, final String name, final int option)
     {
         ChoiceGroup choiceGroup = this.getChoiceGroup(list, name, option);
@@ -101,7 +93,6 @@ public class LoadGameForm extends CommandForm
         this.append(choiceGroup);
     }
 
-    @JsMethod
     private ChoiceGroup getChoiceGroup(final BasicArrayList list, final String name, final int option)
     {
         final String METHOD_NAME = "getChoiceGroup";
@@ -120,7 +111,6 @@ public class LoadGameForm extends CommandForm
         return choiceGroup;
     }
 
-    @JsMethod
     public int getSelectedId()
     {
         if (this.areChoices)
@@ -134,7 +124,6 @@ public class LoadGameForm extends CommandForm
         }
     }
 
-    @JsMethod
     public int getSelectedText()
     {
         if (this.areChoices)

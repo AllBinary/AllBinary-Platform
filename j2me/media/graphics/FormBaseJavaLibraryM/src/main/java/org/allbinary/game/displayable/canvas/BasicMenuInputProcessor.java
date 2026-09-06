@@ -14,7 +14,6 @@
 
 package org.allbinary.game.displayable.canvas;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.NullCanvas;
@@ -24,21 +23,15 @@ import org.allbinary.input.motion.gesture.observer.BaseMotionGestureEventListene
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class BasicMenuInputProcessor extends PlayerGameInput
     implements BaseMotionGestureEventListener
 {
 
-    @JsProperty
     public final BasicArrayList motionGestureEventList = new BasicArrayListD();
     private Canvas canvas = NullCanvas.NULL_CANVAS;
     
-    @JsConstructor
     protected BasicMenuInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, Canvas gameCanvas)
     {
         super(gameKeyEventList, new BasicArrayListD(), playerInputId);
@@ -47,7 +40,6 @@ public class BasicMenuInputProcessor extends PlayerGameInput
     }
     
     @Override
-    @JsMethod
     public void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
     {
         //PreLogUtil.put(commonStrings.START, this, 
@@ -58,24 +50,20 @@ public class BasicMenuInputProcessor extends PlayerGameInput
     }
 
     @Override
-    @JsMethod
     public void onScrolledMotionGestureEvent(MotionGestureEvent motionGestureEvent) {
         
     }
     
-    @JsMethod
     private void setCanvas(MyCanvas canvas)
     {
         this.canvas = canvas;
     }
 
-    @JsMethod
     protected MyCanvas getCanvas()
     {
         return (MyCanvas) this.canvas;
     }
 
-    @JsMethod
     public int processInputList()
         throws Exception
     {

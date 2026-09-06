@@ -13,14 +13,10 @@
 */
 package org.allbinary.game;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.time.TimeDelayHelper;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class Intermission implements IntermissionInterface
 {
     private boolean enabled;
@@ -29,27 +25,23 @@ public class Intermission implements IntermissionInterface
 
     private IntermissionEnableListenerInterface intermissionEnableListener = NullIntermissionEnableListener.getInstance();
     
-    @JsConstructor
     public Intermission()
     {
     }
 
     @Override
-    @JsMethod
     public void setListener(IntermissionEnableListenerInterface enableListener)
     {
         this.intermissionEnableListener = enableListener;
     }
     
     @Override
-    @JsMethod
     public TimeDelayHelper getTimeDelayHelper()
     {
         return this.timeElapsedHelper;
     }
 
     @Override
-    @JsMethod
     public void setEnabled(boolean enabled)
     {
         this.enabled = enabled;
@@ -63,7 +55,6 @@ public class Intermission implements IntermissionInterface
     }
 
     @Override
-    @JsMethod
     public boolean isEnabled()
     {
         return this.enabled;

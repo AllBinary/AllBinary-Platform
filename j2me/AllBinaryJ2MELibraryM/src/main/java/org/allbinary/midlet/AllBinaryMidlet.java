@@ -13,11 +13,7 @@
 */
 package org.allbinary.midlet;
 
-import jsinterop.annotations.JsType;
 
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -50,13 +46,11 @@ import org.allbinary.util.ABHashtable;
  */
 // MIDlet methods not overridden are final
 
-@JsType
 public class AllBinaryMidlet extends MIDlet 
 implements CommandListener
 {
     private static Object NULL_ALLBINARY_MIDLET = NullUtil.getInstance().NULL_OBJECT;
     
-    @JsMethod
     public static AllBinaryMidlet getNullInstance() {
         
         if(AllBinaryMidlet.NULL_ALLBINARY_MIDLET == NullUtil.getInstance().NULL_OBJECT) {
@@ -66,10 +60,8 @@ implements CommandListener
         return (AllBinaryMidlet) AllBinaryMidlet.NULL_ALLBINARY_MIDLET;
     }
     
-    @JsProperty
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final String SET_DISPLAY = "setDisplay";
@@ -81,13 +73,11 @@ implements CommandListener
     private ABHashtable hashtable = StdUtil.getInstance().createHashtable();
     private boolean midletDestroyed;
 
-    @JsConstructor
     public AllBinaryMidlet()
     {
         this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet");
     }
 
-    @JsMethod
     protected void setDisplay(final Displayable newDisplay)
     {
         String title = StringUtil.getInstance().EMPTY_STRING;
@@ -108,52 +98,44 @@ implements CommandListener
         display.setCurrent(newDisplay);
     }
 
-    @JsMethod
     public Display getDisplay()
     {
         return Display.getDisplay(this);
     }
 
-    @JsMethod
     protected Displayable getCurrentDisplayable()
     {
         return Display.getDisplay(this).getCurrent();
     }
 
-    @JsMethod
     public void setDestroyed(boolean destroyed)
     {
         this.midletDestroyed = destroyed;
     }
 
-    @JsMethod
     public boolean isDestroyed()
     {
         return this.midletDestroyed;
     }
 
     @Override
-    @JsMethod
     protected void startApp() throws MIDletStateChangeException
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     @Override
-    @JsMethod
     protected void pauseApp()
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
-    @JsMethod
     protected void destroyAppInRunnable(final boolean unconditional, final boolean isProgress)
     {
         
     }
 
     @Override
-    @JsMethod
     protected void destroyApp(final boolean unconditional)
     {
         final String METHOD_NAME = "AllBinaryMidlet::destroyApp";
@@ -171,21 +153,18 @@ implements CommandListener
         }
     }
     
-    @JsMethod
     public void setStartStateHashtable(final ABHashtable hashtable) throws Exception
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "setStartStateHashtable");
         this.hashtable = hashtable;
     }
 
-    @JsMethod
     public ABHashtable getStartStateHashtable() throws Exception
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(this.hashtable)).toString(), this, "getStartStateHashtable");
         return this.hashtable;
     }
 
-    @JsMethod
     public ABHashtable getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, "getStateHashtable");
@@ -193,7 +172,6 @@ implements CommandListener
     }
 
     @Override
-    @JsMethod
     public void commandAction(final Command command, final Displayable displayable)
     {
     }

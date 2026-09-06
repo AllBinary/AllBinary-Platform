@@ -13,7 +13,6 @@
 */
 package org.allbinary.input.motion.gesture;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Line;
@@ -30,7 +29,6 @@ import org.allbinary.logic.math.J2SEMath;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.string.CommonStrings;
 
-@JsType
 public class MotionGestureRecognizer
 {
     protected final LogUtil logUtil = LogUtil.getInstance();

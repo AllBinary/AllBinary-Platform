@@ -13,22 +13,17 @@
 */
 package org.allbinary.game.configuration.feature;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.util.ABHashtable;
 
-@JsType
 public class Feature
 {
     private static ABHashtable hashtable = StdUtil.getInstance().createHashtable();
 
     private final String name;
 
-    @JsConstructor
     public Feature(String name)
     {
         this.name = name;
@@ -37,25 +32,21 @@ public class Feature
         ChangedGameFeatureListener.getInstance().add(this);
     }
     
-    @JsMethod
     public static Feature getInstance(String name)
     {
         return (Feature) Feature.hashtable.get(name);
     }
 
-    @JsMethod
     private static void add(String name, Feature gameFeature)
     {
         Feature.hashtable.put(name, gameFeature);
     }
     
-    @JsMethod
     public String toString()
     {
         return this.getName();
     }
 
-    @JsMethod
     public String getName()
     {
         return this.name;

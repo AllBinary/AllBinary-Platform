@@ -13,16 +13,12 @@
 */
 package org.allbinary.game.input;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
 
-@JsType
 public class Input
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -30,7 +26,6 @@ public class Input
     private int id;
     private String name = StringUtil.getInstance().EMPTY_STRING;
     
-    @JsConstructor
     public Input(int id, String name)
     {
         this.setId(id);
@@ -40,31 +35,26 @@ public class Input
           //      "Name: " + this.getName() + " = " + this.getId(), this, //    commonStrings.CONSTRUCTOR);
     }
     
-    @JsMethod
     public int getId()
     {
         return this.id;
     }
 
-    @JsMethod
     private void setId(int key)
     {
         this.id = key;
     }
 
-    @JsMethod
     public String getName()
     {
         return this.name;
     }
 
-    @JsMethod
     private void setName(String keyName)
     {
         this.name = keyName;
     }
     
-    @JsMethod
     public String toString()
     {
         StringMaker stringBuffer = new StringMaker();

@@ -13,7 +13,6 @@
 */
 package org.allbinary.graphics.form.item.validation;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.graphics.form.item.ABTextFieldItem;
 import org.allbinary.logic.control.validate.ValidatorBase;
@@ -21,11 +20,8 @@ import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class TextFieldItemValidator extends ValidatorBase
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -36,7 +32,6 @@ public class TextFieldItemValidator extends ValidatorBase
     private int max;
     private boolean allowOnEmpty;
 
-    @JsConstructor
     public TextFieldItemValidator(ABTextFieldItem textFieldItem, int min, int max, boolean allowOnEmpty)
     {
         this.textFieldItem = textFieldItem;
@@ -47,7 +42,6 @@ public class TextFieldItemValidator extends ValidatorBase
     }
     
     @Override
-    @JsMethod
     public Boolean isValid()
     {
         BooleanFactory booleanFactory = BooleanFactory.getInstance();
@@ -77,7 +71,6 @@ public class TextFieldItemValidator extends ValidatorBase
     }
     
     @Override
-    @JsMethod
     public BasicArrayList toList()
     {
         final BasicArrayList list = new BasicArrayListD();        

@@ -13,7 +13,6 @@
 */
 package org.allbinary.graphics.form;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Graphics;
 import org.allbinary.canvas.Processor;
@@ -24,12 +23,8 @@ import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.graphics.font.UpdateMyFontInterface;
 import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.form.item.ABCustomItem;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class ScrollCurrentSelectionForm 
 extends ScrollSelectionForm implements UpdateMyFontInterface
 {
@@ -39,13 +34,11 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
 
         private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
         
-        @JsConstructor
         TempHorizontalFormProcessor(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
             this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
         }
         
         @Override
-        @JsMethod
         public void process() throws Exception {
             this.scrollCurrentSelectionForm.processTempHorizontalForm();
             this.scrollCurrentSelectionForm.processor = Processor.getInstance();
@@ -56,13 +49,11 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
 
         private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
         
-        @JsConstructor
         HorizontalFormProcessor(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
             this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
         }
         
         @Override
-        @JsMethod
         public void process() throws Exception {
             this.scrollCurrentSelectionForm.processHorizontalForm();
             this.scrollCurrentSelectionForm.processor = Processor.getInstance();
@@ -73,13 +64,11 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
 
         private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
         
-        @JsConstructor
         VerticalFormProcessor(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
             this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
         }
         
         @Override
-        @JsMethod
         public void process() throws Exception {
             this.scrollCurrentSelectionForm.processVerticalForm();
             this.scrollCurrentSelectionForm.processor = Processor.getInstance();
@@ -90,13 +79,11 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
         
         private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
         
-        @JsConstructor
         TempHorizontalItemIndexDx(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
             this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
         }
 
         @Override
-        @JsMethod
         public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
             return this.scrollCurrentSelectionForm.getXTempHorizontalForm(index, item, dx, dy);
         }
@@ -107,13 +94,11 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
         
         private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
         
-        @JsConstructor
         HorizontalItemIndexDx(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
             this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
         }
 
         @Override
-        @JsMethod
         public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
             return this.scrollCurrentSelectionForm.getXHorizontalForm(index, item, dx, dy);
         }
@@ -124,22 +109,18 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
         
         private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
         
-        @JsConstructor
         VerticalItemIndexDx(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
             this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
         }
 
         @Override
-        @JsMethod
         public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
             return this.scrollCurrentSelectionForm.getXVerticalForm(index, item, dx, dy);
         }
 
     };
     
-    @JsProperty
     protected final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
-    @JsProperty
     protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
     
     private Processor processor = Processor.getInstance();
@@ -150,7 +131,6 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
 
     private int maxWidth = 0;
 
-    @JsConstructor
     public ScrollCurrentSelectionForm(final String title, final ABCustomItem[] items,
             final ItemPaintableFactory formPaintableFactory, final int border, final int adjustedExtraBorder,
             final boolean moveForSmallScreen,
@@ -165,7 +145,6 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
     
 
     @Override
-    @JsMethod
     public void init(final Rectangle rectangle, final FormType formType)
     throws Exception
     {
@@ -198,19 +177,16 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
     }
     
     @Override
-    @JsMethod
     public void updateMeasurement(final Graphics graphics) {
         
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
-    @JsMethod
     private void processTempHorizontalForm() {
         this.dx = this.x - 30 + (this.rectangle.getWidth() >> 1);
         this.dy = this.y;
     }
 
-    @JsMethod
     private void processHorizontalForm() {
         final int size = this.size();
 
@@ -250,7 +226,6 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
         }
     }
     
-    @JsMethod
     private void processVerticalForm() {
         int totalHeight = 0;
         final int size = this.size();
@@ -287,24 +262,20 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
         }
     }
 
-    @JsMethod
     private int getXTempHorizontalForm(final int index, final ABCustomItem item, int dx, final int dy) {
         return this.getDiffX(item);
     }
 
-    @JsMethod
     private int getXHorizontalForm(final int index, final ABCustomItem item, int dx, final int dy) {
         //this.halfBorder;
         return 0;
     }
 
-    @JsMethod
     private int getXVerticalForm(final int index, final ABCustomItem item, int dx, final int dy) {
         return this.getDiffX(item) + this.halfBorder;
     }
     
     @Override
-    @JsMethod
     protected int getDiffX(ABCustomItem item)
     {
         return ((this.maxWidth - item.getMinimumWidth()) >> 1);
@@ -314,7 +285,6 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
      * @return the dx
      */
     @Override
-    @JsMethod
     public int getDx()
     {
         return this.dx;
@@ -324,14 +294,12 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
      * @return the dy
      */
     @Override
-    @JsMethod
     public int getDy()
     {
         return this.dy;
     }
         
     @Override
-    @JsMethod
     public void paint(final Graphics graphics)
     {
         try

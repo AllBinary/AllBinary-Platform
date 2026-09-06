@@ -13,7 +13,6 @@
  */
 package org.allbinary.animation.compound;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
@@ -21,21 +20,14 @@ import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.media.ScaleProperties;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class CompoundAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface {
 
-    @JsProperty
     protected final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArrayP;
-    @JsProperty
     protected final AnimationBehaviorFactory animationBehaviorFactory;
 
-    @JsConstructor
     public CompoundAnimationInterfaceFactory(
         final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
         final AnimationBehaviorFactory animationBehaviorFactory) {
@@ -49,7 +41,6 @@ public class CompoundAnimationInterfaceFactory
     }
 
     @Override
-    @JsMethod
     public Animation getInstance(final int instanceId) throws Exception {
         final int size = this.basicAnimationInterfaceFactoryInterfaceArrayP.length;
         final Animation[] animationInterfaceArray = this.createArray(size);
@@ -61,23 +52,19 @@ public class CompoundAnimationInterfaceFactory
         return this.createAnimation(animationInterfaceArray);
     }
 
-    @JsMethod
     protected Animation[] createArray(final int size) {
         return NullAnimationFactory.getFactoryInstance().EMPTY_ARRAY;
     }
     
-    @JsMethod
     protected Animation createAnimation(final Animation[] animationInterfaceArray) {
         return NullAnimationFactory.getFactoryInstance().getInstance(0);
     }
     
-    @JsMethod
     public AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {
         return this.basicAnimationInterfaceFactoryInterfaceArrayP;
     }
     
     @Override
-    @JsMethod
     public void setInitialScale(final ScaleProperties scaleProperties) {
         final int size = this.basicAnimationInterfaceFactoryInterfaceArrayP.length;
 

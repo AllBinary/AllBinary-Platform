@@ -13,7 +13,6 @@
 */
 package org.allbinary.media.audio;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -21,11 +20,8 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class PlayerQueue
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -36,13 +32,11 @@ public class PlayerQueue
     private int max;
     private static final String TOTAL = "Sounds In Queue: ";
 
-    @JsConstructor
     PlayerQueue(int max)
     {
         this.max = max;
     }
 
-    @JsMethod
     public void add(Sound sound)
     {
         try
@@ -63,7 +57,6 @@ public class PlayerQueue
         }
     }
 
-    @JsMethod
     public boolean process()
     {
         Sound sound = NoSound.getInstance();
@@ -132,13 +125,11 @@ public class PlayerQueue
         }
     }
 
-    @JsMethod
     public void clear()
     {
         this.list.clear();
     }
 
-    @JsMethod
     public String toString()
     {
         return new StringMaker().append(PlayerQueue.TOTAL).appendint(this.list.size()).toString();

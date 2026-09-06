@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.paint;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.ColorChangeEventHandler;
@@ -24,18 +23,14 @@ import org.allbinary.graphics.form.item.ABStringComponent;
 import org.allbinary.graphics.form.item.ABTextItem;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class GameScrollMenuPaintable 
 extends BasicGameDemoPaintable
 implements ColorChangeListener
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsConstructor
     public GameScrollMenuPaintable(final Paintable mainDemoStatePaintable, 
             final Paintable ownershipPaintable, 
             final Paintable helpPaintableInterface, 
@@ -48,7 +43,6 @@ implements ColorChangeListener
     }
 
     @Override
-    @JsMethod
     public void setState(final int state)
     {
         //this.logUtil.putF("Setting Main Demo State Paintable", this, "setState");
@@ -57,12 +51,10 @@ implements ColorChangeListener
     }
     
     @Override
-    @JsMethod
     public void onEvent(final AllBinaryEventObject eventObject)
     {
     }
     
-    @JsMethod
     protected void setColor(final BasicColor basicColor)
     {
         final MainGameDemoStatePaintable mainGameDemoStatePaintable = 

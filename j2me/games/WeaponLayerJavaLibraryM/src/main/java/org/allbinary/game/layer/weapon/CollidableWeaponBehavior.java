@@ -13,10 +13,6 @@
 */
 package org.allbinary.game.layer.weapon;
 
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsType;
 
 import org.allbinary.game.collision.CollidableHelperFactory;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
@@ -30,13 +26,11 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.NullUtil;
 
 
-@JsType
 public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBehavior
 {
     
     private static Object NULL_COLLIDABLE_WEAPON_BEHAVIOR = NullUtil.getInstance().NULL_OBJECT;
     
-    @JsMethod
     public static CollidableWeaponBehavior getNullInstance() {
         if(CollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR == NullUtil.getInstance().NULL_OBJECT) {
             CollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR = new CollidableWeaponBehavior(false);
@@ -46,10 +40,8 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     
     
     private boolean collided;
-    @JsProperty
     protected CollisionHelper collisionHelper;
     
-    @JsConstructor
     public CollidableWeaponBehavior(final boolean collidable)
     {
         super(collidable);
@@ -60,7 +52,6 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
         this.collisionHelper = CollidableHelperFactory.getInstance();
     }
 
-    @JsMethod
     public void init(final AllBinaryLayer sourceLayerInterface)
     {
         this.setCollided(false);
@@ -70,7 +61,6 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
 
     // TODO TWB Special Super Efficient Collision Processing
     @Override
-    @JsMethod
     public boolean isCollision(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collisionLayer)
     {
         if (this.collisionHelper.isCollidable(collisionLayer))
@@ -88,7 +78,6 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
 
     // TODO TWB Special Super Efficient Collision Processing
     @Override
-    @JsMethod
     public void collide(final CollidableCompositeLayer ownerLayer, final CollidableCompositeLayer collisionLayer) throws Exception
     {
         // this.logUtil.putF(this.getName() + " collided with "
@@ -100,7 +89,6 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     }
     
     @Override
-    @JsMethod
     public boolean isCollisionInterface(
             final CollidableCompositeLayer ownerLayer, final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
@@ -123,7 +111,6 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     }
 
     @Override
-    @JsMethod
     public void collideInterface(final CollidableCompositeLayer ownerLayer, final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
@@ -160,7 +147,6 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     */
 
     @Override
-    @JsMethod
     public CollisionType getCollisionTypeWith(final AllBinaryLayer layerInterface)
     {
         return CollisionTypeFactory.getInstance().COLLISION;
@@ -169,7 +155,6 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     /**
      * @return the collided
      */
-    @JsMethod
     public boolean isCollided()
     {
         return this.collided;
@@ -179,7 +164,6 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
      * @param collided
      *            the collided to set
      */
-    @JsMethod
     private void setCollided(final boolean collided)
     {
         this.collided = collided;

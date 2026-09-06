@@ -13,7 +13,6 @@
 */
 package org.allbinary.midlet;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.canvas.Processor;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
@@ -21,30 +20,22 @@ import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
 import org.allbinary.thread.ThreadPool;
 
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class ProgressMidlet extends AllBinaryMidlet
 {
 
-    @JsProperty
     public final AbeClientInformationInterface abeClientInformation;
     
-    @JsConstructor
     public ProgressMidlet(final ClientInformationFactory clientInformationFactory)
     {
         this.preInit();
         this.abeClientInformation = clientInformationFactory.getInstance();
     }   
 
-    @JsMethod
     public void preInit() {
     }
     
-    @JsMethod
     protected void exitProgress(boolean isProgress)
     {
 

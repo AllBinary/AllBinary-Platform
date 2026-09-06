@@ -13,21 +13,15 @@
 */
 package org.allbinary.animation;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.direction.DirectionalInterface;
 import org.allbinary.math.AngleInfo;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface RotationAnimationInterface 
     extends IndexedAnimationInterface, DirectionalInterface
 {
-   @JsMethod
    AngleInfo getAngleInfoP();
-   @JsMethod
    void nextRotation();
-   @JsMethod
    void previousRotation();   
 }

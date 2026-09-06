@@ -13,18 +13,13 @@
 */
 package org.allbinary.graphics.displayable.command;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Command;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface MyCommandInterface
 {
-   @JsMethod
    void addCommand(Command command);
    
-   @JsMethod
    void removeAllCommands();
 }

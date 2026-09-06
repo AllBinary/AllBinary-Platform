@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.init;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.CommandListener;
 
@@ -26,21 +25,15 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 
-@JsType
 public class CommonGameInitialization 
 extends BaseGameInitialization
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsProperty
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    @JsConstructor
     protected CommonGameInitialization(final ResourceInitialization[] resourceInitializationArray,
             int portion)
     {
@@ -48,7 +41,6 @@ extends BaseGameInitialization
     }
 
     @Override
-    @JsMethod
     public void init(final AbeClientInformationInterface abeClientInformation, final CommandListener commandListener, final int level) throws Exception
     {
         super.init(abeClientInformation, commandListener, level);
@@ -82,7 +74,6 @@ extends BaseGameInitialization
         super.resourceInitialization(level);
     }
 
-    @JsMethod
     public void initGame()
     throws Exception
     {

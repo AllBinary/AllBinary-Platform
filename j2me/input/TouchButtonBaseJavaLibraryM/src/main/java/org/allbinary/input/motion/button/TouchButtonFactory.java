@@ -13,22 +13,17 @@
 */
 package org.allbinary.input.motion.button;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class TouchButtonFactory
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final TouchButtonFactory SINGLETON = new TouchButtonFactory();
 
-    @JsMethod
     public static TouchButtonFactory getInstance()
     {
         return TouchButtonFactory.SINGLETON;
@@ -38,12 +33,10 @@ public class TouchButtonFactory
     private BasicArrayList list = this.LIST;
     private BasicArrayList savedList = this.LIST;
 
-    @JsConstructor
     private TouchButtonFactory()
     {
     }
         
-    @JsMethod
     public void defaultList()
     {
         this.list = this.LIST;
@@ -52,7 +45,6 @@ public class TouchButtonFactory
 
     private boolean saved = false;
 
-    @JsMethod
     public synchronized void toggle(boolean save, BasicArrayList list)
     //throws Exception
     {
@@ -107,7 +99,6 @@ public class TouchButtonFactory
         }    
     }
 
-    @JsMethod
     public void setList(BasicArrayList list) throws Exception
     {
         //ForcedLogUtil.log("Touch Buttons: " + list, this);
@@ -123,7 +114,6 @@ public class TouchButtonFactory
     /**
      * @return the list
      */
-    @JsMethod
     protected BasicArrayList getList()
     {
         return this.list;

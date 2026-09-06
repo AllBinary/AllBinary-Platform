@@ -13,12 +13,10 @@
 */
 package org.allbinary.game.part;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
 
-@JsType
 public interface PartFactoryInterface {
 
 	PartInterface getInstance(

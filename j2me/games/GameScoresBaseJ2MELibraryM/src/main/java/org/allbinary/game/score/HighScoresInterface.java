@@ -13,21 +13,14 @@
 */
 package org.allbinary.game.score;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.util.BasicArrayList;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface HighScoresInterface
 {
-    @JsMethod
     BasicArrayList getList();
-    @JsMethod
     void addHighScore(HighScore newHighScore);
-    @JsMethod
     int getTotal();
-    @JsMethod
     boolean isBestScore(HighScore newHighScore) throws Exception;
 }

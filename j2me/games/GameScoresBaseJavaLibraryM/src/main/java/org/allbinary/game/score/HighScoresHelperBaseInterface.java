@@ -13,23 +13,17 @@
  */
 package org.allbinary.game.score;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 /**
  *
  * @author User
  */
 
-@JsType
 public interface HighScoresHelperBaseInterface extends HighScoresResultsListener {
     
-    @JsMethod
     void setSelectedHighScores(final HighScores selectedHighScores);
-    @JsMethod
     HighScores[] getHighScoresArray();
 
-    @JsMethod
     HighScores getSelectedHighScores();
 
 }

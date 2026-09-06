@@ -13,34 +13,27 @@
 */
 package org.allbinary.animation;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.media.ScaleProperties;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class SingletonAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
     private final Animation animationInterface;
 
-    @JsConstructor
     public SingletonAnimationInterfaceFactory(final Animation animationInterface)
     {
         this.animationInterface = animationInterface;
     }
 
     @Override
-    @JsMethod
     public Animation getInstance(final int instanceId) throws Exception
     {
         return this.animationInterface;
     }
 
     @Override
-    @JsMethod
     public Animation getInstanceAnimation(final Animation animationInterface)
         throws Exception
     {
@@ -48,7 +41,6 @@ public class SingletonAnimationInterfaceFactory
     }
     
     @Override
-    @JsMethod
     public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }

@@ -13,17 +13,13 @@
 */
 package org.allbinary.view.event;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.util.event.EventListenerInterface;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface ViewPositionEventListenerInterface
    extends EventListenerInterface
 {
-   @JsMethod
    void onChangeEvent(ViewPositionEvent layerManagerEvent)
       throws Exception;
 }

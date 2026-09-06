@@ -13,14 +13,10 @@
 */
 package org.allbinary.view;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class CenterStaticViewPositionFactory
 {
     /*
@@ -34,12 +30,10 @@ public class CenterStaticViewPositionFactory
     }
     */
 
-    @JsConstructor
     public CenterStaticViewPositionFactory()
     {
     }
     
-    @JsMethod
     public ViewPositionBase getInstance(int z)
     {
         DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();

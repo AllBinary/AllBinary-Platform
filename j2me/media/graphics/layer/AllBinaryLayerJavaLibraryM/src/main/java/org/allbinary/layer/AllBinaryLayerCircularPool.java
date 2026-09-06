@@ -13,25 +13,19 @@
 */
 package org.allbinary.layer;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.logic.util.cache.BaseCircularPool;
 import org.allbinary.util.CircularIndexUtil;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 
-@JsType
 public class AllBinaryLayerCircularPool
 extends BaseCircularPool
 {
-    @JsConstructor
     protected AllBinaryLayerCircularPool()
     {
         
     }
 
-    @JsMethod
     public void initAllBinaryLayerCircularPool(final AllBinaryLayerFactoryInterface allbinaryLayerFactoryInterface, final int total) throws Exception
     {
         this.circularIndexUtil = CircularIndexUtil.createInstance(total);

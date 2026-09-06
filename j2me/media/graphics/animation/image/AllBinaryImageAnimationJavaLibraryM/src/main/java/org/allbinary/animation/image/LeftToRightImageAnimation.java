@@ -13,7 +13,6 @@
 */
 package org.allbinary.animation.image;
 
-import jsinterop.annotations.JsType;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
@@ -21,21 +20,17 @@ import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.Anchor;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 /**
  *
  * @author user
  */
 
-@JsType
 public class LeftToRightImageAnimation
     extends ImageSegmentAnimation
 {
     private int currentWidth;
     
-    @JsConstructor
     public LeftToRightImageAnimation(final Image image, final int[] sequenceArray, final AnimationBehavior animationBehavior)
         throws Exception
     {
@@ -50,7 +45,6 @@ public class LeftToRightImageAnimation
     }
 
     @Override
-    @JsMethod
     public void nextFrame()
     {
         if(this.getSequence()[0] == -1)
@@ -66,7 +60,6 @@ public class LeftToRightImageAnimation
     }
 
     @Override
-    @JsMethod
     public void previousFrame()
     {
         if(this.getSequence()[0] == -1)
@@ -82,7 +75,6 @@ public class LeftToRightImageAnimation
     }
 
     @Override
-    @JsMethod
     public void setFrame(int index)
     {
         super.setFrame(index);
@@ -90,7 +82,6 @@ public class LeftToRightImageAnimation
         this.update();
     }
 
-    @JsMethod
     private void update()
     {
         this.currentWidth = this.getDrawWidth() * this.getFrame() / this.getSize();
@@ -99,7 +90,6 @@ public class LeftToRightImageAnimation
     private int anchor = Anchor.TOP_LEFT;
     
     @Override
-    @JsMethod
     public void paintXY(final Graphics graphics, final int x, final int y)
     {
         //Image src, int x_src, int y_src, int width, int height, int transform,

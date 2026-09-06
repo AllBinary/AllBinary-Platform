@@ -13,20 +13,14 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import jsinterop.annotations.JsType;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.layer.AllBinaryLayer;
-import jsinterop.annotations.JsMethod;
 
 
-@JsType
 public interface PickedUpLayerInterfaceFactoryInterface
 {
-   @JsMethod
    PickedUpLayerType getPickedUpLayerType();
-   @JsMethod
    AllBinaryLayer getIconLayer();
-   @JsMethod
    Animation getAnimationInterface();
 }

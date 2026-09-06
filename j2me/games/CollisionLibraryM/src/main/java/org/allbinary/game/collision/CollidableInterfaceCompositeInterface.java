@@ -13,14 +13,10 @@
 */
 package org.allbinary.game.collision;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
 
 
 
-@JsType
 public interface CollidableInterfaceCompositeInterface
 {
-    @JsMethod
     CollidableBaseBehavior getCollidableInferface();
 }
