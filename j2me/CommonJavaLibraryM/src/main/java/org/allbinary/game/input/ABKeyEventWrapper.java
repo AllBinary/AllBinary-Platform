@@ -14,11 +14,13 @@
 package org.allbinary.game.input;
 
 import java.awt.event.KeyEvent;
+import jsinterop.annotations.JsType;
 
 /**
  *
  * @author User
  */
+@JsType
 public class ABKeyEventWrapper {
     
     private static final ABKeyEventWrapper instance = new ABKeyEventWrapper();
