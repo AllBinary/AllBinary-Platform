@@ -13,10 +13,6 @@
 */
 package org.allbinary.logic.communication.log.config;
 
-
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
-
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;

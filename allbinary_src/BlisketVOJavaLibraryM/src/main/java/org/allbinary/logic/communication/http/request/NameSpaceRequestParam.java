@@ -14,10 +14,8 @@
 package org.allbinary.logic.communication.http.request;
 
 import java.util.HashMap;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
-import org.allbinary.logic.StdUtil;
 
+import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.tokens.Tokenizer;

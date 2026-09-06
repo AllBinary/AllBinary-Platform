@@ -14,6 +14,7 @@
 package org.allbinary.image.opengles;
 
 import javax.microedition.lcdui.Image;
+import jsinterop.annotations.JsType;
 
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
@@ -22,6 +23,7 @@ import org.allbinary.util.BasicArrayListD;
  *
  * @author User
  */
+@JsType
 public class OpenGLESImageExclusionUtil {
     
     private static final OpenGLESImageExclusionUtil instance = new OpenGLESImageExclusionUtil();

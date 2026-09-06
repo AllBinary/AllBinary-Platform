@@ -13,9 +13,6 @@
 */
 package org.allbinary.graphics.form.item.validation;
 
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
-
 import org.allbinary.graphics.form.item.ABTextFieldItem;
 import org.allbinary.logic.control.validate.ValidatorBase;
 import org.allbinary.logic.java.bool.BooleanFactory;

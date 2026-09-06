@@ -15,8 +15,6 @@ package org.allbinary.graphics.j2me.workarea.canvas;
 
 import java.awt.*;
 import java.util.HashMap;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;

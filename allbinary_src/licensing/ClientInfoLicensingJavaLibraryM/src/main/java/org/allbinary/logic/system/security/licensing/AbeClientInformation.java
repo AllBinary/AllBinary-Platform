@@ -29,7 +29,7 @@ import org.allbinary.string.CommonStrings;
 @JsType
 public class AbeClientInformation extends ClientInformation
 {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
+    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public AbeClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
