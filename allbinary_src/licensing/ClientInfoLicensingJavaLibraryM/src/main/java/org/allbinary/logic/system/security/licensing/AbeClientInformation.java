@@ -23,26 +23,21 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.string.CommonStrings;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
 
 // This is the information sent to the license server
 
 @JsType
 public class AbeClientInformation extends ClientInformation
 {
-    @JsProperty
-    protected final LogUtil logUtil = LogUtil.getInstance();
+    //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    @JsConstructor
     public AbeClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
         super(name, version, specialName, shortName);
     }
 
     @Override
-    @JsMethod
+
     public void init()
     {
         try
@@ -70,7 +65,7 @@ public class AbeClientInformation extends ClientInformation
         {
             final LogUtil logUtil = LogUtil.getInstance();
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 }

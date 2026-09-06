@@ -15,10 +15,6 @@ package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
 
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsType;
-
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
@@ -36,15 +32,12 @@ public class ImageCompleteUtil {
     /**
      * @return the instance
      */
-    @JsMethod
     public static ImageCompleteUtil getInstance() {
         return ImageCompleteUtil.instance;
     }
     
-    @JsProperty
     protected final String ISREADY = "isReady";
     
-    @JsMethod
     public void waitForImage(Image image, String name)
         throws Exception {
     }
@@ -55,7 +48,7 @@ public class ImageCompleteUtil {
 //        return true;
 //    }
     private final String COMPLETE = "Image loading complete for: ";
-    @JsMethod
+
     public boolean isReady(final Image image, final String name, final TimeDelayHelper timeDelayHelper)
         throws Exception {
         final PlaynImage playnImage = (PlaynImage) image;
@@ -93,12 +86,10 @@ public class ImageCompleteUtil {
         return true;
     }
 
-    @JsMethod
     public void handleTimeout(final String name) throws Exception {
 
     }
 
-    @JsMethod
     public void waitForAll()
         throws Exception {
     }

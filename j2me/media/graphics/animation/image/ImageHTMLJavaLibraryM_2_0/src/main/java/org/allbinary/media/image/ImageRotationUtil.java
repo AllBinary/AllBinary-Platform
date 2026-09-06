@@ -20,9 +20,7 @@ import org.microemu.device.playn.PlaynMutableImage;
 
 import playn.core.Canvas;
 import playn.core.ImageImpl;
-import playn.core.PlayN;
-import playn.html.HtmlGraphics;
-import playn.html.HtmlImage;
+import playn.html.HTMLPlaynUtil;
 
 public class ImageRotationUtil
 {
@@ -34,7 +32,9 @@ public class ImageRotationUtil
     {
         return ImageRotationUtil.instance;
     }
-    
+
+private final HTMLPlaynUtil playnUtil = HTMLPlaynUtil.getInstance();
+
     private ImageRotationUtil()
     {
     }
@@ -44,9 +44,7 @@ public class ImageRotationUtil
         {
             final PlaynMutableImage htmlImage = (PlaynMutableImage) image;
             final ImageImpl canvasImage = (ImageImpl) htmlImage.getImage();
-            
-            final PlayN playN = PlayN.getInstance();
-            final Canvas canvas = ((HtmlGraphics) playN.graphics()).get((HtmlImage) canvasImage);
+            final Canvas canvas = this.playnUtil.getCanvas(canvasImage);
             // HtmlCanvas translate/rotate compose onto the persistent Context2d transform;
             // without save/restore each call accumulates on top of the last, drifting the
             // draw outside this sprite's small backing canvas on some frames.

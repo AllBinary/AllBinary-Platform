@@ -28,9 +28,7 @@ import playn.core.Callback;
 
 import playn.core.Canvas;
 import playn.core.ImageImpl;
-import playn.core.PlayN;
-import playn.html.HtmlGraphics;
-import playn.html.HtmlImage;
+import playn.html.HTMLPlaynUtil;
 
 /**
  *
@@ -46,6 +44,7 @@ public class ImageModifierUtil {
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final ResourceCallbackStrings resourceCallbackStrings = ResourceCallbackStrings.getInstance();
+    private final HTMLPlaynUtil playnUtil = HTMLPlaynUtil.getInstance();
     
     private boolean[] alphaArray;
     
@@ -90,8 +89,7 @@ public class ImageModifierUtil {
                         //this.logUtil.putF("alpha: " + alpha, this, "setAlpha");
                         final playn.core.Image originalPlaynImage = (playn.core.Image) ((PlaynImage) originalImage).getImage();
 //                        if(originalPlaynImage != null) {
-                            final PlayN playN = PlayN.getInstance();
-                            final Canvas canvas = ((HtmlGraphics) playN.graphics()).get((HtmlImage) canvasImage);
+                            final Canvas canvas = this.playnUtil.getCanvas(canvasImage);
                             canvas.clear();
                             canvas.setAlpha(alpha);
                             canvas.draw(originalPlaynImage, 0, 0);
@@ -118,8 +116,7 @@ public class ImageModifierUtil {
         final float alphaFloat = alphaF / 255;
         final PlaynImage htmlImage = (PlaynImage) image;
         final ImageImpl canvasImage = (ImageImpl) htmlImage.getImage();
-        final PlayN playN = PlayN.getInstance();
-        final Canvas canvas = ((HtmlGraphics) playN.graphics()).get((HtmlImage) canvasImage);
+        final Canvas canvas = this.playnUtil.getCanvas(canvasImage);
         canvas.setAlpha(alphaFloat);
     }
     

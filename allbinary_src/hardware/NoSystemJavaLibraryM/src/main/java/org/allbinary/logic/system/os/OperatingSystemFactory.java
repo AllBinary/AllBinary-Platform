@@ -59,6 +59,6 @@ public class OperatingSystemFactory
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             //}
         }
-        return genericOperatingSystem;
+        return this.genericOperatingSystem;
     }
 }

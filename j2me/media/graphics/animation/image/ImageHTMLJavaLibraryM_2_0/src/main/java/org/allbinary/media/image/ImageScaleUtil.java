@@ -21,9 +21,7 @@ import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
 import playn.core.Canvas;
 import playn.core.ImageImpl;
-import playn.core.PlayN;
-import playn.html.HtmlGraphics;
-import playn.html.HtmlImage;
+import playn.html.HTMLPlaynUtil;
 
 public class ImageScaleUtil
 {
@@ -36,6 +34,7 @@ public class ImageScaleUtil
         return ImageScaleUtil.instance;
     }
 
+    private final HTMLPlaynUtil playnUtil = HTMLPlaynUtil.getInstance();
     //private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
     
     //private int anchor = Anchor.TOP_LEFT;
@@ -102,8 +101,7 @@ public class ImageScaleUtil
 
             final PlaynMutableImage htmlImage = (PlaynMutableImage) image;
             final ImageImpl canvasImage = (ImageImpl) htmlImage.getImage();
-            final PlayN playN = PlayN.getInstance();
-            final Canvas canvas = ((HtmlGraphics) playN.graphics()).get((HtmlImage) canvasImage);
+            final Canvas canvas = this.playnUtil.getCanvas(canvasImage);
 
             //canvasSurface.translate(-3, 3);
             //canvasSurface.drawImage(originalPlayNImage, 0, 0, image.getWidth() + 3, image.getHeight(), 0, 0, originalImage.getWidth(), originalImage.getHeight());
