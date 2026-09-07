@@ -1,12 +1,12 @@
 package org.allbinary.logic.math;
 
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.string.CommonSeps;
+import jsinterop.annotations.JsType;
 
 /**
  *
  * @author user
  */
+@JsType
 public class MathUtil
 {
     private static final MathUtil instance = new MathUtil();
