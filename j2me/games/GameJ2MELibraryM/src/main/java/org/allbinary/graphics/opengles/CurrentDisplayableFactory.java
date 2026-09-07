@@ -39,7 +39,13 @@ import org.allbinary.thread.NullRunnable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
-
+/*//JSNI Expose so JSNI can access this class *** &#10;
+globalThis.org = globalThis.org || {}; &#10;
+globalThis.org.allbinary = globalThis.org.allbinary || {}; &#10;
+globalThis.org.allbinary.graphics = globalThis.org.allbinary.graphics || {}; &#10;
+globalThis.org.allbinary.graphics.opengles = globalThis.org.allbinary.graphics.opengles || {}; &#10;
+globalThis.org.allbinary.graphics.opengles.CurrentDisplayableFactory = CurrentDisplayableFactory; &#10;
+*/
 public class CurrentDisplayableFactory
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -198,7 +204,7 @@ public class CurrentDisplayableFactory
      */
     public void setUsedRunnable(GameRunnable usedRunnable)
     {
-        PreLogUtil.put(new StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).toString(), this, this.SET_USED_RUNNABLE);
+        PreLogUtil.put(new StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).append(CommonSeps.getInstance().COLON_SEP).append(this.stringUtil.toString(usedRunnable)).toString(), this, this.SET_USED_RUNNABLE);
         this.usedRunnable = usedRunnable;
     }
 
