@@ -14,14 +14,13 @@
 package org.allbinary.game.rand;
 
 import java.util.Random;
-
 import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
 
 //Do not use in client code for money related things.
 @JsType
