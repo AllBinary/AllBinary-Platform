@@ -19,6 +19,15 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.logic.NullUtil;
 
+/*//JSNI Expose so JSNI can access this class *** &#10;
+globalThis.org.allbinary = globalThis.org.allbinary || {}; &#10;
+globalThis.org.allbinary.graphics globalThis.org.allbinary.graphics || {}; &#10;
+globalThis.org.allbinary.graphics.canvas = globalThis.org.allbinary.graphics.canvas || {}; &#10;
+globalThis.org.allbinary.graphics.canvas.transition = globalThis.org.allbinary.graphics.canvas.transition || {}; &#10;
+globalThis.org.allbinary.graphics.canvas.transition.progress = globalThis.org.allbinary.graphics.canvas.transition.progress || {}; &#10;
+globalThis.org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory = ProgressCanvasFactory; &#10;
+console.log('Exported ProgressCanvasFactory as globalThis');
+*/
 public class ProgressCanvasFactory {
 
     private static Object PROGRESS_FORM_SCREEN = NullUtil.getInstance().NULL_OBJECT;

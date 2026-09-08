@@ -13,6 +13,13 @@
 */
 package org.allbinary.image;
 
+//LazyJ2ME
+/*//JSNI Expose so JSNI can access this class *** &#10;
+globalThis.org.allbinary = globalThis.org.allbinary || {}; &#10;
+globalThis.org.allbinary.image globalThis.org.allbinary.image || {}; &#10;
+globalThis.org.allbinary.image.ImageCacheFactory = ImageCacheFactory; &#10;
+console.log('Exported ImageCacheFactory as globalThis'); &#10;
+*/
 public class ImageCacheFactory
 {
     private final static ImageCache IMAGE_CACHE = new ImageCache();
