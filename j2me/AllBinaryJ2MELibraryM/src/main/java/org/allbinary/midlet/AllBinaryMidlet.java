@@ -13,8 +13,6 @@
 */
 package org.allbinary.midlet;
 
-
-
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Display;
@@ -45,7 +43,13 @@ import org.allbinary.util.ABHashtable;
  *
  */
 // MIDlet methods not overridden are final
-
+/*//JSNI Expose so JSNI can access this class *** &#10;
+globalThis.org = globalThis.org || {}; &#10;
+globalThis.org.allbinary = globalThis.org.allbinary || {}; &#10;
+globalThis.org.allbinary.midlet = globalThis.org.allbinary.midlet || {}; &#10;
+globalThis.org.allbinary.midlet.AllBinaryMidlet = AllBinaryMidlet; &#10;
+console.log('Exported AllBinaryMidlet as globalThis');
+*/
 public class AllBinaryMidlet extends MIDlet 
 implements CommandListener
 {

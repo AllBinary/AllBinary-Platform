@@ -13,33 +13,23 @@
 */
 package org.allbinary.logic.math;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
 import org.allbinary.AndroidUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 
-
-@JsType
 public class SmallIntegerSingletonFactory
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final SmallIntegerSingletonFactory instance = new SmallIntegerSingletonFactory();
 
-    @JsMethod
     public static SmallIntegerSingletonFactory getInstance()
     {
         return SmallIntegerSingletonFactory.instance;
     }
     
-    @JsProperty
     public final int NEGATIVE_MAX = 500;
-    @JsProperty
     public final int POSITIVE_MAX = 0x2D1; //500;
 
     private final Integer[] INTEGER_ARRAY = new Integer[this.NEGATIVE_MAX + this.POSITIVE_MAX];
@@ -49,7 +39,6 @@ public class SmallIntegerSingletonFactory
     private int lastMin = 0;
     private int lastNegativeMin = 0;
 
-    @JsMethod
     public int getMin() {
         final int minAllowed = this.getMinAllowed();
 
@@ -87,7 +76,6 @@ public class SmallIntegerSingletonFactory
         }
     }
     
-    @JsMethod
     public void initWithRange(int value, int negativeValue)
     {
         
@@ -117,7 +105,6 @@ public class SmallIntegerSingletonFactory
         //logUtil.putF("? " + this.INTEGER_ARRAY[5], this, "?????????");
     }
 
-    @JsMethod
     public void init()
     {
         if (this.lastMin < this.POSITIVE_MAX || this.lastNegativeMin < this.NEGATIVE_MAX)
@@ -142,7 +129,6 @@ public class SmallIntegerSingletonFactory
         }
     }
 
-    @JsConstructor
     private SmallIntegerSingletonFactory()
     {
         this.initWithRange(23, 0);
@@ -159,7 +145,6 @@ public class SmallIntegerSingletonFactory
     }
     */
 
-    @JsMethod
     public Integer getAt(int index)
     {
 //        if(index >= 0 && index < 24) {
@@ -170,7 +155,6 @@ public class SmallIntegerSingletonFactory
         return this.INTEGER_ARRAY[index + this.NEGATIVE_MAX];
     }
 
-    @JsMethod
     public Integer getAtNoThrow(int index)
     {
 //        if(index >= 0 && index < 24) {
@@ -185,7 +169,6 @@ public class SmallIntegerSingletonFactory
         return this.INTEGER_ARRAY[index + this.NEGATIVE_MAX];
     }
     
-    @JsMethod
     public Integer createInstance(int index)
     {
         //this.updateStats(index);
@@ -199,7 +182,6 @@ public class SmallIntegerSingletonFactory
         return integer;
     }
     
-    @JsMethod
     public String getString(int index) {
          final int i = index + this.NEGATIVE_MAX;
          if(this.STRING_ARRAY[i] == null) {

@@ -13,25 +13,15 @@
 */
 package org.allbinary.logic.math;
 
-import jsinterop.annotations.JsType;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-import jsinterop.annotations.JsProperty;
-
-
-@JsType
 public class BasicDecimal
 {  
-    @JsProperty
     public static final BasicDecimal ZERO_BIGDECIMAL = new BasicDecimal(0);
 
-    @JsMethod
     public static BasicDecimal createBigDecimal(final BasicDecimal bigDecimal) {
        return new BasicDecimal(bigDecimal.getUnscaled());
     }
    private long units;
 
-   @JsConstructor
    public BasicDecimal(long units)
    {
       this.units = units;
@@ -54,105 +44,92 @@ public class BasicDecimal
    }
    */
 
-   @JsMethod
    public void setint(int value)
    {
       this.units = (long) value;
       this.updateScaled();
    }
 
-   @JsMethod
+
    public void setlong(long value)
    {
       this.units = value;
       this.updateScaled();
    }
    
-   @JsMethod
+
    public void set(BasicDecimal bigDecimal)
    {
       this.units = bigDecimal.getUnscaled();
       this.updateScaled();
    }
    
-   @JsMethod
    public void addint(int value)
    {
       this.units = this.units + value;
       this.updateScaled();
    }
 
-   @JsMethod
    public void addlong(long value)
    {
       this.units = this.units + value;
       this.updateScaled();
    }
    
-   @JsMethod
    public void add(BasicDecimal bigDecimal)
    {
       this.units = this.units + bigDecimal.getUnscaled();
       this.updateScaled();
    }
 
-   @JsMethod
    public void subtractint(int value)
    {
       this.units = this.units - value;
       this.updateScaled();
    }
 
-   @JsMethod
    public void subtractlong(long value)
    {
       this.units = this.units - value;
       this.updateScaled();
    }
 
-   @JsMethod
    public void subtract(BasicDecimal bigDecimal)
    {
       this.units = this.units - bigDecimal.getUnscaled();
       this.updateScaled();
    }
 
-   @JsMethod
    public void multiplyint(int value)
    {
       this.units = this.units * value;
       this.updateScaled();
    }
 
-   @JsMethod
    public void multiplylong(long value)
    {
       this.units = this.units * value;
       this.updateScaled();
    }
 
-   @JsMethod
    public void multiply(BasicDecimal bigDecimal)
    {
       this.units = this.units * bigDecimal.getUnscaled();
       this.updateScaled();
    }
 
-   @JsMethod
    public void divideint(int value)
    {
       this.units = this.units / value;
       this.updateScaled();
    }
 
-   @JsMethod
    public void dividelong(long value)
    {
       this.units = this.units / value;
       this.updateScaled();
    }
 
-   @JsMethod
    public void divide(BasicDecimal bigDecimal)
    {
       this.units = this.units / bigDecimal.getUnscaled();
@@ -197,7 +174,6 @@ public class BasicDecimal
    }
    */
 
-   @JsMethod
    public long getUnscaled()
    {
       return this.units;
@@ -205,7 +181,6 @@ public class BasicDecimal
 
    private int scaled;
    
-   @JsMethod
    private void updateScaled()
    {
        //Using shift on negative values produces undesired result
@@ -213,13 +188,11 @@ public class BasicDecimal
        this.scaled = (int) (this.units / this.factorValue);
    }
    
-   @JsMethod
    public int getScaled()
    {
       return this.scaled;
    }
    
-   @JsMethod
    public String toString()
    {  
        //StringMaker stringBuffer = new StringMaker();
@@ -237,13 +210,11 @@ public class BasicDecimal
    private final int factor = ScaleFactorFactory.getInstance().DEFAULT_SCALE_FACTOR;
    private final int factorValue = ScaleFactorFactory.getInstance().DEFAULT_SCALE_VALUE;
 
-   @JsMethod
    public int getScaledFactor()
    {
       return this.factor;
    }
 
-   @JsMethod
    public int getScaledFactorValue()
    {
       return this.factorValue;
