@@ -84,17 +84,17 @@ public class NullGameCanvasRunnable implements GameCanvasRunnableInterface {
     }
 
     @Override
-    public ABHashtable<Object, Object>getCurrentStateHashtable() throws Exception {
+    public ABHashtable<Object, Object> getCurrentStateHashtable() throws Exception {
         return StdUtil.getInstance().NULL_TABLE;
     }
 
     @Override
-    public ABHashtable<Object, Object>getLoadStateHashtable() throws Exception {
+    public ABHashtable<Object, Object> getLoadStateHashtable() throws Exception {
         return StdUtil.getInstance().NULL_TABLE;
     }
 
     @Override
-    public void setLoadStateHashtable(ABHashtable<Object, Object>hashtable) throws Exception {
+    public void setLoadStateHashtable(ABHashtable<Object, Object> hashtable) throws Exception {
 
     }
 

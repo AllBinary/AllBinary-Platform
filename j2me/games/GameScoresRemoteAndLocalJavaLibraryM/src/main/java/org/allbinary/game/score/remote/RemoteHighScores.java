@@ -34,7 +34,7 @@ public class RemoteHighScores extends HighScores {
 
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
 
-    private static final ABHashtable<Object, Object>hashTable = StdUtil.getInstance().createHashtable();
+    private static final ABHashtable<Object, Object> hashTable = StdUtil.getInstance().createHashtable();
     private final AbeClientInformationInterface abeClientInformation;
     private final SoftwareInformation softwareInformation;
     
@@ -97,7 +97,7 @@ public class RemoteHighScores extends HighScores {
     }
 
     //This is called when the data comes back in the response
-    public void update(final ABHashtable<Object, Object>hashtable) {
+    public void update(final ABHashtable<Object, Object> hashtable) {
         this.getList().clear();
         final BasicArrayList vector = (BasicArrayList) hashtable.get((Object) RemoteHighScoresData.getInstance().HIGH_SCORES);
         if (vector != null) {

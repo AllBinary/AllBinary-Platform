@@ -28,7 +28,7 @@ public class AdvancedRTSLayerUtil
     
     public final ABHashtable<Object, Object>createFakeRTSLayerHashtable(final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap)
     {
-        final ABHashtable<Object, Object>hashtable = RTSLayerUtil.getInstance().createFakeRTSLayerHashtable(baseRaceTrackGeographicMap);
+        final ABHashtable<Object, Object> hashtable = RTSLayerUtil.getInstance().createFakeRTSLayerHashtable(baseRaceTrackGeographicMap);
         
         hashtable.put(WorkWaypoint.ID, 
                 SmallIntegerSingletonFactory.getInstance().getAt(50));

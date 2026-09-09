@@ -69,7 +69,7 @@ public class BuildingPropertiesFactory {
         return healthBar;
     }
 
-    public ABHashtable<Object, Object>getHashtable() {
+    public ABHashtable<Object, Object> getHashtable() {
         return StdUtil.getInstance().createHashtable();
     }    
     

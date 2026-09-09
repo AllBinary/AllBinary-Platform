@@ -20,5 +20,5 @@ public interface LayerPlacementInterface {
    int getWidth();
    int getHeight();
    LayerPlacementType getLayerType();
-   ABHashtable<Object, Object>getInstance() throws Exception;
+   ABHashtable<Object, Object> getInstance() throws Exception;
 }

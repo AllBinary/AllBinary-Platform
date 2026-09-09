@@ -97,7 +97,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     {
         this.allTimeDelayHelper.setStartTimeTNT();
         
-        final ABHashtable<Object, Object>hashtable = GameFeatureImageCacheFactory.getInstance().getHashtableP();
+        final ABHashtable<Object, Object> hashtable = GameFeatureImageCacheFactory.getInstance().getHashtableP();
 
         final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
         final int size = objectArray.length;

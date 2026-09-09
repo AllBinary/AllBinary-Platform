@@ -65,7 +65,7 @@ public class MineCountedPickedUpLayerInterfaceFactory
     private final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
     
     @Override
-    public AllBinaryLayer getNextInstance(final ABHashtable<Object, Object>hashtable, final int x, final int y, final int z)
+    public AllBinaryLayer getNextInstance(final ABHashtable<Object, Object> hashtable, final int x, final int y, final int z)
             throws Exception
     {
         final AllBinaryLayer sourceLayerInterface = (AllBinaryLayer) hashtable.get((Object) this.smallIntegerSingletonFactory.getAt(0));

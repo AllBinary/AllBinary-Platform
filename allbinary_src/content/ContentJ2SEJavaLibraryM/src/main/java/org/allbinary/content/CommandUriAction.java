@@ -32,7 +32,7 @@ public class CommandUriAction
         return CommandUriAction.instance;
     }
     
-    private ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
+    private ABHashtable<Object, Object> hashtable = StdUtil.getInstance().createHashtable();
 
     public void add(Command command, String url)
     {

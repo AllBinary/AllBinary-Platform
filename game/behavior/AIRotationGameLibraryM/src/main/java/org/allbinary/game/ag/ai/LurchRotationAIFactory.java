@@ -24,7 +24,7 @@ public class LurchRotationAIFactory
 {
     @Override
     public ArtificialIntelligenceInterface getInstance(
-          final ABHashtable<Object, Object>hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+          final ABHashtable<Object, Object> hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
     {
         return new LurchRotationAI(ownerLayerInterface, gameInput);
     }

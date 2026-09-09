@@ -40,7 +40,7 @@ public class OSGIActivatorUtil
         final BundleContext bundleContext,
         final Object object,
         final String serviceName,
-        final ABHashtable<Object, Object>properties)
+        final ABHashtable<Object, Object> properties)
     throws Exception
     {
         final ServiceRegistration serviceRegistration =

@@ -37,9 +37,9 @@ public interface GameCanvasRunnableInterface
    void processGameOver() throws Exception;
    boolean isGameOver();
    void initCommands(CommandListener cmdListener);
-   ABHashtable<Object, Object>getCurrentStateHashtable()throws Exception;
-   ABHashtable<Object, Object>getLoadStateHashtable()throws Exception;
-   void setLoadStateHashtable(ABHashtable<Object, Object>hashtable) throws Exception;
+   ABHashtable<Object, Object> getCurrentStateHashtable()throws Exception;
+   ABHashtable<Object, Object> getLoadStateHashtable()throws Exception;
+   void setLoadStateHashtable(ABHashtable<Object, Object> hashtable) throws Exception;
    //void addCommand(Command command);
    
    int getType();

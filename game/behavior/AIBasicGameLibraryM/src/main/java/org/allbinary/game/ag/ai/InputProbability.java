@@ -57,9 +57,9 @@ public class InputProbability
         return this.timeDelayHelper;
     }
     
-    public ABHashtable<Object, Object>toHashtable()
+    public ABHashtable<Object, Object> toHashtable()
     {
-        ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
+        ABHashtable<Object, Object> hashtable = StdUtil.getInstance().createHashtable();
         
         hashtable.put(InputProbability.INPUT_PROBABILITY, this);
         

@@ -199,7 +199,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private BasicArrayList localPlayerGameInputList = new BasicArrayListD();
             //NoPlayerGameInput.getInstance();
     private boolean isCheating;
-    private ABHashtable<Object, Object>hashtable = this.stdUtil.NULL_TABLE;
+    private ABHashtable<Object, Object> hashtable = this.stdUtil.NULL_TABLE;
     private boolean isSingleKeyRepeatableProcessing;
     private BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface = BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY;
     private Paintable touchButtonsPaintable = NullPaintable.getInstance();
@@ -1319,7 +1319,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void loadState() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.LOAD);
-        ABHashtable<Object, Object>hashtable = this.getLoadStateHashtable();
+        ABHashtable<Object, Object> hashtable = this.getLoadStateHashtable();
 
         if (hashtable != null && hashtable.size() > 0)
         {
@@ -1331,14 +1331,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
     @Override
-    public ABHashtable<Object, Object>getLoadStateHashtable() throws Exception
+    public ABHashtable<Object, Object> getLoadStateHashtable() throws Exception
     {
         this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString(this.hashtable)).toString(), this, "getLoadStateHashtable");
         return this.hashtable;
     }
 
     @Override
-    public void setLoadStateHashtable(final ABHashtable<Object, Object>hashtable)
+    public void setLoadStateHashtable(final ABHashtable<Object, Object> hashtable)
     {
         this.logUtil.putF(
                 new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString(hashtable)).toString(), this, "setLoadStateHashtable");
@@ -1346,9 +1346,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
     @Override
-    public ABHashtable<Object, Object>getCurrentStateHashtable()
+    public ABHashtable<Object, Object> getCurrentStateHashtable()
     {
-        final ABHashtable<Object, Object>hashtable = this.stdUtil.createHashtable();
+        final ABHashtable<Object, Object> hashtable = this.stdUtil.createHashtable();
 
         final int level = this.gameLayerManager.getGameInfo().getCurrentLevel();
 

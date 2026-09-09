@@ -43,7 +43,7 @@ public class PacePatrolAI extends BasePatrolAI
     private int firingDistance;
     protected boolean isFollowLimitedByTerrain = false;
 
-    public PacePatrolAI(final ABHashtable<Object, Object>hashtable,
+    public PacePatrolAI(final ABHashtable<Object, Object> hashtable,
             final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
             throws Exception
     {

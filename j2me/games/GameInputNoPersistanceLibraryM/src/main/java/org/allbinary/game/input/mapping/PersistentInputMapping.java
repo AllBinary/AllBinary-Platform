@@ -135,13 +135,13 @@ public class PersistentInputMapping
         int totalMappedTo = 0;
         //TWB - Use selected profile/id for future imp
         final int size = list.size();
-        ABHashtable<Object, Object>hashtable;
+        ABHashtable<Object, Object> hashtable;
         Enumeration enumeration;
         Input mappedToInput;
         Input gameActionInput;
         for(int index = 0; index < size; index++)
         {
-            hashtable = (ABHashtable) list.objectArray[index];
+            hashtable = (ABHashtable<Object, Object>) list.objectArray[index];
             enumeration = hashtable.keys();
 
             while(this.enumerationUtil.hasMoreElements(enumeration))

@@ -26,7 +26,7 @@ public class SpinnerAIFactory
 {
     @Override
     public ArtificialIntelligenceInterface getInstance(
-          final ABHashtable<Object, Object>hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+          final ABHashtable<Object, Object> hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
     {
         final int[] direction = {Canvas.LEFT};
         return new SpinnerAI(direction, ownerLayerInterface, gameInput);

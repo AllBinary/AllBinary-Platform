@@ -38,7 +38,7 @@ public class TerrainPatrolAI extends PacePatrolAI
     
     private final BasicTerrainInfo CLIFF = new BasicTerrainInfo(this.DOWN);
 
-    public TerrainPatrolAI(final ABHashtable<Object, Object>hashtable,
+    public TerrainPatrolAI(final ABHashtable<Object, Object> hashtable,
             final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
        throws Exception
     {

@@ -135,13 +135,13 @@ public class PersistentInputMapping
         //TWB - Use selected profile/id for future imp
         final int size = list.size();
         //this.logUtil.putF("size: " + size, this, this.commonStrings.INIT);
-        ABHashtable<Object, Object>hashtable;
+        ABHashtable<Object, Object> hashtable;
         Enumeration enumeration;
         Input mappedToInput;
         Input gameActionInput;
         for(int index = 0; index < size; index++)
         {
-            hashtable = (ABHashtable) list.objectArray[index];
+            hashtable = (ABHashtable<Object, Object>) list.objectArray[index];
             //this.logUtil.putF("hashtable.keySet().size(): " + hashtable.keySet().size(), this, this.commonStrings.INIT);
             enumeration = hashtable.keys();
             

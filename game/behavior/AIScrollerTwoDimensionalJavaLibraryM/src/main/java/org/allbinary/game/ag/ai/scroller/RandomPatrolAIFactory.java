@@ -24,7 +24,7 @@ public class RandomPatrolAIFactory
 {
     @Override
     public ArtificialIntelligenceInterface getInstance(
-          final ABHashtable<Object, Object>hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+          final ABHashtable<Object, Object> hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
           throws Exception
     {
     	return new RandomPatrolAI(hashtable, ownerLayerInterface, gameInput);

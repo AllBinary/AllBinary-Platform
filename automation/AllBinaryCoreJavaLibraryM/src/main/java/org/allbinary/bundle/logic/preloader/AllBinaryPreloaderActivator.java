@@ -63,7 +63,7 @@ public class AllBinaryPreloaderActivator
     public void registerAsService()
     throws Exception
     {
-        final ABHashtable<Object, Object>properties = StdUtil.getInstance().createHashtable();
+        final ABHashtable<Object, Object> properties = StdUtil.getInstance().createHashtable();
         
         final ServiceRegistration serviceRegistration =
             AllBinaryPreloaderActivator.context.registerService(CRYPT_REGISTRY_NAME,

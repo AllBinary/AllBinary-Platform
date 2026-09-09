@@ -21,7 +21,7 @@ import org.allbinary.util.ABHashtable;
 
 public class BasicProbabilityAIDataFactory
 {
-    public ABHashtable<Object, Object>getInstance()
+    public ABHashtable<Object, Object> getInstance()
     {        
         final Integer[][] likelyhoodIntegerArray = new Integer[Canvas.KEY_NUM9 + 1][2];
 

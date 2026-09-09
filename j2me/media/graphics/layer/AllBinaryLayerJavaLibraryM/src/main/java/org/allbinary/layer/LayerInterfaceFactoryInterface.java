@@ -17,6 +17,6 @@ import org.allbinary.util.ABHashtable;
 
 public interface LayerInterfaceFactoryInterface {
 
-    AllBinaryLayer getNextInstance(final ABHashtable<Object, Object>hashtable, final int x, final int y, final int z)
+    AllBinaryLayer getNextInstance(final ABHashtable<Object, Object> hashtable, final int x, final int y, final int z)
            throws Exception;
 }

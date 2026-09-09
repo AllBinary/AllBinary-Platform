@@ -44,7 +44,7 @@ import org.allbinary.util.BasicArrayListD;
 public class RecordStoreHighScores extends HighScores
 {
 
-    private static final ABHashtable<Object, Object>hashTable = StdUtil.getInstance().createHashtable();
+    private static final ABHashtable<Object, Object> hashTable = StdUtil.getInstance().createHashtable();
 
     protected final LogUtil logUtil = LogUtil.getInstance();
     

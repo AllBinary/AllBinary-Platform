@@ -23,13 +23,13 @@ import org.allbinary.util.BasicArrayListD;
 
 public class AbeClientLicense implements AbeLicenseInterface
 {
-    private ABHashtable<Object, Object>hashtable;
+    private ABHashtable<Object, Object> hashtable;
     private String id;
     private BasicArrayList servers;
     private String special;
     private LicenseType licenseType;
 
-    public AbeClientLicense(ABHashtable<Object, Object>hashtable)
+    public AbeClientLicense(ABHashtable<Object, Object> hashtable)
     {
         this.hashtable = StdUtil.getInstance().createHashtable();
 

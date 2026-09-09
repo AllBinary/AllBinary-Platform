@@ -24,7 +24,7 @@ public class LayerUtil
 {
     private static final String HASHTABLE = "Hashtable: ";
     
-    public static String toString(final ABHashtable<Object, Object>hashtable, final int x, final int y, final int z)
+    public static String toString(final ABHashtable<Object, Object> hashtable, final int x, final int y, final int z)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
         final PositionStrings positionStrings = PositionStrings.getInstance();

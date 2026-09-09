@@ -242,7 +242,7 @@ public class RTSLayerUtil
     public final ABHashtable<Object, Object>createFakeRTSLayerHashtable(
             final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap)
     {
-        final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable<Object, Object> hashtable = StdUtil.getInstance().createHashtable();
         
         final FakeLayerManager layerManager = new FakeLayerManager(GameInfo.NONE);
         layerManager.setGeographicMapInterface(new BasicGeographicMap[] { baseRaceTrackGeographicMap});

@@ -21,7 +21,7 @@ import org.allbinary.util.ABHashtable;
 
 public class GameConfigurationTextInput
 {
-    private static ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
+    private static ABHashtable<Object, Object> hashtable = StdUtil.getInstance().createHashtable();
     
     public static GameConfigurationTextInput SIMULATOR_IP = 
         new GameConfigurationTextInput("IP: ", "192.168.1.3");
@@ -67,7 +67,7 @@ public class GameConfigurationTextInput
         return this.label;
     }
 
-    public static ABHashtable<Object, Object>getHashtable()
+    public static ABHashtable<Object, Object> getHashtable()
     {
         return GameConfigurationTextInput.hashtable;
     }

@@ -102,7 +102,7 @@ public class BuildingLayer
     private final Paintable damageFloatersPaintableInterface;
     private final Paintable healthBar;
 
-    private final ABHashtable<Object, Object>pathsHashtable;
+    private final ABHashtable<Object, Object> pathsHashtable;
 
     public BuildingLayer(
             final RemoteInfo remoteInfo,

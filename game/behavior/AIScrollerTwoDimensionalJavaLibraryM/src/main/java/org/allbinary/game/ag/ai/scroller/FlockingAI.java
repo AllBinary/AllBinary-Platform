@@ -30,7 +30,7 @@ public class FlockingAI extends BasicAI
 {
     private final int allowedDistance;
     
-    public FlockingAI(final ABHashtable<Object, Object>hashtable,
+    public FlockingAI(final ABHashtable<Object, Object> hashtable,
             final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
        throws Exception
     {

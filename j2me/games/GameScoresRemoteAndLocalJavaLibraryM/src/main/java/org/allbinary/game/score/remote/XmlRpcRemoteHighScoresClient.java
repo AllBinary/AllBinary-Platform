@@ -73,7 +73,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
             this.setClient(xmlRpcClient);
             xmlRpcClient.setBasicAuthentication(null, null);
 
-            ABHashtable<Object, Object>hashtable = (ABHashtable) object;
+            ABHashtable<Object, Object> hashtable = (ABHashtable<Object, Object>) object;
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Client Info: \n" + hashtable.toString());

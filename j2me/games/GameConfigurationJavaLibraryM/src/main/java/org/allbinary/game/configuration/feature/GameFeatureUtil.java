@@ -200,7 +200,7 @@ public class GameFeatureUtil
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), this, "updateExclusive");
 
         final Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
-        final ABHashtable<Object, Object>hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
+        final ABHashtable<Object, Object> hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
         final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
 
         BasicArrayList basicArrayList;

@@ -31,7 +31,7 @@ public class ThreedObjResources {
         return ThreedObjResources.instance;
     }
     
-    public final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
+    public final ABHashtable<Object, Object> hashtable = StdUtil.getInstance().createHashtable();
 
     public String get(final String resourceName) {
         final String resourceName2 = (String) this.hashtable.get(resourceName);

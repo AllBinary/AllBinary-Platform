@@ -251,7 +251,7 @@ public class KeySingletonFactory
    {
    }
    
-   public static ABHashtable<Object, Object>getHashtable()
+   public static ABHashtable<Object, Object> getHashtable()
    {
       return KeySingletonFactory.keyStringHashtable;
    }

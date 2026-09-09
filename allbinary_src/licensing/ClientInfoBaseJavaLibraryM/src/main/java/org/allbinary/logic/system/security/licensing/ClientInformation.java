@@ -165,7 +165,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * toHashtable()
      */
     @Override
-    public ABHashtable<Object, Object>toHashtable()
+    public ABHashtable<Object, Object> toHashtable()
     {
         final AbeClientInformationData abeClientInformationData = 
             AbeClientInformationData.getInstance();

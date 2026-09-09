@@ -33,7 +33,7 @@ public class ImageCacheBase
     
     protected final ImageFactory imageFactory = ImageFactory.getInstance();
 
-    protected final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
+    protected final ABHashtable<Object, Object> hashtable = StdUtil.getInstance().createHashtable();
 
     protected final int SIZE = 128;
     protected final int[] widths = new int[this.SIZE];
@@ -167,7 +167,7 @@ public class ImageCacheBase
         return stringBuffer.toString();
     }
 
-    public ABHashtable<Object, Object>getHashtableP()
+    public ABHashtable<Object, Object> getHashtableP()
     {
         return this.hashtable;
     }

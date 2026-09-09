@@ -29,7 +29,7 @@ public class CachingGeographicMapCellPositionFactory extends
     public GeographicMapCellPosition createInstance(final int i_column, final int i_row,
             final int width, final int height) throws Exception
     {
-        final ABHashtable<Object, Object>hashtable = GeographicMapCellPositionFactory.getHashtable();
+        final ABHashtable<Object, Object> hashtable = GeographicMapCellPositionFactory.getHashtable();
         
         final String cellPositionKey = CellPosition.toStringColRow(i_column, i_row);
 

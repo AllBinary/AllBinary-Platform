@@ -32,7 +32,7 @@ public class InputMapping
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
    //TWB - Use MapList someday
-    private final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
+    private final ABHashtable<Object, Object> hashtable = StdUtil.getInstance().createHashtable();
     private final BasicArrayList mappedList = new BasicArrayListD();
 
     protected InputMapping()
@@ -135,7 +135,7 @@ public class InputMapping
         return (BasicArrayList) mappingInputCanBeNullList;
     }
 
-    public ABHashtable<Object, Object>getHashtable()
+    public ABHashtable<Object, Object> getHashtable()
     {
         return this.hashtable;
     }
