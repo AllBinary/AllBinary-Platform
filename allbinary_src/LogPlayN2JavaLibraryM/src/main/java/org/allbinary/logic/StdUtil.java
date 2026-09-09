@@ -47,11 +47,11 @@ public class StdUtil {
     
     //ActualPlatform
     @JsProperty
-    public final ABHashtable NULL_TABLE = this.createHashtable();
+    public final ABHashtable<Object, Object> NULL_TABLE = this.createHashtable();
     
     //ActualPlatform
     @SuppressWarnings("unusable-by-js")
-    public final ABHashMap NULL_MAP = this.createHashMap();
+    public final ABHashMap<Object, Object> NULL_MAP = this.createHashMap();
     
     public final ABStack<Object> createStack() {
         return new ABStack<Object>();

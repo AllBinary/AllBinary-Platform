@@ -133,7 +133,7 @@ public class RTSLayer
      */
     private final String rootName;
 
-    protected final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+    protected final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
     private final int BUILD_VALUE = 63;
     public final GeographicMapCellPositionAreaBase geographicMapCellPositionAreaBase;
     

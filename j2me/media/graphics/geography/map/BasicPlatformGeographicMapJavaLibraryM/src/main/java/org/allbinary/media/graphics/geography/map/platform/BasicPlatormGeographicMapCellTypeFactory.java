@@ -36,7 +36,7 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
 
     private final int maxTileId;
     
-    public BasicPlatormGeographicMapCellTypeFactory(final ABHashtable tileTypeToTileIdsMap, final int maxTileId) {
+    public BasicPlatormGeographicMapCellTypeFactory(final ABHashtable<Object, Object>tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
 

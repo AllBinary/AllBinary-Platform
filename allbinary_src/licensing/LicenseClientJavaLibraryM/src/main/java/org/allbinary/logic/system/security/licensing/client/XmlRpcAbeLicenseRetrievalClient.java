@@ -65,7 +65,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             this.setClient(xmlRpcClient);
             xmlRpcClient.setBasicAuthentication(null, null);
 
-            final ABHashtable hashtable = this.getClientInfo().toHashtable();
+            final ABHashtable<Object, Object>hashtable = this.getClientInfo().toHashtable();
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             this.logUtil.putF(CLIENT_INFO + hashtable.toString(), this, this.commonStrings.GET);
@@ -93,7 +93,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             this.logUtil.putF(RESULT + result.toString(), this, this.commonStrings.GET);
             // }
 
-            final ABHashtable resultHashtable = (ABHashtable) result;
+            final ABHashtable<Object, Object>resultHashtable = (ABHashtable) result;
 
             if (!AbeClientLicense.hasRequiredKeys(resultHashtable))
             {

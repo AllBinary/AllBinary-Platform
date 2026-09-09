@@ -57,9 +57,9 @@ public class MobileClientInformation
     }
  
     @Override
-    public ABHashtable toHashtable()
+    public ABHashtable<Object, Object>toHashtable()
     {
-        final ABHashtable hashtable = super.toHashtable();
+        final ABHashtable<Object, Object>hashtable = super.toHashtable();
         
         final RegistrationConfiguration registrationConfiguration = RegistrationConfiguration.getInstance();
         

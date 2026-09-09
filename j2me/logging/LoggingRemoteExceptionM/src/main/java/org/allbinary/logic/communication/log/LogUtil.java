@@ -106,7 +106,7 @@ public class LogUtil {
                         throw new RuntimeException();
                     }
 
-                    final ABHashtable hashtable = this.abeClientInformation.toHashtable();
+                    final ABHashtable<Object, Object>hashtable = this.abeClientInformation.toHashtable();
 
                     this.stringBuffer.delete(0, this.stringBuffer.length());
                     this.stringBuffer.append(message);

@@ -1030,19 +1030,19 @@ public class GameMidlet extends ProgressMidlet
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.SAVE);
 
-        final ABHashtable hashtable = this.getCurrentStateHashtable();
+        final ABHashtable<Object, Object>hashtable = this.getCurrentStateHashtable();
         GamePersistanceSingleton.getInstance().save(this.abeClientInformation, hashtable);
     }
 
     @Override
-    public ABHashtable getCurrentStateHashtable() throws Exception
+    public ABHashtable<Object, Object>getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, "getCurrentStateHashtable");
-        final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
 
         if (this.allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
         {
-            final ABHashtable currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
+            final ABHashtable<Object, Object>currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
             final Enumeration enumeration = currentHashtable.keys();
             Object key;
             while (this.enumerationUtil.hasMoreElements(enumeration))

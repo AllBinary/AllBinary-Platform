@@ -38,7 +38,7 @@ public interface AbeClientInformationInterface
 
     int getNumberOfLicenseServers();
 
-    ABHashtable toHashtable();
+    ABHashtable<Object, Object>toHashtable();
 
     boolean isSameId(String alicenseId);
 

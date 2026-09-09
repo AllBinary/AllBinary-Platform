@@ -66,7 +66,7 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
 //
 //    }
     
-    public BasicTopViewGeographicMapCellTypeFactory(final ABHashtable tileTypeToTileIdsMap, final int maxTileId) {
+    public BasicTopViewGeographicMapCellTypeFactory(final ABHashtable<Object, Object>tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 

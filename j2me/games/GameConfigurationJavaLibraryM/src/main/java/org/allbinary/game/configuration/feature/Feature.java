@@ -20,7 +20,7 @@ import org.allbinary.util.ABHashtable;
 
 public class Feature
 {
-    private static ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+    private static ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
 
     private final String name;
 

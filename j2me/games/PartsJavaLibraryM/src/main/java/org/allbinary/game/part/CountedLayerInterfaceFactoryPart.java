@@ -63,7 +63,7 @@ public class CountedLayerInterfaceFactoryPart
         this.total = total;
     }
 
-    public AllBinaryLayer getInstance(final ABHashtable hashtable, final int x, final int y, final int z)
+    public AllBinaryLayer getInstance(final ABHashtable<Object, Object>hashtable, final int x, final int y, final int z)
         throws Exception {
         if (this.total > 0) {
             this.setTotal(this.total - 1);

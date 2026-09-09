@@ -24,7 +24,7 @@ public class GameFeatureChoiceGroups {
 	private static GameFeatureChoiceGroups gameFeatureChoiceGroupsMultiple = 
 		new GameFeatureChoiceGroups();
 	
-	private ABHashtable hashtable  = StdUtil.getInstance().createHashtable();
+	private ABHashtable<Object, Object>hashtable  = StdUtil.getInstance().createHashtable();
 	
 	private GameFeatureChoiceGroups()
 	{
@@ -41,7 +41,7 @@ public class GameFeatureChoiceGroups {
 		return GameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple;
 	}
 	
-	public ABHashtable get()
+	public ABHashtable<Object, Object>get()
 	{
 		return this.hashtable;
 	}

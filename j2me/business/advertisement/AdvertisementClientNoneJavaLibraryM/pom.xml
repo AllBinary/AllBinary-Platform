@@ -95,7 +95,7 @@
 
 
 
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
@@ -108,13 +108,13 @@
                         <configuration>
                             <classifier>sources</classifier>
                             <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
-                            <!--
-                            <outputDirectory>${project.build.directory}/sources</outputDirectory>
-                            -->
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
+                            <!--
+                            <outputDirectory>${project.build.directory}/sources</outputDirectory>
+                            -->
             
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -25,7 +25,7 @@ public class RandomPatrolAI extends BasePatrolAI
 {
     private boolean changedDirection = true;
     
-    public RandomPatrolAI(final ABHashtable hashtable,
+    public RandomPatrolAI(final ABHashtable<Object, Object>hashtable,
             final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
        throws Exception
     {

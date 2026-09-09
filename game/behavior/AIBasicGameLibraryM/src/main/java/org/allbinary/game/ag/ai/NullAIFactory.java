@@ -26,7 +26,7 @@ public class NullAIFactory
     
     @Override
     public ArtificialIntelligenceInterface getInstance(
-          final ABHashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+          final ABHashtable<Object, Object>hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
     {
         //return new NullAI();
     	return NullAIFactory.NULL_AI;

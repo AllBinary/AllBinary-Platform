@@ -24,7 +24,7 @@ public class KeySingletonFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private static ABHashtable keyStringHashtable = StdUtil.getInstance().createHashtable();
+   private static ABHashtable<Object, Object>keyStringHashtable = StdUtil.getInstance().createHashtable();
    //private static Integer[] integerArray = new Integer[0xFF];
    
    private static Integer[] keyArray =
@@ -251,7 +251,7 @@ public class KeySingletonFactory
    {
    }
    
-   public static ABHashtable getHashtable()
+   public static ABHashtable<Object, Object>getHashtable()
    {
       return KeySingletonFactory.keyStringHashtable;
    }

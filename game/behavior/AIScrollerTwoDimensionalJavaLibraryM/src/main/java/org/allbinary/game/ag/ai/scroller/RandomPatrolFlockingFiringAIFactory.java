@@ -25,7 +25,7 @@ public class RandomPatrolFlockingFiringAIFactory
 {
     @Override
     public ArtificialIntelligenceInterface getInstance(
-          final ABHashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+          final ABHashtable<Object, Object>hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
           throws Exception
     {
         final ArtificialIntelligenceInterface[] artificialIntelligenceInterface =

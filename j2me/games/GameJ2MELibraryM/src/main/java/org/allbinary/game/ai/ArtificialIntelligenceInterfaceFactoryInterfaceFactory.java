@@ -34,7 +34,7 @@ public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
        return ArtificialIntelligenceInterfaceFactoryInterfaceFactory.SINGLETON;
    }
    
-   public ArtificialIntelligenceInterfaceFactoryInterface getInstanceFromCollection(final ABHashtable hashtable)
+   public ArtificialIntelligenceInterfaceFactoryInterface getInstanceFromCollection(final ABHashtable<Object, Object>hashtable)
    {
       final Integer typeInteger = (Integer) hashtable.get((Object) BasicAI.ID);
        

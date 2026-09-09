@@ -38,7 +38,7 @@ public class GameFeatureFormUtil
         return GameFeatureFormUtil.instance;
     }
     
-    public ChoiceGroup getChoiceGroup(ABHashtable hashtable, String name, int option)
+    public ChoiceGroup getChoiceGroup(ABHashtable<Object, Object>hashtable, String name, int option)
     {
         final StringMaker stringMaker = new StringMaker();
         
@@ -66,7 +66,7 @@ public class GameFeatureFormUtil
         return choiceGroup;
     }
 
-    public void addChoiceGroup(CommandForm form, ABHashtable hashtable, int option)
+    public void addChoiceGroup(CommandForm form, ABHashtable<Object, Object>hashtable, int option)
     {
         final StringMaker stringMaker = new StringMaker();
 

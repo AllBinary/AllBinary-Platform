@@ -21,6 +21,6 @@ import org.allbinary.util.ABHashtable;
 public interface ArtificialIntelligenceInterfaceFactoryInterface {
     
     ArtificialIntelligenceInterface getInstance(
-          ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+          ABHashtable<Object, Object>hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
           throws Exception;
 }

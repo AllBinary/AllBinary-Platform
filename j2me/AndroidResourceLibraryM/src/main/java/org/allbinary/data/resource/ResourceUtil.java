@@ -48,7 +48,7 @@ public class ResourceUtil
     //private Activity activity;
     private Object context = NullUtil.getInstance().NULL_OBJECT;
     private Object resources = NullUtil.getInstance().NULL_OBJECT;
-    private ABHashtable hashMap = StdUtil.getInstance().createHashtable();
+    private ABHashtable<Object, Object>hashMap = StdUtil.getInstance().createHashtable();
 
     private ResourceUtil()
     {

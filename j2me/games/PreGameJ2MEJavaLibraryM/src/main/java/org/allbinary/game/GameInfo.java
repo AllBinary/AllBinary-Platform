@@ -120,9 +120,9 @@ public class GameInfo
       }
    }
    
-   public ABHashtable toHashtable()
+   public ABHashtable<Object, Object>toHashtable()
    {
-       final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+       final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
 
        hashtable.put(this.gameInfoData.GAME_TYPE, this.getGameType().toString());
        hashtable.put(this.gameInfoData.GAME_MODE, this.gameMode.toString());

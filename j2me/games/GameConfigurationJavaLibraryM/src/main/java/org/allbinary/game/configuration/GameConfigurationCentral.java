@@ -177,7 +177,7 @@ public class GameConfigurationCentral
 
             if (list.size() > 0)
             {
-                final ABHashtable hashtable = keyValuePersistance.get(0);
+                final ABHashtable<Object, Object>hashtable = keyValuePersistance.get(0);
                 final Object object = (Object) this.SCALE.getName();
                 final String value = (String) hashtable.get(object);
 

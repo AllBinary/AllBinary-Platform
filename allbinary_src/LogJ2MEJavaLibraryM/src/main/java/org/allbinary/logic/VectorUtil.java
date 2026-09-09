@@ -30,11 +30,13 @@ public class VectorUtil {
         return instance;
     }
     
-    public int getSize(final Object vector) {
-        return ((Vector) vector).size();
+    public int getSize(final Object object) {
+        final Vector<Object> vector = (Vector<Object>) object;
+        return vector.size();
     }
 
-    public Object elementAt(final Object vector, final int index) {
-        return ((Vector) vector).elementAt(index);
+    public Object elementAt(final Object object, final int index) {
+        final Vector<Object> vector = (Vector<Object>) object;
+        return vector.elementAt(index);
     }
 }

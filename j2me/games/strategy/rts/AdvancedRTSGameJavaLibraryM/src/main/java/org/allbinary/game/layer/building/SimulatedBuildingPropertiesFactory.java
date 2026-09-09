@@ -54,7 +54,7 @@ public class SimulatedBuildingPropertiesFactory extends BuildingPropertiesFactor
     }
     
     @Override
-    public ABHashtable getHashtable() {
+    public ABHashtable<Object, Object>getHashtable() {
         return StdUtil.getInstance().NULL_TABLE;
     }    
         

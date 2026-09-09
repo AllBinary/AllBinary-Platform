@@ -56,7 +56,7 @@ public class LayerPlacer
 
       final LayerInterfaceFactory layerInterfaceFactory = LayerInterfaceFactory.getInstance();
       
-      final ABHashtable hashtable = layerPlacementInterface.getInstance();
+      final ABHashtable<Object, Object>hashtable = layerPlacementInterface.getInstance();
 
       //J2ME does not have this so just leave it out for now
       //Set set = hashtable.keySet();
@@ -68,7 +68,7 @@ public class LayerPlacer
       
       final Enumeration enumeration = hashtable.keys();
       GPoint point;
-      ABHashtable layerHashtable;
+      ABHashtable<Object, Object>layerHashtable;
       int x;
       int y;
       int z;

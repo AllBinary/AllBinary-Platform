@@ -24,7 +24,7 @@ public class KeyPressesAIFactory implements
         ArtificialIntelligenceInterfaceFactoryInterface
 {
     @Override
-    public ArtificialIntelligenceInterface getInstance(ABHashtable hashtable,
+    public ArtificialIntelligenceInterface getInstance(ABHashtable<Object, Object>hashtable,
             AllBinaryLayer ownerLayerInterface, GameInput gameInput)throws Exception
     {
         final boolean isSingleKeyProcessing = 

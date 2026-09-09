@@ -54,7 +54,7 @@ public class TestInputAutomationActionWorker
 
         //this.startCaptureWorkers();
 
-        final ABHashtable hashtable = InputRobotFactory.getInstance().get();
+        final ABHashtable<Object, Object>hashtable = InputRobotFactory.getInstance().get();
         final Set set = hashtable.keySet();
                 
         final Object[] inputTypeNameArray = set.toArray();

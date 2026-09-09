@@ -37,7 +37,7 @@ public class ScreenScavangerRobot
 	this.logUtil.putF(this.commonStrings.START, this, "getScreenAsBufferedImages");
 	final Dimension dimScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	final Rectangle rectScreenSize = new Rectangle(dimScreenSize);
-	final ABHashtable robotHashtable = InputRobotFactory.getInstance().get();
+	final ABHashtable<Object, Object>robotHashtable = InputRobotFactory.getInstance().get();
 	BufferedImage[] bufferedImageArray = new BufferedImage[1];
 	int index = 0;
 	final InputRobotInterface inputRobotInterface

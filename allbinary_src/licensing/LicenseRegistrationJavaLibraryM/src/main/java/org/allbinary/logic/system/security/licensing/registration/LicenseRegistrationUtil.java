@@ -39,7 +39,7 @@ public class LicenseRegistrationUtil
             registrationConfiguration.setRegistrationCode(registrationId);
             registrationConfiguration.write();
 
-            final ABHashtable hashtable = abeClientInformation.toHashtable();
+            final ABHashtable<Object, Object>hashtable = abeClientInformation.toHashtable();
 
             hashtable.put(RegistrationConfiguration.getInstance().NAME, registrationId);
             hashtable.put("message", SpecialMessageUtil.getInstance().get());

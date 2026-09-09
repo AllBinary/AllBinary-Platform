@@ -38,10 +38,10 @@ public class StdUtil {
     public final ABVector<Object> EMPTY_VECTOR = this.createVector();
     
     //ActualPlatform
-    public final ABHashtable NULL_TABLE = this.createHashtable();
+    public final ABHashtable<Object, Object> NULL_TABLE = this.createHashtable();
     
     //ActualPlatform
-    public final ABHashMap NULL_MAP = this.createHashMap();
+    public final ABHashMap<Object, Object> NULL_MAP = this.createHashMap();
     
     public final ABStack<Object> createStack() {
         return new ABStack<Object>();

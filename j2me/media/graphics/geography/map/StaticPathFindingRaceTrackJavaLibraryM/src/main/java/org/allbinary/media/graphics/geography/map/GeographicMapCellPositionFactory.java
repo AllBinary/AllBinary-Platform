@@ -24,7 +24,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final static ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+    private final static ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
     
   //For the Non Caching version - Turning off caching here requires turning of caching of paths as well
     @Override
@@ -55,7 +55,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
         }
     }
 
-    public static ABHashtable getHashtable()
+    public static ABHashtable<Object, Object>getHashtable()
     {
         return GeographicMapCellPositionFactory.hashtable;
     }

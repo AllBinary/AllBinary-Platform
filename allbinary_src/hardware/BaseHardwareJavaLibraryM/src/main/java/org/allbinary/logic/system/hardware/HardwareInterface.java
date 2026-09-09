@@ -49,5 +49,5 @@ public interface HardwareInterface
     
     boolean compareTo(HardwareInterface hardwareInterface);
     
-    ABHashtable difference(HardwareInterface hardwareInterface);
+    ABHashtable<Object, Object>difference(HardwareInterface hardwareInterface);
 }

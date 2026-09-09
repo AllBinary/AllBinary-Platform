@@ -135,7 +135,7 @@ public class PersistentInputMapping
         int totalMappedTo = 0;
         //TWB - Use selected profile/id for future imp
         final int size = list.size();
-        ABHashtable hashtable;
+        ABHashtable<Object, Object>hashtable;
         Enumeration enumeration;
         Input mappedToInput;
         Input gameActionInput;

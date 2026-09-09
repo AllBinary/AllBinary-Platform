@@ -84,8 +84,8 @@ public class Tokenizer {
 
     //take a vector of strings is accepted and each string is broken in two by the specified seperator
     //and added to a hashmap
-    public ABHashtable getTokens(BasicArrayList stringVector) {
-        ABHashtable tokenHashtable = StdUtil.getInstance().createHashtable();
+    public ABHashtable<Object, Object>getTokens(BasicArrayList stringVector) {
+        ABHashtable<Object, Object>tokenHashtable = StdUtil.getInstance().createHashtable();
 
         String string = StringUtil.getInstance().EMPTY_STRING;
         int end = 0;

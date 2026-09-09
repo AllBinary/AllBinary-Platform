@@ -104,7 +104,7 @@ public class KeyValuePersistance extends BasicPersitance
 
     }
     
-    public void save(final AbeClientInformationInterface abeClientInformation, final ABHashtable hashtable) throws Exception
+    public void save(final AbeClientInformationInterface abeClientInformation, final ABHashtable<Object, Object>hashtable) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         
@@ -149,9 +149,9 @@ public class KeyValuePersistance extends BasicPersitance
 
     }
 
-    public ABHashtable get(int index)
+    public ABHashtable<Object, Object>get(int index)
     {
-        final ABHashtable hashtable = (ABHashtable) this.valueList.objectArray[index];
+        final ABHashtable<Object, Object>hashtable = (ABHashtable) this.valueList.objectArray[index];
         return hashtable;
     }
 }

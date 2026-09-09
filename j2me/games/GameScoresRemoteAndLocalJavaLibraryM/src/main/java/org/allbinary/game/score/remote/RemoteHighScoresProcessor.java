@@ -49,7 +49,7 @@ public class RemoteHighScoresProcessor
       final GameInfoData gameInfoData = GameInfoData.getInstance();
 
       // System.out.println(message);
-      final ABHashtable hashtable = abeClientInformation.toHashtable();
+      final ABHashtable<Object, Object>hashtable = abeClientInformation.toHashtable();
 
       HashtableUtil.getInstance().putAll(gameInfo.toHashtable(), hashtable);
       //hashtable.putAll(gameInfo.toHashtable());
@@ -76,7 +76,7 @@ public class RemoteHighScoresProcessor
 
       if(XmlRpcAbeClient.isOnline)
       {
-          ABHashtable resultHashtable = (ABHashtable) new XmlRpcRemoteHighScoresClient(abeClientInformation,
+          ABHashtable<Object, Object>resultHashtable = (ABHashtable) new XmlRpcRemoteHighScoresClient(abeClientInformation,
                   "highscoresservicessl.php", "HighScoresService.process").get(hashtable, this.noCrypt);
 
           remoteHighScores.update(resultHashtable);

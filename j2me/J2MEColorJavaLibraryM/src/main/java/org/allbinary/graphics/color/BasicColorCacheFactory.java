@@ -25,7 +25,7 @@ public class BasicColorCacheFactory
         return BasicColorCacheFactory.instance;
     }
 
-    private final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+    private final ABHashtable<Object, Object> hashtable = StdUtil.getInstance().createHashtable();
 
     private BasicColorCacheFactory()
     {

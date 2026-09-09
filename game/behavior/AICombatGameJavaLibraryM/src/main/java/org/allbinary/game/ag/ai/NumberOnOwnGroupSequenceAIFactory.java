@@ -27,7 +27,7 @@ public class NumberOnOwnGroupSequenceAIFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   public ArtificialIntelligenceInterface getInstance(final ABHashtable hashtable,
+   public ArtificialIntelligenceInterface getInstance(final ABHashtable<Object, Object>hashtable,
       final ArtificialIntelligenceInterface[] artificialIntelligenceInterface,
       final AllBinaryLayer ownerLayerInterface,
       final GameInput gameInput)

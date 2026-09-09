@@ -34,15 +34,15 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    private final ABHashtable hashtable;
-    private final ABHashtable rectangleHashtable;
-    private final ABHashtable rectangleArrayOfArraysHashtable;
+    private final ABHashtable<Object, Object>hashtable;
+    private final ABHashtable<Object, Object>rectangleHashtable;
+    private final ABHashtable<Object, Object>rectangleArrayOfArraysHashtable;
 
     private final String name;
 
     private boolean initialized;
 
-    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name, final ABHashtable hashtable, final ABHashtable rectangleHashtable, final ABHashtable rectangleArrayHashtable)
+    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name, final ABHashtable<Object, Object>hashtable, final ABHashtable<Object, Object>rectangleHashtable, final ABHashtable<Object, Object>rectangleArrayHashtable)
     {
         this.hashtable = hashtable;
         this.rectangleHashtable = rectangleHashtable;
@@ -150,17 +150,17 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     }
 
     @Override
-    public ABHashtable getHashtable()
+    public ABHashtable<Object, Object>getHashtable()
     {
         return this.hashtable;
     }
 
-    public ABHashtable getRectangleHashtable()
+    public ABHashtable<Object, Object>getRectangleHashtable()
     {
         return this.rectangleHashtable;
     }
 
-    public ABHashtable getRectangleArrayOfArraysHashtable()
+    public ABHashtable<Object, Object>getRectangleArrayOfArraysHashtable()
     {
         return this.rectangleArrayOfArraysHashtable;
     }

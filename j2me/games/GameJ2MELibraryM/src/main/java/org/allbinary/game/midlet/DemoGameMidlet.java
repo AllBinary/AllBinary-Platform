@@ -35,7 +35,7 @@ public class DemoGameMidlet extends GameMidlet
     
     protected boolean isContinue() throws Exception
     {
-        ABHashtable hashtable = this.getStartStateHashtable();
+        ABHashtable<Object, Object>hashtable = this.getStartStateHashtable();
         if (hashtable != null && hashtable.size() > 0)
         {
             return true;
@@ -110,7 +110,7 @@ public class DemoGameMidlet extends GameMidlet
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.start();
         
-        ABHashtable hashtable = this.getStartStateHashtable();
+        ABHashtable<Object, Object>hashtable = this.getStartStateHashtable();
         this.setStartStateHashtable(StdUtil.getInstance().NULL_TABLE);
 
         PrimaryThreadPool.getInstance().runTask(new CreateGameRunnable(this, hashtable));

@@ -90,7 +90,7 @@ public class GameOptionsForm extends CommandForm
     private void addTextFieldsIfSimulated()
     {
         String key = OrientationData.getInstance().ORIENTATION_SENSOR_INPUT;
-        final ABHashtable hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
+        final ABHashtable<Object, Object>hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
         if(hashtable != null)
         {
             Object listCanBeNull = hashtable.get(key);
@@ -106,7 +106,7 @@ public class GameOptionsForm extends CommandForm
     
     private void addTextFields()
     {
-        final ABHashtable hashtable = GameConfigurationTextInput.getHashtable();
+        final ABHashtable<Object, Object>hashtable = GameConfigurationTextInput.getHashtable();
         final int size = hashtable.size();
 
         final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
@@ -189,7 +189,7 @@ public class GameOptionsForm extends CommandForm
 
         GameConfigurationUtil.getInstance().updateCompetitionValue();
 
-        final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
         
         final GameConfiguration SCALE = GameConfigurationCentral.getInstance().SCALE;
         

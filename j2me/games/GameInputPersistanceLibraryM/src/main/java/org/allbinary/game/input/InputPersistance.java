@@ -66,7 +66,7 @@ public class InputPersistance extends BasicPersitance
         Input gameActionInput;
         Input input;
 
-        ABHashtable hashtable;
+        ABHashtable<Object, Object>hashtable;
         
         final GameKeyMappingFactory gameKeyFactory = GameKeyMappingFactory.getInstance();            
         final StringMaker stringBuffer = new StringMaker();
@@ -162,7 +162,7 @@ public class InputPersistance extends BasicPersitance
         }
     }
 
-    public void save(final AbeClientInformationInterface abeClientInformation, final ABHashtable hashtable) throws Exception
+    public void save(final AbeClientInformationInterface abeClientInformation, final ABHashtable<Object, Object>hashtable) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
 

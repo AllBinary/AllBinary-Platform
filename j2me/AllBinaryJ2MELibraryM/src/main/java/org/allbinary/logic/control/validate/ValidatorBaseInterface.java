@@ -23,7 +23,7 @@ public interface ValidatorBaseInterface
 
     String validationInfo();
 
-    ABHashtable toHashtable();
+    ABHashtable<Object, Object>toHashtable();
 
     BasicArrayList toList();
 

@@ -28,11 +28,11 @@ public class CreateGameRunnable implements Runnable
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final DemoGameMidlet demoGameMidlet;
-    private final ABHashtable hashtable;
+    private final ABHashtable<Object, Object>hashtable;
     
     private final DemoGameMidletEvent startGameMidletEvent;
     
-    public CreateGameRunnable(final DemoGameMidlet demoGameMidlet, final ABHashtable hashtable)
+    public CreateGameRunnable(final DemoGameMidlet demoGameMidlet, final ABHashtable<Object, Object>hashtable)
     {
         this.demoGameMidlet = demoGameMidlet;
         this.hashtable = hashtable;

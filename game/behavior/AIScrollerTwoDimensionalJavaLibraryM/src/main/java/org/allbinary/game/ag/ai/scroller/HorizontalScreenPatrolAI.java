@@ -50,7 +50,7 @@ extends BasicAI
     
     public static final Integer SOUND = SmallIntegerSingletonFactory.getInstance().getAt(433);
     
-    public HorizontalScreenPatrolAI(final ABHashtable hashtable,
+    public HorizontalScreenPatrolAI(final ABHashtable<Object, Object>hashtable,
             final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
        throws Exception
     {

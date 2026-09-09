@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.combat.canvas;
 
-
 import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
@@ -30,7 +29,6 @@ import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.layer.BasicLayerProcessor;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-
 
 public class CombatGameCanvas extends AllBinaryGameCanvas
 {

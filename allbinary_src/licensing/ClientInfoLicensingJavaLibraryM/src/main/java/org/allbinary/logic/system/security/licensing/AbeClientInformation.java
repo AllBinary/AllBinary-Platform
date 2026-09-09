@@ -43,7 +43,7 @@ public class AbeClientInformation extends ClientInformation
             this.setOperatingSystemInterface(
                 OperatingSystemFactory.getInstance().getOperatingSystemInstance());
 
-            LicenseInitInfo licenseInitInfo = 
+            final LicenseInitInfo licenseInitInfo = 
                 LicenseInitInfoUtil.getInstance().read();
             this.setLicenseId(licenseInitInfo.getLicenseId());
             this.setLicenseServers(licenseInitInfo.getServerList());

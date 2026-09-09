@@ -23,7 +23,7 @@ public class GameConfigurationSingleton
     private static GameConfigurationSingleton SINGLETON = new GameConfigurationSingleton();
     
     private BasicArrayList list;
-    private ABHashtable hashtable;
+    private ABHashtable<Object, Object>hashtable;
         
     public static GameConfigurationSingleton getInstance()
     {
@@ -51,7 +51,7 @@ public class GameConfigurationSingleton
         this.list.add(gameConfiguration);
     }
     
-    public ABHashtable getHashtable()
+    public ABHashtable<Object, Object>getHashtable()
     {
         return this.hashtable;
     }

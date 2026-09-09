@@ -46,7 +46,7 @@ public class InputRobotFactory
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+    private final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
     private HelpSetListener helpSetListenerInterface;
     
     private InputRobotFactory()
@@ -175,7 +175,7 @@ public class InputRobotFactory
         }
     }
     
-    public ABHashtable get() throws Exception
+    public ABHashtable<Object, Object>get() throws Exception
     {
         return this.hashtable;
     }

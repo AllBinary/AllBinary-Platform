@@ -63,7 +63,7 @@ public class InputPersistance extends BasicPersitance
 
         //DataInputStream inputStream;
 
-        ABHashtable hashtable;
+        ABHashtable<Object, Object>hashtable;
         //GameKeyMappingFactory gameKeyFactory = GameKeyMappingFactory.getInstance();            
         final StringMaker stringBuffer = new StringMaker();
         
@@ -140,7 +140,7 @@ public class InputPersistance extends BasicPersitance
         recordStore.closeRecordStore();
     }
 
-    public void save(final AbeClientInformationInterface abeClientInformation, ABHashtable hashtable) throws Exception
+    public void save(final AbeClientInformationInterface abeClientInformation, ABHashtable<Object, Object>hashtable) throws Exception
     {
         PreLogUtil.put(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
         //this.logUtil.putF("Saving: ").append(hashtable, this, this.commonStrings.SAVE);

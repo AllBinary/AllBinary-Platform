@@ -23,5 +23,5 @@ public interface FeatureResourceAnimationInterfaceFactoryInterface
    RectangleResourceFactoryInterface, 
    GameFeatureControlledInterface
 {
-    ABHashtable getHashtable();
+    ABHashtable<Object, Object>getHashtable();
 }

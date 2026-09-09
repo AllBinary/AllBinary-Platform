@@ -30,7 +30,7 @@ public class HashtableUtil
 
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
     
-    public void putAll(final ABHashtable fromHashtable, final ABHashtable hashtable)
+    public void putAll(final ABHashtable<Object, Object> fromHashtable, final ABHashtable<Object, Object> hashtable)
     {
         final Enumeration enumeration = fromHashtable.keys();
         Object keyCanBeNull;
@@ -51,7 +51,7 @@ public class HashtableUtil
         }
     }
 
-    public Object[] getKeysAsArray(final ABHashtable hashtable)
+    public Object[] getKeysAsArray(final ABHashtable<Object, Object> hashtable)
     {
         //return hashtable.keySet().toArray();
 
@@ -67,7 +67,7 @@ public class HashtableUtil
         return objectArray;
     }
 
-    public BasicArrayList getKeysAsList(final ABHashtable hashtable)
+    public BasicArrayList getKeysAsList(final ABHashtable<Object, Object> hashtable)
     {
         //throw new IllegalArgumentException("Should not use - to much object creation");
         //return hashtable.keySet().toArray();

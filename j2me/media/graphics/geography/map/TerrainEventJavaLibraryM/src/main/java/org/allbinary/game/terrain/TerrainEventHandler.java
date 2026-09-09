@@ -25,7 +25,7 @@ import org.allbinary.util.BasicArrayListD;
 public class TerrainEventHandler extends BasicEventHandler
 {
 
-   private static ABHashtable hashtable = StdUtil.getInstance().NULL_TABLE;
+   private static ABHashtable<Object, Object>hashtable = StdUtil.getInstance().NULL_TABLE;
 
    public static void init()
    {

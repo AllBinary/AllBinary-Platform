@@ -38,7 +38,7 @@ public class LevelLayersFinder {
 
     private final EnumerationUtil enumerationUtil = EnumerationUtil.getInstance();
     
-    public BasicArrayList get(final ABHashtable hashtable)
+    public BasicArrayList get(final ABHashtable<Object, Object>hashtable)
     {
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
@@ -46,7 +46,7 @@ public class LevelLayersFinder {
 
         final Enumeration enumeration = hashtable.keys();
 
-        ABHashtable layerHashtableCanBeNull;
+        ABHashtable<Object, Object>layerHashtableCanBeNull;
         Integer integerCanBeNull;
         Integer cachedIntegerCanBeNull;
         while(this.enumerationUtil.hasMoreElements(enumeration))

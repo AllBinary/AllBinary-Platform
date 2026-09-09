@@ -557,14 +557,14 @@ public class StartCanvas extends RunnableCanvas
     }
 
     @Override
-    public void setLoadStateHashtable(ABHashtable hashtable) throws Exception
+    public void setLoadStateHashtable(ABHashtable<Object, Object>hashtable) throws Exception
     {
         this.logUtil.putF(
             "Trying to continue a demo lol - only continue a game canvas not the demo", this, "setLoadStateHashtable");
     }
 
     @Override
-    public ABHashtable getLoadStateHashtable() throws Exception
+    public ABHashtable<Object, Object>getLoadStateHashtable() throws Exception
     {
         this.logUtil.putF(
             "Trying to continue a demo lol - only continue a game canvas not the demo", this, "getLoadStateHashtable");
@@ -572,7 +572,7 @@ public class StartCanvas extends RunnableCanvas
     }
 
     @Override
-    public ABHashtable getCurrentStateHashtable() throws Exception
+    public ABHashtable<Object, Object>getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF("Trying to save the AI lol", this, "getCurrentStateHashtable");
         return this.stdUtil.NULL_TABLE;

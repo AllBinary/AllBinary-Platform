@@ -102,7 +102,7 @@ public class TestInputForMotionRectanglesResultsWorker
 
          final Rectangle rectangle = (Rectangle) motionRectangleVector.get(0);
          
-         final ABHashtable robotHashtable = InputRobotFactory.getInstance().get();
+         final ABHashtable<Object, Object>robotHashtable = InputRobotFactory.getInstance().get();
          final Object[] inputTypeNameArray = robotHashtable.keySet().toArray();
          final int size = inputTypeNameArray.length;
          for(int index = 0; index < size; index++)

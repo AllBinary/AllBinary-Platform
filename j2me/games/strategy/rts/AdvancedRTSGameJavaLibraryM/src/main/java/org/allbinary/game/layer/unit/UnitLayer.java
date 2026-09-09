@@ -322,7 +322,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     @Override
     public void updateWaypointBehavior(final BasicGeographicMap geographicMapInterface) throws Exception {
 
-        final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
         hashtable.put(this.groupCommonFactory.ID, this.getGroupInterface());
         hashtable.put(Layer.ID, this);
         hashtable.put(AllBinaryGameLayerManager.ID, this.allBinaryGameLayerManagerP);

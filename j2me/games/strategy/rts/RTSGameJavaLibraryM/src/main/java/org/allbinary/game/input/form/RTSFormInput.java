@@ -45,7 +45,7 @@ public class RTSFormInput
 
     private final GroupCommonFactory groupCommonFactory = GroupCommonFactory.getInstance();
 
-    private final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+    private final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
         
     protected final CollidableDestroyableDamageableLayer[] newUnconstructedRTSLayerInterfaceArray = new CollidableDestroyableDamageableLayer[7];
     protected final Group[] groupInterfaceArray;
@@ -286,7 +286,7 @@ public class RTSFormInput
         this.selectedStickyItemIndex = selectedStickyItemIndex;
     }
 
-    public ABHashtable getHashtable()
+    public ABHashtable<Object, Object>getHashtable()
     {
         return this.hashtable;
     }

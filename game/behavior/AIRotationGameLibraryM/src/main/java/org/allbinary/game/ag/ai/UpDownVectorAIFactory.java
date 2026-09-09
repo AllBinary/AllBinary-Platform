@@ -24,7 +24,7 @@ public class UpDownVectorAIFactory
 {
     @Override
     public ArtificialIntelligenceInterface getInstance(
-          final ABHashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+          final ABHashtable<Object, Object>hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
           throws Exception
     {
         return new UpDownVectorAI(ownerLayerInterface, gameInput);

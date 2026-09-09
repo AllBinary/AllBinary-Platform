@@ -74,7 +74,7 @@ implements CommandListener
     private final String _DISPLAY_ = " Display: ";
     private final String SETTING_NO_TITLE = "Setting: No Title, Display: ";
     
-    private ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+    private ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
     private boolean midletDestroyed;
 
     public AllBinaryMidlet()
@@ -157,19 +157,19 @@ implements CommandListener
         }
     }
     
-    public void setStartStateHashtable(final ABHashtable hashtable) throws Exception
+    public void setStartStateHashtable(final ABHashtable<Object, Object>hashtable) throws Exception
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "setStartStateHashtable");
         this.hashtable = hashtable;
     }
 
-    public ABHashtable getStartStateHashtable() throws Exception
+    public ABHashtable<Object, Object>getStartStateHashtable() throws Exception
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(this.hashtable)).toString(), this, "getStartStateHashtable");
         return this.hashtable;
     }
 
-    public ABHashtable getCurrentStateHashtable() throws Exception
+    public ABHashtable<Object, Object>getCurrentStateHashtable() throws Exception
     {
         this.logUtil.putF(this.commonStrings.START, this, "getStateHashtable");
         return StdUtil.getInstance().NULL_TABLE;

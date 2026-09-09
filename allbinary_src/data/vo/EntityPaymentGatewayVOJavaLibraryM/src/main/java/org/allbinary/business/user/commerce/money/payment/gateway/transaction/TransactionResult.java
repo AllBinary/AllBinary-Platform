@@ -42,7 +42,7 @@ public class TransactionResult implements TransactionResultInterface
          BasicArrayList tokens = tokenizer.getTokensFromString(result, new BasicArrayListD());
          Tokenizer tokenizer2 = new Tokenizer(CommonSeps.getInstance().EQUALS);
          
-         ABHashtable hashtable = tokenizer2.getTokens(tokens);
+         ABHashtable<Object, Object>hashtable = tokenizer2.getTokens(tokens);
          //TWB - does this actually work?
          this.keyValuePairs.putAll(hashtable);
       }

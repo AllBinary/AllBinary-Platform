@@ -13,7 +13,7 @@
  */
 package org.allbinary.logic;
 
-import org.allbinary.util.ABVector;
+import java.util.Vector;
 
 /**
  *
@@ -30,12 +30,13 @@ public class VectorUtil {
         return instance;
     }
     
-    public int getSize(final Object vector) {
-        return ((ABVector) vector).size();
+    public int getSize(final Object object) {
+        final Vector<Object> vector = (Vector<Object>) object;
+        return vector.size();
     }
 
-    public Object elementAt(final Object vector, final int index) {
-        return ((ABVector) vector).elementAt(index);
+    public Object elementAt(final Object object, final int index) {
+        final Vector<Object> vector = (Vector<Object>) object;
+        return vector.elementAt(index);
     }
-    
 }

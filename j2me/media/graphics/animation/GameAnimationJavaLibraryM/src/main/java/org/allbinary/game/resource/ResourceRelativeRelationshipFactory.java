@@ -25,7 +25,7 @@ public class ResourceRelativeRelationshipFactory
 {
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     
-   private final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+   private final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
    
    private boolean initialized;
    

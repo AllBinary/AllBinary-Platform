@@ -27,7 +27,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     
-    public MultiKeyPressesAI(final ABHashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+    public MultiKeyPressesAI(final ABHashtable<Object, Object>hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
             throws Exception
     {
         super(hashtable, ownerLayerInterface, gameInput);

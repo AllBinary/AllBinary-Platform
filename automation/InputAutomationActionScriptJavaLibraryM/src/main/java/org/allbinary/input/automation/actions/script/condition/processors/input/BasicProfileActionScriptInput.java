@@ -79,7 +79,7 @@ public class BasicProfileActionScriptInput
         this.logUtil.putF(this.commonStrings.START + label, this, this.commonStrings.CONSTRUCTOR);
         
         final InputRobotFactory inputRobotFactory = InputRobotFactory.getInstance();
-        final ABHashtable hashtable = (ABHashtable) inputRobotFactory.get();
+        final ABHashtable<Object, Object>hashtable = (ABHashtable) inputRobotFactory.get();
         final Set set = hashtable.keySet();
         final Iterator iterator = set.iterator();
         this.setInputRobotInterface(inputRobotFactory.get((String) iterator.next()));

@@ -27,7 +27,7 @@ public class BasicRandomAIFactory implements
 {
     @Override
     public ArtificialIntelligenceInterface getInstance(
-            final ABHashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
+            final ABHashtable<Object, Object>hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
     throws Exception
     {        
         Visitor visitor = (Visitor) hashtable.get((Object) BasicAI.AI_VISITOR);

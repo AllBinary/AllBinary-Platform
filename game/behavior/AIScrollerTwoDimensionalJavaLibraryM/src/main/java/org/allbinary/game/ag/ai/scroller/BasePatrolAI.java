@@ -47,7 +47,7 @@ public class BasePatrolAI extends BasicAI
     protected int lastKeyDirection = Canvas.RIGHT;
     protected int keyDirection = Canvas.RIGHT;
     
-    public BasePatrolAI(final ABHashtable hashtable,
+    public BasePatrolAI(final ABHashtable<Object, Object>hashtable,
             final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
             throws Exception
     {

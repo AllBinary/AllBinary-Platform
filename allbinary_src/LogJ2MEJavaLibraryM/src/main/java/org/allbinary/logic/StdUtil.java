@@ -17,10 +17,6 @@ import org.allbinary.util.ABHashtable;
 import org.allbinary.util.ABStack;
 import org.allbinary.util.ABVector;
 
-/**
- *
- * @author User
- */
 //ActualPlatform
 public class StdUtil {
     
@@ -38,7 +34,7 @@ public class StdUtil {
     public final ABVector<Object> EMPTY_VECTOR = this.createVector();
     
     //ActualPlatform
-    public final ABHashtable NULL_TABLE = this.createHashtable();
+    public final ABHashtable<Object, Object> NULL_TABLE = this.createHashtable();
         
     public final ABStack<Object> createStack() {
         return new ABStack<Object>();

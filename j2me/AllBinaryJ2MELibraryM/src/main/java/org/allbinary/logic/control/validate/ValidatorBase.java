@@ -60,7 +60,7 @@ implements ValidatorBaseInterface
      * @see allbinary.logic.control.validate.ValidatorBaseInterface#toHashMap()
      */
     @Override
-    public ABHashtable toHashtable()
+    public ABHashtable<Object, Object>toHashtable()
     {
        return StdUtil.getInstance().NULL_TABLE;
     }

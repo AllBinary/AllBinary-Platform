@@ -17,6 +17,7 @@ import java.io.InputStream;
 
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullImage;
+import org.allbinary.J2MEUtil;
 
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.gd.resource.GDResources;
@@ -108,29 +109,35 @@ public class ImageCache extends ImageCacheBase
         if (image == NullImage.NULL_IMAGE)
         {
             final ResourceUtil resourceUtil = ResourceUtil.getInstance();
-            final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
+            final InputStream resourceInputStream = resourceUtil.getResourceAsStream((String) key);
             
-            if(inputStream == null) {
+            if(resourceInputStream == null) {
                 throw new RuntimeException(new StringMaker().append("Image resource is not available for key: ").append(StringUtil.getInstance().toString(key)).toString());
             }
 
             try
             {
                 //this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
-                image = this.createImageFromInputStream(key, inputStream);
+                image = this.createImageFromInputStream(key, resourceInputStream);
             }
             catch(Exception e)
             {
                 this.logUtil.put("Exception: Trying Again After GC", this, this.commonStrings.GET, e);
                 
-                this.logUtil.putF(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, this.commonStrings.GET);
+                this.logUtil.putF(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(resourceInputStream)).toString(), this, this.commonStrings.GET);
                 this.systemWrapper.gc();
                 this.systemWrapper.gc();
                 this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
                 Thread.sleep(100);
-                image = this.createImageFromInputStream(key, inputStream);
+                image = this.createImageFromInputStream(key, resourceInputStream);
             }
-            inputStream.close();
+
+            if(J2MEUtil.isHTML()) {
+                
+            } else {
+                resourceInputStream.close();
+            }
+            
             //Put in the name is really only for debugging
 //            if(DebugFactory.getInstance() != NoDebug.getInstance())
 //            {

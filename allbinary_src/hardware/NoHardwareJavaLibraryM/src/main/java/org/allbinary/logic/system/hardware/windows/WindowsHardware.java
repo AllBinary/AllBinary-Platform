@@ -110,7 +110,7 @@ public class WindowsHardware implements HardwareInterface
    }
    
    @Override
-   public ABHashtable difference(HardwareInterface hardwareInterface)
+   public ABHashtable<Object, Object>difference(HardwareInterface hardwareInterface)
    {
       return StdUtil.getInstance().NULL_TABLE;
    }

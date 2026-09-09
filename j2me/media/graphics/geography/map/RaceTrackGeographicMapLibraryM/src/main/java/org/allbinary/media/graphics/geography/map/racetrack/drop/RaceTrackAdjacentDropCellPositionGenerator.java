@@ -136,7 +136,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
 
         return nonRoadGeographicMapCellPosition;
     }
-    private final ABHashtable hashtable = StdUtil.getInstance().createHashtable();
+    private final ABHashtable<Object, Object>hashtable = StdUtil.getInstance().createHashtable();
 
     @Override
     public void update(final AllBinaryGameLayerManager allBinaryGameLayerManager,

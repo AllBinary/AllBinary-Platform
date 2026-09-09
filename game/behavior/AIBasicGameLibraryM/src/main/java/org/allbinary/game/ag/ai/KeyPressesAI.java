@@ -26,7 +26,7 @@ public class KeyPressesAI extends BasicAI {
    
    protected Integer[] keys;
 
-   public KeyPressesAI(ABHashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
+   public KeyPressesAI(ABHashtable<Object, Object>hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput) {
       super(ownerLayerInterface, gameInput);
 
       this.keys = new Integer[hashtable.size()];

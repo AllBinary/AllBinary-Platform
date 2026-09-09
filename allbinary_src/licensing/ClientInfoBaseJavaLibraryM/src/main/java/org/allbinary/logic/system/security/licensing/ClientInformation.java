@@ -165,14 +165,14 @@ public class ClientInformation implements AbeClientInformationInterface
      * toHashtable()
      */
     @Override
-    public ABHashtable toHashtable()
+    public ABHashtable<Object, Object>toHashtable()
     {
         final AbeClientInformationData abeClientInformationData = 
             AbeClientInformationData.getInstance();
         
         final GenericOperatingSystem genericOperatingSystem = this.getOperatingSystemInterface();
 
-        final ABHashtable clientInfoHashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable<Object, Object>clientInfoHashtable = StdUtil.getInstance().createHashtable();
         
         clientInfoHashtable.put(
                 abeClientInformationData.NAME, this.name);
