@@ -45,6 +45,7 @@
         <module>../../../replace_these_stub_projects/communication/YourXmlRpcJavaLibraryM</module>
         <module>../../../replace_these_stub_projects/allbinary_src/J2MEOnlyJavaLibraryM</module>
         <module>../../../replace_these_stub_projects/allbinary_src/J2MECompatibilityJavaLibraryM</module>
+        <module>../../../replace_these_stub_projects/allbinary_src/J2MEJsInteropCompatibilityJavaLibraryM</module>
 
         <module>../../DebugJavaLibraryM</module>             
         <module>../../ResourceLibraryM</module>
