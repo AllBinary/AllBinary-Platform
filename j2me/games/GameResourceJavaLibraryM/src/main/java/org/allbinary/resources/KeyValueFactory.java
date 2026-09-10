@@ -32,7 +32,7 @@ public class KeyValueFactory
         return KeyValueFactory.instance;
     }
     
-    public final ABHashtable<Object, Object>MAP = StdUtil.getInstance().createHashtable();
+    public final ABHashtable<Object, Object> MAP = StdUtil.getInstance().createHashtable();
     
     public String get(String key) {
         

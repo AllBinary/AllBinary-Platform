@@ -1042,7 +1042,7 @@ public class GameMidlet extends ProgressMidlet
 
         if (this.allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
         {
-            final ABHashtable<Object, Object>currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
+            final ABHashtable<Object, Object> currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
             final Enumeration enumeration = currentHashtable.keys();
             Object key;
             while (this.enumerationUtil.hasMoreElements(enumeration))

@@ -172,7 +172,7 @@ public class ClientInformation implements AbeClientInformationInterface
         
         final GenericOperatingSystem genericOperatingSystem = this.getOperatingSystemInterface();
 
-        final ABHashtable<Object, Object>clientInfoHashtable = StdUtil.getInstance().createHashtable();
+        final ABHashtable<Object, Object> clientInfoHashtable = StdUtil.getInstance().createHashtable();
         
         clientInfoHashtable.put(
                 abeClientInformationData.NAME, this.name);
