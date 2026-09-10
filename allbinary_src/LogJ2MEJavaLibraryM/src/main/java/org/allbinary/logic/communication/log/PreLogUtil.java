@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 //ActualPlatform
@@ -105,4 +106,7 @@ public class PreLogUtil
         System.out.println(message);
     }
     
+    public static String getClassName(Object object) {
+        return object.getClass().getName();
+    }
 }
