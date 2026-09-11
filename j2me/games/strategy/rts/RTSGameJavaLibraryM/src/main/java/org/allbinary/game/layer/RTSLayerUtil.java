@@ -239,7 +239,7 @@ public class RTSLayerUtil
         list.clear();
     }
     
-    public final ABHashtable<Object, Object>createFakeRTSLayerHashtable(
+    public final ABHashtable<Object, Object> createFakeRTSLayerHashtable(
             final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap)
     {
         final ABHashtable<Object, Object> hashtable = StdUtil.getInstance().createHashtable();
