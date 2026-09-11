@@ -26,6 +26,7 @@ import org.allbinary.logic.NullUtil;
  *
  * @author User
  */
+//Android
 public class TsUtil {
 
     private static final TsUtil instance = new TsUtil();

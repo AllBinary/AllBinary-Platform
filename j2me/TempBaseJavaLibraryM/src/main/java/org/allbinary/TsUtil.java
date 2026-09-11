@@ -17,6 +17,7 @@ package org.allbinary;
  *
  * @author User
  */
+//TempBase
 public class TsUtil {
 
     private static final TsUtil instance = new TsUtil();

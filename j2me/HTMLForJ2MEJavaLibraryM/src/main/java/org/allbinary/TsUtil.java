@@ -27,7 +27,7 @@ import org.allbinary.logic.NullUtil;
  *
  * @author User
  */
-
+//HTML
 public class TsUtil {
 
     private static final TsUtil instance = new TsUtil();
