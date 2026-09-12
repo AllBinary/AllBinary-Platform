@@ -20,6 +20,7 @@ import javax.microedition.lcdui.NullImage;
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.graphics.displayable.screen.CommandForm;
+import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -29,7 +30,6 @@ import org.allbinary.util.HashtableUtil;
 
 public class GameFeatureFormUtil
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final GameFeatureFormUtil instance = new GameFeatureFormUtil();
     
@@ -37,6 +37,10 @@ public class GameFeatureFormUtil
     {
         return GameFeatureFormUtil.instance;
     }
+ 
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    private final MEUtil meUtil = MEUtil.getInstance();
     
     public ChoiceGroup getChoiceGroup(ABHashtable<Object, Object> hashtable, String name, int option)
     {
@@ -66,7 +70,7 @@ public class GameFeatureFormUtil
         return choiceGroup;
     }
 
-    public void addChoiceGroup(CommandForm form, ABHashtable<Object, Object> hashtable, int option)
+    public void addChoiceGroup(final CommandForm form, final ABHashtable<Object, Object> hashtable, final int option)
     {
         final StringMaker stringMaker = new StringMaker();
 
@@ -75,14 +79,15 @@ public class GameFeatureFormUtil
         
         final int size = hashtable.size();
         final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        String name;
         for (int index = 0; index < size; index++)
         {
-            String name = (String) objectArray[index];
+            name = (String) objectArray[index];
 
             stringMaker.delete(0, stringMaker.length());
             this.logUtil.putF(stringMaker.append(ADDING_CHOICE_GROUP).append(name).toString(), this, ADD_CHOICE_GROUP);
 
-            form.append(this.getChoiceGroup(hashtable, name, option));
+            this.meUtil.appendItem(form, this.getChoiceGroup(hashtable, name, option));
         }
     }
 

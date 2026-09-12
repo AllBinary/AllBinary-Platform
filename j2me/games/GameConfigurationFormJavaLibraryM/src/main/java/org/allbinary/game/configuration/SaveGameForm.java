@@ -20,6 +20,7 @@ import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.logic.ABSystemWrapper;
+import org.allbinary.logic.MEUtil;
 
 public class SaveGameForm extends CommandForm
 {
@@ -39,6 +40,7 @@ public class SaveGameForm extends CommandForm
         return SaveGameForm.FORM;
     }
 
+    private final MEUtil meUtil = MEUtil.getInstance();
     private SaveGameForm(CommandListener commandListener, String title,
             BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
         throws Exception
@@ -48,8 +50,8 @@ public class SaveGameForm extends CommandForm
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         String timeString = Long.toString(ABSystemWrapper.getInstance().currentTimeMillis());
-        this.append(new TextField("Name: ", timeString, 30, TextField.ANY)); 
-        
+        this.meUtil.appendItem(this, new TextField("Name: ", timeString, 30, TextField.ANY));
+
         this.initCommands(commandListener);
     }
 

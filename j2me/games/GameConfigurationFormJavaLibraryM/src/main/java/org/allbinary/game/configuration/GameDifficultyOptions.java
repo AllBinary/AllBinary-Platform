@@ -22,12 +22,14 @@ import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GameDifficultyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
+import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class GameDifficultyOptions extends CommandForm
 {
+    private final MEUtil meUtil = MEUtil.getInstance();
     
     private final BasicArrayList list;
 
@@ -102,7 +104,7 @@ public class GameDifficultyOptions extends CommandForm
             choiceGroup.setSelectedIndex(0, true);
         }
 
-        this.append(choiceGroup);
+        this.meUtil.appendItem(this, choiceGroup);
     }
 
     private ChoiceGroup getChoiceGroup(final BasicArrayList list, final String name, final int option)
@@ -112,10 +114,11 @@ public class GameDifficultyOptions extends CommandForm
 
         final ChoiceGroup choiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullImage.NULL_IMAGE_ARRAY);
 
-        int size = list.size();
+        final int size = list.size();
+        Object object;
         for (int index = 0; index < size; index++)
         {
-            Object object = list.objectArray[index];
+            object = list.objectArray[index];
 
             this.logUtil.putF(new StringMaker().append(NAME).append(object.toString()).toString(), this, METHOD_NAME);
 

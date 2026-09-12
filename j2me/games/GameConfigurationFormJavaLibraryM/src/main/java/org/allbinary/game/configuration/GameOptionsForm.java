@@ -32,6 +32,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.input.gyro.OrientationData;
+import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
@@ -50,6 +51,8 @@ public class GameOptionsForm extends CommandForm
         return SINGLETON;
     }
     */
+    
+    private final MEUtil meUtil = MEUtil.getInstance();
 
     public GameOptionsForm(final CommandListener commandListener, final String title,
             final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor)
@@ -119,7 +122,7 @@ public class GameOptionsForm extends CommandForm
             textField = new TextField(gameConfigurationTextInput.getLabel(), 
                 gameConfigurationTextInput.getText(), 30,TextField.ANY);
 
-            this.append(textField);
+            this.meUtil.appendItem(this, textField);
         }
     }
 
@@ -152,7 +155,7 @@ public class GameOptionsForm extends CommandForm
                     //.getInstance());
             // this.setCommandListener(l);
 
-            this.append(gauge);
+            this.meUtil.appendItem(this, gauge);
         }
     }
 

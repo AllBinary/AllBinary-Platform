@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.configuration;
 
-
 import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
@@ -25,6 +24,7 @@ import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
+import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
@@ -32,6 +32,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class LoadGameForm extends CommandForm
 {
+    private final MEUtil meUtil = MEUtil.getInstance();
 
     private boolean areChoices;
     
@@ -74,7 +75,7 @@ public class LoadGameForm extends CommandForm
         }
         else
         {
-            this.append(new StringItem("No Saved Games", StringUtil.getInstance().EMPTY_STRING, Item.PLAIN));
+            this.meUtil.appendItem(this, new StringItem("No Saved Games", StringUtil.getInstance().EMPTY_STRING, Item.PLAIN));
             this.areChoices = false;
         }
 
@@ -90,7 +91,7 @@ public class LoadGameForm extends CommandForm
             choiceGroup.setSelectedIndex(0, true);
         }
 
-        this.append(choiceGroup);
+        this.meUtil.appendItem(this, choiceGroup);
     }
 
     private ChoiceGroup getChoiceGroup(final BasicArrayList list, final String name, final int option)
