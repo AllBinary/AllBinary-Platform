@@ -45,6 +45,7 @@ globalThis.org.allbinary = globalThis.org.allbinary || {}; &#10;
 globalThis.org.allbinary.graphics = globalThis.org.allbinary.graphics || {}; &#10;
 globalThis.org.allbinary.graphics.opengles = globalThis.org.allbinary.graphics.opengles || {}; &#10;
 globalThis.org.allbinary.graphics.opengles.CurrentDisplayableFactory = CurrentDisplayableFactory; &#10;
+console.log('Exported CurrentDisplayableFactory as globalThis'); &#10;
 */
 public class CurrentDisplayableFactory
 {
