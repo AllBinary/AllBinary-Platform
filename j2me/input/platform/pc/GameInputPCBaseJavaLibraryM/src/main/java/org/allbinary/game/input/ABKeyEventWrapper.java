@@ -14,6 +14,7 @@
 package org.allbinary.game.input;
 
 import java.awt.event.KeyEvent;
+
 import jsinterop.annotations.JsType;
 
 /**

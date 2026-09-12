@@ -90,6 +90,7 @@
         <module>../../input/platform/me/GameInputMEJavaLibraryM</module>
         <module>../../input/platform/me/GameInputMEKeyOnlyJavaLibraryM</module>
         <module>../../input/platform/me/GameInputMEMotionJavaLibraryM</module>
+        <module>../../input/platform/pc/GameInputPCBaseJavaLibraryM</module>
         <module>../../input/platform/pc/GameInputPCJavaLibraryM</module>
         <module>../../input/platform/pc/GameInputPCKeyOnlyJavaLibraryM</module>
         <module>../../input/platform/pc/GameInputPCMotionJavaLibraryM</module>
