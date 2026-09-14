@@ -17,7 +17,7 @@ import org.allbinary.string.CommonStrings;
 
 public class NullHighScoresSingletonFactory
 {
-    private static final HighScores SINGLETON = new HighScores("Loading", "High Scores Not Loaded", 
+    private static final HighScores SINGLETON = new HighScores(CommonStrings.getInstance().LOADING, "High Scores Not Loaded", 
             CommonStrings.getInstance().PERIODS);
     
     public static final HighScores getInstance()
