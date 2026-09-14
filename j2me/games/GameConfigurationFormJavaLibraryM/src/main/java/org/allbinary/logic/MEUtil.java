@@ -28,7 +28,7 @@ public class MEUtil {
      * @return the instance
      */
     public static MEUtil getInstance() {
-        return instance;
+        return MEUtil.instance;
     }
     
     private static final MEUtil instance = new MEUtil();
