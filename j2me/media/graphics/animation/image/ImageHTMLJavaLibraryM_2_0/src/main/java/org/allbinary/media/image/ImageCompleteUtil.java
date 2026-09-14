@@ -54,6 +54,8 @@ public class ImageCompleteUtil {
         final PlaynImage playnImage = (PlaynImage) image;
         final playn.core.Image playnCoreImage = (playn.core.Image) playnImage.getImage();
         
+        //PreLogUtil.put("playnImage: " + playnImage, this, "waitForImage");
+        //PreLogUtil.put("playnCoreImage: " + (playnCoreImage != null ? playnCoreImage.toString() : StringUtil.getInstance().NULL_STRING), this, this.ISREADY);
         //if(!playnCoreImage.isReady()) PreLogUtil.put("core Image Ready: " + image.getName() + " " + playnCoreImage.width() + playnCoreImage.height(), this, ISREADY);
         if (!playnCoreImage.isReady() || playnCoreImage.width() + playnCoreImage.height() <= 0)
         {
@@ -80,7 +82,7 @@ public class ImageCompleteUtil {
                 PreLogUtil.put("Waiting for Not Ready Image: " + image.getName(), this, this.ISREADY);
             }
         }
-        
+
         final CommonStrings commonStrings = CommonStrings.getInstance();
         PreLogUtil.put(this.COMPLETE + image.getName(), this, commonStrings.SUCCESS);
         return true;
