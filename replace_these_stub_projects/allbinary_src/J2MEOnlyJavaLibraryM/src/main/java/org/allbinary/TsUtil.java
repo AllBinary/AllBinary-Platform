@@ -98,4 +98,8 @@ public class TsUtil {
         }
     }
     
+    public void printAvailableMethods(Object object) {
+    
+    }
+
 }

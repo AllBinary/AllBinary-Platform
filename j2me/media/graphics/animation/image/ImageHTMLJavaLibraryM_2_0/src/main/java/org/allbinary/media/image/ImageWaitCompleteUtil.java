@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.image.GameFeatureImageCacheFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.ABHashtable;
 import org.allbinary.util.HashtableUtil;
@@ -33,7 +34,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     
     //private final String WAIT = "Waiting to load image";
 
-    private final String METHOD_NAME = "waitForLoad";
+    //private final String METHOD_NAME = "waitForLoad";
 
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(18000);
     private final TimeDelayHelper allTimeDelayHelper = new TimeDelayHelper(120000);
@@ -63,6 +64,8 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
         final PlaynImage playnImage = (PlaynImage) image;
         final playn.core.Image playnCoreImage = (playn.core.Image) playnImage.getImage();
         
+        //PreLogUtil.put("playnImage: " + playnImage, this, "waitForImage");
+        //PreLogUtil.put("playnCoreImage: " + (playnCoreImage != null ? playnCoreImage.toString() : StringUtil.getInstance().NULL_STRING), this, "waitForATime");
         //if(!playnCoreImage.isReady()) PreLogUtil.put("core Image Ready: " + image.getName() + " " + playnCoreImage.width() + playnCoreImage.height(), this, ISREADY);
         while(!playnCoreImage.isReady() || playnCoreImage.width() + playnCoreImage.height() <= 0)
         {   

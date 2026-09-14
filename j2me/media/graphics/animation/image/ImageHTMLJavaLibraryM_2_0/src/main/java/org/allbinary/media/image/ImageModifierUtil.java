@@ -20,7 +20,9 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 import org.microemu.device.playn.PlaynImage;
 import org.microemu.device.ResourceCallbackStrings;
@@ -140,6 +142,7 @@ public class ImageModifierUtil {
         
         if (image3 != null) {
 
+            //PreLogUtil.put("playnCoreImage: " + (image3 != null ? image3.toString() : StringUtil.getInstance().NULL_STRING), this, "handleImage");
             if (image3.isReady() || image3.width() + image3.height() <= 0 || image.getName() == this.resourceCallbackStrings.FROM_DATA) {
                 this.copy(imageArray, index, image, image3);
             } else {
