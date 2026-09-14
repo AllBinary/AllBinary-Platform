@@ -13,10 +13,15 @@
  */
 package org.allbinary.game.displayable.canvas;
 
-/**
- *
- * @author User
- */
+/*//JSNI Expose so JSNI can access this class *** &#10;
+globalThis.org = globalThis.org || {}; &#10;
+globalThis.org.allbinary = globalThis.org.allbinary || {}; &#10;
+globalThis.org.allbinary.game = globalThis.org.allbinary.game || {}; &#10;
+globalThis.org.allbinary.game.displayable = globalThis.org.allbinary.game.displayable || {}; &#10;
+globalThis.org.allbinary.game.displayable.canvas = globalThis.org.allbinary.game.displayable.canvas || {}; &#10;
+globalThis.org.allbinary.game.displayable.canvas.NullWaitGameRunnable = NullWaitGameRunnable; &#10;
+console.log('Exported NullWaitGameRunnable as globalThis'); &#10;
+*/
 public class NullWaitGameRunnable extends GameRunnable {
     
     private static final GameRunnable instance = new NullWaitGameRunnable();
