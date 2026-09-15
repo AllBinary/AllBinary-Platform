@@ -246,7 +246,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         }
     }
 
-    public void updateCommand(Command command) throws Exception
+    public void updateCommand(final Command command) throws Exception
     {
         this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.stringUtil.toString(command)).toString(), this, this.commonStrings.UPDATE);
 

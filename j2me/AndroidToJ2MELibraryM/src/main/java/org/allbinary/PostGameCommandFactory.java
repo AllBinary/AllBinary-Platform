@@ -27,7 +27,6 @@ public class PostGameCommandFactory {
     
     private static final PostGameCommandFactory instance = new PostGameCommandFactory();
 
-
     /**
      * @return the instance
      */
@@ -35,7 +34,7 @@ public class PostGameCommandFactory {
         return PostGameCommandFactory.instance;
     }
     
-    public void addCommands(MyCanvas canvas) {
+    public void addCommands(final MyCanvas canvas) {
         
         final GenericOperatingSystem operatingSystemInterface = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
         final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();

@@ -58,7 +58,7 @@ public class SaveGameForm extends CommandForm
     @Override
     public void initCommands(CommandListener cmdListener)
     {
-        GameCommandsFactory gameCommandsFactory = 
+        final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
         
         this.removeAllCommands();
