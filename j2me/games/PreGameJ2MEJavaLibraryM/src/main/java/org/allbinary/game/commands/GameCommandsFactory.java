@@ -17,17 +17,22 @@ package org.allbinary.game.commands;
 import javax.microedition.lcdui.Command;
 
 import org.allbinary.graphics.displayable.CanvasStrings;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 
 public class GameCommandsFactory
 {
-    private static final GameCommandsFactory instance = new GameCommandsFactory();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
     public static GameCommandsFactory getInstance()
     {
-        return GameCommandsFactory.instance;
+        if(GameCommandsFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GameCommandsFactory.instance = new GameCommandsFactory();
+        }
+        
+        return (GameCommandsFactory) GameCommandsFactory.instance;
     }
         
     public final Command TOGGLE_FULLSCREEN  = new Command("Toggle FullScreen", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
