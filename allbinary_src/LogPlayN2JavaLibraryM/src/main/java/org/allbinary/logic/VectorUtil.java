@@ -14,11 +14,13 @@
 package org.allbinary.logic;
 
 import java.util.Vector;
+import jsinterop.annotations.JsType;
 
 /**
  *
  * @author User
  */
+@JsType
 public class VectorUtil {
     
     private static final VectorUtil instance = new VectorUtil();
