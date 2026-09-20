@@ -16,6 +16,7 @@ package org.allbinary.media.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -56,7 +57,7 @@ public class ImageCompleteUtil {
         
         //PreLogUtil.put("playnImage: " + playnImage, this, "waitForImage");
         //PreLogUtil.put("playnCoreImage: " + (playnCoreImage != null ? playnCoreImage.toString() : StringUtil.getInstance().NULL_STRING), this, this.ISREADY);
-        //if(!playnCoreImage.isReady()) PreLogUtil.put("core Image Ready: " + image.getName() + " " + playnCoreImage.width() + playnCoreImage.height(), this, ISREADY);
+        //if(!playnCoreImage.isReady()) PreLogUtil.put("core Image Ready: " + image.getName() + CommonSeps.getInstance().SPACE + playnCoreImage.width() + playnCoreImage.height(), this, this.ISREADY);
         if (!playnCoreImage.isReady() || playnCoreImage.width() + playnCoreImage.height() <= 0)
         {
             /*
