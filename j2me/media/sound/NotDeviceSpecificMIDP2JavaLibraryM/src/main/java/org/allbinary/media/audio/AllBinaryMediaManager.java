@@ -18,6 +18,7 @@ import java.io.InputStream;
 import javax.microedition.media.Manager;
 import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
+import org.allbinary.TsUtil;
 
 import org.allbinary.audio.AudioContentTypeDataFactory;
 import org.allbinary.data.resource.ResourceUtil;
@@ -87,7 +88,7 @@ public class AllBinaryMediaManager
     {
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().SOUND))
         {
-            if (resource.compareTo(Manager.TONE_DEVICE_LOCATOR) == 0)
+            if (TsUtil.getInstance().compareTo(resource, Manager.TONE_DEVICE_LOCATOR) == 0)
             {
                 return Manager.createPlayer(resource);
             } else

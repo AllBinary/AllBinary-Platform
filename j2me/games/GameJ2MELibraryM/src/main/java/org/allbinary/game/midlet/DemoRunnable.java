@@ -46,13 +46,14 @@ public class DemoRunnable implements Runnable
     {
         try
         {
-            this.logUtil.putF(
-                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(), this, this.commonStrings.RUN);
+            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(), this, this.commonStrings.RUN);
 
             this.demoGameMidlet.commandAction(
                     MyCommandsFactory.getInstance().SET_DISPLAYABLE,
                     ProgressCanvasFactory.getInstance());
 
+            //this.logUtil.putF("GameCanvasRunnableInterface - 0", this, this.commonStrings.RUN);
+            
             //ProgressCanvasFactory.getInstance().waitUntilDisplayed();
 
             // mediaInit();
@@ -61,15 +62,20 @@ public class DemoRunnable implements Runnable
                 this.demoGameMidlet.createDemoGameCanvasRunnableInterface());
                 //((DemoGameMidletJs) this.demoGameMidlet).createDemoGameCanvasRunnableInterface());
 
+            //this.logUtil.putF("GameCanvasRunnableInterface - 1", this, this.commonStrings.RUN);
+
             this.demoGameMidlet.demoSetup();
+            
+            //this.logUtil.putF("GameCanvasRunnableInterface - 2", this, this.commonStrings.RUN);
             
             // this.setDisplay((Displayable)
             // this.getGameCanvasRunnableInterface());
 
-            DemoGameMidletEventHandler.getInstance().fireEvent(
-                    this.startDemoGameMidletEvent);
+            DemoGameMidletEventHandler.getInstance().fireEvent(this.startDemoGameMidletEvent);
 
             this.demoGameMidlet.startGameCanvasRunnableInterface();
+            
+            //this.logUtil.putF("GameCanvasRunnableInterface - 3", this, this.commonStrings.RUN);
             
             this.demoGameMidlet.postDemoSetup();
 
