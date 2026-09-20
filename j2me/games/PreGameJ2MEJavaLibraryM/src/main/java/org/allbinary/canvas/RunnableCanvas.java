@@ -73,17 +73,18 @@ public class RunnableCanvas extends MyCanvas
     {
         super(CommonStrings.getInstance().UNKNOWN, childNameList);
         
-        this.logUtil.putF(new StringMaker().append("delay: ").appendint(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(new StringMaker().append("RunnableCanvas delay: ").appendint(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR);
         
         //this.processPaintable = ProcessPaintableSingletonFactory.getInstance();
         this.runnableCanvasRefreshHelper = new RunnableCanvasRefreshHelper(this);
-
+        
         if(commandListener != null)
         {
             this.initCommands(commandListener);
         } else if(hasParam) {
             this.logUtil.putF("commandListener was null", this, "initCommands");
         }
+        
     }
 
     //Empty method for overriding 
