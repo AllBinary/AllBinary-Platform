@@ -14,13 +14,12 @@
 package org.allbinary.graphics;
 
 import jsinterop.annotations.JsType;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonSeps;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsConstructor;
-
 
 @JsType
 public class GPoint 
