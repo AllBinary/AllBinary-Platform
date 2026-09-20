@@ -27,7 +27,7 @@ public class TextChangeListener {
      * @return the instance
      */
     public static TextChangeListener getInstance() {
-        return instance;
+        return TextChangeListener.instance;
     }
     
     void onMeasure() {

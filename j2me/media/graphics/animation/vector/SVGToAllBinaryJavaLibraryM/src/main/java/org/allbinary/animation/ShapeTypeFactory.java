@@ -25,7 +25,7 @@ public class ShapeTypeFactory {
      * @return the instance
      */
     public static ShapeTypeFactory getInstance() {
-        return instance;
+        return ShapeTypeFactory.instance;
     }
     
     public final String KEY_LINE = "line";

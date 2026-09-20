@@ -27,7 +27,7 @@ public class CommonDataFileStrings {
      * @return the instance
      */
     public static CommonDataFileStrings getInstance() {
-        return instance;
+        return CommonDataFileStrings.instance;
     }
     
     //final CommonDataFileStrings commonDataFileStrings = CommonDataFileStrings.getInstance();

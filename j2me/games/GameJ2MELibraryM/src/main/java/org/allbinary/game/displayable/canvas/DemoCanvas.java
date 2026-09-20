@@ -188,6 +188,8 @@ public class DemoCanvas extends RunnableCanvas
     {
         super(commandListener, CurrentDisplayableFactory.getInstance().DEFAULT_CHILD_NAME_LIST, true);
     
+//        this.logUtil.putF(this.commonStrings.START + ":DemoCanvas", this, this.commonStrings.CONSTRUCTOR);
+        
         this.abeClientInformation = abeClientInformation;
 
         //Give time for initialization of demogame by default
@@ -321,13 +323,13 @@ public class DemoCanvas extends RunnableCanvas
     }
 
     @Override
-    public void initCommands(CommandListener cmdListener)
+    public void initCommands(final CommandListener cmdListener)
     {
         this.removeAllCommands();
 
-        Object[] commandArray = this.getCustomCommands();
+        final Object[] commandArray = this.getCustomCommands();
 
-        int size = commandArray.length;
+        final int size = commandArray.length;
         for (int index = 0; index < size; index++)
         {
             this.addCommand((Command) commandArray[index]);

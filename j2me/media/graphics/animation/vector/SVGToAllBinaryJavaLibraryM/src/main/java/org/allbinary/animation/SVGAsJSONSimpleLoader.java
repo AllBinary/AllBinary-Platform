@@ -34,7 +34,7 @@ public class SVGAsJSONSimpleLoader
      * @return the instance
      */
     public static SVGAsJSONSimpleLoader getInstance() {
-        return instance;
+        return SVGAsJSONSimpleLoader.instance;
     }
     
     private final ShapeTypeFactory shapeTypeFactory = ShapeTypeFactory.getInstance();

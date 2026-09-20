@@ -9,7 +9,7 @@ public class FixedPoint {
      * @return the instance
      */
     public static FixedPoint getInstance() {
-        return instance;
+        return FixedPoint.instance;
     }
     
     public final int ONE = 1 << 16;

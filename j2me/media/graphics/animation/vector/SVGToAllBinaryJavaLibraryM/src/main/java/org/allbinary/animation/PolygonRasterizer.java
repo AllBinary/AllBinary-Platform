@@ -8,7 +8,7 @@ public class PolygonRasterizer {
      * @return the instance
      */
     public static PolygonRasterizer getInstance() {
-        return instance;
+        return PolygonRasterizer.instance;
     }
     
     public int[] getPixelBuffer(final String svgPath, final int[] pathX, final int[] pathY, final int[] pixelBuffer, final int width, final int height) { 

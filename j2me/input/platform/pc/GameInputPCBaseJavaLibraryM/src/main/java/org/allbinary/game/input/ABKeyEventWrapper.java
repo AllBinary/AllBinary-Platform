@@ -30,7 +30,7 @@ public class ABKeyEventWrapper {
      * @return the instance
      */
     public static ABKeyEventWrapper getInstance() {
-        return instance;
+        return ABKeyEventWrapper.instance;
     }
     
     public final int VK_ENTER = KeyEvent.VK_ENTER;

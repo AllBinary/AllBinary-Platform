@@ -9,7 +9,7 @@ public class PGUtil {
      * @return the instance
      */
     public static PGUtil getInstance() {
-        return instance;
+        return PGUtil.instance;
     }
     
     //De Casteljau's algorithm

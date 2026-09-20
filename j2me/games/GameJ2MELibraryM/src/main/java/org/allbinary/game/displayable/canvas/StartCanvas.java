@@ -300,13 +300,13 @@ public class StartCanvas extends RunnableCanvas
     }
 
     @Override
-    public void initCommands(CommandListener cmdListener)
+    public void initCommands(final CommandListener cmdListener)
     {
         this.removeAllCommands();
 
-        Object[] commandArray = this.getCustomCommands();
+        final Object[] commandArray = this.getCustomCommands();
 
-        int size = commandArray.length;
+        final int size = commandArray.length;
         for (int index = 0; index < size; index++)
         {
             this.addCommand((Command) commandArray[index]);

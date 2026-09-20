@@ -28,7 +28,7 @@ public class ABSystemWrapper {
      * @return the instance
      */
     public static ABSystemWrapper getInstance() {
-        return instance;
+        return ABSystemWrapper.instance;
     }
     
     public void arraycopy(final Object src, final int srcPos, final Object dest, final int destPos, final int length) {

@@ -38,7 +38,7 @@ public class MyFontProcessor {
      * @return the instance
      */
     public static MyFontProcessor getInstance() {
-        return instance;
+        return MyFontProcessor.instance;
     }
 
     public void process(final Graphics graphics) {

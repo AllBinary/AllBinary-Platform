@@ -27,7 +27,7 @@ public class VectorUtil {
      * @return the instance
      */
     public static VectorUtil getInstance() {
-        return instance;
+        return VectorUtil.instance;
     }
     
     public int getSize(final Object object) {

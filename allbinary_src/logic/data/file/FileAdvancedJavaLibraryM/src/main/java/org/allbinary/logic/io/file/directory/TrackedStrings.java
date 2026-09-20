@@ -25,7 +25,7 @@ public class TrackedStrings {
      * @return the instance
      */
     public static TrackedStrings getInstance() {
-        return instance;
+        return TrackedStrings.instance;
     }
     
     public final String TARGET_PATH_WINDOWS = "\\target\\";

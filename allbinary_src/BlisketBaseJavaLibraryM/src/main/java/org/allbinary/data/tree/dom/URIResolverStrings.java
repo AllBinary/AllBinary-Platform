@@ -25,7 +25,7 @@ public class URIResolverStrings {
      * @return the instance
      */
     public static URIResolverStrings getInstance() {
-        return instance;
+        return URIResolverStrings.instance;
     }
 
     public final String IMPORT_URL = "/{import url}";

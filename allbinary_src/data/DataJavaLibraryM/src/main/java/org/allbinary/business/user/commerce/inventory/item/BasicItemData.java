@@ -21,7 +21,7 @@ public class BasicItemData {
      * @return the instance
      */
     public static BasicItemData getInstance() {
-        return instance;
+        return BasicItemData.instance;
     }
 
     public final String ITEM = "BASICITEM";
