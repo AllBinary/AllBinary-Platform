@@ -13,8 +13,11 @@
  */
 package org.allbinary.util;
 
+import java.util.Enumeration;
 import java.util.Hashtable;
-import jsinterop.annotations.JsConstructor;
+import java.util.Map;
+import java.util.Set;
+
 import jsinterop.annotations.JsType;
 
 /**
@@ -23,15 +26,74 @@ import jsinterop.annotations.JsType;
  */
 @JsType
 public class ABHashtable<K,V> extends Hashtable<K,V> {
-    
+
     //GWT does not have the other constructors.
 //    public ABHashtable(final int initialCapacity) {
 //        super();
 //    }
 
-    @JsConstructor
     public ABHashtable() {
         super();
     }
-    
+
+    @Override
+    public synchronized int size() {
+        return super.size();
+    }
+
+    @Override
+    public synchronized boolean isEmpty() {
+        return super.isEmpty();
+    }
+
+    @Override
+    public synchronized Enumeration<V> elements() {
+        return super.elements();
+    }
+
+    @Override
+    public synchronized boolean contains(Object value) {
+        return super.contains(value);
+    }
+
+    @Override
+    public boolean containsValue(Object value) {
+        return super.containsValue(value);
+    }
+
+    @Override
+    public synchronized boolean containsKey(Object key) {
+        return super.containsKey(key);
+    }
+
+    @Override
+    public synchronized V get(Object key) {
+        return super.get(key);
+    }
+
+    @Override
+    public synchronized void clear() {
+        super.clear();
+    }
+
+    @Override
+    public synchronized Object clone() {
+        return super.clone();
+    }
+
+    @Override
+    public synchronized String toString() {
+        return super.toString();
+    }
+
+    @Override
+    public synchronized boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public synchronized int hashCode() {
+        return super.hashCode();
+    }
+
 }

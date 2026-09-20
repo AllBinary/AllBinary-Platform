@@ -22,5 +22,30 @@ import jsinterop.annotations.JsType;
  */
 @JsType
 public class ABStack<E> extends Stack<E> {
-    
+
+    @Override
+    public E push(E item) {
+        return super.push(item);
+    }
+
+    @Override
+    public synchronized E pop() {
+        return super.pop();
+    }
+
+    @Override
+    public synchronized E peek() {
+        return super.peek();
+    }
+
+    @Override
+    public boolean empty() {
+        return super.empty();
+    }
+
+    @Override
+    public synchronized int search(Object obj) {
+        return super.search(obj);
+    }
+
 }
