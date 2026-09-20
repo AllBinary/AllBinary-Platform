@@ -23,16 +23,18 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.ABCustomItem;
 import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.RectangleCollisionUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 
 
 public class ScrollSelectionForm extends PaintableForm
 {
-    private static ScrollSelectionForm createForm(final String title, final ABCustomItem[] items,
+    private static PaintableForm createForm(final String title, final ABCustomItem[] items,
                                                   final ItemPaintableFactory formPaintableFactory, final int border,
                                                   final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
         try {
@@ -40,15 +42,23 @@ public class ScrollSelectionForm extends PaintableForm
                 return new ScrollSelectionForm(title, items, formPaintableFactory, border, -3, backgroundBasicColor, foregroundBasicColor);
             } else {
                 //This call should only work with ItemPaintableFactory.getInstance()
-                throw new RuntimeException();
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                final LogUtil logUtil = LogUtil.getInstance();
+                logUtil.putF(commonStrings.EXCEPTION, logUtil, commonStrings.EXCEPTION);
+                //throw new RuntimeException();
+                return PaintableForm.getNullPaintableForm();
             }
 
         } catch (Exception e) {
-            //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().EXCEPTION_LABEL, e));
-            throw new RuntimeException();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            final LogUtil logUtil = LogUtil.getInstance();
+            logUtil.put(commonStrings.EXCEPTION, logUtil, commonStrings.EXCEPTION, e);
+            //throw new RuntimeException();
+            return PaintableForm.getNullPaintableForm();
         }
 
     }
+
     private static Object NULL_SCROLL_SELECTION_FORM = NullUtil.getInstance().NULL_OBJECT;
     public static ScrollSelectionForm getNullScrollSelectionForm() {
         
