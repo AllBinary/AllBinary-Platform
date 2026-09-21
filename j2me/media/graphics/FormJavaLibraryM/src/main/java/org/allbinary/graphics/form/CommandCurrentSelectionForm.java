@@ -49,7 +49,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     
     @Override
     public void updateMeasurement(final Graphics graphics) {
-        this.updateAll(graphics, getAllitems());
+        this.updateAll(graphics, this.getAllitems());
         super.updateMeasurement(graphics);
     }
         

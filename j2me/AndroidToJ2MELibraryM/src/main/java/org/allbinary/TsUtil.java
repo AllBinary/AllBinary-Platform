@@ -97,5 +97,9 @@ public class TsUtil {
             return false;
         }
     }
-    
+
+    public void gc() {
+        System.gc();
+    }
+
 }

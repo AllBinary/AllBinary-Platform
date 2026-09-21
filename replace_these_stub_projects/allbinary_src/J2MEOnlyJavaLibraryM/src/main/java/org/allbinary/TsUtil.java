@@ -102,4 +102,8 @@ public class TsUtil {
     
     }
 
+    public void gc() {
+        System.gc();
+    }
+    
 }

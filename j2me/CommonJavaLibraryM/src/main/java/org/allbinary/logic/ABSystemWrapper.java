@@ -39,8 +39,4 @@ public class ABSystemWrapper {
         return System.currentTimeMillis();
     }
     
-    public void gc() {
-        System.gc();
-    }
-
 }

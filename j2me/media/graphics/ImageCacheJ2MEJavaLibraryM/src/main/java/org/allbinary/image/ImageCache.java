@@ -18,6 +18,7 @@ import java.io.InputStream;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullImage;
 import org.allbinary.J2MEUtil;
+import org.allbinary.TsUtil;
 
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.gd.resource.GDResources;
@@ -34,6 +35,7 @@ public class ImageCache extends ImageCacheBase
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
+    private final TsUtil tsUtil = TsUtil.getInstance();
 
     public ImageCache()
     // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
@@ -71,7 +73,7 @@ public class ImageCache extends ImageCacheBase
             if (this.volume > 32000)
             {
                 //this.logUtil.putF(new StringMaker().append("Image for: ").append(caller).toString(), this, this.commonStrings.GET);
-                this.systemWrapper.gc();
+                this.tsUtil.gc();
                 //System.gc();
                 this.volume = 0;
                 //this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
@@ -125,8 +127,8 @@ public class ImageCache extends ImageCacheBase
                 this.logUtil.put("Exception: Trying Again After GC", this, this.commonStrings.GET, e);
                 
                 this.logUtil.putF(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(resourceInputStream)).toString(), this, this.commonStrings.GET);
-                this.systemWrapper.gc();
-                this.systemWrapper.gc();
+                this.tsUtil.gc();
+                this.tsUtil.gc();
                 this.logUtil.putF(Memory.getInfo(), this, this.commonStrings.GET);
                 Thread.sleep(100);
                 image = this.createImageFromInputStream(key, resourceInputStream);

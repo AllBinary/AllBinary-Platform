@@ -15,6 +15,7 @@ package org.allbinary.canvas;
 
 
 import javax.microedition.lcdui.CommandListener;
+import org.allbinary.TsUtil;
 
 import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
 import org.allbinary.graphics.displayable.MyCanvas;
@@ -39,6 +40,7 @@ public class RunnableCanvas extends MyCanvas
     protected final StdUtil stdUtil = StdUtil.getInstance();
   
     protected final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
+    protected final TsUtil tsUtil = TsUtil.getInstance();
 
     private Thread thread = NullThread.NULL_THREAD;
     private Thread currentThread = NullThread.NULL_THREAD;

@@ -2,6 +2,7 @@ package org.allbinary.layer;
 
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.TsUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
@@ -18,6 +19,7 @@ public class LayerManager
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
+    private final TsUtil tsUtil = TsUtil.getInstance();
     
     private final LayerManagerLoggingBase layerManagerLogging;
     private final BasicArrayList list = new BasicArrayListD();
@@ -113,8 +115,8 @@ public class LayerManager
     		this.list.clear();
                 this.layerManagerLogging.clear();
 
-                this.systemWrapper.gc();
-                this.systemWrapper.gc();
+                this.tsUtil.gc();
+                this.tsUtil.gc();
     	}
     }
 

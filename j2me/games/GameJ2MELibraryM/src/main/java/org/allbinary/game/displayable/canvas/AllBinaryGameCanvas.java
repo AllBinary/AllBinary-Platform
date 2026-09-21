@@ -567,7 +567,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.touchButtonFactory.toggle(this.isPaused(), BasicArrayListUtil.getInstance().getImmutableInstance());
 
-        this.systemWrapper.gc();
+        
+        this.tsUtil.gc();
 
         //this.logUtil.putF(this.commonStrings.END, this, METHOD_NAME);
     }
@@ -579,7 +580,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         // PreLogUtil.put(commonStrings.START, this, gameStrings.UNPAUSE);
 
         this.closeMenu();
-        this.systemWrapper.gc();
+        this.tsUtil.gc();
         super.unPause();
         this.touchButtonFactory.toggle(this.isPaused(), BasicArrayListUtil.getInstance().getImmutableInstance());
 
