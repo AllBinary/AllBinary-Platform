@@ -29,12 +29,12 @@ public class ABStack<E> extends Stack<E> {
     }
 
     @Override
-    public synchronized E pop() {
+    public E pop() {
         return super.pop();
     }
 
     @Override
-    public synchronized E peek() {
+    public E peek() {
         return super.peek();
     }
 
@@ -44,8 +44,13 @@ public class ABStack<E> extends Stack<E> {
     }
 
     @Override
-    public synchronized int search(Object obj) {
+    public int search(Object obj) {
         return super.search(obj);
+    }
+
+    @Override
+    public boolean removeElement(Object obj) {
+        return super.removeElement(obj);
     }
 
 }

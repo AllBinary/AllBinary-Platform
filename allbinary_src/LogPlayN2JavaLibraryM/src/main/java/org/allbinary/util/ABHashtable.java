@@ -37,22 +37,22 @@ public class ABHashtable<K,V> extends Hashtable<K,V> {
     }
 
     @Override
-    public synchronized int size() {
+    public int size() {
         return super.size();
     }
 
     @Override
-    public synchronized boolean isEmpty() {
+    public boolean isEmpty() {
         return super.isEmpty();
     }
 
     @Override
-    public synchronized Enumeration<V> elements() {
+    public Enumeration<V> elements() {
         return super.elements();
     }
 
     @Override
-    public synchronized boolean contains(Object value) {
+    public boolean contains(Object value) {
         return super.contains(value);
     }
 
@@ -62,37 +62,37 @@ public class ABHashtable<K,V> extends Hashtable<K,V> {
     }
 
     @Override
-    public synchronized boolean containsKey(Object key) {
+    public boolean containsKey(Object key) {
         return super.containsKey(key);
     }
 
     @Override
-    public synchronized V get(Object key) {
+    public V get(Object key) {
         return super.get(key);
     }
 
     @Override
-    public synchronized void clear() {
+    public void clear() {
         super.clear();
     }
 
     @Override
-    public synchronized Object clone() {
+    public Object clone() {
         return super.clone();
     }
 
     @Override
-    public synchronized String toString() {
+    public String toString() {
         return super.toString();
     }
 
     @Override
-    public synchronized boolean equals(Object obj) {
+    public boolean equals(Object obj) {
         return super.equals(obj);
     }
 
     @Override
-    public synchronized int hashCode() {
+    public int hashCode() {
         return super.hashCode();
     }
 

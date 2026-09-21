@@ -13,9 +13,6 @@
 */
 package org.allbinary.graphics.displayable;
 
-
-import java.util.Stack;
-
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -31,7 +28,7 @@ import org.allbinary.media.audio.Sound;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.StdUtil;
-
+import org.allbinary.util.ABStack;
 
 public class MyCanvas extends Canvas 
     implements DisplayableInterface, MyCommandInterface
@@ -47,7 +44,7 @@ public class MyCanvas extends Canvas
     private final String name;
     private final BasicArrayList childNameList;
     
-    private final Stack<Object> commandStack;
+    private final ABStack<Object> commandStack;
     
     private CommandListener commandListener = NullCommandListener.NULL_COMMAND_LISTENER;
     
@@ -91,7 +88,7 @@ public class MyCanvas extends Canvas
         this.displayInfo.update(this, this.canvasStrings.SIZE_CHANGED);
     }
     
-    public Stack<Object> getCommandStack()
+    public ABStack<Object> getCommandStack()
     {
         return this.commandStack;
     }
