@@ -16,9 +16,9 @@ package org.allbinary.media.audio;
 import java.io.InputStream;
 
 import javax.microedition.media.Player;
+import org.allbinary.TsUtil;
 
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-import org.allbinary.logic.ABSystemWrapper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
@@ -68,7 +68,7 @@ public class AllBinaryMediaManager {
 
         new Sounds(soundsFactoryInterface).closeAll();
 
-        ABSystemWrapper.getInstance().gc();
+        TsUtil.getInstance().gc();
     }
 
     public static Player createPlayerFromInputStream(InputStream stream, String type)
