@@ -60,6 +60,10 @@ public class CommonLabels {
     public final String ELAPSED = " Elapsed: ";
     @JsProperty
     public final String CURRENT = " Current: ";
+
+    @JsProperty
+    public final String NEXT = "Next";
+    
     @JsProperty
     public final String ITEM_LABEL = "Item: ";
     

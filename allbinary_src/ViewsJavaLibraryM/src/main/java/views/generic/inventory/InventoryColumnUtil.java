@@ -19,7 +19,6 @@ import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
-import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 
@@ -36,7 +35,7 @@ public class InventoryColumnUtil
 
     protected final BasicItemData basicItemData = BasicItemData.getInstance();
     
-    //private final String NEXTCATEGORY = "Next Item Category: ";
+    //private final String NEXTCATEGORY = CommonLabels.getInstance().NEXT + " Item Category: ";
 
     //Doesn't really get keywords
     public BasicArrayList getColumnWhereLike(

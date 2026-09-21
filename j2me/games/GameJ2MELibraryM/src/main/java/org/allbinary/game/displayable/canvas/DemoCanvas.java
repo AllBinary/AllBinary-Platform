@@ -692,7 +692,7 @@ public class DemoCanvas extends RunnableCanvas
     protected void updateDemoState()
     {
         PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, this.SET_STATE);
-        //this.logUtil.putF("Current Demo State: ").append(this.getState(), this, SET_STATE);
+        //this.logUtil.putF(CommonLabels.getInstance().CURRENT + "Demo State: ").append(this.getState(), this, SET_STATE);
 
         this.getBasicGameDemoPaintable().setState(this.state);
 

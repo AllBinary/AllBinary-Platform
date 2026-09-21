@@ -244,7 +244,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
                {
                   String nextCharString = text.substring(index + 2, endIndex);
 
-                  this.logUtil.putF("Next Char String: " + nextCharString, this, "integerArrayValue");
+                  this.logUtil.putF(CommonLabels.getInstance().NEXT + " Char String: " + nextCharString, this, "integerArrayValue");
                   
                   vector.add(Integer.valueOf(
                         nextCharString.substring(index, nextCharString.length())));

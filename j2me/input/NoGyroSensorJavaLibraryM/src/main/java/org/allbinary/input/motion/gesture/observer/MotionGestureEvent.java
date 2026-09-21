@@ -82,9 +82,9 @@ public class MotionGestureEvent extends AllBinaryEventObject {
         this.currentPoint = currentPoint;
     }
 
-    private static final String CURRENT = CommonLabels.getInstance().CURRENT;
     private static final String PREVIOUS = " Previous: ";
     private static final String HASHCODE = " hashcode: ";
+    private final CommonLabels commonLabels = CommonLabels.getInstance();
 
     public String toString()
     {
@@ -92,7 +92,7 @@ public class MotionGestureEvent extends AllBinaryEventObject {
         final StringUtil stringUtil = StringUtil.getInstance();
             
         stringBuffer.append(stringUtil.toString(this.motionGesture));
-        stringBuffer.append(MotionGestureEvent.CURRENT);
+        stringBuffer.append(this.commonLabels.CURRENT);
         stringBuffer.append(stringUtil.toString(this.currentPoint));
         stringBuffer.append(MotionGestureEvent.PREVIOUS);
         stringBuffer.append(stringUtil.toString(this.previousPoint));

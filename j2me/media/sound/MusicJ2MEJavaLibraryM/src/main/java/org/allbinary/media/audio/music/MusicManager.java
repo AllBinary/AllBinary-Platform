@@ -12,6 +12,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.audio.NoSound;
 import org.allbinary.media.audio.PlayerStateUtil;
 import org.allbinary.media.audio.Sound;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.GameTickTimeDelayHelper;
@@ -49,7 +50,7 @@ public class MusicManager {
     
     private final String PLAY = "Play ";
     private final String SONG = " for: ";
-    private final String NEXT_SONG = "Next Song: ";
+    private final String NEXT_SONG = CommonLabels.getInstance().NEXT + " Song: ";
     private final String STOPPING = "Stopping Current Song: ";
     private final String ENDING = "Ending Current Song: ";
     

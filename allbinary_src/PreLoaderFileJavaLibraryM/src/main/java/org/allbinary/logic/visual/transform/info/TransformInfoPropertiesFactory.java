@@ -16,6 +16,7 @@ package org.allbinary.logic.visual.transform.info;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonLabels;
 import org.w3c.dom.Attr;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -47,7 +48,7 @@ public class TransformInfoPropertiesFactory
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.putF("Next View Name: " + name, this, "toTransformInfoPropertiesHashMap()");
+         this.logUtil.putF(CommonLabels.getInstance().NEXT + " View Name: " + name, this, "toTransformInfoPropertiesHashMap()");
       }
       
       final Node labelNode = DomSearchHelper.getNodeNoThrow(

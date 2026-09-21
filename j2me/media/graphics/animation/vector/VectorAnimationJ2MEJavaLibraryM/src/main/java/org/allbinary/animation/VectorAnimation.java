@@ -180,7 +180,7 @@ public class VectorAnimation extends IndexedAnimation
                 
                 if (nextPointX != 1000)
                 {
-                    // this.logUtil.putF("Next Line: x1: " +
+                    // this.logUtil.putF(CommonLabels.getInstance().NEXT + " Line: x1: " +
                     // this.currentPoints[this.currentFrame][index][0] + x +
                     // " y1: "
                     // + this.currentPoints[this.currentFrame][index][1] + y, // this, // canvasStrings.PAINT);

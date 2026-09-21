@@ -28,11 +28,11 @@ import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileData;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.io.path.PathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonLabels;
 import org.apache.commons.fileupload.FileItem;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -46,7 +46,7 @@ public class AddFileValidationView
     protected final BasicItemData basicItemData = BasicItemData.getInstance();
 
     private static final String ADDPRODUCT = "Add Product";
-    private static final String NEXTSTEP = "Next Step";
+    private static final String NEXTSTEP = CommonLabels.getInstance().NEXT + " Step";
 
     //itemInterface = InventoryEntityFactory.getInstance().getItem(id);
     public AddFileValidationView(TransformInfoInterface transformInfoInterface) throws Exception

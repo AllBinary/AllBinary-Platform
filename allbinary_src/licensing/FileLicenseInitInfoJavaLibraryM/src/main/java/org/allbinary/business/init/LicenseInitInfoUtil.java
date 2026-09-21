@@ -22,9 +22,11 @@ import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.AbFileInputStream;
 import org.allbinary.logic.io.DataOutputStreamFactory;
 import org.allbinary.logic.io.FileStreamFactory;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
 import org.allbinary.logic.system.security.crypt.WeakCrypt;
+import org.allbinary.string.CommonLabels;
 
 public class LicenseInitInfoUtil
 {
@@ -151,7 +153,7 @@ public class LicenseInitInfoUtil
 
                 int numberOfLicenseServers = iData.readInt();
 
-                final String NEXT_FILE = "Next License Server From File: ";
+                final String NEXT_FILE = new StringMaker().append(CommonLabels.getInstance().NEXT).append(" License Server From File: ").toString();
 
                 String licenseServerDecoded;
 

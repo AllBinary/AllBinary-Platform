@@ -13,6 +13,8 @@
  */
 package org.allbinary.game.layer.unit;
 
+import org.allbinary.string.CommonLabels;
+
 /**
  *
  * @author User
@@ -41,6 +43,6 @@ public class UnitWaypointStrings {
     public final String ALL_VISITED = "All Visited";
     public final String ALREADY_THERE_SHORT = "Again?";
     public final String ALREADY_THERE = "Already There";
-    public final String NEXT_PATH_NODE = "Next Path Node";
+    public final String NEXT_PATH_NODE = CommonLabels.getInstance().NEXT + " Path Node";
     
 }

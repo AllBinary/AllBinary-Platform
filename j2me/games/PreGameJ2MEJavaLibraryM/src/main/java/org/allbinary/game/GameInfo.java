@@ -19,6 +19,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.StdUtil;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.util.ABHashtable;
 
 
@@ -89,7 +90,6 @@ public class GameInfo
       this.logUtil.putF(new StringMaker().append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.SET_CURRENT_LEVEL);
    }
 
-   private final String NEXT = "Next ";
    private final String NEXT_GAME_LEVEL = "nextGameLevel";
    
    public void nextGameLevel()
@@ -99,7 +99,7 @@ public class GameInfo
           this.currentLevel++;
       }
 
-      this.logUtil.putF(new StringMaker().append(this.NEXT).append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.NEXT_GAME_LEVEL);
+      this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().NEXT).append(CommonSeps.getInstance().SPACE).append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.NEXT_GAME_LEVEL);
    }
    
    public void previousGameLevel()
