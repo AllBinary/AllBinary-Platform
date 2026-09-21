@@ -18,6 +18,7 @@ import java.io.InputStream;
 
 import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
+import org.allbinary.TsUtil;
 
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
@@ -72,7 +73,7 @@ public class AllBinaryMediaManager
 
         ProgressCanvasFactory.getInstance().addNormalPortion(50, "Media Manager");
 
-        ABSystemWrapper.getInstance().gc();
+        TsUtil.getInstance().gc();
 
         new Sounds(soundsFactoryInterface).init();
 
@@ -128,7 +129,7 @@ public class AllBinaryMediaManager
 
             new Sounds(soundsFactoryInterface).closeAll();
 
-            ABSystemWrapper.getInstance().gc();
+            TsUtil.getInstance().gc();
 
             soundsFactoryInterface.setInitialized(false);
             AllBinaryMediaManager.mostUsedTotal = 0;
