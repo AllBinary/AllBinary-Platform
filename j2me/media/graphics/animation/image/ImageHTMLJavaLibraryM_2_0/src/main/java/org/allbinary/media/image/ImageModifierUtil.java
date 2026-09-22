@@ -20,16 +20,15 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.string.StringUtil;
-
 import org.microemu.device.playn.PlaynImage;
 import org.microemu.device.ResourceCallbackStrings;
-import playn.core.Callback;
 
+import playn.core.Callback;
 import playn.core.Canvas;
+import playn.core.CoreImage;
 import playn.core.ImageImpl;
+
 import playn.html.HTMLPlaynUtil;
 
 /**
@@ -89,7 +88,7 @@ public class ImageModifierUtil {
                     //this.logUtil.putF("htmlImage: " + htmlImage, this, "setAlpha");
 //                    if (canvasImage != null) {
                         //this.logUtil.putF("alpha: " + alpha, this, "setAlpha");
-                        final playn.core.Image originalPlaynImage = (playn.core.Image) ((PlaynImage) originalImage).getImage();
+                        final CoreImage originalPlaynImage = (CoreImage) ((PlaynImage) originalImage).getImage();
 //                        if(originalPlaynImage != null) {
                             final Canvas canvas = this.playnUtil.getCanvas(canvasImage);
                             canvas.clear();
@@ -138,7 +137,7 @@ public class ImageModifierUtil {
 
     public void handleImage(final Image[] imageArray, final int index, final Image image) {
 
-        final playn.core.Image image3 = (playn.core.Image) ((PlaynImage) image).getImage();
+        final CoreImage image3 = (CoreImage) ((PlaynImage) image).getImage();
         
         if (image3 != null) {
 
@@ -172,7 +171,7 @@ public class ImageModifierUtil {
         
     }
     
-    public void copy(final Image[] imageArray, final int index, final Image image, final playn.core.Image image3) {
+    public void copy(final Image[] imageArray, final int index, final Image image, final CoreImage image3) {
         try {
             //final Image image2 = Image.createImage(image.getWidth(), image.getHeight());
             //this.logUtil.put(DONE + image3.width() + ", " + image3.height(), this, HANDLE_IMAGE);

@@ -18,6 +18,8 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
+
+import playn.core.CoreImage;
 import playn.core.ImageImpl;
 
 /**
@@ -58,16 +60,16 @@ public class ImageJ2MEScaleUtil {
             throws Exception
     {
 
-        playn.core.Image originalPlayNImage = null;
+        CoreImage originalPlayNImage = null;
         if (image.isMutable()) {
             //PreLogUtil.put("3a", this, "createImage");
             final PlaynMutableImage originalHTMLImage = (PlaynMutableImage) image;
-            originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
+            originalPlayNImage = (CoreImage) originalHTMLImage.getImage();
             //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createImage");
         } else {
             //PreLogUtil.put("3b", this, "createImage");
             final PlaynImmutableImage originalHTMLImage = (PlaynImmutableImage) image;
-            originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
+            originalPlayNImage = (CoreImage) originalHTMLImage.getImage();
             //PreLogUtil.put("4b", this, "createImage");
         }
 

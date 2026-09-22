@@ -19,7 +19,9 @@ import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
 
 import playn.core.Canvas;
+import playn.core.CoreImage;
 import playn.core.ImageImpl;
+
 import playn.html.HTMLPlaynUtil;
 
 public class ImageRotationUtil
@@ -87,16 +89,16 @@ private final HTMLPlaynUtil playnUtil = HTMLPlaynUtil.getInstance();
     }
 
     public void drawImage(final Image originalImage, final Image image, final Canvas canvasSurface) {
-        playn.core.Image originalPlayNImage = null;
+        CoreImage originalPlayNImage = null;
         if (originalImage.isMutable()) {
             //PreLogUtil.put("3a", this, "createRotatedImage");
             final PlaynMutableImage originalHTMLImage = (PlaynMutableImage) originalImage;
-            originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
+            originalPlayNImage = (CoreImage) originalHTMLImage.getImage();
             //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createRotatedImage");
         } else {
             //PreLogUtil.put("3b", this, "createRotatedImage");
             final PlaynImmutableImage originalHTMLImage = (PlaynImmutableImage) originalImage;
-            originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
+            originalPlayNImage = (CoreImage) originalHTMLImage.getImage();
             //PreLogUtil.put("4b", this, "createRotatedImage");
         }
 

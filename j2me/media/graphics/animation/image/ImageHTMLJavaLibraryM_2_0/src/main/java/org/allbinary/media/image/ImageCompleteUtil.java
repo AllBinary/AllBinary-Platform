@@ -16,11 +16,11 @@ package org.allbinary.media.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
-
 import org.microemu.device.playn.PlaynImage;
+
+import playn.core.CoreImage;
 
 public class ImageCompleteUtil {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -53,7 +53,7 @@ public class ImageCompleteUtil {
     public boolean isReady(final Image image, final String name, final TimeDelayHelper timeDelayHelper)
         throws Exception {
         final PlaynImage playnImage = (PlaynImage) image;
-        final playn.core.Image playnCoreImage = (playn.core.Image) playnImage.getImage();
+        final CoreImage playnCoreImage = (CoreImage) playnImage.getImage();
         
         //PreLogUtil.put("playnImage: " + playnImage, this, "waitForImage");
         //PreLogUtil.put("playnCoreImage: " + (playnCoreImage != null ? playnCoreImage.toString() : StringUtil.getInstance().NULL_STRING), this, this.ISREADY);

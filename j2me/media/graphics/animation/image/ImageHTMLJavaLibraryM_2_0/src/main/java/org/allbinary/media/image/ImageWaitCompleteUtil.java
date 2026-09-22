@@ -18,11 +18,11 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.image.GameFeatureImageCacheFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.ABHashtable;
 import org.allbinary.util.HashtableUtil;
 import org.microemu.device.playn.PlaynImage;
+import playn.core.CoreImage;
 
 /**
  *
@@ -62,7 +62,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
             throws Exception
     {
         final PlaynImage playnImage = (PlaynImage) image;
-        final playn.core.Image playnCoreImage = (playn.core.Image) playnImage.getImage();
+        final CoreImage playnCoreImage = (CoreImage) playnImage.getImage();
         
         //PreLogUtil.put("playnImage: " + playnImage, this, "waitForImage");
         //PreLogUtil.put("playnCoreImage: " + (playnCoreImage != null ? playnCoreImage.toString() : StringUtil.getInstance().NULL_STRING), this, "waitForATime");

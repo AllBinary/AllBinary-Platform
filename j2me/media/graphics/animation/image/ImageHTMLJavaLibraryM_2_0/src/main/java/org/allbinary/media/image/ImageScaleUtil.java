@@ -19,8 +19,11 @@ import org.allbinary.image.ImageCache;
 
 import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
+
 import playn.core.Canvas;
+import playn.core.CoreImage;
 import playn.core.ImageImpl;
+
 import playn.html.HTMLPlaynUtil;
 
 public class ImageScaleUtil
@@ -83,19 +86,19 @@ public class ImageScaleUtil
         
         if (image.isMutable())
         {
-            playn.core.Image originalPlayNImage = null;
+            CoreImage originalPlayNImage = null;
             if(originalImage.isMutable())
             {
                 //PreLogUtil.put("3a", this, "createImage");
                 final PlaynMutableImage originalHTMLImage = (PlaynMutableImage) originalImage;
-                originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
+                originalPlayNImage = (CoreImage) originalHTMLImage.getImage();
                 //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createImage");
             }
             else
             {
                 //PreLogUtil.put("3b", this, "createImage");
                 final PlaynImmutableImage originalHTMLImage = (PlaynImmutableImage) originalImage;
-                originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
+                originalPlayNImage = (CoreImage) originalHTMLImage.getImage();
                 //PreLogUtil.put("4b", this, "createImage");
             }
 

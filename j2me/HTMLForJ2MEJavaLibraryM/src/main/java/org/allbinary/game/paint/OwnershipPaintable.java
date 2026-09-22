@@ -36,7 +36,7 @@ public class OwnershipPaintable extends Paintable implements UpdateMyFontInterfa
         return new OwnershipPaintable();
     }
     
-    protected final LogUtil logUtil = LogUtil.getInstance();
+    //protected final LogUtil logUtil = LogUtil.getInstance();
     
     private final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();    
 
