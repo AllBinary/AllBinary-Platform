@@ -41,12 +41,6 @@ public class CellPositionFactory
    public void init(int columns, int rows)
       
    {
-      this.cellPositionArray =
-         new CellPosition[columns][rows];
-
-      this.columns = columns;
-      this.rows = rows;
-
       final CommonStrings commonStrings = CommonStrings.getInstance();
       final StringMaker stringBuffer = new StringMaker();
       
@@ -56,6 +50,12 @@ public class CellPositionFactory
       stringBuffer.appendint(rows);
       
       this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
+
+      this.cellPositionArray =
+         new CellPosition[columns][rows];
+
+      this.columns = columns;
+      this.rows = rows;
       
       for (int column = 0; column < columns; column++)
       {
