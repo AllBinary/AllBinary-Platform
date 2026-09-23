@@ -36,8 +36,8 @@ public class TouchButtonLocationHelper
 
         //PreLogUtil.put(commonStrings.START_LABEL + displayInfo.toString(), this, "TouchButtonLocationHelper");
 
-        this.totalColumns = displayInfo.getLastWidth() / buttonSize;
-        this.totalRows = displayInfo.getLastHeight() / buttonSize;
+        this.totalColumns = Math.round(displayInfo.getLastWidth() / buttonSize);
+        this.totalRows = Math.round(displayInfo.getLastHeight() / buttonSize);
 
         this.columnsRemainder = displayInfo.getLastWidth() % buttonSize;
         this.columnsRemainderHalf = (this.columnsRemainder >> 1);
