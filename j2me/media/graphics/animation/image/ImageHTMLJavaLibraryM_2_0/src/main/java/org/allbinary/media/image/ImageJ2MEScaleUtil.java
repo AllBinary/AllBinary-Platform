@@ -19,8 +19,12 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
 
+import playn.core.Canvas;
 import playn.core.CoreImage;
 import playn.core.ImageImpl;
+import playn.core.PlayN;
+import playn.html.HtmlGraphics;
+import playn.html.HtmlImage;
 
 /**
  *
@@ -79,7 +83,8 @@ public class ImageJ2MEScaleUtil {
         
         //this.logUtil.putF(new StringMaker().append("TWB w:").append(image.getWidth()).append(" h: ").append(image.getHeight()).append(" w: ").append(scaledImage.getWidth()).append(" h: ").append(scaledImage.getHeight()).toString(), this, "scale");
         
-        canvasImage.draw(originalPlayNImage, 0, 0, scaledImage.getWidth(), scaledImage.getHeight(), 0, 0, image.getWidth(), image.getHeight());
+        final Canvas canvas = ((HtmlGraphics) PlayN.getInstance().graphics()).get((HtmlImage) originalPlayNImage);
+        canvasImage.draw(canvas.gc(), 0, 0, scaledImage.getWidth(), scaledImage.getHeight(), 0, 0, image.getWidth(), image.getHeight());
 
         return scaledImage;
 
