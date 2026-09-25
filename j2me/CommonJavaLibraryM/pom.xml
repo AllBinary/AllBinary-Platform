@@ -36,6 +36,7 @@
             <groupId>org.allbinary</groupId>
             <artifactId>J2MEJsInteropCompatibilityJavaLibrary</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+            <optional>true</optional>
         </dependency>
             
     </dependencies>
