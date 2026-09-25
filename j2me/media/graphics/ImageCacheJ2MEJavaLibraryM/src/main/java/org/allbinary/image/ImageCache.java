@@ -34,7 +34,7 @@ public class ImageCache extends ImageCacheBase
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
+    //private final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
     private final TsUtil tsUtil = TsUtil.getInstance();
 
     public ImageCache()

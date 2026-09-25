@@ -51,5 +51,10 @@ public class ImageFactory {
         //image.init(image.getImage());
         return image;
     }
-     
+
+    public Image createImageFromInputStream(final InputStream inputStream) throws Exception
+    {
+        return Image.createImage(inputStream);
+    }
+    
 }

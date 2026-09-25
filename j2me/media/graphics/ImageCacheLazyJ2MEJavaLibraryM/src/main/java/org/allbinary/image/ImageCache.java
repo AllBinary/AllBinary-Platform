@@ -51,7 +51,7 @@ public class ImageCache extends ImageCacheBase {
     
     protected final LogUtil logUtil = LogUtil.getInstance();
     
-    private final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
+    //private final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
     private final TsUtil tsUtil = TsUtil.getInstance();
 
     private final BaseImageLoadingProcessor concurrentImageLoadingProcessor = new ConcurrentImageLoadingProcessor(this);
@@ -361,7 +361,7 @@ public class ImageCache extends ImageCacheBase {
 
     protected Image creatImage(final String key) throws Exception {
         final InputStream inputStream = resourceUtil.getResourceAsStream(key);
-        final Image image = Image.createImage(inputStream);
+        final Image image = ImageFactory.getInstance().createImageFromInputStream(inputStream);
         image.setName(key);
         return image;
     }

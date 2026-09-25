@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.microedition.lcdui.Image;
+import org.allbinary.image.ImageFactory;
 
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.graphics.PlatformBitmapBase;
@@ -39,8 +40,8 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return new OpenGLBitmap(Image.createImage(width, height));
     }
     
-    public OpenGLBitmap decodeStream(InputStream inputStream) throws IOException {
-        return new OpenGLBitmap(Image.createImage(inputStream));
+    public OpenGLBitmap decodeStream(InputStream inputStream) throws Exception {
+        return new OpenGLBitmap(ImageFactory.getInstance().createImageFromInputStream(inputStream));
     }
 
     public PlatformBitmapBase createBitmap(final Image image) {
