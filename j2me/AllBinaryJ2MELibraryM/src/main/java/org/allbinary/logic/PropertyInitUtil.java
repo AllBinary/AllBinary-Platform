@@ -14,6 +14,7 @@
 package org.allbinary.logic;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 
 /**
@@ -31,7 +32,7 @@ public class PropertyInitUtil {
         
         final CommonStrings commonStrings = CommonStrings.getInstance();
         final LogUtil logUtil = LogUtil.getInstance();
-        logUtil.putF("PropertyInitUtil: " + value, logUtil, commonStrings.CONSTRUCTOR);
+        logUtil.putF(new StringMaker().append("PropertyInitUtil: ").appendint(value).toString(), logUtil, commonStrings.CONSTRUCTOR);
         
         return PropertyInitUtil.instance;
     }
