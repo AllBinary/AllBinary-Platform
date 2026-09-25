@@ -51,6 +51,16 @@ public class CommonDataFileStrings {
     public final String _CPP = ".cpp";
     public final String H = "h";
     public final String _H = ".h";
+    public final String PY = "py";
+    public final String _PY = ".py";
+    public final String GO = "go";
+    public final String _GO = ".go";
+    public final String CS = "cs";
+    public final String _CS = ".cs";
+    public final String ADA = "ada";
+    public final String _ADA = ".ada";
+    public final String RUST = "rust";
+    public final String _RUST = ".rust";
 
     public final String UNCRYPTED_EXTENSION = this.XML;
     public final String ENCRYPTED_EXTENSION = "abd";

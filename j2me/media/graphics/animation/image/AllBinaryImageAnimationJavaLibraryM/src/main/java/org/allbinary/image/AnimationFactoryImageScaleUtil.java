@@ -18,8 +18,12 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.image.AnimationFactoryInitializationVisitor;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.ScaleProperties;
 import org.allbinary.media.image.ImageJ2MEScaleUtil;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
 
 /**
  *
@@ -27,8 +31,6 @@ import org.allbinary.media.image.ImageJ2MEScaleUtil;
  */
 
 public class AnimationFactoryImageScaleUtil {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
-
     
     private static final AnimationFactoryImageScaleUtil instance = new AnimationFactoryImageScaleUtil();
 
@@ -38,6 +40,8 @@ public class AnimationFactoryImageScaleUtil {
     public static AnimationFactoryImageScaleUtil getInstance() {
         return AnimationFactoryImageScaleUtil.instance;
     }
+    
+//    protected final LogUtil logUtil = LogUtil.getInstance();
     
     //private final ImageCache imageCache = ImageCacheFactory.getInstance();
     //private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
@@ -51,23 +55,27 @@ public class AnimationFactoryImageScaleUtil {
 //        final StringMaker stringMaker = new StringMaker();
 //        stringMaker.delete(0, stringMaker.length());
 //        final CommonLabels commonLabels = CommonLabels.getInstance();
-//        this.logUtil.putF(stringMaker.append("before scale").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
+//        this.logUtil.putF(stringMaker.append("before scale").append(commonLabels.WIDTH_LABEL).appendint(width).append(commonLabels.HEIGHT_LABEL).appendint(height).toString(), this, commonStrings.PROCESS);
 
         if (scaleWidth != 0 && scaleHeight != 0) {
             final float scaleX = ((float) scaleWidth) / ((float) width);
             final float scaleY = ((float) scaleHeight) / ((float) height);
 //            stringMaker.delete(0, stringMaker.length());
-//            this.logUtil.putF(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
+//            this.logUtil.putF(stringMaker.append("0scaleX: ").appendfloat(scaleX).append(" scaleY: ").appendfloat(scaleY).toString(), this, commonStrings.PROCESS);
             if ((scaleX == 1.0f && scaleY == 1.0f) || (scaleX == 0.0f || scaleY == 0.0f)) {
                 //scaledImage = this.imageCopyUtil.createImage(image);
                 scaledImage = image;
             } else {
 //                stringMaker.delete(0, stringMaker.length());
-//                this.logUtil.putF(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
+//                this.logUtil.putF(stringMaker.append("scaleX: ").appendfloat(scaleX).append(" scaleY: ").appendfloat(scaleY).toString(), this, commonStrings.PROCESS);
                 //scaledImage = this.imageScaleUtil.createImage(this.imageCache, image, scaleX, 1, scaleY, 1, true);
-                scaledImage = this.imageScaleUtil.scale(image, (int) (scaleX * width), (int) (scaleY * height));
+                final int scaledWidth = (int) (scaleX * width);
+                final int scaledHeight = (int) (scaleY * height);
 //                stringMaker.delete(0, stringMaker.length());
-//                this.logUtil.putF(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height * scaleY: ").append((height * scaleY)).toString(), this, commonStrings.PROCESS);
+//                this.logUtil.putF(stringMaker.append("scaledWidth: ").appendfloat(scaledWidth).append(" scaledHeight: ").appendfloat(scaledHeight).toString(), this, commonStrings.PROCESS);
+                scaledImage = this.imageScaleUtil.scale(image, scaledWidth, scaledHeight);
+//                stringMaker.delete(0, stringMaker.length());
+//                this.logUtil.putF(stringMaker.append("scaledImage.getHeight(): ").appendint(scaledImage.getHeight()).append(" this.height * scaleY: ").appendfloat((height * scaleY)).toString(), this, commonStrings.PROCESS);
             }
 
         } else {

@@ -36,7 +36,7 @@ public class OpenGLImageUtilBase {
         throw new RuntimeException();
     }
     
-    public OpenGLBitmap createImageFromInputStream(final InputStream inputStream) throws IOException {
+    public OpenGLBitmap createImageFromInputStream(final InputStream inputStream) throws Exception {
         throw new RuntimeException();
     }
     
