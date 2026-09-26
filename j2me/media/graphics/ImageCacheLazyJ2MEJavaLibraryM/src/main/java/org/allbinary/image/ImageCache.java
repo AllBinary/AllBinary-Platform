@@ -49,7 +49,7 @@ public class ImageCache extends ImageCacheBase {
     
     public static final ImageCache NULL_IMAGE_CACHE = new ImageCache();
     
-    protected final LogUtil logUtil = LogUtil.getInstance();
+    //protected final LogUtil logUtil = LogUtil.getInstance();
     
     //private final ABSystemWrapper systemWrapper = ABSystemWrapper.getInstance();
     private final TsUtil tsUtil = TsUtil.getInstance();
@@ -322,7 +322,7 @@ public class ImageCache extends ImageCacheBase {
 
         if (image.isReady()) {
             
-            //this.logUtil.putF(new StringMaker().append("already loaded resource image: ").append(image).append(image.getName()).toString(), this, this.commonStrings.RUN);
+            //this.logUtil.putF(new StringMaker().append("already loaded resource image: ").append(image.toString()).append(image.getName()).toString(), this, this.commonStrings.RUN);
             return true;
             
         } else {
@@ -330,16 +330,18 @@ public class ImageCache extends ImageCacheBase {
             if(image.getImage() != null) {
                 //HTML only
                 if(image.setReady()) {
-                    this.totalLoaded++;
-                    //this.logUtil.putF(new StringMaker().append("setReady resource HTML5 image: ").append(image).append(image.getName()).toString(), this, this.commonStrings.RUN);
-                    return true;
+                    if(image.isReady()) {
+                        this.totalLoaded++;
+                        //this.logUtil.putF(new StringMaker().append("setReady resource HTML5 image: ").append(image.toString()).append(image.getName()).toString(), this, this.commonStrings.RUN);
+                        return true;
+                    }
                 }
             } else {
                 //this.logUtil.putF(new StringMaker().append("attempt loading resource image: ").append(image).append(image.getName()).toString(), this, this.commonStrings.RUN);
                 final String key = image.getName();
                 final Image image2 = this.creatImage(key);
                 if (image2.isReady()) {
-                    //this.logUtil.putF(new StringMaker().append("setImage resource Now image: ").append(image).append(image.getName()).toString(), this, this.commonStrings.RUN);
+                    //this.logUtil.putF(new StringMaker().append("setImage resource Now image: ").append(image.toString()).append(image.getName()).toString(), this, this.commonStrings.RUN);
                     this.init(image, image2);
                     return true;
                 } else {

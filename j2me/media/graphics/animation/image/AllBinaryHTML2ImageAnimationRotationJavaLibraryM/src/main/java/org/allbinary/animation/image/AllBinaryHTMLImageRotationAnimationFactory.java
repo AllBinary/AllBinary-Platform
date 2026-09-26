@@ -157,6 +157,10 @@ public class AllBinaryHTMLImageRotationAnimationFactory
     
     public Animation getInstance(final int instanceId) throws Exception
     {
+//        if(this.getImage().getWidth() == 0) {
+//            throw new RuntimeException("Trying to scale image that does not have size");
+//        }
+
         final Image scaledImage = this.animationFactoryImageScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
             this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
