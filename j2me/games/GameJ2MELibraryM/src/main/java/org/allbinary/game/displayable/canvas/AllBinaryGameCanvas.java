@@ -680,9 +680,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected void processorInit() throws Exception
     {
         this.setMainStateProcessor(Processor.getInstance());
-        this.setProcessGameProcessor(new GameProcessor(this));
+        this.setProcessGameProcessorInit();
     }
 
+    protected void setProcessGameProcessorInit() {
+        this.setProcessGameProcessor(new GameProcessor(this));
+    }
+    
     protected void initSpecialPaint()
     {
         this.menuBehavior.initSpecialPaint(this);
