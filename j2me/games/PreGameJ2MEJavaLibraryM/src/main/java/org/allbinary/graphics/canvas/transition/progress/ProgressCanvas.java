@@ -96,6 +96,8 @@ public class ProgressCanvas extends RunnableCanvas
 
     public Processor inGameProcessor = Processor.getInstance();
     
+    public ProgressEndListener progressEndListener = ProgressEndListener.instance;
+    
 //    ProgressCanvas()
 //    {
 //        super(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
@@ -198,6 +200,7 @@ public class ProgressCanvas extends RunnableCanvas
     }
 
     public void inGame() {
+        this.progressEndListener.onEndEvent();
         this.inGameProcessor = this.IN_GAME_PROCESSOR;
     }
 
@@ -212,8 +215,16 @@ public class ProgressCanvas extends RunnableCanvas
     public void endFromInitialLazyLoadingComplete()
     {
         //this.logUtil.putF(this.commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE);
+        this.progressEndListener.onEndEvent();
         this.gauge.setValue(this.getMaxValue());
         this.inGameProcessor = this.IN_GAME_PROCESSOR;
+    }
+    
+    public boolean isInGame() {
+        if(this.inGameProcessor == this.IN_GAME_PROCESSOR) {
+            return true;
+        }
+        return false;
     }
     
     public void endIfPaintedSinceStart()
