@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
@@ -31,8 +31,6 @@ import playn.html.HtmlImage;
  * @author user
  */
 public class ImageJ2MEScaleUtil {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private static final ImageJ2MEScaleUtil instance = new ImageJ2MEScaleUtil();
 
@@ -42,18 +40,18 @@ public class ImageJ2MEScaleUtil {
     public static ImageJ2MEScaleUtil getInstance() {
         return ImageJ2MEScaleUtil.instance;
     }
-    
-    private ImageJ2MEScaleUtil() {
+
+    protected final LogUtil logUtil = LogUtil.getInstance();
         
+    private ImageJ2MEScaleUtil() {
+
     }
-    
+
     public Image[] scaleArray(Image[] images, int width, int height)
-            throws Exception
-    {
+        throws Exception {
         Image[] scaledImages = new Image[images.length];
 
-        for(int index = images.length; --index >= 0;)
-        {
+        for (int index = images.length; --index >= 0;) {
             scaledImages[index] = this.scale(images[index], width, height);
         }
 
@@ -61,8 +59,7 @@ public class ImageJ2MEScaleUtil {
     }
 
     public Image scale(final Image image, final int width, final int height)
-            throws Exception
-    {
+        throws Exception {
 
         CoreImage originalPlayNImage = null;
         if (image.isMutable()) {
@@ -79,12 +76,10 @@ public class ImageJ2MEScaleUtil {
 
         final Image scaledImage = Image.createImageWH(width, height);
         final PlaynMutableImage htmlImage = (PlaynMutableImage) scaledImage;
-        final ImageImpl canvasImage = (ImageImpl) htmlImage.getImage();
-        
-        //this.logUtil.putF(new StringMaker().append("TWB w:").append(image.getWidth()).append(" h: ").append(image.getHeight()).append(" w: ").append(scaledImage.getWidth()).append(" h: ").append(scaledImage.getHeight()).toString(), this, "scale");
-        
-        final Canvas canvas = ((HtmlGraphics) PlayN.getInstance().graphics()).get((HtmlImage) originalPlayNImage);
-        canvasImage.draw(canvas.gc(), 0, 0, scaledImage.getWidth(), scaledImage.getHeight(), 0, 0, image.getWidth(), image.getHeight());
+        final ImageImpl scaledPlayNImage = (ImageImpl) htmlImage.getImage();
+
+        final Canvas canvas = ((HtmlGraphics) PlayN.getInstance().graphics()).get((HtmlImage) scaledPlayNImage);
+        ((ImageImpl) originalPlayNImage).draw(canvas.gc(), 0, 0, scaledImage.getWidth(), scaledImage.getHeight(), 0, 0, image.getWidth(), image.getHeight());
 
         return scaledImage;
 
