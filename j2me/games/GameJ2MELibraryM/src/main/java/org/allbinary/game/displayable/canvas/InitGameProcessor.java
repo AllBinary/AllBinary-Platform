@@ -16,6 +16,8 @@ package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.canvas.Processor;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 
 public class InitGameProcessor extends Processor
@@ -30,8 +32,10 @@ public class InitGameProcessor extends Processor
     @Override
     public void process() throws Exception
     {
+        //final LogUtil logUtil = LogUtil.getInstance();
+        //logUtil.putF("ProgressCanvasFactory.getInstance().isInGame(): " + ProgressCanvasFactory.getInstance().isInGame(), this, CommonStrings.getInstance().PROCESS);
         if(ProgressCanvasFactory.getInstance().isInGame()) {
-            this.gameCanvas.setProcessGameProcessor(new GameProcessor(this.gameCanvas));
+            this.gameCanvas.setProcessGameProcessorInit();
         }
     }
 }
