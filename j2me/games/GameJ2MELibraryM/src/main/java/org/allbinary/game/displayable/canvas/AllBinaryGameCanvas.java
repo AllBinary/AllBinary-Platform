@@ -630,13 +630,12 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             this.pause();
             this.updateMenu();
             this.popupMenu();
-        }
-        else
-            if (this.getMenuPaintable() == this.getFormPaintable())
-        {
-                this.primaryPlayerQueue.add(SelectSound.getInstance());
 
-                this.unPause();
+        } else if (this.getMenuPaintable() == this.getFormPaintable()) {
+            
+            this.primaryPlayerQueue.add(SelectSound.getInstance());
+            this.unPause();
+
         }
     }
 
