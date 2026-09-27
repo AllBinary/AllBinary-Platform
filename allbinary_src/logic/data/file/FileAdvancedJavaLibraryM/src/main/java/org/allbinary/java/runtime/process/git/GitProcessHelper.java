@@ -42,6 +42,10 @@ public class GitProcessHelper {
     private final TrackedStrings trackedStrings = TrackedStrings.getInstance();
     
     public List<String> trackedFiles(final String rootAsString, final String pathspec) throws IOException, InterruptedException {
+        return this.trackedFiles(rootAsString, pathspec, ".java");
+    }
+
+    public List<String> trackedFiles(final String rootAsString, final String pathspec, final String suffix) throws IOException, InterruptedException {
         final Process process = new ProcessBuilder(
             this.trackedStrings.GIT_COMMAND, this.trackedStrings.CHANGE_DIRECTORY_OPTION, rootAsString, 
             this.trackedStrings.LIST_FILES_COMMAND, this.trackedStrings.SEP_BY_NULL_CHAR_INSTEAD_OF_NEW_LINE, this.trackedStrings.PATHSPEC_SEPARATOR, pathspec)
@@ -59,7 +63,7 @@ public class GitProcessHelper {
         for (int index = 0; index < output.length; index++) {
             if (output[index] == 0) {
                 relativePath = new String(output, start, index - start, StandardCharsets.UTF_8);
-                if (relativePath.endsWith(".java")) {
+                if (relativePath.endsWith(suffix)) {
                     files.add(relativePath);
                 }
                 start = index + 1;
