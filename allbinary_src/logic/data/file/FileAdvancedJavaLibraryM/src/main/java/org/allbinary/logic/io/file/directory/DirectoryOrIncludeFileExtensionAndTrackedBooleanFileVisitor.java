@@ -13,9 +13,8 @@
  */
 package org.allbinary.logic.io.file.directory;
 
-import java.io.File;
+import org.allbinary.java.runtime.process.git.GitProcessHelper;
 import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.AbFileNativeUtil;
 import org.allbinary.logic.io.file.CommonDataFileStrings;
 import org.allbinary.logic.io.file.visitor.IncludeFileExtensionsBooleanFileVisitor;
 import org.allbinary.util.BasicArrayList;
@@ -25,7 +24,8 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
     extends IncludeFileExtensionsBooleanFileVisitor {
 
     private final TrackedStrings trackedStrings = TrackedStrings.getInstance();
-
+    private final GitProcessHelper gitProcessHelper = GitProcessHelper.getInstance();
+    
     private final String includesString;
 
     public DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor(final BasicArrayList filterStringBasicArrayList) {
@@ -63,7 +63,7 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
             if (!(filePath.contains(this.trackedStrings.APPLICATION) || filePath.contains(this.trackedStrings.APP) || filePath.contains(this.trackedStrings.HTML_TEMP))) {
             if (!(filePath.contains(this.trackedStrings.TARGET_PATH_WINDOWS) || filePath.contains(this.trackedStrings.TARGET_PATH_UNIX))) {
                 //System.out.println("Not target path");
-                if (this.isGitTracked(file)) {
+                if (this.gitProcessHelper.isGitTracked(file)) {
                     //System.out.println("path: " + filePath);
                     //System.out.println("tracked");
                     return Boolean.TRUE;
@@ -80,22 +80,6 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
         }
 
         return Boolean.FALSE;
-    }
-
-    private boolean isGitTracked(final AbFile file) {
-        try {
-            final File nativeFile = AbFileNativeUtil.get(file);
-            final File parentFile = nativeFile.getParentFile();
-            final Process process = new ProcessBuilder(
-                this.trackedStrings.GIT_COMMAND, this.trackedStrings.CHANGE_DIRECTORY_OPTION, parentFile.getPath(),
-                this.trackedStrings.LIST_FILES_COMMAND, this.trackedStrings.ERROR_UNMATCH_OPTION, this.trackedStrings.PATHSPEC_SEPARATOR, nativeFile.getName())
-                .redirectErrorStream(true)
-                .start();
-            process.getInputStream().readAllBytes();
-            return process.waitFor() == 0;
-        } catch (Exception e) {
-            return false;
-        }
     }
 
     public static void main(String[] args) {
