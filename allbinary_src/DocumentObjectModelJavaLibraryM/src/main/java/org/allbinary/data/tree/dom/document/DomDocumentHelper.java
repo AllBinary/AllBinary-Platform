@@ -13,16 +13,11 @@
 */
 package org.allbinary.data.tree.dom.document;
 
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 
@@ -34,6 +29,13 @@ public class DomDocumentHelper
    private DomDocumentHelper()
    {
    }
+
+    public static void init() {
+        System.setProperty("jdk.xml.maxElementDepth", "0");
+        //System.setProperty("jdk.xml.xpathExprGrpLimit", "0");
+        //System.setProperty("jdk.xml.xpathExprOpLimit", "0");
+        System.setProperty("jdk.xml.xpathTotalOpLimit", "0");
+    }
    
    public static Document create()
    {
@@ -91,32 +93,5 @@ public class DomDocumentHelper
          throw e;
       }
    }
-   
-   public static String toString(Document document) throws Exception
-   {
-      try
-      {
-         DOMSource domSource = new DOMSource(document);
-         
-         ByteArrayOutputStream byteArrayOutputStream
-               = new ByteArrayOutputStream();
-         
-         StreamResult streamResult = new StreamResult(byteArrayOutputStream);
-         
-         TransformerFactory copyTransformerFactory
-               = TransformerFactory.newInstance();
-         
-         Transformer copyTransformer
-               = copyTransformerFactory.newTransformer();
-         
-         copyTransformer.transform(domSource,streamResult);
-         
-         return byteArrayOutputStream.toString();
-      }
-      catch (Exception e)
-      {
-         throw e;
-      }
-   }
-   
+      
 }

@@ -13,6 +13,8 @@
 */
 package org.allbinary.data.tree.dom;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class ToDomHelper
 {
    
@@ -22,7 +24,9 @@ public class ToDomHelper
    
    public static String convertNull(String value)
    {
-      if(value==null) value = "null";
+      if(value == null) {
+          value = StringUtil.getInstance().NULL_STRING;
+      }
       return value;
    }
 }

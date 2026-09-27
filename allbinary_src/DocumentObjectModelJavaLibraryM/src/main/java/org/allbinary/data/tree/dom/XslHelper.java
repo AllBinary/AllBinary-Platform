@@ -24,7 +24,7 @@ import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.w3c.dom.Document;
 
 //import org.allbinary.data.tree.dom.document.DomDocumentHelper;
@@ -101,7 +101,7 @@ public class XslHelper
         {
             final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             return this.translate(xsltStreamSource,
-                    new StreamSource(new StringBufferInputStream(DomDocumentHelper.toString(xmlDocument))),
+                    new StreamSource(new StringBufferInputStream(XmlDocumentHelper.toString(xmlDocument))),
                     new StreamResult(outputStream)).toString();
         } catch (Exception e)
         {
@@ -153,7 +153,7 @@ public class XslHelper
 
             this.translate(
                     new StreamSource(xsltFilePath),
-                    new StreamSource(new StringBufferInputStream(DomDocumentHelper.toString(xmlDocument))),
+                    new StreamSource(new StringBufferInputStream(XmlDocumentHelper.toString(xmlDocument))),
                     new StreamResult(outputFile));
         } catch (Exception e)
         {

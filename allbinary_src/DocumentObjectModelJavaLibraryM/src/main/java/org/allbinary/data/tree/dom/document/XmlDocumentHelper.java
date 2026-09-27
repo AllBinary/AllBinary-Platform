@@ -13,6 +13,7 @@
  */
 package org.allbinary.data.tree.dom.document;
 
+import java.io.ByteArrayOutputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -80,5 +81,32 @@ public class XmlDocumentHelper {
         this.transformer.transform(new DOMSource(document), new StreamResult(out));
         return out.toString();
     }
+    
+   public static String toString(Document document) throws Exception
+   {
+      try
+      {
+         DOMSource domSource = new DOMSource(document);
+         
+         ByteArrayOutputStream byteArrayOutputStream
+               = new ByteArrayOutputStream();
+         
+         StreamResult streamResult = new StreamResult(byteArrayOutputStream);
+         
+         TransformerFactory copyTransformerFactory
+               = TransformerFactory.newInstance();
+         
+         Transformer copyTransformer
+               = copyTransformerFactory.newTransformer();
+         
+         copyTransformer.transform(domSource,streamResult);
+         
+         return byteArrayOutputStream.toString();
+      }
+      catch (Exception e)
+      {
+         throw e;
+      }
+   }
     
 }
