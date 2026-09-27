@@ -40,6 +40,7 @@ public class TrackedStrings {
     public final String LIST_FILES_COMMAND = "ls-files";
     public final String ERROR_UNMATCH_OPTION = "--error-unmatch";
     public final String PATHSPEC_SEPARATOR = "--";
+    public final String SEP_BY_NULL_CHAR_INSTEAD_OF_NEW_LINE = "-z";
 
     
 }
