@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.basic.string;
+package org.allbinary.logic.string;
 
 /**
  *
