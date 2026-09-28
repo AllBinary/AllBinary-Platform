@@ -13,14 +13,13 @@
 */
 package views.generic.inventory;
 
-import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.user.commerce.inventory.item.BasicItemView;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.search.SearchRequest;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
@@ -67,7 +66,7 @@ public class InventorySearchProductUtil {
                     new BasicItemView(itemInterface, new BasicArrayListD()).toXmlNode(
                     viewDocumentInterface.getDoc()));
 
-                String success = DomDocumentHelper.toString(viewDocumentInterface.getDoc());
+                String success = XmlDocumentHelper.toString(viewDocumentInterface.getDoc());
 
                 String outputStr = new StoreTransformer(abeClientInformation,
                     (TransformInfoInterface) new TransformInfoHttpSearch(

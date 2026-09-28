@@ -22,6 +22,7 @@ import org.allbinary.data.tree.category.CategoryLoaderFactory;
 import org.allbinary.data.tree.category.CategoryLoaderInterface;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.string.StringMaker;
@@ -73,7 +74,7 @@ public class EditThemeValidationView extends ThemeCustomizerView implements Vali
          
          Document document = DomDocumentHelper.create();
          document.appendChild(domNodeInterface.toXmlNode(document));
-         String documentString = DomDocumentHelper.toString(document);
+         String documentString = XmlDocumentHelper.toString(document);
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {

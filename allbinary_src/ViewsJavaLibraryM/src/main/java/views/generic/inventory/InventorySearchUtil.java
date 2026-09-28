@@ -14,8 +14,6 @@
 package views.generic.inventory;
 
 import java.util.HashMap;
-import java.util.ListIterator;
-import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
@@ -27,7 +25,7 @@ import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.search.SearchData;
 import org.allbinary.logic.control.search.SearchParams;
@@ -138,7 +136,7 @@ public class InventorySearchUtil {
         inventoryNode.appendChild(ModDomHelper.createNameValueNodes(
             viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_ITEMS, this.commonPhoneStrings.ZERO));
 
-        String success = DomDocumentHelper.toString(viewDocumentInterface.getDoc());
+        String success = XmlDocumentHelper.toString(viewDocumentInterface.getDoc());
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
@@ -321,7 +319,7 @@ public class InventorySearchUtil {
                                     stringBuffer.append(END_PAGE);
                                     stringBuffer.append(endPage);
                                     //stringBuffer.append(XML_COLON);
-                                    //stringBuffer.append(DomDocumentHelper.toString(viewDocumentInterface.getDoc()));
+                                    //stringBuffer.append(XmlDocumentHelper.toString(viewDocumentInterface.getDoc()));
 
                                     this.logUtil.putF(stringBuffer.toString(), this, "search");
                                 }
@@ -395,7 +393,7 @@ public class InventorySearchUtil {
                         stringBuffer.append(END_PAGE);
                         stringBuffer.append(endPage);
                         //stringBuffer.append(XML_COLON);
-                        //stringBuffer.append(DomDocumentHelper.toString(viewDocumentInterface.getDoc()));
+                        //stringBuffer.append(XmlDocumentHelper.toString(viewDocumentInterface.getDoc()));
 
                         this.logUtil.putF(stringBuffer.toString(), this, "search");
                     }
@@ -441,7 +439,7 @@ public class InventorySearchUtil {
                             stringBuffer.append("Translating Doc: ");
                             stringBuffer.append(index);
                             stringBuffer.append(XML_COLON);
-                            stringBuffer.append(DomDocumentHelper.toString(tempDocument));
+                            stringBuffer.append(XmlDocumentHelper.toString(tempDocument));
 
                             this.logUtil.putF(stringBuffer.toString(), this, "search");
                         }
@@ -484,7 +482,7 @@ public class InventorySearchUtil {
                             }
                         }
 
-                        String success = DomDocumentHelper.toString(tempDocument);
+                        String success = XmlDocumentHelper.toString(tempDocument);
 
                         /*
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(

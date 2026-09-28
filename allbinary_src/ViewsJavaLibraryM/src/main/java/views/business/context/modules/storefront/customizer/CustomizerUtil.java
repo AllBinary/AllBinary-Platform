@@ -14,12 +14,12 @@
 package views.business.context.modules.storefront.customizer;
 
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.transform.info.TransformInfoEntity;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.info.TransformInfo;
@@ -150,7 +150,7 @@ public class CustomizerUtil
         //get the view xml/data that will replace the old xml/data
         Document document = DomDocumentHelper.create();
         document.appendChild(domNodeInterface.toXmlNode(document));
-        String documentString = DomDocumentHelper.toString(document);
+        String documentString = XmlDocumentHelper.toString(document);
 
         StringMaker stringBuffer = new StringMaker();
 

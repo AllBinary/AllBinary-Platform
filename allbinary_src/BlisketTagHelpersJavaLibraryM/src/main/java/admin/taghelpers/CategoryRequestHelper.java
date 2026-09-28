@@ -32,6 +32,7 @@ import org.allbinary.data.tree.category.CategoryLoaderInterface;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -126,7 +127,7 @@ public class CategoryRequestHelper extends ModifyTable
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
-               this.logUtil.putF(DomDocumentHelper.toString(document), this, "getXmlData()");
+               this.logUtil.putF(XmlDocumentHelper.toString(document), this, "getXmlData()");
             }
 
             this.setCategoryLoader(requestNode);
@@ -339,7 +340,7 @@ public class CategoryRequestHelper extends ModifyTable
          Document document = 
             new CategoryComponent(this.childCategoryInterface).toXmlDoc();
          
-         String xmlString = DomDocumentHelper.toString(document);
+         String xmlString = XmlDocumentHelper.toString(document);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {

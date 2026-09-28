@@ -21,6 +21,7 @@ import org.allbinary.util.BasicArrayListD;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.StdUtil;
@@ -472,7 +473,7 @@ public class TransformInfo implements TransformInfoInterface
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
                     this.logUtil.putF(
-                        "Data: " + DomDocumentHelper.toString(DomDocumentHelper.create(data)), this, "getData()");
+                        "Data: " + XmlDocumentHelper.toString(DomDocumentHelper.create(data)), this, "getData()");
                 }
             } else
             {

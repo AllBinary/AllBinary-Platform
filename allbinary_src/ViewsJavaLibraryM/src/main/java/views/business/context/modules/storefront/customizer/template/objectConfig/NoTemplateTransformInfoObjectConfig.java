@@ -17,6 +17,7 @@ import java.util.HashMap;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
@@ -52,7 +53,7 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
 
    protected Document generate(Document objectConfigDocument) throws Exception
    {
-       String docString = DomDocumentHelper.toString(objectConfigDocument);
+       String docString = XmlDocumentHelper.toString(objectConfigDocument);
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
@@ -88,7 +89,7 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("Final ObjectConfig: " +
-            DomDocumentHelper.toString(newObjectConfigDocument), this, "generate()");
+            XmlDocumentHelper.toString(newObjectConfigDocument), this, "generate()");
       }
 
       return newObjectConfigDocument;

@@ -19,8 +19,7 @@ import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.StdUtil;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
@@ -131,7 +130,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
         {
 
             this.toXmlDoc();
-            String success = DomDocumentHelper.toString(this.getDoc());
+            String success = XmlDocumentHelper.toString(this.getDoc());
 
             String result = new BasicTransformer(this.abeClientInformation,
                 this.getTransformInfoInterface()).translate(success);

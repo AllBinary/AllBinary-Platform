@@ -15,11 +15,11 @@ package views.business.context.modules.storefront.customizer.generic.page;
 
 import java.util.HashMap;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.data.tables.transform.info.TransformInfoEntity;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
@@ -147,7 +147,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
                //get the view xml/data that will replace the old xml/data
                Document document = DomDocumentHelper.create();
                document.appendChild(pageValidation.toXmlNode(document));
-               String documentString = DomDocumentHelper.toString(document);
+               String documentString = XmlDocumentHelper.toString(document);
 
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                {

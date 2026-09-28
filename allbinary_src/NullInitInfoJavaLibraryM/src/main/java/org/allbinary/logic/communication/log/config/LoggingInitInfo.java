@@ -172,7 +172,7 @@ public class LoggingInitInfo
           return null;
           /*
          Document document = LoggingInitInfo.getDoc();
-         return DomDocumentHelper.toString(document);
+         return XmlDocumentHelper.toString(document);
          */
       }
       catch(Exception e)

@@ -17,6 +17,7 @@ import java.util.HashMap;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -71,7 +72,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
     //private final int HACK = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx".length();
     protected Document generate(final Document objectConfigDocument) throws Exception
     {
-        //final String docString = DomDocumentHelper.toString(objectConfigDocument);
+        //final String docString = XmlDocumentHelper.toString(objectConfigDocument);
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
@@ -108,7 +109,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         final TransformInfoHttp transformInfoHttpStoreInterface =
             (TransformInfoHttp) this.getTransformInfoInterface();
 
-        final String objectConfigDocumentString = DomDocumentHelper.toString(objectConfigDocument);
+        final String objectConfigDocumentString = XmlDocumentHelper.toString(objectConfigDocument);
 
         final HashMap replaceHashMap = this.createReplaceHashMap(
             transformInfoHttpStoreInterface, objectConfigDocumentString);
@@ -209,7 +210,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("Final ObjectConfig: "
-                + DomDocumentHelper.toString(newObjectConfigDocument), this, "generate()");
+                + XmlDocumentHelper.toString(newObjectConfigDocument), this, "generate()");
         }
 
         return newObjectConfigDocument;

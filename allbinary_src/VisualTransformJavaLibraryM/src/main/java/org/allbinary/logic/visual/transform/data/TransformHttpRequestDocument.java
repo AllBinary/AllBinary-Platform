@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.http.AcceptableResponseGenerator;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -132,7 +133,7 @@ public class TransformHttpRequestDocument
          stringBuffer.append("Log-Error: BaseNode is Null");
       }
       stringBuffer.append("\nDocument: ");
-      stringBuffer.append(DomDocumentHelper.toString(this.document));
+      stringBuffer.append(XmlDocumentHelper.toString(this.document));
       return stringBuffer.toString();
    }
 }

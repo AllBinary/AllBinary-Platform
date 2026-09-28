@@ -13,7 +13,7 @@
 */
 package views.compound;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import views.business.context.modules.storefront.HttpStoreComponentView;
@@ -48,7 +48,7 @@ public class CompoundComponentView extends HttpStoreComponentView
    {
       try
       {
-         String success = DomDocumentHelper.toString(this.getDoc());
+         String success = XmlDocumentHelper.toString(this.getDoc());
          
          String result = 
             new CompoundTransform(

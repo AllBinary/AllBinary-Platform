@@ -17,7 +17,7 @@ package views.business.context.modules.storefront.customizer.bodies.generic.titl
 import org.allbinary.business.page.PageData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.StoreTransformer;
@@ -68,7 +68,7 @@ public class TitleBodyCustomizerView extends HttpStoreComponentView
    {
       try
       {
-         String success = DomDocumentHelper.toString(this.getDoc());
+         String success = XmlDocumentHelper.toString(this.getDoc());
 
          String result =
             new StoreTransformer(this.abeClientInformation, this.getTransformInfoInterface()).translate(success);
