@@ -36,4 +36,7 @@ public class GraphicsStrings {
 
     public final String HTML = "HTML";
     
+    public final String WIDTH = "width";
+    public final String HEIGHT = "height";
+    
 }

@@ -41,8 +41,6 @@ public class HtmlTable extends HtmlTag
    
    private final String RULES = "rules";
    
-   private final String WIDTH = "width";
-   
    private final String STYLE = "style";
    
    public final String  BORDERCOLLAPSE="border-collapse: collapse";

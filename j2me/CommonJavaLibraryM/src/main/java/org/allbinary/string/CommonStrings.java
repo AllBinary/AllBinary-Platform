@@ -158,5 +158,7 @@ public class CommonStrings
     public final String ADD_LISTENER = "addListener";
     @JsProperty
     public final String REMOVE_LISTENER = "removeListener";
-    
+
+    @JsProperty
+    public final String SIZE = "size";    
 }

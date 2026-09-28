@@ -14,6 +14,7 @@
 package org.allbinary.animation;
 
 import java.util.Enumeration;
+import org.allbinary.graphics.GraphicsStrings;
 
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -37,6 +38,7 @@ public class SVGAsJSONSimpleLoader
         return SVGAsJSONSimpleLoader.instance;
     }
     
+    private final GraphicsStrings graphicsStrings = GraphicsStrings.getInstance();
     private final ShapeTypeFactory shapeTypeFactory = ShapeTypeFactory.getInstance();
     
     private final String KEY_SVG = "svg";
@@ -49,8 +51,6 @@ public class SVGAsJSONSimpleLoader
     private final String KEY_R = "r";
     private final String KEY_X = PositionStrings.getInstance().X;
     private final String KEY_Y = PositionStrings.getInstance().Y;
-    private final String KEY_WIDTH = "width";
-    private final String KEY_HEIGHT = "height";
 
     private final String ERROR_PARSE_SVG_JSON = "Unable to parse SVG JSON";
     private final String ERROR_MISSING_KEY_PREFIX = "Missing key: ";
@@ -167,8 +167,8 @@ public class SVGAsJSONSimpleLoader
     {
         final int x = this.readInt(rectangle, KEY_X, 0);
         final int y = this.readInt(rectangle, KEY_Y, 0);
-        final int width = this.readInt(rectangle, KEY_WIDTH);
-        final int height = this.readInt(rectangle, KEY_HEIGHT);
+        final int width = this.readInt(rectangle, graphicsStrings.WIDTH);
+        final int height = this.readInt(rectangle, graphicsStrings.HEIGHT);
 
         this.addPoint(pointVector, x, y);
         this.addPoint(pointVector, x + width, y);

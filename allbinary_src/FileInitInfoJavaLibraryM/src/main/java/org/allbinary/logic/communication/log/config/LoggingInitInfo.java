@@ -15,6 +15,7 @@ package org.allbinary.logic.communication.log.config;
 
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.globals.PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.io.AbFileLocalInputStream;
@@ -195,7 +196,7 @@ public class LoggingInitInfo
       try
       {
          final Document document = LoggingInitInfo.getDoc();
-         return DomDocumentHelper.toString(document);
+         return XmlDocumentHelper.toString(document);
       }
       catch(Exception e)
       {

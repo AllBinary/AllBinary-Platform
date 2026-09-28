@@ -18,6 +18,7 @@ import java.util.HashMap;
 import org.allbinary.animation.vector.VectorCenterGenerator;
 import org.allbinary.dom.DomHelper;
 import org.allbinary.graphics.GPoint;
+import org.allbinary.graphics.GraphicsStrings;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.j2me.workarea.WorkAreaJPanel;
 import org.allbinary.graphics.j2me.workarea.tools.GraphicItemFactory;
@@ -30,6 +31,7 @@ import org.w3c.dom.Node;
 public class CanvasDom
 {
     //Dom Nodes
+    private final GraphicsStrings graphicsStrings = GraphicsStrings.getInstance();
 
     public static final String FRAME = "frame";
     public static final String ROTATE = "rotate";
@@ -45,8 +47,6 @@ public class CanvasDom
     public static final String POSSIBLE = "possible";
     public static final String GRAPHICITEMS = "graphicItems";
     public static final String REAL_SIZE = "realSize";
-    public static final String WIDTH = "width";
-    public static final String HEIGHT = "height";
     // public static final String WORKAREA = "workArea";
     private HashMap graphicItemHashMap;
     private double angle;
@@ -230,13 +230,13 @@ public class CanvasDom
         VectorCenterGenerator vectorCenterGenerator = new VectorCenterGenerator();
         vectorCenterGenerator.calculate(this.getGraphicItemHashMap());
 
-        Node widthNode = (Node) document.createElement(WIDTH);
+        Node widthNode = (Node) document.createElement(this.graphicsStrings.WIDTH);
         Node widthTextNode = (Node) document.createTextNode(
                 Integer.toString(vectorCenterGenerator.getWidth()));
         widthNode.appendChild(widthTextNode);
         realSizeNode.appendChild(widthNode);
 
-        Node heightNode = (Node) document.createElement(HEIGHT);
+        Node heightNode = (Node) document.createElement(this.graphicsStrings.HEIGHT);
         Node heightTextNode = (Node) document.createTextNode(
                 Integer.toString(vectorCenterGenerator.getHeight()));
         heightNode.appendChild(heightTextNode);

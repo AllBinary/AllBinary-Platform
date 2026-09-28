@@ -26,6 +26,7 @@ import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -167,7 +168,7 @@ public class NameSpaceRequestParams extends RequestParams
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
             this.logUtil.putF("\nAppended Document Created: " +
-            DomDocumentHelper.toString(document),
+            XmlDocumentHelper.toString(document),
             this, "getRootNode");
          }
          
@@ -395,7 +396,7 @@ public class NameSpaceRequestParams extends RequestParams
             {
                this.logUtil.putF("\nAppended Package: " + node.getNodeName(),
                this, "addChildren");
-               this.logUtil.putF("\nAppended Document Created: " + DomDocumentHelper.toString(document),
+               this.logUtil.putF("\nAppended Document Created: " + XmlDocumentHelper.toString(document),
                this, "addChildren");
             }
          }
@@ -416,7 +417,7 @@ public class NameSpaceRequestParams extends RequestParams
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
                   this.logUtil.putF("\nAppended Multinode Element: " +
-                  DomDocumentHelper.toString(document),
+                  XmlDocumentHelper.toString(document),
                   this, "addChildren");
                }
             }
@@ -548,7 +549,7 @@ public class NameSpaceRequestParams extends RequestParams
       {
          this.logUtil.putF("NameSpaceRequestParams: " + this.getMap().toString() +
          "\ntoHashMap(): " + hashMap.toString() +
-         "\nDocument Created: " + DomDocumentHelper.toString(document),
+         "\nDocument Created: " + XmlDocumentHelper.toString(document),
          this, "toHashMap()");
       }
       
