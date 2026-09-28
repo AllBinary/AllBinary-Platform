@@ -18,7 +18,7 @@ import java.util.HashMap;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.http.request.NameSpaceRequestParamData;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.dhtml.style.css.CssElementData;
@@ -52,7 +52,7 @@ public class StylesValidationFactory {
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.putF("Style Present: " + DomDocumentHelper.toString(document), this, commonStrings.GET_INSTANCE);
+            this.logUtil.putF("Style Present: " + XmlDocumentHelper.toString(document), this, commonStrings.GET_INSTANCE);
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(

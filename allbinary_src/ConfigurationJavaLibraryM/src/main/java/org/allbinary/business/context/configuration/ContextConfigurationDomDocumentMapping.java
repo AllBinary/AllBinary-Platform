@@ -14,6 +14,7 @@
 package org.allbinary.business.context.configuration;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -40,6 +41,6 @@ public class ContextConfigurationDomDocumentMapping
 
    public String toDomDocumentString() throws Exception
    {
-      return DomDocumentHelper.toString(this.toXmlDoc());
+      return XmlDocumentHelper.toString(this.toXmlDoc());
    }
 }

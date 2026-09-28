@@ -18,6 +18,7 @@ import java.io.StringBufferInputStream;
 import javax.xml.transform.stream.StreamSource;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.io.AbFileLocalInputStream;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.path.AbPath;
@@ -45,7 +46,7 @@ public class SimpleTransform {
         final String result = XslHelper.getInstance().translate(
             new StreamSource(inputStream),
             new StreamSource(
-            new StringBufferInputStream(DomDocumentHelper.toString(document))
+            new StringBufferInputStream(XmlDocumentHelper.toString(document))
             ));
 
         return result;

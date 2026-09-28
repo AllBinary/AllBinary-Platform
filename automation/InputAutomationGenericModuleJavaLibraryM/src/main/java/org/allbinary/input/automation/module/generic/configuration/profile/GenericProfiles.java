@@ -23,6 +23,7 @@ import java.util.Set;
 
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 import org.allbinary.input.automation.module.DefaultListModelHelper;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionData;
@@ -183,7 +184,7 @@ public class GenericProfiles
     {
         FileOutputStream idFile = new FileOutputStream(this.fileName);
         DataOutputStream idOutData = new DataOutputStream(idFile);
-        String documentString = DomDocumentHelper.toString(this.toXmlDoc());
+        String documentString = XmlDocumentHelper.toString(this.toXmlDoc());
         //this.logUtil.putF("Do: " + nodeList.getLength(), this, "Contructor");
         idOutData.writeBytes(documentString);
     }

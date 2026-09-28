@@ -13,7 +13,7 @@
 */
 package org.allbinary.data.tree.dom;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.visual.transform.TransformInterface;
@@ -89,6 +89,6 @@ public class DirectoryDataModel
    {
       Node node = this.toXmlNode(this.getTransformDocumentInterface().getDoc());
       this.getTransformDocumentInterface().getBaseNode().appendChild(node);
-      return DomDocumentHelper.toString(this.getTransformDocumentInterface().getDoc());
+      return XmlDocumentHelper.toString(this.getTransformDocumentInterface().getDoc());
    }
 }

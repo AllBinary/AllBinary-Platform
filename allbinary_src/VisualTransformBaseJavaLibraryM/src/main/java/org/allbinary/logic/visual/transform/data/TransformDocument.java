@@ -14,6 +14,7 @@
 package org.allbinary.logic.visual.transform.data;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
@@ -81,7 +82,7 @@ public class TransformDocument
          stringBuffer.append("Log-Error: BaseNode is Null");
       }
       stringBuffer.append("\nDocument: ");
-      stringBuffer.append(DomDocumentHelper.toString(this.document));
+      stringBuffer.append(XmlDocumentHelper.toString(this.document));
       return stringBuffer.toString();
    }
 }

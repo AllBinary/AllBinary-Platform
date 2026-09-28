@@ -22,6 +22,7 @@ import java.util.Set;
 
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
 import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 import org.allbinary.input.automation.module.DefaultListModelHelper;
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfiles;
@@ -91,7 +92,7 @@ public class GenericProfileActions
             GenericProfileActions.DEFAULT_PROFILE_ACTIONS_PATH + getName() + this.commonFileStrings._XML);
         DataOutputStream idOutData = new DataOutputStream(idFile);
         idOutData.writeBytes(
-            DomDocumentHelper.toString(this.toXmlDoc()));
+            XmlDocumentHelper.toString(this.toXmlDoc()));
     }
 
     public File getFile(String name)
