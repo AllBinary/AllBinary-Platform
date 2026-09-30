@@ -19,10 +19,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
 import org.allbinary.logic.io.file.directory.TrackedStrings;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonStrings;
 
 /**
  *
@@ -36,11 +38,18 @@ public class GitProcessHelper {
     /**
      * @return the instance
      */
-    public static GitProcessHelper getInstance() {
-        return instance;
+    public static GitProcessHelper getInstance() {        
+        return GitProcessHelper.instance;
     }
 
     private final TrackedStrings trackedStrings = TrackedStrings.getInstance();
+
+    private GitProcessHelper() {
+        final LogUtil logUtil = LogUtil.getInstance();
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final String THIS_IS_SLOW = "This is slow consider path exclusion instead";
+        logUtil.putF(THIS_IS_SLOW, this, commonStrings.CONSTRUCTOR);
+    }
     
     public List<String> trackedFiles(final String rootAsString, final String pathspec) throws IOException, InterruptedException {
         return this.trackedFiles(rootAsString, pathspec, ".java");
