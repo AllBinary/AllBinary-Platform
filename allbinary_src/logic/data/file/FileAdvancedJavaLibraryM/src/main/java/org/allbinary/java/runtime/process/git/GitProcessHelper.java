@@ -72,7 +72,7 @@ public class GitProcessHelper {
         return files;
     }
 
-    public boolean isGitTracked(final AbFile file) {
+    public boolean isTracked(final AbFile file) {
         try {
             final File nativeFile = AbFileNativeUtil.get(file);
             final File parentFile = nativeFile.getParentFile();

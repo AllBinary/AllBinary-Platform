@@ -63,7 +63,7 @@ public class DirectoryOrIncludeFileExtensionAndTrackedBooleanFileVisitor
             if (!(filePath.contains(this.trackedStrings.APPLICATION) || filePath.contains(this.trackedStrings.APP) || filePath.contains(this.trackedStrings.HTML_TEMP))) {
             if (!(filePath.contains(this.trackedStrings.TARGET_PATH_WINDOWS) || filePath.contains(this.trackedStrings.TARGET_PATH_UNIX))) {
                 //System.out.println("Not target path");
-                if (this.gitProcessHelper.isGitTracked(file)) {
+                if (this.gitProcessHelper.isTracked(file)) {
                     //System.out.println("path: " + filePath);
                     //System.out.println("tracked");
                     return Boolean.TRUE;
