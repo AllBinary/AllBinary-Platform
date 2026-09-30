@@ -28,6 +28,7 @@ import org.allbinary.logic.string.StringMaker;
  *
  * @author User
  */
+//Do not use this instead just skip target, build, Application paths.
 public class GitProcessHelper {
     
     private static final GitProcessHelper instance = new GitProcessHelper();
