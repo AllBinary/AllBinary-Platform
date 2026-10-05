@@ -2,6 +2,7 @@
 *.iml
 .github/*.md
 .idea
+.vscode
 .project
 .classpath
 .settings/
