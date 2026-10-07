@@ -85,7 +85,9 @@ public class LogUtil {
         String className = CommonStrings.getInstance().EMPTY;
 
         if (object.getClass().getName() != null) {
-            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
+            final int hashCodeValue = TsUtil.getInstance().hashCode(object);
+            final String hexString = Integer.toHexString(hashCodeValue);
+            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(hexString).toString());
         }
 
         final String message = this.logFormatUtil.get(
