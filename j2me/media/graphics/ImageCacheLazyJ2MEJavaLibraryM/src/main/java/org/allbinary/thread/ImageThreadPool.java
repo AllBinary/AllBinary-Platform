@@ -35,6 +35,7 @@ public class ImageThreadPool extends ThreadPool
         super(poolName, numThreads, priority);
     }
 
+    @Override
     public synchronized void runTask(Runnable task)
     {
         //this.logUtil.putF(new StringMaker().append(task).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
@@ -42,11 +43,13 @@ public class ImageThreadPool extends ThreadPool
         super.runTask(task);
     }
 
+    @Override
     protected void startTask(Runnable task)
     {
         //this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.START_TASK).append(task).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
+    @Override
     protected void completedTask(Runnable task)
     {
         //this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(task).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);

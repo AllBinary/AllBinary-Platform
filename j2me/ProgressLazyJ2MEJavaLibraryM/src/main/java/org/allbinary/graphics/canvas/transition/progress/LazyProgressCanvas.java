@@ -18,17 +18,13 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.image.ImageCacheFactory;
 
-import org.allbinary.logic.communication.log.LogUtil;
-
 /**
  *
  * @author User
  */
 public class LazyProgressCanvas extends ProgressCanvas {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
-    
-    protected LazyProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
+        
+    public LazyProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
         super(title, backgroundBasicColor, foregroundBasicColor);        
     }
     
@@ -45,7 +41,7 @@ public class LazyProgressCanvas extends ProgressCanvas {
         try {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.END_METHOD_NAME);
             this.endActual();
-            this.paintable = GAUGE_PAINTABLE;
+            this.paintable = this.GAUGE_PAINTABLE;
             ImageCacheFactory.getInstance().runTask();
             ImageCacheFactory.getInstance().progressEnded();
         } catch(Exception e) {
@@ -53,10 +49,12 @@ public class LazyProgressCanvas extends ProgressCanvas {
         }
     }
     
+    @Override
     public void inGame() {
-        inGameProcessor = Processor.getInstance();
+        this.inGameProcessor = Processor.getInstance();
     }
     
+    @Override
     public void endFromInitialLazyLoadingComplete()
     {
         super.endFromInitialLazyLoadingComplete();
@@ -64,9 +62,10 @@ public class LazyProgressCanvas extends ProgressCanvas {
         this.paintable = NullPaintable.getInstance();
     }
     
+    @Override
     public void endIfPaintedSinceStart()
     {
-        if(this.paintable == GAUGE_PAINTABLE && this.hasPainted) {
+        if(this.paintable == this.GAUGE_PAINTABLE && this.hasPainted) {
             this.endFromInitialLazyLoadingComplete();
         }
     }

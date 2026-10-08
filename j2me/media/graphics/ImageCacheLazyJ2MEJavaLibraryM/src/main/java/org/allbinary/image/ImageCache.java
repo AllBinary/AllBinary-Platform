@@ -78,6 +78,7 @@ public class ImageCache extends ImageCacheBase {
 
     private class NotHTMLProcessor extends Processor {
         
+        @Override
         public void process() {
 
             concurrentImageLoadingProcessor.runTask();
@@ -88,6 +89,7 @@ public class ImageCache extends ImageCacheBase {
 
     private class NotHTMLEndProcessor extends Processor {
         
+        @Override
         public void process() {
 
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -99,6 +101,7 @@ public class ImageCache extends ImageCacheBase {
 
     private class HTMLEndProcessor extends Processor {
 
+        @Override
         public void process() {
 
             final int size = gdResources.currentLayoutRequiredTotal;;
@@ -120,6 +123,7 @@ public class ImageCache extends ImageCacheBase {
     
     private class FirstProcessor extends Processor {
         
+        @Override
         public void process() {
             ImageCache.this.firstProcess();
         }
@@ -145,7 +149,7 @@ public class ImageCache extends ImageCacheBase {
             this.processor = new NotHTMLProcessor();
             this.endProcessor = new NotHTMLEndProcessor();
             try {
-                runTask();
+                this.runTask();
             } catch (Exception e) {
                 logUtil.putF(this.commonStrings.EXCEPTION, this, this.commonStrings.END_METHOD_NAME);
             }
@@ -362,12 +366,13 @@ public class ImageCache extends ImageCacheBase {
     }
 
     protected Image creatImage(final String key) throws Exception {
-        final InputStream inputStream = resourceUtil.getResourceAsStream(key);
+        final InputStream inputStream = this.resourceUtil.getResourceAsStream(key);
         final Image image = ImageFactory.getInstance().createImageFromInputStream(inputStream);
         image.setName(key);
         return image;
     }
 
+    @Override
     public Image get(final String caller, final int width, final int height)
         throws Exception {
         int foundIndex = this.getIndexWH(width, height);
@@ -405,6 +410,7 @@ public class ImageCache extends ImageCacheBase {
         return image;
     }
 
+    @Override
     public Image getWithKey(final Object key) throws Exception {
         Image image = this.getImage(key);
 
@@ -457,6 +463,7 @@ public class ImageCache extends ImageCacheBase {
         throw new RuntimeException();
     }
 
+    @Override
     protected Image createImageFromInputStream(final Object key, final InputStream inputStream)
         throws Exception {
 
@@ -573,6 +580,7 @@ public class ImageCache extends ImageCacheBase {
         this.processor.process();
     }
     
+    @Override
     public void initProgress() {
         //this.logUtil.putF("reset totalFrames", this, this.commonStrings.RUN);
         

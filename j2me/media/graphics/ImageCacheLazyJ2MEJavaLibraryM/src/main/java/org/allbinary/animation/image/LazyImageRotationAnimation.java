@@ -28,7 +28,6 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.ScaleProperties;
 import org.allbinary.util.CircularIndexUtil;
@@ -38,9 +37,8 @@ import org.allbinary.util.CircularIndexUtil;
  * @author User
  */
 public class LazyImageRotationAnimation extends RotationAnimation {
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
-
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     public final int layoutIndex;
     public final int instanceId;
@@ -74,23 +72,33 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
         //this.logUtil.putF(this.NULL_INDEX_ANIMATION.toString(), this, this.commonStrings.PROCESS);
 
-        this.animation = new RotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior) {
+        class ActualRotationAnimation extends RotationAnimation {
             
+            private final LazyImageRotationAnimation lazyImageRotationAnimation;
             private int index;
             
+            public ActualRotationAnimation(LazyImageRotationAnimation lazyImageRotationAnimation) {
+                super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
+                
+                this.lazyImageRotationAnimation = lazyImageRotationAnimation;
+            }
+            
+            @Override
             public void setFrame(final int index) {
                 this.index = index;
             }
 
+            @Override
             public int getFrame() {
                 return this.index;
             }
             
+            @Override
             public void paintXY(final Graphics graphics, final int x, final int y) {
 
                 try {
                     ImageCacheFactory.getInstance().insertFirst(LazyImageRotationAnimation.this);
-                    animation = NULL_INDEX_ANIMATION;
+                    this.lazyImageRotationAnimation.animation = this.lazyImageRotationAnimation.NULL_INDEX_ANIMATION;
                 } catch (Exception e) {
                     final LogUtil logUtil = LogUtil.getInstance();
                     logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
@@ -98,11 +106,12 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
             }
             
+            @Override
             public void paintThreedXYZ(final Graphics graphics, final int x, final int y, final int z) {
 
                 try {
                     ImageCacheFactory.getInstance().insertFirst(LazyImageRotationAnimation.this);
-                    animation = NULL_INDEX_ANIMATION;
+                    this.lazyImageRotationAnimation.animation = this.lazyImageRotationAnimation.NULL_INDEX_ANIMATION;
                 } catch (Exception e) {
                     final LogUtil logUtil = LogUtil.getInstance();
                     logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
@@ -111,6 +120,9 @@ public class LazyImageRotationAnimation extends RotationAnimation {
             }
             
         };
+        
+        this.animation = new ActualRotationAnimation(this);
+            
         //this.logUtil.putF(this.animation.toString(), this, this.commonStrings.PROCESS);
 
     }
@@ -126,7 +138,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
             //this.animation.setScale(this.scaleX, this.scaleY);
             //this.logUtil.putF(new StringMaker().append(this.toString()).append(this.animation.getClass().getName()).toString(), this, SET_REAL_ANIMATION);
         } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, SET_REAL_ANIMATION, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, LazyImageRotationAnimation.SET_REAL_ANIMATION, e);
         }
     }
 
@@ -171,37 +183,43 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     @Override
     public void nextRotation()
     {
-        ((RotationAnimation) this.animation).nextRotation();
+        final RotationAnimation rotationAnimation = ((RotationAnimation) this.animation);
+        rotationAnimation.nextRotation();
     }
 
     @Override
     public void previousRotation()
     {
-        ((RotationAnimation) this.animation).previousRotation();
+        final RotationAnimation rotationAnimation = ((RotationAnimation) this.animation);
+        rotationAnimation.previousRotation();
     }
 
     @Override
     public void nextRotationX()
     {
-        ((RotationAnimation) this.animation).nextRotationX();
+        final RotationAnimation rotationAnimation = ((RotationAnimation) this.animation);
+        rotationAnimation.nextRotationX();
     }
 
     @Override
     public void previousRotationX()
     {
-        ((RotationAnimation) this.animation).previousRotationX();
+        final RotationAnimation rotationAnimation = ((RotationAnimation) this.animation);
+        rotationAnimation.previousRotationX();
     }
     
     @Override
     public void nextRotationZ()
     {
-        ((RotationAnimation) this.animation).nextRotationZ();
+        final RotationAnimation rotationAnimation = ((RotationAnimation) this.animation);
+        rotationAnimation.nextRotationZ();
     }
 
     @Override
     public void previousRotationZ()
     {
-        ((RotationAnimation) this.animation).previousRotationZ();
+        final RotationAnimation rotationAnimation = ((RotationAnimation) this.animation);
+        rotationAnimation.previousRotationZ();
     }
     
     @Override
@@ -312,22 +330,24 @@ public class LazyImageRotationAnimation extends RotationAnimation {
         return this.animation.getWidth();
     }
     
+    @Override
     public void paintXY(final Graphics graphics, final int x, final int y) {
 
         try {
             this.animation.paintXY(graphics, x, y);
         } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
         }
 
     }
 
+    @Override
     public void paintThreedXYZ(final Graphics graphics, final int x, final int y, final int z) {
 
         try {
             this.animation.paintThreedXYZ(graphics, x, y, z);
         } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
         }
 
     }

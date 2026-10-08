@@ -25,27 +25,30 @@ import org.allbinary.string.CommonStrings;
  * @author User
  */
 public class ConcurrentImageLoadingProcessor extends BaseImageLoadingProcessor {
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    class ImageCacheRunnable extends ABRunnable {
 
-    
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
-    
-    private final ImageCache imageCache;
-    
-    private final ABRunnable runnable = new ABRunnable() {
-
+        private final ImageCache imageCache;
+        
+        public ImageCacheRunnable(final ImageCache imageCache) {
+            this.imageCache = imageCache;
+        }
+        
+        @Override
         public void run() {
             final LogUtil logUtil = LogUtil.getInstance();
             try {
                 this.setRunning(true);
                 //logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
 
-                imageCache.waitForLoadNow();
+                this.imageCache.waitForLoadNow();
                 
                 //logUtil.putF("found animation that has attempted to paint so load animations and images", this, this.commonStrings.RUN);
                 
-                imageCache.loadImages();
-                imageCache.loadRemainingAnimations();
+                this.imageCache.loadImages();
+                this.imageCache.loadRemainingAnimations();
                 
                 this.setRunning(false);
                 
@@ -57,16 +60,20 @@ public class ConcurrentImageLoadingProcessor extends BaseImageLoadingProcessor {
 //            logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
             } catch (Exception e) {
                 this.setRunning(false);
+                final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
-
+        
     };
     
+    private final ABRunnable runnable;
+    
     public ConcurrentImageLoadingProcessor(final ImageCache imageCache) {
-        this.imageCache = imageCache;
+        this.runnable = new ImageCacheRunnable(imageCache);
     }
     
+    @Override
     public void runTask() {
         if (!this.runnable.isRunning()) {
             ImageThreadPool.getInstance().runTask(this.runnable);
