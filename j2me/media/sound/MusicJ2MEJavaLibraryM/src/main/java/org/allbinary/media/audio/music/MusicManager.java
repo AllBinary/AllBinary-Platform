@@ -35,8 +35,9 @@ public class MusicManager {
 
     //Handle HTML5 duration with media not playing
     //Handle Media ending for Avian
-    private final PlayerListener playerListener = new PlayerListener() {
+    private class MusicManagerPlayerListener implements PlayerListener {
 
+        @Override
         public void playerUpdate(final Player player, final String event, final Object eventData) {
 
             PreLogUtil.put(event, this, commonStrings.PROCESS);
@@ -46,7 +47,8 @@ public class MusicManager {
                 reset();
             }
         }
-    };
+    };    
+    private final PlayerListener playerListener = new MusicManagerPlayerListener();
     
     private final String PLAY = "Play ";
     private final String SONG = " for: ";
@@ -122,7 +124,7 @@ public class MusicManager {
                 final Sound startingCurrentSongSound = this.currentSongSound;
 
                 //this.currentSongSound.init();
-                final long duration = this.currentSongSound.getDuration();
+                final long duration = (long) this.currentSongSound.getDuration();
 
                 this.timeDelayHelper.delay = (int) duration;
 
