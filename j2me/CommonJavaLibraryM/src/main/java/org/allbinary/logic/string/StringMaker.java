@@ -48,6 +48,16 @@ public class StringMaker
     }
 
     @JsMethod
+    public StringMaker appendCharArray(final char[] charArray, final int start, final int end)
+    {
+        this.ensureCapacity(this.currentLength + (end - start));
+        for(int index = start; index < end; index++) {
+            this.charArray[this.currentLength++] = charArray[index];
+        }        
+        return this;
+    }
+
+    @JsMethod
     public StringMaker appendbyte(final byte b)
     {
       //change to PrimitiveLongUtil
