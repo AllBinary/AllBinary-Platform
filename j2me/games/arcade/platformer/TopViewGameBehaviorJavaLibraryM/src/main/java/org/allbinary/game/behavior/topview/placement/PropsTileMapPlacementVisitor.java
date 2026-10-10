@@ -77,7 +77,7 @@ public class PropsTileMapPlacementVisitor extends TileMapPlacementVisitor {
 
                     } else if (mapArray[index][index2] == 17) {
 
-                        final int randomInt = randomFactory.getAbsoluteNextIntAllowZero(3);
+                        final int randomInt = this.randomFactory.getAbsoluteNextIntAllowZero(3);
                         if (randomInt == 0) {
                             mapData[index][index2] = 17;
                         } else if (randomInt == 1) {

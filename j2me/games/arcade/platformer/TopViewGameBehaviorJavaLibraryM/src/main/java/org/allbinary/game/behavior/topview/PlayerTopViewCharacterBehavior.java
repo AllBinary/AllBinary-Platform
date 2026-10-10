@@ -42,6 +42,7 @@ public class PlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
                 TrackingEventCircularStaticPool.getInstance().getNextInstance(layer));
     }
     
+    @Override
     public void terrainMove(final AllBinaryLayer layer, final BasicGeographicMap[] geographicMapInterfaceArray, final int x, final int y) {
         //this.logUtil.putF(new StringMaker().append("GDGameLevelLevelBuilder Moving: x: ").append(x).append(" y: ").append(y).toString(), this, "move");
 
