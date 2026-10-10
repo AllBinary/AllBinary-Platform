@@ -18,6 +18,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
 import org.allbinary.media.graphics.geography.map.topview.BasicTopViewGeographicMapCellTypeFactory;
 import org.allbinary.util.BasicArrayList;
 
@@ -32,15 +33,15 @@ public class GeographicMapTopViewLayerBehavior extends TopViewGameLayerBehavior 
     }
 
     public GeographicMapCellPosition getGeographicMapCellPositionIfNotSolidBlockOrOffMapLocation(final BasicGeographicMap[] geographicMapInterfaceArray, final GeographicMapCellType[] geographicMapCellTypeArray, final VelocityProperties velocityProperties, final AllBinaryLayer layer, final int x, int y) throws Exception {
-        return null;
+        return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
     }
 
     public GeographicMapCellPosition getGeographicMapCellPositionIfNotSolidBlockOrOffMap(final BasicGeographicMap[] geographicMapInterfaceArray, final GeographicMapCellType[] geographicMapCellTypeArray, final GeographicMapCellPosition geographicMapCellPosition, final VelocityProperties velocityProperties, final AllBinaryLayer layer) throws Exception {
-        return null;
+        return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
     }
 
     public GeographicMapCellPosition getGeographicMapCellPositionFromListIfNotSolidBlockOrOffMap(final BasicGeographicMap[] geographicMapInterfaceArray, final GeographicMapCellType[] geographicMapCellTypeArray, final BasicArrayList geographicMapCellPositionList, final VelocityProperties velocityProperties, final AllBinaryLayer layer) throws Exception {
-        return null;
+        return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
     }
             
     public void gravity(final VelocityProperties velocityProperties, final BasicGeographicMap[] geographicMapInterfaceArray, final GeographicMapCellType[] geographicMapCellTypeArray, final GeographicMapCellPosition geographicMapCellPosition) throws Exception {
