@@ -22,6 +22,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
 
 /**
  *
@@ -254,7 +255,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
                         //this.logUtil.putF("do not move", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
                         //this.blockGeographicMapCellPosition = possibleStepGeographicMapCellPosition;
                         //velocityProperties.getVelocityXBasicDecimalP().set(0);
-                        this.previousGeographicMapCellPosition = null;
+                        this.previousGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                         return null;
 //                    }
                 } else {
@@ -270,7 +271,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
         }
         
         //this.logUtil.putF("not moving", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
-        this.previousGeographicMapCellPosition = null;
+        this.previousGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
         return null;
         //this.previousGeographicMapCellPosition = geographicMapCellPosition;
         //return geographicMapCellPosition;

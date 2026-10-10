@@ -26,6 +26,7 @@ import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
 
 /**
  *
@@ -49,7 +50,7 @@ public class NonPlayerTopViewCharacterBehavior extends TopViewCharacterBehavior 
 
         if (geographicMapCellPosition.getColumn() > 0 && geographicMapCellPosition.getColumn() < maxColumns) {
 
-            GeographicMapCellPosition nextTerrainGeographicMapCellPosition = null;
+            GeographicMapCellPosition nextTerrainGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
 
             final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory
                     = geographicMapInterfaceArray[0].getGeographicMapCellPositionFactory();
