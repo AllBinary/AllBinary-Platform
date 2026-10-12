@@ -30,7 +30,7 @@ public class TextChangeListener {
         return TextChangeListener.instance;
     }
     
-    void onMeasure() {
+    public void onMeasure() {
         
     }
 
