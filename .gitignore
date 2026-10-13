@@ -1,6 +1,8 @@
 *.class
 *.iml
 .github/*.md
+.claude
+.continue
 .idea
 .vscode
 .project
