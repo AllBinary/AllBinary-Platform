@@ -58,7 +58,7 @@ public class PartnerIdentifierFileUtil
             
             if(size > 0)
             {
-                partnerString = String.valueOf(chars, 0, size);
+                partnerString = new String(chars, 0, size); //String.valueOf(chars, 0, size);
                 //partnerString= chars.concatToString(0, 0 + size)
                 
             }

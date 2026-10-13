@@ -16,4 +16,5 @@ package org.allbinary.graphics;
 public class RectangleFactory
 {
     public static final Rectangle SINGLETON = new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0);
+    public static final Rectangle[][] ARRAY_OF_ARRAYS = new Rectangle[0][0];
 }
