@@ -17,6 +17,8 @@ package org.allbinary.animation.special;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.IndexedAnimationBehavior;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 
 public class SpecialAnimation extends IndexedAnimation implements SpecialAnimationInterface
@@ -27,6 +29,9 @@ public class SpecialAnimation extends IndexedAnimation implements SpecialAnimati
     {
         return SpecialAnimation.NULL_SPECIAL_ANIMATION;
     }
+
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     public SpecialAnimation(final AnimationBehavior animationBehavior) {
         super(animationBehavior);
