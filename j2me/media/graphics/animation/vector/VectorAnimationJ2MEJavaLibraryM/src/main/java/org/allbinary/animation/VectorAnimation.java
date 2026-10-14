@@ -19,7 +19,6 @@ import javax.microedition.lcdui.NullImage;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.NullUtil;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.util.CircularIndexUtil;
 
@@ -39,8 +38,6 @@ public class VectorAnimation extends IndexedAnimation
 
         return new VectorAnimation(currentPoints, basicColor, animationBehavior);
     }
-
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
     

@@ -14,6 +14,7 @@
 package org.allbinary.animation;
 
 
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -25,6 +26,7 @@ import org.allbinary.string.CommonStrings;
 public class IndexedAnimation extends Animation 
     implements IndexedAnimationInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     protected final AnimationBehavior animationBehaviorP;

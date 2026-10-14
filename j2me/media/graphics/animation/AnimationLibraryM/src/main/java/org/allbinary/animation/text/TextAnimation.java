@@ -24,7 +24,6 @@ import org.allbinary.graphics.font.MyFontProcessor;
 import org.allbinary.graphics.font.UpdateMyFontInterface;
 import org.allbinary.graphics.font.UpdateMyFontProcessor;
 import org.allbinary.graphics.threed.SWTJOGLProcessor;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
@@ -34,7 +33,6 @@ import org.allbinary.util.BasicArrayListD;
 public class TextAnimation extends IndexedAnimation 
     implements UpdateMyFontInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     //private final int WIDTH = 13;
     //private final int HEIGHT = 8;
