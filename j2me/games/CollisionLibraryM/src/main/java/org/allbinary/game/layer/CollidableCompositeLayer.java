@@ -46,17 +46,6 @@ extends AllBinaryGameLayer
 implements CollidableInterfaceCompositeInterface
 {
     
-    private static Object NULL_COLLIDABLE_COMPOSITE_LAYER = NullUtil.getInstance().NULL_OBJECT;
-    
-    public static CollidableCompositeLayer getNullInstance() {
-        
-        if(CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER == NullUtil.getInstance().NULL_OBJECT) {
-            CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER = new CollidableCompositeLayer(
-                StringUtil.getInstance().EMPTY_STRING,RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION, CollidableNeverCollideBehaviorFactory.getInstance());
-        }
-        return (CollidableCompositeLayer) CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER;
-    }
-    
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance().createBehavior();

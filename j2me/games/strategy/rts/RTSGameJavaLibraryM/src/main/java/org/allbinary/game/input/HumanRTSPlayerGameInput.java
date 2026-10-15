@@ -421,7 +421,7 @@ implements BaseMotionGestureEventListener
 
         final AllBinaryGameCanvas gameCanvas = this.getGameCanvas();
         
-        if (rtSLayer != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
+        if (rtSLayer != CollidableDestroyableDamageableLayer.getNullInstance())
         {
             this.getRtsPlayerLayerInterface().add(SelectBuildingSound.getInstance());
 

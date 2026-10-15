@@ -32,7 +32,7 @@ public class PickupBehavior implements PickupBehaviorInterface
     
     public static PickupBehavior getNullInstance() {
         if(PickupBehavior.NULL_PICKUP_BEHAVIOR == NullUtil.getInstance().NULL_OBJECT) {
-            PickupBehavior.NULL_PICKUP_BEHAVIOR = new PickupBehavior(CollidableCompositeLayer.getNullInstance(), 0);
+            PickupBehavior.NULL_PICKUP_BEHAVIOR = new PickupBehavior(CollidableDestroyableDamageableLayer.getNullInstance(), 0);
         }
         return (PickupBehavior) PickupBehavior.NULL_PICKUP_BEHAVIOR;
     }

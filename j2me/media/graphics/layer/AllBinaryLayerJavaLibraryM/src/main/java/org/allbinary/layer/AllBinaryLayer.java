@@ -28,7 +28,6 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
-import org.allbinary.view.ViewPosition;
 import org.allbinary.view.ViewPositionBase;
 import org.allbinary.view.event.ViewPositionEvent;
 
