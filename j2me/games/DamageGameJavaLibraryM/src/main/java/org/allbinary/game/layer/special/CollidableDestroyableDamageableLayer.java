@@ -57,7 +57,7 @@ extends CollidableCompositeLayer
 implements DestroyableInterface, DamageableInterface, 
 PickupCompositeInterface, SpecialGameInputInterface
 {
-    public static Object NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = NullUtil.getInstance().NULL_OBJECT;
+    private static Object NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = NullUtil.getInstance().NULL_OBJECT;
     
     public static CollidableDestroyableDamageableLayer getNullInstance() {
         
