@@ -57,6 +57,10 @@ public class CommonDataFileStrings {
     public final String _GO = ".go";
     public final String CS = "cs";
     public final String _CS = ".cs";
+    public final String ADB = "adb";
+    public final String _ADB = ".adb";
+    public final String ADS = "ads";
+    public final String _ADS = ".ads";
     public final String ADA = "ada";
     public final String _ADA = ".ada";
     public final String RUST = "rs";
