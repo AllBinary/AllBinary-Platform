@@ -38,4 +38,8 @@ public class TsUtil {
         object.wait(timeoutMillis);
     }
     
+    public int compareTo(final String a, final String b) {
+        return a.compareTo(b);
+    }
+    
 }
