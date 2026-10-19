@@ -28,6 +28,14 @@ public class TsUtil {
     public static TsUtil getInstance() {
         return TsUtil.instance;
     }
+    
+    public double longBitsToDouble(final long bits) {
+        return java.lang.Double.longBitsToDouble(bits);
+    }
+
+    public float intBitsToFloat(final int bits) {
+        return java.lang.Float.intBitsToFloat(bits);
+    }
 
     public int hashCode(Object object) {
         return object.hashCode();
@@ -41,5 +49,5 @@ public class TsUtil {
     public int compareTo(final String a, final String b) {
         return a.compareTo(b);
     }
-    
+
 }
