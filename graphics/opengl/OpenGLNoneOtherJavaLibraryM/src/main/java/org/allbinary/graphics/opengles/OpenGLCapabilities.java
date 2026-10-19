@@ -24,6 +24,8 @@ public class OpenGLCapabilities
         return OpenGLCapabilities.instance;
     }
 
+    public final boolean CUSTOM_GL_SURFACE_VIEW = true;
+    
     public final String VERSION_1_0 = "1.0";
     public final String VERSION_1_1 = "1.1";
     public final String VERSION_2_0 = "2.0";
@@ -41,6 +43,10 @@ public class OpenGLCapabilities
     {
     }
 
+    public boolean isInitialized() {
+        return true;
+    }
+    
     public void initCapabilities(Object gl)
     {
         
