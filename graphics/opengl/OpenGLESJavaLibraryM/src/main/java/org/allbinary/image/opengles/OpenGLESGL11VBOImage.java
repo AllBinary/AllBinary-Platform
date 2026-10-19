@@ -146,6 +146,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         ByteBuffer.allocateDirect(4 * 4 * 2)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
 
+    @Override
     public void drawRegion(final GL10 gl, final int viewHeight, 
             final float x_src, final float y_src, 
             final float width, final float height, 
@@ -238,9 +239,9 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         //regionTextureVertexFloatBuffer.rewind();
         
         this.regionTextureRectangleFloatArray[0] = x_src / this.getWidth();
-        this.regionTextureRectangleFloatArray[1] = ((y_src + height)) / this.getHeight();
+        this.regionTextureRectangleFloatArray[1] = (y_src + height) / this.getHeight();
 
-        this.regionTextureRectangleFloatArray[2] = ((x_src + width)) / this.getWidth();
+        this.regionTextureRectangleFloatArray[2] = (x_src + width) / this.getWidth();
         this.regionTextureRectangleFloatArray[3] = this.regionTextureRectangleFloatArray[1];
 
         this.regionTextureRectangleFloatArray[4] = this.regionTextureRectangleFloatArray[0];
@@ -300,6 +301,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         gl.glDisable(GL10.GL_TEXTURE_2D);
     }
     
+    @Override
     public void draw(final GL10 gl, final int x, final int y, final int z)
     {
         this.regionRectangleFloatArray[0] = x;

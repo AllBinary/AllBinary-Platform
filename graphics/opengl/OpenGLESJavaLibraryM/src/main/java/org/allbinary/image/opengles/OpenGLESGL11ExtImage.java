@@ -107,6 +107,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         }
     }
     
+    @Override
     public void draw(final GL10 gl, final int x, final int y, final int z)
     {
         gl.glEnable(GL10.GL_TEXTURE_2D);

@@ -177,9 +177,9 @@ public class OpenGLESGL10Image extends OpenGLESImage
              */
             //regionTextureVertexFloatBuffer.rewind();
             this.regionTextureRectangleFloatArray[0] = x_src / imageWidth;
-            this.regionTextureRectangleFloatArray[1] = ((y_src + height)) / imageHeight;
+            this.regionTextureRectangleFloatArray[1] = (y_src + height) / imageHeight;
 
-            this.regionTextureRectangleFloatArray[2] = ((x_src + width)) / imageWidth;
+            this.regionTextureRectangleFloatArray[2] = (x_src + width) / imageWidth;
             this.regionTextureRectangleFloatArray[3] = this.regionTextureRectangleFloatArray[1];
 
             this.regionTextureRectangleFloatArray[4] = this.regionTextureRectangleFloatArray[0];
@@ -267,6 +267,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
             
         }
 
+        @Override
         public void draw(final GL10 gl, final int x, final int y, final int z) {
             //PreLogUtil.put(commonStrings.START + "Texture", this, "draw");
 
@@ -431,6 +432,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
         this.textureVertexFloatBuffer.rewind();
     }
     
+    @Override
     public void set(final GL gl)
     {
         final GL10 gl10 = (GL10) gl;
@@ -490,6 +492,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
         */        
     }
     
+    @Override
     public void drawRegion(final GL10 gl, final int viewHeight, 
             final float x_src, final float y_src, 
             final float width, final float height, 
@@ -498,6 +501,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
         this.openGLESImageDraw.drawRegion(gl, viewHeight, x_src, y_src, width, height, x, y, z);
     }
     
+    @Override
     public void draw(final GL10 gl, final int x, final int y, final int z)
     {
         this.openGLESImageDraw.draw(gl, x, y, z);
