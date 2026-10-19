@@ -41,7 +41,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
     {
         super(image, bitmapFactory, textureFactory);
 
-        this.onDisplayChangeEvent(null);
+        this.onDisplayChangeEvent(DisplayInfoSingleton.getInstance().displayChangeEvent);
         this.rectangle = new int[]
         { 0, this.getHeight(), this.getWidth(), -this.getHeight() };
 
@@ -52,7 +52,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
     {
         super(gl, image, matchColor);
 
-        this.onDisplayChangeEvent(null);
+        this.onDisplayChangeEvent(DisplayInfoSingleton.getInstance().displayChangeEvent);
 
         this.rectangle = new int[]
         { 0, this.getHeight(), this.getWidth(), -this.getHeight() };
@@ -78,7 +78,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
     @Override
     public void set(final GL gl)
     {
-        this.onDisplayChangeEvent(null);
+        this.onDisplayChangeEvent(DisplayInfoSingleton.getInstance().displayChangeEvent);
         
         final GL11 gl11 = (GL11) gl;
         
@@ -115,7 +115,8 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         gl.glBindTexture(GL10.GL_TEXTURE_2D, this.openGLESImageProperties.textureID);
         
         //glDrawTexiOES
-        ((GL11Ext) gl).glDrawTexfOES(x, this.a - y, z, this.getWidth(), this.getHeight());
+        final GL11Ext gl11Ext = (GL11Ext) gl;
+        gl11Ext.glDrawTexfOES((float) x, (float) (this.a - y), (float) z, (float) this.getWidth(), (float) this.getHeight());
 
         gl.glDisable(GL10.GL_TEXTURE_2D);
     }

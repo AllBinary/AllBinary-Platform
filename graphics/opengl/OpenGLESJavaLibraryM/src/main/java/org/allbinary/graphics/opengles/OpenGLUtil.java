@@ -180,12 +180,12 @@ public class OpenGLUtil {
 
 //        final String IMAGE = "image: ";
 
-        Object image;
+        OpenGLESImage image;
         for (int index2 = 0; index2 < size; index2++) {
-            image = this.list.get(index2);
+            image = (OpenGLESImage) this.list.get(index2);
 //            stringMaker.delete(0, stringMaker.length());
 //            this.logUtil.putF(stringMaker.append(index2).append(IMAGE).append(image).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
-            ((OpenGLESImage) image).set(gl);
+            image.set(gl);
         }
 
     }

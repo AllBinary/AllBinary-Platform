@@ -13,7 +13,9 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 /**
  *
@@ -21,9 +23,9 @@ import org.allbinary.util.BasicArrayList;
  */
 public class Shader {
  
-    public String shaderName;
-    public BasicArrayList shaderStringList;
-    public String shaderAsString;
+    public String shaderName = StringUtil.getInstance().EMPTY_STRING;
+    public BasicArrayList shaderStringList = BasicArrayListUtil.getInstance().getImmutableInstance();
+    public String shaderAsString = StringUtil.getInstance().EMPTY_STRING;
     public int shaderHandle;
     
 }

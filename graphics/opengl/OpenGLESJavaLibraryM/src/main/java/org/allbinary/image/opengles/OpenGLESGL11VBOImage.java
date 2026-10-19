@@ -62,17 +62,17 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
     
     protected void initVertices()
     {
-        this.textureVertexFloatBuffer.put(0);
-        this.textureVertexFloatBuffer.put(1);
+        this.textureVertexFloatBuffer.put(0f);
+        this.textureVertexFloatBuffer.put(1f);
 
-        this.textureVertexFloatBuffer.put(1);
-        this.textureVertexFloatBuffer.put(1);
+        this.textureVertexFloatBuffer.put(1f);
+        this.textureVertexFloatBuffer.put(1f);
 
-        this.textureVertexFloatBuffer.put(0);
-        this.textureVertexFloatBuffer.put(0);
+        this.textureVertexFloatBuffer.put(0f);
+        this.textureVertexFloatBuffer.put(0f);
 
-        this.textureVertexFloatBuffer.put(1);
-        this.textureVertexFloatBuffer.put(0);
+        this.textureVertexFloatBuffer.put(1f);
+        this.textureVertexFloatBuffer.put(0f);
 
         this.textureVertexFloatBuffer.rewind();
     }
@@ -134,7 +134,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
     
     protected final float[] regionRectangleFloatArray = 
             //new float[12];
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f };
     protected FloatBuffer regionRectangleVertexFloatBuffer = 
         //FloatBuffer.wrap(regionRectangleFloatArray);
         ByteBuffer.allocateDirect(4 * 4 * 3)
@@ -305,10 +305,10 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
     public void draw(final GL10 gl, final int x, final int y, final int z)
     {
         this.regionRectangleFloatArray[0] = x;
-        this.regionRectangleFloatArray[7] = DisplayInfoSingleton.getInstance().getLastHeight() - y;
+        this.regionRectangleFloatArray[7] = (float) (DisplayInfoSingleton.getInstance().getLastHeight() - y);
         this.regionRectangleFloatArray[1] = this.regionRectangleFloatArray[7] - this.getHeight();
 
-        this.regionRectangleFloatArray[3] = x + this.getWidth();
+        this.regionRectangleFloatArray[3] = (float) (x + this.getWidth());
         this.regionRectangleFloatArray[4] = this.regionRectangleFloatArray[1];
 
         this.regionRectangleFloatArray[6] = x;

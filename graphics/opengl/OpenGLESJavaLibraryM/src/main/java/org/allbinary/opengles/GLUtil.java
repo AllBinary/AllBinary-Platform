@@ -68,7 +68,7 @@ public class GLUtil
         int unsigned;
         float v;
         while(byteBuffer.hasRemaining()) {
-            unsigned = byteBuffer.get() & 0xFF;
+            unsigned = ((int) byteBuffer.get()) & 0xFF;
             v = ((float) unsigned) / 255f;
             buffer.put(v);
 //            if(v == 1.0f) {
@@ -88,7 +88,7 @@ public class GLUtil
 
     //When Shaders are enabled this should be done on the GPU
     public void rotateUVs(final float[] uvs, final float angleDegrees, final float pivotU, final float pivotV) {
-        final double angleRad = Math.toRadians(angleDegrees);
+        final double angleRad = Math.toRadians((double) angleDegrees);
         final double cosA = Math.cos(angleRad);
         final double sinA = Math.sin(angleRad);
 

@@ -51,7 +51,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
         
         private final float[] regionRectangleFloatArray = 
             //new float[12];
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f };
 //        { 
 //            0.0f, -0.5f, 0.0f, 
 //            0.5f, -0.5f, 0.0f, 
@@ -98,7 +98,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
 //            regionRectangleFloatArray[9] = regionRectangleFloatArray[3];
 //            regionRectangleFloatArray[10] = regionRectangleFloatArray[7];
 
-            this.regionRectangleFloatArray[7] = viewHeight;
+            this.regionRectangleFloatArray[7] = (float) viewHeight;
             this.regionRectangleFloatArray[1] = this.regionRectangleFloatArray[7] - height;
 
             this.regionRectangleFloatArray[3] = width;
@@ -190,7 +190,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
             
             final float u_center = (this.regionTextureRectangleFloatArray[0] + this.regionTextureRectangleFloatArray[2]) / 2.0f;
             final float v_center = (this.regionTextureRectangleFloatArray[5] + this.regionTextureRectangleFloatArray[1]) / 2.0f;
-            this.glUtil.rotateUVs(this.regionTextureRectangleFloatArray, -this.openGLESImageProperties.angle, u_center, v_center);
+            this.glUtil.rotateUVs(this.regionTextureRectangleFloatArray, (float) -this.openGLESImageProperties.angle, u_center, v_center);
 
             //textureVertexFloatBuffer.put(textureArray);
 
@@ -222,7 +222,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
             
             final OpenGLESImageProcessor imageProcessor = OpenGLESGL10Image.this.imageProcessor;
             
-            OpenGLESGL10Image.this.openGLESImageTranslate.translate(gl, OpenGLESGL10Image.this, x, -y);
+            OpenGLESGL10Image.this.openGLESImageTranslate.translate(gl, OpenGLESGL10Image.this, (float) x, (float) -y);
 
             imageProcessor.scale(gl, this.openGLESImageProperties.scaleX, this.openGLESImageProperties.scaleY);
             //imageProcessor.scale(gl, scaleX * width, scaleY * height * 2.0f);
@@ -288,10 +288,10 @@ public class OpenGLESGL10Image extends OpenGLESImage
 //            regionRectangleFloatArray[9] = regionRectangleFloatArray[3];
 //            regionRectangleFloatArray[10] = regionRectangleFloatArray[7];
 
-            this.regionRectangleFloatArray[7] = this.displayInfoSingleton.getLastHeight();
+            this.regionRectangleFloatArray[7] = (float) this.displayInfoSingleton.getLastHeight();
             this.regionRectangleFloatArray[1] = this.regionRectangleFloatArray[7] - height;
 
-            this.regionRectangleFloatArray[3] = width;
+            this.regionRectangleFloatArray[3] = (float) width;
             this.regionRectangleFloatArray[4] = this.regionRectangleFloatArray[1];
 
             this.regionRectangleFloatArray[9] = this.regionRectangleFloatArray[3];
@@ -314,14 +314,14 @@ public class OpenGLESGL10Image extends OpenGLESImage
         regionRectangleVertexFloatBuffer.put(10, regionRectangleVertexFloatBuffer.get(7));
              */
 
-        this.regionTextureRectangleFloatArray[0] = 0;
-        this.regionTextureRectangleFloatArray[1] = 1;
-        this.regionTextureRectangleFloatArray[2] = 1;
-        this.regionTextureRectangleFloatArray[3] = 1;
-        this.regionTextureRectangleFloatArray[4] = 0;
-        this.regionTextureRectangleFloatArray[5] = 0;
-        this.regionTextureRectangleFloatArray[6] = 1;
-        this.regionTextureRectangleFloatArray[7] = 0;
+        this.regionTextureRectangleFloatArray[0] = 0f;
+        this.regionTextureRectangleFloatArray[1] = 1f;
+        this.regionTextureRectangleFloatArray[2] = 1f;
+        this.regionTextureRectangleFloatArray[3] = 1f;
+        this.regionTextureRectangleFloatArray[4] = 0f;
+        this.regionTextureRectangleFloatArray[5] = 0f;
+        this.regionTextureRectangleFloatArray[6] = 1f;
+        this.regionTextureRectangleFloatArray[7] = 0f;
             
         /*
         vertexArray[0] = x;
@@ -349,7 +349,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
 //            imageProcessor.rotate(gl, angle);
 //            imageProcessor.translate(gl, x - (width / 2), (viewHeight - y - (height / 2)));
 
-            OpenGLESGL10Image.this.openGLESImageTranslate.translate(gl, OpenGLESGL10Image.this, x, -y);
+            OpenGLESGL10Image.this.openGLESImageTranslate.translate(gl, OpenGLESGL10Image.this, (float) x, (float) -y);
 
             final OpenGLESImageProcessor imageProcessor = OpenGLESGL10Image.this.imageProcessor;
             imageProcessor.scale(gl, this.openGLESImageProperties.scaleX, this.openGLESImageProperties.scaleY);
@@ -369,7 +369,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
 
             gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 
-            this.glUtil.rotateUVs(this.regionTextureRectangleFloatArray, -this.openGLESImageProperties.angle, 0.5f, 0.5f);
+            this.glUtil.rotateUVs(this.regionTextureRectangleFloatArray, (float) -this.openGLESImageProperties.angle, 0.5f, 0.5f);
 
             this.glUtil.position(this.textureVertexFloatBuffer, 0);
             this.textureVertexFloatBuffer.put(this.regionTextureRectangleFloatArray);
@@ -417,17 +417,17 @@ public class OpenGLESGL10Image extends OpenGLESImage
     
     protected void initVertices()
     {
-        this.textureVertexFloatBuffer.put(0);
-        this.textureVertexFloatBuffer.put(1);
+        this.textureVertexFloatBuffer.put(0f);
+        this.textureVertexFloatBuffer.put(1f);
 
-        this.textureVertexFloatBuffer.put(1);
-        this.textureVertexFloatBuffer.put(1);
+        this.textureVertexFloatBuffer.put(1f);
+        this.textureVertexFloatBuffer.put(1f);
 
-        this.textureVertexFloatBuffer.put(0);
-        this.textureVertexFloatBuffer.put(0);
+        this.textureVertexFloatBuffer.put(0f);
+        this.textureVertexFloatBuffer.put(0f);
 
-        this.textureVertexFloatBuffer.put(1);
-        this.textureVertexFloatBuffer.put(0);
+        this.textureVertexFloatBuffer.put(1f);
+        this.textureVertexFloatBuffer.put(0f);
 
         this.textureVertexFloatBuffer.rewind();
     }

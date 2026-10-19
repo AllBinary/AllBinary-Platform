@@ -30,8 +30,8 @@ public class NullShaderComposite extends ShaderComposite {
         CompositeShaderUpdater.getInstance(),
         ShaderInitializer.getInstance(),
         ModelViewProjection.getInstance(),        
-        null,
-        null,
+        NullOpenGLProcessorFactory.getInstance(),
+        NullOpenGLProcessorFactory.getInstance(),
         NullOpenGLProcessorFactory.getInstance()) {
             @Override
             public void init(GL10 gl) {
