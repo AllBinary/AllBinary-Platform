@@ -35,6 +35,8 @@ public class GLUtil
     }
 
     private final int BYTES_PER_FLOAT = 4;
+    
+    public final FloatBuffer NULL_FLOAT_BUFFER = ByteBuffer.allocateDirect(0).asFloatBuffer();
         
     public FloatBuffer makeFloatBuffer3(float p_a, float p_b, float p_c) {
         final ByteBuffer b = ByteBuffer.allocateDirect(3 * this.BYTES_PER_FLOAT);

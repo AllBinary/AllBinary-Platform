@@ -25,6 +25,7 @@ import org.allbinary.game.input.mapping.GameInputMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.color.BasicColorUtil;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -55,7 +56,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
     private GameInputMapping[] gameInputMappingArray;
     
     private BasicArrayList[] keyMappingArray = new BasicArrayList[0];
-    private BasicColor[] actionBasicColor = new BasicColor[0];
+    private BasicColor[] actionBasicColor = BasicColorUtil.getInstance().ZERO_ARRAY;
     private BasicColor[][] inputBasicColorArray = new BasicColor[0][0];
     
     private BasicColor selectedBasicColor;
