@@ -14,12 +14,9 @@
 package org.allbinary.business.user.role;
 
 import java.io.Serializable;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 
 public class BasicUserRole implements Serializable
 {
-   private static final BasicArrayList roleVector = new BasicArrayListD();
    
    private final int m_int_RoleId;
    private final String role;
@@ -42,7 +39,7 @@ public class BasicUserRole implements Serializable
       this.sessionTimeout = aSessionTimeout;
       this.sessionInactivityTimeout = aSessionInactivityTimeout;
 
-      BasicUserRole.roleVector.add(this);
+      BasicUserRoles.getInstance().roleVector.add(this);
    }
 
    private int getRoleId()
@@ -79,24 +76,4 @@ public class BasicUserRole implements Serializable
       return this.getRole();
    }
 
-   public static synchronized BasicUserRole getRole(String role) throws Exception
-   {
-      final BasicArrayList roleVector = BasicUserRole.getAll();
-      final int size = roleVector.size();
-      for (int index = 0; index < size; index++)
-      {
-         BasicUserRole userRole = (BasicUserRole) roleVector.get(index);
-
-         if(role.compareTo(userRole.toString()) == 0)
-         {
-            return userRole;
-         }
-      }
-      throw new Exception("Unable to get role - Unknown Role");
-   }
-
-   public static BasicArrayList getAll()
-   {
-      return BasicUserRole.roleVector;
-   }
 }
