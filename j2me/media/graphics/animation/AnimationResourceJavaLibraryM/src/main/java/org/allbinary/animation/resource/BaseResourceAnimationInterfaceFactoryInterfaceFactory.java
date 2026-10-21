@@ -115,7 +115,13 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     @Override
     public Rectangle[][] getRectangleArrayOfArrays(final String resource) throws Exception
     {
-        return (Rectangle[][]) this.rectangleArrayOfArraysHashtable.get(resource);
+        Object valueCanBeNull = this.rectangleArrayOfArraysHashtable.get(resource);
+        if(valueCanBeNull != null) {
+            final Rectangle[][] rectangleArrayOfArrays = (Rectangle[][]) valueCanBeNull;
+            return rectangleArrayOfArrays;
+        } else {
+            return RectangleFactory.ARRAY_OF_ARRAYS;
+        }
     }
 
     public void addRectangleArrayOfArrays(final String resource, final Rectangle[][] rectangleArrayOfArrays) throws Exception
