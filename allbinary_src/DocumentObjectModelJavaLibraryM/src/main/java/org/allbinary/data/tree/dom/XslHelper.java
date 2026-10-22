@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.OutputStream;
 import java.io.StringBufferInputStream;
 
+import javax.xml.transform.Templates;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
@@ -25,6 +26,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
+
 import org.w3c.dom.Document;
 
 //import org.allbinary.data.tree.dom.document.DomDocumentHelper;
@@ -87,6 +89,21 @@ public class XslHelper
 
             //transformer.setURIResolver(resolver);
             transformer.transform(xmlStreamSource, streamResult);
+
+            return streamResult.getOutputStream();
+        } catch (Exception e)
+        {
+            throw e;
+        }
+    }
+    
+    public OutputStream translateTemplate(final Templates templates,
+            final StreamSource xmlStreamSource) throws Exception
+    {
+        try
+        {
+            final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            templates.newTransformer().transform(xmlStreamSource, new StreamResult(outputStream));
 
             return streamResult.getOutputStream();
         } catch (Exception e)
