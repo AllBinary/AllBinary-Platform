@@ -97,15 +97,15 @@ public class XslHelper
         }
     }
     
-    public OutputStream translateTemplate(final Templates templates,
+    public String translateTemplate(final Templates templates,
             final StreamSource xmlStreamSource) throws Exception
     {
         try
         {
             final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            templates.newTransformer().transform(xmlStreamSource, new StreamResult(outputStream));
-
-            return streamResult.getOutputStream();
+            final StreamResult streamResult = new StreamResult(outputStream);
+            templates.newTransformer().transform(xmlStreamSource, streamResult);
+            return streamResult.getOutputStream().toString();
         } catch (Exception e)
         {
             throw e;
