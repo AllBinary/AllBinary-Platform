@@ -17,7 +17,7 @@ The AllBinary Platform represents more than 10 years of development and > 1 mill
 
 ### What is the goal?
 
-The main goal of the AllBinary Platform is to help people escape the tyrants of earth.  Create a Self replicating robot army dedicated to protecting, building, and maintaining space ships to escape the tyrants of Earth.  While this may seem ludicrous or ridiculous it really is the goal.
+The main goal of the AllBinary Platform is to help people escape the tyrants of earth.  Create a self replicating robot army dedicated to protecting, building, and maintaining space ships to escape the tyrants of Earth.  While this may seem ludicrous or ridiculous it really is the goal.
 
 ### What is the current commercial product development?
 
