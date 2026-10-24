@@ -2,11 +2,11 @@
 
 ### About
 
-AllBinary Game Engine (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation (https://ia.allbinary.com), and everything else AllBinary.  The main goal of the AllBinary Platform is to help people escape the tyrants of earth.
+AllBinary Game Engine (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation (https://ia.allbinary.com), and everything else AllBinary.
 
 ### What is the AllBinary Platform?
 
-This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform), Kotlin version https://github.com/AllBinary/AllBinary-Platform-KMP, TypScript/JavaScript version https://github.com/AllBinary/AllBinary-Platform-TypeScript.  This repo does not include the rest of the AllBinary Platform that includes tighter third-party integration code or individual apps or games that are not tools. The AllBinary Platform includes but is not limited to the following projects:
+This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform), Kotlin version https://github.com/AllBinary/AllBinary-Platform-KMP, TypScript/JavaScript https://github.com/AllBinary/AllBinary-Platform-TypeScript/https://github.com/AllBinary/AllBinary-Platform-Javascript.  This repo does not include the rest of the AllBinary Platform that includes tighter third-party integration code or individual apps or games that are not tools. The AllBinary Platform includes but is not limited to the following projects:
 
 * AllBinary Game Engine - includes the AllBinary Multi-Platform Development Kit
 * Freeblisket/Weblisket E-Commerce Solution (https://allbinary.com)
@@ -17,7 +17,11 @@ The AllBinary Platform represents more than 10 years of development and > 1 mill
 
 ### What is the goal?
 
-The goal of the AllBinary Platform is to create a Self Replicating Robot Army  dedicated to protecting, building, and maintaining space ships to escape the  tyrants of Earth.  While this may seem ludicrous or ridiculous it really is the goal.  Reducing the cost of UI development is current task towards that goal.
+The main goal of the AllBinary Platform is to help people escape the tyrants of earth.  Create a Self replicating robot army dedicated to protecting, building, and maintaining space ships to escape the tyrants of Earth.  While this may seem ludicrous or ridiculous it really is the goal.
+
+### What is the current commercial product development?
+
+Reducing the cost of user interface development with scene editor integration.  Currently that includes the ability to import games created in GDevelop with: https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop  Both GDevelop and a future scene editors include LLM support.
 
 ### Where is the License?
 
@@ -109,7 +113,6 @@ Database Management
 
 Payment Gateway Integration
 Paypal
-Verisign
 Others
 
 Installation
@@ -189,6 +192,8 @@ The main goal of AllBinary InputAutomationTool Solution is to help reduce manual
 ### What is the planned future Implementation for the AllBinary Platform?
 
 Better integration with GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
+
+Polyglot support: https://github.com/AllBinary/AllBinary-Platform-ActionScript, https://github.com/AllBinary/AllBinary-Platform-Ada, https://github.com/AllBinary/AllBinary-Platform-COBOL, https://github.com/AllBinary/AllBinary-Platform-CSharp, https://github.com/AllBinary/AllBinary-Platform-Dart, https://github.com/AllBinary/AllBinary-Platform-Elixir, https://github.com/AllBinary/AllBinary-Platform-Erlang, https://github.com/AllBinary/AllBinary-Platform-FORTRAN, https://github.com/AllBinary/AllBinary-Platform-Go, https://github.com/AllBinary/AllBinary-Platform-Haskell, https://github.com/AllBinary/AllBinary-Platform-Haxe, https://github.com/AllBinary/AllBinary-Platform-Lua, https://github.com/AllBinary/AllBinary-Platform-ObjectPascal, https://github.com/AllBinary/AllBinary-Platform-Ocaml, https://github.com/AllBinary/AllBinary-Platform-Perl, https://github.com/AllBinary/AllBinary-Platform-Python, https://github.com/AllBinary/AllBinary-Platform-Ruby, https://github.com/AllBinary/AllBinary-Platform-Rust, https://github.com/AllBinary/AllBinary-Platform-Tcl, https://github.com/AllBinary/AllBinary-Platform-Zig
 
 3D/OpenGLES mappings for WebGL to deploy 3d games in browsers.
 
