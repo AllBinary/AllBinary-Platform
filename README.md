@@ -216,7 +216,7 @@ What is still needed to create a Self Replicating Robot Army?
 
 * MMORTS - For the control of robots based on the ZeptoWars RTS and Multi-player games
 * Resource Collection API
-* 3D Printer integration (preferably the RepRap 3D printer or better
+* 3D Printer integration (preferably the RepRap 3D printer or better)
 * Convert existing Open Robots for the 3D printer integration
 * Convert existing Open Resource Machines for the 3D Printer integration - mainly smelting, ore separation, extrusion material formation, and the like
 
