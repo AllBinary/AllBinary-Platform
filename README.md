@@ -15,10 +15,6 @@ This Repository Contains the core AllBinary Platform code (https://github.com/Al
 
 The AllBinary Platform represents more than 10 years of development and > 1 million LOC.  Some of which is represented by the this repo info: https://www.openhub.net/p/AllBinary-Platform/analyses/latest/languages_summary
 
-### What is the goal?
-
-The main goal of the AllBinary Platform is to help people escape the tyrants of earth.  Create a self replicating robot army dedicated to protecting, building, and maintaining space ships to escape the tyrants of Earth.  While this may seem ludicrous or ridiculous it really is the goal.
-
 ### What is the current commercial product development?
 
 Reducing the cost of user interface development with scene editor integration.  Currently that includes the ability to import games created in GDevelop with: https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop  Both GDevelop and a future scene editors include LLM support.
@@ -202,6 +198,10 @@ Multiplayer for platforms other than J2ME, Android, Avian, and J2SE.
 Integration with other Scene Editors, 2d/3d animation tools (currently Spline), and other graphics tools.
 
 Open Robots Integration, 3D Printer Integration, and Resource Collection API - RTS with real robots and real maps
+
+### What is the goal?
+
+The main goal of the AllBinary Platform is to help people escape the tyrants of earth.  Create a self replicating robot army dedicated to protecting, building, and maintaining space ships to escape the tyrants of Earth.  While this may seem ludicrous or ridiculous it really is the goal.
 
 ### What is the path to escaping the tyrants of earth?
 
