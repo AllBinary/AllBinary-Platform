@@ -25,7 +25,7 @@ The LICENSE file in the root of the repository.
 
 What are the other dependencies?
 
-The external dependencies are defined in the dependency section of the pom files.  The Third-Party and Third-Party Integration code is in the AllBinary Platform Integration repository.  Some of the dependencies are not currently public.
+The external dependencies are defined in the dependency section of the pom files.  The Third-Party and Third-Party Integration code is in the AllBinary Platform Integration repo: https://github.com/AllBinary/AllBinary-Platform-Integration.
 
 Who is responsible for this repo?
 
@@ -35,6 +35,8 @@ Travis Berthelot travisberthelot@allbinary.com
 
 - Android, HTML5, Windows Native, Kotlin/KMP: https://allbinary.itch.io
 - Legacy J2SE and J2ME: https://games.allbinary.com
+
+Game Template Project: https://github.com/AllBinary/AllBinary-Platform-Game-Template and https://github.com/AllBinary/AllBinary-Platform-Game-Template-Parent
 
 ### What is the AllBinary Game Engine?
 
