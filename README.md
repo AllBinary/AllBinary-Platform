@@ -17,7 +17,7 @@ The AllBinary Platform represents more than 10 years of development and > 1 mill
 
 ### What is the current commercial product development?
 
-Reducing the cost of user interface development with scene editor integration.  Currently that includes the ability to import games created in GDevelop with: https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop  GDevelop and any future scene editors includes LLM support.
+Reducing the cost of user interface development with scene editor integration.  Currently that includes the ability to import games created in GDevelop with: https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop  GDevelop and any future scene editor integration must includes LLM support.
 
 ### Where is the License?
 
