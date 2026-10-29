@@ -36,7 +36,7 @@ public class LogUtil {
         final String functionName) {
     }
 
-    public void putF(
+    public void putFS(
         final String specialMessage,
         final String className,
         final String functionName) {

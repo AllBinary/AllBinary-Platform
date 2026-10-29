@@ -68,7 +68,7 @@ public class LogUtil {
     }
 
     //ActualPlatform
-    public void putF(final String specialMessage, final String className, final String functionName) {
+    public void putFS(final String specialMessage, final String className, final String functionName) {
         
     }
     
