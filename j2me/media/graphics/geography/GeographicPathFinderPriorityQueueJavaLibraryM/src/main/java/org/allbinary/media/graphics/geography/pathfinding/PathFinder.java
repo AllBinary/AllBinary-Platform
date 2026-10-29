@@ -13,9 +13,6 @@
 */
 package org.allbinary.media.graphics.geography.pathfinding;
 
-import java.util.HashSet;
-import java.util.PriorityQueue;
-
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -26,6 +23,8 @@ import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPosition
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
+import org.allbinary.util.ABHashSet;
+import org.allbinary.util.ABPriorityQueue;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
@@ -37,8 +36,8 @@ public class PathFinder extends GeographicPathFinderBase {
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     private final MathUtil mathUtil = MathUtil.getInstance();
     
-    private final PriorityQueue<PathFindingNodeCost> openPriorityQueue = new PriorityQueue<PathFindingNodeCost>();
-    private final HashSet<PathFindingNodeCost> closedSet = new HashSet<PathFindingNodeCost>();
+    private final ABPriorityQueue<PathFindingNodeCost> openPriorityQueue = new ABPriorityQueue<PathFindingNodeCost>();
+    private final ABHashSet<PathFindingNodeCost> closedSet = new ABHashSet<PathFindingNodeCost>();
     
     //BasicGeographicMap
     private Object geographicMapInterface = NullUtil.getInstance().NULL_OBJECT;
