@@ -38,7 +38,8 @@ public class WaypointEventHandlerFactory {
 
     public static WaypointEventHandler getInstance(final Group groupInterface)
     {
-        return WaypointEventHandlerFactory.eventHandlerArray[(int) groupInterface.getGroupId()];
+        final int groupId = (int) groupInterface.getGroupId();
+        return WaypointEventHandlerFactory.eventHandlerArray[groupId];
     }
 
     public static void removeAll()

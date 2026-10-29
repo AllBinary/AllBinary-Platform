@@ -37,7 +37,8 @@ public class CapitalEventHandlerFactory {
 
     public static CapitalEventHandler getInstance(Group groupInterface)
     {
-        return CapitalEventHandlerFactory.capitalEventHandlerArray[(int) groupInterface.getGroupId()];
+        final int groupId = (int) groupInterface.getGroupId();
+        return CapitalEventHandlerFactory.capitalEventHandlerArray[groupId];
     }
 
     public static void removeAll()
