@@ -33,7 +33,6 @@ import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.form.NullRTSFormInputFactory;
 import org.allbinary.game.input.form.RTSFormInput;
 import org.allbinary.game.layer.building.event.BuildingEventHandler;
-import org.allbinary.game.layer.unit.UnitLayer;
 import org.allbinary.game.layer.waypoint.Waypoint2LogHelper;
 import org.allbinary.game.layer.waypoint.Waypoint2SelectedLogHelper;
 import org.allbinary.game.layer.waypoint.WaypointBase;
@@ -259,7 +258,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
     public boolean shouldAddWaypointFromBuilding() {
         if (this.parentLayer != NullPathFindingLayer.NULL_PATH_FINDING_LAYER) {
             final AdvancedRTSGameLayer parentAdvancedRTSGameLayer = (AdvancedRTSGameLayer) this.parentLayer;
-            if(parentAdvancedRTSGameLayer.getType() != UnitLayer.getStaticType()) {
+            if(parentAdvancedRTSGameLayer.getType() != 1) {
                 return true;
             }
         }
@@ -268,7 +267,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
 
     @Override
     public boolean isWaypointListEmptyOrOnlyTargets() {
-        if (this.getType() != UnitLayer.getStaticType()) {
+        if (this.getType() != 1) {
             return true;
         }
         return false;

@@ -1514,7 +1514,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     @Override
     public int getType()
     {
-        return UnitLayer.getStaticType();
+        return 1;
     }
 
     public static int getStaticType()

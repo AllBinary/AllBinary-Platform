@@ -42,9 +42,10 @@ public class UnitWaypointBehavior
     extends WaypointBehaviorBase
     implements WaypointEventListenerInterface
 {
-    private static final String PATHING = "Pathing";
     
-    protected CommonSeps commonSeps = CommonSeps.getInstance();
+    protected final CommonSeps commonSeps = CommonSeps.getInstance();
+    
+    private final UnitWaypointStrings unitWaypointStrings = UnitWaypointStrings.getInstance();
     
     private int longWeaponRange = 0;
     
@@ -217,7 +218,7 @@ public class UnitWaypointBehavior
         if(this.associatedAdvancedRTSGameLayer.showMoreCaptionStates)
         {
             this.associatedAdvancedRTSGameLayer.getCaptionAnimationHelper().update(
-                    UnitWaypointBehavior.PATHING, BasicColorFactory.getInstance().GREEN);
+                    this.unitWaypointStrings.PATHING, BasicColorFactory.getInstance().GREEN);
         }
         
         this.currentGeographicMapCellHistoryP.init();

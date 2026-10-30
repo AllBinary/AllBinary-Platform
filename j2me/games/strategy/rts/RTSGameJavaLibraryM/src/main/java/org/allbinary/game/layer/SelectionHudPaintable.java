@@ -39,7 +39,7 @@ public class SelectionHudPaintable extends InitUpdatePaintable implements Update
     private final PrimitiveLongUtil primitiveLongUtil;    
 
     protected final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
-    protected MyFontProcessor myFontProcessor = updateMyFontProcessor;
+    protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
     
     private int x;
 

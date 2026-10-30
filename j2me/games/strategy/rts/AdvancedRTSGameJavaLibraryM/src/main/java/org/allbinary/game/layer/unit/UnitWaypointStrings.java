@@ -30,6 +30,8 @@ public class UnitWaypointStrings {
         return UnitWaypointStrings.instance;
     }
     
+    public final String PATHING = "Pathing";
+    
     public final String WANDERING = "Order?"; //"Lalala" //"What Now? //"Wander";
     public final String THINKING = "Thinking";
     public final String THINKING_ABOUT_TARGET = "Hmmm"; //"Analyzing" //"Hmmm?"
@@ -44,5 +46,13 @@ public class UnitWaypointStrings {
     public final String ALREADY_THERE_SHORT = "Again?";
     public final String ALREADY_THERE = "Already There";
     public final String NEXT_PATH_NODE = CommonLabels.getInstance().NEXT + " Path Node";
+    
+    public final String _ALL_VISITED_SHORT = " Arrived";
+    //public final final String ALL_VISITED = "All Visited";
+    public final String _ALREADY_THERE_SHORT = " Again?";
+    //public final String ALREADY_THERE = "Already There";
+
+    public final String VISITED_MOST_OF_THE_PATH = " visited most of the path";
+    public final String RETURNING_AS_WAYPOINT_PATH_LIST = " returning as waypointPathsList was runningWaypointPathList";
     
 }

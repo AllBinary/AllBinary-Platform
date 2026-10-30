@@ -23,12 +23,10 @@ import org.allbinary.game.identification.Group;
 public class CapitalEventHandlerFactory {
 
     //One for each Group
-    private static final CapitalEventHandler[] capitalEventHandlerArray;
+    private static final CapitalEventHandler[] capitalEventHandlerArray = new CapitalEventHandler[10];
     
     static
     {
-        capitalEventHandlerArray = new CapitalEventHandler[10];
-        
         for(int index = CapitalEventHandlerFactory.capitalEventHandlerArray.length - 1; index >= 0; index--)
         {
             CapitalEventHandlerFactory.capitalEventHandlerArray[index] = new CapitalEventHandler();
