@@ -18,11 +18,20 @@ import org.allbinary.game.layer.resources.GameGraphicsResourceUtil;
 
 import org.allbinary.AndroidUtil;
 import org.allbinary.game.configuration.feature.GraphicsFeatureFactory;
+import org.allbinary.logic.NullUtil;
 
 public class Unit2DecalGameResources extends BasicGameResources
 {
-    private static final Unit2DecalGameResources instance = 
-        new Unit2DecalGameResources();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
+
+    public static BasicGameResources getInstance()
+    {
+        if(Unit2DecalGameResources.instance == NullUtil.getInstance().NULL_OBJECT) {
+            Unit2DecalGameResources.instance = new Unit2DecalGameResources();
+        }
+        
+        return (Unit2DecalGameResources) Unit2DecalGameResources.instance;
+    }
     
     private Unit2DecalGameResources()
     {
@@ -57,8 +66,4 @@ public class Unit2DecalGameResources extends BasicGameResources
         }
     }
 
-    public static BasicGameResources getInstance()
-    {
-        return Unit2DecalGameResources.instance;
-    }
 }
