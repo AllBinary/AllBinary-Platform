@@ -13,8 +13,11 @@
 */
 package org.allbinary.util;
 
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 
+@JsType
 public class ImmutableBasicArrayList extends BasicArrayListS
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();

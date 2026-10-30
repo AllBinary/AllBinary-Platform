@@ -13,11 +13,14 @@
  */
 package org.allbinary.logic.io.path;
 
-//Used to correct user input for paths
+import jsinterop.annotations.JsType;
+
 import org.allbinary.logic.io.file.FilePathData;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 
+//Used to correct user input for paths
+@JsType
 public class AbPathData {
 
     private static final AbPathData instance = new AbPathData();
