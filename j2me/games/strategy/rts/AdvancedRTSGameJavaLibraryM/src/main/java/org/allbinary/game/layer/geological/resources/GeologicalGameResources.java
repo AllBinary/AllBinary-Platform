@@ -17,12 +17,21 @@ import org.allbinary.game.layer.resources.BasicGameResources;
 import org.allbinary.game.layer.resources.GameGraphicsResourceUtil;
 import org.allbinary.AndroidUtil;
 import org.allbinary.game.configuration.feature.GraphicsFeatureFactory;
+import org.allbinary.logic.NullUtil;
 
 public class GeologicalGameResources extends BasicGameResources
 {
-    private static final GeologicalGameResources instance = 
-        new GeologicalGameResources();
+    private static Object instance = NullUtil.getInstance().NULL_OBJECT;
     
+    public static BasicGameResources getInstance()
+    {
+        if(GeologicalGameResources.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GeologicalGameResources.instance = new GeologicalGameResources();
+        }
+        
+        return (GeologicalGameResources) GeologicalGameResources.instance;
+    }
+
     private GeologicalGameResources()
     {
         final String ROOT = "/resource";
@@ -56,8 +65,4 @@ public class GeologicalGameResources extends BasicGameResources
         }
     }
 
-    public static BasicGameResources getInstance()
-    {
-        return GeologicalGameResources.instance;
-    }
 }

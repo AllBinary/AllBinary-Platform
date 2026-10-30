@@ -18,6 +18,7 @@ import java.io.StringBufferInputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.allbinary.string.CommonPhoneStrings;
 
 import org.w3c.dom.Document;
 
@@ -31,13 +32,14 @@ public class DomDocumentHelper
    }
 
     public static void init() {
+        final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
         //System.setProperty("jdk.xml.maxElementDepth", "5000");        
-        System.setProperty("jdk.xml.maxElementDepth", "0");
-        //System.setProperty("jdk.xml.xpathExprGrpLimit", "0");
-        System.setProperty("jdk.xml.xpathExprOpLimit", "0");
+        System.setProperty("jdk.xml.maxElementDepth", commonPhoneStrings.ZERO);
+        //System.setProperty("jdk.xml.xpathExprGrpLimit", commonPhoneStrings.ZERO);
+        System.setProperty("jdk.xml.xpathExprOpLimit", commonPhoneStrings.ZERO);
         //System.setProperty("jdk.xml.xpathExprOpLimit", "500");
         //System.setProperty("jdk.xml.xpathTotalOpLimit", "0");
-        System.setProperty("jdk.xml.xpathTotalOpLimit", "0");
+        System.setProperty("jdk.xml.xpathTotalOpLimit", commonPhoneStrings.ZERO);
         final String LIMIT = "500000";
         System.setProperty("jdk.xml.maxGeneralEntitySizeLimit", LIMIT);
         System.setProperty("jdk.xml.totalEntitySizeLimit", LIMIT);
