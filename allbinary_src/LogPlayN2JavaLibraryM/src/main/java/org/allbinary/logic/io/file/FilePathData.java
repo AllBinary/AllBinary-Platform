@@ -13,6 +13,9 @@
  */
 package org.allbinary.logic.io.file;
 
+import jsinterop.annotations.JsType;
+
+@JsType
 public class FilePathData {
 
     private static final FilePathData instance = new FilePathData();
