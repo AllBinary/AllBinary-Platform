@@ -37,6 +37,8 @@ public class StringUtil {
     public final String EMPTY_STRING = "";
     @JsProperty
     public String[] ONE_EMPTY_STRING_ARRAY = {this.EMPTY_STRING};
+    @JsProperty
+    public String[][] ONE_EMPTY_STRING_ARRAY_OF_ARRAYS = new String[0][0];
     private final String[] stringArray = new String[0];
 
     @JsConstructor

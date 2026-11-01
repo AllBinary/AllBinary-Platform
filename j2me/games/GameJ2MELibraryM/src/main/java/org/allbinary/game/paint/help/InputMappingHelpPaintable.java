@@ -66,7 +66,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
         int[] keymappingBeginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
         int[] actionStringDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY;
         int[][] inputDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-        String[][] sepArray = new String[0][0];
+        String[][] sepArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY_OF_ARRAYS;
         int[][] sepWidthArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
         int charHeight;
     }
