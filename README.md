@@ -2,13 +2,13 @@
 
 ### About
 
-AllBinary Game Engine (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation (https://ia.allbinary.com), and everything else AllBinary.
+AllBinary Game Engine / AllBinary Polyglot (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation (https://ia.allbinary.com), and everything else AllBinary.
 
 ### What is the AllBinary Platform?
 
 This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform), Kotlin version https://github.com/AllBinary/AllBinary-Platform-KMP, TypScript/JavaScript https://github.com/AllBinary/AllBinary-Platform-TypeScript/https://github.com/AllBinary/AllBinary-Platform-Javascript.  This repo does not include the rest of the AllBinary Platform that includes tighter third-party integration code or individual apps or games that are not tools. The AllBinary Platform includes but is not limited to the following projects:
 
-* AllBinary Game Engine - includes the AllBinary Multi-Platform Development Kit
+* AllBinary Game Engine / AllBinary Polyglot - includes the AllBinary Multi-Platform Development Kit
 * Freeblisket/Weblisket E-Commerce Solution (https://allbinary.com)
 * AllBinary Input Automation
 * Various Tools like AllBinary Vector Graphics Tool and AllBinary Sprite Tool
