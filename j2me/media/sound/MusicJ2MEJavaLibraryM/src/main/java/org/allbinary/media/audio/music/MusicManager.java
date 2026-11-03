@@ -37,18 +37,24 @@ public class MusicManager {
     //Handle Media ending for Avian
     private class MusicManagerPlayerListener implements PlayerListener {
 
+        private final MusicManager musicManager;
+
+        MusicManagerPlayerListener(final MusicManager musicManager) {
+            this.musicManager = musicManager;
+        }
+
         @Override
         public void playerUpdate(final Player player, final String event, final Object eventData) {
 
-            PreLogUtil.put(event, this, commonStrings.PROCESS);
+            PreLogUtil.put(event, this, this.musicManager.commonStrings.PROCESS);
             if (event == PlayerListener.END_OF_MEDIA
                     || event == PlayerListener.STOPPED
                     || event == PlayerListener.CLOSED) {
-                reset();
+                this.musicManager.reset();
             }
         }
-    };    
-    private final PlayerListener playerListener = new MusicManagerPlayerListener();
+    };
+    private final PlayerListener playerListener = new MusicManagerPlayerListener(this);
     
     private final String PLAY = "Play ";
     private final String SONG = " for: ";

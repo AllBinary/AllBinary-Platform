@@ -50,8 +50,14 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
 
     private final int lockedIndex;
 
-    private final ABRunnable abRunnable = new ABRunnable() {
-        
+    class PreGameSelectionRunnable extends ABRunnable {
+
+        private final PreGameSelectionGameInputProcessor inputProcessor;
+
+        PreGameSelectionRunnable(final PreGameSelectionGameInputProcessor inputProcessor) {
+            this.inputProcessor = inputProcessor;
+        }
+
         @Override
         public void run() {
             try {
@@ -59,9 +65,9 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
 
                 SecondaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
 
-                gameCanvas.setGameState(nextGameState);
+                this.inputProcessor.gameCanvas.setGameState(this.inputProcessor.nextGameState);
 
-                GameKeyEventHandler.getInstance().removeListener(getPlayerGameInput());
+                GameKeyEventHandler.getInstance().removeListener(this.inputProcessor.getPlayerGameInput());
 
                 this.setRunning(false);
 
@@ -73,7 +79,9 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
             }
         }
     };
-    
+
+    private final ABRunnable abRunnable = new PreGameSelectionRunnable(this);
+
     public PreGameSelectionGameInputProcessor(
             AllBinaryGameCanvas gameCanvas,
             PreGameSelectorPaintable preGameSelectorPaintable, 

@@ -47,8 +47,14 @@ public class MapSelectionGameInputProcessor extends Processor
 
     private final int lockedIndex;
     
-    private final ABRunnable abRunnable = new ABRunnable() {
-        
+    class MapSelectionRunnable extends ABRunnable {
+
+        private final MapSelectionGameInputProcessor inputProcessor;
+
+        MapSelectionRunnable(final MapSelectionGameInputProcessor inputProcessor) {
+            this.inputProcessor = inputProcessor;
+        }
+
         @Override
         public void run() {
             try {
@@ -59,15 +65,15 @@ public class MapSelectionGameInputProcessor extends Processor
                 // this.gameCanvas.getStartIntermissionInterface().setEnabled(false);
                 // this.gameCanvas.getEndLevelIntermissionInterface().setEnabled(true);
                 // this.gameCanvas.setGameState(Intermission.WAIT_LEVEL_INTERMISSION_GAME_STATE);
-                final int track = preGameSelectorPaintable.getPreGameSelectionForm().getSelectedIndex() + 1;
+                final int track = this.inputProcessor.preGameSelectorPaintable.getPreGameSelectionForm().getSelectedIndex() + 1;
 
-                final int wave = raceTrackGeographicMapInterfaceFactoryInterface.getFirstWaveWithTrack(track);
-                gameCanvas.getLayerManager().getGameInfo().setCurrentLevel(wave);
+                final int wave = this.inputProcessor.raceTrackGeographicMapInterfaceFactoryInterface.getFirstWaveWithTrack(track);
+                this.inputProcessor.gameCanvas.getLayerManager().getGameInfo().setCurrentLevel(wave);
 
-                gameCanvas.buildGameInit(false);
+                this.inputProcessor.gameCanvas.buildGameInit(false);
 
-                GameKeyEventHandler.getInstance().removeListener(getPlayerGameInput());
-                
+                GameKeyEventHandler.getInstance().removeListener(this.inputProcessor.getPlayerGameInput());
+
                 this.setRunning(false);
 
             } catch (Exception e) {
@@ -78,6 +84,8 @@ public class MapSelectionGameInputProcessor extends Processor
             }
         }
     };
+
+    private final ABRunnable abRunnable = new MapSelectionRunnable(this);
     
     public MapSelectionGameInputProcessor(
             AllBinaryGameCanvas gameCanvas,

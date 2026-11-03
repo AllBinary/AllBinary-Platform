@@ -135,6 +135,38 @@ public class ImageModifierUtil {
         return imageArray;
     }
 
+    class ImageCopyCallback implements Callback {
+
+        private final ImageModifierUtil imageModifierUtil;
+        private final Image[] imageArray;
+        private final int index;
+        private final Image image;
+        private final CoreImage image3;
+
+        ImageCopyCallback(final ImageModifierUtil imageModifierUtil, final Image[] imageArray, final int index, final Image image, final CoreImage image3) {
+            this.imageModifierUtil = imageModifierUtil;
+            this.imageArray = imageArray;
+            this.index = index;
+            this.image = image;
+            this.image3 = image3;
+        }
+
+        @Override
+        public void onSuccess(Object resource) {
+            final LogUtil logUtil = LogUtil.getInstance();
+            final ResourceCallbackStrings resourceCallbackStrings = this.imageModifierUtil.resourceCallbackStrings;
+            logUtil.putF(resourceCallbackStrings.DONE + this.image.getName(), this, resourceCallbackStrings.HANDLE_IMAGE);
+            this.imageModifierUtil.copy(this.imageArray, this.index, this.image, this.image3);
+        }
+
+        @Override
+        public void onFailure(Throwable e) {
+            final LogUtil logUtil = LogUtil.getInstance();
+            final ResourceCallbackStrings resourceCallbackStrings = this.imageModifierUtil.resourceCallbackStrings;
+            logUtil.put(new StringMaker().append(this.imageModifierUtil.commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(this.image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE, e);
+        }
+    };
+
     public void handleImage(final Image[] imageArray, final int index, final Image image) {
 
         final CoreImage image3 = (CoreImage) ((PlaynImage) image).getImage();
@@ -146,21 +178,8 @@ public class ImageModifierUtil {
                 this.copy(imageArray, index, image, image3);
             } else {
 
-                final Callback callback = new Callback() {
-                    @Override
-                    public void onSuccess(Object resource) {
-                        final LogUtil logUtil = LogUtil.getInstance();
-                        logUtil.putF(resourceCallbackStrings.DONE + image.getName(), this, resourceCallbackStrings.HANDLE_IMAGE);
-                        copy(imageArray, index, image, image3);
-                    }
+                final Callback callback = new ImageCopyCallback(this, imageArray, index, image, image3);
 
-                    @Override
-                    public void onFailure(Throwable e) {
-                        final LogUtil logUtil = LogUtil.getInstance();
-                        logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE, e);
-                    }
-                };
-                
                 image3.addCallback(callback);
 
             }
