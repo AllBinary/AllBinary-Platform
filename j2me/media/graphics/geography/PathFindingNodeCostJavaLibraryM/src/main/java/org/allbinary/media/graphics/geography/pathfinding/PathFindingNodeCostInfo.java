@@ -71,7 +71,13 @@ public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostIn
 
     @Override
     public int compareTo(PathFindingNodeCostInfo pathFindingNodeCostInfo) {
-        return java.lang.Long.compare(this.totalCostP, pathFindingNodeCostInfo.totalCostP);
+        //java.lang.Long.compare is not available to the JS build
+        if (this.totalCostP < pathFindingNodeCostInfo.totalCostP) {
+            return -1;
+        } else if (this.totalCostP > pathFindingNodeCostInfo.totalCostP) {
+            return 1;
+        }
+        return 0;
     }
 
    public String toString()
