@@ -79,7 +79,9 @@ public class ImageJ2MEScaleUtil {
         final ImageImpl scaledPlayNImage = (ImageImpl) htmlImage.getImage();
 
         final Canvas canvas = ((HtmlGraphics) PlayN.getInstance().graphics()).get((HtmlImage) scaledPlayNImage);
-        ((ImageImpl) originalPlayNImage).draw(canvas.gc(), 0, 0, scaledImage.getWidth(), scaledImage.getHeight(), 0, 0, image.getWidth(), image.getHeight());
+        //((ImageImpl) originalPlayNImage).draw(canvas.gc(), 0, 0, scaledImage.getWidth(), scaledImage.getHeight(), 0, 0, image.getWidth(), image.getHeight());
+        //Canvas.drawScale calls ImageImpl.draw(gc(), ...) and is available to the JS build
+        canvas.drawScale(originalPlayNImage, 0, 0, scaledImage.getWidth(), scaledImage.getHeight(), 0, 0, image.getWidth(), image.getHeight());
 
         return scaledImage;
 

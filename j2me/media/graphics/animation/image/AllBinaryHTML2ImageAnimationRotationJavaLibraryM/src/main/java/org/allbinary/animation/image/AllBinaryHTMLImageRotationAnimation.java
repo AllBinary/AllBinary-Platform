@@ -89,7 +89,8 @@ extends ImageBaseRotationAnimation
         final PlaynMutableImage htmlImage = (PlaynMutableImage) image;
         final ImageImpl canvasImage = (ImageImpl) htmlImage.getImage();
         final PlayN playN = PlayN.getInstance();
-        final Canvas canvas = ((HtmlGraphics) playN.graphics()).get((HtmlImage) canvasImage);
+        final HtmlGraphics htmlGraphics = (HtmlGraphics) playN.graphics();
+        final Canvas canvas = htmlGraphics.get((HtmlImage) canvasImage);
         canvas.translate(this.originalImage.getWidth() / 2, this.originalImage.getHeight() / 2);
         return canvas;
     }
