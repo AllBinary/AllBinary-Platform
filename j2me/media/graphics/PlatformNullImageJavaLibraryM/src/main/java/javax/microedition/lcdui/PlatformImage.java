@@ -42,16 +42,16 @@ public class PlatformImage {
         return height;
     }
     
-    public javax.microedition.lcdui.Graphics getGraphics(final Object graphicsSurface, final int width, final int height, final Image image) {
+    public Graphics getGraphics(final Object graphicsSurface, final int width, final int height, final Image image) {
         throw new RuntimeException();
     }
 
-    public void drawImage(final Image image, final int x, final int y, int anchor, final javax.microedition.lcdui.Graphics g2, final Object g) {
+    public void drawImage(final Image image, final int x, final int y, int anchor, final Graphics g2, final Object g) {
 
     }
 
     public void drawRegion(final Image image, final int x_src, final int y_src, final int width,
-        final int height, final int transform, final int x_dst, final int y_dst, final int anchor, final javax.microedition.lcdui.Graphics g) {
+        final int height, final int transform, final int x_dst, final int y_dst, final int anchor, final Graphics g) {
 
     }
 
