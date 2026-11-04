@@ -21,6 +21,7 @@ import java.io.Writer;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -28,7 +29,6 @@ import javax.xml.transform.stream.StreamResult;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.java.characters.CharacterSetData;
-import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
@@ -51,34 +51,51 @@ public class XmlDocumentHelper {
     
     private final String INDENT_NUMBER = "indent-number";
     
-    private Transformer transformer;
+    private int indent;
+    private boolean ignoreDeclaration;
     
     private XmlDocumentHelper() {
         this.init(4, true);
     }
 
-    public void init(final int indent, final boolean ignoreDeclaration) {
-        try {
-            final BooleanFactory booleanFactory = BooleanFactory.getInstance();
-            final TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            transformerFactory.setAttribute(this.INDENT_NUMBER, indent);
-            this.transformer = transformerFactory.newTransformer();
-            this.transformer.setOutputProperty(OutputKeys.ENCODING, CharacterSetData.getInstance().UTF_8);
-            this.transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, ignoreDeclaration ? booleanFactory.YES : booleanFactory.NO);
-            this.transformer.setOutputProperty(OutputKeys.INDENT, booleanFactory.YES);
-        } catch(Exception e) {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
-        }
+    public synchronized void init(final int indent, final boolean ignoreDeclaration) {
+        this.indent = indent;
+        this.ignoreDeclaration = ignoreDeclaration;
     }   
-        
-    public String format(final String xmlString) throws Exception {
 
+    private Transformer createTransformer(final int indent, final boolean ignoreDeclaration)
+            throws TransformerConfigurationException {
+        final BooleanFactory booleanFactory = BooleanFactory.getInstance();
+        final TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        transformerFactory.setAttribute(this.INDENT_NUMBER, indent);
+        final Transformer transformer = transformerFactory.newTransformer();
+        transformer.setOutputProperty(OutputKeys.ENCODING, CharacterSetData.getInstance().UTF_8);
+        transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION,
+            ignoreDeclaration ? booleanFactory.YES : booleanFactory.NO);
+        transformer.setOutputProperty(OutputKeys.INDENT, booleanFactory.YES);
+        return transformer;
+    }
+        
+    public Transformer createTransformer() throws TransformerConfigurationException {
+        final int currentIndent;
+        final boolean currentIgnoreDeclaration;
+        synchronized (this) {
+            currentIndent = this.indent;
+            currentIgnoreDeclaration = this.ignoreDeclaration;
+        }
+        return this.createTransformer(currentIndent, currentIgnoreDeclaration);
+    }
+
+    public String format(final String xmlString) throws Exception {
+        return this.formatWithTransformer(xmlString, this.createTransformer());
+    }
+
+    public String formatWithTransformer(final String xmlString, final Transformer transformer) throws Exception {
         final InputSource src = new InputSource(new StringReader(xmlString));
         final Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(src);
 
         final Writer out = new StringWriter();
-        this.transformer.transform(new DOMSource(document), new StreamResult(out));
+        transformer.transform(new DOMSource(document), new StreamResult(out));
         return out.toString();
     }
     
@@ -86,17 +103,17 @@ public class XmlDocumentHelper {
    {
       try
       {
-         DOMSource domSource = new DOMSource(document);
+         final DOMSource domSource = new DOMSource(document);
          
-         ByteArrayOutputStream byteArrayOutputStream
+         final ByteArrayOutputStream byteArrayOutputStream
                = new ByteArrayOutputStream();
          
-         StreamResult streamResult = new StreamResult(byteArrayOutputStream);
+         final StreamResult streamResult = new StreamResult(byteArrayOutputStream);
          
-         TransformerFactory copyTransformerFactory
+         final TransformerFactory copyTransformerFactory
                = TransformerFactory.newInstance();
          
-         Transformer copyTransformer
+         final Transformer copyTransformer
                = copyTransformerFactory.newTransformer();
          
          copyTransformer.transform(domSource,streamResult);
