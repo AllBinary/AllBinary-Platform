@@ -70,6 +70,20 @@ public class MyCanvas extends Canvas
         this.commandStack = StdUtil.getInstance().createStack();
     }
 
+    //Needed for polyglot do not remove
+    @Override
+    public int getWidth()
+    {
+        return super.getWidth();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getHeight()
+    {
+        return super.getHeight();
+    }
+
     @Override
     public void setFullScreenMode(boolean mode)
     {
