@@ -30,7 +30,7 @@ extends BaseCircularPool
     {
         this.circularIndexUtil = CircularIndexUtil.createInstance(total);
 
-        this.OBJECT_ARRAY = new AllBinaryLayer[total];
+        this.OBJECT_ARRAY = new Object[total];
 
         for (int localIndex = 0; localIndex < total; localIndex++)
         {
