@@ -95,6 +95,13 @@ public class CustomTextAnimation extends TextAnimation
 //        }
     }
     
+    //Needed for polyglot do not remove
+    @Override
+    public void setTextWithOnMeasure(final String text, final TextChangeListener textChangeListener)
+    {
+        super.setTextWithOnMeasure(text, textChangeListener);
+    }
+
     @Override
     public void setText(final String text)
     {
