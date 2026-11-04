@@ -13,7 +13,6 @@
 */
 package org.allbinary.animation;
 
-import java.util.Enumeration;
 import org.allbinary.graphics.GraphicsStrings;
 
 import org.allbinary.logic.math.PrimitiveIntUtil;
@@ -77,10 +76,12 @@ public class SVGAsJSONSimpleLoader
             final JSONObject svg = svgValue == null ? root : this.asObject(svgValue, KEY_SVG);
 
             final BasicArrayList pointVector = new BasicArrayListD();
-            final Enumeration keys = svg.keys();
-            while(keys.hasMoreElements())
+            
+            final Object[] objectArray = svg.keysAsArray();
+            final int size = objectArray.length;
+            for(int index = 0; index < size; index++)
             {
-                final String key = (String) keys.nextElement();
+                final String key = (String) objectArray[index];
                 final Object value = svg.opt(key);
                 if(this.shapeTypeFactory.KEY_LINE.equals(key))
                 {
