@@ -70,6 +70,76 @@ implements LayerInterface
         this.viewPosition.setAllbinaryLayer(this);
     }
 
+    //Needed for polyglot do not remove
+    @Override
+    public void setPosition(final int x, final int y, final int z)
+    {
+        super.setPosition(x, y, z);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void moveDXYZ(final int dx, final int dy, final int dz)
+    {
+        super.moveDXYZ(dx, dy, dz);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getXP()
+    {
+        return super.getXP();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getYP()
+    {
+        return super.getYP();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getZP()
+    {
+        return super.getZP();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getWidth()
+    {
+        return super.getWidth();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getHeight()
+    {
+        return super.getHeight();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void setVisible(final boolean visible)
+    {
+        super.setVisible(visible);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public boolean isVisible()
+    {
+        return super.isVisible();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void paint(final Graphics graphics)
+    {
+        super.paint(graphics);
+    }
+
     public void onChangeEvent(final ViewPositionEvent layerManagerEvent)
             throws Exception
     {

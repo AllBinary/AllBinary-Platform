@@ -92,27 +92,27 @@ public class Layer
         this.z += dz;
     }
     
-    public final int getXP()
+    public int getXP()
     {
         return this.x;
     }
 
-    public final int getYP()
+    public int getYP()
     {
         return this.y;
     }
 
-    public final int getZP()
+    public int getZP()
     {
         return this.z;
     }
-    
-    public final int getWidth()
+
+    public int getWidth()
     {
         return this.width;
     }
 
-    public final int getHeight()
+    public int getHeight()
     {
         return this.height;
     }
@@ -128,7 +128,7 @@ public class Layer
         this.visible = visible;
     }
 
-    public final boolean isVisible()
+    public boolean isVisible()
     {
         return this.visible;
     }
