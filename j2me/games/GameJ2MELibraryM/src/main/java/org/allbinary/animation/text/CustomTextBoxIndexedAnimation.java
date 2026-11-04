@@ -121,4 +121,12 @@ public class CustomTextBoxIndexedAnimation extends IndexedAnimation
 
     }
     
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getWidth()
+    {
+        return super.getWidth();
+    }
+
 }

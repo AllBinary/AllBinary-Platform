@@ -60,4 +60,12 @@ public class SelectNewValidationView extends HttpStoreComponentView implements V
    {
       return new SelectNewView(this.getTransformInfoInterface()).view();
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

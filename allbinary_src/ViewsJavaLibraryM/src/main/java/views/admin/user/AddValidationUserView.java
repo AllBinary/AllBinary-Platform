@@ -116,4 +116,12 @@ public class AddValidationUserView extends HttpContextView
    {
       return views.ValidationOnlyTempUtil.getInstance().view(this);
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

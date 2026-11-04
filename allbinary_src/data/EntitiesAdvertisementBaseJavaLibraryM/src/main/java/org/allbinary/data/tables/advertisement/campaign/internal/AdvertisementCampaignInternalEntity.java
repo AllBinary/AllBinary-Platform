@@ -179,4 +179,12 @@ public class AdvertisementCampaignInternalEntity extends AbSqlBean
     {
         return super.dropTable();
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void insert(final BasicArrayList values)
+    {
+        super.insert(values);
+    }
+
 }

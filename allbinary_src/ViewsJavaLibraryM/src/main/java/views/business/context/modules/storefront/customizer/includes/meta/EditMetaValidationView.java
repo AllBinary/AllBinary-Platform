@@ -75,4 +75,12 @@ public class EditMetaValidationView extends MetaView implements ValidationCompon
    {
       return null;
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

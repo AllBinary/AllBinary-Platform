@@ -233,4 +233,61 @@ public class BasicGeographicMap
     public GeographicMapCellTypeFactory getGeographicMapCellTypeFactory() {
         return this.geographicMapCellTypeFactory;
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public Integer getId()
+    {
+        return super.getId();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public String getName()
+    {
+        return super.getName();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void reset()
+    {
+        super.reset();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public AllBinaryTiledLayer getAllBinaryTiledLayer()
+    {
+        return super.getAllBinaryTiledLayer();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getCellTypeFromMapCellTypeInt(final int cellTypeId)
+    {
+        return super.getCellTypeFromMapCellTypeInt(cellTypeId);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public GeographicMapCellType getCellTypeAt(final GeographicMapCellPosition cellPosition) throws Exception
+    {
+        return super.getCellTypeAt(cellPosition);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public BasicColor getForegroundBasicColor()
+    {
+        return super.getForegroundBasicColor();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public BasicColor getBackgroundBasicColor()
+    {
+        return super.getBackgroundBasicColor();
+    }
+
 }

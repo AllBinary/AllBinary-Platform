@@ -1343,4 +1343,19 @@ public class DemoCanvas extends RunnableCanvas
         return DemoCanvas.TYPE;
     }
 
+
+    //Needed for polyglot do not remove
+    @Override
+    public String getTitle()
+    {
+        return super.getTitle();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public boolean isPaused()
+    {
+        return super.isPaused();
+    }
+
 }

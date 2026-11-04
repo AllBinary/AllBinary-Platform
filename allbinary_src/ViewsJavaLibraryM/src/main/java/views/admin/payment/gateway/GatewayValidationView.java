@@ -62,4 +62,12 @@ public class GatewayValidationView
    {
       return new GatewayView(this.getTransformInfoInterface()).view();
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

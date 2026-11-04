@@ -534,4 +534,12 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       }
    }
    
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

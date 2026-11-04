@@ -31,4 +31,33 @@ implements ABCustomItemInterface
     {
         return ABStringComponent.NULL_STRING_COMPONENT;
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getMinimumWidth()
+    {
+        return super.getMinimumWidth();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getMinimumHeight()
+    {
+        return super.getMinimumHeight();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public String getLabel()
+    {
+        return super.getLabel();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void paintXY(final Graphics graphics, final int x, final int y)
+    {
+        super.paintXY(graphics, x, y);
+    }
+
 }

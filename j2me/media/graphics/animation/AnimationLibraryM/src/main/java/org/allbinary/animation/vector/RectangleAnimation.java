@@ -59,4 +59,19 @@ implements ColorCompositeInterface
     {
         this.height = height;
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public BasicColor getBasicColorP()
+    {
+        return super.getBasicColorP();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void setBasicColorP(final BasicColor basicColor)
+    {
+        super.setBasicColorP(basicColor);
+    }
+
 }

@@ -331,4 +331,12 @@ public class OrderHistory extends Order
       return node;
    }
 
+
+    //Needed for polyglot do not remove
+    @Override
+    public String getPaymentMethod()
+    {
+        return super.getPaymentMethod();
+    }
+
 }

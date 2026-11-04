@@ -133,4 +133,12 @@ public class IdGeneratorEntity extends AbSqlBean
     public String dropTable() {
         return super.dropTable();
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void deleteWhere(final String key, final String value)
+    {
+        super.deleteWhere(key, value);
+    }
+
 }

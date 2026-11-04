@@ -61,4 +61,12 @@ public class NewValidationView
    {
       return "Error Creating New Downloadable Item";
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

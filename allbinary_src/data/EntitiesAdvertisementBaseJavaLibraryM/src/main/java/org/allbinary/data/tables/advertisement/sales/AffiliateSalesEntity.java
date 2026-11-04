@@ -23,6 +23,7 @@ import org.allbinary.business.user.group.GroupData;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.util.BasicArrayList;
 
 public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEntityInterface
 {
@@ -159,4 +160,12 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
     {
         return super.dropTable();
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void insert(final BasicArrayList values)
+    {
+        super.insert(values);
+    }
+
 }

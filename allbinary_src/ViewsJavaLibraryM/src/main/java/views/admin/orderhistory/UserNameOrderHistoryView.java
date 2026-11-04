@@ -187,4 +187,12 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
       return "Unknown Error<br />";
    }
    
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

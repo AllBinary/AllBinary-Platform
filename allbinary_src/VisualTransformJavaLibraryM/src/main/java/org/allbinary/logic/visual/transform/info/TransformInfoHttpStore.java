@@ -110,4 +110,19 @@ public class TransformInfoHttpStore extends TransformInfoHttp
    {
       return new AbPath(this.getPath(), this.getDataFile());
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void setStoreName(final String value)
+    {
+        super.setStoreName(value);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public String getStoreName()
+    {
+        return super.getStoreName();
+    }
+
 }

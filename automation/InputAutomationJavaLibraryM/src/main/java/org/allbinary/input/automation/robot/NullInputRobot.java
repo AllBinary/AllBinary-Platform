@@ -123,5 +123,27 @@ public class NullInputRobot extends AbstractInputRobot
    {
        
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void mouseMove(final Point point)
+    {
+        super.mouseMove(point);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void mouseMoveToTarget(final Rectangle rectangle) throws Exception
+    {
+        super.mouseMoveToTarget(rectangle);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void mouseMoveToTarget(final Rectangle rectangle, final Integer x, final Integer y) throws Exception
+    {
+        super.mouseMoveToTarget(rectangle, x, y);
+    }
+
 }
     

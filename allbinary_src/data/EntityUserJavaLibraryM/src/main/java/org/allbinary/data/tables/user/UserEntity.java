@@ -393,4 +393,12 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
         return super.createTable(this.createTableStatement());
     }
 
+
+    //Needed for polyglot do not remove
+    @Override
+    public String dropTable()
+    {
+        return super.dropTable();
+    }
+
 }

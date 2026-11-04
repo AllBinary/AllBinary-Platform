@@ -140,4 +140,12 @@ public class EditValidationView
       
       return stringBuffer.toString();
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

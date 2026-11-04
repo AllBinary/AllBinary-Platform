@@ -175,4 +175,12 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
       return super.getTable();
    }
     */
+
+    //Needed for polyglot do not remove
+    @Override
+    public void insert(final BasicArrayList values)
+    {
+        super.insert(values);
+    }
+
 }

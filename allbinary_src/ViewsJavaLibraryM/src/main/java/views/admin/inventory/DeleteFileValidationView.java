@@ -104,4 +104,12 @@ public class DeleteFileValidationView extends InventoryItemView implements Valid
          return "Unkown Validation Error.<br />";
       }
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

@@ -17,6 +17,8 @@ import org.allbinary.android.input.VirtualKeyboard;
 
 import org.allbinary.input.event.VirtualKeyboardEventListenerInterface;
 import android.app.Activity;
+import org.allbinary.input.event.VirtualKeyboardEvent;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class VirtualKeyboardAPI1 extends VirtualKeyboard
 implements VirtualKeyboardEventListenerInterface
@@ -27,4 +29,19 @@ implements VirtualKeyboardEventListenerInterface
     public VirtualKeyboardAPI1(final Activity activity)
     {
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void onVirtualKeyboardEvent(final VirtualKeyboardEvent virtualKeyboardEvent)
+    {
+        super.onVirtualKeyboardEvent(virtualKeyboardEvent);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void onEvent(final AllBinaryEventObject eventObject)
+    {
+        super.onEvent(eventObject);
+    }
+
 }

@@ -257,4 +257,19 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
     {
         return super.dropTable();
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void insert(final BasicArrayList values)
+    {
+        super.insert(values);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public String dropTable()
+    {
+        return super.dropTable();
+    }
+
 }

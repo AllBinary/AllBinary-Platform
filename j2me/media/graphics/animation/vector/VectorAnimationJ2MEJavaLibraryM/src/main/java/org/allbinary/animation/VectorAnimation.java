@@ -229,4 +229,12 @@ public class VectorAnimation extends IndexedAnimation
         this.currentPoints = currentPoints;
         this.circularIndexUtil = CircularIndexUtil.createInstance(currentPoints.length);
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public BasicColor getBasicColorP()
+    {
+        return super.getBasicColorP();
+    }
+
 }

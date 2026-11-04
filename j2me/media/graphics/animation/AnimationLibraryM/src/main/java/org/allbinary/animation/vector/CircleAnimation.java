@@ -50,4 +50,19 @@ public class CircleAnimation extends Animation implements ColorCompositeInterfac
 
         graphics.drawArc(x, y, this.width, this.height, 0, this.TOTAL_ANGLE);
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public BasicColor getBasicColorP()
+    {
+        return super.getBasicColorP();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void setBasicColorP(final BasicColor basicColor)
+    {
+        super.setBasicColorP(basicColor);
+    }
+
 }

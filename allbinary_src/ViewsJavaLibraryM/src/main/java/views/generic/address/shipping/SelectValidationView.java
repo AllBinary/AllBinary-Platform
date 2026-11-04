@@ -46,4 +46,12 @@ public class SelectValidationView extends ShippingAddressView implements Validat
    {
       return null;      
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

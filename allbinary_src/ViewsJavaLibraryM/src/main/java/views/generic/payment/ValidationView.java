@@ -45,4 +45,12 @@ public class ValidationView extends PaymentView implements ValidationComponentIn
    {
       return MESSAGES.CONTACTADMIN;
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

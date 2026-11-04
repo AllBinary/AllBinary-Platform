@@ -18,6 +18,7 @@ import org.allbinary.business.init.db.LogDbInitInfo;
 import org.allbinary.logic.communication.http.request.AbeHttpRequestInfoData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.util.BasicArrayList;
 
 public class LogTableEntity extends AbSqlBean implements LogTableEntityInterface
 {
@@ -64,6 +65,28 @@ public class LogTableEntity extends AbSqlBean implements LogTableEntityInterface
     public String createTable()
     {
         return super.createTable(this.createTableStatement());
+    }
+
+
+    //Needed for polyglot do not remove
+    @Override
+    public void deleteWhere(final String key, final String value)
+    {
+        super.deleteWhere(key, value);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void insert(final BasicArrayList values)
+    {
+        super.insert(values);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public String dropTable()
+    {
+        return super.dropTable();
     }
 
 }

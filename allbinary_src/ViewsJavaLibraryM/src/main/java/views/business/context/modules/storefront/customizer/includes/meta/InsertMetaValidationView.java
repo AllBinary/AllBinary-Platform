@@ -84,4 +84,12 @@ public class InsertMetaValidationView extends MetaView implements ValidationComp
    {
       return null;
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

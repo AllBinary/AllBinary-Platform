@@ -24,6 +24,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 import org.w3c.dom.Document;
+import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
 
 //Hack class should not exist
 public class TransformInfoBasic extends AbContext implements TransformInfoHttpInterface
@@ -174,4 +175,26 @@ public class TransformInfoBasic extends AbContext implements TransformInfoHttpIn
    {
       return null;
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public WeblisketSessionInterface getWeblisketSession()
+    {
+        return super.getWeblisketSession();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public PageContext getPageContext()
+    {
+        return super.getPageContext();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public HashMap getPropertiesHashMap()
+    {
+        return super.getPropertiesHashMap();
+    }
+
 }

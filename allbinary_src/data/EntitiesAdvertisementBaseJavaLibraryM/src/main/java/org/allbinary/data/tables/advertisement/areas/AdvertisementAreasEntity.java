@@ -172,4 +172,12 @@ public class AdvertisementAreasEntity extends AbSqlBean implements Advertisement
         return super.dropTable();
     }
 
+
+    //Needed for polyglot do not remove
+    @Override
+    public void insert(final BasicArrayList values)
+    {
+        super.insert(values);
+    }
+
 }

@@ -19,6 +19,7 @@ import org.allbinary.business.advertisement.AdConfiguration;
 import org.allbinary.input.event.VirtualKeyboardEvent;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
 import org.allbinary.input.event.VirtualKeyboardEventListenerInterface;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 
 public class GameAdState extends GameAdStateBase implements VirtualKeyboardEventListenerInterface
@@ -35,4 +36,12 @@ public class GameAdState extends GameAdStateBase implements VirtualKeyboardEvent
     public void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent) throws Exception {
     }
     
+
+    //Needed for polyglot do not remove
+    @Override
+    public void onEvent(final AllBinaryEventObject eventObject)
+    {
+        super.onEvent(eventObject);
+    }
+
 }

@@ -83,4 +83,12 @@ public class EditGenericBodyValidationView extends GenericBodyCustomizerView imp
    {
       return null;
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

@@ -1228,4 +1228,26 @@ public class StartCanvas extends RunnableCanvas
       return this.gameInitializationInterfaceFactoryInterface;
    }
 
+
+    //Needed for polyglot do not remove
+    @Override
+    public String getTitle()
+    {
+        return super.getTitle();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public boolean isPaused()
+    {
+        return super.isPaused();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getType()
+    {
+        return super.getType();
+    }
+
 }

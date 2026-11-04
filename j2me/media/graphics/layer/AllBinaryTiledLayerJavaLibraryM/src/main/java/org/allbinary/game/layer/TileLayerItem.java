@@ -94,4 +94,12 @@ public class TileLayerItem extends ABCustomItem implements ABCustomItemInterface
         
     }
 
+
+    //Needed for polyglot do not remove
+    @Override
+    public String getLabel()
+    {
+        return super.getLabel();
+    }
+
 }

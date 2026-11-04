@@ -57,4 +57,12 @@ public class NewValidationView extends InventoryItemView implements ValidationCo
    {
       return "Error Creating New Item";
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

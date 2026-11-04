@@ -60,6 +60,7 @@ import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayListS;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.util.ABHashtable;
+import org.allbinary.animation.RotationAnimation;
 
 public class BuildingLayer
     extends AdvancedRTSGameLayer
@@ -626,4 +627,19 @@ public class BuildingLayer
     {
         return 2;
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public RotationAnimation getRotationAnimationInterface()
+    {
+        return super.getRotationAnimationInterface();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void setFrame(final int index)
+    {
+        super.setFrame(index);
+    }
+
 }

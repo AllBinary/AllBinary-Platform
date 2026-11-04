@@ -107,4 +107,12 @@ public class EditValidationView extends InventoryItemView implements ValidationC
       
       return stringBuffer.toString();
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

@@ -60,4 +60,12 @@ public class SelectExistingValidationView extends HttpStoreComponentView impleme
    {
       return new SelectExistingView(this.getTransformInfoInterface()).view();
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

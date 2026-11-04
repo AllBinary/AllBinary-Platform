@@ -341,4 +341,12 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
      {
      return super.getTable();
      }*/
+
+    //Needed for polyglot do not remove
+    @Override
+    public String dropTable()
+    {
+        return super.dropTable();
+    }
+
 }

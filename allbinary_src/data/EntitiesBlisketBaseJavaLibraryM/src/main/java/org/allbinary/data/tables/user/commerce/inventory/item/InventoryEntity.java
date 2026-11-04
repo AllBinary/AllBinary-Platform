@@ -286,4 +286,12 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
     return super.getTable();
     }
      */
+
+    //Needed for polyglot do not remove
+    @Override
+    public void deleteWhere(final String key, final String value)
+    {
+        super.deleteWhere(key, value);
+    }
+
 }

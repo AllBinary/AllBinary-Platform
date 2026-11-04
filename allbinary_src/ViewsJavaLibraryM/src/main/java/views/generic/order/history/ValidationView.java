@@ -43,4 +43,12 @@ public class ValidationView extends OrderHistoryView implements ValidationCompon
    {
       return MESSAGES.CONTACTADMIN;
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public TransformInfoInterface getTransformInfoInterface() throws Exception
+    {
+        return super.getTransformInfoInterface();
+    }
+
 }

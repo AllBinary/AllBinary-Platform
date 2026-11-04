@@ -45,4 +45,19 @@ implements ColorCompositeInterface
       //graphics.fillArc(x, y, width, height, 0, TOTAL_ANGLE);
       graphics.fillRect(x, y, this.width, this.height);
    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public BasicColor getBasicColorP()
+    {
+        return super.getBasicColorP();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void setBasicColorP(final BasicColor basicColor)
+    {
+        super.setBasicColorP(basicColor);
+    }
+
 }

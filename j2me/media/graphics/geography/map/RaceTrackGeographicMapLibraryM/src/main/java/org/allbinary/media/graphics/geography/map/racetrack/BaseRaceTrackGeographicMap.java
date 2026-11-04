@@ -22,6 +22,9 @@ import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
+import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 
 public class BaseRaceTrackGeographicMap extends BasicGeographicMap 
     implements RaceTrackGeographicMapInterface
@@ -117,4 +120,61 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap
     {
         this.raceTrackData = raceTrackData;
     }
+
+    //Needed for polyglot do not remove
+    @Override
+    public Integer getId()
+    {
+        return super.getId();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public String getName()
+    {
+        return super.getName();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public void reset()
+    {
+        super.reset();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public AllBinaryTiledLayer getAllBinaryTiledLayer()
+    {
+        return super.getAllBinaryTiledLayer();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public int getCellTypeFromMapCellTypeInt(final int cellTypeId)
+    {
+        return super.getCellTypeFromMapCellTypeInt(cellTypeId);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public GeographicMapCellType getCellTypeAt(final GeographicMapCellPosition cellPosition) throws Exception
+    {
+        return super.getCellTypeAt(cellPosition);
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public BasicColor getForegroundBasicColor()
+    {
+        return super.getForegroundBasicColor();
+    }
+
+    //Needed for polyglot do not remove
+    @Override
+    public BasicColor getBackgroundBasicColor()
+    {
+        return super.getBackgroundBasicColor();
+    }
+
 }
