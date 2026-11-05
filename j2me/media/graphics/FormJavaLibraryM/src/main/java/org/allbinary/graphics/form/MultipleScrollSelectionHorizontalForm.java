@@ -91,13 +91,19 @@ public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm i
 
             final class MPaintable extends Paintable {
 
+                private final MultipleScrollSelectionHorizontalForm form;
+
+                public MPaintable(final MultipleScrollSelectionHorizontalForm form) {
+                    this.form = form;
+                }
+
                 @Override
                 public void paint(final Graphics graphics) {
-                    MultipleScrollSelectionHorizontalForm.this.fillRect(graphics);
+                    this.form.fillRect(graphics);
                 }
             };
 
-            this.rectPaintable = new MPaintable();
+            this.rectPaintable = new MPaintable(this);
 
         }
         
