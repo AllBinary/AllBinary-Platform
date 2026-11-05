@@ -196,7 +196,7 @@ public class GameOptionsForm extends CommandForm
         
         final GameConfiguration SCALE = GameConfigurationCentral.getInstance().SCALE;
         
-        hashtable.put(SCALE.getName(), SCALE.getValue().toString());
+        hashtable.put(SCALE.getName(), Integer.toString(SCALE.getValue().intValue()));
 
         final KeyValuePersistance keyValuePersistance =
             GameConfigurationPersistanceSingleton.getInstance();
