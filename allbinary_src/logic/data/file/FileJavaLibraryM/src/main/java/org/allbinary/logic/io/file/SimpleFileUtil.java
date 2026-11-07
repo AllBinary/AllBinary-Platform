@@ -14,15 +14,16 @@
 package org.allbinary.logic.io.file;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
-import java.nio.CharBuffer;
 
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.NullOutputStream;
+import org.allbinary.logic.io.NullReader;
+import org.allbinary.logic.io.NullWriter;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
@@ -47,99 +48,15 @@ public class SimpleFileUtil {
     }
 
     public static OutputStream nullOutputStream() {
-        return new OutputStream() {
-
-            @Override
-            public void write(int b) throws IOException {
-            }
-
-            @Override
-            public void write(byte b[], int off, int len) throws IOException {
-            }
-
-            @Override
-            public void close() {
-            }
-        };
+        return NullOutputStream.NULL_OUTPUT_STREAM;
     }
     
     public static Writer nullWriter() {
-        return new Writer() {
-            private volatile boolean closed;
-
-            @Override
-            public Writer append(char c) throws IOException {
-                return this;
-            }
-
-            @Override
-            public Writer append(CharSequence csq) throws IOException {
-                return this;
-            }
-
-            @Override
-            public Writer append(CharSequence csq, int start, int end) throws IOException {
-                return this;
-            }
-
-            @Override
-            public void write(int c) throws IOException {
-            }
-
-            @Override
-            public void write(char[] cbuf, int off, int len) throws IOException {
-            }
-
-            @Override
-            public void write(String str) throws IOException {
-            }
-
-            @Override
-            public void write(String str, int off, int len) throws IOException {
-            }
-
-            @Override
-            public void flush() throws IOException {
-            }
-
-            @Override
-            public void close() throws IOException {
-            }
-        };
+        return NullWriter.NULL_WRITER;
     }
     
     public static Reader nullReader() {
-        return new Reader() {
-
-            @Override
-            public int read() throws IOException {
-                return -1;
-            }
-
-            @Override
-            public int read(char[] cbuf, int off, int len) throws IOException {
-                return -1;
-            }
-
-            @Override
-            public int read(CharBuffer target) throws IOException {
-                return -1;
-            }
-
-            @Override
-            public boolean ready() throws IOException {
-                return false;
-            }
-
-            @Override
-            public long skip(long n) throws IOException {
-                return 0L;
-            }
-
-            @Override
-            public void close() {
-            }
-        };
+        return NullReader.NULL_READER;
     }
     
     public final Writer NULL_WRITER = SimpleFileUtil.nullWriter(); 
