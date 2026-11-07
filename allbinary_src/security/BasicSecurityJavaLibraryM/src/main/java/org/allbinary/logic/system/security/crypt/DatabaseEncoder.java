@@ -67,25 +67,15 @@ public class DatabaseEncoder
       {
          final Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SPACE);
          final BasicArrayList vector = tokenizer.getTokensFromString(value, new BasicArrayListD());
-         final BasicArrayList byteVector = new BasicArrayListD();
          final int size = vector.size();
 
+         //Each token is parsed straight into the array so no Byte objects are needed
+         final byte[] decode = new byte[size];
          String byteOfData;
-         for(int index = 0; index< size; index++)
-         {
-            byteOfData = (String) vector.objectArray[index];
-            byteVector.add(new Byte(byteOfData));
-         }
-
-         final byte[] decode = new byte[byteVector.size()];
-         int decodeIndex = 0;
-
-         Byte aByte;
          for(int index = 0; index < size; index++)
          {
-            aByte = (Byte) byteVector.objectArray[index];
-            decode[decodeIndex] = aByte.byteValue();
-            decodeIndex++;
+            byteOfData = (String) vector.objectArray[index];
+            decode[index] = Byte.parseByte(byteOfData);
          }
          return decode;
       }
