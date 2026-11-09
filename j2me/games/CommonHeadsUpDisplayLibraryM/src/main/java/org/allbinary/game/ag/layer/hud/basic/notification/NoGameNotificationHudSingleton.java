@@ -38,7 +38,7 @@ public class NoGameNotificationHudSingleton {
             class NoGameGameNotificationHud extends GameNotificationHud {
 
                 NoGameGameNotificationHud() {
-                    super(basicHudFactory.TOPCENTER, basicHudFactory.HORIZONTAL, 2, BasicColorFactory.getInstance().RED);
+                    super(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 2, BasicColorFactory.getInstance().RED);
                     
                     this.updateMaxWidth = 40;
                     this.updateMaxHeight = 14;

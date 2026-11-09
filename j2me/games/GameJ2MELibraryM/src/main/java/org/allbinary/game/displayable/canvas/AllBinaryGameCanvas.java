@@ -1865,7 +1865,15 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             class SaveHighScoreRunnable implements Runnable {
 
                 private final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-                
+                //Fields instead of the captured locals so the class does not need the enclosing method, such as in C#
+                private final boolean isLast;
+                private final HighScoreTextBox textBox;
+
+                SaveHighScoreRunnable(final boolean isLast, final HighScoreTextBox textBox) {
+                    this.isLast = isLast;
+                    this.textBox = textBox;
+                }
+
                 @Override
                 public void run() {
                     final LogUtil logUtil = LogUtil.getInstance();
@@ -1874,10 +1882,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 //                                Thread.sleep(100);
 //                                progressCanvas.addPortion(6, "Saving High Score");
 
-                        if (isLast) {
-                            textBox.submit();
+                        if (this.isLast) {
+                            this.textBox.submit();
                         } else {
-                            textBox.saveHighScore();
+                            this.textBox.saveHighScore();
                         }
                     } catch (Exception e) {
                         final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -1887,7 +1895,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 }
             }
 
-            SecondaryThreadPool.getInstance().runTask(new SaveHighScoreRunnable());
+            SecondaryThreadPool.getInstance().runTask(new SaveHighScoreRunnable(isLast, textBox));
         }
         //}
         //else
