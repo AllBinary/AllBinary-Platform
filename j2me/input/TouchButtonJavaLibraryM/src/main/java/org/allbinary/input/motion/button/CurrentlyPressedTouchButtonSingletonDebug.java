@@ -31,7 +31,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     
     private String string = StringUtil.getInstance().EMPTY_STRING;
     private String listString = StringUtil.getInstance().EMPTY_STRING;
-    private String append = StringUtil.getInstance().EMPTY_STRING;
+    private String appendText = StringUtil.getInstance().EMPTY_STRING;
 
     private final String PRESSED_AND_FIRED = "pressed & fired";
     private final String PRESSED_AND_NOT_FIRED = "pressed in button but not fired";
@@ -49,20 +49,20 @@ public class CurrentlyPressedTouchButtonSingletonDebug
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(append);
 
-        this.append = stringBuffer.toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.appendText = stringBuffer.toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
     }
 
     private void append(String append)
     {
-        this.append = new StringMaker().append(this.append).append(append).toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.appendText = new StringMaker().append(this.appendText).append(append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
     }
     
     public void clearLog(int x, int y)
     {
-        this.append = new StringMaker().append(GPoint.toStringStatic(x, y, 0)).append(CommonSeps.getInstance().SPACE).toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.appendText = new StringMaker().append(GPoint.toStringStatic(x, y, 0)).append(CommonSeps.getInstance().SPACE).toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
         //this.append(StringUtil.getInstance());
     }
 
@@ -102,7 +102,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
         TouchButtonInput touchButtonInput = super.removeAt(index);
 
         this.listString = this.list.toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
         
         return touchButtonInput;
     }
@@ -113,7 +113,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
         boolean isRemoved = super.remove(touchButtonInput);
 
         this.listString = this.list.toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
 
         return isRemoved;
     }
@@ -123,7 +123,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     {
         super.add(touchButtonInput);
         this.listString = this.list.toString();
-        this.string = new StringMaker().append(this.listString).append(this.append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
     }
     
     public String toString()
