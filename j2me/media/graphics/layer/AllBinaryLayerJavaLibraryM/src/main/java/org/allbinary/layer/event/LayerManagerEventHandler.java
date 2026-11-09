@@ -102,12 +102,12 @@ public class LayerManagerEventHandler extends BasicEventHandler
 
         EventListenerInterface eventListenerInterface;
         LayerManagerEventListenerInterface layerManagerEventListenerInterface;
-        int index = 0;
-        while (index < eventListenerInterfaceList.size())
+        int listenerIndex = 0;
+        while (listenerIndex < eventListenerInterfaceList.size())
         {
             try
             {
-                eventListenerInterface = (EventListenerInterface) eventListenerInterfaceList.objectArray[index];
+                eventListenerInterface = (EventListenerInterface) eventListenerInterfaceList.objectArray[listenerIndex];
                 layerManagerEventListenerInterface = ((LayerManagerEventListenerInterface) eventListenerInterface);
                 layerManagerEventListenerInterface.onDeleteLayerManagerEvent((LayerManagerEvent) eventObject);
             }
@@ -115,7 +115,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
-            index++;
+            listenerIndex++;
         }
     }
 
