@@ -24,6 +24,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.client.XmlRpcAbeLicenseRetrievalClient;
 import org.allbinary.globals.PATH_GLOBALS;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.string.CommonStrings;
 
 public class LicenseClientAndServerTest
 {
@@ -152,7 +153,7 @@ public class LicenseClientAndServerTest
         } catch (Exception e)
         {
             final LogUtil logUtil = LogUtil.getInstance();
-            this.logUtil.put(this.commonStrings.EXCEPTION, "main()", "main()", e);
+            logUtil.put(CommonStrings.getInstance().EXCEPTION, "main()", "main()", e);
         }
     }
 }

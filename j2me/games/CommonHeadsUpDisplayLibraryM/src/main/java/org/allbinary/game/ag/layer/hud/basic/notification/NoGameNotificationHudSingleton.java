@@ -31,25 +31,25 @@ public class NoGameNotificationHudSingleton {
 
     private GameNotificationHud gameNotificationHud = GameNotificationHud.NULL_GAME_NOTIFICATION;
 
+    class NoGameGameNotificationHud extends GameNotificationHud {
+
+        NoGameGameNotificationHud() {
+            super(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 2, BasicColorFactory.getInstance().RED);
+
+            this.updateMaxWidth = 40;
+            this.updateMaxHeight = 14;
+        }
+
+//        public void updateMeasurement(final Graphics graphics) {
+//            final Font font = graphics.getFont();
+//            super.updateMeasurement(graphics);
+//        }
+
+    }
+    
     private NoGameNotificationHudSingleton() {
         try {
             final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
-
-            class NoGameGameNotificationHud extends GameNotificationHud {
-
-                NoGameGameNotificationHud() {
-                    super(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 2, BasicColorFactory.getInstance().RED);
-                    
-                    this.updateMaxWidth = 40;
-                    this.updateMaxHeight = 14;
-                }
-
-//                public void updateMeasurement(final Graphics graphics) {
-//                    final Font font = graphics.getFont();
-//                    super.updateMeasurement(graphics);
-//                }
-
-            };
 
             this.gameNotificationHud = new NoGameGameNotificationHud();
         } catch (Exception e) {
