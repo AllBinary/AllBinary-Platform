@@ -29,7 +29,7 @@ running the generator themselves.
 ## Current build state
 
 ### Tier 1 – Games run
-The public repo, private repo, and GD (GDevelop-generated game) poms all build. J2ME-style
+The public repo, private repo, and GD (GDevelop-generated game) root pom all build. J2ME-style
 client code builds, and most AllBinary legacy and GD games run.
 
 | Language | Targets | Notes |
@@ -38,13 +38,13 @@ client code builds, and most AllBinary legacy and GD games run.
 | Kotlin | JVM, Android (KMP: iOS, Web/WASM, Native) | |
 
 ### Tier 2 – Legacy game runs
-The public and private repo poms build. J2ME-style client code builds, and at least one legacy game runs.
+The public and private repo root pom build. J2ME-style client code builds, and at least one legacy game runs.
 
 | Language | Targets | Notes |
 |----------|---------|-------|
 | TypeScript | Web, Mobile (HarmonyOS via ArkTS) | Also the source for the JavaScript output (via `tsc`). |
 
-### Tier 3 – Public poms build (with 1 private library)
+### Tier 3 – Public root pom build (with 1 private library)
 
 | Language | Desktop | Notes |
 |----------|---------|-------|
