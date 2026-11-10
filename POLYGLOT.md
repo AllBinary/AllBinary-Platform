@@ -44,7 +44,7 @@ The public and private repo root pom build. J2ME-style client code builds, and a
 |----------|---------|-------|
 | TypeScript | Web, Mobile (HarmonyOS via ArkTS) | Also the source for the JavaScript output (via `tsc`). |
 
-### Tier 3 – Public root pom build (with 1 private library)
+### Tier 3 – Public root pom build (with 5 private libraries)
 
 | Language | Desktop | Notes |
 |----------|---------|-------|
@@ -52,7 +52,7 @@ The public and private repo root pom build. J2ME-style client code builds, and a
 | C# | Managed VM | .NET CLR. NativeAOT could make a true native build later. |
 | Erlang | Managed VM | BEAM VM, built through `escript`. |
 
-### Tier 4 – AllBinaryBase builds (with 1 private library)
+### Tier 4 – AllBinaryBase builds (with 5 private library)
 
 | Language | Desktop | Notes |
 |----------|---------|-------|
