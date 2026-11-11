@@ -65,7 +65,7 @@
         
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>LoggingAndroidAll</artifactId>
+            <artifactId>LoggingJ2MEAll</artifactId>
 
             <!--
             <artifactId>LoggingJ2MEAll</artifactId>
