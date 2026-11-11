@@ -1,4 +1,4 @@
-# AllBinary Platform – Polyglot Support
+## AllBinary Platform – Polyglot Support
 
 The AllBinary Platform is written once in Java (J2ME/MIDP-style client code plus the
 platform libraries). That Java source is the single source of truth: it is converted
@@ -10,8 +10,16 @@ Languages)** box. It sits beside the dedicated **Kotlin/KMP** and **TypeScript/J
 paths, and all three feed the same set of targets (Android, iOS, Browser/HTML5, WASM,
 HarmonyOS, J2SE, and Native Win/Linux/Mac).
 
-They the language specific repos hold the generated code, so developers can use it without 
+The language specific repos hold the generated code, so developers can use it without 
 running the generator themselves.
+
+### Polyglot History
+
+J2ME in 2001, J2SE in 2003, Android in 2007, web via GWT in 2011, Native via Avian a toy VM in 2021, Kotlin in 2025, and ArkTs in 2026.  In 2021 I added GDevelop JSON support so I can have a no code path to creating apps and games with my AllBinary Platform.
+
+### Future
+
+In 2027 I will release a scene editor and continue to improve the polyglot support.
 
 ## Desktop target types
 
@@ -27,6 +35,13 @@ running the generator themselves.
 | **Mobile** | Android, iOS, HarmonyOS | Kotlin, Swift, ArkTS |
 
 ## Current build state
+
+### Tier 0 – Games, Thickclients, and Services run
+public repo, private repo, and GD poms for server, thick clients, and J2ME client code builds and deploys:
+
+| Language | Targets | Notes |
+|----------|---------|-------|
+| Java | J2SE, J2ME, Android, Native via Avian, Web with Javascript with PlayN 1 and 2 with 100% GWT | Produced from the TypeScript output by `tsc` (about 1% GWT). Allows dynamic preview of games. | Graal works as of 2024, but it not deployed
 
 ### Tier 1 – Games run
 The public repo, private repo, and GD (GDevelop-generated game) root pom all build. J2ME-style
