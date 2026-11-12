@@ -40,7 +40,7 @@ public class TouchButtonRecognizer
         CurrentlyPressedTouchButtonSingleton.getInstance();
         //CurrentlyPressedTouchButtonSingletonDebug.getInstance();
 
-    class ReleaseHelper
+    static class ReleaseHelper
     {
         protected final TouchButtonRecognizer touchButtonRecognizer;
         
@@ -71,7 +71,7 @@ public class TouchButtonRecognizer
         }
     }
     
-    class MultitouchReleaseHelper extends ReleaseHelper
+    static class MultitouchReleaseHelper extends ReleaseHelper
     {
         
         public MultitouchReleaseHelper(final TouchButtonRecognizer touchButtonRecognizer)

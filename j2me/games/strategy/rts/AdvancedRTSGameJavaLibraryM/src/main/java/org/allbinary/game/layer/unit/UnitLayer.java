@@ -50,7 +50,7 @@ import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.AdvancedRTSProperties;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
-import org.allbinary.game.layer.CaptionResources;
+import org.allbinary.game.layer.LayerCaptionResources;
 import org.allbinary.game.layer.LinePathRelativeAnimation;
 import org.allbinary.game.layer.PathAnimation;
 import org.allbinary.game.layer.PathFindingLayerInterface;
@@ -172,7 +172,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
     private final CaptionAnimationHelperBase captionAnimationHelper = 
         new CaptionAnimationHelper(
                 FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
-                        CaptionResources.getInstance().RESOURCE).getInstance(0),
+                        LayerCaptionResources.getInstance().RESOURCE).getInstance(0),
                         -23, -25, 6, 0);
 
     private final RotationAnimation decalAnimation;

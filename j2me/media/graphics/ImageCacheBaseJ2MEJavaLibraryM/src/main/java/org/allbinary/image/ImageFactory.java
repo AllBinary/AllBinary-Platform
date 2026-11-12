@@ -17,6 +17,8 @@ import java.io.InputStream;
 
 import javax.microedition.lcdui.Image;
 
+import org.allbinary.MIDPUtil;
+
 /**
  *
  * @author User
@@ -40,12 +42,12 @@ public class ImageFactory {
     
     public Image createImage(final String caller, final int width, final int height) throws Exception
     {
-        return Image.createImage(width, height);
+        return MIDPUtil.getInstance().createImageWH(width, height);
     }
     
     public Image createImageFromInputStream(final Object key, final InputStream inputStream) throws Exception
     {
-        final Image image = Image.createImage(inputStream);
+        final Image image = MIDPUtil.getInstance().createImageFromInputStream(inputStream);
         //image.setName((String) key + image.getName());
         //this.logUtil.putF(image.getName(), this, "createImage");
         //image.init(image.getImage());
@@ -54,7 +56,7 @@ public class ImageFactory {
 
     public Image createImageFromInputStream(final InputStream inputStream) throws Exception
     {
-        return Image.createImage(inputStream);
+        return MIDPUtil.getInstance().createImageFromInputStream(inputStream);
     }
     
 }

@@ -13,16 +13,16 @@
  */
 package org.allbinary.game.layer;
 
-public class CaptionResources
+public class LayerCaptionResources
 {
-    private static final CaptionResources instance = new CaptionResources();
+    private static final LayerCaptionResources instance = new LayerCaptionResources();
     
-    public static CaptionResources getInstance()
+    public static LayerCaptionResources getInstance()
     {
-        return CaptionResources.instance;
+        return LayerCaptionResources.instance;
     }
     
-    private CaptionResources()
+    private LayerCaptionResources()
     {
         
     }

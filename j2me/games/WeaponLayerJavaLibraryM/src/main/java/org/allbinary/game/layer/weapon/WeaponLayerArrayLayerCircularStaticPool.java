@@ -30,28 +30,47 @@ public class WeaponLayerArrayLayerCircularStaticPool
     private final int MAX = 5;
     private CircularIndexUtil circularIndexUtil = CircularIndexUtil.createInstance(this.MAX);
 
-    private Object[][][] ALL_WEAPONLAYER_ARRAY = new Object[4][][];
+    private WeaponLayer[][] WEAPONLAYER_ARRAY;
+    private WeaponLayer[][] TWO_WEAPONLAYER_ARRAY;
+    private WeaponLayer[][] THREE_WEAPONLAYER_ARRAY;
 
     public void init()
     {
-        Object[][] WEAPONLAYER_ARRAY = new Object[this.MAX * 2][];
-        Object[][] TWO_WEAPONLAYER_ARRAY = new Object[this.MAX][];
-        Object[][] THREE_WEAPONLAYER_ARRAY = new Object[this.MAX][];
-
+        final WeaponLayer[][] WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX * 2][];
+        final WeaponLayer[][] TWO_WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX][];
+        final WeaponLayer[][] THREE_WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX][];
+        
         for (int index = 0; index < this.MAX; index++)
         {
-            WEAPONLAYER_ARRAY[index] = new Object[1];
-            TWO_WEAPONLAYER_ARRAY[index] = new Object[2];
-            THREE_WEAPONLAYER_ARRAY[index] = new Object[3];
+            WEAPONLAYER_ARRAY[index] = new WeaponLayer[1];
+            TWO_WEAPONLAYER_ARRAY[index] = new WeaponLayer[2];
+            THREE_WEAPONLAYER_ARRAY[index] = new WeaponLayer[3];
         }
-        this.ALL_WEAPONLAYER_ARRAY[1] = WEAPONLAYER_ARRAY;
-        this.ALL_WEAPONLAYER_ARRAY[2] = TWO_WEAPONLAYER_ARRAY;
-        this.ALL_WEAPONLAYER_ARRAY[3] = THREE_WEAPONLAYER_ARRAY;
+        this.WEAPONLAYER_ARRAY = WEAPONLAYER_ARRAY;
+        this.TWO_WEAPONLAYER_ARRAY = TWO_WEAPONLAYER_ARRAY;
+        this.THREE_WEAPONLAYER_ARRAY = THREE_WEAPONLAYER_ARRAY;
     }
 
-    public synchronized WeaponLayer[] getInstanceArray(int size) throws Exception
+    private WeaponLayer[][] getWeaponLayerArrays(final int size)
     {
-        final WeaponLayer[] weaponLayerArray = (WeaponLayer[]) this.ALL_WEAPONLAYER_ARRAY[size][this.circularIndexUtil.getIndex()];
+        if (size == 1)
+        {
+            return this.WEAPONLAYER_ARRAY;
+        }
+        else if (size == 2)
+        {
+            return this.TWO_WEAPONLAYER_ARRAY;
+        }
+        else if (size == 3)
+        {
+            return this.THREE_WEAPONLAYER_ARRAY;
+        }
+        throw new RuntimeException();
+    }
+
+    public WeaponLayer[] getInstanceArray(int size) throws Exception
+    {
+        final WeaponLayer[] weaponLayerArray = this.getWeaponLayerArrays(size)[this.circularIndexUtil.getIndex()];
         // Object[] objectArray = (Object[]) ALL_WEAPONLAYER_ARRAY[size];
         // WeaponLayer[] weaponLayerArray = (WeaponLayer[]) objectArray[index];
 

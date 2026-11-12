@@ -19,6 +19,7 @@ import javax.microedition.media.Manager;
 import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
 
+import org.allbinary.MIDPUtil;
 import org.allbinary.TsUtil;
 import org.allbinary.audio.AudioContentTypeDataFactory;
 import org.allbinary.data.resource.ResourceUtil;
@@ -93,7 +94,7 @@ public class AllBinaryMediaManager
             } else
             {
                 InputStream inputStream = ResourceUtil.getInstance().getResourceAsStream(resource);
-                return Manager.createPlayer(inputStream,
+                return MIDPUtil.getInstance().createPlayerFromInputStream(inputStream,
                         AudioContentTypeDataFactory.getInstance().MIME_AUDIO_WAV.getName());
             }
         } else

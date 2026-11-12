@@ -15,6 +15,8 @@ package org.allbinary.logic;
 
 import javax.microedition.lcdui.Item;
 
+import org.allbinary.MIDPUtil;
+
 import org.allbinary.graphics.displayable.screen.CommandForm;
 
 /**
@@ -34,7 +36,7 @@ public class MEUtil {
     private static final MEUtil instance = new MEUtil();
     
     public void appendItem(final CommandForm form, final Item item) {
-        form.append(item);
+        MIDPUtil.getInstance().appendItem(form, item);
     }
     
 }
