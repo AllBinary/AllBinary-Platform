@@ -77,7 +77,7 @@ The main goal of the AllBinary Game Engine is to reduce UI development cost.
 
 ### What is the Freeblisket/Weblisket E-Commerce Solution?
 
-Freeblisket uses J2EE, Java, SQL, XML, XSL, and more to provide for a complete e-commerce solution.  I developed various JSP custom tag libraries, modules, and APIs for Freeblisket.  Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with the following features:
+Freeblisket uses J2EE, Java, SQL, XML, XSL, and more to provide for a complete e-commerce solution.  Including various JSP custom tag libraries, modules, and APIs for Freeblisket.  Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with the following features:
 
 Feature Summary:
 

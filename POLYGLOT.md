@@ -15,11 +15,11 @@ running the generator themselves.
 
 ### Polyglot History
 
-J2ME in 2001, J2SE in 2003, Android in 2007, web via GWT in 2011, Native via Avian a toy VM in 2021, Kotlin in 2025, and ArkTs in 2026.  In 2021 I added GDevelop JSON support so I can have a no code path to creating apps and games with my AllBinary Platform.
+J2ME in 2001, J2SE in 2003, Android in 2007, web via GWT in 2011, Native via Avian a toy VM in 2021, Kotlin in 2025, and ArkTs in 2026.  In 2021 GDevelop JSON support was added for a no code path to creating apps and games with the AllBinary Platform.
 
 ### Future
 
-In 2027 I will release a scene editor and continue to improve the polyglot support.
+In 2027 a scene editor will be released and continued work improve the polyglot support.
 
 ## Desktop target types
 
