@@ -51,7 +51,7 @@ The public repo, private repo, and GDevelop JSON conversion all build. J2ME-styl
 | JavaScript | Web | Produced from the TypeScript output by `tsc` (about 1% GWT). Allows dynamic preview of games. |
 | Kotlin | JVM, Android (KMP: iOS, Web/WASM, Native) | |
 
-### Tier 2 – Legacy game runs
+### Tier 2 – AllBinary legacy game runs
 The public and private repo root pom build. J2ME-style client code builds, and at least one legacy game runs.
 
 | Language | Targets | Notes |
