@@ -40,7 +40,7 @@ public class TimeUtil
         calendar.set(year, month, day, hour, 0);
     }
 
-    public void setCalendar(
+    public void setCalendarWithTime(
         Calendar calendar,
         String yearString,
         String monthString,

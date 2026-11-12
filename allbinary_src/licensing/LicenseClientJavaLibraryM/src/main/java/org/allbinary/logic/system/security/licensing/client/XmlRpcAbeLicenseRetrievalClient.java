@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.system.security.licensing.client;
 
+import org.allbinary.logic.string.StringUtil;
+
 import java.io.IOException;
 
 import org.allbinary.util.BasicArrayList;
@@ -63,7 +65,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
 
             final XmlRpcClient xmlRpcClient = new XmlRpcClient(server);
             this.setClient(xmlRpcClient);
-            xmlRpcClient.setBasicAuthentication(null, null);
+            xmlRpcClient.setBasicAuthentication(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
 
             final ABHashtable<Object, Object> hashtable = this.getClientInfo().toHashtable();
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))

@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.score.remote;
 
+import org.allbinary.logic.string.StringUtil;
+
 import java.io.IOException;
 
 import org.allbinary.util.BasicArrayList;
@@ -71,7 +73,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
 
             final XmlRpcClient xmlRpcClient = new XmlRpcClient(serverUrl);
             this.setClient(xmlRpcClient);
-            xmlRpcClient.setBasicAuthentication(null, null);
+            xmlRpcClient.setBasicAuthentication(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
 
             ABHashtable<Object, Object> hashtable = (ABHashtable<Object, Object>) object;
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
