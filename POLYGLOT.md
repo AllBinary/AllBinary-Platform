@@ -44,8 +44,7 @@ public repo, private repo, and GD poms for server, thick clients, and J2ME clien
 | Java | J2SE, J2ME (Legacy games), Android, Native via Avian, Web with Javascript with PlayN 1 and 2 with 100% GWT | Produced from the TypeScript output by `tsc` (about 1% GWT). Allows dynamic preview of games. | Graal works as of 2024, but it not deployed
 
 ### Tier 1 – Games run
-The public repo, private repo, and GD (GDevelop-generated game) root pom all build. J2ME-style
-client code builds, and most AllBinary legacy and GD games run.
+The public repo, private repo, and GDevelop JSON conversion all build. J2ME-style client code builds, and most AllBinary legacy and supported GDevelop JSON games run.
 
 | Language | Targets | Notes |
 |----------|---------|-------|
