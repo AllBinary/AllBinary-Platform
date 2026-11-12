@@ -12,8 +12,6 @@
  * 
  */
 package org.allbinary.game.displayable;
-import org.allbinary.thread.ARunnable;
-
 
 import javax.microedition.lcdui.Canvas;
 
@@ -50,21 +48,7 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
         if(features.isFeature(openGLFeatureFactory.OPENGL)) {
             DisplayInfoSingleton.getInstance().process();
         } else {
-            final Thread thread = new Thread(new ARunnable() {
-                
-                @Override
-                public void run() {
-                    try {
-                        //System.out.println("TWB:AlwaysRepaintBehavior:repaint");
-                        canvas.repaint();
-                        DisplayInfoSingleton.getInstance().process();
-                    } catch (Exception e) {
-                        final CommonStrings commonStrings = CommonStrings.getInstance();
-                        final LogUtil logUtil = LogUtil.getInstance();
-                        logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                    }
-                }
-            }, this.NAME);
+            final Thread thread = new Thread(new RepaintRunnable(canvas), this.NAME);
             thread.start();
         }
         

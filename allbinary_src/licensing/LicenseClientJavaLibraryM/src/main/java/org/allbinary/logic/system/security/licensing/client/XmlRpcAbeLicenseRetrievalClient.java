@@ -79,7 +79,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
 
             param.add(hashtable);
             // KeySpecFactory.DES,
-            final Object result = xmlRpcClient.execute(this.getRemoteMethod(), param, cryptInterface);
+            final Object result = xmlRpcClient.executeWithCrypt(this.getRemoteMethod(), param, cryptInterface);
 
             /*
              * this could return without trying all servers if(result==null) {

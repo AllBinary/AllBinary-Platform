@@ -44,7 +44,7 @@ public class XmlRpcClient implements XmlRpcHandler
         return NullUtil.getInstance().NULL_OBJECT;
     }
 
-    public Object execute(String method, BasicArrayList params, CryptInterface cryptInterface)
+    public Object executeWithCrypt(String method, BasicArrayList params, CryptInterface cryptInterface)
             throws XmlRpcException, IOException
     {
         return NullUtil.getInstance().NULL_OBJECT;

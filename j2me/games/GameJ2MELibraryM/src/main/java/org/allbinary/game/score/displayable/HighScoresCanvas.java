@@ -152,7 +152,8 @@ public class HighScoresCanvas extends GameCommandCanvas
             ColorFillPaintableFactory.getInstance().getInstance(
                 allBinaryGameLayerManager.getBackgroundBasicColor(), false);
 
-        if(this.highScoresHelper.getHighScoresArray() == NoHighScoresFactory.getInstance().NO_HIGH_SCORES) {
+        //NO_HIGH_SCORES is empty. Generated languages such as Go can not tell empty arrays apart by reference.
+        if(this.highScoresHelper.getHighScoresArray().length == NoHighScoresFactory.getInstance().NO_HIGH_SCORES.length) {
             this.setPaintable(this.waitPaintable);
         } else {
             this.logUtil.putF("Show HighScores that are already loaded", this, this.commonStrings.CONSTRUCTOR);

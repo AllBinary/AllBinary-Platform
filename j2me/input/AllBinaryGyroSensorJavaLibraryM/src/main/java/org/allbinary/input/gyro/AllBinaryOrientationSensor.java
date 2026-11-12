@@ -24,6 +24,8 @@ import org.allbinary.logic.math.PrimitiveFloatUtil;
 
 public class AllBinaryOrientationSensor extends AllBinarySensor
 {
+    public static final AllBinaryOrientationSensor NULL_ALLBINARY_ORIENTATION_SENSOR = new AllBinaryOrientationSensor();
+
     protected float[] sensorDataFloatArray = PrimitiveFloatUtil.getArrayInstance();
     
     protected CompleteMotionGestureInputEventListenerInterface listener =
