@@ -24,6 +24,7 @@ import org.allbinary.game.ai.BasicAI;
 import org.allbinary.game.combat.destroy.event.DestroyedEvent;
 import org.allbinary.game.combat.destroy.event.DestroyedEventHandler;
 import org.allbinary.game.combat.destroy.event.DestroyedEventListenerInterface;
+import org.allbinary.game.identification.Group;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.game.physics.velocity.BasicVelocityProperties;
 import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
@@ -151,8 +152,10 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
 
-        if (layerInterface.getGroupInterface() == ownerLayerInterface
-                .getGroupInterface())
+        final Group[] groupArray = layerInterface.getGroupInterface();
+        final Group[] ownerGroupArray = ownerLayerInterface.getGroupInterface();
+
+        if (groupArray == ownerGroupArray)
         {
             return;
         }
