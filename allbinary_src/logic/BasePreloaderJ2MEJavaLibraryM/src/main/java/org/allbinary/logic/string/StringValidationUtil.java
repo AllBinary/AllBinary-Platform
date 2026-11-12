@@ -89,7 +89,7 @@ public class StringValidationUtil
     public boolean isValidRequired(String value, int min, int max)
     {
         //value.compareTo(stringUtil.EMPTY_STRING)==0 ||
-        if (value == null || value.length() < min || value.length() > max)
+        if (/*value == null || */value.length() < min || value.length() > max)
         {
             return false;
         }
@@ -114,7 +114,7 @@ public class StringValidationUtil
     public boolean isValidNotRequired(String value, int min, int max)
     {
         //value.compareTo(stringUtil.EMPTY_STRING)==0 ||
-        if (value != null)
+        if (/*value != null*/value.length() > 0)
         {
             if (value.length() < min || value.length() > max)
             {
@@ -126,7 +126,7 @@ public class StringValidationUtil
 
     public boolean isValidNotRequiredNumber(String value, int min, int max)
     {
-        if (value != null)
+        if (/*value != null*/value.length() > 0)
         {
             if (this.tsUtil.compareTo(value, this.stringUtil.NULL_STRING) == 0 || value.length() < min || value.length() > max)
             {
@@ -144,8 +144,8 @@ public class StringValidationUtil
 
     public boolean isEmpty(String string)
     {
-        if (string != null
-                && this.tsUtil.compareTo(string, this.stringUtil.NULL_STRING) != 0
+        if (/*string != null && */
+                this.tsUtil.compareTo(string, this.stringUtil.NULL_STRING) != 0
                 && this.tsUtil.compareTo(string, this.stringUtil.EMPTY_STRING) != 0)
         {
             return false;

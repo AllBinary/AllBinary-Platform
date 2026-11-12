@@ -36,12 +36,11 @@ public class KeyValueFactory
     
     public String get(String key) {
         
-        final String value = (String) this.MAP.get((Object) key);
-
-        if(value == null)
+        //containsKey instead of a null get so languages without null strings return the key for a missing value
+        if(!this.MAP.containsKey((Object) key))
         {
             return key;
         }
-        return value;
+        return (String) this.MAP.get((Object) key);
     }
 }

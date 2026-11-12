@@ -59,8 +59,8 @@ public class KeyValueDrawString implements UpdateMyFontInterface {
 
     public void update(String value)
     {
-        if(value != null) {
+//        if(value != null) {
             this.value = value;
-        }
+//        }
     }
 }

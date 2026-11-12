@@ -92,8 +92,10 @@ public class FileLog
          BufferedWriter tmpOut = new BufferedWriter(new FileWriter(logFileBak));
          BufferedReader tmpIn = new BufferedReader(new FileReader(logFile));
          
-         while ((line = tmpIn.readLine()) != null)
+         //ready instead of a null readLine so languages without null strings stop at the end of the file and not at an empty line
+         while (tmpIn.ready())
          {
+            line = tmpIn.readLine();
             tmpOut.write(line, 0, line.length());
             tmpOut.newLine();
          }

@@ -104,7 +104,7 @@ public class TextAnimation extends IndexedAnimation
         final BasicArrayList list = new BasicArrayListD();
 
         //this.logUtil.putF(new StringMaker().append(" text: ").append(text).toString(), this, this.commonStrings.PROCESS);        
-        if(text != null && text.length() > 0) {
+        if(/*text != null && */text.length() > 0) {
             int index = 0;
             int startIndex = 0;
             int endIndex = 0;

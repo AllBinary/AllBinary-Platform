@@ -52,18 +52,10 @@ public class LicenseClientAndServerTest
 
             LineNumberReader lineNumberReader = new LineNumberReader(reader);
 
-            while (true)
+            //ready instead of a null readLine so languages without null strings stop at the end of the file and not at an empty line
+            while (lineNumberReader.ready())
             {
-                String line = lineNumberReader.readLine();
-
-                if(line != null)
-                {
-                    this.vector.add(line);
-                }
-                else
-                {
-                    break;
-                }
+                this.vector.add(lineNumberReader.readLine());
             }
         }
     }

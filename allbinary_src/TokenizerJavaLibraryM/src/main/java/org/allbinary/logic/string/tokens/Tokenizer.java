@@ -26,7 +26,7 @@ public class Tokenizer {
     private String endSep = StringUtil.getInstance().EMPTY_STRING;
 
     public Tokenizer(String sep) throws Exception {
-        if (sep == null || TsUtil.getInstance().compareTo(sep, StringUtil.getInstance().EMPTY_STRING) == 0) {
+        if (/*sep == null || */TsUtil.getInstance().compareTo(sep, StringUtil.getInstance().EMPTY_STRING) == 0) {
             throw new Exception("Sep provided is not valid");
         }
         this.sep = sep;

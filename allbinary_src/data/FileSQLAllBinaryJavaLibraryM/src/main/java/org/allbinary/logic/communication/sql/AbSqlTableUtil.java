@@ -339,8 +339,10 @@ public class AbSqlTableUtil
             bufferedLineReader.readUpToLines(start);
 
             String line = this.stringUtil.EMPTY_STRING;
-            while (bufferedLineReader.getCurrent() < end && (line = bufferedLineReader.readLine()) != null)
+            //ready instead of a null readLine so languages without null strings stop at the end of the file and not at an empty line
+            while (bufferedLineReader.getCurrent() < end && bufferedLineReader.ready())
             {
+                line = bufferedLineReader.readLine();
                 if (line.length() > 1)
                 {
                     abSqlTable.executeSQLStatement(line);

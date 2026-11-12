@@ -89,14 +89,14 @@ implements CommandListener
         {
             title = newDisplay.getTitle();
             
-            if (title != null)
-            {
+//            if (title != null)
+//            {
                 this.logUtil.putF(new StringMaker().append(this.SETTING_).append(title).append(this._DISPLAY_).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, this.SET_DISPLAY);
-            }
-            else
-            {
-                this.logUtil.putF(new StringMaker().append(this.SETTING_NO_TITLE).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, this.SET_DISPLAY);
-            }            
+//            }
+//            else
+//            {
+//                this.logUtil.putF(new StringMaker().append(this.SETTING_NO_TITLE).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, this.SET_DISPLAY);
+//            }            
         }
         final Display display = this.getDisplay();
         display.setCurrent(newDisplay);

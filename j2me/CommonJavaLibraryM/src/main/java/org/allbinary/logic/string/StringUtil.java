@@ -48,11 +48,11 @@ public class StringUtil {
     //TWB - Could return a NULL_STRING
     @JsMethod
     public String getNonNull(String string) {
-        if (string == null) {
-            return this.EMPTY_STRING;
-        } else {
+//        if (string == null) {
+//            return this.EMPTY_STRING;
+//        } else {
             return string;
-        }
+//        }
     }
 
     @JsMethod

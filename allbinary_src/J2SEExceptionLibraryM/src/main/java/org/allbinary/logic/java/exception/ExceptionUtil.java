@@ -50,9 +50,9 @@ public class ExceptionUtil
             e.printStackTrace(printStream);
 
             final String output = byteArrayOutputStream.toString();
-            if (output != null) {
+//            if (output != null) {
                 return new String(output);
-            }
+//            }
         }
         return this.NONE;
     }

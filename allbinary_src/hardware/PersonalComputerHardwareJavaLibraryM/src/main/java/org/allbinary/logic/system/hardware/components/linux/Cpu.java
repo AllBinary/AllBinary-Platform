@@ -99,7 +99,8 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
          {
             String nextLine = lineNumberReader.readLine();
             
-            while(lineNumberReader != null && nextLine != null)
+            //lineNumberReader != null && 
+            while(nextLine != null)
             {
                int index = nextLine.indexOf(':');
                

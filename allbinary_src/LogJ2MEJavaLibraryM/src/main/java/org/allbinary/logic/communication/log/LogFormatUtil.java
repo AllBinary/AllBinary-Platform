@@ -88,10 +88,10 @@ public class LogFormatUtil
     
     private StringMaker getF(final String className, String functionName)
     {
-        if (functionName == null)
-        {
-            functionName = this.NONE;
-        }
+//        if (functionName == null)
+//        {
+//            functionName = this.NONE;
+//        }
 
         //int hashCode = TsUtil.getInstance().hashCode(LogUtil.class.getClassLoader().getClass());
         final StringMaker stringBuffer = new StringMaker();
@@ -120,13 +120,13 @@ public class LogFormatUtil
             stringBuffer.append(this.LOG_ERROR);
 
             final String exceptionAsString = exception.toString();
-            if (exceptionAsString != null)
-            {
+//            if (exceptionAsString != null)
+//            {
                 stringBuffer.append(exceptionAsString);
-            } else
-            {
-                stringBuffer.append(this.EMPTY);
-            }
+//            } else
+//            {
+//                stringBuffer.append(this.EMPTY);
+//            }
 
             stringBuffer.append(this.STACK_TRACE);
             if (exception != this.nullUtil.NULL_OBJECT) {

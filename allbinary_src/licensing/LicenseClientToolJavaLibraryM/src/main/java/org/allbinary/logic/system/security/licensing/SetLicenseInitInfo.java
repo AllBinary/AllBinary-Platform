@@ -116,18 +116,10 @@ public class SetLicenseInitInfo
 
             LineNumberReader lineNumberReader = new LineNumberReader(reader);
 
-            while (true)
+            //ready instead of a null readLine so languages without null strings stop at the end of the file and not at an empty line
+            while (lineNumberReader.ready())
             {
-                String line = lineNumberReader.readLine();
-                
-                if(line != null)
-                {
-                    licenseInitInfo.addServer(line);
-                }
-                else
-                {
-                    break;
-                }
+                licenseInitInfo.addServer(lineNumberReader.readLine());
             }
 
             LicenseInitInfoUtil.getInstance().write(licenseInitInfo);

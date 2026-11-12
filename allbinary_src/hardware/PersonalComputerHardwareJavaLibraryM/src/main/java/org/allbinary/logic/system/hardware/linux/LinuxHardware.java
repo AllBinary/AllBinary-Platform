@@ -161,7 +161,8 @@ public class LinuxHardware implements HardwareInterface
             String nextLine = lineNumberReader.readLine();
             
             //Get to the first line with Bus info
-            while(lineNumberReader != null && nextLine != null)
+            //lineNumberReader != null && 
+            while(nextLine != null)
             {
                //System.out.println(nextLine);
                if(this.isNextHardware(nextLine))
@@ -186,7 +187,8 @@ public class LinuxHardware implements HardwareInterface
                nextLine = lineNumberReader.readLine();
                String componentType = PCComponentFactory.getInstance().getComponentType(nextLine);
                
-               while(lineNumberReader != null)
+               //lineNumberReader != null
+               while(true)
                {
                   componentData.append(nextLine);
                   componentData.append(CommonSeps.getInstance().NEW_LINE);

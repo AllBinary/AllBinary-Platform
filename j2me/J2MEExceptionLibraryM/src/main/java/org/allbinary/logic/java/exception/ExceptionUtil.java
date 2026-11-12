@@ -46,10 +46,10 @@ public class ExceptionUtil
         e.printStackTrace();
 
         final String output = bs.toString();
-        if (output != null) {
+//        if (output != null) {
             return new String(output);
-        }
-        
-        return this.NONE;
+//        }
+//        
+//        return this.NONE;
     }
 }

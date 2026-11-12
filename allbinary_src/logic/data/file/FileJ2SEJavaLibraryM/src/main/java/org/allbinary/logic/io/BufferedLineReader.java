@@ -51,6 +51,13 @@ public class BufferedLineReader
         return this.tmpIn.readLine();
     }
 
+    //True while the file has more lines so callers do not need a null readLine
+    public boolean ready()
+        throws Exception
+    {
+        return this.tmpIn.ready();
+    }
+
 	public long getSize() {
 		return 0;
 	}

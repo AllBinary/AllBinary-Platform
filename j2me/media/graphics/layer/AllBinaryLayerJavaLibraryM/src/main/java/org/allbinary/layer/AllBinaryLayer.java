@@ -51,11 +51,11 @@ implements LayerInterface
         super(rectangle.getWidth(), rectangle.getHeight());
 
         final String localName;
-        if(name == null) {
-            localName = this.getClass().getName();
-        } else {
+//        if(name == null) {
+//            localName = this.getClass().getName();
+//        } else {
             localName = new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(this))).toString();
-        }
+//        }
         this.name = localName;
 
         final GPoint point = rectangle.getPoint();

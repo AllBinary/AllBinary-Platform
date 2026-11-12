@@ -73,14 +73,14 @@ public class HighScoreTextBox extends CustomTextBox
 
         if (operatingSystemInterface.isOverScan()) {
             String username = InApplicationPurchaseFactory.getInstance().getUserName();
-            if(username != null)
-            {
+//            if(username != null)
+//            {
                 this.getTextFieldItem().setString(username);
-            }
-            else
-            {
-                this.getTextFieldItem().setString("NoGamerInfo");
-            }
+//            }
+//            else
+//            {
+//                this.getTextFieldItem().setString("NoGamerInfo");
+//            }
         }        
     }
 

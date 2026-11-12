@@ -42,9 +42,9 @@ public class CamelCaseUtil
 
     public String getAsCamelCase(final String string, final StringMaker stringBuilder) throws Exception {
 
-        if(string == null) {
-            return StringUtil.getInstance().EMPTY_STRING;
-        }
+//        if(string == null) {
+//            return StringUtil.getInstance().EMPTY_STRING;
+//        }
 
         final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();    
         
