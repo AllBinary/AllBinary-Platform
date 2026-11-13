@@ -63,7 +63,7 @@ Each language in the tables below is described two ways:
 
 ## Current build state
 
-### Tier 0 – Games, thick clients, and services run
+### Tier 0 – Games (https://allbinary.itch.io), thick clients, and services run
 
 The public repo, private repo, and GDevelop poms for server, thick client, and J2ME client code all build and deploy.
 
@@ -71,7 +71,7 @@ The public repo, private repo, and GDevelop poms for server, thick client, and J
 |----------|---------------|---------|-------|
 | [Java](https://github.com/AllBinary/AllBinary-Platform) | JVM, Native executable (embedded Avian VM), JS engine (via GWT) | Desktop (J2SE), Server, J2ME (legacy games), Mobile (Android), Web (PlayN 1 and 2, all compiled by GWT) | For Web, GWT compiles the whole Java app to JavaScript. GraalVM native works as of 2024, but is not deployed. |
 
-### Tier 1 – Games run
+### Tier 1 – Games (https://allbinary.itch.io) run
 
 The public repo, private repo, and GDevelop JSON conversion all build. J2ME-style client code builds, and most AllBinary legacy and supported GDevelop JSON games run.
 
@@ -80,7 +80,7 @@ The public repo, private repo, and GDevelop JSON conversion all build. J2ME-styl
 | [JavaScript](https://github.com/AllBinary/AllBinary-Platform-Javascript) | JS engine | Web | Produced from the TypeScript output by `tsc`; only about 1% of the code still comes from GWT. Allows dynamic preview of games. |
 | [Kotlin](https://github.com/AllBinary/AllBinary-Platform-KMP) | JVM (KMP: Native, JS engine) | Desktop, Mobile (Android; iOS via KMP), Web/WASM (via KMP) | |
 
-### Tier 2 – AllBinary legacy game runs
+### Tier 2 – AllBinary legacy game(s) (https://allbinary.itch.io) run
 
 The public and private repo root poms build. J2ME-style client code builds, and at least one legacy game runs.
 
