@@ -39,7 +39,7 @@ public class FileStreamFactory
     {
         final AbPath FILEABPATH = new AbPath(path, fileName);
         final AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
-        return new AbFileInputStream(file);
+        return AbFileInputStream.createFromAbFile(file);
     }
 
     public AbFileOutputStream getFileOutputStreamInstance(final String path, final String fileName)

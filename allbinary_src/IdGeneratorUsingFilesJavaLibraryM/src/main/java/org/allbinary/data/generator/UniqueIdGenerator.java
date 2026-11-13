@@ -73,7 +73,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
 	   AbDataOutputStream idOutData = null;
       try
       {
-    	 final AbFileInputStream idFile = new AbFileInputStream(this.newFile);
+    	 final AbFileInputStream idFile = AbFileInputStream.createFromAbFile(this.newFile);
     	 idData = new AbDataInputStream(idFile);
     	 
          this.id = idData.readLong();

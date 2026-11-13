@@ -39,7 +39,7 @@ public class CloudStreamUtil {
     public InputStream getFile(AbFile file)
         throws Exception
     {
-        InputStream inputStream = new AbFileInputStream(file);
+        InputStream inputStream = AbFileInputStream.createFromAbFile(file);
 
         int available = inputStream.available();
 
@@ -69,7 +69,7 @@ public class CloudStreamUtil {
             }
         } else
         {
-            inputStream = new AbFileInputStream(file);
+            inputStream = AbFileInputStream.createFromAbFile(file);
 
             available = inputStream.available();
 

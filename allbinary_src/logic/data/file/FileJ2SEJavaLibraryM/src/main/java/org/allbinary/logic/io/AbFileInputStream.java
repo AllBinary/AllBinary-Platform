@@ -28,11 +28,13 @@ public class AbFileInputStream
         super(name);
     }
 
-    public AbFileInputStream(AbFile file) throws FileNotFoundException {
-        super(AbFileNativeUtil.get(file));
+    //One constructor so the languages without overloading, like OCaml, have one constructor for it.
+    //An AbFile or File is opened by its path like FileInputStream(File) does.
+    public static AbFileInputStream createFromAbFile(final AbFile file) throws FileNotFoundException {
+        return new AbFileInputStream(AbFileNativeUtil.get(file).getPath());
     }
-    
-    protected AbFileInputStream(File file) throws FileNotFoundException {
-        super(file);
+
+    public static AbFileInputStream createFromFile(final File file) throws FileNotFoundException {
+        return new AbFileInputStream(file.getPath());
     }
 }

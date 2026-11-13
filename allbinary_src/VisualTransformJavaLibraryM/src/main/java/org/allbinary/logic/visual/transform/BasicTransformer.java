@@ -57,7 +57,7 @@ public class BasicTransformer extends AbTransformer {
         AbFileInputStream inputStream = null;
         try {
             outputStream = new ByteArrayOutputStream();
-            inputStream = new AbFileInputStream(file);
+            inputStream = AbFileInputStream.createFromAbFile(file);
 
             outputStream = (ByteArrayOutputStream) this.streamUtil.get(inputStream, outputStream, new byte[16384]);
 
@@ -200,7 +200,7 @@ public class BasicTransformer extends AbTransformer {
                         }
 
                         if (file.isFile()) {
-                            inputStream = new AbFileInputStream(file);
+                            inputStream = AbFileInputStream.createFromAbFile(file);
                             outputStream = new ByteArrayOutputStream();
 
                             outputStream = (ByteArrayOutputStream) this.streamUtil.get(inputStream, outputStream, new byte[16384]);

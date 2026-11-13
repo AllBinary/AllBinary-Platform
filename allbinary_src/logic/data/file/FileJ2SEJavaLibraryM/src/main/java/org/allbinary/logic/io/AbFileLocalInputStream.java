@@ -22,6 +22,6 @@ public class AbFileLocalInputStream
     extends AbFileInputStream
 {
     public AbFileLocalInputStream(AbFile file) throws FileNotFoundException {
-        super(AbFileNativeUtil.get(file));
+        super(AbFileNativeUtil.get(file).getPath());
     }
 }

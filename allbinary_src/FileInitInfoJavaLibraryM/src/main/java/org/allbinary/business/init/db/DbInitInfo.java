@@ -164,7 +164,7 @@ public class DbInitInfo extends DbConnectionInfo
             final AbFile file = AbFile.createAbFileFromAbPath(FILEABPATH);
             if(file.isFile())
             {
-                final AbFileInputStream iFile = new AbFileInputStream(file);
+                final AbFileInputStream iFile = AbFileInputStream.createFromAbFile(file);
                 final AbDataInputStream iData = new AbDataInputStream(iFile);
 
                 try

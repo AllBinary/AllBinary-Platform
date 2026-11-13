@@ -52,7 +52,7 @@ public class DomDocumentFileHelper
          //Document document = builder.parse(xmlFile.getFile());
          
          //return document;
-          return DomDocumentHelper.create(new AbFileInputStream(xmlFile));
+          return DomDocumentHelper.create(AbFileInputStream.createFromAbFile(xmlFile));
       }
       catch (Exception e)
       {

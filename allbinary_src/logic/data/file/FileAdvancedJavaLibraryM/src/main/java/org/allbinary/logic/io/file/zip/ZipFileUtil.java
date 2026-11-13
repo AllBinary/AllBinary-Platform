@@ -95,7 +95,7 @@ public class ZipFileUtil
 
                     try
                     {
-                        fileInputStream = new AbFileInputStream(file);
+                        fileInputStream = AbFileInputStream.createFromAbFile(file);
 
                         outputStream.putNextEntry(new ZipEntry(file.getPath()));
 
@@ -130,7 +130,7 @@ public class ZipFileUtil
         try
         {
             inputStream = new ZipInputStream(
-                new AbFileInputStream(zipFile));
+                AbFileInputStream.createFromAbFile(zipFile));
 
             ZipEntry zipEntry;
 

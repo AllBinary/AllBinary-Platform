@@ -49,7 +49,7 @@ public class FileUtil2 {
         
         AbFileInputStream inputStream = null;
         try {
-            inputStream = new AbFileInputStream(file);
+            inputStream = AbFileInputStream.createFromAbFile(file);
         } catch (Exception e) {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.ADD, e);
         }

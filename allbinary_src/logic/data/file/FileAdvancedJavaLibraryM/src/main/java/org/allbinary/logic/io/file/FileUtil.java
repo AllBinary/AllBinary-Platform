@@ -485,7 +485,7 @@ public class FileUtil
                 DataOutputStreamFactory.getInstance().getInstanceForAbFile(toFile);
 
             AbFileInputStream fileInputStream =
-                new AbFileInputStream(fromFile);
+                AbFileInputStream.createFromAbFile(fromFile);
 
             //AbDataInputStream dataInputStream =
             //  new AbDataInputStream(fileInputStream);
