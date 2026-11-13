@@ -97,13 +97,13 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [C++](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [C#](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
 | [Erlang](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
+| [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
 
 ### Tier 4 – AllBinaryBase builds (with 5 private libraries)
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
 | [Ada](https://github.com/AllBinary/AllBinary-Platform-Ada) | Native | Desktop | GNAT |
-| [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
 | [Haskell](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
 | [OCaml](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
 | [Object Pascal](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
