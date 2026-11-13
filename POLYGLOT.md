@@ -81,7 +81,7 @@ The public and private repo root pom build. J2ME-style client code builds, and a
 | C# | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
 | Erlang | Managed VM | Desktop | BEAM VM, built through `escript`. |
 
-### Tier 4 – AllBinaryBase builds (with 5 private library)
+### Tier 4 – AllBinaryBase builds (with 5 private libraries)
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
