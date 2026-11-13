@@ -8,20 +8,30 @@ libraries can reach targets that Java alone cannot.
 In the [platform diagram](AllBinary_Platform_Diagram.png) this is the **Polyglot (Other
 Languages)** box. It sits beside the dedicated **Kotlin/KMP** and **TypeScript/JavaScript**
 paths, and all three feed the same set of targets (Android, iOS, Browser/HTML5, WASM,
-HarmonyOS, J2SE, and Native Win/Linux/Mac).
+HarmonyOS, J2SE, and Desktop: Windows, Linux, and macOS).
 
-The language specific repos hold the generated code, so developers can use it without 
-running the generator themselves.
+The language-specific repos hold the generated code, so developers can use it without
+running the generator themselves. Each language name in the tables below links to its
+repo when one exists.
 
 ### Polyglot History
 
-J2ME in 2001, J2SE in 2003, Android in 2007, web via GWT in 2011, Native via Avian a toy VM in 2021, Kotlin in 2025, and ArkTs in 2026.  In 2021 GDevelop JSON support was added for a no code path to creating apps and games with the AllBinary Platform.
+| Year | Milestone |
+|------|-----------|
+| 2001 | J2ME |
+| 2003 | J2SE |
+| 2007 | Android |
+| 2011 | Web via GWT |
+| 2021 | Native via Avian, a small embedded Java VM |
+| 2021 | GDevelop JSON support, a no-code path to creating apps and games with the AllBinary Platform |
+| 2025 | Kotlin |
+| 2026 | ArkTS |
 
 ### Future
 
-In 2027 a scene editor will be released and continued work improve the polyglot support.
+In 2027 a scene editor will be released, and continued work will improve the polyglot support.
 
-## Terms
+### Terms
 
 Each language in the tables below is described two ways:
 
@@ -33,17 +43,17 @@ Each language in the tables below is described two ways:
 | Language type | Meaning | Examples |
 |---------------|---------|----------|
 | **Native** | Compiled ahead of time to a machine-code executable | C++, Rust, Go, Zig, Ada, Haskell (GHC), OCaml (ocamlopt), Object Pascal |
-| **Managed VM** | Compiled to bytecode and run on a non-Java language VM | C# (.NET CLR; NativeAOT possible), Erlang/Elixir (BEAM) |
+| **Managed VM** | Compiled to bytecode and run on a non-Java language VM | C# (.NET CLR; NativeAOT possible), Erlang/Elixir (BEAM), ArkTS (Ark runtime) |
 | **JVM** | Compiled to Java bytecode and run on a Java VM | Java, Kotlin, Scala, Groovy |
 | **JIT** | Compiled to machine code at run time, with no separate bytecode VM step | Julia (LLVM) |
-| **Interpreted** | Run as source by the language interpreter | Python, Perl, Ruby, Lua, Tcl |
-| **JS engine** | Run by a browser or WebView JavaScript engine (or compiled to WASM) | JavaScript, TypeScript, ArkTS |
+| **Interpreted** | Run from source by the language interpreter | Python, Perl, Ruby, Lua, Tcl |
+| **JS engine** | Run by a browser or WebView JavaScript engine (or compiled to WASM) | JavaScript, TypeScript |
 
 ### Targets
 
 | Target | Meaning |
 |--------|---------|
-| **Desktop** | Windows, Linux, and macOS. Desktop native focused languages use SWT and OpenGL only. |
+| **Desktop** | Windows, Linux, and macOS. Languages that run natively on Desktop use only SWT-style windowing and OpenGL. |
 | **Web** | Browser/WebView, HTML5, or WASM |
 | **Mobile** | Android, iOS, HarmonyOS |
 | **J2ME** | Legacy J2ME/MIDP phones (Java only) |
@@ -51,77 +61,84 @@ Each language in the tables below is described two ways:
 
 ## Current build state
 
-### Tier 0 – Games, Thickclients, and Services run
-public repo, private repo, and GD poms for server, thick clients, and J2ME client code builds and deploys:
+### Tier 0 – Games, thick clients, and services run
+
+The public repo, private repo, and GDevelop poms for server, thick client, and J2ME client code all build and deploy.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| Java | JVM, Native (via Avian), JS engine (via GWT) | Desktop (J2SE), Server, J2ME (legacy games), Mobile (Android), Web (PlayN 1 and 2 with 100% GWT) | GraalVM native works as of 2024, but is not deployed. |
+| [Java](https://github.com/AllBinary/AllBinary-Platform) | JVM, Native executable (embedded Avian VM), JS engine (via GWT) | Desktop (J2SE), Server, J2ME (legacy games), Mobile (Android), Web (PlayN 1 and 2, all compiled by GWT) | For Web, GWT compiles the whole Java app to JavaScript. GraalVM native works as of 2024, but is not deployed. |
 
 ### Tier 1 – Games run
+
 The public repo, private repo, and GDevelop JSON conversion all build. J2ME-style client code builds, and most AllBinary legacy and supported GDevelop JSON games run.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| JavaScript | JS engine | Web | Produced from the TypeScript output by `tsc` (about 1% GWT). Allows dynamic preview of games. |
-| Kotlin | JVM (KMP: Native, JS engine) | Desktop, Mobile (Android; iOS via KMP), Web/WASM (via KMP) | |
+| [JavaScript](https://github.com/AllBinary/AllBinary-Platform-Javascript) | JS engine | Web | Produced from the TypeScript output by `tsc`; only about 1% of the code still comes from GWT. Allows dynamic preview of games. |
+| [Kotlin](https://github.com/AllBinary/AllBinary-Platform-KMP) | JVM (KMP: Native, JS engine) | Desktop, Mobile (Android; iOS via KMP), Web/WASM (via KMP) | |
 
 ### Tier 2 – AllBinary legacy game runs
-The public and private repo root pom build. J2ME-style client code builds, and at least one legacy game runs.
+
+The public and private repo root poms build. J2ME-style client code builds, and at least one legacy game runs.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| TypeScript | JS engine | Web, Mobile (HarmonyOS via ArkTS) | Also the source for the JavaScript output (via `tsc`). |
+| [TypeScript](https://github.com/AllBinary/AllBinary-Platform-TypeScript) | JS engine (ArkTS: Managed VM) | Web, Mobile (HarmonyOS via ArkTS) | Also the source for the JavaScript output (via `tsc`). ArkTS compiles to Ark bytecode, which runs on the Ark runtime. |
 
 ### Tier 3 – Public root pom build (with 5 private libraries)
+
+The public repo root pom builds, together with the 5 private libraries it needs.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
 | C++ | Native | Desktop | |
-| C# | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
-| Erlang | Managed VM | Desktop | BEAM VM, built through `escript`. |
+| [C#](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
+| [Erlang](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
 
 ### Tier 4 – AllBinaryBase builds (with 5 private libraries)
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| Ada | Native | Desktop | GNAT |
-| Go | Native | Desktop | |
-| Haskell | Native | Desktop | GHC |
-| OCaml | Native | Desktop | ocamlopt (bytecode is also possible) |
-| Object Pascal | Native | Desktop | Free Pascal |
-| Rust | Native | Desktop | |
-| Zig | Native | Desktop | |
-| Python | Interpreted | Desktop | |
-| Perl | Interpreted | Desktop | |
-| Ruby | Interpreted | Desktop | |
-| Lua | Interpreted | Desktop | |
+| [Ada](https://github.com/AllBinary/AllBinary-Platform-Ada) | Native | Desktop | GNAT |
+| [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
+| [Haskell](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
+| [OCaml](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
+| [Object Pascal](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
+| [Rust](https://github.com/AllBinary/AllBinary-Platform-Rust) | Native | Desktop | |
+| [Zig](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop | |
+| [Python](https://github.com/AllBinary/AllBinary-Platform-Python) | Interpreted | Desktop | |
+| [Perl](https://github.com/AllBinary/AllBinary-Platform-Perl) | Interpreted | Desktop | |
+| [Ruby](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
+| [Lua](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
 
 ### Planned – Initial commit not yet added or in progress
+
+Grouped by language type. Languages without a link do not have a repo yet.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
 | C99 | Native | Desktop | |
-| Objective-C | Native | Desktop (macOS first), Mobile (iOS) | |
-| Swift | Native | Mobile (iOS), Desktop | Compiles natively on macOS, Linux, and Windows. |
-| Dart | Native | Desktop, Mobile (via Flutter) | `dart compile exe`. |
-| FORTRAN | Native | Desktop | |
-| COBOL | Native | Desktop | GnuCOBOL compiles through C. |
-| ASM | Native | Desktop | Platform/ISA specific |
-| Elixir | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
-| Scala | JVM | Desktop (J2SE) | Scala Native is a possible later step. |
-| Groovy | JVM | Desktop (J2SE) | |
-| Tcl | Interpreted | Desktop | |
-| ActionScript | Managed VM (Flash/AIR) | Web (Flash), Desktop and Mobile (AIR) | Matches the Flash/ActionScript target in the diagram. |
-| Haxe | Native (via the hxcpp C++ target) | Desktop | Haxe can also target JS, JVM, and HashLink. |
-| Nim | Native (compiles through C) | Desktop | C-like speed, Raylib/SDL2 bindings, no GC pauses. Smaller community than C++/C#. |
-| Wren | Interpreted (embedded) | Desktop (inside a host engine) | Built for embedding in game engines. Requires a host C/C++ engine. |
-| Janet | Interpreted (embedded) | Desktop | Fast scripting and easy C FFI. Mostly limited to 2D/indie scope. |
-| Vala | Native (compiles through C) | Desktop (Linux first) | Heavily tied to Linux/GNOME. |
-| Lisp | Native (e.g. SBCL) | Desktop | Live-coding while the game runs. GC tuning and niche libraries. |
-| Julia | JIT (LLVM) | Desktop | Strong math performance. JIT startup lag and hard to distribute. |
-| Racket | Native (Chez Scheme backend) | Desktop | Built-in 2D tools for learning. Not built for commercial distribution. |
-| Scheme | Native (via Chicken/Gambit C) | Desktop | Fragmented ecosystem. |
-| Grain | JS engine (WASM) | Web | Clean WebAssembly output for browser games. Very young ecosystem. |
-| Elm | JS engine | Web | Suited to simple 2D web games. Pure functional state fights game loops. |
-| Oberon+ | Native | Desktop | Almost no game libraries. |
+| [Objective-C](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) | |
+| [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS), Desktop | Compiles natively on macOS, Linux, and Windows. |
+| [Dart](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |
+| [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
+| [COBOL](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
+| [ASM](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
+| [Haxe](https://github.com/AllBinary/AllBinary-Platform-Haxe) | Native (via the hxcpp C++ target) | Desktop | Haxe can also target JS, JVM, and HashLink. |
+| Nim | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |
+| Vala | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
+| Lisp | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |
+| Racket | Native (Chez Scheme backend) | Desktop | Includes 2D graphics libraries. Standalone apps via `raco exe` and `raco distribute`. |
+| Scheme | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |
+| Oberon+ | Native | Desktop | Few game libraries. |
+| [ActionScript](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |
+| [Elixir](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
+| [Scala](https://github.com/AllBinary/AllBinary-Platform-Scala) | JVM | Desktop (J2SE) | Scala Native is a possible later step. |
+| [Groovy](https://github.com/AllBinary/AllBinary-Platform-Groovy) | JVM | Desktop (J2SE) | |
+| Julia | JIT (LLVM) | Desktop | Designed for numerical computing. Code compiles on first call, so startup is slower; standalone executables via PackageCompiler or `juliac`. |
+| [Tcl](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop | |
+| Wren | Interpreted (embedded) | Desktop (inside a host engine) | Designed for embedding in game engines. Requires a host C/C++ engine. |
+| Janet | Interpreted (embedded) | Desktop | Embeddable, with a simple C FFI. |
+| Grain | JS engine (WASM) | Web | Compiles to WebAssembly. Young language and ecosystem. |
+| Elm | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
