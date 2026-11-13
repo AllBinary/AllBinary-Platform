@@ -18,7 +18,7 @@ import org.allbinary.logic.math.PrimitiveLongUtil;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 
-public class Timer
+public class HudTimer
 {
     private long startTime = -1;
     private long hundredthTime;
@@ -39,7 +39,7 @@ public class Timer
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
-    public Timer(int maxTime)
+    public HudTimer(int maxTime)
     {
         this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(maxTime);
         this.maxTime = (long) maxTime;

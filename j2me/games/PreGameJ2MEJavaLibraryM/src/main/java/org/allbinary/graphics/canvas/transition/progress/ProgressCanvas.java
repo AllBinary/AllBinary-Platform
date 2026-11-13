@@ -49,20 +49,7 @@ public class ProgressCanvas extends RunnableCanvas
     protected boolean hasPainted;
     private final BasicColor backgroundBasicColor;
 
-    class ProgressPaintable extends Paintable {
-        
-        final ProgressCanvas progressCanvas;
-        
-        ProgressPaintable(final ProgressCanvas progressCanvas) {
-            this.progressCanvas = progressCanvas;
-        }
-        
-        @Override
-        public void paint(Graphics graphics) {
-            this.progressCanvas.paint2(graphics);
-        }
-    };
-
+    //ProgressPaintable is in its own file so languages without nested classes, like OCaml, have it as its own module.
     public final Paintable GAUGE_PAINTABLE = new ProgressPaintable(this);
 
     private final float maxValue = 100.0f;

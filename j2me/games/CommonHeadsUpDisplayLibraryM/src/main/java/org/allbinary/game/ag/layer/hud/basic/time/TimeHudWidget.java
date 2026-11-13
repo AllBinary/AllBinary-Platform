@@ -23,7 +23,7 @@ import org.allbinary.logic.math.PrimitiveLongSingleton;
 
 public class TimeHudWidget extends BasicHud
 {
-    public static TimeHudWidget getInstance(int location, int direction, BasicColor basicColor, Timer timer)
+    public static TimeHudWidget getInstance(int location, int direction, BasicColor basicColor, HudTimer timer)
             throws Exception
     {
         return new TimeHudWidget(location, direction, 2, basicColor, timer);
@@ -38,9 +38,9 @@ public class TimeHudWidget extends BasicHud
     private char[] string = PrimitiveLongSingleton.getInstance().ZERO;
     private int totalDigits = 1;
 
-    private final Timer timer;
+    private final HudTimer timer;
 
-    public TimeHudWidget(final int location, final int direction, final int bufferZone, final BasicColor basicColor, final Timer timer)
+    public TimeHudWidget(final int location, final int direction, final int bufferZone, final BasicColor basicColor, final HudTimer timer)
     {
         super(location, direction, bufferZone, basicColor);
 
@@ -57,7 +57,7 @@ public class TimeHudWidget extends BasicHud
     }
 
 //    public TimeHudWidget(int location, int direction, int maxWidth, BasicColor basicColor,
-//            Timer timer) throws Exception
+//            HudTimer timer) throws Exception
 //    {
 //        this(location, direction, 14, maxWidth, 2, basicColor, timer);
 //    }
@@ -87,13 +87,13 @@ public class TimeHudWidget extends BasicHud
     }
 
     /*
-    public void setTrackTimer(Timer trackTimer)
+    public void setTrackTimer(HudTimer trackTimer)
     {
         this.trackTimer = trackTimer;
     }
     */
 
-    public Timer getTimer()
+    public HudTimer getTimer()
     {
         return this.timer;
     }
