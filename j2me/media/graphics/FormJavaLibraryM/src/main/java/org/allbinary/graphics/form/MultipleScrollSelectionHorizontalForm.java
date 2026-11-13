@@ -34,49 +34,6 @@ public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm i
         return scrollSelectionForm;
     }
 
-    class MultipleScrollSelectionFormHorizontalPaintable extends ItemIndexPaintable {
-
-        private final MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm;
-        
-        MultipleScrollSelectionFormHorizontalPaintable(final MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm) {
-            this.multipleScrollSelectionForm = multipleScrollSelectionForm;
-        }
-        
-        @Override
-        public int paint(final Graphics graphics, final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
-            return this.multipleScrollSelectionForm.paintHorizontal(graphics, index, item, dx, dy);
-        }
-        
-    };
-    
-    class MultipleScrollSelectionFormVerticalPaintable extends ItemIndexPaintable {
-
-        private final MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm;
-        
-        MultipleScrollSelectionFormVerticalPaintable(final MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm) {
-            this.multipleScrollSelectionForm = multipleScrollSelectionForm;
-        }
-        
-        @Override
-        public int paint(final Graphics graphics, final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
-            return this.multipleScrollSelectionForm.paintVertical(graphics, index, item, dx, dy);
-        }
-
-    };
-
-    class MultipleScrollSelectionFormRectPaintable extends Paintable {
-
-        private final MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm;
-
-        MultipleScrollSelectionFormRectPaintable(final MultipleScrollSelectionHorizontalForm multipleScrollSelectionForm) {
-            this.multipleScrollSelectionForm = multipleScrollSelectionForm;
-        }
-
-        @Override
-        public void paint(final Graphics graphics) {
-            this.multipleScrollSelectionForm.fillRect(graphics);
-        }
-    };
 
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -109,7 +66,7 @@ public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm i
         
     }
 
-    private void fillRect(final Graphics graphics) {
+    void fillRect(final Graphics graphics) {
         graphics.setColor(this.backgroundColor);
 
         graphics.fillRect(this.x, this.y,
@@ -144,14 +101,14 @@ public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm i
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
 
-    private int paintHorizontal(final Graphics graphics, final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
+    int paintHorizontal(final Graphics graphics, final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
         int dx2 = this.paintItem(graphics, index, item, dx, dy) + this.border;
         this.paintable.paint(graphics, index, dx, dy);
         dx = dx2;
         return dx;
     }
 
-    private int paintVertical(final Graphics graphics, final int index, final ABCustomItem item, final int dx, final int dy) throws Exception {
+    int paintVertical(final Graphics graphics, final int index, final ABCustomItem item, final int dx, final int dy) throws Exception {
         //int dy2 = 
         this.paintItem(graphics, index, item, dx, dy); //+ border
         this.paintable.paint(graphics, index, dx, dy);

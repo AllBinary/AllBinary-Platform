@@ -13,12 +13,7 @@
 */
 package org.allbinary.animation;
 
-import javax.microedition.lcdui.Graphics;
-
-import org.allbinary.math.AngleFactory;
-import org.allbinary.math.AngleInfo;
 import org.allbinary.media.ScaleProperties;
-import org.allbinary.util.CircularIndexUtil;
 
 public class NullRotationAnimationFactory 
 implements AnimationInterfaceFactoryInterface,
@@ -27,17 +22,6 @@ ProceduralAnimationInterfaceFactoryInterface
    private static NullRotationAnimationFactory NULL_ROTATION_ANIMATION_FACTORY = new NullRotationAnimationFactory();
    
    public final RotationAnimation[] NULL_ROTATION_ANIMATION_ARRAY = new RotationAnimation[0];
-
-   final class NullRotationAnimation2 extends NullRotationAnimation {
-       
-       NullRotationAnimation2() {
-           super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), new IndexedAnimationBehavior(1, 250));
-       }
-
-       @Override
-       public void paintXY(final Graphics graphics, final int x, final int y) {
-       }
-   };
 
    private final Animation NULL_ANIMATION = new NullRotationAnimation2();
    

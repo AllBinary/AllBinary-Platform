@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.paint.Paintable;
 
-//Was a nested class of ProgressCanvas. It paints the gauge of its ProgressCanvas.
 public class ProgressPaintable extends Paintable {
 
     private final ProgressCanvas progressCanvas;

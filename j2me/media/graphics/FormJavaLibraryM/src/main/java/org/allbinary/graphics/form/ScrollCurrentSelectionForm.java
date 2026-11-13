@@ -30,100 +30,11 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
 {
     private final boolean moveForSmallScreen;
 
-    class TempHorizontalFormProcessor extends Processor {
-
-        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
-        
-        TempHorizontalFormProcessor(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-        
-        @Override
-        public void process() throws Exception {
-            this.scrollCurrentSelectionForm.processTempHorizontalForm();
-            this.scrollCurrentSelectionForm.processor = Processor.getInstance();
-        }
-    };
-
-    class HorizontalFormProcessor extends Processor {
-
-        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
-        
-        HorizontalFormProcessor(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-        
-        @Override
-        public void process() throws Exception {
-            this.scrollCurrentSelectionForm.processHorizontalForm();
-            this.scrollCurrentSelectionForm.processor = Processor.getInstance();
-        }
-    };
-
-    class VerticalFormProcessor extends Processor {
-
-        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
-        
-        VerticalFormProcessor(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-        
-        @Override
-        public void process() throws Exception {
-            this.scrollCurrentSelectionForm.processVerticalForm();
-            this.scrollCurrentSelectionForm.processor = Processor.getInstance();
-        }
-    };
-    
-    class TempHorizontalItemIndexDx extends ItemIndexDx {
-        
-        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
-        
-        TempHorizontalItemIndexDx(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-
-        @Override
-        public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
-            return this.scrollCurrentSelectionForm.getXTempHorizontalForm(index, item, dx, dy);
-        }
-
-    };
-    
-    class HorizontalItemIndexDx extends ItemIndexDx {
-        
-        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
-        
-        HorizontalItemIndexDx(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-
-        @Override
-        public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
-            return this.scrollCurrentSelectionForm.getXHorizontalForm(index, item, dx, dy);
-        }
-
-    };
-    
-    class VerticalItemIndexDx extends ItemIndexDx {
-        
-        private final ScrollCurrentSelectionForm scrollCurrentSelectionForm;
-        
-        VerticalItemIndexDx(final ScrollCurrentSelectionForm scrollCurrentSelectionForm) {
-            this.scrollCurrentSelectionForm = scrollCurrentSelectionForm;
-        }
-
-        @Override
-        public int getDx(final int index, final ABCustomItem item, int dx, final int dy) throws Exception {
-            return this.scrollCurrentSelectionForm.getXVerticalForm(index, item, dx, dy);
-        }
-
-    };
     
     protected final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
     protected MyFontProcessor myFontProcessor = this.updateMyFontProcessor;
     
-    private Processor processor = Processor.getInstance();
+    Processor processor = Processor.getInstance();
     private ItemIndexDx preItemIndexDx = ItemIndexDx.getInstance();
 
     private int dx;
@@ -182,12 +93,12 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
-    private void processTempHorizontalForm() {
+    void processTempHorizontalForm() {
         this.dx = this.x - 30 + (this.rectangle.getWidth() >> 1);
         this.dy = this.y;
     }
 
-    private void processHorizontalForm() {
+    void processHorizontalForm() {
         final int size = this.size();
 
         int totalWidth = 0;
@@ -226,7 +137,7 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
         }
     }
     
-    private void processVerticalForm() {
+    void processVerticalForm() {
         int totalHeight = 0;
         final int size = this.size();
         ABCustomItem item2;
@@ -262,16 +173,16 @@ extends ScrollSelectionForm implements UpdateMyFontInterface
         }
     }
 
-    private int getXTempHorizontalForm(final int index, final ABCustomItem item, int dx, final int dy) {
+    int getXTempHorizontalForm(final int index, final ABCustomItem item, int dx, final int dy) {
         return this.getDiffX(item);
     }
 
-    private int getXHorizontalForm(final int index, final ABCustomItem item, int dx, final int dy) {
+    int getXHorizontalForm(final int index, final ABCustomItem item, int dx, final int dy) {
         //this.halfBorder;
         return 0;
     }
 
-    private int getXVerticalForm(final int index, final ABCustomItem item, int dx, final int dy) {
+    int getXVerticalForm(final int index, final ABCustomItem item, int dx, final int dy) {
         return this.getDiffX(item) + this.halfBorder;
     }
     

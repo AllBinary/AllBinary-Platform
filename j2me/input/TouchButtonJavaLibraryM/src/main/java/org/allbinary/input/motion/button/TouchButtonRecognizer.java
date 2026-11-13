@@ -28,92 +28,18 @@ public class TouchButtonRecognizer
 
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     
-    private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
+    final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
     private final DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
 
     private TouchButtonInput lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
     
-    private final 
+    final
         CurrentlyPressedTouchButtonSingleton
         //CurrentlyPressedTouchButtonSingletonDebug
         currentlyPressedTouchButtonSingleton = 
         CurrentlyPressedTouchButtonSingleton.getInstance();
         //CurrentlyPressedTouchButtonSingletonDebug.getInstance();
 
-    static class ReleaseHelper
-    {
-        protected final TouchButtonRecognizer touchButtonRecognizer;
-        
-        public ReleaseHelper(final TouchButtonRecognizer touchButtonRecognizer)
-        {
-            this.touchButtonRecognizer = touchButtonRecognizer;
-        }
-        
-        public void release(final TouchButtonInput touchButtonInput, final int deviceId) throws Exception
-        {
-            TouchButtonInput nextTouchButtonInput;
-            GameKeyEvent gameKeyEvent;
-            for (int index = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--)
-            {
-                nextTouchButtonInput = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.get(index);
-
-                gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
-                
-                this.touchButtonRecognizer.upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                this.touchButtonRecognizer.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
-
-                this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.removeAt(index);
-
-              //TWB - Debugging
-                //this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton
-                  //      .releaseAndFiredAssociated(nextTouchButtonInput);
-            }
-        }
-    }
-    
-    static class MultitouchReleaseHelper extends ReleaseHelper
-    {
-        
-        public MultitouchReleaseHelper(final TouchButtonRecognizer touchButtonRecognizer)
-        {
-            super(touchButtonRecognizer);
-        }
-        
-        // This releases an associated button even if it has not been released
-        @Override
-        public void release(final TouchButtonInput touchButtonInput, final int deviceId) throws Exception
-        {
-            final TouchButtonInput cancelTouchButtonInput = CancelTouchButtonInputFactory.getInstance().getCancel(touchButtonInput);
-
-            TouchButtonInput nextTouchButtonInput;
-            GameKeyEvent gameKeyEvent;
-            for (int index = this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size() - 1; index >= 0; index--)
-            {
-                nextTouchButtonInput = 
-                    this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.get(index);
-
-                // the following should never happen nextTouchButtonInput ==
-                // touchButtonInput ||
-                if (cancelTouchButtonInput == nextTouchButtonInput)
-                {
-                    // this.logUtil.putF(
-                    // "Release Associated Button Press", this, // "processTouchButtonInput");
-                    
-                    gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
-                    
-                    this.touchButtonRecognizer.upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                    this.touchButtonRecognizer.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
-
-                    this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.removeAt(index);
-
-                  //TWB - Debugging
-                    //this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton
-                      //      .releaseAndFiredAssociated(nextTouchButtonInput);
-                }
-            }
-        }
-    }
-    
     private final ReleaseHelper releaseHelper;
     
     public TouchButtonRecognizer()

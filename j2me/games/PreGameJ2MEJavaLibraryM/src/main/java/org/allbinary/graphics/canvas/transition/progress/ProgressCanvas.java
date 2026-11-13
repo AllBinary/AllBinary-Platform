@@ -49,7 +49,6 @@ public class ProgressCanvas extends RunnableCanvas
     protected boolean hasPainted;
     private final BasicColor backgroundBasicColor;
 
-    //ProgressPaintable is in its own file so languages without nested classes, like OCaml, have it as its own module.
     public final Paintable GAUGE_PAINTABLE = new ProgressPaintable(this);
 
     private final float maxValue = 100.0f;

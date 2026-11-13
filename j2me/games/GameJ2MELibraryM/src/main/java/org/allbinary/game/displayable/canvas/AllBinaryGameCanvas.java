@@ -170,38 +170,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected final FormUtil formUtil = FormUtil.getInstance();
     protected final MyFormUtil myFormUtil = MyFormUtil.getInstance();
 
-    class SaveHighScoreRunnable implements Runnable {
-
-        private final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-        //Fields instead of the captured locals so the class does not need the enclosing method, such as in C#
-        private final boolean isLast;
-        private final HighScoreTextBox textBox;
-
-        SaveHighScoreRunnable(final boolean isLast, final HighScoreTextBox textBox) {
-            this.isLast = isLast;
-            this.textBox = textBox;
-        }
-
-        @Override
-        public void run() {
-            final LogUtil logUtil = LogUtil.getInstance();
-            try {
-                //Let the endgame sound play first
-//                        Thread.sleep(100);
-//                        progressCanvas.addPortion(6, "Saving High Score");
-
-                if (this.isLast) {
-                    this.textBox.submit();
-                } else {
-                    this.textBox.saveHighScore();
-                }
-            } catch (Exception e) {
-                final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-                this.progressCanvas.end();
-            }
-        }
-    }
     
     private final MyFontProcessor updateMyFontProcessor = new UpdateMyFontProcessor(this);
     private MyFontProcessor myFontProcessor = this.updateMyFontProcessor;

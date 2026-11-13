@@ -47,16 +47,6 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 
     protected final BasicColor RED = BasicColorFactory.getInstance().RED;
     
-    //Named instead of anonymous so the languages generated from this Java can convert it
-    private static class SWTBlackPaintable extends Paintable {
-
-        private final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
-        private final BasicColor BLACK = BasicColorFactory.getInstance().BLACK;
-
-        public void paint(Graphics graphics) {
-            this.basicSetColorUtil.setBasicColorP(graphics, this.BLACK);
-        }
-    }
 
     private static Paintable createPaintable() {
         if (SWTUtil.isSWT) {
