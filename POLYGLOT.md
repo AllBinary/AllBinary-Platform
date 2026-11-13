@@ -98,6 +98,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [C#](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
 | [Erlang](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
 | [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
+| [Python](https://github.com/AllBinary/AllBinary-Platform-Python) | Interpreted | Desktop | |
 
 ### Tier 4 – AllBinaryBase builds (with 5 private libraries)
 
@@ -109,7 +110,6 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Object Pascal](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
 | [Rust](https://github.com/AllBinary/AllBinary-Platform-Rust) | Native | Desktop | |
 | [Zig](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop | |
-| [Python](https://github.com/AllBinary/AllBinary-Platform-Python) | Interpreted | Desktop | |
 | [Perl](https://github.com/AllBinary/AllBinary-Platform-Perl) | Interpreted | Desktop | |
 | [Ruby](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
 | [Lua](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
