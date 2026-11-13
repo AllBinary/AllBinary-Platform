@@ -92,7 +92,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| C++ | Native | Desktop | |
+| [C++](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [C#](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
 | [Erlang](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
 
@@ -118,7 +118,7 @@ Grouped by language type. Languages without a link do not have a repo yet.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| C99 | Native | Desktop | |
+| [C99](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [Objective-C](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) | |
 | [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS), Desktop | Compiles natively on macOS, Linux, and Windows. |
 | [Dart](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |
