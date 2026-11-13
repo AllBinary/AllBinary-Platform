@@ -41,6 +41,10 @@ public class MIDPUtil {
         return Image.createImageWH(width, height);
     }
 
+    public Image createImageFromByteArray(final byte[] imageData, final int imageOffset, final int imageLength) {
+        return Image.createImageFromByteArray(imageData, imageOffset, imageLength);
+    }
+
     public Image createImageFromInputStream(final InputStream inputStream) throws IOException {
         return Image.createImageFromInputStream(inputStream);
     }

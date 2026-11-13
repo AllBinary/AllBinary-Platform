@@ -13,6 +13,8 @@
  */
 package javax.microedition.lcdui;
 
+import org.allbinary.MIDPUtil;
+
 /**
  *
  * @author User
@@ -91,10 +93,12 @@ public class ChoiceGroupImageFactory {
         -126
     };
 
-    private final Image imgMultiOffO = Image.createImage(this.multiOff, 0, this.multiOff.length);
-    private final Image imgMultiOnO = Image.createImage(this.multiOn, 0, this.multiOn.length);
-    private final Image imgRadioOffO = Image.createImage(this.radioOff, 0, this.radioOff.length);
-    private final Image imgRadioOnO = Image.createImage(this.radioOn, 0, this.radioOn.length);
+    //MIDPUtil of the platform: Image.createImage on J2ME and Image.createImageFromByteArray for the languages without overloads
+    private final MIDPUtil midpUtil = MIDPUtil.getInstance();
+    private final Image imgMultiOffO = this.midpUtil.createImageFromByteArray(this.multiOff, 0, this.multiOff.length);
+    private final Image imgMultiOnO = this.midpUtil.createImageFromByteArray(this.multiOn, 0, this.multiOn.length);
+    private final Image imgRadioOffO = this.midpUtil.createImageFromByteArray(this.radioOff, 0, this.radioOff.length);
+    private final Image imgRadioOnO = this.midpUtil.createImageFromByteArray(this.radioOn, 0, this.radioOn.length);
     
     public Image imgMultiOff = this.imgMultiOffO;
     public Image imgMultiOn = this.imgMultiOnO;
