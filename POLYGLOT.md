@@ -35,6 +35,7 @@ Each language in the tables below is described two ways:
 | **Native** | Compiled ahead of time to a machine-code executable | C++, Rust, Go, Zig, Ada, Haskell (GHC), OCaml (ocamlopt), Object Pascal |
 | **Managed VM** | Compiled to bytecode and run on a non-Java language VM | C# (.NET CLR; NativeAOT possible), Erlang/Elixir (BEAM) |
 | **JVM** | Compiled to Java bytecode and run on a Java VM | Java, Kotlin, Scala, Groovy |
+| **JIT** | Compiled to machine code at run time, with no separate bytecode VM step | Julia (LLVM) |
 | **Interpreted** | Run as source by the language interpreter | Python, Perl, Ruby, Lua, Tcl |
 | **JS engine** | Run by a browser or WebView JavaScript engine (or compiled to WASM) | JavaScript, TypeScript, ArkTS |
 
@@ -113,3 +114,14 @@ The public and private repo root pom build. J2ME-style client code builds, and a
 | Tcl | Interpreted | Desktop | |
 | ActionScript | Managed VM (Flash/AIR) | Web (Flash), Desktop and Mobile (AIR) | Matches the Flash/ActionScript target in the diagram. |
 | Haxe | Native (via the hxcpp C++ target) | Desktop | Haxe can also target JS, JVM, and HashLink. |
+| Nim | Native (compiles through C) | Desktop | C-like speed, Raylib/SDL2 bindings, no GC pauses. Smaller community than C++/C#. |
+| Wren | Interpreted (embedded) | Desktop (inside a host engine) | Built for embedding in game engines. Requires a host C/C++ engine. |
+| Janet | Interpreted (embedded) | Desktop | Fast scripting and easy C FFI. Mostly limited to 2D/indie scope. |
+| Vala | Native (compiles through C) | Desktop (Linux first) | Heavily tied to Linux/GNOME. |
+| Lisp | Native (e.g. SBCL) | Desktop | Live-coding while the game runs. GC tuning and niche libraries. |
+| Julia | JIT (LLVM) | Desktop | Strong math performance. JIT startup lag and hard to distribute. |
+| Racket | Native (Chez Scheme backend) | Desktop | Built-in 2D tools for learning. Not built for commercial distribution. |
+| Scheme | Native (via Chicken/Gambit C) | Desktop | Fragmented ecosystem. |
+| Grain | JS engine (WASM) | Web | Clean WebAssembly output for browser games. Very young ecosystem. |
+| Elm | JS engine | Web | Suited to simple 2D web games. Pure functional state fights game loops. |
+| Oberon+ | Native | Desktop | Almost no game libraries. |
