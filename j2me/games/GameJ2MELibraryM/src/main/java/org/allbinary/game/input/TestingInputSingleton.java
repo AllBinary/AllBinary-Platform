@@ -48,7 +48,7 @@ public class TestingInputSingleton
         GameInputProcessorUtil.init(this.inputProcessorArray);
     }
     
-    private PaintableInterface paintable = NullPaintable.getInstance();
+    private PaintableInterface testInputPaintable = NullPaintable.getInstance();
  
     @Override
     public void initInputProcessors()
@@ -59,7 +59,7 @@ public class TestingInputSingleton
     public void initInputProcessorsForTestInput(TestInputInterface aTestInputInterface)
     {
         final TestInputInterface testInputInterface = aTestInputInterface;
-        this.paintable = testInputInterface;
+        this.testInputPaintable = testInputInterface;
         
         this.inputProcessorArray[Canvas.UP] = new GameInputProcessor()
         {
@@ -147,7 +147,7 @@ public class TestingInputSingleton
     @Override
     public void paint(Graphics graphics)
     {
-        this.paintable.paint(graphics);
+        this.testInputPaintable.paint(graphics);
     }
     
     @Override

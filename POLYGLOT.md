@@ -101,6 +101,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
 | [Lua](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
 | [Python](https://github.com/AllBinary/AllBinary-Platform-Python) | Interpreted | Desktop | |
+| [Ruby](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
 
 ### Tier 4 – AllBinaryBase builds (with 5 private libraries)
 
@@ -113,7 +114,6 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Rust](https://github.com/AllBinary/AllBinary-Platform-Rust) | Native | Desktop | |
 | [Zig](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop | |
 | [Perl](https://github.com/AllBinary/AllBinary-Platform-Perl) | Interpreted | Desktop | |
-| [Ruby](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
 
 ### Planned – Initial commit not yet added or in progress
 
