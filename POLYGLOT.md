@@ -102,6 +102,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Lua](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
 | [Python](https://github.com/AllBinary/AllBinary-Platform-Python) | Interpreted | Desktop | |
 | [Ruby](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
+| [Zig](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop | |
 
 ### Tier 4 – AllBinaryBase builds (with 5 private libraries)
 
@@ -111,9 +112,8 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Haskell](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
 | [OCaml](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
 | [Object Pascal](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
-| [Rust](https://github.com/AllBinary/AllBinary-Platform-Rust) | Native | Desktop | |
-| [Zig](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop | |
 | [Perl](https://github.com/AllBinary/AllBinary-Platform-Perl) | Interpreted | Desktop | |
+| [Rust](https://github.com/AllBinary/AllBinary-Platform-Rust) | Native | Desktop | |
 
 ### Planned – Initial commit not yet added or in progress
 
