@@ -49,36 +49,6 @@ public class PlayerGameNotificationHud extends GameNotificationHud
     private final GameNotification gameNotification = new GameNotification();
     private final GameNotification permanentGameNotification = new GameNotification();
 
-    private class SetAndRemoveProcessor extends Processor {
-        
-        private final PlayerGameNotificationHud updateMeasurementProcessor;
-
-        public SetAndRemoveProcessor(final PlayerGameNotificationHud updateMeasurementProcessor) {
-            this.updateMeasurementProcessor = updateMeasurementProcessor;
-        }
-
-        @Override
-        public void process() throws Exception {
-            this.updateMeasurementProcessor.setAndRemoveProcess();
-        }
-
-    };
-
-    private class NextUnremoveableProcessor extends Processor {
-
-        private final PlayerGameNotificationHud updateMeasurementProcessor;
-
-        public NextUnremoveableProcessor(final PlayerGameNotificationHud updateMeasurementProcessor) {
-            this.updateMeasurementProcessor = updateMeasurementProcessor;
-        }
-
-        @Override
-        public void process() throws Exception {
-            this.updateMeasurementProcessor.setNextUnremoveableProcess();
-        }
-
-    };
-
     private final Processor setAndRemoveProcessor = new SetAndRemoveProcessor(this);
     private final Processor nextUnremoveableProcessor = new NextUnremoveableProcessor(this);
     private Processor processor = Processor.getInstance();
@@ -192,7 +162,7 @@ public class PlayerGameNotificationHud extends GameNotificationHud
         this.processor = this.setAndRemoveProcessor;
     }
 
-    private void setAndRemoveProcess()
+    void setAndRemoveProcess()
         throws Exception
     {
         this.setX((this.displayInfo.getLastWidth() - this.width) >> 1);
@@ -222,7 +192,7 @@ public class PlayerGameNotificationHud extends GameNotificationHud
         this.processor = this.nextUnremoveableProcessor;
     }
 
-    private void setNextUnremoveableProcess()
+    void setNextUnremoveableProcess()
         throws Exception
     {
         final int index = this.circularIndexUtil.getIndex();
