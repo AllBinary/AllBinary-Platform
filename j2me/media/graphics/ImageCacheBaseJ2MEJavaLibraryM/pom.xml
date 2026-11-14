@@ -23,8 +23,6 @@
         </repository>
     </distributionManagement>
 
-
-
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -60,7 +58,6 @@
             <!-- AllBinary Platform Version End -->
         </dependency>
 
-        <!-- MIDPUtil: the platform provides J2MEOnlyJavaLibrary for J2ME or a ForJ2ME library like J2SEForJ2MEJavaLibrary -->
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>J2MEOnlyJavaLibrary</artifactId>
