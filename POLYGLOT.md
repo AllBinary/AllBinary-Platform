@@ -31,7 +31,7 @@ repo when one exists.
 
 | Year | Milestone |
 |------|-----------|
-| 2027 | AllBinary Scene Editor, Other popular languages build |
+| 2027 | AllBinary Scene Editor, Many Polyglot Tier upgrades |
 
 ### Terms
 
