@@ -73,7 +73,7 @@ The public repo, private repo, and GDevelop poms for server, thick client, and J
 
 ### Tier 1 – Games (https://allbinary.itch.io) run
 
-The public repo, private repo, and GDevelop JSON conversion all build. J2ME-style client code builds, and most AllBinary legacy and supported GDevelop JSON games run.
+The public repo, private repo, and GDevelop JSON conversion all build. J2ME-style client code builds, and AllBinary legacy and supported GDevelop JSON games run.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
