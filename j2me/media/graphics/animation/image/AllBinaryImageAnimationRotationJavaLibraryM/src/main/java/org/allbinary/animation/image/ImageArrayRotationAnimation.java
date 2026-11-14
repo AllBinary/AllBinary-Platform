@@ -42,7 +42,7 @@ public class ImageArrayRotationAnimation extends
 
         // this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
-        this.init(imageArray, angleInfo, totalAngle);
+        this.initImageArray(imageArray, angleInfo, totalAngle);
     }
     
 //    public ImageArrayRotationAnimation(final Image[] imageArray, final AnimationBehavior animationBehavior)
@@ -57,7 +57,7 @@ public class ImageArrayRotationAnimation extends
 //        this(imageArray, angleInfo, (int) AngleFactory.getInstance().TOTAL_ANGLE, animationBehavior);
 //    }
 
-    private void init(final Image[] imageArray, final AngleInfo angleInfo, final int totalAngle)
+    private void initImageArray(final Image[] imageArray, final AngleInfo angleInfo, final int totalAngle)
             throws Exception
     {
 
