@@ -23,7 +23,7 @@ repo when one exists.
 | 2003 | J2SE |
 | 2007 | Android |
 | 2011 | Web via 100% GWT with PlayN 1 |
-| 2021 | Native via Avian, a small embedded Java VM |
+| 2021 | Native via Avian (C++), a small embedded Java VM |
 | 2021 | GDevelop JSON support, a no-code path to creating apps and games with the AllBinary Platform |
 | 2025 | Kotlin |
 | 2026 | ArkTS, Web via 100% GWT with PlayN 2, Web via 1% GWT with PlayN 2 |
