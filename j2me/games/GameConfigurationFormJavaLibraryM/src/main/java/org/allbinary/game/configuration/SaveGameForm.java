@@ -16,11 +16,11 @@ package org.allbinary.game.configuration;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.TextField;
 
+import org.allbinary.MIDPUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.logic.ABSystemWrapper;
-import org.allbinary.logic.MEUtil;
 
 public class SaveGameForm extends CommandForm
 {
@@ -40,7 +40,8 @@ public class SaveGameForm extends CommandForm
         return SaveGameForm.FORM;
     }
 
-    private final MEUtil meUtil = MEUtil.getInstance();
+    private final MIDPUtil meUtil = MIDPUtil.getInstance();
+    
     private SaveGameForm(CommandListener commandListener, String title,
             BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
         throws Exception

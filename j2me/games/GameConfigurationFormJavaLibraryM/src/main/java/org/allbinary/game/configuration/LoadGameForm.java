@@ -20,11 +20,11 @@ import javax.microedition.lcdui.Item;
 import javax.microedition.lcdui.NullImage;
 import javax.microedition.lcdui.StringItem;
 
+import org.allbinary.MIDPUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
@@ -32,7 +32,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class LoadGameForm extends CommandForm
 {
-    private final MEUtil meUtil = MEUtil.getInstance();
+    private final MIDPUtil meUtil = MIDPUtil.getInstance();
 
     private boolean areChoices;
     

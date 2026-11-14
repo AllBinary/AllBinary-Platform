@@ -20,6 +20,7 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Item;
 import javax.microedition.lcdui.TextField;
 
+import org.allbinary.MIDPUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
 import org.allbinary.game.configuration.feature.GameFeatureFormUtil;
@@ -32,7 +33,6 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.input.gyro.OrientationData;
-import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
@@ -52,7 +52,7 @@ public class GameOptionsForm extends CommandForm
     }
     */
     
-    private final MEUtil meUtil = MEUtil.getInstance();
+    private final MIDPUtil meUtil = MIDPUtil.getInstance();
 
     public GameOptionsForm(final CommandListener commandListener, final String title,
             final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor)

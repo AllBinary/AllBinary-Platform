@@ -17,10 +17,10 @@ import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.Item;
 import javax.microedition.lcdui.NullImage;
 
+import org.allbinary.MIDPUtil;
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.logic.MEUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -40,7 +40,7 @@ public class GameFeatureFormUtil
  
     protected final LogUtil logUtil = LogUtil.getInstance();
     
-    private final MEUtil meUtil = MEUtil.getInstance();
+    private final MIDPUtil meUtil = MIDPUtil.getInstance();
     
     public ChoiceGroup getChoiceGroup(ABHashtable<Object, Object> hashtable, String name, int option)
     {
