@@ -24,18 +24,9 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return OpenGLBitmapFactory.instance;
     }
 
-    public class Config {
-        
-        public final Object bitmapConfig;
-
-        private Config(final Object bitmapConfig) {
-            this.bitmapConfig = bitmapConfig;
-        }
-    }
+    public final OpenGLBitmapConfig ARGB_8888 = new OpenGLBitmapConfig(null);
     
-    public final Config ARGB_8888 = new Config(null);
-    
-    public OpenGLBitmap createBitmap(int width, int height, OpenGLBitmapFactory.Config config) {
+    public OpenGLBitmap createBitmap(int width, int height, OpenGLBitmapConfig config) {
         //return new OpenGLBitmap(Image.createRGBImage(new int[width * height], width, height, true));
         return new OpenGLBitmap(Image.createImage(width, height));
     }
