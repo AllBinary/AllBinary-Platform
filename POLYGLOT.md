@@ -101,6 +101,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Erlang](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
 | [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
 | [Lua](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
+| [OCaml](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
 | [Object Pascal](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
 | [Perl](https://github.com/AllBinary/AllBinary-Platform-Perl) | Interpreted | Desktop | |
 | [Python](https://github.com/AllBinary/AllBinary-Platform-Python) | Interpreted | Desktop | |
@@ -113,7 +114,6 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
 | [Haskell](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
-| [OCaml](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
 
 ### Planned – Initial commit not yet added or in progress
 
