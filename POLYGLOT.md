@@ -141,6 +141,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Python](https://github.com/AllBinary/AllBinary-Platform-Python) | Interpreted | Desktop | |
 | [Ruby](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
 | [Rust](https://github.com/AllBinary/AllBinary-Platform-Rust) | Native | Desktop | |
+| [Scala](https://github.com/AllBinary/AllBinary-Platform-Scala) | JVM | Desktop (J2SE) | Scala Native is a possible later step. |
 | [Zig](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop | |
 
 ### Tier 4 – AllBinaryBase builds (with 5 private libraries)
@@ -169,7 +170,6 @@ Grouped by language type.
 | [ActionScript](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |
 | [Oberon+](https://github.com/AllBinary/AllBinary-Platform-OberonPlus) | Managed VM (CLI/Mono); Native via generated C | Desktop | The OBX compiler emits .NET CLI bytecode, or C99 source for native builds. Few game libraries. |
 | [Elixir](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
-| [Scala](https://github.com/AllBinary/AllBinary-Platform-Scala) | JVM | Desktop (J2SE) | Scala Native is a possible later step. |
 | [Julia](https://github.com/AllBinary/AllBinary-Platform-Julia) | JIT (LLVM) | Desktop | Designed for numerical computing. Code compiles on first call, so startup is slower; standalone executables via PackageCompiler or `juliac`. |
 | [Tcl](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop | |
 | [Wren](https://github.com/AllBinary/AllBinary-Platform-Wren) | Interpreted (embedded) | Desktop (inside a host engine) | Designed for embedding in game engines. Requires a host C/C++ engine. |
