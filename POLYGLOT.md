@@ -133,6 +133,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
 | [Groovy](https://github.com/AllBinary/AllBinary-Platform-Groovy) | JVM | Desktop (J2SE) | |
 | [Haskell](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
+| [Haxe](https://github.com/AllBinary/AllBinary-Platform-Haxe) | Native (via the hxcpp C++ target) | Desktop | Haxe can also target JS, JVM, and HashLink. |
 | [Lua](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
 | [OCaml](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
 | [Object Pascal](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
@@ -160,7 +161,6 @@ Grouped by language type.
 | [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
 | [COBOL](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
 | [ASM](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
-| [Haxe](https://github.com/AllBinary/AllBinary-Platform-Haxe) | Native (via the hxcpp C++ target) | Desktop | Haxe can also target JS, JVM, and HashLink. |
 | [Nim](https://github.com/AllBinary/AllBinary-Platform-Nim) | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |
 | [Vala](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
 | [Lisp](https://github.com/AllBinary/AllBinary-Platform-Lisp-with-native-call-support) | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |
