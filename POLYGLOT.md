@@ -62,6 +62,37 @@ Each language in the tables below is described two ways:
 | **J2ME** | Legacy J2ME/MIDP phones (Java only) |
 | **Server** | Services and server code (Java only today) |
 
+## Platform support tiers
+
+### Tier 0 – Games (https://allbinary.itch.io), thick clients, and services run
+
+- Windows
+- Linux - thick clients and services
+
+### Tier 1 – Games (https://allbinary.itch.io) run
+
+- Android
+- Web via HTML5/JavaScript from GWT and 99% raw javascript
+
+### Tier 2 – Games run but not currently deployed
+
+- J2ME/MIDP (currently limited to 2d legacy AllBinary games)
+- Linux - games
+- HarmonyOS 5+ via ArkTS
+- macOS
+- iOS
+
+### Tier 3 – Planned
+
+- Web via WebAssembly (WASM)
+- Samsung Tizen
+- LG webOS
+- Amazon Fire TV — Fire OS
+- Amazon Fire TV — Vega OS
+- KaiOS
+- Nintendo Switch
+- PlayStation
+
 ## Current build state
 
 ### Tier 0 – Games (https://allbinary.itch.io), thick clients, and services run
@@ -100,6 +131,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [C#](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
 | [Erlang](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
 | [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
+| [Haskell](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
 | [Lua](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
 | [OCaml](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
 | [Object Pascal](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
@@ -113,7 +145,6 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| [Haskell](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
 
 ### Planned – Initial commit not yet added or in progress
 
