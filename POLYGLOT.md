@@ -174,10 +174,7 @@ Grouped by language type.
 | [Grain](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
 | [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
 
-
-### Future – Initial commit not yet added or in progress
-
-Grouped by language type.
+### Future – TBD
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
