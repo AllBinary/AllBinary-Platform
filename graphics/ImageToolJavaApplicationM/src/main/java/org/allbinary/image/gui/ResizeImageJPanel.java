@@ -51,7 +51,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
             numberStringArray[index] = Integer.toString(index);
         }
 
-        this.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(numberStringArray));
+        this.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(numberStringArray));
 
         final Raster araster = this.imageProcessorInput.getBufferedImageArray()[0].getAlphaRaster();
         if (araster == null) {

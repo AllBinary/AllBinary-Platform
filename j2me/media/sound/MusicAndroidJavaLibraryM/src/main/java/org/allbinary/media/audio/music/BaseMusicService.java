@@ -141,38 +141,43 @@ public class BaseMusicService extends Service
                 this.logUtil.putF(this.ALREADY_PLAYING, this, this.commonStateStrings.ON_START_COMMAND);
                 
 
-                class MusicRunnable extends ARunnable {
-
-                    private final BaseMusicService baseMusicService;
-                    
-                    MusicRunnable(final BaseMusicService baseMusicService) {
-                        this.baseMusicService = baseMusicService;
-                    }
-                    
-                    @Override
-                    public void run() {
-                        final LogUtil logUtil = LogUtil.getInstance();
-                        final CommonStrings commonStrings = CommonStrings.getInstance();
-                        final CommonStateStrings commonStateStrings = CommonStateStrings.getInstance();
-                        try {
-                            while(player.isPlaying()) {
-                                logUtil.putF(this.baseMusicService.WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND);
-                                Thread.sleep(1200);
-                            }
-                            this.baseMusicService.onStartCommandIntent(intent);
-                        } catch(Exception e) {
-                            logUtil.put(commonStrings.EXCEPTION, this, commonStateStrings.ON_START_COMMAND, e);
-                        }
-                    }
-                };
-                
-                final Runnable runnable = new MusicRunnable(this);
+                final Runnable runnable = new MusicRunnable(this, player, intent);
                 final Thread thread = new Thread(runnable);
                 thread.start();
                 return;
             }
 
             this.start();
+        }
+    }
+
+    //A member class instead of a local class using the method's player and intent since most of the converted languages do not have local classes.
+    private static class MusicRunnable extends ARunnable {
+
+        private final BaseMusicService baseMusicService;
+        private final MediaPlayer player;
+        private final Intent intent;
+
+        MusicRunnable(final BaseMusicService baseMusicService, final MediaPlayer player, final Intent intent) {
+            this.baseMusicService = baseMusicService;
+            this.player = player;
+            this.intent = intent;
+        }
+
+        @Override
+        public void run() {
+            final LogUtil logUtil = LogUtil.getInstance();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            final CommonStateStrings commonStateStrings = CommonStateStrings.getInstance();
+            try {
+                while(this.player.isPlaying()) {
+                    logUtil.putF(this.baseMusicService.WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND);
+                    Thread.sleep(1200);
+                }
+                this.baseMusicService.onStartCommandIntent(this.intent);
+            } catch(Exception e) {
+                logUtil.put(commonStrings.EXCEPTION, this, commonStateStrings.ON_START_COMMAND, e);
+            }
         }
     }
 }

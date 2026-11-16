@@ -18,34 +18,39 @@ public class ToastUtil {
 
 	public void makeToast(final View view, final Context context, String message, final int time)
 	{
-	    class MakeToast implements Runnable
+	    view.post(new MakeToast(context, message, time));
+	}
+
+	//A member class instead of a local class using the method parameters since most of the converted languages do not have local classes.
+	private static class MakeToast implements Runnable
+	{
+	    private final Context context;
+	    private final String string;
+	    private final int time;
+
+	    public MakeToast(final Context context, final String string, final int time)
 	    {
-	        final String string;
-	        
-	        public MakeToast(String string)
+	        this.context = context;
+	        this.string = string;
+	        this.time = time;
+	    }
+
+	    @Override
+	    public void run()
+	    {
+	        final LogUtil logUtil = LogUtil.getInstance();
+	        try
 	        {
-	            this.string = string;
+	            //logUtil.putF("Trying to Toast: "+ string, this, this.commonStrings.RUN);
+	            //PreLogUtil.put("Trying to Toast: "+ string, this, this.commonStrings.RUN);
+
+	            Toast.makeText(this.context, this.string, this.time).show();
 	        }
-	        
-                @Override
-	        public void run()
+	        catch(Exception e)
 	        {
-                    final LogUtil logUtil = LogUtil.getInstance();
-	            try
-	            {
-	            	//logUtil.putF("Trying to Toast: "+ string, this, this.commonStrings.RUN);
-	            	//PreLogUtil.put("Trying to Toast: "+ string, this, this.commonStrings.RUN);
-	                
-	                Toast.makeText(context, this.string, time).show();
-	            }
-	            catch(Exception e)
-	            {
-                        final CommonStrings commonStrings = CommonStrings.getInstance();
-	                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-	            }
+	            final CommonStrings commonStrings = CommonStrings.getInstance();
+	            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
 	        }
 	    }
-	 
-	    view.post(new MakeToast(message));
 	}
 }

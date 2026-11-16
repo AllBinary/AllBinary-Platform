@@ -134,13 +134,13 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         this.jPanel2 = new javax.swing.JPanel();
         this.jLabel1 = new javax.swing.JLabel();
         this.totalFramesJComboBox = new javax.swing.JComboBox<>();
-        final int size = 70;       final String[] animationStringArray2 = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray2[index - 1] = Integer.toString(index);       }       this.totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray2));
+        final int size = 70;       final String[] animationStringArray2 = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray2[index - 1] = Integer.toString(index);       }       this.totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(animationStringArray2));
         this.jLabel2 = new javax.swing.JLabel();
         this.totalAnimationsJComboBox = new javax.swing.JComboBox<>();
-        final String[] animationStringArray = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray[index - 1] = Integer.toString(index);       }       this.totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray));
+        final String[] animationStringArray = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray[index - 1] = Integer.toString(index);       }       this.totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(animationStringArray));
         this.jLabel3 = new javax.swing.JLabel();
         this.spriteTypeJComboBox = new javax.swing.JComboBox<>();
-        this.spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { org.allbinary.media.image.SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_SPRITE                   }));  //, org.allbinary.media.image.SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS
+        this.spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { org.allbinary.media.image.SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_SPRITE                   }));  //, org.allbinary.media.image.SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS
         jLabel7 = new javax.swing.JLabel();
         this.increaseWidthTextField = new javax.swing.JTextField();
         this.jLabel8 = new javax.swing.JLabel();
