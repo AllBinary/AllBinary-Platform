@@ -10,6 +10,8 @@ import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.logic.system.os.OperatingSystems;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class RuntimeEnvironmentVariables
 {
@@ -91,7 +93,7 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "get()", e);
          }
@@ -107,7 +109,7 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"getTempDir()",e);
          }
@@ -123,7 +125,7 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"getLibraryPath()",e);
          }         
@@ -139,7 +141,7 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"getClassPath()",e);
          }
@@ -156,7 +158,7 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"updateLibraryPath()",e);
          }      
@@ -171,7 +173,7 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"getUserHome()",e);
          }
@@ -187,7 +189,7 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"getUserDir()",e);
          }
@@ -202,7 +204,7 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"get()",e);
          }       
@@ -247,7 +249,7 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"setVariable()",e);
          }      

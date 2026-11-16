@@ -20,6 +20,7 @@ import org.allbinary.graphics.j2me.workarea.canvas.CanvasDom;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.util.BasicArrayList;
 import org.w3c.dom.Node;
+import org.w3c.dom.Document;
 
 /**
  *
@@ -59,7 +60,7 @@ public class PointsDomUtil {
               PointFactory.getInstance().createXY(canvasDom.getDimension().getWidth(),
               canvasDom.getDimension().getHeight()));
 
-      org.w3c.dom.Document document = WorkAreaJPanel.getDocument();
+      Document document = WorkAreaJPanel.getDocument();
 
       Node linesNode = (Node) document.createElement(this.LINES);
 
@@ -110,7 +111,7 @@ public class PointsDomUtil {
 
    private Node getPointNode(GPoint point, String pointName)
    {
-      org.w3c.dom.Document document = WorkAreaJPanel.getDocument();
+      Document document = WorkAreaJPanel.getDocument();
 
       Node pointNode = (Node) document.createElement(pointName);
 

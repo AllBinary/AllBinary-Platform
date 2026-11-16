@@ -27,6 +27,8 @@ import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.CustomTagSupport;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class BasketTag extends CustomTagSupport
 {
@@ -69,7 +71,7 @@ public class BasketTag extends CustomTagSupport
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"isBasketEmpty()",e);
          }
@@ -96,7 +98,7 @@ public class BasketTag extends CustomTagSupport
       {
          String error = "Failed to add item from Basket";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"addItemToBasket()",e);
          }
@@ -123,7 +125,7 @@ public class BasketTag extends CustomTagSupport
       {
          String error = "Failed to remove item from Basket";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"removeItemFromBasket()",e);
          }
@@ -150,7 +152,7 @@ public class BasketTag extends CustomTagSupport
       {
          String error = "Failed to Adjust Basket";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"adjustBasket()",e);
          }

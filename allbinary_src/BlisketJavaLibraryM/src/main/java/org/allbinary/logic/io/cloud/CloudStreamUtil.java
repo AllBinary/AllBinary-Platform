@@ -17,6 +17,8 @@ import java.io.InputStream;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 /**
  *
@@ -45,7 +47,7 @@ public class CloudStreamUtil {
 
         if (available > 0)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 this.logUtil.putF("Cloud File Bytes: " + available, this, "processRequest()");
             }
@@ -63,7 +65,7 @@ public class CloudStreamUtil {
 
         if (available > 0)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 this.logUtil.putF("Local File Bytes: " + available, this, "processRequest()");
             }
@@ -75,7 +77,7 @@ public class CloudStreamUtil {
 
             if (available > 0)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
                     this.logUtil.putF("Cloud File Bytes: " + available, this, "processRequest()");
                 }
@@ -94,7 +96,7 @@ public class CloudStreamUtil {
 
         if (available > 0)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 this.logUtil.putF("Local File Bytes: " + available, this, "processRequest()");
             }

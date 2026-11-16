@@ -22,6 +22,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 
 public class EditValidationView extends WorkFlowView implements ValidationComponentInterface
@@ -54,7 +56,7 @@ public class EditValidationView extends WorkFlowView implements ValidationCompon
             this.workFlowName, 
             this.getTransformInfoInterface().getStoreName())==null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                this.logUtil.putF("WorkFlow does not exist.", this, this.commonStrings.IS_VALID);
             }
@@ -65,7 +67,7 @@ public class EditValidationView extends WorkFlowView implements ValidationCompon
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to validate form",this,this.commonStrings.IS_VALID,e);
          }
@@ -88,7 +90,7 @@ public class EditValidationView extends WorkFlowView implements ValidationCompon
             this.workFlowName, 
             this.getTransformInfoInterface().getStoreName())==null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                this.logUtil.putF("WorkFlow does not exist.",this,"validationInfo()");
             }
@@ -99,7 +101,7 @@ public class EditValidationView extends WorkFlowView implements ValidationCompon
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }

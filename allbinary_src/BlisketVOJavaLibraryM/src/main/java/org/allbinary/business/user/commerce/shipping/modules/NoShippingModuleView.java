@@ -18,6 +18,9 @@ import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.w3c.dom.Document;
 
 public class NoShippingModuleView extends NoShippingModule implements DomNodeInterface
 {
@@ -32,22 +35,22 @@ public class NoShippingModuleView extends NoShippingModule implements DomNodeInt
       return null;
    }
    
-   public org.w3c.dom.Document toValidationInfoDoc()
+   public Document toValidationInfoDoc()
    {
       return null;
    }
    
-   public org.w3c.dom.Node toValidationInfoNode(org.w3c.dom.Document document)
+   public Node toValidationInfoNode(Document document)
    {
       return null;
    }
    
-   public org.w3c.dom.Document toXmlDoc()
+   public Document toXmlDoc()
    {
       return null;
    }
    
-   public org.w3c.dom.Node toXmlNode(org.w3c.dom.Document document)
+   public Node toXmlNode(Document document)
    {
       try
       {
@@ -67,7 +70,7 @@ public class NoShippingModuleView extends NoShippingModule implements DomNodeInt
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlNode", e);
          }

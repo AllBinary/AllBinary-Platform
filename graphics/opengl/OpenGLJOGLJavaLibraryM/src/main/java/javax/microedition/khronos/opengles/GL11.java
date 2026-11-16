@@ -1,7 +1,11 @@
 package javax.microedition.khronos.opengles;
 
+import java.nio.Buffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+
 public interface GL11
-    extends javax.microedition.khronos.opengles.GL10 {
+    extends GL10 {
 
     public static final int GL_ACTIVE_TEXTURE = 34016;
     public static final int GL_ADD_SIGNED = 34164;
@@ -130,13 +134,13 @@ public interface GL11
 
     void glBindBuffer(int target, int buffer);
 
-    void glBufferData(int target, int size, java.nio.Buffer data, int usage);
+    void glBufferData(int target, int size, Buffer data, int usage);
 
-    void glBufferSubData(int target, int offset, int size, java.nio.Buffer data);
+    void glBufferSubData(int target, int offset, int size, Buffer data);
 
     void glClipPlanef(int plane, float[] equation, int offset);
 
-    void glClipPlanef(int plane, java.nio.FloatBuffer equation);
+    void glClipPlanef(int plane, FloatBuffer equation);
 
     //void glClipPlanex(int plane, int[] equation, int offset);
 
@@ -148,13 +152,13 @@ public interface GL11
 
     void glDeleteBuffers(int n, int[] buffers, int offset);
 
-    void glDeleteBuffers(int n, java.nio.IntBuffer buffers);
+    void glDeleteBuffers(int n, IntBuffer buffers);
 
     void glDrawElements(int mode, int count, int type, int offset);
 
     void glGenBuffers(int n, int[] buffers, int offset);
 
-    void glGenBuffers(int n, java.nio.IntBuffer buffers);
+    void glGenBuffers(int n, IntBuffer buffers);
 
     //void glGetBooleanv(int pname, boolean[] params, int offset);
 
@@ -162,11 +166,11 @@ public interface GL11
 
     void glGetBufferParameteriv(int target, int pname, int[] params, int offset);
 
-    void glGetBufferParameteriv(int target, int pname, java.nio.IntBuffer params);
+    void glGetBufferParameteriv(int target, int pname, IntBuffer params);
 
     void glGetClipPlanef(int pname, float[] eqn, int offset);
 
-    void glGetClipPlanef(int pname, java.nio.FloatBuffer eqn);
+    void glGetClipPlanef(int pname, FloatBuffer eqn);
 
     //void glGetClipPlanex(int pname, int[] eqn, int offset);
 
@@ -178,11 +182,11 @@ public interface GL11
 
     void glGetFloatv(int pname, float[] params, int offset);
 
-    void glGetFloatv(int pname, java.nio.FloatBuffer params);
+    void glGetFloatv(int pname, FloatBuffer params);
 
     void glGetLightfv(int light, int pname, float[] params, int offset);
 
-    void glGetLightfv(int light, int pname, java.nio.FloatBuffer params);
+    void glGetLightfv(int light, int pname, FloatBuffer params);
 
     //void glGetLightxv(int light, int pname, int[] params, int offset);
 
@@ -190,7 +194,7 @@ public interface GL11
 
     void glGetMaterialfv(int face, int pname, float[] params, int offset);
 
-    void glGetMaterialfv(int face, int pname, java.nio.FloatBuffer params);
+    void glGetMaterialfv(int face, int pname, FloatBuffer params);
 
     //void glGetMaterialxv(int face, int pname, int[] params, int offset);
 
@@ -198,7 +202,7 @@ public interface GL11
 
     void glGetTexEnviv(int env, int pname, int[] params, int offset);
 
-    void glGetTexEnviv(int env, int pname, java.nio.IntBuffer params);
+    void glGetTexEnviv(int env, int pname, IntBuffer params);
 
     //void glGetTexEnvxv(int env, int pname, int[] params, int offset);
 
@@ -206,11 +210,11 @@ public interface GL11
 
     void glGetTexParameterfv(int target, int pname, float[] params, int offset);
 
-    void glGetTexParameterfv(int target, int pname, java.nio.FloatBuffer params);
+    void glGetTexParameterfv(int target, int pname, FloatBuffer params);
 
     void glGetTexParameteriv(int target, int pname, int[] params, int offset);
 
-    void glGetTexParameteriv(int target, int pname, java.nio.IntBuffer params);
+    void glGetTexParameteriv(int target, int pname, IntBuffer params);
 
     //void glGetTexParameterxv(int target, int pname, int[] params, int offset);
 
@@ -228,7 +232,7 @@ public interface GL11
 
     void glPointParameterfv(int pname, float[] params, int offset);
 
-    void glPointParameterfv(int pname, java.nio.FloatBuffer params);
+    void glPointParameterfv(int pname, FloatBuffer params);
 
     //void glPointParameterx(int pname, int param);
 
@@ -244,17 +248,17 @@ public interface GL11
 
     void glTexEnviv(int target, int pname, int[] params, int offset);
 
-    void glTexEnviv(int target, int pname, java.nio.IntBuffer params);
+    void glTexEnviv(int target, int pname, IntBuffer params);
 
     void glTexParameterfv(int target, int pname, float[] params, int offset);
 
-    void glTexParameterfv(int target, int pname, java.nio.FloatBuffer params);
+    void glTexParameterfv(int target, int pname, FloatBuffer params);
 
     void glTexParameteri(int target, int pname, int param);
 
     void glTexParameteriv(int target, int pname, int[] params, int offset);
 
-    void glTexParameteriv(int target, int pname, java.nio.IntBuffer params);
+    void glTexParameteriv(int target, int pname, IntBuffer params);
 
     //void glTexParameterxv(int target, int pname, int[] params, int offset);
 

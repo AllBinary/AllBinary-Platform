@@ -27,6 +27,8 @@ import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class StylesValidationFactory {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -50,13 +52,13 @@ public class StylesValidationFactory {
         //Get all styles nodes
         NodeList nodeList = document.getElementsByTagName(StylesData.getInstance().NAME);
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+        if (LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().VIEW)) {
             this.logUtil.putF("Style Present: " + XmlDocumentHelper.toString(document), this, commonStrings.GET_INSTANCE);
         }
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+        if (LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().VIEW)) {
             this.logUtil.putF("Styles Present: " + nodeList.getLength(),
                 this, commonStrings.GET_INSTANCE);
         }
@@ -68,8 +70,8 @@ public class StylesValidationFactory {
                 DomSearchHelper.getAllNodes(
                     StyleData.getInstance().NAME, stylesNode.getChildNodes());
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().VIEW)) {
                 this.logUtil.putF("Number Of Style Nodes Present: " + styleNodeList.size(), this, commonStrings.GET_INSTANCE);
             }
 
@@ -82,8 +84,8 @@ public class StylesValidationFactory {
                     DomSearchHelper.getAllNodes(
                         CssElementData.getInstance().NAME, styleNode.getChildNodes());
 
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                    org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+                if (LogConfigTypes.LOGGING.contains(
+                    LogConfigTypeFactory.getInstance().VIEW)) {
                     this.logUtil.putF("Number Of Element Nodes Present: " + cssElementStyleNodeList.size(),this, commonStrings.GET_INSTANCE);
                 }
 
@@ -91,8 +93,8 @@ public class StylesValidationFactory {
             }
         }
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+        if (LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().VIEW)) {
             this.logUtil.putF("No Style Present", this, commonStrings.GET_INSTANCE);
         }
 

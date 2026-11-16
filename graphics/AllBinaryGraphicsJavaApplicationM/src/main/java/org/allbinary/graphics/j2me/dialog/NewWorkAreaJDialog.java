@@ -23,8 +23,12 @@ import org.allbinary.graphics.j2me.GraphicsException;
 import org.allbinary.graphics.j2me.MyFrame;
 import org.allbinary.graphics.j2me.workarea.WorkAreaJPanel;
 import org.allbinary.graphics.j2me.workarea.WorkAreaJPanelInterface;
+import java.awt.Frame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JDialog;
 
-public class NewWorkAreaJDialog extends javax.swing.JDialog
+public class NewWorkAreaJDialog extends JDialog
 {
    private MyFrame parent;
    private Dimension dimension;
@@ -34,7 +38,7 @@ public class NewWorkAreaJDialog extends javax.swing.JDialog
    
    public NewWorkAreaJDialog(MyFrame parent, boolean modal, Dimension dimension, String newName) throws Exception
    {
-      super((java.awt.Frame) parent, modal);
+      super((Frame) parent, modal);
       try
       {
          this.initComponents();
@@ -109,9 +113,9 @@ public class NewWorkAreaJDialog extends javax.swing.JDialog
    private void initComponents()//GEN-BEGIN:initComponents
    {
 
-      addWindowListener(new java.awt.event.WindowAdapter()
+      addWindowListener(new WindowAdapter()
       {
-         public void windowClosing(java.awt.event.WindowEvent evt)
+         public void windowClosing(WindowEvent evt)
          {
             closeDialog(evt);
          }
@@ -121,7 +125,7 @@ public class NewWorkAreaJDialog extends javax.swing.JDialog
    }//GEN-END:initComponents
    
    /** Closes the dialog */
-   private void closeDialog(java.awt.event.WindowEvent evt)
+   private void closeDialog(WindowEvent evt)
     {//GEN-FIRST:event_closeDialog
        setVisible(false);
        dispose();

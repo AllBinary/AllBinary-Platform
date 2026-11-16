@@ -40,6 +40,9 @@ import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class PaymentTransactionInterfaceRequestFactory
 {
@@ -72,10 +75,10 @@ public class PaymentTransactionInterfaceRequestFactory
                     = (HttpServletRequest) pageContext.getRequest();
 
             String command
-                    = httpServletRequest.getParameter(org.allbinary.globals.GLOBALS2.ADMINCOMMAND);
+                    = httpServletRequest.getParameter(GLOBALS2.ADMINCOMMAND);
 
             //Only if testing a gateway with a form instead of using OrderHistory
-            if(command != null && command.compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEFORMEVALBODYONERROR) == 0)
+            if(command != null && command.compareTo(GLOBALS2.AUTHORIZEFORMEVALBODYONERROR) == 0)
             {
                 return this.generateFromTestData(transformInfoInterface);
             }else
@@ -102,7 +105,7 @@ public class PaymentTransactionInterfaceRequestFactory
                 orderPaymentInfo.setTenderType(TenderTypeFactory.getInstance().CREDITCARD.toString());
                 orderReview.setPaymentInfo(orderPaymentInfo);
 
-                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
+                if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PAYMENT))
                 {
                     this.logUtil.putF(orderReview.getId(), this, "getPaymentTransactionInterface()");
                 }
@@ -115,7 +118,7 @@ public class PaymentTransactionInterfaceRequestFactory
 
         }catch(Exception e)
         {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "getPaymentTransactionInterface()", e);
             }
@@ -224,7 +227,7 @@ public class PaymentTransactionInterfaceRequestFactory
             return paymentTransactionInterface;
         }catch(Exception e)
         {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "generatePaymentTransactionInterfaceFromTestData()", e);
             }

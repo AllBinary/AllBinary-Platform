@@ -25,6 +25,8 @@ import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class PaymentTag extends TableTag
 {
@@ -67,7 +69,7 @@ public class PaymentTag extends TableTag
       {
          String error = "Failed to select Payment";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"selectPayment()",e);
          }
@@ -89,7 +91,7 @@ public class PaymentTag extends TableTag
                if (this.getCommand().compareTo(PaymentData.SELECT)==0)
                {
                   String output = this.select();
-                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
+                  if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                   {
                      this.pageContext.getOut().print(output + "<br />");
                   }

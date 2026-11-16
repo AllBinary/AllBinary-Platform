@@ -27,6 +27,8 @@ import org.allbinary.logic.visual.transform.template.customizer.widgets.title.Ti
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class HeadingValidation extends Validation implements DomNodeInterface
 {
@@ -75,7 +77,7 @@ public class HeadingValidation extends Validation implements DomNodeInterface
          Boolean titleValid = Boolean.TRUE;
          Boolean logoValid = Boolean.TRUE;
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
             this.logUtil.putF(this.commonStrings.START, this,this.commonStrings.IS_VALID);
          }
@@ -99,7 +101,7 @@ public class HeadingValidation extends Validation implements DomNodeInterface
             valid = Boolean.FALSE;
          }                  
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
             this.logUtil.putF("HeadingValidation: " + valid, this, this.commonStrings.IS_VALID);
          }
@@ -108,7 +110,7 @@ public class HeadingValidation extends Validation implements DomNodeInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put("Failed to validate form", this, this.commonStrings.IS_VALID, e);
          }
@@ -150,7 +152,7 @@ public class HeadingValidation extends Validation implements DomNodeInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
          }

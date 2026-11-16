@@ -24,6 +24,8 @@ import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class TagWorkFlowFactory
 {
@@ -61,8 +63,8 @@ public class TagWorkFlowFactory
             return (WorkFlowInterface) AbeFactory.getInstance().getInstance(abeClientInformation, workFlowClassName, classes, params);
         } catch (LicensingException e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 final String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
@@ -79,8 +81,8 @@ public class TagWorkFlowFactory
             throw e;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 final String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 

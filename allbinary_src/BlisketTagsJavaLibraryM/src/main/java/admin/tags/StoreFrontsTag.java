@@ -24,6 +24,8 @@ import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class StoreFrontsTag extends TableTag
 {
@@ -51,7 +53,7 @@ public class StoreFrontsTag extends TableTag
         } catch (Exception e)
         {
             String error = "Failed to generate storefronts select";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "generateSelect()", e);
             }
@@ -75,7 +77,7 @@ public class StoreFrontsTag extends TableTag
         } catch (Exception e)
         {
             String error = "Failed to generate storefronts select";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "generateSelect()", e);
             }
@@ -99,7 +101,7 @@ public class StoreFrontsTag extends TableTag
         } catch (Exception e)
         {
             String error = "Failed to send email";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "sendStoreCreatedEmails()", e);
             }

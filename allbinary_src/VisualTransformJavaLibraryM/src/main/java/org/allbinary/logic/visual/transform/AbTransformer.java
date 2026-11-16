@@ -25,6 +25,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.generator.TransformInfoObjectConfigGenerator;
 import org.allbinary.logic.visual.transform.info.objectConfig.generator.TransformInfoObjectConfigGeneratorFactory;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class AbTransformer implements BasicTransformerInterface
 {
@@ -76,7 +78,7 @@ public class AbTransformer implements BasicTransformerInterface
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().XMLLOGGING))
          {
             this.logUtil.putF("xml: \n" + xmlDocumentStr, this, "translate(String xmlDocumentStr)");
          }
@@ -90,7 +92,7 @@ public class AbTransformer implements BasicTransformerInterface
             new StreamSource(this.getInputStream()),
             new StreamSource(new StringBufferInputStream(xmlDocumentStr)));
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().XSLLOGGING))
          {
             this.logUtil.putF("translated xml: " + result, this, "translate(String xmlDocumentStr)");
          }
@@ -104,7 +106,7 @@ public class AbTransformer implements BasicTransformerInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put(this.transformInfoInterface.log(), this, "translate(document)", e);
          }

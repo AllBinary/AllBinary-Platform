@@ -14,8 +14,9 @@
 package org.allbinary.graphics.j2me.workarea;
 
 import org.w3c.dom.Document;
+import java.awt.event.KeyListener;
 
-public interface WorkAreaJPanelInterface extends java.awt.event.KeyListener
+public interface WorkAreaJPanelInterface extends KeyListener
 {
     String getName();
     void deselect();

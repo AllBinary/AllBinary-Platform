@@ -20,6 +20,8 @@ import org.allbinary.logic.visual.transform.template.customizer.includes.meta.Me
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class MetaView extends HttpStoreComponentView implements DomNodeInterface
 {
@@ -47,7 +49,7 @@ public class MetaView extends HttpStoreComponentView implements DomNodeInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
             this.logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
@@ -64,8 +66,8 @@ public class MetaView extends HttpStoreComponentView implements DomNodeInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }

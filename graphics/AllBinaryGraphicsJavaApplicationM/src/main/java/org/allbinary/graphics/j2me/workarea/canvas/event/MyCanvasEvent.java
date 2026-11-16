@@ -14,8 +14,9 @@
 package org.allbinary.graphics.j2me.workarea.canvas.event;
 
 import javax.swing.tree.MutableTreeNode;
+import java.util.EventObject;
 
-public class MyCanvasEvent extends java.util.EventObject
+public class MyCanvasEvent extends EventObject
 {      
    public MyCanvasEvent(Object source) 
    {

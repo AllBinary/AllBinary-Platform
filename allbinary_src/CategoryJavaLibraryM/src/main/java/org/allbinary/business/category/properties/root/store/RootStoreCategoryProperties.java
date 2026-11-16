@@ -38,6 +38,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 /*
  *Nothing more than a parent category reference to a category on the fs.  
@@ -246,7 +248,7 @@ public class RootStoreCategoryProperties
    
    public void log()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
       {
          this.logUtil.putF(new StringMaker()
              .append("filePath = ").append(this.fileAbPath.toString())

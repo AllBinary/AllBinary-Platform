@@ -25,6 +25,8 @@ import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInterface
 {
@@ -44,14 +46,14 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
       {
          super.insert(values);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             this.logUtil.putF(this.commonStrings.SUCCESS, this, INSERT);
          }
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             this.logUtil.put(this.commonStrings.FAILURE, this, INSERT, e);
          }
@@ -63,14 +65,14 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
       try
       {
          super.deleteWhere(StoreFrontData.getInstance().NAME,value);
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             this.logUtil.putF(this.commonStrings.SUCCESS, this, this.commonStrings.delete);
          }
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             this.logUtil.put(this.commonStrings.FAILURE, this, this.commonStrings.delete, e);
          }

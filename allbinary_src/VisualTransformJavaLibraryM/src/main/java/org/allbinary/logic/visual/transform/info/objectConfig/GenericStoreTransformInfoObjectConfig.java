@@ -33,6 +33,8 @@ import org.allbinary.logic.visual.transform.template.TransformTemplateInterface;
 import org.allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
 import org.allbinary.string.CommonSeps;
 import org.w3c.dom.Document;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectConfig
 {
@@ -74,7 +76,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
     {
         //final String docString = XmlDocumentHelper.toString(objectConfigDocument);
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
         	  StringMaker stringBuffer = new StringMaker();
         	  
@@ -168,7 +170,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         String templateNameOverride = StringUtil.getInstance().getNonNull(
             (String) propertiesHashMap.get(TransformInfoData.getInstance().PARTIAL));
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("TemplateNameOverride: " + templateNameOverride, this, "generate()");
         }
@@ -207,7 +209,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         Document newObjectConfigDocument = DomDocumentHelper.create(
         		replace.all(objectConfigDocumentString));
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("Final ObjectConfig: "
                 + XmlDocumentHelper.toString(newObjectConfigDocument), this, "generate()");

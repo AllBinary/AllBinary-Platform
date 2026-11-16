@@ -21,6 +21,8 @@ import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjec
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplateTransformInfoObjectConfig
 {
@@ -52,7 +54,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
     public void set(String aParentViewName) throws Exception
     {
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("Setting: " + aParentViewName, this, "set()");
         }
@@ -66,7 +68,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
         if (parentComponentsNodeList != null
             && parentComponentsNodeList.getLength() > 0)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 this.logUtil.putF("Replacing", this, "set()");
             }
@@ -83,7 +85,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
                 aParentViewName).toXmlNode(document));
         } else
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 this.logUtil.putF("Setting", this, "set()");
             }

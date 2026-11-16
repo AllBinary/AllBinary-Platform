@@ -18,6 +18,9 @@ import java.awt.*;
 import javax.swing.*;
 
 import org.allbinary.string.CommonStrings;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class GuiLog
 {
@@ -53,14 +56,14 @@ public class GuiLog
       {
          int y = 550;
          error.setSize(x,y);
-         error.getContentPane().add(new javax.swing.JScrollPane(new javax.swing.JTextArea(msg)));
+         error.getContentPane().add(new JScrollPane(new JTextArea(msg)));
       }
       else
       if(size>0)
       {
          int y = 50;
          error.setSize(x,y);
-         error.getContentPane().add(new javax.swing.JScrollPane(new javax.swing.JLabel(msg)));
+         error.getContentPane().add(new JScrollPane(new JLabel(msg)));
       }      
       error.show();      
    }

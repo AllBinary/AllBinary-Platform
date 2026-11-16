@@ -19,7 +19,8 @@ public class TimeLastModified extends Time
 {
    public TimeLastModified(String time)
    {
-      super(time);
+      //super(long) for both constructors since Scala lets the constructors of a class call only one super constructor. Time(String) is new Long(time).
+      super(Long.parseLong(time));
    }
    
    public TimeLastModified(long time)

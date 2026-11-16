@@ -43,6 +43,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import views.admin.inventory.listings.ProductListingFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class StaticPagesRequestHelper extends AbContext
     implements TagHelperInterface
@@ -80,7 +82,7 @@ public class StaticPagesRequestHelper extends AbContext
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
             this.logUtil.putF("Generated Static Pages Notification Email", this, "email");
          }
@@ -117,7 +119,7 @@ public class StaticPagesRequestHelper extends AbContext
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
             this.logUtil.put(this.commonStrings.FAILURE, this, "email", e);
          }
@@ -142,7 +144,7 @@ public class StaticPagesRequestHelper extends AbContext
 
          this.email();
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF(success, this, "generateStaticPages()");
          }
@@ -152,7 +154,7 @@ public class StaticPagesRequestHelper extends AbContext
       catch(Exception e)
       {
          String error = "Failed to generate staticpages table";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"generateStaticPages()",e);
          }
@@ -174,7 +176,7 @@ public class StaticPagesRequestHelper extends AbContext
          FileUtil.getInstance().copy(fromAbPath, toAbPath);
 
          String success = "Made Public";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF(success, this,"makePublic()");
          }
@@ -184,7 +186,7 @@ public class StaticPagesRequestHelper extends AbContext
       catch(Exception e)
       {
          String error = "Failed to makePublic";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"makePublic()",e);
          }

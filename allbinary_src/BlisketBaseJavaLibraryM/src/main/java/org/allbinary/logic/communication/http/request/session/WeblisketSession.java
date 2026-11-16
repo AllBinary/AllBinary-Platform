@@ -32,6 +32,7 @@ import org.allbinary.business.user.role.UserRoleB;
 import org.allbinary.business.user.role.UserRoleData;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.globals.GLOBALS2;
 
 public class WeblisketSession implements WeblisketSessionInterface
 {
@@ -123,7 +124,7 @@ public class WeblisketSession implements WeblisketSessionInterface
    
    public String getWebAppPath()
    {
-      return (String) this.session.getAttribute(org.allbinary.globals.GLOBALS2.WEBAPPPATH);
+      return (String) this.session.getAttribute(GLOBALS2.WEBAPPPATH);
    }
       
    public String getUserName()

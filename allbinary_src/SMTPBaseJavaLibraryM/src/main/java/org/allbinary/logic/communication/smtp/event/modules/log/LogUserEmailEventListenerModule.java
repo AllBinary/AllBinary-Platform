@@ -16,6 +16,8 @@ package org.allbinary.logic.communication.smtp.event.modules.log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.event.EmailEvent;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class LogUserEmailEventListenerModule 
    implements UserEmailEventListenerInterface
@@ -28,7 +30,7 @@ public class LogUserEmailEventListenerModule
 
    public void onEmailSendRequest(EmailEvent userEmailInfoEvent) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          String message = "Logging EmailEvent - Temporary Listener for debugging.\n\n" + userEmailInfoEvent.toString();
 

@@ -31,6 +31,8 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 /*
  *Nothing more than a parent category reference to a category on the fs.
  *i.e. unloaded category.
@@ -140,7 +142,7 @@ public class CategoryProperties implements CategoryPropertiesInterface
 
       pathStringBuffer.append(abPathData.SEPARATOR);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
       {
          this.logUtil.putF("path = " + pathStringBuffer.toString(), this, "getPath");
       }

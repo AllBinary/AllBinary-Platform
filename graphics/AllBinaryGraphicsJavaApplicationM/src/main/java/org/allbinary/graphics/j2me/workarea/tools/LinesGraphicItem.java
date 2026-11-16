@@ -36,6 +36,8 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 public class LinesGraphicItem implements GraphicItemInterface
 {
@@ -349,7 +351,7 @@ public class LinesGraphicItem implements GraphicItemInterface
 
    //event methods
 
-   public void mouseClicked(java.awt.event.MouseEvent mouseEvent, int x, int y)
+   public void mouseClicked(MouseEvent mouseEvent, int x, int y)
    {
       try
       {
@@ -372,27 +374,27 @@ public class LinesGraphicItem implements GraphicItemInterface
       }
    }
 
-   public void mouseEntered(java.awt.event.MouseEvent mouseEvent)
+   public void mouseEntered(MouseEvent mouseEvent)
    {
    }
 
-   public void mouseExited(java.awt.event.MouseEvent mouseEvent)
+   public void mouseExited(MouseEvent mouseEvent)
    {
    }
 
-   public void mousePressed(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
+   public void mousePressed(MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
    {
    }
 
-   public void mouseReleased(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
+   public void mouseReleased(MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
    {
    }
 
-   public void mouseDragged(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
+   public void mouseDragged(MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
    {
    }
 
-   public void mouseMoved(java.awt.event.MouseEvent mouseEvent, int x, int y)
+   public void mouseMoved(MouseEvent mouseEvent, int x, int y)
    {
       try
       {
@@ -405,7 +407,7 @@ public class LinesGraphicItem implements GraphicItemInterface
       }
    }
 
-   public void keyPressed(java.awt.event.KeyEvent keyEvent)
+   public void keyPressed(KeyEvent keyEvent)
    {
        try
        {
@@ -442,11 +444,11 @@ public class LinesGraphicItem implements GraphicItemInterface
       }
    }
 
-   public void keyReleased(java.awt.event.KeyEvent keyEvent)
+   public void keyReleased(KeyEvent keyEvent)
    {
    }
 
-   public void keyTyped(java.awt.event.KeyEvent keyEvent)
+   public void keyTyped(KeyEvent keyEvent)
    {
    }
 }

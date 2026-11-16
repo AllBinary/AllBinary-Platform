@@ -29,8 +29,16 @@ import org.allbinary.media.image.ImageProcessorInput;
 import org.allbinary.media.image.ImageStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class RotationImageJPanel extends javax.swing.JPanel
+public class RotationImageJPanel extends JPanel
         implements ImageProcessedVisitor {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -106,7 +114,7 @@ public class RotationImageJPanel extends javax.swing.JPanel
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
-      this.jPanel1 = new javax.swing.JPanel(){
+      this.jPanel1 = new JPanel(){
          public void paint(Graphics graphics)
          {
             if(RotationImageJPanel.this.result != null)
@@ -117,14 +125,14 @@ public class RotationImageJPanel extends javax.swing.JPanel
          }
       }
       ;
-      this.jPanel2 = new javax.swing.JPanel();
-      this.jLabel1 = new javax.swing.JLabel();
-      this.generateJButton = new javax.swing.JButton();
-      this.totalAngleJComboBox = new javax.swing.JComboBox();
-      this.jLabel3 = new javax.swing.JLabel();
-      this.writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
-      this.jPanel3 = new javax.swing.JPanel();
-      this.jLabel2 = new javax.swing.JLabel();
+      this.jPanel2 = new JPanel();
+      this.jLabel1 = new JLabel();
+      this.generateJButton = new JButton();
+      this.totalAngleJComboBox = new JComboBox();
+      this.jLabel3 = new JLabel();
+      this.writeOverOriginalJCheckBox = new JCheckBox();
+      this.jPanel3 = new JPanel();
+      this.jLabel2 = new JLabel();
 
       org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(this.jPanel1);
       this.jPanel1.setLayout(jPanel1Layout);
@@ -138,15 +146,15 @@ public class RotationImageJPanel extends javax.swing.JPanel
       );
 
       this.generateJButton.setText("Generate");
-      this.generateJButton.addActionListener(new java.awt.event.ActionListener() {
-         public void actionPerformed(java.awt.event.ActionEvent evt) {
+      this.generateJButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent evt) {
             generateJButtonActionPerformed(evt);
          }
       });
 
-      this.totalAngleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { this.commonStrings.UP, this.commonStrings.DOWN, "-90", "90" }));
-      this.totalAngleJComboBox.addActionListener(new java.awt.event.ActionListener() {
-         public void actionPerformed(java.awt.event.ActionEvent evt) {
+      this.totalAngleJComboBox.setModel(new DefaultComboBoxModel(new String[] { this.commonStrings.UP, this.commonStrings.DOWN, "-90", "90" }));
+      this.totalAngleJComboBox.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent evt) {
             totalAngleJComboBoxActionPerformed(evt);
          }
       });
@@ -219,25 +227,25 @@ public class RotationImageJPanel extends javax.swing.JPanel
             .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
       );
    }// </editor-fold>//GEN-END:initComponents
-    private void generateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateJButtonActionPerformed
+    private void generateJButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_generateJButtonActionPerformed
         // TODO add your handling code here:
         this.process();
 }//GEN-LAST:event_generateJButtonActionPerformed
 
-private void totalAngleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalAngleJComboBoxActionPerformed
+private void totalAngleJComboBoxActionPerformed(ActionEvent evt) {//GEN-FIRST:event_totalAngleJComboBoxActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_totalAngleJComboBoxActionPerformed
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
-   private javax.swing.JButton generateJButton;
-   private javax.swing.JLabel jLabel1;
-   private javax.swing.JLabel jLabel2;
-   private javax.swing.JLabel jLabel3;
-   private javax.swing.JPanel jPanel1;
-   private javax.swing.JPanel jPanel2;
-   private javax.swing.JPanel jPanel3;
-   private javax.swing.JComboBox totalAngleJComboBox;
-   private javax.swing.JCheckBox writeOverOriginalJCheckBox;
+   private JButton generateJButton;
+   private JLabel jLabel1;
+   private JLabel jLabel2;
+   private JLabel jLabel3;
+   private JPanel jPanel1;
+   private JPanel jPanel2;
+   private JPanel jPanel3;
+   private JComboBox totalAngleJComboBox;
+   private JCheckBox writeOverOriginalJCheckBox;
    // End of variables declaration//GEN-END:variables
 
    public ImageProcessorInput getImageProcessorInput()

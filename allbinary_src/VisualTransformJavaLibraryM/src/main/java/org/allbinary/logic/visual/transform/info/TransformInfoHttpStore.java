@@ -25,6 +25,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class TransformInfoHttpStore extends TransformInfoHttp 
    implements TransformInfoHttpStoreInterface
@@ -39,7 +41,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
    {
       super(propertiesHashMap, pageContext, true);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
       }
@@ -57,7 +59,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
    {
       super(databaseHashMap, propertiesHashMap, pageContext);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
           StringMaker stringBuffer = new StringMaker();
 
@@ -76,7 +78,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
    {
       super(propertiesHashMap, pageContext);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
       }

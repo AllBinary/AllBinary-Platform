@@ -22,6 +22,9 @@ import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.StoreValidationTransformTag;
+import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class PaymentProcessTag extends StoreValidationTransformTag
 {
@@ -49,7 +52,7 @@ public class PaymentProcessTag extends StoreValidationTransformTag
       }
       catch(LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LICENSINGERROR))
          {
             this.logUtil.put("LicensingException", this, this.commonStrings.PROCESS, e);
          }         
@@ -57,7 +60,7 @@ public class PaymentProcessTag extends StoreValidationTransformTag
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
          }
@@ -69,14 +72,14 @@ public class PaymentProcessTag extends StoreValidationTransformTag
    {
       try
       {
-         if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0 ||
-            this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDERANDEVALBODY)==0 ||
-            this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEFORMEVALBODYONERROR)==0 )
+         if(this.getCommand().compareTo(GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0 ||
+            this.getCommand().compareTo(GLOBALS2.AUTHORIZEORDERANDEVALBODY)==0 ||
+            this.getCommand().compareTo(GLOBALS2.AUTHORIZEFORMEVALBODYONERROR)==0 )
             //AUTHORIZEFORMEVALBODYONERROR is used for form payment processing instead of order in session
          {
             this.pageContext.getOut().print(this.process() + "<br />");
             
-            if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0)
+            if(this.getCommand().compareTo(GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0)
                return this.SKIP_BODY;
             else return this.EVAL_BODY_INCLUDE;
          }

@@ -24,6 +24,9 @@ import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.CustomTagSupport;
+import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class CustomLoaderTag extends CustomTagSupport
 {
@@ -72,7 +75,7 @@ public class CustomLoaderTag extends CustomTagSupport
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "setCustomLoaderWebappPath()", e);
          }
@@ -86,7 +89,7 @@ public class CustomLoaderTag extends CustomTagSupport
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
          {
             this.logUtil.putF(this.commonStrings.START, this, tagStrings.DO_START_TAG);
          }
@@ -95,7 +98,7 @@ public class CustomLoaderTag extends CustomTagSupport
          {
             this.propertiesHashMap = StdUtil.getInstance().createHashMap();
             
-            if(this.command.compareTo(org.allbinary.globals.GLOBALS2.SET)==0)
+            if(this.command.compareTo(GLOBALS2.SET)==0)
             {
                this.setCustomLoaderWebappPath();
             }

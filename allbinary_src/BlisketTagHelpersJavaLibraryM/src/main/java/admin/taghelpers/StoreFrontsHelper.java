@@ -28,6 +28,8 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.dhtml.html.select.HtmlSelect;
 import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class StoreFrontsHelper extends BasicTable
 {
@@ -48,8 +50,8 @@ public class StoreFrontsHelper extends BasicTable
         {
             String success = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().dropTable();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 this.logUtil.putF(success, this, this.commonStrings.DROP);
             }
@@ -57,8 +59,8 @@ public class StoreFrontsHelper extends BasicTable
         } catch (Exception e)
         {
             String error = "Failed to drop storefronts table";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.DROP, e);
             }
@@ -72,8 +74,8 @@ public class StoreFrontsHelper extends BasicTable
         {
             String success = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().createTable();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 this.logUtil.putF(success, this, "create()");
             }
@@ -82,8 +84,8 @@ public class StoreFrontsHelper extends BasicTable
         {
             String error = "Failed to create new storefronts table";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(commonStrings.EXCEPTION, this, "create()", e);
             }
@@ -98,8 +100,8 @@ public class StoreFrontsHelper extends BasicTable
             final String success = "Restore Successful";
             final String result = AbSqlTableUtil.getInstance().restoreTable(StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance(), this.portion);
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 this.logUtil.putF(success, this, "restore()");
             }
@@ -108,8 +110,8 @@ public class StoreFrontsHelper extends BasicTable
         {
             String error = "Failed to restore backup";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(commonStrings.EXCEPTION, this, "restore()", e);
             }
@@ -124,8 +126,8 @@ public class StoreFrontsHelper extends BasicTable
             final String success = "Restore Successful";
             final String result = AbSqlTableUtil.getInstance().backupTable(StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance());
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 this.logUtil.putF(success, this, "backup()");
             }
@@ -134,8 +136,8 @@ public class StoreFrontsHelper extends BasicTable
         {
             String error = "Failed to make backup";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(commonStrings.EXCEPTION, this, "backup()", e);
             }
@@ -169,8 +171,8 @@ public class StoreFrontsHelper extends BasicTable
             }
             success += storeSelect;
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 this.logUtil.putF(success, this, "generateSelect()");
             }
@@ -178,8 +180,8 @@ public class StoreFrontsHelper extends BasicTable
         } catch (Exception e)
         {
             String error = "Failed to generate storefronts select";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(commonStrings.EXCEPTION, this, "generateSelect()", e);
             }

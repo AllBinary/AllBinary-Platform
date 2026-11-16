@@ -27,6 +27,7 @@ import org.allbinary.graphics.j2me.workarea.tools.LinesGraphicItem;
 import org.allbinary.logic.StdUtil;
 import org.allbinary.util.BasicArrayList;
 import org.w3c.dom.Node;
+import org.w3c.dom.Document;
 
 public class CanvasDom
 {
@@ -176,7 +177,7 @@ public class CanvasDom
 
     private Node getPointNode(GPoint point, String pointName)
     {
-        org.w3c.dom.Document document = WorkAreaJPanel.getDocument();
+        Document document = WorkAreaJPanel.getDocument();
 
         Node pointNode = (Node) document.createElement(pointName);
 
@@ -197,7 +198,7 @@ public class CanvasDom
     //used for saving and exporting a canvas in a workarea
     public Node toDom() throws Exception
     {
-        org.w3c.dom.Document document = WorkAreaJPanel.getDocument();
+        Document document = WorkAreaJPanel.getDocument();
         Node frameNode = (Node) document.createElement(this.FRAME);
 
         Node angleNode = (Node) document.createElement(this.ROTATE);

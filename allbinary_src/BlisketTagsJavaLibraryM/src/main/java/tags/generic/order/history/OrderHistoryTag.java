@@ -23,6 +23,9 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import taghelpers.OrderHistoryHelperFactory;
 import tags.StoreValidationTransformTag;
+import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class OrderHistoryTag extends StoreValidationTransformTag
 {
@@ -109,7 +112,7 @@ public class OrderHistoryTag extends StoreValidationTransformTag
       catch(Exception e)
       {
          String error = "Failed to view order table";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"setOrderStatus()",e);
          }
@@ -133,7 +136,7 @@ public class OrderHistoryTag extends StoreValidationTransformTag
                pageContext.getOut().print(this.setOrderStatus());
             }
             else
-               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
+               if (this.getCommand().compareTo(GLOBALS2.VIEW)==0)
                {
                   
                }

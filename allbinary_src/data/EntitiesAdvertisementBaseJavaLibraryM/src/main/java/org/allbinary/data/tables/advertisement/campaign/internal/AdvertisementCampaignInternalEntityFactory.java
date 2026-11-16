@@ -15,6 +15,8 @@ package org.allbinary.data.tables.advertisement.campaign.internal;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class AdvertisementCampaignInternalEntityFactory
 {
@@ -35,8 +37,8 @@ public class AdvertisementCampaignInternalEntityFactory
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, "AdvertisementCampaignEntityFactory", commonStrings.GET_INSTANCE, e);

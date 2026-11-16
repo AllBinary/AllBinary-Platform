@@ -24,6 +24,8 @@ import org.allbinary.logic.io.DataOutputStreamFactory;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class UniqueIdGenerator implements IdGeneratorInterface
 {
@@ -52,7 +54,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
 
       }catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().IDLOGGING))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "initialize", e);
@@ -86,7 +88,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
          return idLong.toString();
       }catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().IDLOGGING))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "getNext", e);

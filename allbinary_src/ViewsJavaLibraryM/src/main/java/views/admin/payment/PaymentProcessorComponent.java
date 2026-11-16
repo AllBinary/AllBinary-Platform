@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import views.business.context.modules.storefront.HttpStoreComponentView;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class PaymentProcessorComponent 
    extends HttpStoreComponentView
@@ -59,7 +61,7 @@ public class PaymentProcessorComponent
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "view()", e);
          }

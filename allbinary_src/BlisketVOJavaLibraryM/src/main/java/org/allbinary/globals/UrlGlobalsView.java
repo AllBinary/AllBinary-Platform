@@ -31,7 +31,7 @@ public class UrlGlobalsView implements DomNodeInterface
    {
       HashMap hashMap = StdUtil.getInstance().createHashMap();
       
-      hashMap.put(UrlGlobalsData.WEBAPPPATH, org.allbinary.globals.URLGLOBALS.getWebappPath());
+      hashMap.put(UrlGlobalsData.WEBAPPPATH, URLGLOBALS.getWebappPath());
       
       Node node = 
          ModDomHelper.createNameValueNodes(

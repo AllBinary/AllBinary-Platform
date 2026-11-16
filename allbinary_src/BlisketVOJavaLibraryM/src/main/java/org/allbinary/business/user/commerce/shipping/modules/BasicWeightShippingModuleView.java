@@ -20,6 +20,8 @@ import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class BasicWeightShippingModuleView extends BasicWeightShippingModule implements DomNodeInterface
 {
@@ -34,12 +36,12 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       return null;
    }
    
-   public org.w3c.dom.Document toValidationInfoDoc()
+   public Document toValidationInfoDoc()
    {
       return null;
    }
    
-   public org.w3c.dom.Node toValidationInfoNode(org.w3c.dom.Document document)
+   public Node toValidationInfoNode(Document document)
    {
       return null;
    }
@@ -49,7 +51,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       return null;
    }
    
-   public org.w3c.dom.Node toXmlNode(org.w3c.dom.Document document)
+   public Node toXmlNode(Document document)
    {
       try
       {
@@ -69,7 +71,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlNode", e);
          }
@@ -78,7 +80,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       }
    }
    
-   public org.w3c.dom.Document toXmlDoc()
+   public Document toXmlDoc()
    {
       try
       {
@@ -95,7 +97,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlDoc", e);
          }
@@ -112,7 +114,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "view", e);
          }

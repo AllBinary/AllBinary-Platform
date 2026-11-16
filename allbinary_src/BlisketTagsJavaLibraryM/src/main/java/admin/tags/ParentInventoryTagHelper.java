@@ -16,6 +16,7 @@ package admin.tags;
 import javax.servlet.jsp.tagext.Tag;
 
 import org.allbinary.logic.string.StringMaker;
+import tags.HelperTag;
 
 /**
  *
@@ -42,7 +43,7 @@ public class ParentInventoryTagHelper
             throw new Exception("Must have parent tag.");
             //tags.admin.inventory.InventoryTag
             //tags.admin.inventory.DownloadItemTag
-        } else if (!(parentTag instanceof tags.HelperTag))
+        } else if (!(parentTag instanceof HelperTag))
         {
             StringMaker stringBuffer = new StringMaker();
 

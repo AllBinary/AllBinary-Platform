@@ -39,11 +39,11 @@ public class TsUtil {
     }
     
     public double longBitsToDouble(final long bits) {
-        return java.lang.Double.longBitsToDouble(bits);
+        return Double.longBitsToDouble(bits);
     }
 
     public float intBitsToFloat(final int bits) {
-        return java.lang.Float.intBitsToFloat(bits);
+        return Float.intBitsToFloat(bits);
     }
     
     public int hashCode(Object object) {

@@ -23,6 +23,9 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import views.ValidationOnlyTempUtil;
 
 public class AddValidationUserView extends HttpStoreComponentView
    implements ValidationComponentInterface
@@ -47,7 +50,7 @@ public class AddValidationUserView extends HttpStoreComponentView
          if(UserEntityFactory.getInstance().getUser(
             this.user.getUserName())!=null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                this.logUtil.putF("User already in existance.",this,this.commonStrings.IS_VALID);
             }
@@ -63,7 +66,7 @@ public class AddValidationUserView extends HttpStoreComponentView
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to validate",this,this.commonStrings.IS_VALID,e);
          }
@@ -79,7 +82,7 @@ public class AddValidationUserView extends HttpStoreComponentView
          
          if(UserEntityFactory.getInstance().getUser(this.user.getUserName())!=null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                this.logUtil.putF("User already exists",this,"validationInfo()");
             }
@@ -96,7 +99,7 @@ public class AddValidationUserView extends HttpStoreComponentView
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
@@ -116,7 +119,7 @@ public class AddValidationUserView extends HttpStoreComponentView
    
    public String view() throws Exception
    {
-      return views.ValidationOnlyTempUtil.getInstance().view(this);
+      return ValidationOnlyTempUtil.getInstance().view(this);
    }
 
     //Needed for polyglot do not remove

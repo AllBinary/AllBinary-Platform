@@ -25,6 +25,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.control.workflow.WorkFlowInterface;
 import org.allbinary.logic.control.workflow.RequestWorkFlowFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class RequestHandler extends HttpServlet
 {
@@ -62,7 +64,7 @@ public class RequestHandler extends HttpServlet
       }
       catch(LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SERVLETERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SERVLETERROR))
          {
             this.logUtil.put("Servlet LicensingException",this,"processRequest()",e);
          }
@@ -70,7 +72,7 @@ public class RequestHandler extends HttpServlet
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SERVLETERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SERVLETERROR))
          {
             this.logUtil.put("Servlet Exception",this,"processRequest()",e);
          }

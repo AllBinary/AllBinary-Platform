@@ -21,6 +21,9 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import views.business.context.modules.storefront.customizer.CustomizerUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import views.ValidationOnlyTempUtil;
 
 public class NewGlobalsValidationView 
     extends GlobalsView
@@ -57,7 +60,7 @@ public class NewGlobalsValidationView
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to validate",this,this.commonStrings.IS_VALID,e);
          }
@@ -77,7 +80,7 @@ public class NewGlobalsValidationView
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
@@ -97,7 +100,7 @@ public class NewGlobalsValidationView
 
    public String view() throws Exception
    {
-      return views.ValidationOnlyTempUtil.getInstance().view(this);
+      return ValidationOnlyTempUtil.getInstance().view(this);
    }
 
     //Needed for polyglot do not remove

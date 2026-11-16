@@ -31,6 +31,7 @@ import org.eclipse.swt.graphics.Transform;
 import org.eclipse.swt.widgets.Display;
 
 import org.microemu.app.BareMain;
+import org.eclipse.swt.graphics.Image;
 
 public class ImageUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -69,17 +70,17 @@ public class ImageUtil {
         }
     }
 
-    public org.eclipse.swt.graphics.Image create(final int width, final int height) {
+    public Image create(final int width, final int height) {
         final Display display = BareMain.shell.getDisplay();
-        return new org.eclipse.swt.graphics.Image(display, width, height);
+        return new Image(display, width, height);
     }
 
-    public org.eclipse.swt.graphics.Image[] createBufferedImage(final org.eclipse.swt.graphics.Image[] bufferedImageArray, final int percent, final boolean scale)
+    public Image[] createBufferedImage(final Image[] bufferedImageArray, final int percent, final boolean scale)
         throws Exception {
         final int size = bufferedImageArray.length;
-        final org.eclipse.swt.graphics.Image[] scaledBufferedImageArray = new org.eclipse.swt.graphics.Image[size];
+        final Image[] scaledBufferedImageArray = new Image[size];
 
-        org.eclipse.swt.graphics.Image bufferedImage;
+        Image bufferedImage;
         ImageData imageData;
         for (int index = 0; index < size; index++) {
             bufferedImage = bufferedImageArray[index];
@@ -94,12 +95,12 @@ public class ImageUtil {
         return scaledBufferedImageArray;
     }
 
-    public org.eclipse.swt.graphics.Image[] createBufferedImage2(final org.eclipse.swt.graphics.Image[] bufferedImageArray, final float percent, final boolean scale)
+    public Image[] createBufferedImage2(final Image[] bufferedImageArray, final float percent, final boolean scale)
         throws Exception {
         final int size = bufferedImageArray.length;
-        final org.eclipse.swt.graphics.Image[] scaledBufferedImageArray = new org.eclipse.swt.graphics.Image[size];
+        final Image[] scaledBufferedImageArray = new Image[size];
 
-        org.eclipse.swt.graphics.Image bufferedImage;
+        Image bufferedImage;
         ImageData imageData;
         for (int index = 0; index < size; index++) {
             bufferedImage = bufferedImageArray[index];
@@ -114,10 +115,10 @@ public class ImageUtil {
         return scaledBufferedImageArray;
     }
 
-    public org.eclipse.swt.graphics.Image[] createBufferedImage3(final org.eclipse.swt.graphics.Image[] bufferedImageArray, final int width, final int height, final boolean scale)
+    public Image[] createBufferedImage3(final Image[] bufferedImageArray, final int width, final int height, final boolean scale)
         throws Exception {
         final int size = bufferedImageArray.length;
-        final org.eclipse.swt.graphics.Image[] scaledBufferedImageArray = new org.eclipse.swt.graphics.Image[size];
+        final Image[] scaledBufferedImageArray = new Image[size];
 
         for (int index = 0; index < size; index++) {
             scaledBufferedImageArray[index]
@@ -127,16 +128,16 @@ public class ImageUtil {
         return scaledBufferedImageArray;
     }
 
-    public org.eclipse.swt.graphics.Image createBufferedImage4(final org.eclipse.swt.graphics.Image bufferedImage, final int newWidth, int newHeight)
+    public Image createBufferedImage4(final Image bufferedImage, final int newWidth, int newHeight)
         throws Exception {
         return this.createBufferedImage5(bufferedImage, newWidth, newHeight, true);
     }
 
-    public org.eclipse.swt.graphics.Image createBufferedImage5(final org.eclipse.swt.graphics.Image bufferedImage, final int newWidth, int newHeight, final boolean scale) throws Exception {
+    public Image createBufferedImage5(final Image bufferedImage, final int newWidth, int newHeight, final boolean scale) throws Exception {
         return this.createBufferedImage6(bufferedImage, newWidth, newHeight, scale, false);
     }
 
-    public org.eclipse.swt.graphics.Image createBufferedImage6(final org.eclipse.swt.graphics.Image bufferedImage, final int newWidth, int newHeight, final boolean scale, final boolean allowTranslate)
+    public Image createBufferedImage6(final Image bufferedImage, final int newWidth, int newHeight, final boolean scale, final boolean allowTranslate)
         throws Exception {
         final ImageData imageData = bufferedImage.getImageData();
         final float width = imageData.width;
@@ -190,7 +191,7 @@ public class ImageUtil {
 //          }
         }
 
-        final org.eclipse.swt.graphics.Image newBufferedImage = new org.eclipse.swt.graphics.Image(BareMain.shell.getDisplay(),
+        final Image newBufferedImage = new Image(BareMain.shell.getDisplay(),
             newWidth, newHeight); //org.eclipse.swt.graphics.Image.TYPE_INT_ARGB_PRE
 
         //bufferedImage.getImageData().scaledTo(newWidth, newHeight);
@@ -210,7 +211,7 @@ public class ImageUtil {
         return newBufferedImage;
     }
 
-    public Canvas drawTransformedImage(final org.eclipse.swt.graphics.Image image, final Composite parent, final int dx, final int dy, final int width, final int height) {
+    public Canvas drawTransformedImage(final Image image, final Composite parent, final int dx, final int dy, final int width, final int height) {
         final Canvas imageCanvas = new Canvas(parent, SWT.NONE);
         imageCanvas.addPaintListener(new PaintListener() {
 
@@ -231,7 +232,7 @@ public class ImageUtil {
         return imageCanvas;
     }
 
-    public String toString(org.eclipse.swt.graphics.Image bufferedImage) {
+    public String toString(Image bufferedImage) {
         final CommonLabels commonLabels = CommonLabels.getInstance();
         final StringMaker stringBuffer = new StringMaker();
 

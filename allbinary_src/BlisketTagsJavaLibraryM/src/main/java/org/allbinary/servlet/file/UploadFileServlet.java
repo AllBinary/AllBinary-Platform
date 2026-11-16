@@ -39,6 +39,8 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.servlet.BlisketServletUtil;
 import org.allbinary.string.CommonStrings;
 import org.apache.commons.fileupload.FileItem;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 /**
  *
@@ -113,7 +115,7 @@ public class UploadFileServlet extends HttpServlet
 
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "processRequest()", e);
             }
@@ -156,7 +158,7 @@ public class UploadFileServlet extends HttpServlet
 
                 final AbFile file = AbFile.createAbFile(URLGLOBALS.getWebappPath() + filePath);
 
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().HTTPREQUEST))
                 {
                     final StringMaker stringBuffer = new StringMaker();
 

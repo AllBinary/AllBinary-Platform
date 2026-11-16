@@ -30,6 +30,8 @@ import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class OrderStatusEmail
 {
@@ -76,7 +78,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
             this.logUtil.putF("Order Email", this, "emailStoreAdmin");
          }
@@ -112,7 +114,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "emailAdmin", e);
          }
@@ -125,7 +127,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
             this.logUtil.putF("Email User", this, "notifyUser()");
          }
@@ -150,7 +152,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "notifyUser", e);
          }

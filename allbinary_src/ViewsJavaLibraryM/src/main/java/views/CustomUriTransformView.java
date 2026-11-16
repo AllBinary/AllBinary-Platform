@@ -25,6 +25,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class CustomUriTransformView
    implements TransformInterface
@@ -42,7 +44,7 @@ public class CustomUriTransformView
    public CustomUriTransformView(
       TransformInfoInterface transformInfoInterface) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR);
       }
@@ -115,7 +117,7 @@ public class CustomUriTransformView
       catch(Exception e)
       {
          //String error = "Failed to view CustomUriTransformView";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "view()", e);
          }

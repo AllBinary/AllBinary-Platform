@@ -22,6 +22,6 @@ public interface SoundInterface {
     
     Player getPlayerP();
 
-    void init() throws java.lang.Exception;
+    void init() throws Exception;
 
 }

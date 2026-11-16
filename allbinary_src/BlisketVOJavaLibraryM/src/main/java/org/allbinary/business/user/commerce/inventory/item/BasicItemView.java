@@ -25,6 +25,8 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class BasicItemView implements DomNodeInterface
 {
@@ -44,7 +46,7 @@ public class BasicItemView implements DomNodeInterface
    
    public Node toXmlNode(Document document) throws Exception
    {
-       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
+       if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
        {
           this.logUtil.putF(this.commonStrings.START, this, "toXmlNode");
        }

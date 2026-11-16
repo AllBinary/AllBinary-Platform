@@ -19,6 +19,8 @@ import org.allbinary.business.DynamicObjectData;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import tags.StoreWorkFlowTag;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 //Future implementation use the workflow url to specify the correct customizer view
 //and remove the hidden fields
@@ -28,7 +30,7 @@ public class BasicWorkFlowTag extends StoreWorkFlowTag
 
    public BasicWorkFlowTag()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
       {
          this.logUtil.putF(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR);
       }
@@ -38,7 +40,7 @@ public class BasicWorkFlowTag extends StoreWorkFlowTag
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
          {
             this.logUtil.putF(this.commonStrings.START,this,tagStrings.DO_START_TAG);
          }

@@ -20,6 +20,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 
 public class PreviewGeneratorStoreFrontContextView extends GeneratorStoreFrontContextView
@@ -47,7 +49,7 @@ public class PreviewGeneratorStoreFrontContextView extends GeneratorStoreFrontCo
       catch(Exception e)
       {
          //String error = "Failed To View Store Template Compound Component";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "view()", e);
          }

@@ -13,10 +13,13 @@
 */
 package org.allbinary.graphics.j2me.workarea.canvas.event;
 
+import java.util.EventListener;
+import javax.swing.event.EventListenerList;
+
 public class MyCanvasEventService
 {
-   private static javax.swing.event.EventListenerList listenerList =
-            new javax.swing.event.EventListenerList();
+   private static EventListenerList listenerList =
+            new EventListenerList();
       
    public static String DELETE = "delete";
    public static String DUPLICATE = "duplicate";
@@ -35,12 +38,12 @@ public class MyCanvasEventService
     
    public static synchronized void addListener(MyCanvasEventListener listener) 
    {      
-      MyCanvasEventService.listenerList.add((Class) listener.getClass(), (java.util.EventListener) listener);
+      MyCanvasEventService.listenerList.add((Class<EventListener>) (Class<?>) listener.getClass(), (EventListener) listener);
    }
 
    public static synchronized void removeListener(MyCanvasEventListener listener) 
    {    
-      MyCanvasEventService.listenerList.remove((Class) listener.getClass(), (java.util.EventListener) listener);
+      MyCanvasEventService.listenerList.remove((Class<EventListener>) (Class<?>) listener.getClass(), (EventListener) listener);
    }
        
    public static synchronized void fire(MyCanvasEvent evt) 

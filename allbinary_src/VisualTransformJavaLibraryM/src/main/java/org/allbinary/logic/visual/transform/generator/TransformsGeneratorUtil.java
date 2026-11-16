@@ -22,6 +22,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.visual.transform.info.TransformInfoDomNode;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class TransformsGeneratorUtil
 {
@@ -42,7 +44,7 @@ public class TransformsGeneratorUtil
         final TransformInfoInterface transformInfoInterface, String group)
         throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("Started Group: " + group, this, "generateComponentsFromObjectConfig(2)");
         }
@@ -53,7 +55,7 @@ public class TransformsGeneratorUtil
         String result = this.generateComponentsFromObjectConfig(
             abeClientInformation, transformInfoObjectConfigInterface, transformInfoInterface, group);
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("End Group: " + group,
                 this, "generateComponentsFromObjectConfig(2)");
@@ -69,7 +71,7 @@ public class TransformsGeneratorUtil
         final TransformInfoInterface transformInfoInterface, String group)
         throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("Started Group: " + group,this, "generateComponentsFromObjectConfig()");
         }
@@ -77,7 +79,7 @@ public class TransformsGeneratorUtil
         BasicArrayList transformInfoObjectConfigComponentVector =
             transformInfoObjectConfigInterface.getTransformsGroup(group);
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             StringMaker stringBuffer = new StringMaker();
 
@@ -102,7 +104,7 @@ public class TransformsGeneratorUtil
             TransformGeneratorUtil.getInstance().generate(abeClientInformation, transformInfoObjectConfigComponent, transformInfoInterface);
         }
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("Done Group: " + group, this, "generateComponentsFromObjectConfig()");
         }

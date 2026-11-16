@@ -20,6 +20,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.visual.transform.TransformInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class TransformInfoObjectFactory
 {
@@ -42,8 +44,8 @@ public class TransformInfoObjectFactory
     {
         try
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.putF("Creating View: " + transformInfoInterface.getName(), this, commonStrings.GET_INSTANCE);
@@ -93,8 +95,8 @@ public class TransformInfoObjectFactory
                 error = error + transformInfoInterface.getName();
             }
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.put(error, this, commonStrings.GET_INSTANCE, e);
@@ -109,8 +111,8 @@ public class TransformInfoObjectFactory
                 error = error + transformInfoInterface.getName();
             }
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 this.logUtil.put(error, this, commonStrings.GET_INSTANCE, e);

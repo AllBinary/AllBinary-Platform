@@ -21,6 +21,8 @@ import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class CustomLoaderHelper
 {
@@ -40,7 +42,7 @@ public class CustomLoaderHelper
    {
       try
       {
-         return org.allbinary.globals.URLGLOBALS.getWebappPath();
+         return URLGLOBALS.getWebappPath();
       }
       catch(Exception e)
       {
@@ -63,7 +65,7 @@ public class CustomLoaderHelper
       }
       catch(Exception e)
       {         
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"setWebappPath()",e);
          }

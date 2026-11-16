@@ -26,6 +26,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonSeps;
 import tags.HelperTag;
 import views.admin.inventory.download.DownloadableInventoryItemView;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class DownloadItemsRequestHelper extends ModifyTable
 {
@@ -60,7 +62,7 @@ public class DownloadItemsRequestHelper extends ModifyTable
 
             String success = "Successfully inserted " + this.downloadableItem.getId() + " into downloaditems table";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 this.logUtil.putF(success, this, "insert()");
             }
@@ -69,7 +71,7 @@ public class DownloadItemsRequestHelper extends ModifyTable
         {
             String error = "Failed to insert " + this.downloadableItem.getId() + " into downloaditems table";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "inserts()", e);
             }
@@ -86,7 +88,7 @@ public class DownloadItemsRequestHelper extends ModifyTable
 
             String success = "Successfully deleted";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 this.logUtil.putF(success, this, "delete()");
             }
@@ -95,7 +97,7 @@ public class DownloadItemsRequestHelper extends ModifyTable
         {
             String error = "Failed to delete";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "delete()", e);
             }
@@ -112,7 +114,7 @@ public class DownloadItemsRequestHelper extends ModifyTable
             HashMap values = this.downloadableItem.toHashMap();
             DownloadItemsEntityFactory.getInstance().getDownloadItemsEntityInstance().update(values);
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 this.logUtil.putF(this.downloadableItem.getId() + CommonSeps.getInstance().SPACE + success, this, "update()");
             }
@@ -121,7 +123,7 @@ public class DownloadItemsRequestHelper extends ModifyTable
         {
             String error = "Failed to update: " + this.downloadableItem.getId();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "update()", e);
             }

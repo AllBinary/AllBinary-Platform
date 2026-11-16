@@ -14,8 +14,9 @@
 package org.allbinary.graphics.j2me.workarea.tools.event;
 
 import javax.swing.tree.MutableTreeNode;
+import java.util.EventObject;
 
-public class MyGraphicItemEvent extends java.util.EventObject
+public class MyGraphicItemEvent extends EventObject
 {      
    public MyGraphicItemEvent(Object source) 
    {

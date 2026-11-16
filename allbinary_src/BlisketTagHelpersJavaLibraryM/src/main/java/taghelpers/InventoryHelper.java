@@ -34,6 +34,8 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import views.admin.inventory.listings.InventoryViewFactory;
 import views.admin.inventory.listings.InventoryViewSearchInterface;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InventoryHelper extends TagHelper
 {
@@ -88,7 +90,7 @@ public class InventoryHelper extends TagHelper
 
          String result = inventoryViewSearchInterface.getProduct(this.id);
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF("Successfull Inventory View Summary",this,"viewSummary()");
          }
@@ -98,7 +100,7 @@ public class InventoryHelper extends TagHelper
       {
          String error = "Failed to View Summary";
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"viewSummary()",e);
          }
@@ -124,7 +126,7 @@ public class InventoryHelper extends TagHelper
          //if(inventoryDomNodeInterface==null) 
          String result = inventoryViewSearchInterface.searchSingleDynamicPage();
             
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF("Successful Inventory Dynamic Search",this,"searchSingleDynamicPage()");
          }
@@ -159,7 +161,7 @@ public class InventoryHelper extends TagHelper
       {
          String error = "Failed to search Inventory by keyword";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"searchSingleDynamicPage()",e);
          }

@@ -32,6 +32,8 @@ import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntit
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityInterface;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 
 public class OrderHistoryHelper extends TagHelper
@@ -117,7 +119,7 @@ public class OrderHistoryHelper extends TagHelper
                         return "Order " + this.id + " has been cancelled.<br/>";
                      }
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF(success,this,"setOrderStatus()");
          }
@@ -126,7 +128,7 @@ public class OrderHistoryHelper extends TagHelper
       catch(Exception e)
       {
          String error = "Failed to set order status";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"setOrderStatus()",e);
          }

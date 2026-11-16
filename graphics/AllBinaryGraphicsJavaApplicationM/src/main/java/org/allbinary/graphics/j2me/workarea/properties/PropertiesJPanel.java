@@ -14,8 +14,13 @@
 package org.allbinary.graphics.j2me.workarea.properties;
 
 import javax.swing.*;
+import java.awt.Font;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class PropertiesJPanel extends javax.swing.JPanel
+public class PropertiesJPanel extends JPanel
 {   
    //private WorkAreaJPanelInterface workArea;
       
@@ -38,39 +43,39 @@ public class PropertiesJPanel extends javax.swing.JPanel
     */   
    private void initComponents()//GEN-BEGIN:initComponents
    {
-      this.workAreaPropertiesJPanel = new javax.swing.JPanel();
-      this.modifierJPanel = new javax.swing.JPanel();
-      this.copyVerticalJButton = new javax.swing.JButton();
-      this.copyHorizontalJButton = new javax.swing.JButton();
-      this.rotateJPanel = new javax.swing.JPanel();
-      this.rotateJButton = new javax.swing.JButton();
-      this.angleJTextField = new javax.swing.JTextField();
-      this.jPanel7 = new javax.swing.JPanel();
-      this.upJButton = new javax.swing.JButton();
-      this.downJButton = new javax.swing.JButton();
-      this.jPanel8 = new javax.swing.JPanel();
-      this.leftJButton = new javax.swing.JButton();
-      this.rightJButton = new javax.swing.JButton();
+      this.workAreaPropertiesJPanel = new JPanel();
+      this.modifierJPanel = new JPanel();
+      this.copyVerticalJButton = new JButton();
+      this.copyHorizontalJButton = new JButton();
+      this.rotateJPanel = new JPanel();
+      this.rotateJButton = new JButton();
+      this.angleJTextField = new JTextField();
+      this.jPanel7 = new JPanel();
+      this.upJButton = new JButton();
+      this.downJButton = new JButton();
+      this.jPanel8 = new JPanel();
+      this.leftJButton = new JButton();
+      this.rightJButton = new JButton();
 
-      setLayout(new java.awt.GridLayout(2, 1));
+      setLayout(new GridLayout(2, 1));
 
-      this.workAreaPropertiesJPanel.setLayout(new java.awt.GridLayout());
+      this.workAreaPropertiesJPanel.setLayout(new GridLayout());
 
       add(this.workAreaPropertiesJPanel);
 
-      this.modifierJPanel.setLayout(new java.awt.GridLayout(6, 0));
+      this.modifierJPanel.setLayout(new GridLayout(6, 0));
 
-      this.copyVerticalJButton.setFont(new java.awt.Font("Dialog", 0, 10));
+      this.copyVerticalJButton.setFont(new Font("Dialog", 0, 10));
       this.copyVerticalJButton.setText("Copy Vertical");
       this.modifierJPanel.add(this.copyVerticalJButton);
 
-      this.copyHorizontalJButton.setFont(new java.awt.Font("Dialog", 0, 10));
+      this.copyHorizontalJButton.setFont(new Font("Dialog", 0, 10));
       this.copyHorizontalJButton.setText("Copy Horizontal");
       this.modifierJPanel.add(this.copyHorizontalJButton);
 
-      this.rotateJPanel.setLayout(new java.awt.GridLayout(1, 2));
+      this.rotateJPanel.setLayout(new GridLayout(1, 2));
 
-      this.rotateJButton.setFont(new java.awt.Font("Dialog", 0, 10));
+      this.rotateJButton.setFont(new Font("Dialog", 0, 10));
       this.rotateJButton.setText("Rotate");
       this.rotateJPanel.add(this.rotateJButton);
 
@@ -79,25 +84,25 @@ public class PropertiesJPanel extends javax.swing.JPanel
 
       this.modifierJPanel.add(this.rotateJPanel);
 
-      this.jPanel7.setLayout(new java.awt.GridLayout(1, 2));
+      this.jPanel7.setLayout(new GridLayout(1, 2));
 
-      this.upJButton.setFont(new java.awt.Font("Dialog", 0, 10));
+      this.upJButton.setFont(new Font("Dialog", 0, 10));
       this.upJButton.setText("Up");
       this.jPanel7.add(this.upJButton);
 
-      this.downJButton.setFont(new java.awt.Font("Dialog", 0, 10));
+      this.downJButton.setFont(new Font("Dialog", 0, 10));
       this.downJButton.setText("Down");
       this.jPanel7.add(this.downJButton);
 
       this.modifierJPanel.add(this.jPanel7);
 
-      this.jPanel8.setLayout(new java.awt.GridLayout(1, 2));
+      this.jPanel8.setLayout(new GridLayout(1, 2));
 
-      this.leftJButton.setFont(new java.awt.Font("Dialog", 0, 10));
+      this.leftJButton.setFont(new Font("Dialog", 0, 10));
       this.leftJButton.setText("Left");
       this.jPanel8.add(this.leftJButton);
 
-      this.rightJButton.setFont(new java.awt.Font("Dialog", 0, 10));
+      this.rightJButton.setFont(new Font("Dialog", 0, 10));
       this.rightJButton.setText("Right");
       this.jPanel8.add(this.rightJButton);
 
@@ -109,19 +114,19 @@ public class PropertiesJPanel extends javax.swing.JPanel
    
    
    // Variables declaration - do not modify//GEN-BEGIN:variables
-   private javax.swing.JButton rotateJButton;
-   private javax.swing.JButton copyVerticalJButton;
-   private javax.swing.JButton leftJButton;
-   private javax.swing.JPanel rotateJPanel;
-   private javax.swing.JTextField angleJTextField;
-   private javax.swing.JPanel workAreaPropertiesJPanel;
-   private javax.swing.JPanel modifierJPanel;
-   private javax.swing.JButton upJButton;
-   private javax.swing.JPanel jPanel8;
-   private javax.swing.JButton downJButton;
-   private javax.swing.JPanel jPanel7;
-   private javax.swing.JButton rightJButton;
-   private javax.swing.JButton copyHorizontalJButton;
+   private JButton rotateJButton;
+   private JButton copyVerticalJButton;
+   private JButton leftJButton;
+   private JPanel rotateJPanel;
+   private JTextField angleJTextField;
+   private JPanel workAreaPropertiesJPanel;
+   private JPanel modifierJPanel;
+   private JButton upJButton;
+   private JPanel jPanel8;
+   private JButton downJButton;
+   private JPanel jPanel7;
+   private JButton rightJButton;
+   private JButton copyHorizontalJButton;
    // End of variables declaration//GEN-END:variables
    
 }

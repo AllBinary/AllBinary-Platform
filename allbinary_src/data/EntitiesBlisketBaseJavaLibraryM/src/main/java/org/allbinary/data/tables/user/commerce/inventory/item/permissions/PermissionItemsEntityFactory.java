@@ -15,6 +15,8 @@ package org.allbinary.data.tables.user.commerce.inventory.item.permissions;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class PermissionItemsEntityFactory
 {
@@ -43,7 +45,7 @@ public class PermissionItemsEntityFactory
       {
          //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (InventoryEntityInterface) InterfaceCastProxy.newInstance(object);
-         return new org.allbinary.data.tables.user.commerce.inventory.item.permissions.PermissionItemsEntity();
+         return new PermissionItemsEntity();
       }
       /*
       catch(LicensingException e)
@@ -59,7 +61,7 @@ public class PermissionItemsEntityFactory
       catch(Exception e)
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             logUtil.put(commonStrings.EXCEPTION, "PermissionItemsEntityFactory",commonStrings.GET_INSTANCE,e);
          }

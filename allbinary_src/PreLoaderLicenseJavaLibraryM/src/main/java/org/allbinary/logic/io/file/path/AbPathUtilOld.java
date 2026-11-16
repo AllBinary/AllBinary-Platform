@@ -20,6 +20,8 @@ import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 //Used to correct user input for paths
 public class AbPathUtilOld
@@ -65,7 +67,7 @@ public class AbPathUtilOld
 
       String extension = filePath.substring(beginIndex + 1);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("FileExtension: " + extension, this, "getExtension()");
       }
@@ -97,7 +99,7 @@ public class AbPathUtilOld
 
       String pathWithoutExtension = filePath.substring(0, endIndex);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("FileWithoutExtension: " + pathWithoutExtension, this, "getWithoutExtension()");
       }

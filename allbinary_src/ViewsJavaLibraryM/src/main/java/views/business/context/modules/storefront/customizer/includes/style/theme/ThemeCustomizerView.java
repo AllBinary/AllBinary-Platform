@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import views.business.context.modules.storefront.HttpStoreComponentView;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class ThemeCustomizerView extends HttpStoreComponentView
 {
@@ -46,8 +48,8 @@ public class ThemeCustomizerView extends HttpStoreComponentView
       catch(Exception e)
       {
          //String error = "Failed to view Theme Template";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }

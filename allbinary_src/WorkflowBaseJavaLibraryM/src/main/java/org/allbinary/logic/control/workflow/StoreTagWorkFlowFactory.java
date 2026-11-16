@@ -24,6 +24,8 @@ import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class StoreTagWorkFlowFactory
 {
@@ -46,8 +48,8 @@ public class StoreTagWorkFlowFactory
         {
             String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
                 StringMaker stringBuffer = new StringMaker();
 
@@ -74,8 +76,8 @@ public class StoreTagWorkFlowFactory
             return (StoreWorkFlowInterface) AbeFactory.getInstance().getInstance(abeClientInformation, workFlowClassName, classes, params);
         } catch (LicensingException e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
@@ -92,8 +94,8 @@ public class StoreTagWorkFlowFactory
             throw e;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 

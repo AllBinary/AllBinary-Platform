@@ -26,6 +26,8 @@ import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class TitleView implements DomNodeInterface
 {
@@ -61,7 +63,7 @@ public class TitleView implements DomNodeInterface
     	  this.title = TitleView.NAME;
       }
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("Title: " + this.getTitle(), this, "Consructor()");
       }
@@ -69,7 +71,7 @@ public class TitleView implements DomNodeInterface
 
    public TitleView(HashMap hashMap)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("HashMap: " + hashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
       }
@@ -103,7 +105,7 @@ public class TitleView implements DomNodeInterface
    {
       HashMap hashMap = this.toHashMap();
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("TitleView HashMap: " + hashMap.toString(), this, "toXmlNode()");
       }

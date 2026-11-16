@@ -30,6 +30,8 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class Category
     implements CategoryInterface
@@ -51,7 +53,7 @@ public class Category
     public Category(
         CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface) throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
         {
             this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, "Category(CategoryPropertiesFactoryInterface)");
         }
@@ -143,7 +145,7 @@ public class Category
         //remove duplicate if available
         this.removeDuplicateChild(categoryInterface);
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
         {
             this.logUtil.putF("adding", this, "addChild");
         }
@@ -358,7 +360,7 @@ public class Category
 
     public void log() throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
         {
             StringMaker stringBuffer = new StringMaker();
 

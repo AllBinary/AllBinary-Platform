@@ -13,10 +13,13 @@
 */
 package org.allbinary.graphics.j2me.workarea.tools.event;
 
+import java.util.EventListener;
+import javax.swing.event.EventListenerList;
+
 public class MyGraphicItemEventService
 {
-   private static javax.swing.event.EventListenerList listenerList =
-            new javax.swing.event.EventListenerList();
+   private static EventListenerList listenerList =
+            new EventListenerList();
       
    public static String DELETE = "delete";
    public static String DESELECT = "deselect";
@@ -33,13 +36,13 @@ public class MyGraphicItemEventService
    public static synchronized void addListener(MyGraphicItemEventListener listener) 
    {
       //MyGraphicItemEventListener.class
-      MyGraphicItemEventService.listenerList.add((Class) listener.getClass(), (java.util.EventListener) listener);
+      MyGraphicItemEventService.listenerList.add((Class<EventListener>) (Class<?>) listener.getClass(), (EventListener) listener);
    }
 
    public static synchronized void removeListener(MyGraphicItemEventListener listener) 
    {
       //MyGraphicItemEventListener.class
-      MyGraphicItemEventService.listenerList.remove((Class) listener.getClass(), (java.util.EventListener) listener);
+      MyGraphicItemEventService.listenerList.remove((Class<EventListener>) (Class<?>) listener.getClass(), (EventListener) listener);
    }
        
    public static synchronized void fire(MyGraphicItemEvent evt) 

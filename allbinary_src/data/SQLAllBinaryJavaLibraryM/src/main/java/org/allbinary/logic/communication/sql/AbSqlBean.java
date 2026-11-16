@@ -20,6 +20,9 @@ import java.util.Set;
 import org.allbinary.business.init.db.DbConnectionInfo;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class AbSqlBean extends AbSqlRow
 {
@@ -57,7 +60,7 @@ public class AbSqlBean extends AbSqlRow
             {
 
                 field = rset.getString(requestedField);
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
                     stringBuffer.delete(0, stringBuffer.length());
 
@@ -74,7 +77,7 @@ public class AbSqlBean extends AbSqlRow
             return null;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_FIELD, e);
             }
@@ -124,7 +127,7 @@ public class AbSqlBean extends AbSqlRow
             while (rset.next())
             {
                 field = rset.getString(requestedField);
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
                     stringBuffer.delete(0, stringBuffer.length());
 
@@ -142,7 +145,7 @@ public class AbSqlBean extends AbSqlRow
         {
             final String sqlStatement = stringBuffer.toString();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_FIELD, e);
             }
@@ -195,7 +198,7 @@ public class AbSqlBean extends AbSqlRow
                     field = rset.getObject(columnName).toString();
                     if (field.compareTo((String) columnsAndValues.get(columnName)) != 0)
                     {
-                        return org.allbinary.globals.GLOBALS2.NOTASUBSET;
+                        return GLOBALS2.NOTASUBSET;
                     }
                 }
 
@@ -203,15 +206,15 @@ public class AbSqlBean extends AbSqlRow
 
             if (rset.getRow() != 1)
             {
-                return org.allbinary.globals.GLOBALS2.NOTASUBSET;
+                return GLOBALS2.NOTASUBSET;
             } else
             {
-                return org.allbinary.globals.GLOBALS2.ISASUBSET;
+                return GLOBALS2.ISASUBSET;
             }
         } catch (Exception e)
         {
             final String sqlStatement = stringBuffer.toString();
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_IS_SUBSET_OF_ENTRY, e);
             }

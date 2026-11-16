@@ -28,6 +28,8 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class CssPropertyValues implements DomNodeInterface
 {
@@ -52,7 +54,7 @@ public class CssPropertyValues implements DomNodeInterface
       DomSearchHelper.getAllNodes(
          CssPropertyValueData.getInstance().NAME, node.getChildNodes());
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().STYLE))
       {
          this.logUtil.putF("Number Of Properties: " +
             cssPropertyNodeVector.size(),this,"CssProperties()");
@@ -71,7 +73,7 @@ public class CssPropertyValues implements DomNodeInterface
          String propertyValue =
             DomNodeHelper.getTextNodeValue(valueNode);
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().STYLE))
          {
             this.logUtil.putF("Property Value: " + propertyValue,this,"CssProperties()");
          }
@@ -143,7 +145,7 @@ public class CssPropertyValues implements DomNodeInterface
 
    public Node toXmlNode(Document document) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          HashMap hashMap = this.toHashMap();
          this.logUtil.putF("CssPropertyValues HashMap: " + hashMap.toString(),this,"toXmlNode()");

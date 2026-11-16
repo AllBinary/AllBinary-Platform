@@ -13,7 +13,11 @@
 */
 package org.allbinary.input.automation.module.configuration;
 
-public class BlankModuleConfigurationJPanel extends javax.swing.JPanel
+import javax.swing.GroupLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class BlankModuleConfigurationJPanel extends JPanel
 {
     public BlankModuleConfigurationJPanel()
     {
@@ -28,21 +32,21 @@ public class BlankModuleConfigurationJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        this.jLabel1 = new javax.swing.JLabel();
+        this.jLabel1 = new JLabel();
 
         this.jLabel1.setText("No Configuration Available");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(231, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(225, 225, 225))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
@@ -52,7 +56,7 @@ public class BlankModuleConfigurationJPanel extends javax.swing.JPanel
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
     
 }

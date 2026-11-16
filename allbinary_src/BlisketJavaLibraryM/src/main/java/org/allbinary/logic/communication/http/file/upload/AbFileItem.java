@@ -29,6 +29,8 @@ import org.allbinary.string.CommonStrings;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemHeaders;
 import org.apache.commons.fileupload.FileItemUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 /**
  *
@@ -95,7 +97,7 @@ public class AbFileItem
         }
         catch(Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().HTTPERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "getString", e);
             }

@@ -16,7 +16,7 @@ package org.allbinary.graphics.j2me;
 import org.allbinary.logic.communication.log.GuiLog;
 import org.allbinary.logic.communication.log.LogUtil;
 
-public class GraphicsException extends java.lang.Exception
+public class GraphicsException extends Exception
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
    

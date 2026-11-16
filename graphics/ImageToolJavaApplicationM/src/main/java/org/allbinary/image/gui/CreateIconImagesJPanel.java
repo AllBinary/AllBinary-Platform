@@ -28,12 +28,17 @@ import org.allbinary.media.image.ImageUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 /**
  *
  * @author User
  */
-public class CreateIconImagesJPanel extends javax.swing.JPanel
+public class CreateIconImagesJPanel extends JPanel
         implements ImageProcessorInputCompositeInterface {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -190,25 +195,25 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        this.aboveJButton = new javax.swing.JButton();
+        this.aboveJButton = new JButton();
 
         this.aboveJButton.setText("Process");
-        this.aboveJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        this.aboveJButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 aboveJButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(aboveJButton)
                 .addGap(0, 335, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(aboveJButton)
@@ -216,12 +221,12 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void aboveJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboveJButtonActionPerformed
+    private void aboveJButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_aboveJButtonActionPerformed
         this.process();
     }//GEN-LAST:event_aboveJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton aboveJButton;
+    private JButton aboveJButton;
     // End of variables declaration//GEN-END:variables
 }

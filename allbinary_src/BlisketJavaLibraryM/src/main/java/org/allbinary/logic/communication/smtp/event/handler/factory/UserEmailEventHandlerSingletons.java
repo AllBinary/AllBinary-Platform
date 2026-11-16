@@ -26,6 +26,8 @@ import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandle
 import org.allbinary.logic.communication.smtp.event.modules.log.LogUserEmailEventListenerModule;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class UserEmailEventHandlerSingletons {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -46,7 +48,7 @@ public class UserEmailEventHandlerSingletons {
     private final HashMap userEmailEventHandlerHashMap = StdUtil.getInstance().createHashMap();
 
     private UserEmailEventHandlerSingletons() {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
     }
@@ -56,7 +58,7 @@ public class UserEmailEventHandlerSingletons {
         UserEmailEventNameData userEmailEventNameData,
         UserInterface userInterface)
         throws Exception {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.GET_INSTANCE);
         }
 
@@ -64,7 +66,7 @@ public class UserEmailEventHandlerSingletons {
             userEmailEventNameData);
 
         if (userEmailEventHandler == null) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
                 this.logUtil.putF("Creating New Named UserEmailEventHandler", this, this.commonStrings.GET_INSTANCE);
             }
 
@@ -82,7 +84,7 @@ public class UserEmailEventHandlerSingletons {
 
             return newUserEmailEventHandler;
         } else {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
                 this.logUtil.putF("Returning existing UserEmailEventHandler", this, this.commonStrings.GET_INSTANCE);
             }
 

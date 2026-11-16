@@ -16,6 +16,8 @@ package views.generic.shipping;
 import org.allbinary.globals.MESSAGES;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class ValidationView extends ShippingMethodsView implements ValidationComponentInterface
 {
@@ -29,12 +31,12 @@ public class ValidationView extends ShippingMethodsView implements ValidationCom
       return Boolean.TRUE;
    }
    
-   public org.w3c.dom.Document toValidationInfoDoc()
+   public Document toValidationInfoDoc()
    {
       return null;
    }
    
-   public org.w3c.dom.Node toValidationInfoNode(org.w3c.dom.Document document)
+   public Node toValidationInfoNode(Document document)
    {
       return null;      
    }

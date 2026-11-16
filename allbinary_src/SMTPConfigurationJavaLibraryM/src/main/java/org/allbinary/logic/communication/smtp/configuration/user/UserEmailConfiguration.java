@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.configuration.user.event.UserEmailEventsConfiguration;
 import org.allbinary.logic.communication.smtp.configuration.user.event.UserEmailEventsConfigurationInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class UserEmailConfiguration implements UserEmailConfigurationInterface
 {
@@ -30,7 +32,7 @@ public class UserEmailConfiguration implements UserEmailConfigurationInterface
    
    public UserEmailConfiguration()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this,this.commonStrings.CONSTRUCTOR);
       }
@@ -40,7 +42,7 @@ public class UserEmailConfiguration implements UserEmailConfigurationInterface
    
    public UserEmailConfiguration(HashMap hashMap)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR);
       }

@@ -33,6 +33,8 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import views.admin.inventory.listings.InventoryViewSearchInterface;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 /*
  *This class updates the static page db table and generates/updates the html
@@ -92,8 +94,8 @@ public class InventorySearch implements InventoryViewSearchInterface
         }
         catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
             {
                 this.logUtil.put(this.commonStrings.FAILURE, this, "searchSingleStaticPage", e);
             }
@@ -110,8 +112,8 @@ public class InventorySearch implements InventoryViewSearchInterface
         }
         catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGINGERROR))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGINGERROR))
             {
                 this.logUtil.put(this.commonStrings.FAILURE, this, "searchSingleDynamicPage", e);
             }

@@ -25,6 +25,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.TransformTemplateInterface;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 import views.business.context.modules.storefront.customizer.template.objectConfig.NoTemplateTransformInfoObjectConfig;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class RootContextView extends HttpStoreComponentView 
    implements TransformTemplateInterface //DomNodeInterface
@@ -35,7 +37,7 @@ public class RootContextView extends HttpStoreComponentView
    {
       super(transformInfoInterface);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("View Name: " + transformInfoInterface.getName(), this, "RootContextView()");
       }
@@ -46,7 +48,7 @@ public class RootContextView extends HttpStoreComponentView
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
             this.logUtil.putF("View Name: " + this.getTransformInfoInterface().getName(), this, "view()");
          }
@@ -60,7 +62,7 @@ public class RootContextView extends HttpStoreComponentView
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "view()", e);
          }
@@ -92,7 +94,7 @@ public class RootContextView extends HttpStoreComponentView
 
          String viewName = transformInfoInterface.getName();
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
             this.logUtil.putF("Root Template With View Name: " + viewName, this, "getName()");
          }
@@ -106,7 +108,7 @@ public class RootContextView extends HttpStoreComponentView
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "getName()", e);
          }

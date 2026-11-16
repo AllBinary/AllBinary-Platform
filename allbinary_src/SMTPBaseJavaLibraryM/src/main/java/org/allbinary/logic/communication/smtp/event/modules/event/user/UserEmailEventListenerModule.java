@@ -20,6 +20,8 @@ import org.allbinary.logic.communication.smtp.EmailInterface;
 import org.allbinary.logic.communication.smtp.event.EmailEvent;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
 import org.allbinary.logic.communication.smtp.queue.EmailQueueFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class UserEmailEventListenerModule 
    implements UserEmailEventListenerInterface
@@ -50,7 +52,7 @@ public class UserEmailEventListenerModule
    public void onEmailSendRequest(EmailEvent emailEvent) 
       throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          this.logUtil.putF("Add Email To Que For Sending: " + emailEvent.toString(), this, "onEmailSendRequest");
       }

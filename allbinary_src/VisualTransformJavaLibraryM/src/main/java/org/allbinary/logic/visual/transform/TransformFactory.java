@@ -28,6 +28,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoObjectFactory;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class TransformFactory {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -51,8 +53,8 @@ public class TransformFactory {
         final AbeClientInformationInterface abeClientInformation, final String viewName, final TransformInfoInterface ownerTransformInfoInterface)
         throws Exception {
         try {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                 this.logUtil.putF("Creating Transform: " + viewName,this, this.commonStrings.GET_INSTANCE);
             }
 
@@ -82,8 +84,8 @@ public class TransformFactory {
          }
          else
              */
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                 this.logUtil.putF("Created Transform: " + viewName, this,
                     this.commonStrings.GET_INSTANCE);
             }
@@ -91,8 +93,8 @@ public class TransformFactory {
             return (TransformInterface) object;
         } catch (Exception e) {
             //String error = "Failed To Get Instance: " + viewName + "->TransformFactory";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
                 this.logUtil.put(commonStrings.EXCEPTION, this,
                     this.commonStrings.GET_INSTANCE, e);
             }
@@ -108,8 +110,8 @@ public class TransformFactory {
         try {
             final TransformInfoData transformInfoData = TransformInfoData.getInstance();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                 this.logUtil.putF("Creating Transform: " + propertiesHashMap.get(transformInfoData.NAME),this, this.commonStrings.GET_INSTANCE);
             }
 
@@ -137,15 +139,15 @@ public class TransformFactory {
          }
          else
              */
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                 this.logUtil.putF("Created Transform: "
                     + propertiesHashMap.get(transformInfoData.NAME), this, this.commonStrings.GET_INSTANCE);
             }
             return (TransformInterface) object;
         } catch (Exception e) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
                 StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Failed To Get Instance: ");
@@ -164,8 +166,8 @@ public class TransformFactory {
         final TransformInfoInterface transformInfoInterface)
         throws Exception {
         try {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                 this.logUtil.putF("Creating Transform: " + transformInfoInterface.getName(),this, "getInstance(TransformInfoInterface)");
             }
 
@@ -179,16 +181,16 @@ public class TransformFactory {
          }
          else
              */
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                 this.logUtil.putF("Created Transform: " + transformInfoInterface.getName(),this, "getInstance(TransformInfoInterface)");
             }
             return (TransformInterface) object;
         } catch (Exception e) {
             //String error = "Failed To Get Instance: " + transformInfoInterface.getName();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
                 this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(TransformInfoInterface)", e);
             }
             throw e;

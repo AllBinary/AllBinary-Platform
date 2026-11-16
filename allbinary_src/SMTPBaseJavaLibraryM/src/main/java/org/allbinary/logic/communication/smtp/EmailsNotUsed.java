@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class EmailsNotUsed implements DomNodeInterface
 {
@@ -42,7 +44,7 @@ public class EmailsNotUsed implements DomNodeInterface
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PAYMENT))
          {
             this.logUtil.putF(this.commonStrings.START, this, "toXmlNode");
          }
@@ -62,7 +64,7 @@ public class EmailsNotUsed implements DomNodeInterface
             }
          }
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PAYMENT))
          {
             this.logUtil.putF(this.commonStrings.END, this, "toXmlNode()");
          }
@@ -70,7 +72,7 @@ public class EmailsNotUsed implements DomNodeInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlNode()", e);
          }

@@ -27,6 +27,8 @@ import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjec
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
 import org.allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
 import org.w3c.dom.Document;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConfig
 {
@@ -55,7 +57,7 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
    {
        String docString = XmlDocumentHelper.toString(objectConfigDocument);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("Initial ObjectConfig: " + docString, this, "generate()");
       }
@@ -86,7 +88,7 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
          DomDocumentHelper.create(
             replace.all(docString ));
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("Final ObjectConfig: " +
             XmlDocumentHelper.toString(newObjectConfigDocument), this, "generate()");

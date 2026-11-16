@@ -21,6 +21,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import views.business.context.modules.storefront.customizer.CustomizerUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InsertGlobalsValidationView extends GlobalsView implements ValidationComponentInterface
 {
@@ -50,7 +52,7 @@ public class InsertGlobalsValidationView extends GlobalsView implements Validati
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to validate",this,this.commonStrings.IS_VALID,e);
          }
@@ -68,7 +70,7 @@ public class InsertGlobalsValidationView extends GlobalsView implements Validati
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }

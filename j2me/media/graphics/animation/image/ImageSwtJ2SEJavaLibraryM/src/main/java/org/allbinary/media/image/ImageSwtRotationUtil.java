@@ -21,6 +21,7 @@ import org.allbinary.string.CommonStrings;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.Image;
 
 public class ImageSwtRotationUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -46,7 +47,7 @@ public class ImageSwtRotationUtil {
     private ImageSwtRotationUtil() {
     }
 
-    public org.eclipse.swt.graphics.Image getRotatedImage(final org.eclipse.swt.graphics.Image bufferedImage, final int totalAngle) {
+    public Image getRotatedImage(final Image bufferedImage, final int totalAngle) {
 
         if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
             this.logUtil.putF(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR);
@@ -76,7 +77,7 @@ public class ImageSwtRotationUtil {
           return bufferedImage;
     }
 
-    private org.eclipse.swt.graphics.Image getRotatedImage2(final org.eclipse.swt.graphics.Image bufferedImage, final org.eclipse.swt.graphics.Image newBufferedImage, final GC gc, final float angle) {
+    private Image getRotatedImage2(final Image bufferedImage, final Image newBufferedImage, final GC gc, final float angle) {
         
         if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
             this.logUtil.putF(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR);
@@ -106,7 +107,7 @@ public class ImageSwtRotationUtil {
 return bufferedImage;
     }
 
-    public org.eclipse.swt.graphics.Image rotateImage(final org.eclipse.swt.graphics.Image originalSwtImage, final org.eclipse.swt.graphics.Image newSwtImage, final GC gc, final int totalAngle) {
+    public Image rotateImage(final Image originalSwtImage, final Image newSwtImage, final GC gc, final int totalAngle) {
         //g.setBackground(imageJ2SEUtil.TRANSPARENT_COLOR);
         //g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
         //final org.eclipse.swt.graphics.Image bufferedImage
@@ -114,12 +115,12 @@ return bufferedImage;
         return this.getRotatedImage2(originalSwtImage, newSwtImage, gc, totalAngle);
     }
 
-    public org.eclipse.swt.graphics.Image getRotatedImageSWT(final org.eclipse.swt.graphics.Image bufferedImage, final org.eclipse.swt.graphics.Image newSwtImage, final GC gc, final int totalAngle) {
+    public Image getRotatedImageSWT(final Image bufferedImage, final Image newSwtImage, final GC gc, final int totalAngle) {
         return this.getRotatedImage2(bufferedImage, newSwtImage, gc, totalAngle);
     }
 
-    public org.eclipse.swt.graphics.Image[] getRotatedImages(final org.eclipse.swt.graphics.Image bufferedImage, final int numberOfFrames, final int totalAngle) {
-        final org.eclipse.swt.graphics.Image[] bufferedImageArray = new org.eclipse.swt.graphics.Image[numberOfFrames];
+    public Image[] getRotatedImages(final Image bufferedImage, final int numberOfFrames, final int totalAngle) {
+        final Image[] bufferedImageArray = new Image[numberOfFrames];
 
         int angle;
         final int size = bufferedImageArray.length;
@@ -130,7 +131,7 @@ return bufferedImage;
         return bufferedImageArray;
     }
 
-    public org.eclipse.swt.graphics.Image createSpriteImage(final org.eclipse.swt.graphics.Image[] bufferedImageArray) {
+    public Image createSpriteImage(final Image[] bufferedImageArray) {
         int columns = 9;
         int rows = 0;
 
@@ -146,9 +147,9 @@ return bufferedImage;
             rows++;
         }
 
-        final org.eclipse.swt.graphics.Image firstBufferedImage = bufferedImageArray[0];
+        final Image firstBufferedImage = bufferedImageArray[0];
         ImageData imageData = firstBufferedImage.getImageData();
-        final org.eclipse.swt.graphics.Image bufferedImage = 
+        final Image bufferedImage = 
             this.imageUtil.create(imageData.width * columns, imageData.height * rows);
 
         final GC gc = new GC(bufferedImage);
@@ -160,7 +161,7 @@ return bufferedImage;
         int columnIndex = 0;
         int rowIndex = 0;
 
-        org.eclipse.swt.graphics.Image nextBufferedImage;
+        Image nextBufferedImage;
         for (int index = 0; index < size; index++) {
             if (index / 9 != 0 && index % 9 == 0) {
                 rowIndex++;

@@ -35,6 +35,8 @@ import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class TaxFactory
 {
@@ -99,7 +101,7 @@ public class TaxFactory
             }
             else
             {
-               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
+               if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAX))
                {
                   this.logUtil.putF("Class Node Null", this, this.commonStrings.GET_INSTANCE);
                }
@@ -107,7 +109,7 @@ public class TaxFactory
          }
          else
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAX))
             {
                this.logUtil.putF("Tax Name Node Node Children", this, this.commonStrings.GET_INSTANCE);
             }

@@ -17,12 +17,17 @@ import org.allbinary.input.automation.actions.script.condition.ProfileActionScri
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileAction;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionJPanel;
 import org.allbinary.logic.communication.log.LogUtil;
+import java.awt.GridLayout;
+import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 /**
  *
  * @author  USER
  */
-public class RemoveActionScriptItemJPanel extends java.awt.Panel
+public class RemoveActionScriptItemJPanel extends Panel
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -49,14 +54,14 @@ public class RemoveActionScriptItemJPanel extends java.awt.Panel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        this.removeJButton = new javax.swing.JButton();
+        this.removeJButton = new JButton();
 
-        setLayout(new java.awt.GridLayout());
+        setLayout(new GridLayout());
 
         this.removeJButton.setText("Remove");
-        this.removeJButton.addActionListener(new java.awt.event.ActionListener()
+        this.removeJButton.addActionListener(new ActionListener()
         {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
+            public void actionPerformed(ActionEvent evt)
             {
                 removeJButtonActionPerformed(evt);
             }
@@ -66,7 +71,7 @@ public class RemoveActionScriptItemJPanel extends java.awt.Panel
 
     }// </editor-fold>//GEN-END:initComponents
 
-    private void removeJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_removeJButtonActionPerformed
+    private void removeJButtonActionPerformed(ActionEvent evt)//GEN-FIRST:event_removeJButtonActionPerformed
     {//GEN-HEADEREND:event_removeJButtonActionPerformed
         final GenericProfileAction genericProfileAction = 
             this.genericProfileActionJPanel.getGenericProfileAction();
@@ -84,7 +89,7 @@ public class RemoveActionScriptItemJPanel extends java.awt.Panel
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton removeJButton;
+    private JButton removeJButton;
     // End of variables declaration//GEN-END:variables
     
 }

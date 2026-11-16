@@ -17,6 +17,8 @@ import javax.servlet.ServletRequest;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 //import org.allbinary.logic.java.proxy.InterfaceCastProxy;
 
@@ -39,7 +41,7 @@ public class PaymentFactory
        final LogUtil logUtil = LogUtil.getInstance();
       try
       {
-         return (PaymentInterface) new org.allbinary.business.user.commerce.money.payment.Payment(request);
+         return (PaymentInterface) new Payment(request);
       }
       /*
       catch(LicensingException e)
@@ -55,7 +57,7 @@ public class PaymentFactory
       catch(Exception e)
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
             logUtil.put(commonStrings.EXCEPTION, "PaymentFactory", commonStrings.GET_INSTANCE, e);
          }

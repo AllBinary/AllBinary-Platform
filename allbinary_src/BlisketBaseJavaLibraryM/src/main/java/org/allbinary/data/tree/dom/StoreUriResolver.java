@@ -29,6 +29,8 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class StoreUriResolver implements URIResolver {
 
@@ -59,8 +61,8 @@ public class StoreUriResolver implements URIResolver {
             final AbPath fileAbPath = (AbPath) new AbFilePath(
                 stringBuffer.toString());
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().XMLLOGGING)) {
                 stringBuffer.delete(0, stringBuffer.length());
 
                 stringBuffer.append(this.uriResolverStrings.ATTEMPT);

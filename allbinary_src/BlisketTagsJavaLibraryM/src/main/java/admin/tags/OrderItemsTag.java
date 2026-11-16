@@ -23,6 +23,8 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class OrderItemsTag extends TableTag
 {
@@ -75,7 +77,7 @@ public class OrderItemsTag extends TableTag
       catch(Exception e)
       {
          String error = "Failed to set Order status to: " + this.status;
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"setOrderStatus()",e);
          }

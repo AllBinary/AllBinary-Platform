@@ -22,6 +22,8 @@ import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.logic.visual.dhtml.html.name.HtmlNameMathData;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class NameSpaceRequestParam
 {
@@ -52,8 +54,8 @@ public class NameSpaceRequestParam
       Tokenizer sepTokenizer = new Tokenizer(NameSpaceRequestParamData.SEP);
       BasicArrayList nameSpaceWithPropertiesVector = sepTokenizer.getTokensFromString(packages, new BasicArrayListD());
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
+      if(LogConfigTypes.LOGGING.contains(
+         LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
          this.logUtil.putF(
                  "\nSep Tokens: " + nameSpaceWithPropertiesVector.toString(), this, "NameSpaceRequestParam()");
@@ -79,8 +81,8 @@ public class NameSpaceRequestParam
          BasicArrayList nameSpaceAndPropertiesVector = 
             nameSpaceAndPropertiesTokenizer.getTokensFromString(nameSpaceWithProperties, list);
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
             this.logUtil.putF("\nPackageName and PackageName Properties Tokens: " +
                nameSpaceAndPropertiesVector.toString(),
@@ -114,8 +116,8 @@ public class NameSpaceRequestParam
          }
       }
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-      org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
+      if(LogConfigTypes.LOGGING.contains(
+      LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
          this.logUtil.putF("NameSpace: " + this.nameSpaceVector.toString(),
          this, "NameSpaceRequestParam()");
@@ -124,8 +126,8 @@ public class NameSpaceRequestParam
    
    public BasicArrayList getPackages()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-      org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
+      if(LogConfigTypes.LOGGING.contains(
+      LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
          this.logUtil.putF("NameSpace: " + this.nameSpaceVector.toString(),
          this, "getPackages()");
@@ -144,8 +146,8 @@ public class NameSpaceRequestParam
          packagePropertiesHashMap = StdUtil.getInstance().createHashMap();
       }
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-      org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
+      if(LogConfigTypes.LOGGING.contains(
+      LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
          this.logUtil.putF("Package Properties: " + packagePropertiesHashMap.toString(),
             this, "getPackagesProperties()");
@@ -156,8 +158,8 @@ public class NameSpaceRequestParam
 
    public String getValue()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
+      if(LogConfigTypes.LOGGING.contains(
+         LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
          this.logUtil.putF("\nValue: " + this.value, this, "getValue()");
       }
@@ -197,8 +199,8 @@ public class NameSpaceRequestParam
             {
                String propertyValue = (String) propertyNameValueVector.get(index2++);
 
-               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                  org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
+               if(LogConfigTypes.LOGGING.contains(
+                  LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
                   this.logUtil.putF("\nProperty Name: " + propertyName + "\nProperty Value: " + propertyValue,this, "generatePackagePropertiesHashMap()");
                }

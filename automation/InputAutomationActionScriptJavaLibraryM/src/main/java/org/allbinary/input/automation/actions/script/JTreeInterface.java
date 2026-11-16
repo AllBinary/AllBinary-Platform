@@ -1,5 +1,7 @@
 package org.allbinary.input.automation.actions.script;
 
+import javax.swing.JTree;
+
 /**
  *
  * @author user
@@ -7,5 +9,5 @@ package org.allbinary.input.automation.actions.script;
 public interface JTreeInterface {
     
         void updateJTree();
-        javax.swing.JTree getActionScriptJTree();
+        JTree getActionScriptJTree();
 }

@@ -15,13 +15,23 @@ package org.allbinary.input.automation.actions.script.condition;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
 
 /**
  *
  * @author  USER
  */
 public class TimeIntervalActionScriptConditionJPanel
-    extends javax.swing.JPanel
+    extends JPanel
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -57,22 +67,22 @@ public class TimeIntervalActionScriptConditionJPanel
         this.timeIntervalActionScriptConditionInterface.log();
     }
 
-    public javax.swing.JTextField getTimeIntervalJTextField()
+    public JTextField getTimeIntervalJTextField()
     {
         return this.timeIntervalJTextField;
     }
 
-    public void setTimeIntervalJTextField(javax.swing.JTextField timeIntervalJTextField)
+    public void setTimeIntervalJTextField(JTextField timeIntervalJTextField)
     {
         this.timeIntervalJTextField = timeIntervalJTextField;
     }
 
-    public javax.swing.JDialog getTimeIntervalActionJDialog()
+    public JDialog getTimeIntervalActionJDialog()
     {
         return this.timeIntervalActionJDialog;
     }
 
-    public void setTimeIntervalActionJDialog(javax.swing.JDialog timeIntervalActionJDialog)
+    public void setTimeIntervalActionJDialog(JDialog timeIntervalActionJDialog)
     {
         this.timeIntervalActionJDialog = timeIntervalActionJDialog;
     }
@@ -85,21 +95,21 @@ public class TimeIntervalActionScriptConditionJPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        this.timeIntervalActionJDialog = new javax.swing.JDialog();
-        this.titleJLabel = new javax.swing.JLabel();
-        this.okJButton = new javax.swing.JButton();
-        this.jLabel2 = new javax.swing.JLabel();
-        this.timeIntervalJTextField = new javax.swing.JTextField();
-        this.timeIntervalActionJButton = new javax.swing.JButton();
-        this.jLabel1 = new javax.swing.JLabel();
+        this.timeIntervalActionJDialog = new JDialog();
+        this.titleJLabel = new JLabel();
+        this.okJButton = new JButton();
+        this.jLabel2 = new JLabel();
+        this.timeIntervalJTextField = new JTextField();
+        this.timeIntervalActionJButton = new JButton();
+        this.jLabel1 = new JLabel();
 
-        this.timeIntervalActionJDialog.setMinimumSize(new java.awt.Dimension(250, 150));
+        this.timeIntervalActionJDialog.setMinimumSize(new Dimension(250, 150));
         this.titleJLabel.setText("Time Interval Condition Options");
 
         this.okJButton.setText("OK");
-        this.okJButton.addActionListener(new java.awt.event.ActionListener()
+        this.okJButton.addActionListener(new ActionListener()
         {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
+            public void actionPerformed(ActionEvent evt)
             {
                 okJButtonActionPerformed(evt);
             }
@@ -107,44 +117,44 @@ public class TimeIntervalActionScriptConditionJPanel
 
         this.jLabel2.setText("Time (ms):");
 
-        javax.swing.GroupLayout timeIntervalActionJDialogLayout = new javax.swing.GroupLayout(this.timeIntervalActionJDialog.getContentPane());
+        GroupLayout timeIntervalActionJDialogLayout = new GroupLayout(this.timeIntervalActionJDialog.getContentPane());
         this.timeIntervalActionJDialog.getContentPane().setLayout(timeIntervalActionJDialogLayout);
         timeIntervalActionJDialogLayout.setHorizontalGroup(
-            timeIntervalActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            timeIntervalActionJDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(timeIntervalActionJDialogLayout.createSequentialGroup()
-                .addGroup(timeIntervalActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, timeIntervalActionJDialogLayout.createSequentialGroup()
+                .addGroup(timeIntervalActionJDialogLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                    .addGroup(GroupLayout.Alignment.LEADING, timeIntervalActionJDialogLayout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addComponent(okJButton))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, timeIntervalActionJDialogLayout.createSequentialGroup()
+                    .addGroup(GroupLayout.Alignment.LEADING, timeIntervalActionJDialogLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addGroup(timeIntervalActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(timeIntervalActionJDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(timeIntervalActionJDialogLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(16, 16, 16)
-                                .addComponent(timeIntervalJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
+                                .addComponent(timeIntervalJTextField, GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
                             .addComponent(titleJLabel))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         timeIntervalActionJDialogLayout.setVerticalGroup(
-            timeIntervalActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            timeIntervalActionJDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(timeIntervalActionJDialogLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titleJLabel)
                 .addGap(20, 20, 20)
-                .addGroup(timeIntervalActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(timeIntervalActionJDialogLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(timeIntervalJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(timeIntervalJTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addComponent(okJButton)
                 .addContainerGap())
         );
 
-        setMinimumSize(new java.awt.Dimension(100, 0));
+        setMinimumSize(new Dimension(100, 0));
         this.timeIntervalActionJButton.setText("Edit");
-        this.timeIntervalActionJButton.addActionListener(new java.awt.event.ActionListener()
+        this.timeIntervalActionJButton.addActionListener(new ActionListener()
         {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
+            public void actionPerformed(ActionEvent evt)
             {
                 timeIntervalActionJButtonActionPerformed(evt);
             }
@@ -152,31 +162,31 @@ public class TimeIntervalActionScriptConditionJPanel
 
         this.jLabel1.setText("Time Interval:");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(timeIntervalActionJButton))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel1)
                 .addComponent(timeIntervalActionJButton))
         );
     }// </editor-fold>//GEN-END:initComponents
     
-    private void okJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_okJButtonActionPerformed
+    private void okJButtonActionPerformed(ActionEvent evt)//GEN-FIRST:event_okJButtonActionPerformed
     {//GEN-HEADEREND:event_okJButtonActionPerformed
 // TODO add your handling code here:
         this.update();
         this.getTimeIntervalActionJDialog().setVisible(false);
     }//GEN-LAST:event_okJButtonActionPerformed
     
-    private void timeIntervalActionJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_timeIntervalActionJButtonActionPerformed
+    private void timeIntervalActionJButtonActionPerformed(ActionEvent evt)//GEN-FIRST:event_timeIntervalActionJButtonActionPerformed
     {//GEN-HEADEREND:event_timeIntervalActionJButtonActionPerformed
 // TODO add your handling code here:
         this.getTimeIntervalActionJDialog().setVisible(true);
@@ -184,13 +194,13 @@ public class TimeIntervalActionScriptConditionJPanel
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton okJButton;
-    private javax.swing.JButton timeIntervalActionJButton;
-    private javax.swing.JDialog timeIntervalActionJDialog;
-    private javax.swing.JTextField timeIntervalJTextField;
-    private javax.swing.JLabel titleJLabel;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JButton okJButton;
+    private JButton timeIntervalActionJButton;
+    private JDialog timeIntervalActionJDialog;
+    private JTextField timeIntervalJTextField;
+    private JLabel titleJLabel;
     // End of variables declaration//GEN-END:variables
     
 }

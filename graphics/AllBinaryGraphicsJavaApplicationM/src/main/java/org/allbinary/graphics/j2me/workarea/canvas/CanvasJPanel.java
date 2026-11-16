@@ -50,11 +50,18 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.w3c.dom.Node;
+import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import javax.swing.JPanel;
 
-public class CanvasJPanel extends javax.swing.JPanel
-        implements java.awt.event.MouseListener,
-        java.awt.event.MouseMotionListener,
-        java.awt.event.KeyListener,
+public class CanvasJPanel extends JPanel
+        implements MouseListener,
+        MouseMotionListener,
+        KeyListener,
         MyGraphicItemEventListener
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -163,7 +170,7 @@ public class CanvasJPanel extends javax.swing.JPanel
    private void initComponents()//GEN-BEGIN:initComponents
    {
 
-      setLayout(new java.awt.GridLayout(1, 1));
+      setLayout(new GridLayout(1, 1));
 
    }//GEN-END:initComponents
 
@@ -542,7 +549,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         this.grid.isChanged = true;
     }
 
-    public void mouseClicked(java.awt.event.MouseEvent mouseEvent)
+    public void mouseClicked(MouseEvent mouseEvent)
     {
         StatusFactory.getInstance().setStatusNoLog(MouseStrings.getInstance().MOUSE_CLICKED_LABEL + this.logMouseEvent(mouseEvent));
 
@@ -571,17 +578,17 @@ public class CanvasJPanel extends javax.swing.JPanel
         this.workAreaJTreeJPanel.repaint();
     }
 
-    public void mouseEntered(java.awt.event.MouseEvent mouseEvent)
+    public void mouseEntered(MouseEvent mouseEvent)
     {
         StatusFactory.getInstance().setStatusNoLog(this.logMouseEvent(mouseEvent));
     }
 
-    public void mouseExited(java.awt.event.MouseEvent mouseEvent)
+    public void mouseExited(MouseEvent mouseEvent)
     {
         StatusFactory.getInstance().setStatusNoLog(this.logMouseEvent(mouseEvent));
     }
 
-    public void mousePressed(java.awt.event.MouseEvent mouseEvent)
+    public void mousePressed(MouseEvent mouseEvent)
     {
         StatusFactory.getInstance().setStatusNoLog(MouseStrings.getInstance().MOUSE_PRESSED_LABEL + this.logMouseEvent(mouseEvent));
 
@@ -598,7 +605,7 @@ public class CanvasJPanel extends javax.swing.JPanel
 
     }
 
-    public void mouseReleased(java.awt.event.MouseEvent mouseEvent)
+    public void mouseReleased(MouseEvent mouseEvent)
     {
         StatusFactory.getInstance().setStatusNoLog(MouseStrings.getInstance().MOUSE_RELEASED_LABEL + this.logMouseEvent(mouseEvent));
 
@@ -615,7 +622,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         this.repaint();
     }
 
-    public void mouseDragged(java.awt.event.MouseEvent mouseEvent)
+    public void mouseDragged(MouseEvent mouseEvent)
     {
         StatusFactory.getInstance().setStatusNoLog(MouseStrings.getInstance().MOUSE_DRAGGED_LABEL + this.logMouseEvent(mouseEvent));
 
@@ -632,7 +639,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         this.repaint();
     }
 
-    public void mouseMoved(java.awt.event.MouseEvent mouseEvent)
+    public void mouseMoved(MouseEvent mouseEvent)
     {
         StatusFactory.getInstance().setStatusNoLog(MouseStrings.getInstance().MOUSE_MOVED_LABEL + this.logMouseEvent(mouseEvent));
 
@@ -647,7 +654,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         this.repaint();
     }
 
-    private String logMouseEvent(final java.awt.event.MouseEvent mouseEvent)
+    private String logMouseEvent(final MouseEvent mouseEvent)
     {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -660,7 +667,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         return stringBuffer.toString();
     }
 
-    public void keyPressed(java.awt.event.KeyEvent keyEvent)
+    public void keyPressed(KeyEvent keyEvent)
     {
         StatusFactory.getInstance().setStatus("Key Pressed");
 
@@ -711,11 +718,11 @@ public class CanvasJPanel extends javax.swing.JPanel
         this.repaint();
     }
 
-    public void keyReleased(java.awt.event.KeyEvent keyEvent)
+    public void keyReleased(KeyEvent keyEvent)
     {
     }
 
-    public void keyTyped(java.awt.event.KeyEvent keyEvent)
+    public void keyTyped(KeyEvent keyEvent)
     {
     }
 

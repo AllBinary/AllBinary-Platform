@@ -15,6 +15,8 @@ package org.allbinary.data.tables.user.commerce.inventory.order;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class OrderItemsEntityFactory
 {
@@ -33,7 +35,7 @@ public class OrderItemsEntityFactory
       {
          //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (OrderItemsEntityInterface) InterfaceCastProxy.newInstance(object);
-         return new org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntity();
+         return new OrderItemsEntity();
       }
       /*
       catch(LicensingException e)
@@ -49,7 +51,7 @@ public class OrderItemsEntityFactory
       catch(Exception e)
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             logUtil.put(commonStrings.EXCEPTION, "OrderItemsEntityFactory", commonStrings.GET_INSTANCE, e);
          }

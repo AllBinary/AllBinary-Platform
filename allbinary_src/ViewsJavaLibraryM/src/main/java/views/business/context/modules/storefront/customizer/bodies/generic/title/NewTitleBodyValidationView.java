@@ -22,6 +22,9 @@ import org.allbinary.logic.visual.transform.template.customizer.bodies.title.Tit
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import views.business.context.modules.storefront.customizer.CustomizerUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import views.ValidationOnlyTempUtil;
 
 public class NewTitleBodyValidationView extends TitleBodyCustomizerView implements ValidationComponentInterface
 {
@@ -31,7 +34,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
    {
       super(transformInfoInterface);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("View Name: " + transformInfoInterface.getName(), this, "NewTitleBodyValidationView()");
       }
@@ -48,7 +51,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
             this.logUtil.putF("View Name: " + this.getTransformInfoInterface().getName(), this, this.commonStrings.IS_VALID);
          }
@@ -65,7 +68,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to validate",this,this.commonStrings.IS_VALID,e);
          }
@@ -85,7 +88,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
@@ -105,7 +108,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
    
    public String view() throws Exception
    {
-      return views.ValidationOnlyTempUtil.getInstance().view(this);
+      return ValidationOnlyTempUtil.getInstance().view(this);
    }
 
     //Needed for polyglot do not remove

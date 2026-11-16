@@ -26,6 +26,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 import org.allbinary.logic.visual.transform.TransformFactory;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class BasicWorkFlow implements WorkFlowInterface
 {
@@ -42,7 +44,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    
    public BasicWorkFlow(HashMap propertiesHashMap, PageContext pageContext) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().WORKFLOW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().WORKFLOW))
       {
          this.logUtil.putF("Properties: " + propertiesHashMap.toString(), this, "BasicWorkFlow()");
       }
@@ -71,7 +73,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    
    public Integer process() throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().WORKFLOW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().WORKFLOW))
       {
          this.logUtil.putF(this.commonStrings.START,this,this.commonStrings.PROCESS);
       }

@@ -15,13 +15,17 @@ package org.allbinary.opengles;
 
 import com.jogamp.opengl.GL;
 import com.jogamp.opengl.GL2;
+import java.nio.Buffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import javax.microedition.khronos.opengles.GL11;
 
 /**
  *
  * @author User
  */
 //JOGLEToKhronosGL11
-public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11
+public class JOGL11 extends JOGL10 implements GL11
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -44,10 +48,10 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
 
     public JOGL11(final GL gl)
     {
-        this(gl, (com.jogamp.opengl.GL2) gl);
+        this(gl, (GL2) gl);
     }
     
-    public JOGL11(final GL gl, final com.jogamp.opengl.GL2 gl2)
+    public JOGL11(final GL gl, final GL2 gl2)
     {
         super(gl, gl2);
 
@@ -69,14 +73,14 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glBindBuffer(target, buffer);
     }
 
-    public void glBufferData(int target, int size, java.nio.Buffer data, int usage)
+    public void glBufferData(int target, int size, Buffer data, int usage)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(" size: ").append(size).append(" data: ").append(data).append(" usage: ").append(usage).toString(), this, "GL11.glBufferData");
         this.gl11.glBufferData(target, size, data, usage);
     }
 
-    public void glBufferSubData(int target, int offset, int size, java.nio.Buffer data)
+    public void glBufferSubData(int target, int offset, int size, Buffer data)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(" size: ").append(size).append(" data: ").append(data).toString(), this, "GL11.glBufferSubData");
@@ -91,7 +95,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         //throw new RuntimeException();
     }
 
-    public void glClipPlanef(int plane, java.nio.FloatBuffer equation)
+    public void glClipPlanef(int plane, FloatBuffer equation)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("plane: ").append(plane).append(" equation: ").append(equation).toString(), this, "GL11.glClipPlanef");
@@ -134,7 +138,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glDeleteBuffers(n, buffers, offset);
     }
 
-    public void glDeleteBuffers(int n, java.nio.IntBuffer buffers)
+    public void glDeleteBuffers(int n, IntBuffer buffers)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(" n: ").append(n).append(" buffers: ").append(buffers).toString(), this, "GL11.glDeleteBuffers");
@@ -155,7 +159,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glGenBuffers(n, buffers, offset);
     }
 
-    public void glGenBuffers(int n, java.nio.IntBuffer buffers)
+    public void glGenBuffers(int n, IntBuffer buffers)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(" n: ").append(n).append(" buffers: ").append(buffers).toString(), this, "GL11.glGenBuffers");
@@ -183,7 +187,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glGetBufferParameteriv(target, pname, params, offset);
     }
 
-    public void glGetBufferParameteriv(int target, int pname, java.nio.IntBuffer params)
+    public void glGetBufferParameteriv(int target, int pname, IntBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetBufferParameteriv");
@@ -198,7 +202,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         //throw new RuntimeException();
     }
 
-    public void glGetClipPlanef(int pname, java.nio.FloatBuffer eqn)
+    public void glGetClipPlanef(int pname, FloatBuffer eqn)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(" eqn: ").append(eqn).toString(), this, "GL11.glGetClipPlanef");
@@ -241,7 +245,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glGetFloatv(pname, params, offset);
     }
 
-    public void glGetFloatv(int pname, java.nio.FloatBuffer params)
+    public void glGetFloatv(int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetFloatv");
@@ -255,7 +259,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glGetLightfv(light, pname, params, offset);
     }
 
-    public void glGetLightfv(int light, int pname, java.nio.FloatBuffer params)
+    public void glGetLightfv(int light, int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetLightfv");
@@ -283,7 +287,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glGetMaterialfv(face, pname, params, offset);
     }
 
-    public void glGetMaterialfv(int face, int pname, java.nio.FloatBuffer params)
+    public void glGetMaterialfv(int face, int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetMaterialfv");
@@ -311,7 +315,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glGetTexEnviv(env, pname, params, offset);
     }
 
-    public void glGetTexEnviv(int env, int pname, java.nio.IntBuffer params)
+    public void glGetTexEnviv(int env, int pname, IntBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("env: ").append(env).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexEnviv");
@@ -339,7 +343,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glGetTexParameterfv(target, pname, params, offset);
     }
 
-    public void glGetTexParameterfv(int target, int pname, java.nio.FloatBuffer params)
+    public void glGetTexParameterfv(int target, int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexParameterfv");
@@ -353,7 +357,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glGetTexParameteriv(target, pname, params, offset);
     }
 
-    public void glGetTexParameteriv(int target, int pname, java.nio.IntBuffer params)
+    public void glGetTexParameteriv(int target, int pname, IntBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexParameteriv");
@@ -416,7 +420,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glPointParameterfv(pname, params, offset);
     }
 
-    public void glPointParameterfv(int pname, java.nio.FloatBuffer params)
+    public void glPointParameterfv(int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glPointParameterfv");
@@ -472,7 +476,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glTexEnviv(target, pname, params, offset);
     }
 
-    public void glTexEnviv(int target, int pname, java.nio.IntBuffer params)
+    public void glTexEnviv(int target, int pname, IntBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glTexEnvi");
@@ -486,7 +490,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glTexParameterfv(target, pname, params, offset);
     }
 
-    public void glTexParameterfv(int target, int pname, java.nio.FloatBuffer params)
+    public void glTexParameterfv(int target, int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glTexParameterfv");
@@ -507,7 +511,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         this.gl11.glTexParameteriv(target, pname, params, offset);
     }
 
-    public void glTexParameteriv(int target, int pname, java.nio.IntBuffer params)
+    public void glTexParameteriv(int target, int pname, IntBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glTexParameteriv");

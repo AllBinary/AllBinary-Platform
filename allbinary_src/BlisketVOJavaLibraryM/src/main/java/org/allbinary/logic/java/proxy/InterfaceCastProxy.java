@@ -15,8 +15,9 @@ package org.allbinary.logic.java.proxy;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.lang.reflect.InvocationHandler;
 
-public class InterfaceCastProxy implements java.lang.reflect.InvocationHandler
+public class InterfaceCastProxy implements InvocationHandler
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -36,7 +37,7 @@ public class InterfaceCastProxy implements java.lang.reflect.InvocationHandler
    }
    
    //Invokes on the dynamic class and uses proxy class info for its invocation
-   public Object invoke(Object proxyObject, Method proxyMethod, Object[] proxyArgs) throws java.lang.Throwable
+   public Object invoke(Object proxyObject, Method proxyMethod, Object[] proxyArgs) throws Throwable
    {
       String methodName = proxyMethod.getName();      
       Method realMethod = this.object.getClass().getMethod(methodName, proxyMethod.getParameterTypes());      

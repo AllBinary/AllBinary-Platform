@@ -16,6 +16,8 @@ package org.allbinary.data.tables.user.address.shipping;
 import org.allbinary.data.tables.user.address.StreetAddressesEntity;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class ShippingAddressesEntityFactory
 {
@@ -66,7 +68,7 @@ public class ShippingAddressesEntityFactory
       catch(Exception e)
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             this.logUtil.put(commonStrings.EXCEPTION, this, "getShippingAddressesEntityInstance()", e);
          }

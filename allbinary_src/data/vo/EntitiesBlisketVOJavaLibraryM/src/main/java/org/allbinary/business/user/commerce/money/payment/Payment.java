@@ -25,6 +25,7 @@ import org.allbinary.logic.control.crypt.SuperCrypt;
 import org.allbinary.logic.string.StringUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.business.user.commerce.money.payment.types.CreditCardType;
 
 public class Payment implements PaymentInterface, DomNodeInterface
 {
@@ -129,7 +130,7 @@ public class Payment implements PaymentInterface, DomNodeInterface
          return aFalse;
       }
 
-      if(this.number.length()>org.allbinary.business.user.commerce.money.payment.types.CreditCardType.MAXLEN)
+      if(this.number.length()>CreditCardType.MAXLEN)
       {
          return aFalse;
       }

@@ -36,6 +36,8 @@ import org.allbinary.time.TimeUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class DateRangeOrderHistoryView extends HttpStoreComponentView implements ValidationComponentInterface, DomNodeInterface
 {
@@ -134,7 +136,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "view()", e);
          }
@@ -147,7 +149,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       try
       {
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
         	 StringMaker stringBuffer = new StringMaker();
         	 
@@ -252,7 +254,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(this.preprocessing!=null && this.preprocessing.compareTo(this.ON)==0)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                this.logUtil.putF("Adding Preprocessing Orders", this, "toXmlNode");
             }
@@ -269,7 +271,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(this.shipped!=null && this.shipped.compareTo(this.ON)==0)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                this.logUtil.putF("Adding Shipped Orders",this, "toXmlNode");
             }
@@ -286,7 +288,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(this.partiallyShipped!=null && this.partiallyShipped.compareTo(this.ON)==0)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                this.logUtil.putF("Adding Partially Shipped Orders", this, "toDomNode");
             }
@@ -303,7 +305,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(this.processing!=null && this.processing.compareTo(this.ON)==0)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                this.logUtil.putF("Adding Processing Orders", this, "toXmlNode");
             }
@@ -320,7 +322,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(this.cancelled!=null && this.cancelled.compareTo(this.ON)==0)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                this.logUtil.putF("Adding Cancelled Orders", this, "view");
             }
@@ -363,8 +365,8 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(
+         LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
             this.logUtil.put(this.commonStrings.FAILURE, this, "toXmlNode", e);
          }
@@ -460,7 +462,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             
             
          }
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
         	 StringMaker stringBuffer = new StringMaker();
 
@@ -478,7 +480,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
             this.logUtil.put("Exception in validation", this, this.commonStrings.IS_VALID, e);
          }
@@ -526,7 +528,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
          }

@@ -22,6 +22,7 @@ import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
+import org.allbinary.globals.URLGLOBALS;
 
 public class BasicStoreFront implements BasicStoreFrontInterface
 {   
@@ -98,14 +99,14 @@ public class BasicStoreFront implements BasicStoreFrontInterface
    public String getTestHtmlPath()
    {      
       //in testing mode return the test location else return the working location
-      return org.allbinary.globals.URLGLOBALS.getTestHtmlPath() + this.getCurrentHostNamePath();
+      return URLGLOBALS.getTestHtmlPath() + this.getCurrentHostNamePath();
    }
 
    public String getCurrentHostName()
    {
       String location = null;
       //in testing mode return the test location else return the working location
-      if(org.allbinary.globals.URLGLOBALS.isTestingMode())
+      if(URLGLOBALS.isTestingMode())
       {
          location = this.getTestHostName();
       }
@@ -120,7 +121,7 @@ public class BasicStoreFront implements BasicStoreFrontInterface
    {
       String location = null;
       //in testing mode return the test location else return the working location
-      if(org.allbinary.globals.URLGLOBALS.isTestingMode())
+      if(URLGLOBALS.isTestingMode())
       {
          location = this.getTestHostNamePath();
       }
@@ -135,7 +136,7 @@ public class BasicStoreFront implements BasicStoreFrontInterface
    {
       String location = null;
       //in testing mode return the test location else return the working location
-      if(org.allbinary.globals.URLGLOBALS.isTestingMode())
+      if(URLGLOBALS.isTestingMode())
       {
          location = this.getTestHomeHostName();
       }
@@ -150,7 +151,7 @@ public class BasicStoreFront implements BasicStoreFrontInterface
    {
       String location = null;
       //in testing mode return the test location else return the working location
-      if(org.allbinary.globals.URLGLOBALS.isTestingMode())
+      if(URLGLOBALS.isTestingMode())
       {
          location = this.getTestHomeHostNamePath();
       }

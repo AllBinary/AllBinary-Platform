@@ -23,6 +23,7 @@ import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGateway
 import org.allbinary.business.user.role.BasicUserRole;
 import org.allbinary.business.user.role.BasicUserRoleData;
 import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.globals.GLOBALS2;
 
 public class BasicWeblisketSession
 {
@@ -97,7 +98,7 @@ public class BasicWeblisketSession
 
    public String getWebAppPath()
    {      
-      return (String) this.session.getAttribute(org.allbinary.globals.GLOBALS2.WEBAPPPATH);
+      return (String) this.session.getAttribute(GLOBALS2.WEBAPPPATH);
    }
 
    public String getUserName()

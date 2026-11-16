@@ -36,6 +36,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class StoreFileGenerator 
     extends TransformInfoObjectConfigGenerator
@@ -134,8 +136,8 @@ public class StoreFileGenerator
         
         this.file = AbFile.createAbFileFromAbPath(this.fileAbPath);
         
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("File: " + this.fileAbPath.toString(), this, this.commonStrings.CONSTRUCTOR);
         }
@@ -143,8 +145,8 @@ public class StoreFileGenerator
 
     public String process(String input) throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("Processing", this, this.commonStrings.PROCESS);
         }
@@ -163,8 +165,8 @@ public class StoreFileGenerator
             throw new Exception("Could Not Create: " + this.fileAbPath.toString());
         }
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("Processed", this, this.commonStrings.PROCESS);
         }

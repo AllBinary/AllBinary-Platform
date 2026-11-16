@@ -22,6 +22,8 @@ import org.allbinary.logic.control.crypt.file.CryptFileWriter;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class CategoryPrivateTree
 {
@@ -31,7 +33,7 @@ public class CategoryPrivateTree
 
    public CategoryPrivateTree(CategoryFactoryInterface categoryFactoryInterface)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
          this.logUtil.putF(commonStrings.START, this, "CategoryPrivateTree(CategoryFactoryInterface categoryFactoryInterface)");
@@ -43,7 +45,7 @@ public class CategoryPrivateTree
    protected synchronized void save(CategoryInterface categoryInterface)
       throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
       {
          this.logUtil.putF("Saving Category File: " + categoryInterface.getFilePath(), this, "save()");
       }
@@ -58,7 +60,7 @@ public class CategoryPrivateTree
 
        cryptFileWriter.write(categoryInterface.getFilePath(), document);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
       {
          this.logUtil.putF("end", this, "save()");
       }
@@ -73,7 +75,7 @@ public class CategoryPrivateTree
 
          if(categoryFile.delete())
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                this.logUtil.putF(
                    "Removed: " + categoryInterface.getFilePath(),
@@ -83,7 +85,7 @@ public class CategoryPrivateTree
       }
       else
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             this.logUtil.putF("Not a leaf unable to remove", this, "delete(CategoryInterface)");
          }

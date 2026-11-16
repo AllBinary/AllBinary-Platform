@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class ValidationViewHelper extends ViewHelper implements ValidationComponentInterface
 {
@@ -34,7 +36,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
       
       this.viewInterface = (ValidationComponentInterface) this.getViewObject();
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
       {
          this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       }      
@@ -44,7 +46,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
          {
             this.logUtil.putF("Started", this, this.commonStrings.IS_VALID);
          }      
@@ -58,7 +60,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
          //else 
             //error += "Unknown";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,this.commonStrings.IS_VALID,e);
          }
@@ -80,7 +82,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
          //else 
             //error += "Unknown";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"validationInfo()",e);
          }
@@ -102,7 +104,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
          //else 
          //error += "Unknown";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"toValidationInfoDoc()",e);
          }
@@ -124,7 +126,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
          //else 
             //error += "Unknown";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"toValidationInfoNode()",e);
          }

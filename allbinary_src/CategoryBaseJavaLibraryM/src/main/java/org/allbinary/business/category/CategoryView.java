@@ -24,6 +24,8 @@ import org.allbinary.logic.java.object.InterfaceUtil;
 import org.allbinary.string.CommonSeps;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class CategoryView implements DomNodeInterface
 {
@@ -55,7 +57,7 @@ public class CategoryView implements DomNodeInterface
 
       BasicArrayList childCategoryVector = this.categoryInterface.getChildNodes();
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
       {
          this.logUtil.putF("Number Of Children: " + childCategoryVector.size(), this, "toXmlNode");
       }

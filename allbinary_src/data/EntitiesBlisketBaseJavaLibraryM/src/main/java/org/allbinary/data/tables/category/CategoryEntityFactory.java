@@ -15,6 +15,8 @@ package org.allbinary.data.tables.category;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class CategoryEntityFactory
 {
@@ -41,7 +43,7 @@ public class CategoryEntityFactory
       try
       {
          //(CategoryEntityInterface)
-         return new org.allbinary.data.tables.category.CategoryEntity();
+         return new CategoryEntity();
       }
       /*
       catch(LicensingException e)
@@ -57,7 +59,7 @@ public class CategoryEntityFactory
       catch(Exception e)
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             this.logUtil.put(commonStrings.EXCEPTION, this, "getCategoryEntityInstance()", e);
          }

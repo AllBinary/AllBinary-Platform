@@ -28,6 +28,8 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class BasicItem implements ItemInterface
 {
@@ -69,7 +71,7 @@ public class BasicItem implements ItemInterface
 
     public BasicItem(HashMap itemHashMap) throws MoneyException
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             this.logUtil.putF(this.commonStrings.START, this,"Constructor(HashMap)");
         }
@@ -117,7 +119,7 @@ public class BasicItem implements ItemInterface
 
     public BasicItem() throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
@@ -474,7 +476,7 @@ public class BasicItem implements ItemInterface
 
     public HashMap toHashMap()
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             this.logUtil.putF(this.commonStrings.START, this, "toHashMap");
         }
@@ -528,7 +530,7 @@ public class BasicItem implements ItemInterface
 
     public BasicArrayList toVector()
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             this.logUtil.putF(this.commonStrings.START, this, "toVector");
         }

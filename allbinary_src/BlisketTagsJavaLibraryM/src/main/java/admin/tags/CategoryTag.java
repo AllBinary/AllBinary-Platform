@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class CategoryTag extends TableTag
 {
@@ -63,7 +65,7 @@ public class CategoryTag extends TableTag
       catch(Exception e)
       {
          String error = "Failed to view a Category";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"viewCategory()",e);
          }
@@ -92,7 +94,7 @@ public class CategoryTag extends TableTag
       catch(Exception e)
       {
          String error = "Failed to view a Categories";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"viewCategories()",e);
          }
@@ -113,7 +115,7 @@ public class CategoryTag extends TableTag
                if (this.getCommand().compareTo(CategoryData.getInstance().VIEW)==0)
                {
                   String output = this.viewCategory();
-                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
+                  if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                   {
                      pageContext.getOut().print(output);
                   }
@@ -122,7 +124,7 @@ public class CategoryTag extends TableTag
                   if (this.getCommand().compareTo(CategoryData.getInstance().VIEW)==0)
                   {
                      String output = this.viewCategories();
-                     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
+                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                      {
                         pageContext.getOut().print(output);
                      }

@@ -19,6 +19,8 @@ import javax.mail.internet.MimeMessage;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class AbEmail
    implements EmailInterface
@@ -30,7 +32,7 @@ public class AbEmail
       String textBody, String htmlAttachment, String contentBase) 
       throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
       {
          this.email = new Email(
             from, to, subject, server, textBody, htmlAttachment, contentBase, true);

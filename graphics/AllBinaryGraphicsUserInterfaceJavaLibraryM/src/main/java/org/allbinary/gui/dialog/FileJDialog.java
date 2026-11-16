@@ -18,12 +18,20 @@ import org.allbinary.thread.ARunnable;
 import java.io.File;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import java.awt.EventQueue;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author  USER
  */
-public class FileJDialog extends javax.swing.JDialog
+public class FileJDialog extends JDialog
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -37,7 +45,7 @@ public class FileJDialog extends javax.swing.JDialog
         this.getJFileChooser1().setMultiSelectionEnabled(true);
     }
     
-    public FileJDialog(java.awt.Frame parent, boolean modal)
+    public FileJDialog(Frame parent, boolean modal)
     {
         super(parent, modal);
         this.initComponents();
@@ -58,12 +66,12 @@ public class FileJDialog extends javax.swing.JDialog
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        this.jFileChooser1 = new javax.swing.JFileChooser();
+        this.jFileChooser1 = new JFileChooser();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        this.jFileChooser1.addActionListener(new java.awt.event.ActionListener()
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.jFileChooser1.addActionListener(new ActionListener()
         {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
+            public void actionPerformed(ActionEvent evt)
             {
                 jFileChooser1ActionPerformed(evt);
             }
@@ -88,7 +96,7 @@ public class FileJDialog extends javax.swing.JDialog
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-   private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jFileChooser1ActionPerformed
+   private void jFileChooser1ActionPerformed(ActionEvent evt)//GEN-FIRST:event_jFileChooser1ActionPerformed
    {//GEN-HEADEREND:event_jFileChooser1ActionPerformed
 // TODO add your handling code here:
        
@@ -118,27 +126,27 @@ public class FileJDialog extends javax.swing.JDialog
     */
    public static void main(String args[])
    {
-       java.awt.EventQueue.invokeLater(new ARunnable()
+       EventQueue.invokeLater(new ARunnable()
        {
            public void run()
            {
-               new FileJDialog(new javax.swing.JFrame(), true).setVisible(true);
+               new FileJDialog(new JFrame(), true).setVisible(true);
            }
        });
    }
    
-   public javax.swing.JFileChooser getJFileChooser1()
+   public JFileChooser getJFileChooser1()
    {
        return this.jFileChooser1;
    }
    
-   public void setJFileChooser1(javax.swing.JFileChooser jFileChooser1)
+   public void setJFileChooser1(JFileChooser jFileChooser1)
    {
        this.jFileChooser1 = jFileChooser1;
    }
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFileChooser jFileChooser1;
+    private JFileChooser jFileChooser1;
     // End of variables declaration//GEN-END:variables
     
 }

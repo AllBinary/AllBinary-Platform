@@ -29,6 +29,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 import org.allbinary.string.CommonPhoneStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class OrderHistoryRequestHelper
     extends TagHelper
@@ -99,7 +101,7 @@ public class OrderHistoryRequestHelper
          
          OrderHistoryEntityFactory.getInstance().setStatus(this.id,this.status);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF("Success",this,"setOrderStatus()");
          }
@@ -108,7 +110,7 @@ public class OrderHistoryRequestHelper
       catch(Exception e)
       {
          String error = "Failed to set order status";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"setOrderStatus()",e);
          }
@@ -130,7 +132,7 @@ public class OrderHistoryRequestHelper
          
          new OrderStatusEmail(this.abeClientInformation, orderHistory).process();
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF("Success",this,"setOrderStatus()");
          }
@@ -139,7 +141,7 @@ public class OrderHistoryRequestHelper
       catch(Exception e)
       {
          String error = "Failed to view order table";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
          }

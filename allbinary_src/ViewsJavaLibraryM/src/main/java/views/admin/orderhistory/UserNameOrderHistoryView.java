@@ -33,6 +33,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class UserNameOrderHistoryView extends HttpStoreComponentView implements ValidationComponentInterface, DomNodeInterface
 {
@@ -80,7 +82,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"view()",e);
          }
@@ -108,7 +110,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
             node.appendChild(orderHistory.toXmlNode(document));
          }
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
             this.logUtil.putF("Attempt to View a users order history",this,"view");
          }
@@ -141,8 +143,8 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(
+         LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
             this.logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
@@ -153,7 +155,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
    
    public Boolean isValid()
    {      
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("Started",this,this.commonStrings.IS_VALID);
       }      

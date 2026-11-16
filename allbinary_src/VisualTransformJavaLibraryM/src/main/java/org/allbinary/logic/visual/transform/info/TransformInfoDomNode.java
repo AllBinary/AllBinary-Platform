@@ -21,6 +21,8 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class TransformInfoDomNode
 {
@@ -31,7 +33,7 @@ public class TransformInfoDomNode
 
     public TransformInfoDomNode(Node node) throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF(
                 "Constructing TransformInfo From TransformInfoDomNode: "
@@ -49,7 +51,7 @@ public class TransformInfoDomNode
 
         if (nodeList.getLength() > 1)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 StringMaker stringBuffer = new StringMaker();
 
@@ -89,7 +91,7 @@ public class TransformInfoDomNode
                 templateFileName, dataFileName);
         } else
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 StringMaker stringBuffer = new StringMaker();
 
@@ -163,7 +165,7 @@ public class TransformInfoDomNode
 
         String key = stringBuffer.toString();
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             this.logUtil.putF("Component Key: " + key, this, "getReplaceKey()");
         }

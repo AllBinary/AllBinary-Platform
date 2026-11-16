@@ -26,6 +26,8 @@ import org.allbinary.logic.control.crypt.SuperCrypt;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class Password
 {
@@ -58,14 +60,14 @@ public class Password
       {
          Boolean valid = Boolean.TRUE;
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VALIDATION))
          {
             this.logUtil.putF("Password: " + this.password, this, commonStrings.IS_VALID);
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(this.password, 6, UserData.MAXLEN))
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VALIDATION))
             {
                this.logUtil.putF("Password is invalid", this, commonStrings.IS_VALID);
             }
@@ -76,7 +78,7 @@ public class Password
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATIONERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VALIDATIONERROR))
          {
             this.logUtil.put("Failed to validate form","Password",commonStrings.IS_VALID,e);
          }

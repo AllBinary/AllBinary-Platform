@@ -23,6 +23,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import taghelpers.ValidatedViewHelperFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class ValidationTransformTag extends TransformTag
 {
@@ -60,7 +62,7 @@ public class ValidationTransformTag extends TransformTag
       catch(Exception e)
       {
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,this.commonStrings.IS_VALID,e);
          }
@@ -81,7 +83,7 @@ public class ValidationTransformTag extends TransformTag
       catch(Exception e)
       {
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"validationInfo()",e);
          }
@@ -93,7 +95,7 @@ public class ValidationTransformTag extends TransformTag
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
          {
              StringMaker stringBuffer = new StringMaker();
 
@@ -116,7 +118,7 @@ public class ValidationTransformTag extends TransformTag
          {
             super.doStartTag();
             
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
             {
              StringMaker stringBuffer = new StringMaker();
 
@@ -143,7 +145,7 @@ public class ValidationTransformTag extends TransformTag
             //super.doStartTag();
             pageContext.getOut().print(this.validationInfo());
             
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 StringMaker stringBuffer = new StringMaker();
                 
@@ -180,7 +182,7 @@ public class ValidationTransformTag extends TransformTag
    
    public int doEndTag()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
       {
          this.logUtil.putF("Tag Ended",this,"doEndTag");
       }

@@ -21,6 +21,8 @@ import javax.servlet.jsp.PageContext;
 import org.allbinary.business.user.modules.admin.configuration.AdminConfiguration;
 import org.allbinary.business.user.modules.admin.configuration.AdminConfigurationInterface;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class AdminConfigurationRequestHelper extends ModifyTable
 {
@@ -31,7 +33,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
 
    public AdminConfigurationRequestHelper(HashMap hashMap, PageContext pageContext)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
       {
          this.logUtil.putF(this.commonStrings.CONSTRUCTOR,this,this.commonStrings.CONSTRUCTOR);
       }
@@ -43,7 +45,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF(this.commonStrings.START,this,"insert()");
          }
@@ -55,7 +57,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
          
          adminConfigurationInterface.write();
             
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF(success,this,"insert()");
          }
@@ -66,7 +68,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
       {
          String error = "Failed to created AdminConfiguration";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "insert()", e);
          }
@@ -80,7 +82,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
       {
          String success = "Successfully deleted AdminConfiguration";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF(success,this,"delete()");
          }
@@ -91,7 +93,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
       {
          String error = "Failed to delete";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"delete()",e);
          }
@@ -108,7 +110,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
          AdminConfigurationInterface adminConfigurationInterface = 
             (AdminConfigurationInterface) new AdminConfiguration(this.request);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF(success,this,"update()");
          }
@@ -118,7 +120,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
       {
          String error = "Failed to update";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"update()",e);
          }

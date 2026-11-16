@@ -32,12 +32,21 @@ import org.allbinary.media.image.ImageStrings;
 import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
 
 /**
  *
  * @author User
  */
-public class CanvasImageJPanel extends javax.swing.JPanel
+public class CanvasImageJPanel extends JPanel
     implements ImageProcessedVisitor {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -126,42 +135,42 @@ public class CanvasImageJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        this.writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
-        this.jPanel1 = new javax.swing.JPanel() {             public void paint(Graphics graphics) {                 if (CanvasImageJPanel.this.result != null) {                     graphics.drawImage(CanvasImageJPanel.this.result, 0, 0, CanvasImageJPanel.this.result.getWidth(null), CanvasImageJPanel.this.result.getHeight(null), null);                 }             }         };
-        this.generateJButton = new javax.swing.JButton();
-        this.jLabel4 = new javax.swing.JLabel();
-        this.jPanel2 = new javax.swing.JPanel();
-        this.jLabel5 = new javax.swing.JLabel();
-        this.widthReductionTextField = new javax.swing.JTextField();
-        this.jLabel6 = new javax.swing.JLabel();
-        this.heightReductionTextField = new javax.swing.JTextField();
-        this.widthReductionTextField1 = new javax.swing.JTextField();
-        this.jLabel7 = new javax.swing.JLabel();
-        this.jLabel8 = new javax.swing.JLabel();
-        this.heightReductionTextField1 = new javax.swing.JTextField();
+        this.writeOverOriginalJCheckBox = new JCheckBox();
+        this.jPanel1 = new JPanel() {             public void paint(Graphics graphics) {                 if (CanvasImageJPanel.this.result != null) {                     graphics.drawImage(CanvasImageJPanel.this.result, 0, 0, CanvasImageJPanel.this.result.getWidth(null), CanvasImageJPanel.this.result.getHeight(null), null);                 }             }         };
+        this.generateJButton = new JButton();
+        this.jLabel4 = new JLabel();
+        this.jPanel2 = new JPanel();
+        this.jLabel5 = new JLabel();
+        this.widthReductionTextField = new JTextField();
+        this.jLabel6 = new JLabel();
+        this.heightReductionTextField = new JTextField();
+        this.widthReductionTextField1 = new JTextField();
+        this.jLabel7 = new JLabel();
+        this.jLabel8 = new JLabel();
+        this.heightReductionTextField1 = new JTextField();
 
         this.writeOverOriginalJCheckBox.setSelected(true);
         this.writeOverOriginalJCheckBox.setText("Write Over Original");
-        this.writeOverOriginalJCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        this.writeOverOriginalJCheckBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 writeOverOriginalJCheckBoxActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(this.jPanel1);
+        GroupLayout jPanel1Layout = new GroupLayout(this.jPanel1);
         this.jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGap(0, 196, Short.MAX_VALUE)
         );
 
         this.generateJButton.setText("Generate");
-        this.generateJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        this.generateJButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 generateJButtonActionPerformed(evt);
             }
         });
@@ -171,8 +180,8 @@ public class CanvasImageJPanel extends javax.swing.JPanel
         this.jLabel5.setText("Right:");
 
         this.widthReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
-        this.widthReductionTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        this.widthReductionTextField.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 widthReductionTextFieldActionPerformed(evt);
             }
         });
@@ -182,8 +191,8 @@ public class CanvasImageJPanel extends javax.swing.JPanel
         this.heightReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
         this.widthReductionTextField1.setText(CommonPhoneStrings.getInstance().ZERO);
-        this.widthReductionTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        this.widthReductionTextField1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 widthReductionTextField1ActionPerformed(evt);
             }
         });
@@ -194,115 +203,115 @@ public class CanvasImageJPanel extends javax.swing.JPanel
 
         this.heightReductionTextField1.setText(CommonPhoneStrings.getInstance().ZERO);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this.jPanel2);
+        GroupLayout jPanel2Layout = new GroupLayout(this.jPanel2);
         this.jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(widthReductionTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(widthReductionTextField1, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(widthReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(widthReductionTextField, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(heightReductionTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(heightReductionTextField1, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(heightReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(heightReductionTextField, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(140, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 16, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
-                        .addComponent(heightReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(heightReductionTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
-                        .addComponent(widthReductionTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(widthReductionTextField1, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7)
-                        .addComponent(heightReductionTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(heightReductionTextField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
-                        .addComponent(widthReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(widthReductionTextField, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(78, 78, 78))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(writeOverOriginalJCheckBox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(generateJButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(generateJButton)
                     .addComponent(writeOverOriginalJCheckBox))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void writeOverOriginalJCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_writeOverOriginalJCheckBoxActionPerformed
+    private void writeOverOriginalJCheckBoxActionPerformed(ActionEvent evt) {//GEN-FIRST:event_writeOverOriginalJCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_writeOverOriginalJCheckBoxActionPerformed
 
-    private void generateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateJButtonActionPerformed
+    private void generateJButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_generateJButtonActionPerformed
         this.process();
     }//GEN-LAST:event_generateJButtonActionPerformed
 
-    private void widthReductionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_widthReductionTextFieldActionPerformed
+    private void widthReductionTextFieldActionPerformed(ActionEvent evt) {//GEN-FIRST:event_widthReductionTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_widthReductionTextFieldActionPerformed
 
-    private void widthReductionTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_widthReductionTextField1ActionPerformed
+    private void widthReductionTextField1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_widthReductionTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_widthReductionTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton generateJButton;
-    private javax.swing.JTextField heightReductionTextField;
-    private javax.swing.JTextField heightReductionTextField1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField widthReductionTextField;
-    private javax.swing.JTextField widthReductionTextField1;
-    private javax.swing.JCheckBox writeOverOriginalJCheckBox;
+    private JButton generateJButton;
+    private JTextField heightReductionTextField;
+    private JTextField heightReductionTextField1;
+    private JLabel jLabel4;
+    private JLabel jLabel5;
+    private JLabel jLabel6;
+    private JLabel jLabel7;
+    private JLabel jLabel8;
+    private JPanel jPanel1;
+    private JPanel jPanel2;
+    private JTextField widthReductionTextField;
+    private JTextField widthReductionTextField1;
+    private JCheckBox writeOverOriginalJCheckBox;
     // End of variables declaration//GEN-END:variables
 
    public ImageProcessorInput getImageProcessorInput()

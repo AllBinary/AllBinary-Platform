@@ -30,6 +30,8 @@ import org.allbinary.logic.communication.sql.AbSqlData;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class QuoteRequest
 {
@@ -61,7 +63,7 @@ public class QuoteRequest
       this.setTimeFrame((String) request.getParameter(quoteRequestData.TIMEFRAME));
       this.setComments((String) request.getParameter(quoteRequestData.COMMENTS));
 
-      if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+      if(  LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
       {
          this.logUtil.putF("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR);
       }
@@ -79,7 +81,7 @@ public class QuoteRequest
       this.setTimeFrame((String) hashMap.get(quoteRequestData.TIMEFRAME));
       this.setComments((String) hashMap.get(quoteRequestData.COMMENTS));
 
-      if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+      if(  LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
       {
          this.logUtil.putF("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR);
       }
@@ -124,7 +126,7 @@ public class QuoteRequest
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put("Failed to validate form",this,this.commonStrings.IS_VALID,e);
          }
@@ -171,7 +173,7 @@ public class QuoteRequest
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }

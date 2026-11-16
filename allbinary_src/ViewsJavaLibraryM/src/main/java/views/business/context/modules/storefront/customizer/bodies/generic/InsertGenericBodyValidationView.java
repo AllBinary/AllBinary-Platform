@@ -26,6 +26,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import views.business.context.modules.storefront.customizer.CustomizerUtil;
 import views.business.context.modules.storefront.customizer.StoreCustomizerComponentUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InsertGenericBodyValidationView extends GenericBodyCustomizerView implements ValidationComponentInterface
 {
@@ -50,7 +52,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
             this.logUtil.putF("Started Validation", this, this.commonStrings.IS_VALID);
          }
@@ -69,7 +71,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to validate",this,this.commonStrings.IS_VALID,e);
          }
@@ -89,7 +91,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
@@ -115,7 +117,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"view()",e);
          }

@@ -20,6 +20,8 @@ import org.allbinary.logic.StdUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 
 public class Properties
@@ -32,7 +34,7 @@ public class Properties
    
    public Properties()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
       {
          this.logUtil.putF("Start/Tag",this,this.commonStrings.CONSTRUCTOR);
       }
@@ -46,7 +48,7 @@ public class Properties
 
    public int doEndTag()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
       {
          this.logUtil.putF("Tag Ended",this,"doEndTag");
       }

@@ -22,6 +22,8 @@ import org.allbinary.logic.system.security.AbKeys;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
         
 public class AbeFactory
 {
@@ -54,7 +56,7 @@ public class AbeFactory
       }
       catch (LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
@@ -62,7 +64,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
@@ -102,7 +104,7 @@ public class AbeFactory
       }
       catch (LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR))
          {
         	 StringMaker stringBuffer = new StringMaker();
         	 
@@ -117,7 +119,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR))
          {
         	 StringMaker stringBuffer = new StringMaker();
         	 
@@ -248,7 +250,7 @@ public class AbeFactory
       }
       catch (LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             this.logUtil.put("Failure for: " + className, this,"getClass(className)", e);
          }
@@ -256,7 +258,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             this.logUtil.put("Failure for: " + className, this,"getClass(className)", e);
          }

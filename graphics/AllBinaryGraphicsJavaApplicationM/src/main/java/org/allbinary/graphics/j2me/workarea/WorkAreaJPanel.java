@@ -36,6 +36,11 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import java.awt.GridBagConstraints;
+import java.awt.GridLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JPanel;
 
 public class WorkAreaJPanel
         extends JPanel
@@ -49,7 +54,7 @@ public class WorkAreaJPanel
     private JPanel canvasHolderJPanel;
     private String name;
     private int selectedFrame;
-    private static org.w3c.dom.Document document;
+    private static Document document;
     private PropertiesJPanel propertiesJPanel;
     private WorkAreaJTreeJPanel workAreaJTreeJPanel;
     //workarea animation
@@ -146,7 +151,7 @@ public class WorkAreaJPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 1;
         //gridBagConstraints.gridheight =;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = .05;
         gridBagConstraints.weighty = .05;
 
@@ -159,7 +164,7 @@ public class WorkAreaJPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 6;
         //gridBagConstraints.gridheight =400;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1;
         gridBagConstraints.weighty = 1;
 
@@ -169,9 +174,9 @@ public class WorkAreaJPanel
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = GridBagConstraints.REMAINDER;
         //gridBagConstraints.gridheight =400;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = .1;
         gridBagConstraints.weighty = .1;
 
@@ -388,21 +393,21 @@ public class WorkAreaJPanel
 
    private void initComponents()//GEN-BEGIN:initComponents
    {
-      this.innerJPanel = new javax.swing.JPanel();
+      this.innerJPanel = new JPanel();
 
-      setLayout(new java.awt.GridLayout(1, 1));
+      setLayout(new GridLayout(1, 1));
 
-      this.innerJPanel.addKeyListener(new java.awt.event.KeyAdapter()
+      this.innerJPanel.addKeyListener(new KeyAdapter()
       {
-         public void keyTyped(java.awt.event.KeyEvent evt)
+         public void keyTyped(KeyEvent evt)
          {
             innerJPanelKeyTyped(evt);
          }
-         public void keyPressed(java.awt.event.KeyEvent evt)
+         public void keyPressed(KeyEvent evt)
          {
             innerJPanelKeyPressed(evt);
          }
-         public void keyReleased(java.awt.event.KeyEvent evt)
+         public void keyReleased(KeyEvent evt)
          {
             innerJPanelKeyReleased(evt);
          }
@@ -413,34 +418,34 @@ public class WorkAreaJPanel
    }//GEN-END:initComponents
 
     //event methods
-   private void innerJPanelKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_innerJPanelKeyReleased
+   private void innerJPanelKeyReleased(KeyEvent evt)//GEN-FIRST:event_innerJPanelKeyReleased
    {//GEN-HEADEREND:event_innerJPanelKeyReleased
        // Add your handling code here:
        StatusFactory.getInstance().setStatus("Key Pressed1");
    }//GEN-LAST:event_innerJPanelKeyReleased
 
-   private void innerJPanelKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_innerJPanelKeyPressed
+   private void innerJPanelKeyPressed(KeyEvent evt)//GEN-FIRST:event_innerJPanelKeyPressed
    {//GEN-HEADEREND:event_innerJPanelKeyPressed
        // Add your handling code here:
        StatusFactory.getInstance().setStatus("Key Pressed2");
    }//GEN-LAST:event_innerJPanelKeyPressed
 
-   private void innerJPanelKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_innerJPanelKeyTyped
+   private void innerJPanelKeyTyped(KeyEvent evt)//GEN-FIRST:event_innerJPanelKeyTyped
    {//GEN-HEADEREND:event_innerJPanelKeyTyped
        // Add your handling code here:
        StatusFactory.getInstance().setStatus("Key Pressed3");
    }//GEN-LAST:event_innerJPanelKeyTyped
 
-   public void keyPressed(java.awt.event.KeyEvent keyEvent)
+   public void keyPressed(KeyEvent keyEvent)
    {
        this.getCurrentFrame().keyPressed(keyEvent);
    }
 
-   public void keyReleased(java.awt.event.KeyEvent keyEvent)
+   public void keyReleased(KeyEvent keyEvent)
    {
    }
 
-   public void keyTyped(java.awt.event.KeyEvent keyEvent)
+   public void keyTyped(KeyEvent keyEvent)
    {
    }
 
@@ -541,6 +546,6 @@ public class WorkAreaJPanel
         }
     }
    // Variables declaration - do not modify//GEN-BEGIN:variables
-   private javax.swing.JPanel innerJPanel;
+   private JPanel innerJPanel;
    // End of variables declaration//GEN-END:variables
 }

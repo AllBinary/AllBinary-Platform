@@ -36,6 +36,8 @@ import org.allbinary.string.CommonLabels;
 import org.apache.commons.fileupload.FileItem;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class AddFileValidationView
     extends InventoryItemView
@@ -64,7 +66,7 @@ public class AddFileValidationView
                 || (command.compareTo(AddFileValidationView.ADDPRODUCT) != 0
                 && command.compareTo(NEXTSTEP) != 0))
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
                 {
                     StringMaker stringBuffer = new StringMaker();
 
@@ -85,7 +87,7 @@ public class AddFileValidationView
 
             if (basicItemValidation.isValid() == Boolean.FALSE)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
                 {
                     this.logUtil.putF(basicItemValidation.validationInfo(), this, this.commonStrings.IS_VALID);
                 }
@@ -110,7 +112,7 @@ public class AddFileValidationView
             AbFile categoryFile = AbFile.createAbFile(fullCategory);
             if (!categoryFile.isDirectory())
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
                 {
                     this.logUtil.putF("Category Does Not Exist: " + fullCategory, this, this.commonStrings.IS_VALID);
                 }
@@ -120,7 +122,7 @@ public class AddFileValidationView
 
             if (InventoryEntityFactory.getInstance().getInventoryEntityInstance().getItem(this.itemInterface.getId()) != null)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
                 {
                     this.logUtil.putF("Item Already Exists", this, this.commonStrings.IS_VALID);
                 }
@@ -149,7 +151,7 @@ public class AddFileValidationView
             return Boolean.TRUE;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
             {
                 this.logUtil.put("Exception in validation", this, this.commonStrings.IS_VALID, e);
             }
@@ -200,8 +202,8 @@ public class AddFileValidationView
                 storeFrontInterface.getCurrentHostNamePath()).append(
                 this.itemInterface.getCategory()).toString();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(
+                LogConfigTypeFactory.getInstance().VIEW))
             {
                 this.logUtil.putF("Category: " + fullCategory, this, "validationInfo()");
             }
@@ -222,8 +224,8 @@ public class AddFileValidationView
                 }
             } catch (MoneyException e)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                    org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+                if (LogConfigTypes.LOGGING.contains(
+                    LogConfigTypeFactory.getInstance().VIEW))
                 {
                     this.logUtil.putF("Existing Item With MoneyException", this, "validationInfo()");
                 }
@@ -245,7 +247,7 @@ public class AddFileValidationView
             return stringBuffer.toString();
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
             {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
             }
@@ -281,7 +283,7 @@ public class AddFileValidationView
                 }
             } else
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
                 {
                     final StringMaker stringBuffer = new StringMaker();
 
@@ -299,7 +301,7 @@ public class AddFileValidationView
             this.processImageFiles();
         } else
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 final StringMaker stringBuffer = new StringMaker();
 

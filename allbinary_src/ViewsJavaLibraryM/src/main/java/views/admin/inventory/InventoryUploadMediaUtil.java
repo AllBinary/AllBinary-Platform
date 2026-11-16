@@ -29,6 +29,8 @@ import org.allbinary.logic.visual.media.MediaData;
 import org.allbinary.logic.visual.media.MediaTypeData;
 import org.allbinary.logic.visual.media.MediaUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InventoryUploadMediaUtil
 {
@@ -58,7 +60,7 @@ public class InventoryUploadMediaUtil
 
     public ItemInterface saveFiles(byte[] byteArray, String fileName, MediaData mediaData) throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
         {
             this.logUtil.putF("Start FileName: " + fileName, this, "saveFiles()");
         }
@@ -94,7 +96,7 @@ public class InventoryUploadMediaUtil
         
         AbFile originalImageFile = AbFile.createAbFile(stringBuffer.toString());
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
         {
             this.logUtil.putF("Saving Original Image: " + originalImageFile, this, "saveFiles()");
         }
@@ -110,7 +112,7 @@ public class InventoryUploadMediaUtil
             uploadMedia.isWriterSupported(mediaData.getName())
             || uploadMedia.isReaderSupported(mediaData.getName());
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
         {
         	stringBuffer.delete(0, stringBuffer.length());
 
@@ -131,7 +133,7 @@ public class InventoryUploadMediaUtil
                 uploadMedia.isWriterMedia(
                 mediaData.getName(), MediaTypeData.getInstance().RESIZABLE_MEDIA);
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
             {
             	stringBuffer.delete(0, stringBuffer.length());
 
@@ -148,7 +150,7 @@ public class InventoryUploadMediaUtil
             //Is the uploaded File an image that ImageIO can resize
             if (isMediaResizable)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
                 {
                     this.logUtil.putF("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
                 }
@@ -176,7 +178,7 @@ public class InventoryUploadMediaUtil
                 boolean isConvertable =
                     mediaData.isConvertableTo(defaultMediaData);
 
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
                 {
                 	stringBuffer.delete(0, stringBuffer.length());
 
@@ -192,7 +194,7 @@ public class InventoryUploadMediaUtil
 
                 if (isConvertable)
                 {
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+                    if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
                     {
                         this.logUtil.putF("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
                     }
@@ -236,7 +238,7 @@ public class InventoryUploadMediaUtil
             }
         }
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().CATEGORY))
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.putF(commonStrings.END, this, "saveFiles()");

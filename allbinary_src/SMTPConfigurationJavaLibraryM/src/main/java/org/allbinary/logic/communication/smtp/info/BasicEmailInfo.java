@@ -18,6 +18,8 @@ import org.allbinary.logic.communication.smtp.configuration.server.EmailServerCo
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class BasicEmailInfo
 {
@@ -30,7 +32,7 @@ public class BasicEmailInfo
    
    public BasicEmailInfo(String subject, String textBody)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
          this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);

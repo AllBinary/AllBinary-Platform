@@ -15,6 +15,8 @@ package org.allbinary.data.tables.workflow;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class WorkFlowEntityFactory
 {
@@ -36,7 +38,7 @@ public class WorkFlowEntityFactory
       {
          //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (StoreFrontsEntityInterface) InterfaceCastProxy.newInstance(object);
-         return new org.allbinary.data.tables.workflow.WorkFlowEntity();
+         return new WorkFlowEntity();
       }
       /*
       catch(LicensingException e)
@@ -52,8 +54,8 @@ public class WorkFlowEntityFactory
       catch(Exception e)
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+                 LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
          }

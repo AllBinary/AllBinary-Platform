@@ -21,7 +21,7 @@ import org.osgi.framework.ServiceReference;
 
 import org.allbinary.logic.string.StringMaker;
 
-public class ServiceReferenceMap implements Map
+public class ServiceReferenceMap implements Map<Object, Object>
 {
     private ServiceReference serviceReference;
     
@@ -65,7 +65,7 @@ public class ServiceReferenceMap implements Map
         return null;
     }
 
-    public void putAll(Map m)
+    public void putAll(Map<? extends Object, ? extends Object> m)
     {
        
     }
@@ -75,7 +75,7 @@ public class ServiceReferenceMap implements Map
         
     }
 
-    public Set keySet()
+    public Set<Object> keySet()
     {
         //Set set
         String[] keyStringArray = this.serviceReference.getPropertyKeys();
@@ -87,12 +87,12 @@ public class ServiceReferenceMap implements Map
         return null;
     }
 
-    public Set entrySet()
+    public Set<Map.Entry<Object, Object>> entrySet()
     {
         return null;
     }
     
-    public static String toString(Map map)
+    public static String toString(Map<?, ?> map)
     {
         StringMaker stringBuffer = new StringMaker();
         /*

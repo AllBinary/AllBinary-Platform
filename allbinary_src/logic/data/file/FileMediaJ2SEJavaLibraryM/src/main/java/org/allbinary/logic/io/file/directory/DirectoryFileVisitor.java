@@ -24,7 +24,7 @@ public class DirectoryFileVisitor implements VisitorInterface, FileFilter
     {
     }
     
-    public boolean accept(java.io.File arg0)
+    public boolean accept(File arg0)
     {
     	return ((Boolean) this.visit((Object) arg0)).booleanValue();
     }

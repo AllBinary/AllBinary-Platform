@@ -18,6 +18,8 @@ import org.allbinary.business.user.commerce.money.payment.types.PaymentType;
 import org.allbinary.business.user.commerce.money.payment.types.PaymentTypeUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class PaymentTransactionInterfaceFactory
 {
@@ -58,7 +60,7 @@ public class PaymentTransactionInterfaceFactory
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put("Failed to generate test data",this, commonStrings.GET_INSTANCE, e);

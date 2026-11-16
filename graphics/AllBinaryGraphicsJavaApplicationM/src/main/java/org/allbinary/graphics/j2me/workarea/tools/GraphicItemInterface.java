@@ -21,6 +21,8 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.j2me.workarea.canvas.CanvasDom;
 import org.allbinary.graphics.j2me.workarea.canvas.IntegerDimension;
 import org.w3c.dom.Node;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 public interface GraphicItemInterface
 {
@@ -60,16 +62,16 @@ public interface GraphicItemInterface
 
    //mouse and key events occur on the component the tool 
    //is used and not by the tool itself
-   void mouseClicked(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell);
-   void mouseEntered(java.awt.event.MouseEvent mouseEvent);
-   void mouseExited(java.awt.event.MouseEvent mouseEvent);
-   void mousePressed(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell);
-   void mouseReleased(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell);
-   void mouseDragged(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell);
-   void mouseMoved(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell);
-   void keyPressed(java.awt.event.KeyEvent keyEvent);
-   void keyReleased(java.awt.event.KeyEvent keyEvent);   
-   void keyTyped(java.awt.event.KeyEvent keyEvent);
+   void mouseClicked(MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell);
+   void mouseEntered(MouseEvent mouseEvent);
+   void mouseExited(MouseEvent mouseEvent);
+   void mousePressed(MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell);
+   void mouseReleased(MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell);
+   void mouseDragged(MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell);
+   void mouseMoved(MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell);
+   void keyPressed(KeyEvent keyEvent);
+   void keyReleased(KeyEvent keyEvent);   
+   void keyTyped(KeyEvent keyEvent);
    
    GraphicItemInterface duplicate()throws Exception;
 }

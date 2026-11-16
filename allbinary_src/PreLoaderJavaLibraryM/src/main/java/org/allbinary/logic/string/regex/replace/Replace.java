@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 
 public class Replace
 {
@@ -162,7 +163,7 @@ public class Replace
       //}
       
       if(totalNumberOfReplaces > 0) {
-      if(LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().REPLACE))
       {
          this.logUtil.putF("Total Number Of Replaces: " + totalNumberOfReplaces, this, this.ALL);
       }
@@ -229,7 +230,7 @@ public class Replace
          //this.logUtil.putF("Replace Result: " + replace, this, ALL);
       //}
       
-      if(LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().REPLACE))
       {
          this.logUtil.putF("Total Number Of Replaces: " + totalNumberOfReplaces, this, this.ALL);
       }

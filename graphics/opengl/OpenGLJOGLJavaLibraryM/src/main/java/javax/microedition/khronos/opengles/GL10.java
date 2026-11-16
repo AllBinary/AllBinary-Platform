@@ -1,6 +1,10 @@
 package javax.microedition.khronos.opengles;
 
-public interface GL10 extends javax.microedition.khronos.opengles.GL {
+import java.nio.Buffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+
+public interface GL10 extends GL {
 
     public static final int GL_ADD = 260;
     public static final int GL_ALIASED_LINE_WIDTH_RANGE = 33902;
@@ -270,11 +274,11 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glColorMask(boolean red, boolean green, boolean blue, boolean alpha);
 
-    void glColorPointer(int size, int type, int stride, java.nio.Buffer pointer);
+    void glColorPointer(int size, int type, int stride, Buffer pointer);
 
-    void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, java.nio.Buffer data);
+    void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, Buffer data);
 
-    void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, java.nio.Buffer data);
+    void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, Buffer data);
 
     void glCopyTexImage2D(int target, int level, int internalformat, int x, int y, int width, int height, int border);
 
@@ -284,7 +288,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glDeleteTextures(int n, int[] textures, int offset);
 
-    void glDeleteTextures(int n, java.nio.IntBuffer textures);
+    void glDeleteTextures(int n, IntBuffer textures);
 
     void glDepthFunc(int func);
 
@@ -300,7 +304,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glDrawArrays(int mode, int first, int count);
 
-    void glDrawElements(int mode, int count, int type, java.nio.Buffer indices);
+    void glDrawElements(int mode, int count, int type, Buffer indices);
 
     void glEnable(int cap);
 
@@ -314,7 +318,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glFogfv(int pname, float[] params, int offset);
 
-    void glFogfv(int pname, java.nio.FloatBuffer params);
+    void glFogfv(int pname, FloatBuffer params);
 
     //void glFogx(int pname, int param);
 
@@ -330,13 +334,13 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glGenTextures(int n, int[] textures, int offset);
 
-    void glGenTextures(int n, java.nio.IntBuffer textures);
+    void glGenTextures(int n, IntBuffer textures);
 
     int glGetError();
 
     void glGetIntegerv(int pname, int[] params, int offset);
 
-    void glGetIntegerv(int pname, java.nio.IntBuffer params);
+    void glGetIntegerv(int pname, IntBuffer params);
 
     String glGetString(int name);
 
@@ -346,7 +350,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glLightModelfv(int pname, float[] params, int offset);
 
-    void glLightModelfv(int pname, java.nio.FloatBuffer params);
+    void glLightModelfv(int pname, FloatBuffer params);
 
     //void glLightModelx(int pname, int param);
 
@@ -358,7 +362,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glLightfv(int light, int pname, float[] params, int offset);
 
-    void glLightfv(int light, int pname, java.nio.FloatBuffer params);
+    void glLightfv(int light, int pname, FloatBuffer params);
 
     //void glLightx(int light, int pname, int param);
 
@@ -374,7 +378,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glLoadMatrixf(float[] m, int offset);
 
-    void glLoadMatrixf(java.nio.FloatBuffer m);
+    void glLoadMatrixf(FloatBuffer m);
 
     //void glLoadMatrixx(int[] m, int offset);
 
@@ -386,7 +390,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glMaterialfv(int face, int pname, float[] params, int offset);
 
-    void glMaterialfv(int face, int pname, java.nio.FloatBuffer params);
+    void glMaterialfv(int face, int pname, FloatBuffer params);
 
     //void glMaterialx(int face, int pname, int param);
 
@@ -398,7 +402,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glMultMatrixf(float[] m, int offset);
 
-    void glMultMatrixf(java.nio.FloatBuffer m);
+    void glMultMatrixf(FloatBuffer m);
 
     //void glMultMatrixx(int[] m, int offset);
 
@@ -412,7 +416,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     //void glNormal3x(int nx, int ny, int nz);
 
-    void glNormalPointer(int type, int stride, java.nio.Buffer pointer);
+    void glNormalPointer(int type, int stride, Buffer pointer);
 
     void glOrthof(float left, float right, float bottom, float top, float zNear, float zFar);
 
@@ -432,7 +436,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glPushMatrix();
 
-    void glReadPixels(int x, int y, int width, int height, int format, int type, java.nio.Buffer pixels);
+    void glReadPixels(int x, int y, int width, int height, int format, int type, Buffer pixels);
 
     void glRotatef(float angle, float x, float y, float z);
 
@@ -456,13 +460,13 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glStencilOp(int fail, int zfail, int zpass);
 
-    void glTexCoordPointer(int size, int type, int stride, java.nio.Buffer pointer);
+    void glTexCoordPointer(int size, int type, int stride, Buffer pointer);
 
     void glTexEnvf(int target, int pname, float param);
 
     void glTexEnvfv(int target, int pname, float[] params, int offset);
 
-    void glTexEnvfv(int target, int pname, java.nio.FloatBuffer params);
+    void glTexEnvfv(int target, int pname, FloatBuffer params);
 
     //void glTexEnvx(int target, int pname, int param);
 
@@ -470,7 +474,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     //void glTexEnvxv(int target, int pname, java.nio.IntBuffer params);
 
-    void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, java.nio.Buffer pixels);
+    void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, Buffer pixels);
 
     void glTexParameterf(int target, int pname, float param);
 
@@ -478,13 +482,13 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
     
     void glTexParameteri(int target, int pname, int param);
 
-    void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, java.nio.Buffer pixels);
+    void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, Buffer pixels);
 
     void glTranslatef(float x, float y, float z);
 
     //void glTranslatex(int x, int y, int z);
 
-    void glVertexPointer(int size, int type, int stride, java.nio.Buffer pointer);
+    void glVertexPointer(int size, int type, int stride, Buffer pointer);
 
     void glViewport(int x, int y, int width, int height);
 

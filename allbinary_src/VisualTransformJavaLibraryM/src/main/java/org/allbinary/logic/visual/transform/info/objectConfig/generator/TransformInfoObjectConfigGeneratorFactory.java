@@ -17,6 +17,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.InputOutputTypeData;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class TransformInfoObjectConfigGeneratorFactory implements
     TransformInfoObjectConfigGeneratorFactoryInterface
@@ -44,8 +46,8 @@ public class TransformInfoObjectConfigGeneratorFactory implements
     {
         String type = (String) transformInfoInterface.getObjectConfigInterface().getOutputTypeName();
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().VIEW))
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.putF("Generating Instance for type: " + type,this, commonStrings.GET_INSTANCE);

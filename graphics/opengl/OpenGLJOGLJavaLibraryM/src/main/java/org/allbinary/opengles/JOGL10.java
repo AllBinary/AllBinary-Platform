@@ -14,13 +14,19 @@
 package org.allbinary.opengles;
 
 import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.GL;
+import com.jogamp.opengl.GL2;
+import java.nio.Buffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import javax.microedition.khronos.opengles.GL10;
 
 /**
  *
  * @author User
  */
 //JOGLEToKhronosGL10
-public class JOGL10 implements javax.microedition.khronos.opengles.GL10
+public class JOGL10 implements GL10
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -42,7 +48,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 
     //private final com.jogamp.opengl.GL2ES1 gl10;
     //private final com.jogamp.opengl.GL2 gl2;
-    private final com.jogamp.opengl.GL2 gl10;
+    private final GL2 gl10;
     public final GLU glu;
 
     public final int GL_LINE;
@@ -51,7 +57,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 //    private final com.jogamp.opengl.GL3 gl3;
 //    private final com.jogamp.opengl.GL4 gl4;
 
-    public JOGL10(final com.jogamp.opengl.GL gl, final com.jogamp.opengl.GL2 gl2)
+    public JOGL10(final GL gl, final GL2 gl2)
     {
         //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, this.commonStrings.CONSTRUCTOR);
         
@@ -72,13 +78,13 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 
         this.glu = GLU.createGLU(this.gl10);
         
-        this.GL_LINE = com.jogamp.opengl.GL2.GL_LINE;
-        this.GL_QUAD_STRIP = com.jogamp.opengl.GL2.GL_QUAD_STRIP;
+        this.GL_LINE = GL2.GL_LINE;
+        this.GL_QUAD_STRIP = GL2.GL_QUAD_STRIP;
         
         //GLRendererQuirks glRendererQuirks = gl10.getContext().getRendererQuirks();
     }
 
-    public com.jogamp.opengl.GL2 getJOGLGL() {
+    public GL2 getJOGLGL() {
         //return this.gl2;
         return this.gl10;
     }
@@ -188,21 +194,21 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glColorMask(red, green, blue, alpha);
     }
 
-    public void glColorPointer(int size, int type, int stride, java.nio.Buffer pointer)
+    public void glColorPointer(int size, int type, int stride, Buffer pointer)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("size: ").append(size).append(" type: ").append(type).append(" stride: ").append(stride).append(" pointer: ").append(pointer).toString(), this, "GL10.glColorPointer");
         this.gl10.glColorPointer(size, type, stride, pointer);
     }
 
-    public void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, java.nio.Buffer data)
+    public void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, Buffer data)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("target: ").append(target).append(" level: ").append(level).append(" internalformat: ").append(internalformat).toString(), this, "GL10.glCompressedTexImage2D");
         this.gl10.glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
     }
 
-    public void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, java.nio.Buffer data)
+    public void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, Buffer data)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("target: ").append(target).append(" level: ").append(level).append(" xoffset: ").append(xoffset).append(" yoffset: ").append(yoffset).toString(), this, "GL10.glCompressedTexSubImage2D");
@@ -236,7 +242,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glDeleteTextures(n, textures, offset);
     }
 
-    public void glDeleteTextures(int n, java.nio.IntBuffer textures)
+    public void glDeleteTextures(int n, IntBuffer textures)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("n: ").append(n).append(" textures: ").append(textures).toString(), this, "GL10.glDeleteTextures");
@@ -288,7 +294,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glDrawArrays(mode, first, count);
     }
 
-    public void glDrawElements(int mode, int count, int type, java.nio.Buffer indices)
+    public void glDrawElements(int mode, int count, int type, Buffer indices)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("mode: ").append(mode).append(" count: ").append(count).append(" type: ").append(type).append(" indices: ").append(indices).toString(), this, "GL10.glDrawElements");
@@ -333,7 +339,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glFogfv(pname, params, offset);
     }
 
-    public void glFogfv(int pname, java.nio.FloatBuffer params)
+    public void glFogfv(int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glFogfv");
@@ -388,7 +394,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glGenTextures(n, textures, offset);
     }
 
-    public void glGenTextures(int n, java.nio.IntBuffer textures)
+    public void glGenTextures(int n, IntBuffer textures)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("n: ").append(n).append(" textures: ").append(textures).toString(), this, "GL10.glGenTextures");
@@ -407,7 +413,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glGetIntegerv(pname, params, offset);
     }
 
-    public void glGetIntegerv(int pname, java.nio.IntBuffer params)
+    public void glGetIntegerv(int pname, IntBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glGetIntegerv");
@@ -440,7 +446,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glLightModelfv(pname, params, offset);
     }
 
-    public void glLightModelfv(int pname, java.nio.FloatBuffer params)
+    public void glLightModelfv(int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glLightModelfv");
@@ -482,7 +488,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glLightfv(light, pname, params, offset);
     }
 
-    public void glLightfv(int light, int pname, java.nio.FloatBuffer params)
+    public void glLightfv(int light, int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glLightfv");
@@ -534,7 +540,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glLoadMatrixf(m, offset);
     }
 
-    public void glLoadMatrixf(java.nio.FloatBuffer m)
+    public void glLoadMatrixf(FloatBuffer m)
     {
         //PreLogUtil.put("m: " + m, this, "GL10.glLoadMatrixf");
         this.gl10.glLoadMatrixf(m);
@@ -572,7 +578,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glMaterialfv(face, pname, params, offset);
     }
 
-    public void glMaterialfv(int face, int pname, java.nio.FloatBuffer params)
+    public void glMaterialfv(int face, int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glMaterialfv");
@@ -612,7 +618,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glMultMatrixf(m, offset);
     }
 
-    public void glMultMatrixf(java.nio.FloatBuffer m)
+    public void glMultMatrixf(FloatBuffer m)
     {
         //PreLogUtil.put("m: " + m, this, "GL10.glMultMatrixf");
         this.gl10.glMultMatrixf(m);
@@ -658,7 +664,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 //        this.gl10.glNormal3x(nx, ny, nz);
 //    }
 
-    public void glNormalPointer(int type, int stride, java.nio.Buffer pointer)
+    public void glNormalPointer(int type, int stride, Buffer pointer)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("type: ").append(type).append(" stride: ").append(stride).toString(), this, "GL10.glNormalPointer");
@@ -724,7 +730,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glPushMatrix();
     }
 
-    public void glReadPixels(int x, int y, int width, int height, int format, int type, java.nio.Buffer pixels)
+    public void glReadPixels(int x, int y, int width, int height, int format, int type, Buffer pixels)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(commonLabels.W).append(width).append(commonLabels.H).append(height).toString(), this, "GL10.glReadPixels");
@@ -808,7 +814,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glStencilOp(fail, zfail, zpass);
     }
 
-    public void glTexCoordPointer(int size, int type, int stride, java.nio.Buffer pointer)
+    public void glTexCoordPointer(int size, int type, int stride, Buffer pointer)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("size: ").append(size).append(" type: ").append(type).append(" stride: ").append(stride).toString(), this, "GL10.glTexCoordPointer");
@@ -829,7 +835,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glTexEnvfv(target, pname, params, offset);
     }
 
-    public void glTexEnvfv(int target, int pname, java.nio.FloatBuffer params)
+    public void glTexEnvfv(int target, int pname, FloatBuffer params)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(_PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glTexEnvf");
@@ -857,7 +863,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 //        this.gl10.glTexEnvxv(target, pname, params);
 //    }
 
-    public void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, java.nio.Buffer pixels)
+    public void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, Buffer pixels)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(" level: ").append(level).append(" internalformat: ").append(internalformat).toString(), this, "GL10.glTexImage2D");
@@ -885,7 +891,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 //        this.gl10.glTexParameterx(target, pname, param);
 //    }
 
-    public void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, java.nio.Buffer pixels)
+    public void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, Buffer pixels)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(" level: ").append(level).append(" xoffset: ").append(xoffset).toString(), this, "GL10.glTexSubImage2D");
@@ -906,7 +912,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 //        this.gl10.glTranslatex(x, y, z);
 //    }
 
-    public void glVertexPointer(int size, int type, int stride, java.nio.Buffer pointer)
+    public void glVertexPointer(int size, int type, int stride, Buffer pointer)
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("size: ").append(size).append(" type: ").append(type).append(" stride: ").append(stride).toString(), this, "GL10.glVertexPointer");

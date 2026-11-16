@@ -27,7 +27,7 @@ public class GenericValidator extends ValidatorBase
       return null;
    }   
    
-   public Node toValidationInfoNode(org.w3c.dom.Document document)
+   public Node toValidationInfoNode(Document document)
    {
       return null;
    }

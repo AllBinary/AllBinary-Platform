@@ -15,6 +15,8 @@ package tags;
 
 import admin.taghelpers.TagHelperFactoryInterface;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class HelperTag extends PropertiesTag
 {
@@ -26,7 +28,7 @@ public class HelperTag extends PropertiesTag
    
    public HelperTag(final TagHelperFactoryInterface tagHelperFactoryInterface)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
       {
     	  this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       }
@@ -39,7 +41,7 @@ public class HelperTag extends PropertiesTag
    {
       if(this.object==null)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
          {
             this.logUtil.putF("Creating TagHelper with: \n" + this.getPropertiesHashMap().toString() ,this,"doStartTag");
          }
@@ -58,7 +60,7 @@ public class HelperTag extends PropertiesTag
    
    public int doEndTag()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
       {
          this.logUtil.putF("Tag Ended",this,"doEndTag");
       }

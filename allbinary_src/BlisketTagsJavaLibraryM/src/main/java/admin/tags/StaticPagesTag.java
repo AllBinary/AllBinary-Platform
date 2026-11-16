@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.search.SearchData;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class StaticPagesTag extends TableTag
 {
@@ -66,7 +68,7 @@ public class StaticPagesTag extends TableTag
       catch(Exception e)
       {
          String error = "Failed to generate staticpages table";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"generateStaticPages()",e);
          }
@@ -96,7 +98,7 @@ public class StaticPagesTag extends TableTag
       catch(Exception e)
       {
          String error = "Failed to makePublic";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"makePublic()",e);
          }
@@ -119,7 +121,7 @@ public class StaticPagesTag extends TableTag
                   this.getPropertiesHashMap().put(TransformInfoData.getInstance().TEMPLATEFILENAME, this.xslFile);
 
                   final String output = this.generateStaticPages();
-                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
+                  if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                   {
                      this.pageContext.getOut().print(output);
                   }
@@ -128,7 +130,7 @@ public class StaticPagesTag extends TableTag
                if (this.getCommand().compareTo(SearchData.MAKEPUBLIC)==0)
                {
                    final String output = this.makePublic();
-                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
+                  if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                   {
                      this.pageContext.getOut().print(output);
                   }

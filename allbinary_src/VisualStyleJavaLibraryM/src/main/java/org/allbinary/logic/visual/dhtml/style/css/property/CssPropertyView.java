@@ -34,6 +34,12 @@ public class CssPropertyView implements DomNodeInterface
       this.cssProperty = new CssProperty(node);
    }
 
+   //For a sub class with constructors for a name and a node, since Scala lets the constructors of a class call only one super constructor.
+   public CssPropertyView(CssProperty cssProperty)
+   {
+      this.cssProperty = cssProperty;
+   }
+
    /*
    public CssPropertyView(HashMap hashMap)
    {

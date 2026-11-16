@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class ModifyTag extends HelperTag 
 {
@@ -33,7 +35,7 @@ public class ModifyTag extends HelperTag
    {
       super(tagHelperFactoryInterface);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
       {
          this.logUtil.putF(this.commonStrings.START,this, this.commonStrings.CONSTRUCTOR);
       }
@@ -53,7 +55,7 @@ public class ModifyTag extends HelperTag
       {
          String error = "Failed to insert";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"insert()",e);
          }
@@ -75,7 +77,7 @@ public class ModifyTag extends HelperTag
       {
          String error = "Failed to delete";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"delete()",e);
          }
@@ -97,7 +99,7 @@ public class ModifyTag extends HelperTag
       {
          String error = "Failed to update";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"update()",e);
          }
@@ -109,7 +111,7 @@ public class ModifyTag extends HelperTag
    {
       try
       {
-          if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+          if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
           {
               HttpServletRequest request =
                   (HttpServletRequest) this.pageContext.getRequest();
@@ -124,7 +126,7 @@ public class ModifyTag extends HelperTag
               this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
           }
     	  
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
          {
             
          }
@@ -138,7 +140,7 @@ public class ModifyTag extends HelperTag
             if (this.getCommand().compareTo(commonStrings.INSERT)==0)
             {
                String output = this.insert();
-               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
+               if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                {
                   this.pageContext.getOut().print(output + "<br />");
                }
@@ -147,7 +149,7 @@ public class ModifyTag extends HelperTag
                if (this.getCommand().compareTo(commonStrings.DELETE)==0)
                {
                   String output = this.delete();
-                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
+                  if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                   {
                      this.pageContext.getOut().print(output + "<br />");
                   }
@@ -156,7 +158,7 @@ public class ModifyTag extends HelperTag
                   if (this.getCommand().compareTo(commonStrings.UPDATE)==0)
                   {
                      String output = this.update();
-                     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
+                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                      {
                         this.pageContext.getOut().print(output + "<br />");
                      }

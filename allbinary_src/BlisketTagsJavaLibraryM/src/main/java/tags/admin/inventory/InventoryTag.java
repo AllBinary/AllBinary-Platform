@@ -18,6 +18,7 @@ import javax.servlet.jsp.JspTagException;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.StoreValidationTransformTag;
+import org.allbinary.globals.GLOBALS2;
 
 public class InventoryTag extends StoreValidationTransformTag
 {
@@ -31,7 +32,7 @@ public class InventoryTag extends StoreValidationTransformTag
       {
          if(this.getCommand()!=null)
          {
-            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
+            if (this.getCommand().compareTo(GLOBALS2.VIEW)==0)
             {
                //Probably use generic taglib
                throw new Exception("No Such View Command: " + this.getCommand());
@@ -49,13 +50,13 @@ public class InventoryTag extends StoreValidationTransformTag
                      this.setObjectFile("views.admin.inventory.DeleteFileValidationView");
                   }
                   else
-                     if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.EDIT)==0)
+                     if (this.getCommand().compareTo(GLOBALS2.EDIT)==0)
                      {
                         this.setName("Edit Inventory Item Validation View");
                         this.setObjectFile("views.admin.inventory.EditValidationView");
                      }
                      else
-                        if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.NEW)==0)
+                        if (this.getCommand().compareTo(GLOBALS2.NEW)==0)
                         {
                            this.setName("New Inventory Item Validation View");
                            this.setObjectFile("views.admin.inventory.NewValidationView");

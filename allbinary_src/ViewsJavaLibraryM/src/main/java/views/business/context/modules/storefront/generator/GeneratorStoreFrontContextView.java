@@ -20,6 +20,8 @@ import org.allbinary.logic.visual.transform.generator.TransformsGeneratorUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
 import views.business.context.modules.storefront.HttpStoreComponentView;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class GeneratorStoreFrontContextView extends HttpStoreComponentView
 {
@@ -29,7 +31,7 @@ public class GeneratorStoreFrontContextView extends HttpStoreComponentView
    {
       super(transformInfoInterface);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR);
       }
@@ -42,7 +44,7 @@ public class GeneratorStoreFrontContextView extends HttpStoreComponentView
             this.abeClientInformation,
            this.getTransformInfoInterface(), group);
 
-     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPEXTRAOUTPUT))
+     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPEXTRAOUTPUT))
      {
         return result;
      }
@@ -62,7 +64,7 @@ public class GeneratorStoreFrontContextView extends HttpStoreComponentView
       {
          //String error = "Failed To View Store Template Compound Component";
          //String error = "Failed To Generate StoreFront Context";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "view()", e);
          }

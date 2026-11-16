@@ -16,8 +16,9 @@ package org.allbinary.business.user.commerce.money.payment.gateway;
 import org.allbinary.business.context.modules.storefront.StoreFront;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
+import java.io.Serializable;
 
-public class PaymentGatewayPrimaryKey implements java.io.Serializable
+public class PaymentGatewayPrimaryKey implements Serializable
 {
    private String storeName;
    private String name;

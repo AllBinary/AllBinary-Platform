@@ -34,6 +34,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.GenericStoreTransformInfoObjectConfig;
 import org.allbinary.string.CommonSeps;
 import org.w3c.dom.Document;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class CompoundContextTransformInfoObjectConfig
     extends GenericStoreTransformInfoObjectConfig
@@ -95,7 +97,7 @@ public class CompoundContextTransformInfoObjectConfig
 
       BasicArrayList viewVector = this.getTransformDomNodes();
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF(
              "Root View Called with: " + viewVector.size(),
@@ -132,7 +134,7 @@ public class CompoundContextTransformInfoObjectConfig
          
          String templateValue = stringBuffer.toString();
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
          {
         	 stringBuffer.delete(0, stringBuffer.length());
              
@@ -149,7 +151,7 @@ public class CompoundContextTransformInfoObjectConfig
          rootView = replace.all(rootView);
       }
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("End: Result of a compound view: " + rootView, this,"get()");
       }
@@ -164,7 +166,7 @@ public class CompoundContextTransformInfoObjectConfig
       ByteArrayInputStream bais = 
          new ByteArrayInputStream(completeTemplateViewBytes);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("Template: " + new String(completeTemplateViewBytes).toString(),this,"createInputStream()");
       }

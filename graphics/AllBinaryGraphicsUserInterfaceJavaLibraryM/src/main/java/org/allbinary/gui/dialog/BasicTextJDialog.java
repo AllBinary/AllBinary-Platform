@@ -13,18 +13,28 @@
 */
 package org.allbinary.gui.dialog;
 import org.allbinary.thread.ARunnable;
+import java.awt.EventQueue;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 
 
 /**
  *
  * @author  USER
  */
-public class BasicTextJDialog extends javax.swing.JDialog
+public class BasicTextJDialog extends JDialog
 {
     private CloseJDialogListenerInterface closeListenerInterface;
     
     /** Creates new form BasicTextJDialog */
-    public BasicTextJDialog(java.awt.Frame parent, boolean modal, String text)
+    public BasicTextJDialog(Frame parent, boolean modal, String text)
     {
         super(parent, modal);
         this.initComponents();
@@ -56,14 +66,14 @@ public class BasicTextJDialog extends javax.swing.JDialog
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        this.jButton1 = new javax.swing.JButton();
-        this.textJLabel = new javax.swing.JLabel();
+        this.jButton1 = new JButton();
+        this.textJLabel = new JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
+        jButton1.addActionListener(new ActionListener()
         {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
+            public void actionPerformed(ActionEvent evt)
             {
                 jButton1ActionPerformed(evt);
             }
@@ -71,32 +81,32 @@ public class BasicTextJDialog extends javax.swing.JDialog
 
         this.textJLabel.setText("No Text Set");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(textJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)))
+                        .addComponent(textJLabel, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(textJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textJLabel, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jButton1))
         );
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
         this.setVisible(false);
         if(this.closeListenerInterface != null)
@@ -110,18 +120,18 @@ public class BasicTextJDialog extends javax.swing.JDialog
      */
     public static void main(String args[])
     {
-        java.awt.EventQueue.invokeLater(new ARunnable()
+        EventQueue.invokeLater(new ARunnable()
         {
             public void run()
             {
-                new BasicTextJDialog(new javax.swing.JFrame(), true, "Test").setVisible(true);
+                new BasicTextJDialog(new JFrame(), true, "Test").setVisible(true);
             }
         });
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel textJLabel;
+    private JButton jButton1;
+    private JLabel textJLabel;
     // End of variables declaration//GEN-END:variables
     
 }

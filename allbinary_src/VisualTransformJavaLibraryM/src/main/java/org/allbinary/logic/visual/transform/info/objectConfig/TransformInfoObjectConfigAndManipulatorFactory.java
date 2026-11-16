@@ -21,6 +21,8 @@ import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 
 public class TransformInfoObjectConfigAndManipulatorFactory
@@ -61,7 +63,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             this.logUtil.put("Could Not Load Object Config", getInstance(), this.commonStrings.GET_INSTANCE, e);
          }
@@ -103,8 +105,8 @@ public class TransformInfoObjectConfigAndManipulatorFactory
              error = error + transformInfoInterface.getName();
          }
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-               org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+               LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             this.logUtil.put(commonStrings.EXCEPTION, getInstance(), commonStrings.GET_INSTANCE, e);
          }
@@ -145,8 +147,8 @@ public class TransformInfoObjectConfigAndManipulatorFactory
              error = error + transformInfoInterface.getName();
          }
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-               org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+               LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             this.logUtil.put(commonStrings.EXCEPTION, getInstance(), "getInstance(document)", e);
          }

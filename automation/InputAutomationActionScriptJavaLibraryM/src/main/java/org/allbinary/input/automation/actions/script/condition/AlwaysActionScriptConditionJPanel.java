@@ -15,13 +15,24 @@ package org.allbinary.input.automation.actions.script.condition;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.LayoutStyle;
 
 /**
  *
  * @author  USER
  */
 public class AlwaysActionScriptConditionJPanel
-    extends javax.swing.JPanel
+    extends JPanel
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -70,12 +81,12 @@ public class AlwaysActionScriptConditionJPanel
         this.alwaysActionScriptConditionInterface.log();
     }
 
-    public javax.swing.JDialog getAlwaysActionJDialog()
+    public JDialog getAlwaysActionJDialog()
     {
         return this.alwaysActionJDialog;
     }
 
-    public void setAlwaysActionJDialog(javax.swing.JDialog alwaysActionJDialog)
+    public void setAlwaysActionJDialog(JDialog alwaysActionJDialog)
     {
         this.alwaysActionJDialog = alwaysActionJDialog;
     }
@@ -88,21 +99,21 @@ public class AlwaysActionScriptConditionJPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        this.alwaysActionJDialog = new javax.swing.JDialog();
-        this.titleJLabel = new javax.swing.JLabel();
-        this.okJButton = new javax.swing.JButton();
-        this.jLabel2 = new javax.swing.JLabel();
-        this.alwaysJComboBox = new javax.swing.JComboBox();
-        this.alwaysActionJButton = new javax.swing.JButton();
-        this.jLabel1 = new javax.swing.JLabel();
+        this.alwaysActionJDialog = new JDialog();
+        this.titleJLabel = new JLabel();
+        this.okJButton = new JButton();
+        this.jLabel2 = new JLabel();
+        this.alwaysJComboBox = new JComboBox();
+        this.alwaysActionJButton = new JButton();
+        this.jLabel1 = new JLabel();
 
-        this.alwaysActionJDialog.setMinimumSize(new java.awt.Dimension(250, 150));
+        this.alwaysActionJDialog.setMinimumSize(new Dimension(250, 150));
         this.titleJLabel.setText("Always Condition Options");
 
         this.okJButton.setText("OK");
-        this.okJButton.addActionListener(new java.awt.event.ActionListener()
+        this.okJButton.addActionListener(new ActionListener()
         {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
+            public void actionPerformed(ActionEvent evt)
             {
                 okJButtonActionPerformed(evt);
             }
@@ -110,21 +121,21 @@ public class AlwaysActionScriptConditionJPanel
 
         this.jLabel2.setText("On:");
 
-        this.alwaysJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "true", "false" }));
+        this.alwaysJComboBox.setModel(new DefaultComboBoxModel(new String[] { "true", "false" }));
 
-        javax.swing.GroupLayout alwaysActionJDialogLayout = new javax.swing.GroupLayout(this.alwaysActionJDialog.getContentPane());
+        GroupLayout alwaysActionJDialogLayout = new GroupLayout(this.alwaysActionJDialog.getContentPane());
         this.alwaysActionJDialog.getContentPane().setLayout(alwaysActionJDialogLayout);
         alwaysActionJDialogLayout.setHorizontalGroup(
-            alwaysActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            alwaysActionJDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(alwaysActionJDialogLayout.createSequentialGroup()
-                .addGroup(alwaysActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(alwaysActionJDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(alwaysActionJDialogLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addGroup(alwaysActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alwaysActionJDialogLayout.createSequentialGroup()
+                        .addGroup(alwaysActionJDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addGroup(GroupLayout.Alignment.TRAILING, alwaysActionJDialogLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(alwaysJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(alwaysJComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                             .addComponent(titleJLabel)))
                     .addGroup(alwaysActionJDialogLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
@@ -132,24 +143,24 @@ public class AlwaysActionScriptConditionJPanel
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         alwaysActionJDialogLayout.setVerticalGroup(
-            alwaysActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            alwaysActionJDialogLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(alwaysActionJDialogLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titleJLabel)
                 .addGap(20, 20, 20)
-                .addGroup(alwaysActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(alwaysJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(alwaysActionJDialogLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(alwaysJComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(15, 15, 15)
                 .addComponent(okJButton)
                 .addContainerGap())
         );
 
-        setMinimumSize(new java.awt.Dimension(100, 0));
+        setMinimumSize(new Dimension(100, 0));
         this.alwaysActionJButton.setText("Edit");
-        this.alwaysActionJButton.addActionListener(new java.awt.event.ActionListener()
+        this.alwaysActionJButton.addActionListener(new ActionListener()
         {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
+            public void actionPerformed(ActionEvent evt)
             {
                 alwaysActionJButtonActionPerformed(evt);
             }
@@ -157,44 +168,44 @@ public class AlwaysActionScriptConditionJPanel
 
         this.jLabel1.setText("Always:");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(alwaysActionJButton))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel1)
                 .addComponent(alwaysActionJButton))
         );
     }// </editor-fold>//GEN-END:initComponents
     
-    private void okJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_okJButtonActionPerformed
+    private void okJButtonActionPerformed(ActionEvent evt)//GEN-FIRST:event_okJButtonActionPerformed
     {//GEN-HEADEREND:event_okJButtonActionPerformed
 // TODO add your handling code here:
         this.update();
         this.getAlwaysActionJDialog().setVisible(false);
     }//GEN-LAST:event_okJButtonActionPerformed
     
-    private void alwaysActionJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_alwaysActionJButtonActionPerformed
+    private void alwaysActionJButtonActionPerformed(ActionEvent evt)//GEN-FIRST:event_alwaysActionJButtonActionPerformed
     {//GEN-HEADEREND:event_alwaysActionJButtonActionPerformed
 // TODO add your handling code here:
         this.getAlwaysActionJDialog().setVisible(true);
     }//GEN-LAST:event_alwaysActionJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton alwaysActionJButton;
-    private javax.swing.JDialog alwaysActionJDialog;
-    private javax.swing.JComboBox alwaysJComboBox;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton okJButton;
-    private javax.swing.JLabel titleJLabel;
+    private JButton alwaysActionJButton;
+    private JDialog alwaysActionJDialog;
+    private JComboBox alwaysJComboBox;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JButton okJButton;
+    private JLabel titleJLabel;
     // End of variables declaration//GEN-END:variables
     
 }

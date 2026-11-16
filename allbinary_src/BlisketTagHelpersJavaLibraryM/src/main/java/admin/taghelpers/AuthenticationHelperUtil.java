@@ -25,6 +25,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class AuthenticationHelperUtil
 {
@@ -41,7 +43,7 @@ public class AuthenticationHelperUtil
         AuthenticationHelper authenticationHelper, String filePath)
         throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
         {
             this.logUtil.putF(CommonLabels.getInstance().START + filePath, this, "isAuthorized()");
         }
@@ -60,7 +62,7 @@ public class AuthenticationHelperUtil
 
         if (userRoles.contains(basicUserRole))
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 this.logUtil.putF("Authorized", this, "isAuthorized()");
             }
@@ -68,7 +70,7 @@ public class AuthenticationHelperUtil
             return true;
         } else
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 this.logUtil.putF("Not Authorized: " + basicUserRole.toString(), this, "isAuthorized()");
             }

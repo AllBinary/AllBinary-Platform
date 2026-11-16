@@ -1,7 +1,12 @@
 package javax.microedition.khronos.opengles;
 
+import java.nio.Buffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import java.nio.ShortBuffer;
+
 public interface GL11Ext
-    extends javax.microedition.khronos.opengles.GL {
+    extends GL {
 
     public static final int GL_MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES = 35742;
     public static final int GL_MATRIX_INDEX_ARRAY_OES = 34884;
@@ -28,25 +33,25 @@ public interface GL11Ext
 
     void glDrawTexfvOES(float[] coords, int offset);
 
-    void glDrawTexfvOES(java.nio.FloatBuffer coords);
+    void glDrawTexfvOES(FloatBuffer coords);
 
     void glDrawTexiOES(int x, int y, int z, int width, int height);
 
     void glDrawTexivOES(int[] coords, int offset);
 
-    void glDrawTexivOES(java.nio.IntBuffer coords);
+    void glDrawTexivOES(IntBuffer coords);
 
     void glDrawTexsOES(short x, short y, short z, short width, short height);
 
     void glDrawTexsvOES(short[] coords, int offset);
 
-    void glDrawTexsvOES(java.nio.ShortBuffer coords);
+    void glDrawTexsvOES(ShortBuffer coords);
 
     void glDrawTexxOES(int x, int y, int z, int width, int height);
 
     void glDrawTexxvOES(int[] coords, int offset);
 
-    void glDrawTexxvOES(java.nio.IntBuffer coords);
+    void glDrawTexxvOES(IntBuffer coords);
 
     void glEnable(int cap);
 
@@ -54,11 +59,11 @@ public interface GL11Ext
 
     void glLoadPaletteFromModelViewMatrixOES();
 
-    void glMatrixIndexPointerOES(int size, int type, int stride, java.nio.Buffer pointer);
+    void glMatrixIndexPointerOES(int size, int type, int stride, Buffer pointer);
 
     void glMatrixIndexPointerOES(int size, int type, int stride, int offset);
 
-    void glWeightPointerOES(int size, int type, int stride, java.nio.Buffer pointer);
+    void glWeightPointerOES(int size, int type, int stride, Buffer pointer);
 
     void glWeightPointerOES(int size, int type, int stride, int offset);
 }

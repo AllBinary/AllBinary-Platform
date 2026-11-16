@@ -24,6 +24,8 @@ import org.allbinary.logic.StdUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class CssProperty implements DomNodeInterface
 {
@@ -57,7 +59,7 @@ public class CssProperty implements DomNodeInterface
       
       this.propertyName = DomNodeHelper.getTextNodeValue(propertyNode);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().STYLE))
       {
          this.logUtil.putF("Name: " + this.getName(),this,"CssProperty()");
       }
@@ -103,7 +105,7 @@ public class CssProperty implements DomNodeInterface
    {
       HashMap hashMap = this.toHashMap();
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
       {
          this.logUtil.putF("CssView HashMap: " + hashMap.toString(),this,"toXmlNode()");
       }

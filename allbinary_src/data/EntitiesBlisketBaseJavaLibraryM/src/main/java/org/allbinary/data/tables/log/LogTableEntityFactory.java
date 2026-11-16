@@ -15,6 +15,8 @@ package org.allbinary.data.tables.log;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class LogTableEntityFactory
 {
@@ -42,7 +44,7 @@ public class LogTableEntityFactory
       {
          //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (LogTableEntityInterface) InterfaceCastProxy.newInstance(object);
-         return new org.allbinary.data.tables.log.LogTableEntity();
+         return new LogTableEntity();
       }
       /*
       catch(LicensingException e)
@@ -57,7 +59,7 @@ public class LogTableEntityFactory
        */
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e);

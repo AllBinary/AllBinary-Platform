@@ -22,6 +22,8 @@ import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGate
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import views.admin.payment.gateway.PaymentGatewayViewAbstract;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class SelectNewView extends PaymentGatewayViewAbstract
 {
@@ -50,7 +52,7 @@ public class SelectNewView extends PaymentGatewayViewAbstract
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR))
          {
              this.logUtil.put(this.commonStrings.EXCEPTION, this, "view", e);
          }

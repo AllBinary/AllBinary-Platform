@@ -16,6 +16,8 @@ package views.admin.inventory.listings;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.search.SearchRequest;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class ProductListingFactory
 {
@@ -34,7 +36,7 @@ public class ProductListingFactory
       {
          //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (ProductListingInterface) InterfaceCastProxy.newInstance(object);
-         return (ProductListingInterface) new views.admin.inventory.listings.ProductListing(searchRequest);
+         return (ProductListingInterface) new ProductListing(searchRequest);
       }
       /*
       catch(LicensingException e)
@@ -49,7 +51,7 @@ public class ProductListingFactory
       catch(Exception e)
       {
           
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
              logUtil.put(commonStrings.EXCEPTION, "ProductListingFactory", commonStrings.GET_INSTANCE, e);

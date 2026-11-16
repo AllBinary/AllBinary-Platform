@@ -35,6 +35,8 @@ import org.allbinary.logic.communication.smtp.email.NewPasswordEmail;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class AuthenticationRequestHelper
     extends TagHelper
@@ -91,7 +93,7 @@ public class AuthenticationRequestHelper
          String userName = this.request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME);
          String email = this.request.getParameter(UserData.MAINEMAIL);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
          {
             this.logUtil.putF("Generating New Password For: " + userName, this, "newPassword()");
          }
@@ -121,7 +123,7 @@ public class AuthenticationRequestHelper
             if(userInterface.getSecondaryEmail() != null &&
                userInterface.getSecondaryEmail().compareTo(email) != 0)
             {
-               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+               if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
                {
                   this.logUtil.putF("Requested Email Is Not In User Profile", this, "newPassword()");
                }
@@ -139,7 +141,7 @@ public class AuthenticationRequestHelper
          //Send Communication with new password
          new NewPasswordEmail(this.abeClientInformation, userInterface, newPassword).process();
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
          {
             this.logUtil.putF("Generated New Password For: " + userName, this, "newPassword()");
          }
@@ -148,7 +150,7 @@ public class AuthenticationRequestHelper
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "newPassword()",e);
          }
@@ -166,7 +168,7 @@ public class AuthenticationRequestHelper
          String newPassword = this.request.getParameter(WeblisketSessionData.REMOVABLENEWPASSWORD);
          String newReenteredPassword = this.request.getParameter(WeblisketSessionData.REMOVABLEREENTERNEWPASSWORD);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
          {
             this.logUtil.putF("Changing Password For User: " + userName, this, "changePassword()");
          }
@@ -191,7 +193,7 @@ public class AuthenticationRequestHelper
          Password password = new Password(newPassword);
          if(!password.isValid().booleanValue())
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                this.logUtil.putF("New Password Is Not Valid", this, "changePassword()");
             }
@@ -201,7 +203,7 @@ public class AuthenticationRequestHelper
          
          if(newPassword.compareTo(newReenteredPassword) != 0)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                this.logUtil.putF("New Password Fields Do Not Match", this, "changePassword()");
             }
@@ -217,7 +219,7 @@ public class AuthenticationRequestHelper
          
          if(login.compareTo(GLOBALS2.LOGINSUCCESS)==0)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                this.logUtil.putF("Authentication Successful", this, "changePassword()");
             }
@@ -231,7 +233,7 @@ public class AuthenticationRequestHelper
             return Boolean.TRUE;
          }
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
          {
             this.logUtil.putF("Authentication Failed", this, "changePassword()");
          }
@@ -240,7 +242,7 @@ public class AuthenticationRequestHelper
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put("Authentication Failed", this, "changePassword()",e);
          }
@@ -258,7 +260,7 @@ public class AuthenticationRequestHelper
          
          if(userInterface.getRole() == null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                this.logUtil.putF("Role is null: " + userInterface.getRole() + " Valid Roles: " + roles.toString(),this, "isRoleValid()");
             }
@@ -303,7 +305,7 @@ public class AuthenticationRequestHelper
             }
          }
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
          {
         	 StringMaker stringBuffer = new StringMaker();
         	 
@@ -319,7 +321,7 @@ public class AuthenticationRequestHelper
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "isRoleValid()", e);
          }

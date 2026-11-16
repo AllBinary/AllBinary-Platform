@@ -21,6 +21,9 @@ import admin.taghelpers.PaymentGatewayHelperFactory;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
+import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class PaymentGatewayTag extends TableTag
 {
@@ -54,7 +57,7 @@ public class PaymentGatewayTag extends TableTag
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,this.commonStrings.PROCESS,e);
          }
@@ -68,9 +71,9 @@ public class PaymentGatewayTag extends TableTag
       {
          if(this.isEnabled())
          {
-            if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0 ||
-            this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDERANDEVALBODY)==0 ||
-            this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEFORMEVALBODYONERROR)==0 )
+            if(this.getCommand().compareTo(GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0 ||
+            this.getCommand().compareTo(GLOBALS2.AUTHORIZEORDERANDEVALBODY)==0 ||
+            this.getCommand().compareTo(GLOBALS2.AUTHORIZEFORMEVALBODYONERROR)==0 )
                //AUTHORIZEFORMEVALBODYONERROR is used for form payment processing instead of order in session
             {
                String output = this.process();
@@ -79,7 +82,7 @@ public class PaymentGatewayTag extends TableTag
                   this.pageContext.getOut().print(output + "<br />");
                }
                
-               if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0)
+               if(this.getCommand().compareTo(GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0)
                {
                   return this.SKIP_BODY;
                }

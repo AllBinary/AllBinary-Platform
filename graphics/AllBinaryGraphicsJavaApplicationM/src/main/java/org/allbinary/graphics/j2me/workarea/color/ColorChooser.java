@@ -13,11 +13,15 @@
 */
 package org.allbinary.graphics.j2me.workarea.color;
 
+import java.awt.BorderLayout;
+import javax.swing.JColorChooser;
+import javax.swing.JPanel;
+
 /**
  *
  * @author  Administrator
  */
-public class ColorChooser extends javax.swing.JPanel
+public class ColorChooser extends JPanel
 {
    
    /** Creates new form ColorChooser */
@@ -33,17 +37,17 @@ public class ColorChooser extends javax.swing.JPanel
     */
    private void initComponents()//GEN-BEGIN:initComponents
    {
-      this.jColorChooser1 = new javax.swing.JColorChooser();
+      this.jColorChooser1 = new JColorChooser();
 
-      setLayout(new java.awt.BorderLayout());
+      setLayout(new BorderLayout());
 
-      add(this.jColorChooser1, java.awt.BorderLayout.CENTER);
+      add(this.jColorChooser1, BorderLayout.CENTER);
 
    }//GEN-END:initComponents
    
    
    // Variables declaration - do not modify//GEN-BEGIN:variables
-   private javax.swing.JColorChooser jColorChooser1;
+   private JColorChooser jColorChooser1;
    // End of variables declaration//GEN-END:variables
    
 }

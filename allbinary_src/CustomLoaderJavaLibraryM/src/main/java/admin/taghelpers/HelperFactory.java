@@ -23,6 +23,8 @@ import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class HelperFactory
 {
@@ -64,8 +66,8 @@ public class HelperFactory
          String error = "Failed To Get Instance Args: HashMap=" +
             hashMap.toString() + " HttpServletRequest=" + httpServletRequest;
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             logUtil.put(error, factoryName + "->HelperFactory",
             "getInstance(String, String, HashMap, PageContext)", e);
@@ -75,8 +77,8 @@ public class HelperFactory
       catch(Exception e)
       {
          String error = "Failed To Get Instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             logUtil.put(error,factoryName + "->HelperFactory",
             "getInstance(String, String, HashMap, PageContext)", e);
@@ -113,8 +115,8 @@ public class HelperFactory
       }
       catch(LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              String error = "Failed To Get Instance Args: HashMap=" +
                  hashMap.toString() + " PageContext=" + pageContext;
@@ -126,8 +128,8 @@ public class HelperFactory
       }      
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
              logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
@@ -167,8 +169,8 @@ public class HelperFactory
       }
       catch(LicensingException e)
       {         
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              String error = "Failed To Get Instance Args: HashMap=" + 
                  hashMap.toString() + " PageContext=" + pageContext;
@@ -180,8 +182,8 @@ public class HelperFactory
       }      
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
@@ -203,8 +205,8 @@ public class HelperFactory
       }
       catch(LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, factoryName + "->HelperFactory",
@@ -214,8 +216,8 @@ public class HelperFactory
       }      
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
+         if(LogConfigTypes.LOGGING.contains(
+            LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",

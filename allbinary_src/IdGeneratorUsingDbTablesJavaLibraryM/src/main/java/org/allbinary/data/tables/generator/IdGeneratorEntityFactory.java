@@ -29,7 +29,7 @@ public class IdGeneratorEntityFactory
    {
       try
       {
-         return (IdGeneratorEntityInterface) new org.allbinary.data.tables.generator.IdGeneratorEntity();
+         return (IdGeneratorEntityInterface) new IdGeneratorEntity();
       }
       catch(Exception e)
       {

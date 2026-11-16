@@ -23,6 +23,8 @@ import org.allbinary.logic.control.workflow.StoreTagWorkFlowFactory;
 import org.allbinary.logic.control.workflow.StoreWorkFlowInterface;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class StoreTagWorkFlowHelper
     extends TagHelper
@@ -61,7 +63,7 @@ public class StoreTagWorkFlowHelper
       hashMap.put(TransformInfoData.NAME, viewName);
       */
      
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
       {
          this.logUtil.putF("Properties: " + hashMap.toString(), this, "StoreTagWorkFlowHelper()");
       }
@@ -74,7 +76,7 @@ public class StoreTagWorkFlowHelper
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().TAGHELPER))
          {
             this.logUtil.putF("Process", this, this.commonStrings.PROCESS);
          }
@@ -87,7 +89,7 @@ public class StoreTagWorkFlowHelper
          //if(this.componentInterface!=null) error += this
          //else error += "Unknown";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"view()",e);
          }

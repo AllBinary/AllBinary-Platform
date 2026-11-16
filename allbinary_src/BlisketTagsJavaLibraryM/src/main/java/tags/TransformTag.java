@@ -22,6 +22,8 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import taghelpers.ViewHelperFactory;
 import tags.transform.info.TransformInfoTag;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class TransformTag extends TransformInfoTag
 {
@@ -34,7 +36,7 @@ public class TransformTag extends TransformInfoTag
     {
         super(new ViewHelperFactory());
         //this.helperObject = null;
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
         {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
@@ -43,7 +45,7 @@ public class TransformTag extends TransformInfoTag
     public TransformTag(TagHelperFactoryInterface tagHelperFactoryInterface)
     {
         super(tagHelperFactoryInterface);
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
         {
             this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
@@ -59,7 +61,7 @@ public class TransformTag extends TransformInfoTag
         } catch (Exception e)
         {
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "view()", e);
             }
@@ -71,13 +73,13 @@ public class TransformTag extends TransformInfoTag
     {
         try
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 this.logUtil.putF(
                     "Creating with: \n" + this.getPropertiesHashMap().toString(), this, tagStrings.DO_START_TAG);
             }
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 StringMaker stringBuffer = new StringMaker();
 
@@ -93,7 +95,7 @@ public class TransformTag extends TransformInfoTag
 
             pageContext.getOut().print(this.view());
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 this.logUtil.putF("Tag End", this, tagStrings.DO_START_TAG);
             }

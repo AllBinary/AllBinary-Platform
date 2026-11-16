@@ -27,6 +27,8 @@ import org.allbinary.business.user.quoterequest.QuoteRequest;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntityFactory;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 //TWB - Am I missing the correct Quote Request? Probably not
 public class QuoteRequestHelper
@@ -78,7 +80,7 @@ public class QuoteRequestHelper
          String success
             = "New QuoteRequest Successfully added to the QuoteRequest Table";
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF(success,this,"add()");
          }
@@ -87,7 +89,7 @@ public class QuoteRequestHelper
       catch(Exception e)
       {
          String error = "Failed to add QuoteRequest";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "add()", e);
          }
@@ -106,7 +108,7 @@ public class QuoteRequestHelper
 
          String success = "New QuoteRequest Successfully updated";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF(success, this, "update()");
          }
@@ -115,7 +117,7 @@ public class QuoteRequestHelper
       catch(Exception e)
       {
          String error = "Failed to update QuoteRequest";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,"update()",e);
          }

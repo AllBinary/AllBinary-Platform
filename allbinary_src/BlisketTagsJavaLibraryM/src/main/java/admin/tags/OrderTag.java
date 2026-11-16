@@ -27,6 +27,9 @@ import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.CustomTagSupport;
+import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class OrderTag extends CustomTagSupport
 {
@@ -72,7 +75,7 @@ public class OrderTag extends CustomTagSupport
       {
          String error = "Failed to Process Order: ";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION,this,this.commonStrings.PROCESS,e);
          }
@@ -101,7 +104,7 @@ public class OrderTag extends CustomTagSupport
       catch(Exception e)
       {
          String error = "Failed to setPaymentGateway for Order";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, "setPaymentGateway()", e);
          }
@@ -177,7 +180,7 @@ public class OrderTag extends CustomTagSupport
             this.propertiesHashMap = StdUtil.getInstance().createHashMap();
             this.propertiesHashMap.put(StoreFrontData.getInstance().NAME,this.storeName);            
             
-            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESS)==0)
+            if (this.command.compareTo(GLOBALS2.PROCESS)==0)
             {
                this.process();
             }

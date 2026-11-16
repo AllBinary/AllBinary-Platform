@@ -30,6 +30,8 @@ import org.allbinary.logic.string.StringValidationUtil;
 import org.apache.commons.fileupload.FileItem;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class LogoValidation extends Validation implements DomNodeInterface
 {
@@ -77,7 +79,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
             		this.logoFileItem.getName());
         }
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             StringMaker stringBuffer = new StringMaker();
 
@@ -98,14 +100,14 @@ public class LogoValidation extends Validation implements DomNodeInterface
 
             FileData fileData = FileData.getInstance();
             
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 this.logUtil.putF("LogoValidation", this, this.commonStrings.IS_VALID);
             }
 
             if (!StringValidationUtil.getInstance().isValidRequired(this.logoAbPath.toString(), 0, 512))
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
                 {
                     this.logUtil.putF("logoPath is invalid: " + this.logoAbPath.toString(), this, this.commonStrings.IS_VALID);
                 }
@@ -115,7 +117,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
             if (!StringValidationUtil.getInstance().isValidRequired(
                 this.logoFile, fileData.MINLEN, fileData.MAXLEN))
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
                 {
                     this.logUtil.putF("logoFile is invalid: " + this.logoFile, this, this.commonStrings.IS_VALID);
                 }
@@ -132,7 +134,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
 
                 if (this.logoFileItem.getSize() > fileData.MAXIMAGEFILESIZE || this.logoFileItem.getSize() < fileData.MINIMAGEFILESIZE)
                 {
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+                    if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
                     {
                         this.logUtil.putF("Image File Is Not The Right Size. "
                             + fileData.MINIMAGEFILESIZE + "< > "
@@ -142,7 +144,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
                 }
             }
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
             {
                 this.logUtil.putF("Logo Validation: " + valid, this, this.commonStrings.IS_VALID);
             }
@@ -150,7 +152,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
             return valid;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put("Failed to validate form", this, this.commonStrings.IS_VALID, e);
             }
@@ -169,7 +171,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
             return stringBuffer.toString();
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
             }
@@ -213,7 +215,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
 
     public void processLogoFile() throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             StringMaker stringBuffer = new StringMaker();
 

@@ -27,8 +27,15 @@ import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import org.allbinary.media.image.ImageStrings;
 import org.allbinary.media.image.MirrorImageUtil;
 import org.allbinary.string.CommonStrings;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 
-public class MirrorSpriteImageJPanel extends javax.swing.JPanel
+public class MirrorSpriteImageJPanel extends JPanel
    implements ImageProcessorInputCompositeInterface
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -123,8 +130,8 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
-      jLayeredPane1 = new javax.swing.JLayeredPane();
-      this.jPanel1 = new javax.swing.JPanel(){
+      jLayeredPane1 = new JLayeredPane();
+      this.jPanel1 = new JPanel(){
          public void paint(Graphics graphics)
          {
             if(MirrorSpriteImageJPanel.this.result != null)
@@ -136,14 +143,14 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
          }
       }
       ;
-      this.jPanel2 = new javax.swing.JPanel();
-      this.imageHeightIsFrameSizeJCheckBox = new javax.swing.JCheckBox();
-      this.horizontalJCheckBox = new javax.swing.JCheckBox();
-      this.verticleJCheckBox = new javax.swing.JCheckBox();
-      this.writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
-      this.generateJButton = new javax.swing.JButton();
-      this.jPanel3 = new javax.swing.JPanel();
-      this.jLabel2 = new javax.swing.JLabel();
+      this.jPanel2 = new JPanel();
+      this.imageHeightIsFrameSizeJCheckBox = new JCheckBox();
+      this.horizontalJCheckBox = new JCheckBox();
+      this.verticleJCheckBox = new JCheckBox();
+      this.writeOverOriginalJCheckBox = new JCheckBox();
+      this.generateJButton = new JButton();
+      this.jPanel3 = new JPanel();
+      this.jLabel2 = new JLabel();
 
       org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(this.jPanel1);
       this.jPanel1.setLayout(jPanel1Layout);
@@ -159,8 +166,8 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
       this.imageHeightIsFrameSizeJCheckBox.setSelected(true);
       this.imageHeightIsFrameSizeJCheckBox.setText("Image Height Is Frame Size");
       this.imageHeightIsFrameSizeJCheckBox.setEnabled(false);
-      this.imageHeightIsFrameSizeJCheckBox.addActionListener(new java.awt.event.ActionListener() {
-         public void actionPerformed(java.awt.event.ActionEvent evt) {
+      this.imageHeightIsFrameSizeJCheckBox.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent evt) {
             imageHeightIsFrameSizeJCheckBoxActionPerformed(evt);
          }
       });
@@ -176,8 +183,8 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
       this.writeOverOriginalJCheckBox.setText("Write Over Original");
 
       this.generateJButton.setText("Generate");
-      this.generateJButton.addActionListener(new java.awt.event.ActionListener() {
-         public void actionPerformed(java.awt.event.ActionEvent evt) {
+      this.generateJButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent evt) {
             generateJButtonActionPerformed(evt);
          }
       });
@@ -248,25 +255,25 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
             .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
       );
    }// </editor-fold>//GEN-END:initComponents
-    private void generateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateJButtonActionPerformed
+    private void generateJButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_generateJButtonActionPerformed
 
        this.process();
 
 }//GEN-LAST:event_generateJButtonActionPerformed
 
-private void imageHeightIsFrameSizeJCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageHeightIsFrameSizeJCheckBoxActionPerformed
+private void imageHeightIsFrameSizeJCheckBoxActionPerformed(ActionEvent evt) {//GEN-FIRST:event_imageHeightIsFrameSizeJCheckBoxActionPerformed
 }//GEN-LAST:event_imageHeightIsFrameSizeJCheckBoxActionPerformed
    // Variables declaration - do not modify//GEN-BEGIN:variables
-   private javax.swing.JButton generateJButton;
-   private javax.swing.JCheckBox horizontalJCheckBox;
-   private javax.swing.JCheckBox imageHeightIsFrameSizeJCheckBox;
-   private javax.swing.JLabel jLabel2;
-   private javax.swing.JLayeredPane jLayeredPane1;
-   private javax.swing.JPanel jPanel1;
-   private javax.swing.JPanel jPanel2;
-   private javax.swing.JPanel jPanel3;
-   private javax.swing.JCheckBox verticleJCheckBox;
-   private javax.swing.JCheckBox writeOverOriginalJCheckBox;
+   private JButton generateJButton;
+   private JCheckBox horizontalJCheckBox;
+   private JCheckBox imageHeightIsFrameSizeJCheckBox;
+   private JLabel jLabel2;
+   private JLayeredPane jLayeredPane1;
+   private JPanel jPanel1;
+   private JPanel jPanel2;
+   private JPanel jPanel3;
+   private JCheckBox verticleJCheckBox;
+   private JCheckBox writeOverOriginalJCheckBox;
    // End of variables declaration//GEN-END:variables
    public ImageProcessorInput getImageProcessorInput()
    {
