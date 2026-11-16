@@ -161,14 +161,11 @@ Grouped by language type.
 | [Dart](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native, JS engine (dart2js / WASM) | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |
 | [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
 | [COBOL](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
-| [ASM](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
 | [Nim](https://github.com/AllBinary/AllBinary-Platform-Nim) | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |
 | [Vala](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
 | [Lisp](https://github.com/AllBinary/AllBinary-Platform-Lisp-with-native-call-support) | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |
 | [Racket](https://github.com/AllBinary/AllBinary-Platform-Racket) | Native (Chez Scheme backend) | Desktop | Includes 2D graphics libraries. Standalone apps via `raco exe` and `raco distribute`. |
-| [Scheme](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |
 | [ActionScript](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |
-| [Oberon+](https://github.com/AllBinary/AllBinary-Platform-OberonPlus) | Managed VM (CLI/Mono); Native via generated C | Desktop | The OBX compiler emits .NET CLI bytecode, or C99 source for native builds. Few game libraries. |
 | [Elixir](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
 | [Julia](https://github.com/AllBinary/AllBinary-Platform-Julia) | JIT (LLVM) | Desktop | Designed for numerical computing. Code compiles on first call, so startup is slower; standalone executables via PackageCompiler or `juliac`. |
 | [Tcl](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop | |
@@ -176,3 +173,14 @@ Grouped by language type.
 | [Janet](https://github.com/AllBinary/AllBinary-Platform-Janet) | Interpreted (embedded) | Desktop | Embeddable, with a simple C FFI. |
 | [Grain](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
 | [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
+
+
+### Future – Initial commit not yet added or in progress
+
+Grouped by language type.
+
+| Language | Language type | Targets | Notes |
+|----------|---------------|---------|-------|
+| [ASM](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
+| [Scheme](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |
+| [Oberon+](https://github.com/AllBinary/AllBinary-Platform-OberonPlus) | Managed VM (CLI/Mono); Native via generated C | Desktop | The OBX compiler emits .NET CLI bytecode, or C99 source for native builds. Few game libraries. |
