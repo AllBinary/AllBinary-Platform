@@ -181,6 +181,7 @@ Grouped by language type. For planned languages
 |----------|---------------|---------|-------|
 | [AngelScript](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
 | [Odin](https://github.com/AllBinary/AllBinary-Platform-Odin) | Native | Desktop | Converter, runtime, and poms in progress; checked with `odin check` (dev-2026-11). Data-oriented programming; maintained OpenGL, SDL2, and raylib bindings in its vendor library. |
+| [Squirrel](https://github.com/AllBinary/AllBinary-Platform-Squirrel) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; compiled and loaded with the sqcheck host (Squirrel 3.2, 64 bit integers and double floats). Lightweight object-oriented scripting with a C API for embedding in games. |
 
 ### Future – TBD
 
@@ -188,7 +189,6 @@ Without an AllBinary repo, links point to official language sites or documentati
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| [Squirrel](https://www.squirrel-lang.org/) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Lightweight object-oriented scripting with a C API for embedding in games. |
 | [Lean 4](https://lean-lang.org/) | Native (compiles through C) | Desktop | Functional programming language and proof assistant with dependent types, reference counting, and C interoperability. |
 | [Bend](https://github.com/bendlang/bend) | Native (CPU/GPU backends) | Desktop (Linux and macOS first) | Functional language focused on automatic parallelism; current Bend 2 also supports dependent types and proofs. Game runtime and graphics integration would need evaluation. |
 | [ASM](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
