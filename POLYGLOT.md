@@ -164,7 +164,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 
 ### Planned – Initial commit not yet added or in progress
 
-Grouped by language type.
+Grouped by language type. For planned languages without an AllBinary repo, links point to official language sites or documentation.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
@@ -179,6 +179,18 @@ Grouped by language type.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
+| [AngelScript](https://www.angelcode.com/angelscript/) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
+| [Odin](https://odin-lang.org/) | Native | Desktop | Data-oriented programming; maintained OpenGL, SDL2, and raylib bindings in its vendor library. |
+| [Squirrel](https://www.squirrel-lang.org/) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Lightweight object-oriented scripting with a C API for embedding in games. |
 | [ASM](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
+| [AssemblyScript](https://www.assemblyscript.org/) | JS engine (WASM) | Web | TypeScript-like language compiling to WebAssembly; browser integration requires host bindings. |
+| [Clojure](https://clojure.org/) | JVM (ClojureScript: JS engine) | Desktop (JVM), Web (via ClojureScript) | Lisp on the JVM with Java interoperability; ClojureScript is a separate compiler targeting JavaScript. |
+| [Crystal](https://crystal-lang.org/) | Native (LLVM) | Desktop | Ruby-inspired syntax with static typing and type inference. |
+| [D](https://dlang.org/) | Native | Desktop | Object-oriented systems language with garbage collection and C interoperability. |
+| [F#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp) | Managed VM (.NET CLR) | Desktop | ML-family functional language with access to .NET libraries; candidate for MonoGame/FNA integration. |
+| [GDScript](https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_languages.html) | Interpreted (Godot) | Desktop, Mobile, Web (via Godot exports) | Godot's scripting language with optional static typing; planned Godot integration. |
+| [Gleam](https://gleam.run/) | Managed VM (BEAM), JS engine | Desktop (BEAM), Web (JavaScript) | Statically typed functional language targeting Erlang and JavaScript. |
+| [Mojo](https://mojolang.org/docs/manual/get-started/) | Native (MLIR/LLVM) | Desktop (Linux and macOS; Windows via WSL) | Python-inspired syntax with static typing, ownership, and Python/C interoperability. |
 | [Scheme](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |
+| [PHP](https://www.php.net/manual/en/intro-whatis.php) | Interpreted (optional JIT) | Desktop (CLI), Server (planned) | PHP 8+ scripting through the CLI; OPcache provides optional JIT compilation. |
 | [Oberon+](https://github.com/AllBinary/AllBinary-Platform-OberonPlus) | Managed VM (CLI/Mono); Native via generated C | Desktop | The OBX compiler emits .NET CLI bytecode, or C99 source for native builds. Few game libraries. |
