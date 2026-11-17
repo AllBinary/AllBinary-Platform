@@ -164,7 +164,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 
 ### Planned – Initial commit not yet added or in progress
 
-Grouped by language type. For planned languages without an AllBinary repo, links point to official language sites or documentation.
+Grouped by language type. For planned languages
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
@@ -176,6 +176,8 @@ Grouped by language type. For planned languages without an AllBinary repo, links
 | [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
 
 ### Future – TBD
+
+Without an AllBinary repo, links point to official language sites or documentation.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
