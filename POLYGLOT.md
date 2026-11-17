@@ -160,6 +160,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Elixir](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
 | [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
 | [Goose](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |
+| [Grain](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
 | [Janet](https://github.com/AllBinary/AllBinary-Platform-Janet) | Interpreted (embedded) | Desktop | Embeddable, with a simple C FFI. |
 | [Julia](https://github.com/AllBinary/AllBinary-Platform-Julia) | JIT (LLVM) | Desktop | Designed for numerical computing. Code compiles on first call, so startup is slower; standalone executables via PackageCompiler or `juliac`. |
 | [Lisp](https://github.com/AllBinary/AllBinary-Platform-Lisp-with-native-call-support) | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |
@@ -177,7 +178,6 @@ Grouped by language type. For planned languages
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| [Grain](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
 | [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
 
 ### Future – TBD
