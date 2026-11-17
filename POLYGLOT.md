@@ -131,6 +131,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [C#](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
 | [Erlang](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
 | [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
+| [Goose](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |
 | [Groovy](https://github.com/AllBinary/AllBinary-Platform-Groovy) | JVM | Desktop (J2SE) | |
 | [Haskell](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
 | [Haxe](https://github.com/AllBinary/AllBinary-Platform-Haxe) | Native (via the hxcpp C++ target) | Desktop | Haxe can also target JS, JVM, and HashLink. |
@@ -171,7 +172,6 @@ Grouped by language type. For planned languages
 |----------|---------------|---------|-------|
 | [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |
 | [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
-| [Goose](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |
 | [Grain](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
 | [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
 
