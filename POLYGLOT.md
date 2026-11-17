@@ -134,11 +134,13 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Ada](https://github.com/AllBinary/AllBinary-Platform-Ada) | Native | Desktop | GNAT |
 | [C++](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [C#](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
+| [Elixir](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
 | [Erlang](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
 | [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
 | [Groovy](https://github.com/AllBinary/AllBinary-Platform-Groovy) | JVM | Desktop (J2SE) | |
 | [Haskell](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
 | [Haxe](https://github.com/AllBinary/AllBinary-Platform-Haxe) | Native (via the hxcpp C++ target) | Desktop | Haxe can also target JS, JVM, and HashLink. |
+| [Julia](https://github.com/AllBinary/AllBinary-Platform-Julia) | JIT (LLVM) | Desktop | Designed for numerical computing. Code compiles on first call, so startup is slower; standalone executables via PackageCompiler or `juliac`. |
 | [Lua](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
 | [OCaml](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
 | [Object Pascal](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
@@ -147,6 +149,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Ruby](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
 | [Rust](https://github.com/AllBinary/AllBinary-Platform-Rust) | Native | Desktop | |
 | [Scala](https://github.com/AllBinary/AllBinary-Platform-Scala) | JVM | Desktop (J2SE) | Scala Native is a possible later step. |
+| [Tcl](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop | |
 | [Zig](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop | |
 
 ### Tier 4 – AllBinaryBase builds (with 5 private libraries)
@@ -157,19 +160,16 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [ActionScript](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |
 | [COBOL](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
 | [Dart](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native, JS engine (dart2js / WASM) | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |
-| [Elixir](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
 | [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
 | [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
 | [Goose](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |
 | [Grain](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
 | [Janet](https://github.com/AllBinary/AllBinary-Platform-Janet) | Interpreted (embedded) | Desktop | Embeddable, with a simple C FFI. |
-| [Julia](https://github.com/AllBinary/AllBinary-Platform-Julia) | JIT (LLVM) | Desktop | Designed for numerical computing. Code compiles on first call, so startup is slower; standalone executables via PackageCompiler or `juliac`. |
 | [Lisp](https://github.com/AllBinary/AllBinary-Platform-Lisp-with-native-call-support) | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |
 | [Nim](https://github.com/AllBinary/AllBinary-Platform-Nim) | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |
 | [Objective-C](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) | |
 | [Racket](https://github.com/AllBinary/AllBinary-Platform-Racket) | Native (Chez Scheme backend) | Desktop | Includes 2D graphics libraries. Standalone apps via `raco exe` and `raco distribute`. |
 | [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |
-| [Tcl](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop | |
 | [Vala](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
 | [Wren](https://github.com/AllBinary/AllBinary-Platform-Wren) | Interpreted (embedded) | Desktop (inside a host engine) | Designed for embedding in game engines. Requires a host C/C++ engine. |
 
@@ -179,6 +179,8 @@ Grouped by language type. For planned languages
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
+| [AngelScript](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
+| [Odin](https://github.com/AllBinary/AllBinary-Platform-Odin) | Native | Desktop | Converter, runtime, and poms in progress; checked with `odin check` (dev-2026-11). Data-oriented programming; maintained OpenGL, SDL2, and raylib bindings in its vendor library. |
 
 ### Future – TBD
 
@@ -186,9 +188,9 @@ Without an AllBinary repo, links point to official language sites or documentati
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| [AngelScript](https://www.angelcode.com/angelscript/) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
-| [Odin](https://odin-lang.org/) | Native | Desktop | Data-oriented programming; maintained OpenGL, SDL2, and raylib bindings in its vendor library. |
 | [Squirrel](https://www.squirrel-lang.org/) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Lightweight object-oriented scripting with a C API for embedding in games. |
+| [Lean 4](https://lean-lang.org/) | Native (compiles through C) | Desktop | Functional programming language and proof assistant with dependent types, reference counting, and C interoperability. |
+| [Bend](https://github.com/bendlang/bend) | Native (CPU/GPU backends) | Desktop (Linux and macOS first) | Functional language focused on automatic parallelism; current Bend 2 also supports dependent types and proofs. Game runtime and graphics integration would need evaluation. |
 | [ASM](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
 | [AssemblyScript](https://www.assemblyscript.org/) | JS engine (WASM) | Web | TypeScript-like language compiling to WebAssembly; browser integration requires host bindings. |
 | [Clojure](https://clojure.org/) | JVM (ClojureScript: JS engine) | Desktop (JVM), Web (via ClojureScript) | Lisp on the JVM with Java interoperability; ClojureScript is a separate compiler targeting JavaScript. |
