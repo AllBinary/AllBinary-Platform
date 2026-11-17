@@ -160,6 +160,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Objective-C](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) | |
 | [Racket](https://github.com/AllBinary/AllBinary-Platform-Racket) | Native (Chez Scheme backend) | Desktop | Includes 2D graphics libraries. Standalone apps via `raco exe` and `raco distribute`. |
 | [Tcl](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop | |
+| [Vala](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
 | [Wren](https://github.com/AllBinary/AllBinary-Platform-Wren) | Interpreted (embedded) | Desktop (inside a host engine) | Designed for embedding in game engines. Requires a host C/C++ engine. |
 
 ### Planned – Initial commit not yet added or in progress
@@ -171,7 +172,6 @@ Grouped by language type. For planned languages
 | [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |
 | [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
 | [Goose](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |
-| [Vala](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
 | [Grain](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
 | [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
 
@@ -191,7 +191,7 @@ Without an AllBinary repo, links point to official language sites or documentati
 | [D](https://dlang.org/) | Native | Desktop | Object-oriented systems language with garbage collection and C interoperability. |
 | [F#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp) | Managed VM (.NET CLR) | Desktop | ML-family functional language with access to .NET libraries; candidate for MonoGame/FNA integration. |
 | [GDScript](https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_languages.html) | Interpreted (Godot) | Desktop, Mobile, Web (via Godot exports) | Godot's scripting language with optional static typing; planned Godot integration. |
-| [Gleam](https://gleam.run/) | Managed VM (BEAM), JS engine | Desktop (BEAM), Web (JavaScript) | Statically typed functional language targeting Erlang and JavaScript. |
+| [Gleam](https://gleam.run/) | Managed VM (BEAM), JS engine | Desktop (BEAM), Web (JavaScript) | Statically typed functional language targeting Erlang and JavaScript. Great for multiplayer backend servers	Poor fit for client rendering/physics |
 | [Mojo](https://mojolang.org/docs/manual/get-started/) | Native (MLIR/LLVM) | Desktop (Linux and macOS; Windows via WSL) | Python-inspired syntax with static typing, ownership, and Python/C interoperability. |
 | [Scheme](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |
 | [PHP](https://www.php.net/manual/en/intro-whatis.php) | Interpreted (optional JIT) | Desktop (CLI), Server (planned) | PHP 8+ scripting through the CLI; OPcache provides optional JIT compilation. |
