@@ -158,6 +158,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [COBOL](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
 | [Dart](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native, JS engine (dart2js / WASM) | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |
 | [Elixir](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
+| [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
 | [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
 | [Goose](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |
 | [Grain](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
@@ -178,7 +179,6 @@ Grouped by language type. For planned languages
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
 
 ### Future – TBD
 
