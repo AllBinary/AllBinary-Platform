@@ -91,7 +91,12 @@ Each language in the tables below is described two ways:
 - Amazon Fire TV — Vega OS
 - KaiOS
 - Nintendo Switch
+- Nintendo Switch 2
 - PlayStation
+- Xbox - DirectX 12 and Microsoft GDK (I have a unreleased game that uses DirectX already)
+- Steam Deck / SteamOS - builds on existing Linux support; Steam-specific features could be added
+- Android TV / Google TV - builds on existing Android support
+- Apple TV / tvOS
 
 ## Current build state
 
