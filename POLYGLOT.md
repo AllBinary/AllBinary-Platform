@@ -160,6 +160,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Nim](https://github.com/AllBinary/AllBinary-Platform-Nim) | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |
 | [Objective-C](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) | |
 | [Racket](https://github.com/AllBinary/AllBinary-Platform-Racket) | Native (Chez Scheme backend) | Desktop | Includes 2D graphics libraries. Standalone apps via `raco exe` and `raco distribute`. |
+| [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |
 | [Tcl](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop | |
 | [Vala](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
 | [Wren](https://github.com/AllBinary/AllBinary-Platform-Wren) | Interpreted (embedded) | Desktop (inside a host engine) | Designed for embedding in game engines. Requires a host C/C++ engine. |
@@ -170,7 +171,6 @@ Grouped by language type. For planned languages
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |
 | [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
 | [Grain](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
 | [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
