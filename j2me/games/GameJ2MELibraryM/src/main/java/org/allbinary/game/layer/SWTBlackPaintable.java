@@ -25,6 +25,7 @@ class SWTBlackPaintable extends Paintable {
     private final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
     private final BasicColor BLACK = BasicColorFactory.getInstance().BLACK;
 
+    @Override
     public void paint(Graphics graphics) {
         this.basicSetColorUtil.setBasicColorP(graphics, this.BLACK);
     }

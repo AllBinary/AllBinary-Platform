@@ -132,6 +132,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
 | [Ada](https://github.com/AllBinary/AllBinary-Platform-Ada) | Native | Desktop | GNAT |
+| [AngelScript](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
 | [C++](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [C#](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
 | [Elixir](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
@@ -144,6 +145,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Lua](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
 | [OCaml](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
 | [Object Pascal](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
+| [Odin](https://github.com/AllBinary/AllBinary-Platform-Odin) | Native | Desktop | Converter, runtime, and poms in progress; checked with `odin check` (dev-2026-11). Data-oriented programming; maintained OpenGL, SDL2, and raylib bindings in its vendor library. |
 | [Perl](https://github.com/AllBinary/AllBinary-Platform-Perl) | Interpreted | Desktop | |
 | [Python](https://github.com/AllBinary/AllBinary-Platform-Python) | Interpreted | Desktop | |
 | [Ruby](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
@@ -156,7 +158,6 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| [AngelScript](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
 | [C23](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [ActionScript](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |
 | [COBOL](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
@@ -169,7 +170,6 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Lisp](https://github.com/AllBinary/AllBinary-Platform-Lisp-with-native-call-support) | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |
 | [Nim](https://github.com/AllBinary/AllBinary-Platform-Nim) | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |
 | [Objective-C](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) | |
-| [Odin](https://github.com/AllBinary/AllBinary-Platform-Odin) | Native | Desktop | Converter, runtime, and poms in progress; checked with `odin check` (dev-2026-11). Data-oriented programming; maintained OpenGL, SDL2, and raylib bindings in its vendor library. |
 | [Racket](https://github.com/AllBinary/AllBinary-Platform-Racket) | Native (Chez Scheme backend) | Desktop | Includes 2D graphics libraries. Standalone apps via `raco exe` and `raco distribute`. |
 | [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |
 | [Vala](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
@@ -189,14 +189,12 @@ Grouped by language type. For planned languages
 | [Lean 4](https://lean-lang.org/) | Native (compiles through C) | Desktop | Functional programming language and proof assistant with dependent types, reference counting, and C interoperability. |
 | [ASM](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
 | [F#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp) | Managed VM (.NET CLR) | Desktop | ML-family functional language with access to .NET libraries; candidate for MonoGame/FNA integration. |
-| [Mojo](https://mojolang.org/docs/manual/get-started/) | Native (MLIR/LLVM) | Desktop (Linux and macOS; Windows via WSL) | Python-inspired syntax with static typing, ownership, and Python/C interoperability. |
 | [Scheme](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |
 | [PHP](https://www.php.net/manual/en/intro-whatis.php) | Interpreted (optional JIT) | Desktop (CLI), Server (planned) | PHP 8+ scripting through the CLI; OPcache provides optional JIT compilation. |
 | [Beef](https://www.beeflang.org/docs/language-guide/interop/) | Native | Desktop | Static/dynamic library linking through `extern`, DLL imports, and C linkage. |
 | [BlitzMax](https://www.blitzmax.org/docs/en/language/interfacing_with_c/) | Native | Desktop | `Import` and `Extern` integrate C source and functions. |
 | [C3](https://c3-lang.org/language-common/cinterop/) | Native | Desktop | C ABI compatibility, `extern` declarations, and static/dynamic linking. |
 | [V](https://docs.vlang.io/v-and-c.html) | Native (C backend) | Desktop | Calls C functions through declarations, headers, and linked libraries. |
-| [Hare](https://harelang.org/documentation/usage/system-libraries.html) | Native | Desktop | C FFI and mixed Hare/C programs. |
 | [Factor](https://docs.factorcode.org/content/article-alien.html) | Native (optimizing compiler) | Desktop | Built-in C library interface, including native callbacks. |
 | [Gforth (Forth)](https://www.complang.tuwien.ac.at/forth/gforth/Docs-html/Declaring-C-Functions.html) | Implementation-dependent (Gforth) | Desktop | Implementation-specific support; Gforth provides C function declarations and linking. |
 | [Raku (Rakudo)](https://docs.raku.org/language/nativecall) | Managed VM (Rakudo/MoarVM) | Desktop | `NativeCall` calls functions in native libraries. |
@@ -216,7 +214,6 @@ Grouped by language type. For planned languages
 | [ChaiScript](https://chaiscript.com/examples.html) | Interpreted (embedded) | Desktop (inside a C++ host) | A C++ host can expose functions and types to scripts. [License](https://github.com/ChaiScript/ChaiScript/blob/develop/LICENSE). |
 | [Luau](https://luau.org/api/) | Managed VM (embedded) | Desktop (inside a C/C++ host) | A C or C++ host can register native functions that scripts can call. [MIT](https://github.com/luau-lang/luau). |
 | [Carp](https://github.com/carp-lang/Carp/blob/master/docs/CInterop.md) | Native (compiles through C) | Desktop | A Lisp designed for real-time applications. It can call C functions and ships [SDL bindings](https://github.com/carp-lang/Carp/blob/master/core/SDL.carp). |
-| [Kit](https://github.com/kitlang/kit) | Native (compiles through C) | Desktop | A game-oriented language that imports C headers and uses their functions and types. The [experimental Rust compiler](https://github.com/kitlang-dev/kitc) has a documented [raylib package](https://kit-lang.org/docs/2026.7.12/packages/kit-raylib.html). |
 | [MiniScript (raylib-miniscript / MSRLWeb)](https://github.com/JoeStrout/raylib-miniscript) | Interpreted (embedded) | Desktop, Web/WASM | Has native raylib bindings. [MSRLWeb](https://github.com/JoeStrout/MSRLWeb) runs games in the browser via raylib and WebAssembly. MIT. |
 | [Jolt](https://github.com/jolt-lang/jolt) | Native (Chez Scheme) | Desktop | A Clojure dialect with C ABI interoperability and [raylib examples](https://github.com/jlt-commons/raylib-jlt). EPL 2.0. |
 | [Cyber](https://github.com/fubark/cyber) | Managed VM | Desktop | Embeddable scripting language with [raylib bindings](https://github.com/fubark/ray-cyber). MIT. |
@@ -230,13 +227,10 @@ Grouped by language type. For planned languages
 | [SmallBASIC](https://smallbasic.github.io/pages/plugins_raylib.html) | Interpreted | Desktop | A native raylib plugin exposes rendering, input, and audio. [Interpreter](https://github.com/smallbasic/SmallBASIC). |
 | [Solod](https://github.com/solod-dev/solod) | Native (via C) | Desktop | Provides [raylib bindings](https://github.com/solod-dev/raylib) for native graphics. |
 | [Wave](https://github.com/wavefnd/Wave) | Native | Desktop | Has [native raylib bindings](https://github.com/wavefnd/raylib-wave). |
-| [Sunder](https://github.com/ashn-dot-dev/sunder) | Native | Desktop | Systems language with [native raylib bindings](https://github.com/ashn-dot-dev/raylib-sunder). |
 | [Mach](https://github.com/briar-systems/mach) | Native | Desktop | Systems language with [raylib bindings](https://github.com/Angluca/mach-raylib). |
 | [Jule](https://github.com/julelang/jule) | Native (via C++) | Desktop | Supports C/C++ interoperability and has [community raylib bindings](https://github.com/SabeDoesThings/rayjule). |
-| [Never](https://github.com/never-lang/never) | Managed VM (embedded) | Desktop | Statically typed functional language with an [older raylib binding](https://github.com/never-lang/raylib-never). |
 | [XD Pascal](https://github.com/vtereshkov/xdpw) | Native | Desktop (Windows) | Embeddable Pascal dialect with an [older raylib binding](https://github.com/vtereshkov/raylib-xdpw). |
 | [F*](https://github.com/FStarLang/FStar) | Native via Low* and KaRaMeL | Desktop | [KaRaMeL](https://github.com/FStarLang/karamel) compiles the Low* subset to C. The [raylib index](https://github.com/raysan5/raylib/blob/master/BINDINGS.md) lists F* bindings. |
-| [Bend](https://github.com/bendlang/bend) | Native (CPU/GPU backends) | Desktop (Linux and macOS first) | Functional language focused on automatic parallelism; current Bend 2 also supports dependent types and proofs. Game runtime and graphics integration would need evaluation. |
 | [MLton (Standard ML)](https://www.mlton.org/ForeignFunctionInterface) | Native (MLton) | Desktop | Implementation-specific support; MLton supports calling C and exporting functions to C. |
 
 ### Possible Future - TBD
@@ -245,6 +239,12 @@ Without an AllBinary repo, links point to official language sites or documentati
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
+| [Bend](https://github.com/AllBinary/AllBinary-Platform-Bend) | Native (CPU/GPU backends) | Desktop (Linux and macOS; Windows via WSL) | Functional language focused on automatic parallelism; current Bend 2 also supports dependent types and proofs. Game runtime and graphics integration would need evaluation. |
+| [Hare](https://harelang.org/documentation/usage/system-libraries.html) | Native | Desktop (Linux and BSD; Windows via WSL is an unsupported workaround) | C FFI and mixed Hare/C programs. [Upstream platform policy](https://harelang.org/documentation/faq.html). |
+| [Kit](https://github.com/kitlang/kit) | Native (compiles through C) | Desktop (Linux and macOS; Windows via WSL for the current raylib toolchain) | A game-oriented language that imports C headers and uses their functions and types. The [experimental Rust compiler](https://github.com/kitlang-dev/kitc) has a documented [raylib package](https://kit-lang.org/docs/2026.7.12/packages/kit-raylib.html). [Current compiler platforms](https://kit-lang.org/faqs.html). The [original compiler](https://github.com/kitlang/kit#windows-setup) supports MinGW-w64. |
+| [Mojo](https://mojolang.org/docs/manual/get-started/) | Native (MLIR/LLVM) | Desktop (Linux and macOS; Windows via WSL) | Python-inspired syntax with static typing, ownership, and Python/C interoperability. |
+| [Never](https://github.com/never-lang/never) | Managed VM (embedded) | Desktop (Linux; Windows via WSL for the documented Linux build) | Statically typed functional language with an [older raylib binding](https://github.com/never-lang/raylib-never). [Upstream build requirements](https://github.com/never-lang/never#prerequisites). |
+| [Sunder](https://github.com/ashn-dot-dev/sunder) | Native | Desktop (Linux and ARM64 macOS; Windows via WSL) | Systems language with [native raylib bindings](https://github.com/ashn-dot-dev/raylib-sunder). [Supported platforms](https://github.com/ashn-dot-dev/sunder#dependencies). |
 | [Scratch (via TurboWarp)](https://docs.turbowarp.org/development/extensions/unsandboxed) | Visual programming (Scratch-compatible VM) | Desktop, Web | TurboWarp JavaScript extensions expose browser APIs as blocks. The [extension gallery](https://extensions.turbowarp.org/) includes GPU-accelerated Simple 3D. [Runtime source](https://github.com/TurboWarp/scratch-vm). |
 | [GDScript](https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_languages.html) | Interpreted (Godot) | Desktop, Mobile, Web (via Godot exports) | Godot's scripting language with optional static typing; planned Godot integration. |
 | [Visual Basic .NET](https://learn.microsoft.com/en-us/dotnet/visual-basic/language-reference/statements/declare-statement) | Managed VM (.NET CLR) | Desktop | `Declare` and P/Invoke call native DLL functions. [Roslyn: MIT](https://github.com/dotnet/roslyn). |
@@ -471,7 +471,7 @@ Without an AllBinary repo, links point to official language sites or documentati
 | [Zsh](https://zsh.sourceforge.io/Doc/Release/Zsh-Modules.html) | Interpreted shell | Desktop (CLI) | `zmodload` loads native modules that can expose callable shell builtins and math functions. [Source and license](https://github.com/zsh-users/zsh). |
 | [GNU Make (Makefile language)](https://www.gnu.org/software/make/manual/make.html#Loading-Objects) | Build language (GNU make) | Desktop (CLI) | The `load` directive loads a native shared object, which can register functions callable from a Makefile via `gmk_add_function`. |
 | [GNU Awk (AWK)](https://www.gnu.org/software/gawk/manual/gawk.html#Dynamic-Extensions) | Interpreted | Desktop (CLI) | `@load` makes functions from compiled C extensions callable from scripts. |
-| [Nix (NixOS evaluator)](https://nix.dev/manual/nix/2.34/command-ref/conf-file#conf-allow-unsafe-native-code-during-evaluation) | Interpreted configuration language | Desktop, Server | With native evaluation enabled, `builtins.importNative` loads a shared library and invokes its exported entry point. [Source and license](https://github.com/NixOS/nix/blob/master/COPYING). |
+| [Nix (NixOS evaluator)](https://nix.dev/manual/nix/2.34/command-ref/conf-file#conf-allow-unsafe-native-code-during-evaluation) | Interpreted configuration language | Desktop (Linux and macOS; Windows via WSL 2), Server | With native evaluation enabled, `builtins.importNative` loads a shared library and invokes its exported entry point. [Source and license](https://github.com/NixOS/nix/blob/master/COPYING). |
 | [DuckDB (SQL)](https://duckdb.org/2025/02/05/announcing-duckdb-120) | Compiled queries (DuckDB engine) | Desktop, Server | Native extensions can register scalar, aggregate, and table functions through the C API so SQL queries can call them. [MIT engine](https://github.com/duckdb/duckdb). |
 | [Emacs Lisp](https://www.gnu.org/software/emacs/manual/html_node/elisp/Loading.html) | Emacs runtime | Desktop (inside Emacs) | The GNU Emacs implementation can load native dynamic modules that expose callable Lisp functions. It is mainly used to extend the editor. |
 | [Vim script (Vim)](https://vimhelp.org/builtin.txt.html#libcall%28%29) | Interpreted (Vim) | Desktop (inside Vim) | In Vim builds with `+libcall`, `libcall()` and `libcallnr()` call functions in shared libraries. Primarily used for editor scripting. [Vim source and license](https://github.com/vim/vim). |
