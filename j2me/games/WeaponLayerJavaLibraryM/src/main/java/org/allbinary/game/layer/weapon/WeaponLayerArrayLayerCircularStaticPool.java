@@ -30,21 +30,18 @@ public class WeaponLayerArrayLayerCircularStaticPool
     private final int MAX = 5;
     private CircularIndexUtil circularIndexUtil = CircularIndexUtil.createInstance(this.MAX);
 
-    private WeaponLayer[][] WEAPONLAYER_ARRAY;
-    private WeaponLayer[][] TWO_WEAPONLAYER_ARRAY;
-    private WeaponLayer[][] THREE_WEAPONLAYER_ARRAY;
+    private WeaponLayer[][] WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX * 2][];
+    private WeaponLayer[][] TWO_WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX][];
+    private WeaponLayer[][] THREE_WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX][];
 
     public void init()
     {
-        final WeaponLayer[][] WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX * 2][];
-        final WeaponLayer[][] TWO_WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX][];
-        final WeaponLayer[][] THREE_WEAPONLAYER_ARRAY = new WeaponLayer[this.MAX][];
         
         for (int index = 0; index < this.MAX; index++)
         {
-            WEAPONLAYER_ARRAY[index] = new WeaponLayer[1];
-            TWO_WEAPONLAYER_ARRAY[index] = new WeaponLayer[2];
-            THREE_WEAPONLAYER_ARRAY[index] = new WeaponLayer[3];
+            this.WEAPONLAYER_ARRAY[index] = new WeaponLayer[1];
+            this.TWO_WEAPONLAYER_ARRAY[index] = new WeaponLayer[2];
+            this.THREE_WEAPONLAYER_ARRAY[index] = new WeaponLayer[3];
         }
         this.WEAPONLAYER_ARRAY = WEAPONLAYER_ARRAY;
         this.TWO_WEAPONLAYER_ARRAY = TWO_WEAPONLAYER_ARRAY;
