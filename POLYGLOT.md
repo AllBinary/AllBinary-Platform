@@ -135,6 +135,8 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [AngelScript](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
 | [C++](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [C#](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
+| [Clojure](https://github.com/AllBinary/AllBinary-Platform-Clojure) | JVM | Desktop (JVM) | Converter, runtime, and poms in progress; compiled with clojure.main (Clojure 1.12.6) and jcheck, which declares every namespace first so classes can refer to each other in cycles. Lisp on the JVM: a converted class is a namespace with run time method dispatch, and java.* classes are the JVM classes through interop. ClojureScript (a separate compiler targeting JavaScript) is not used. |
+| [Dart](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native, JS engine (dart2js / WASM) | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |
 | [Elixir](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
 | [Erlang](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
 | [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
@@ -151,7 +153,9 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Ruby](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
 | [Rust](https://github.com/AllBinary/AllBinary-Platform-Rust) | Native | Desktop | |
 | [Scala](https://github.com/AllBinary/AllBinary-Platform-Scala) | JVM | Desktop (J2SE) | Scala Native is a possible later step. |
+| [Squirrel](https://github.com/AllBinary/AllBinary-Platform-Squirrel) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; compiled and loaded with the sqcheck host (Squirrel 3.2, 64 bit integers and double floats). Lightweight object-oriented scripting with a C API for embedding in games. |
 | [Tcl](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop | |
+| [Wren](https://github.com/AllBinary/AllBinary-Platform-Wren) | Interpreted (embedded) | Desktop (inside a host engine) | Designed for embedding in game engines. Requires a host C/C++ engine. |
 | [Zig](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop | |
 
 ### Tier 4 – AllBinaryBase builds (with 5 private libraries)
@@ -160,9 +164,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 |----------|---------------|---------|-------|
 | [C23](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [ActionScript](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |
-| [Clojure](https://github.com/AllBinary/AllBinary-Platform-Clojure) | JVM | Desktop (JVM) | Converter, runtime, and poms in progress; compiled with clojure.main (Clojure 1.12.6) and jcheck, which declares every namespace first so classes can refer to each other in cycles. Lisp on the JVM: a converted class is a namespace with run time method dispatch, and java.* classes are the JVM classes through interop. ClojureScript (a separate compiler targeting JavaScript) is not used. |
 | [COBOL](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
-| [Dart](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native, JS engine (dart2js / WASM) | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |
 | [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
 | [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
 | [Goose](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |
@@ -172,10 +174,8 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Nim](https://github.com/AllBinary/AllBinary-Platform-Nim) | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |
 | [Objective-C](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) | |
 | [Racket](https://github.com/AllBinary/AllBinary-Platform-Racket) | Native (Chez Scheme backend) | Desktop | Includes 2D graphics libraries. Standalone apps via `raco exe` and `raco distribute`. |
-| [Squirrel](https://github.com/AllBinary/AllBinary-Platform-Squirrel) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; compiled and loaded with the sqcheck host (Squirrel 3.2, 64 bit integers and double floats). Lightweight object-oriented scripting with a C API for embedding in games. |
 | [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |
 | [Vala](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
-| [Wren](https://github.com/AllBinary/AllBinary-Platform-Wren) | Interpreted (embedded) | Desktop (inside a host engine) | Designed for embedding in game engines. Requires a host C/C++ engine. |
 
 ### Planned – Initial commit not yet added or in progress
 
