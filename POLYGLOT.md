@@ -156,6 +156,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
+| [AngelScript](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
 | [C23](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [ActionScript](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |
 | [COBOL](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
@@ -168,6 +169,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 | [Lisp](https://github.com/AllBinary/AllBinary-Platform-Lisp-with-native-call-support) | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |
 | [Nim](https://github.com/AllBinary/AllBinary-Platform-Nim) | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |
 | [Objective-C](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) | |
+| [Odin](https://github.com/AllBinary/AllBinary-Platform-Odin) | Native | Desktop | Converter, runtime, and poms in progress; checked with `odin check` (dev-2026-11). Data-oriented programming; maintained OpenGL, SDL2, and raylib bindings in its vendor library. |
 | [Racket](https://github.com/AllBinary/AllBinary-Platform-Racket) | Native (Chez Scheme backend) | Desktop | Includes 2D graphics libraries. Standalone apps via `raco exe` and `raco distribute`. |
 | [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |
 | [Vala](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
@@ -179,10 +181,11 @@ Grouped by language type. For planned languages
 
 | Language | Language type | Targets | Notes |
 |----------|---------------|---------|-------|
-| [AngelScript](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
-| [Odin](https://github.com/AllBinary/AllBinary-Platform-Odin) | Native | Desktop | Converter, runtime, and poms in progress; checked with `odin check` (dev-2026-11). Data-oriented programming; maintained OpenGL, SDL2, and raylib bindings in its vendor library. |
 | [Squirrel](https://github.com/AllBinary/AllBinary-Platform-Squirrel) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; compiled and loaded with the sqcheck host (Squirrel 3.2, 64 bit integers and double floats). Lightweight object-oriented scripting with a C API for embedding in games. |
 | [AssemblyScript](https://github.com/AllBinary/AllBinary-Platform-AssemblyScript) | JS engine (WASM) | Web | Converter, runtime, and poms in progress; checked with asc 0.28 plus a transform that compiles every function (asc only compiles what the entry reaches). TypeScript-like language compiling to WebAssembly; browser integration requires host bindings. |
+| [Clojure](https://github.com/AllBinary/AllBinary-Platform-Clojure) | JVM | Desktop (JVM) | Converter, runtime, and poms in progress; compiled with clojure.main (Clojure 1.12.6) and jcheck, which declares every namespace first so classes can refer to each other in cycles. Lisp on the JVM: a converted class is a namespace with run time method dispatch, and java.* classes are the JVM classes through interop. ClojureScript (a separate compiler targeting JavaScript) is not used. |
+| [Crystal](https://github.com/AllBinary/AllBinary-Platform-Crystal) | Native (LLVM) | Desktop | Converter, runtime, and poms in progress; checked with `crystal build --no-codegen` (Crystal 1.22.3) and an entry that calls every method (Crystal only type checks the code a program reaches). Ruby-inspired syntax with static typing and type inference: a Java class is a Crystal class, an interface a module, and references are nilable. |
+| [D](https://github.com/AllBinary/AllBinary-Platform-D) | Native (LLVM via LDC) | Desktop | Converter, runtime, and poms in progress; checked with `ldc2 -o-` (LDC 1.43, D 2.113) over the runtime, the dependencies, and the project in one run. Object-oriented systems language with garbage collection and C interoperability: a Java class is a D class, an interface a D interface, and every file is a module that imports a generated module of all of them. |
 
 ### Future – TBD
 
@@ -193,9 +196,6 @@ Without an AllBinary repo, links point to official language sites or documentati
 | [Lean 4](https://lean-lang.org/) | Native (compiles through C) | Desktop | Functional programming language and proof assistant with dependent types, reference counting, and C interoperability. |
 | [Bend](https://github.com/bendlang/bend) | Native (CPU/GPU backends) | Desktop (Linux and macOS first) | Functional language focused on automatic parallelism; current Bend 2 also supports dependent types and proofs. Game runtime and graphics integration would need evaluation. |
 | [ASM](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
-| [Clojure](https://clojure.org/) | JVM (ClojureScript: JS engine) | Desktop (JVM), Web (via ClojureScript) | Lisp on the JVM with Java interoperability; ClojureScript is a separate compiler targeting JavaScript. |
-| [Crystal](https://crystal-lang.org/) | Native (LLVM) | Desktop | Ruby-inspired syntax with static typing and type inference. |
-| [D](https://dlang.org/) | Native | Desktop | Object-oriented systems language with garbage collection and C interoperability. |
 | [F#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp) | Managed VM (.NET CLR) | Desktop | ML-family functional language with access to .NET libraries; candidate for MonoGame/FNA integration. |
 | [GDScript](https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_languages.html) | Interpreted (Godot) | Desktop, Mobile, Web (via Godot exports) | Godot's scripting language with optional static typing; planned Godot integration. |
 | [Gleam](https://gleam.run/) | Managed VM (BEAM), JS engine | Desktop (BEAM), Web (JavaScript) | Statically typed functional language targeting Erlang and JavaScript. Great for multiplayer backend servers	Poor fit for client rendering/physics |
@@ -203,3 +203,27 @@ Without an AllBinary repo, links point to official language sites or documentati
 | [Scheme](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |
 | [PHP](https://www.php.net/manual/en/intro-whatis.php) | Interpreted (optional JIT) | Desktop (CLI), Server (planned) | PHP 8+ scripting through the CLI; OPcache provides optional JIT compilation. |
 | [Oberon+](https://github.com/AllBinary/AllBinary-Platform-OberonPlus) | Managed VM (CLI/Mono); Native via generated C | Desktop | The OBX compiler emits .NET CLI bytecode, or C99 source for native builds. Few game libraries. |
+| [Beef](https://www.beeflang.org/docs/language-guide/interop/) | Native | Desktop | Static/dynamic library linking through `extern`, DLL imports, and C linkage. |
+| [Eiffel](https://www.eiffel.org/doc/solutions/Interfacing_with_C_and_C%2B%2B) | Native | Desktop | External routines interfacing with C and C++. |
+| [Dylan](https://package.opendylan.org/opendylan/library-reference/c-ffi/index.html) | Native (Open Dylan) | Desktop | Open Dylan's `c-ffi` library describes and calls C interfaces. |
+| [BlitzMax](https://www.blitzmax.org/docs/en/language/interfacing_with_c/) | Native | Desktop | `Import` and `Extern` integrate C source and functions. |
+| [C3](https://c3-lang.org/language-common/cinterop/) | Native | Desktop | C ABI compatibility, `extern` declarations, and static/dynamic linking. |
+| [V](https://docs.vlang.io/v-and-c.html) | Native (C backend) | Desktop | Calls C functions through declarations, headers, and linked libraries. |
+
+### Possible
+
+| Language | Language type | Targets | Notes |
+|----------|---------------|---------|-------|
+| [Hare](https://harelang.org/documentation/usage/system-libraries.html) | Native | Desktop | C FFI and mixed Hare/C programs. |
+| [Chapel](https://chapel-lang.org/docs/technotes/extern.html) | Native | Desktop | C interoperability through `extern proc`, C headers, and inline C blocks. |
+| [Pony](https://tutorial.ponylang.io/c-ffi/calling-c.html) | Native | Desktop | Native C FFI, with external function declarations and calls. |
+| [Standard ML](https://www.mlton.org/ForeignFunctionInterface) | Native (MLton) | Desktop | Implementation-specific support; MLton supports calling C and exporting functions to C. |
+| [Idris 2](https://idris2.readthedocs.io/en/latest/ffi/ffi.html) | Backend-dependent | Desktop | `%foreign` declarations, including C FFI on supporting backends. |
+| [Mercury](https://www.mercurylang.org/information/doc-latest/mercury_user_guide/Foreign-language-interface.html) | Native (C backend) | Desktop | C native integration through `pragma foreign_proc` on C-targeting backends. |
+| [Factor](https://docs.factorcode.org/content/article-alien.html) | Native (optimizing compiler) | Desktop | Built-in C library interface, including native callbacks. |
+| [Forth](https://www.complang.tuwien.ac.at/forth/gforth/Docs-html/Declaring-C-Functions.html) | Implementation-dependent (Gforth) | Desktop | Implementation-specific support; Gforth provides C function declarations and linking. |
+| [Raku](https://docs.raku.org/language/nativecall) | Managed VM (Rakudo/MoarVM) | Desktop | `NativeCall` calls functions in native libraries. |
+| [R](https://cloud.r-project.org/doc/manuals/r-release/R-exts.html) | Interpreted | Desktop | `.C`, `.Call`, and related interfaces integrate compiled native code. |
+| [FreeBASIC](https://www.freebasic.net/wiki/KeyPgExtern) | Native | Desktop | C library interoperability through external declarations and linkage. |
+| [Red/System](https://static.red-lang.org/red-system-specs.html) | Native | Desktop | `#import` imports functions from native shared libraries. |
+| [Red](https://www.red-lang.org/) | Interpreted / Native | Desktop | Native integration through its Red/System layer. |
