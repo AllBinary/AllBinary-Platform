@@ -132,6 +132,7 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 |-------------------------|---------------|---------|-------|
 | [Ada](https://www.adaic.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Ada) | Native | Desktop | GNAT |
 | [AngelScript](https://www.angelcode.com/angelscript/) / [repo](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
+| [C23](https://www.open-std.org/jtc1/sc22/wg14/) / [repo](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [C++](https://isocpp.org/get-started) / [repo](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) / [repo](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
 | [Clojure](https://clojure.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Clojure) | JVM | Desktop (JVM) | Converter, runtime, and poms in progress; compiled with clojure.main (Clojure 1.12.6) and jcheck, which declares every namespace first so classes can refer to each other in cycles. Lisp on the JVM: a converted class is a namespace with run time method dispatch, and java.* classes are the JVM classes through interop. ClojureScript (a separate compiler targeting JavaScript) is not used. |
@@ -161,7 +162,6 @@ The public repo root pom builds, together with the 5 private libraries it needs.
 
 | Language/AllBinary Repo | Language type | Targets | Notes |
 |-------------------------|---------------|---------|-------|
-| [C23](https://www.open-std.org/jtc1/sc22/wg14/) / [repo](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
 | [ActionScript](https://airsdk.dev/reference/actionscript/3.0/) / [repo](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |
 | [COBOL](https://gnucobol.sourceforge.io/) / [repo](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
 | [Elm](https://guide.elm-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
