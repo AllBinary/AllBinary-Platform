@@ -145,6 +145,7 @@ The public repo root pom builds, with 5 private libraries it needs.
 | [Groovy](https://groovy-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Groovy) | JVM | Desktop (J2SE) |  |  |
 | [Haskell](https://www.haskell.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |  |
 | [Haxe](https://haxe.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Haxe) | Native (via the hxcpp C++ target) | Desktop | Haxe can also target JS, JVM, and HashLink. |  |
+| [Janet](https://janet-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Janet) | Interpreted (embedded) | Desktop | Embeddable, with a simple C FFI. |  |
 | [Julia](https://julialang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Julia) | JIT (LLVM) | Desktop | Designed for numerical computing. Code compiles on first call, so startup is slower; standalone executables via PackageCompiler or `juliac`. |  |
 | [Lean 4](https://lean-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Lean) | Native (compiles through C) | Desktop | Functional programming language and proof assistant with dependent types, reference counting, and C interoperability. |  |
 | [Lisp](https://github.com/sbcl/sbcl) / [repo](https://github.com/AllBinary/AllBinary-Platform-Lisp-with-native-call-support) | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |  |
@@ -174,7 +175,6 @@ The public repo root pom builds, with 5 private libraries it needs.
 | [FORTRAN](https://fortran-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop |  |  |
 | [Goose](https://github.com/aardappel/goose) / [repo](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |  |
 | [Grain](https://grain-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |  |
-| [Janet](https://janet-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Janet) | Interpreted (embedded) | Desktop | Embeddable, with a simple C FFI. |  |
 | [Objective-C](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) |  |  |
 | [Swift](https://www.swift.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |  |
 | [Vala](https://vala.dev/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |  |
