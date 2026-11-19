@@ -126,7 +126,7 @@ The public and private repo root poms build. J2ME-style client code builds, and 
 
 ### Tier 3 – Public root pom build (with 5 private libraries)
 
-The public repo root pom builds, together with the 5 private libraries it needs.
+The public repo root pom builds, with 5 private libraries it needs.
 
 | Language/AllBinary Repo | Language type | Targets | Notes |
 |-------------------------|---------------|---------|-------|
@@ -187,7 +187,7 @@ Grouped by language type. For planned languages
 | [D](https://dlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-D) | Native (LLVM via LDC) | Desktop | Converter, runtime, and poms in progress; checked with `ldc2 -o-` (LDC 1.43, D 2.113) over the runtime, the dependencies, and the project in one run. Object-oriented systems language with garbage collection and C interoperability: a Java class is a D class, an interface a D interface, and every file is a module that imports a generated module of all of them. |
 | [Lean 4](https://lean-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Lean) | Native (compiles through C) | Desktop | Functional programming language and proof assistant with dependent types, reference counting, and C interoperability. |
 | [ASM](https://www.nasm.us/doc/) / [repo](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
-| [F#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp) / [repo](https://github.com/AllBinary/AllBinary-Platform-FSharp) | Managed VM (.NET CLR) | Desktop | ML-family functional language with access to .NET libraries; candidate for MonoGame/FNA integration. |
+| [F#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp) / [repo](https://github.com/AllBinary/AllBinary-Platform-FSharp) | Managed VM (.NET CLR) | Desktop | Converter, runtime, and poms in progress; compiled with the .NET SDK F# compiler (`dotnet fsc.dll`, .NET 8 SDK) to one library per project. ML-family functional language with access to .NET libraries; candidate for MonoGame/FNA integration. Every converted class is a type of one recursive namespace, so classes can refer to each other in any order like Java. |
 | [Scheme](https://www.r7rs.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |
 | [PHP](https://www.php.net/manual/en/intro-whatis.php) / [repo](https://github.com/AllBinary/AllBinary-Platform-PHP) | Interpreted (optional JIT) | Desktop (CLI), Server (planned) | PHP 8+ scripting through the CLI; OPcache provides optional JIT compilation. |
 | [Beef](https://www.beeflang.org/docs/language-guide/interop/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Beef) | Native | Desktop | Static/dynamic library linking through `extern`, DLL imports, and C linkage. |
