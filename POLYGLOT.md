@@ -139,6 +139,7 @@ The public repo root pom builds, with 5 private libraries it needs.
 | [Dart](https://dart.dev/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native, JS engine (dart2js / WASM) | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |  |
 | [Elixir](https://elixir-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |  |
 | [Erlang](https://www.erlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |  |
+| [Gleam](https://gleam.run/) | Managed VM (BEAM), JS engine | Desktop (BEAM), Web (JavaScript) | Statically typed functional language targeting Erlang and JavaScript. Great for multiplayer backend servers	Poor fit for client rendering/physics |  |
 | [Go](https://go.dev/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop |  |  |
 | [Groovy](https://groovy-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Groovy) | JVM | Desktop (J2SE) |  |  |
 | [Haskell](https://www.haskell.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |  |
@@ -476,7 +477,6 @@ Grouped by language type. For planned languages
 | [GLSL ES](https://registry.khronos.org/webgl/specs/latest/1.0/) | GPU shader language | Web (WebGL) | Runs WebGL vertex and fragment shaders. The host application handles input, game state, and draw calls. |  |
 | [LLVM IR](https://llvm.org/docs/LangRef.html) | Compiler intermediate language | Desktop, Server | `declare` and `call` express external calls using the target's C calling convention. [LLVM source and license](https://github.com/llvm/llvm-project). |  |
 | [SWI-Prolog](https://www.swi-prolog.org/pldoc/man?section=foreign) | Managed VM (SWI-Prolog) | Desktop | SWI-Prolog provides a C foreign-language interface. [SWI-Prolog: BSD-2-Clause](https://www.swi-prolog.org/license.html). |  |
-| [Gleam](https://gleam.run/) | Managed VM (BEAM), JS engine | Desktop (BEAM), Web (JavaScript) | Statically typed functional language targeting Erlang and JavaScript. Great for multiplayer backend servers	Poor fit for client rendering/physics |  |
 | [GNU Octave](https://docs.octave.org/latest/Calling-External-Code-from-Oct_002dFiles.html) | Interpreted | Desktop | Native `.oct` extensions integrate C, C++, and Fortran routines. [GPL](https://octave.org/about). |  |
 | [Starlark (Starlark-Go)](https://pkg.go.dev/go.starlark.net/starlark#NewBuiltin) | Interpreted (embedded) | Desktop (inside a Go host) | The Go implementation lets hosts expose native functions as built-ins for configuration or mod scripting. [Source repository](https://github.com/google/starlark-go). |  |
 | [Rego (Open Policy Agent)](https://www.openpolicyagent.org/docs/extensions) | Policy language (Open Policy Agent) | Desktop, Server | A Go host embedding OPA can add native built-ins callable from policies. [Apache 2.0](https://github.com/open-policy-agent/opa/blob/main/LICENSE). |  |
