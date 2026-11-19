@@ -162,7 +162,7 @@ The public repo root pom builds, with 5 private libraries it needs.
 
 | Language/AllBinary Repo | Language type | Targets | Notes | Other Progress |
 |-------------------------|---------------|---------|----------------|----------------|
-| [ActionScript](https://airsdk.dev/reference/actionscript/3.0/) / [repo](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. | Matches the Flash/ActionScript target in the diagram. |
+| [ActionScript](https://airsdk.dev/reference/actionscript/3.0/) / [repo](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |  |
 | [COBOL](https://gnucobol.sourceforge.io/) / [repo](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |  |
 | [D](https://dlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-D) | Native (LLVM via LDC) | Desktop | Object-oriented systems language with garbage collection and C interoperability. | Converter, runtime, and poms in progress; checked with `ldc2 -o-` (LDC 1.43, D 2.113) over the runtime, the dependencies, and the project in one run. A Java class is a D class, an interface a D interface, and every file is a module that imports a generated module of all of them. |
 | [Elm](https://guide.elm-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |  |
