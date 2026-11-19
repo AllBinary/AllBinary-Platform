@@ -12,8 +12,7 @@ WASM, HarmonyOS, J2SE, and Desktop: Windows, Linux, and macOS). The Polyglot lan
 target Desktop only for now; see the tables below for what each language reaches now.
 
 The language-specific repos hold the generated code, so developers can use it without
-running the generator themselves. Each language name in the tables below links to its
-repo when one exists.
+running the generator themselves. Language names link to information about the language. The adjacent repo link opens the AllBinary repository where available.
 
 ### Polyglot History
 
@@ -104,142 +103,140 @@ Each language in the tables below is described two ways:
 
 The public repo, private repo, and GDevelop poms for server, thick client, and J2ME client code all build and deploy.
 
-| Language | Language type | Targets | Notes |
-|----------|---------------|---------|-------|
-| [Java](https://github.com/AllBinary/AllBinary-Platform) | JVM (Android: ART/DEX), JVM embedded in a native executable (Avian VM), JS engine (via GWT) | Desktop (J2SE), Server, J2ME (legacy games), Mobile (Android), Web (PlayN 1 and 2, all compiled by GWT) | For Web, GWT compiles the whole Java app to JavaScript. GraalVM native works as of 2024, but is not deployed. |
+| Language/AllBinary Repo | Language type | Targets | Notes |
+|-------------------------|---------------|---------|-------|
+| [Java](https://dev.java/) / [repo](https://github.com/AllBinary/AllBinary-Platform) | JVM (Android: ART/DEX), JVM embedded in a native executable (Avian VM), JS engine (via GWT) | Desktop (J2SE), Server, J2ME (legacy games), Mobile (Android), Web (PlayN 1 and 2, all compiled by GWT) | For Web, GWT compiles the whole Java app to JavaScript. GraalVM native works as of 2024, but is not deployed. |
 
 ### Tier 1 – Games (https://allbinary.itch.io) run
 
 The public repo, private repo, and GDevelop JSON conversion all build. J2ME-style client code builds, and AllBinary legacy and supported GDevelop JSON games run.
 
-| Language | Language type | Targets | Notes |
-|----------|---------------|---------|-------|
-| [JavaScript](https://github.com/AllBinary/AllBinary-Platform-Javascript) | JS engine | Web | Produced from the TypeScript output by `tsc`; only about 1% of the code still comes from GWT. Allows dynamic preview of games. |
-| [Kotlin](https://github.com/AllBinary/AllBinary-Platform-KMP) | JVM (Android: ART/DEX; KMP: Native, JS engine via Kotlin/JS and Kotlin/Wasm) | Desktop, Mobile (Android; iOS via KMP), Web/WASM (via KMP) | |
+| Language/AllBinary Repo | Language type | Targets | Notes |
+|-------------------------|---------------|---------|-------|
+| [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) / [repo](https://github.com/AllBinary/AllBinary-Platform-Javascript) | JS engine | Web | Produced from the TypeScript output by `tsc`; only about 1% of the code still comes from GWT. Allows dynamic preview of games. |
+| [Kotlin](https://kotlinlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-KMP) | JVM (Android: ART/DEX; KMP: Native, JS engine via Kotlin/JS and Kotlin/Wasm) | Desktop, Mobile (Android; iOS via KMP), Web/WASM (via KMP) | |
 
 ### Tier 2 – AllBinary legacy game(s) (https://allbinary.itch.io) run
 
 The public and private repo root poms build. J2ME-style client code builds, and at least one legacy game runs.
 
-| Language | Language type | Targets | Notes |
-|----------|---------------|---------|-------|
-| [TypeScript](https://github.com/AllBinary/AllBinary-Platform-TypeScript) | JS engine (ArkTS: Managed VM) | Web, Mobile (HarmonyOS via ArkTS) | Also the source for the JavaScript output (via `tsc`). ArkTS compiles to Ark bytecode, which runs on the Ark runtime. |
+| Language/AllBinary Repo | Language type | Targets | Notes |
+|-------------------------|---------------|---------|-------|
+| [TypeScript](https://www.typescriptlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-TypeScript) | JS engine (ArkTS: Managed VM) | Web, Mobile (HarmonyOS via ArkTS) | Also the source for the JavaScript output (via `tsc`). ArkTS compiles to Ark bytecode, which runs on the Ark runtime. |
 
 ### Tier 3 – Public root pom build (with 5 private libraries)
 
 The public repo root pom builds, together with the 5 private libraries it needs.
 
-| Language | Language type | Targets | Notes |
-|----------|---------------|---------|-------|
-| [Ada](https://github.com/AllBinary/AllBinary-Platform-Ada) | Native | Desktop | GNAT |
-| [AngelScript](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
-| [C++](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
-| [C#](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
-| [Clojure](https://github.com/AllBinary/AllBinary-Platform-Clojure) | JVM | Desktop (JVM) | Converter, runtime, and poms in progress; compiled with clojure.main (Clojure 1.12.6) and jcheck, which declares every namespace first so classes can refer to each other in cycles. Lisp on the JVM: a converted class is a namespace with run time method dispatch, and java.* classes are the JVM classes through interop. ClojureScript (a separate compiler targeting JavaScript) is not used. |
-| [Dart](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native, JS engine (dart2js / WASM) | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |
-| [Elixir](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
-| [Erlang](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
-| [Go](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
-| [Groovy](https://github.com/AllBinary/AllBinary-Platform-Groovy) | JVM | Desktop (J2SE) | |
-| [Haskell](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
-| [Haxe](https://github.com/AllBinary/AllBinary-Platform-Haxe) | Native (via the hxcpp C++ target) | Desktop | Haxe can also target JS, JVM, and HashLink. |
-| [Julia](https://github.com/AllBinary/AllBinary-Platform-Julia) | JIT (LLVM) | Desktop | Designed for numerical computing. Code compiles on first call, so startup is slower; standalone executables via PackageCompiler or `juliac`. |
-| [Lua](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
-| [OCaml](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
-| [Object Pascal](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
-| [Odin](https://github.com/AllBinary/AllBinary-Platform-Odin) | Native | Desktop | Converter, runtime, and poms in progress; checked with `odin check` (dev-2026-11). Data-oriented programming; maintained OpenGL, SDL2, and raylib bindings in its vendor library. |
-| [Perl](https://github.com/AllBinary/AllBinary-Platform-Perl) | Interpreted | Desktop | |
-| [Python](https://github.com/AllBinary/AllBinary-Platform-Python) | Interpreted | Desktop | |
-| [Ruby](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
-| [Rust](https://github.com/AllBinary/AllBinary-Platform-Rust) | Native | Desktop | |
-| [Scala](https://github.com/AllBinary/AllBinary-Platform-Scala) | JVM | Desktop (J2SE) | Scala Native is a possible later step. |
-| [Squirrel](https://github.com/AllBinary/AllBinary-Platform-Squirrel) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; compiled and loaded with the sqcheck host (Squirrel 3.2, 64 bit integers and double floats). Lightweight object-oriented scripting with a C API for embedding in games. |
-| [Tcl](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop | |
-| [Wren](https://github.com/AllBinary/AllBinary-Platform-Wren) | Interpreted (embedded) | Desktop (inside a host engine) | Designed for embedding in game engines. Requires a host C/C++ engine. |
-| [Zig](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop | |
+| Language/AllBinary Repo | Language type | Targets | Notes |
+|-------------------------|---------------|---------|-------|
+| [Ada](https://www.adaic.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Ada) | Native | Desktop | GNAT |
+| [AngelScript](https://www.angelcode.com/angelscript/) / [repo](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. |
+| [C++](https://isocpp.org/get-started) / [repo](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
+| [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) / [repo](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. |
+| [Clojure](https://clojure.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Clojure) | JVM | Desktop (JVM) | Converter, runtime, and poms in progress; compiled with clojure.main (Clojure 1.12.6) and jcheck, which declares every namespace first so classes can refer to each other in cycles. Lisp on the JVM: a converted class is a namespace with run time method dispatch, and java.* classes are the JVM classes through interop. ClojureScript (a separate compiler targeting JavaScript) is not used. |
+| [Dart](https://dart.dev/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native, JS engine (dart2js / WASM) | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |
+| [Elixir](https://elixir-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |
+| [Erlang](https://www.erlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |
+| [Go](https://go.dev/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop | |
+| [Groovy](https://groovy-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Groovy) | JVM | Desktop (J2SE) | |
+| [Haskell](https://www.haskell.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Haskell) | Native | Desktop | GHC |
+| [Haxe](https://haxe.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Haxe) | Native (via the hxcpp C++ target) | Desktop | Haxe can also target JS, JVM, and HashLink. |
+| [Julia](https://julialang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Julia) | JIT (LLVM) | Desktop | Designed for numerical computing. Code compiles on first call, so startup is slower; standalone executables via PackageCompiler or `juliac`. |
+| [Lua](https://www.lua.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | |
+| [OCaml](https://ocaml.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |
+| [Object Pascal](https://www.freepascal.org/docs.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |
+| [Odin](https://odin-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Odin) | Native | Desktop | Converter, runtime, and poms in progress; checked with `odin check` (dev-2026-11). Data-oriented programming; maintained OpenGL, SDL2, and raylib bindings in its vendor library. |
+| [Perl](https://www.perl.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Perl) | Interpreted | Desktop | |
+| [Python](https://www.python.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Python) | Interpreted | Desktop | |
+| [Ruby](https://www.ruby-lang.org/en/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Ruby) | Interpreted | Desktop | |
+| [Rust](https://www.rust-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Rust) | Native | Desktop | |
+| [Scala](https://www.scala-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Scala) | JVM | Desktop (J2SE) | Scala Native is a possible later step. |
+| [Squirrel](https://www.squirrel-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Squirrel) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Converter, runtime, and poms in progress; compiled and loaded with the sqcheck host (Squirrel 3.2, 64 bit integers and double floats). Lightweight object-oriented scripting with a C API for embedding in games. |
+| [Tcl](https://www.tcl-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop | |
+| [Wren](https://wren.io/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Wren) | Interpreted (embedded) | Desktop (inside a host engine) | Designed for embedding in game engines. Requires a host C/C++ engine. |
+| [Zig](https://ziglang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop | |
 
 ### Tier 4 – AllBinaryBase builds (with 5 private libraries)
 
-| Language | Language type | Targets | Notes |
-|----------|---------------|---------|-------|
-| [C23](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
-| [ActionScript](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |
-| [COBOL](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
-| [Elm](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
-| [FORTRAN](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
-| [Goose](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |
-| [Grain](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
-| [Janet](https://github.com/AllBinary/AllBinary-Platform-Janet) | Interpreted (embedded) | Desktop | Embeddable, with a simple C FFI. |
-| [Lisp](https://github.com/AllBinary/AllBinary-Platform-Lisp-with-native-call-support) | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |
-| [Nim](https://github.com/AllBinary/AllBinary-Platform-Nim) | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |
-| [Objective-C](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) | |
-| [Racket](https://github.com/AllBinary/AllBinary-Platform-Racket) | Native (Chez Scheme backend) | Desktop | Includes 2D graphics libraries. Standalone apps via `raco exe` and `raco distribute`. |
-| [Swift](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |
-| [Vala](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
+| Language/AllBinary Repo | Language type | Targets | Notes |
+|-------------------------|---------------|---------|-------|
+| [C23](https://www.open-std.org/jtc1/sc22/wg14/) / [repo](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop | |
+| [ActionScript](https://airsdk.dev/reference/actionscript/3.0/) / [repo](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |
+| [COBOL](https://gnucobol.sourceforge.io/) / [repo](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |
+| [Elm](https://guide.elm-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |
+| [FORTRAN](https://fortran-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop | |
+| [Goose](https://github.com/aardappel/goose) / [repo](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |
+| [Grain](https://grain-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |
+| [Janet](https://janet-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Janet) | Interpreted (embedded) | Desktop | Embeddable, with a simple C FFI. |
+| [Lisp](https://github.com/sbcl/sbcl) / [repo](https://github.com/AllBinary/AllBinary-Platform-Lisp-with-native-call-support) | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |
+| [Nim](https://nim-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Nim) | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |
+| [Objective-C](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) | |
+| [Racket](https://racket-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Racket) | Native (Chez Scheme backend) | Desktop | Includes 2D graphics libraries. Standalone apps via `raco exe` and `raco distribute`. |
+| [Swift](https://www.swift.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |
+| [Vala](https://vala.dev/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Vala) | Native (compiles through C) | Desktop (Linux first) | Built on GObject; mostly used with GNOME. |
 
 ### Planned – Initial commit not yet added or in progress
 
 Grouped by language type. For planned languages
 
-| Language | Language type | Targets | Notes |
-|----------|---------------|---------|-------|
-| [AssemblyScript](https://github.com/AllBinary/AllBinary-Platform-AssemblyScript) | JS engine (WASM) | Web | Converter, runtime, and poms in progress; checked with asc 0.28 plus a transform that compiles every function (asc only compiles what the entry reaches). TypeScript-like language compiling to WebAssembly; browser integration requires host bindings. |
-| [Crystal](https://github.com/AllBinary/AllBinary-Platform-Crystal) | Native (LLVM) | Desktop | Converter, runtime, and poms in progress; checked with `crystal build --no-codegen` (Crystal 1.22.3) and an entry that calls every method (Crystal only type checks the code a program reaches). Ruby-inspired syntax with static typing and type inference: a Java class is a Crystal class, an interface a module, and references are nilable. |
-| [D](https://github.com/AllBinary/AllBinary-Platform-D) | Native (LLVM via LDC) | Desktop | Converter, runtime, and poms in progress; checked with `ldc2 -o-` (LDC 1.43, D 2.113) over the runtime, the dependencies, and the project in one run. Object-oriented systems language with garbage collection and C interoperability: a Java class is a D class, an interface a D interface, and every file is a module that imports a generated module of all of them. |
-| [Lean 4](https://lean-lang.org/) | Native (compiles through C) | Desktop | Functional programming language and proof assistant with dependent types, reference counting, and C interoperability. |
-| [ASM](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
-| [F#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp) | Managed VM (.NET CLR) | Desktop | ML-family functional language with access to .NET libraries; candidate for MonoGame/FNA integration. |
-| [Scheme](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |
-| [PHP](https://www.php.net/manual/en/intro-whatis.php) | Interpreted (optional JIT) | Desktop (CLI), Server (planned) | PHP 8+ scripting through the CLI; OPcache provides optional JIT compilation. |
-| [Beef](https://www.beeflang.org/docs/language-guide/interop/) | Native | Desktop | Static/dynamic library linking through `extern`, DLL imports, and C linkage. |
-| [BlitzMax](https://www.blitzmax.org/docs/en/language/interfacing_with_c/) | Native | Desktop | `Import` and `Extern` integrate C source and functions. |
-| [C3](https://c3-lang.org/language-common/cinterop/) | Native | Desktop | C ABI compatibility, `extern` declarations, and static/dynamic linking. |
-| [V](https://docs.vlang.io/v-and-c.html) | Native (C backend) | Desktop | Calls C functions through declarations, headers, and linked libraries. |
-| [Factor](https://docs.factorcode.org/content/article-alien.html) | Native (optimizing compiler) | Desktop | Built-in C library interface, including native callbacks. |
-| [Gforth (Forth)](https://www.complang.tuwien.ac.at/forth/gforth/Docs-html/Declaring-C-Functions.html) | Implementation-dependent (Gforth) | Desktop | Implementation-specific support; Gforth provides C function declarations and linking. |
-| [Raku (Rakudo)](https://docs.raku.org/language/nativecall) | Managed VM (Rakudo/MoarVM) | Desktop | `NativeCall` calls functions in native libraries. |
-| [R](https://cloud.r-project.org/doc/manuals/r-release/R-exts.html) | Interpreted | Desktop | `.C`, `.Call`, and related interfaces integrate compiled native code. |
-| [FreeBASIC](https://www.freebasic.net/wiki/KeyPgExtern) | Native | Desktop | C library interoperability through external declarations and linkage. |
-| [Nelua](https://nelua.io/overview/) | Native (compiles through C) | Desktop | `<cimport>` declarations integrate C functions and headers. [MIT](https://nelua.io/faq/). |
-| [ATS (Postiats)](https://ats-lang.sourceforge.net/DOCUMENT/INT2PROGINATS/HTML/c2016.html) | Native (compiles through C) | Desktop | Direct C interoperability, external functions, and embedded C code. [ATS/Postiats: GPLv3](https://ats-lang.sourceforge.net/DOWNLOAD/). |
-| [OpenEuphoria](https://openeuphoria.org/docs/perform.html) | Interpreted; Native via C translator | Desktop | Calls dynamically loaded C routines and supports callbacks. [OpenEuphoria: open source](https://github.com/OpenEuphoria/euphoria). |
-| [Ring](https://ring-lang.github.io/doc1.26/faq.html) | Interpreted (VM) | Desktop | C/C++ extensions expose native functionality. [MIT](https://github.com/ring-lang/ring). |
-| [GNU Modula-2](https://gcc.gnu.org/onlinedocs/gcc-13.2.0/gm2/Interface-to-C.html) | Native (GNU Modula-2) | Desktop | GNU Modula-2 supports C calling conventions through `DEFINITION MODULE FOR "C"`. [GNU compiler: GPL](https://gcc.gnu.org/gccmission.html). |
-| [Modula-3 (CM3)](https://www.modula3.com/cm3/doc/help/interfaces.html) | Native (CM3) | Desktop | Supports C interoperability, including interfaces to standard C libraries. [CM3: open source](https://github.com/modula3/cm3). |
-| [Harbour](https://github.com/harbour/core) | Managed VM | Desktop | Supports invoking native functions through pointers. [Native call implementation](https://github.com/harbour/core/blob/master/src/rtl/hbdyn.c). [Licensing FAQ](https://harbour.github.io/faq). |
-| [Umka](https://github.com/vtereshkov/umka-lang/blob/master/doc/api.md) | Interpreted (embedded VM) | Desktop (inside a host application) | A C host registers functions that Umka scripts can call using `umkaAddFunc()`. [BSD-2-Clause](https://github.com/vtereshkov/umka-lang). |
-| [Uiua](https://github.com/uiua-lang/uiua/blob/main/changelog.md) | Interpreted | Desktop | The `&ffi` operation calls native functions and is still evolving. The project publishes [raylib bindings](https://github.com/uiua-lang/rayua). [MIT](https://github.com/uiua-lang/uiua). |
-| [CBQN (BQN)](https://mlochbaum.github.io/BQN/doc/ffi.html) | Interpreted (CBQN) | Desktop | CBQN implements `•FFI` for calling functions in native shared libraries. [CBQN licensing](https://github.com/dzaima/CBQN#license). |
-| [Fennel](https://github.com/bakpakin/Fennel) | Lua runtime | Desktop | Compiles to Lua and can use [native modules exposed through Lua](https://www.lua.org/manual/5.4/manual.html#pdf-package.loadlib). MIT. |
-| [ChaiScript](https://chaiscript.com/examples.html) | Interpreted (embedded) | Desktop (inside a C++ host) | A C++ host can expose functions and types to scripts. [License](https://github.com/ChaiScript/ChaiScript/blob/develop/LICENSE). |
-| [Luau](https://luau.org/api/) | Managed VM (embedded) | Desktop (inside a C/C++ host) | A C or C++ host can register native functions that scripts can call. [MIT](https://github.com/luau-lang/luau). |
-| [Carp](https://github.com/carp-lang/Carp/blob/master/docs/CInterop.md) | Native (compiles through C) | Desktop | A Lisp designed for real-time applications. It can call C functions and ships [SDL bindings](https://github.com/carp-lang/Carp/blob/master/core/SDL.carp). |
-| [MiniScript (raylib-miniscript / MSRLWeb)](https://github.com/JoeStrout/raylib-miniscript) | Interpreted (embedded) | Desktop, Web/WASM | Has native raylib bindings. [MSRLWeb](https://github.com/JoeStrout/MSRLWeb) runs games in the browser via raylib and WebAssembly. MIT. |
-| [Jolt](https://github.com/jolt-lang/jolt) | Native (Chez Scheme) | Desktop | A Clojure dialect with C ABI interoperability and [raylib examples](https://github.com/jlt-commons/raylib-jlt). EPL 2.0. |
-| [Cyber](https://github.com/fubark/cyber) | Managed VM | Desktop | Embeddable scripting language with [raylib bindings](https://github.com/fubark/ray-cyber). MIT. |
-| [CLIPS](https://www.clipsrules.net/documentation/v641/apg641.pdf) | Rule engine | Desktop (inside a host) | C hosts can register callable functions. [CLIPSraylib](https://github.com/mrryanjohnston/CLIPSraylib) exposes graphics and input. |
-| [ElfScript](https://github.com/ohmtal/ElfScript) | Interpreted (embedded) | Desktop | Embeddable scripting language with game engine examples. The [raylib bindings index](https://github.com/raysan5/raylib/blob/master/BINDINGS.md) lists a native binding. |
-| [Elle](https://github.com/acquitelol/elle) | Native (QBE) | Desktop | Compiles through QBE and has a [raylib module](https://github.com/acquitelol/elle/blob/rewrite/std/raylib.le). |
-| [Matte](https://github.com/jcorks/matte) | Interpreted (embedded) | Desktop | The [raylib module](https://github.com/jcorks/raylib-matte) exposes native graphics and input functions. |
-| [Oberon-2 (Ofront+)](https://github.com/RobertFlexx/Rayberon) | Native (via Ofront+) | Desktop | Rayberon binds raylib for native 2D and 3D graphics. |
-| [Component Pascal (Ofront+)](https://github.com/RobertFlexx/Rayberon) | Native (via Ofront+) | Desktop | Rayberon provides bindings for the Component Pascal dialect through Ofront+. |
-| [Scopes](https://github.com/Fundament-Software/scopes) | Native | Desktop | The [raylib wrapper](https://github.com/salotz/raylib-scopes) demonstrates native graphics integration. |
-| [SmallBASIC](https://smallbasic.github.io/pages/plugins_raylib.html) | Interpreted | Desktop | A native raylib plugin exposes rendering, input, and audio. [Interpreter](https://github.com/smallbasic/SmallBASIC). |
-| [Solod](https://github.com/solod-dev/solod) | Native (via C) | Desktop | Provides [raylib bindings](https://github.com/solod-dev/raylib) for native graphics. |
-| [Wave](https://github.com/wavefnd/Wave) | Native | Desktop | Has [native raylib bindings](https://github.com/wavefnd/raylib-wave). |
-| [Mach](https://github.com/briar-systems/mach) | Native | Desktop | Systems language with [raylib bindings](https://github.com/Angluca/mach-raylib). |
-| [Jule](https://github.com/julelang/jule) | Native (via C++) | Desktop | Supports C/C++ interoperability and has [community raylib bindings](https://github.com/SabeDoesThings/rayjule). |
-| [XD Pascal](https://github.com/vtereshkov/xdpw) | Native | Desktop (Windows) | Embeddable Pascal dialect with an [older raylib binding](https://github.com/vtereshkov/raylib-xdpw). |
-| [F*](https://github.com/FStarLang/FStar) | Native via Low* and KaRaMeL | Desktop | [KaRaMeL](https://github.com/FStarLang/karamel) compiles the Low* subset to C. The [raylib index](https://github.com/raysan5/raylib/blob/master/BINDINGS.md) lists F* bindings. |
-| [MLton (Standard ML)](https://www.mlton.org/ForeignFunctionInterface) | Native (MLton) | Desktop | Implementation-specific support; MLton supports calling C and exporting functions to C. |
+| Language/AllBinary Repo | Language type | Targets | Notes |
+|-------------------------|---------------|---------|-------|
+| [AssemblyScript](https://www.assemblyscript.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-AssemblyScript) | JS engine (WASM) | Web | Converter, runtime, and poms in progress; checked with asc 0.28 plus a transform that compiles every function (asc only compiles what the entry reaches). TypeScript-like language compiling to WebAssembly; browser integration requires host bindings. |
+| [Crystal](https://crystal-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Crystal) | Native (LLVM) | Desktop | Converter, runtime, and poms in progress; checked with `crystal build --no-codegen` (Crystal 1.22.3) and an entry that calls every method (Crystal only type checks the code a program reaches). Ruby-inspired syntax with static typing and type inference: a Java class is a Crystal class, an interface a module, and references are nilable. |
+| [D](https://dlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-D) | Native (LLVM via LDC) | Desktop | Converter, runtime, and poms in progress; checked with `ldc2 -o-` (LDC 1.43, D 2.113) over the runtime, the dependencies, and the project in one run. Object-oriented systems language with garbage collection and C interoperability: a Java class is a D class, an interface a D interface, and every file is a module that imports a generated module of all of them. |
+| [Lean 4](https://lean-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Lean) | Native (compiles through C) | Desktop | Functional programming language and proof assistant with dependent types, reference counting, and C interoperability. |
+| [ASM](https://www.nasm.us/doc/) / [repo](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |
+| [F#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp) / [repo](https://github.com/AllBinary/AllBinary-Platform-FSharp) | Managed VM (.NET CLR) | Desktop | ML-family functional language with access to .NET libraries; candidate for MonoGame/FNA integration. |
+| [Scheme](https://www.r7rs.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |
+| [PHP](https://www.php.net/manual/en/intro-whatis.php) / [repo](https://github.com/AllBinary/AllBinary-Platform-PHP) | Interpreted (optional JIT) | Desktop (CLI), Server (planned) | PHP 8+ scripting through the CLI; OPcache provides optional JIT compilation. |
+| [Beef](https://www.beeflang.org/docs/language-guide/interop/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Beef) | Native | Desktop | Static/dynamic library linking through `extern`, DLL imports, and C linkage. |
+| [BlitzMax](https://www.blitzmax.org/docs/en/language/interfacing_with_c/) / [repo](https://github.com/AllBinary/AllBinary-Platform-BlitzMax) | Native | Desktop | `Import` and `Extern` integrate C source and functions. |
+| [C3](https://c3-lang.org/language-common/cinterop/) / [repo](https://github.com/AllBinary/AllBinary-Platform-C3) | Native | Desktop | C ABI compatibility, `extern` declarations, and static/dynamic linking. |
+| [V](https://docs.vlang.io/v-and-c.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-V) | Native (C backend) | Desktop | Calls C functions through declarations, headers, and linked libraries. |
+| [Factor](https://docs.factorcode.org/content/article-alien.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-Factor) | Native (optimizing compiler) | Desktop | Built-in C library interface, including native callbacks. |
+| [Gforth (Forth)](https://www.complang.tuwien.ac.at/forth/gforth/Docs-html/Declaring-C-Functions.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-Forth) | Implementation-dependent (Gforth) | Desktop | Implementation-specific support; Gforth provides C function declarations and linking. |
+| [Raku (Rakudo)](https://docs.raku.org/language/nativecall) / [repo](https://github.com/AllBinary/AllBinary-Platform-Raku) | Managed VM (Rakudo/MoarVM) | Desktop | `NativeCall` calls functions in native libraries. |
+| [R](https://cloud.r-project.org/doc/manuals/r-release/R-exts.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-R) | Interpreted | Desktop | `.C`, `.Call`, and related interfaces integrate compiled native code. |
+| [FreeBASIC](https://www.freebasic.net/wiki/KeyPgExtern) / [repo](https://github.com/AllBinary/AllBinary-Platform-FreeBASIC) | Native | Desktop | C library interoperability through external declarations and linkage. |
+| [Nelua](https://nelua.io/overview/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Nelua) | Native (compiles through C) | Desktop | `<cimport>` declarations integrate C functions and headers. [MIT](https://nelua.io/faq/). |
+| [ATS (Postiats)](https://ats-lang.sourceforge.net/DOCUMENT/INT2PROGINATS/HTML/c2016.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-ATS) | Native (compiles through C) | Desktop | Direct C interoperability, external functions, and embedded C code. [ATS/Postiats: GPLv3](https://ats-lang.sourceforge.net/DOWNLOAD/). |
+| [OpenEuphoria](https://github.com/OpenEuphoria/euphoria) / [repo](https://github.com/AllBinary/AllBinary-Platform-OpenEuphoria) | Interpreted; Native via C translator | Desktop | Calls dynamically loaded C routines and supports callbacks. [OpenEuphoria: open source](https://github.com/OpenEuphoria/euphoria). |
+| [Ring](https://ring-lang.github.io/doc1.26/faq.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-Ring) | Interpreted (VM) | Desktop | C/C++ extensions expose native functionality. [MIT](https://github.com/ring-lang/ring). |
+| [GNU Modula-2](https://gcc.gnu.org/onlinedocs/gcc-13.2.0/gm2/Interface-to-C.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-Modula-2) | Native (GNU Modula-2) | Desktop | GNU Modula-2 supports C calling conventions through `DEFINITION MODULE FOR "C"`. [GNU compiler: GPL](https://gcc.gnu.org/gccmission.html). |
+| [Modula-3 (CM3)](https://github.com/modula3/cm3) / [repo](https://github.com/AllBinary/AllBinary-Platform-Modula-3) | Native (CM3) | Desktop | Supports C interoperability, including interfaces to standard C libraries. [CM3: open source](https://github.com/modula3/cm3). |
+| [Harbour](https://github.com/harbour/core) / [repo](https://github.com/AllBinary/AllBinary-Platform-Harbour) | Managed VM | Desktop | Supports invoking native functions through pointers. [Native call implementation](https://github.com/harbour/core/blob/master/src/rtl/hbdyn.c). [Licensing FAQ](https://harbour.github.io/faq). |
+| [Umka](https://github.com/vtereshkov/umka-lang/blob/master/doc/api.md) / [repo](https://github.com/AllBinary/AllBinary-Platform-Umka) | Interpreted (embedded VM) | Desktop (inside a host application) | A C host registers functions that Umka scripts can call using `umkaAddFunc()`. [BSD-2-Clause](https://github.com/vtereshkov/umka-lang). |
+| [Uiua](https://github.com/uiua-lang/uiua/blob/main/changelog.md) / [repo](https://github.com/AllBinary/AllBinary-Platform-Uiua) | Interpreted | Desktop | The `&ffi` operation calls native functions and is still evolving. The project publishes [raylib bindings](https://github.com/uiua-lang/rayua). [MIT](https://github.com/uiua-lang/uiua). |
+| [CBQN (BQN)](https://mlochbaum.github.io/BQN/doc/ffi.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-CBQN) | Interpreted (CBQN) | Desktop | CBQN implements `•FFI` for calling functions in native shared libraries. [CBQN licensing](https://github.com/dzaima/CBQN#license). |
+| [Fennel](https://github.com/bakpakin/Fennel) / [repo](https://github.com/AllBinary/AllBinary-Platform-Fennel) | Lua runtime | Desktop | Compiles to Lua and can use [native modules exposed through Lua](https://www.lua.org/manual/5.4/manual.html#pdf-package.loadlib). MIT. |
+| [ChaiScript](https://chaiscript.com/examples.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-ChaiScript) | Interpreted (embedded) | Desktop (inside a C++ host) | A C++ host can expose functions and types to scripts. [License](https://github.com/ChaiScript/ChaiScript/blob/develop/LICENSE). |
+| [Luau](https://luau.org/api/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Luau) | Managed VM (embedded) | Desktop (inside a C/C++ host) | A C or C++ host can register native functions that scripts can call. [MIT](https://github.com/luau-lang/luau). |
+| [Carp](https://github.com/carp-lang/Carp/blob/master/docs/CInterop.md) / [repo](https://github.com/AllBinary/AllBinary-Platform-Carp) | Native (compiles through C) | Desktop | A Lisp designed for real-time applications. It can call C functions and ships [SDL bindings](https://github.com/carp-lang/Carp/blob/master/core/SDL.carp). |
+| [MiniScript (raylib-miniscript / MSRLWeb)](https://github.com/JoeStrout/raylib-miniscript) / [repo](https://github.com/AllBinary/AllBinary-Platform-MiniScript) | Interpreted (embedded) | Desktop, Web/WASM | Has native raylib bindings. [MSRLWeb](https://github.com/JoeStrout/MSRLWeb) runs games in the browser via raylib and WebAssembly. MIT. |
+| [Jolt](https://github.com/jolt-lang/jolt) / [repo](https://github.com/AllBinary/AllBinary-Platform-Jolt) | Native (Chez Scheme) | Desktop | A Clojure dialect with C ABI interoperability and [raylib examples](https://github.com/jlt-commons/raylib-jlt). EPL 2.0. |
+| [Cyber](https://github.com/fubark/cyber) / [repo](https://github.com/AllBinary/AllBinary-Platform-Cyber) | Managed VM | Desktop | Embeddable scripting language with [raylib bindings](https://github.com/fubark/ray-cyber). MIT. |
+| [CLIPS](https://www.clipsrules.net/documentation/v641/apg641.pdf) / [repo](https://github.com/AllBinary/AllBinary-Platform-CLIPS) | Rule engine | Desktop (inside a host) | C hosts can register callable functions. [CLIPSraylib](https://github.com/mrryanjohnston/CLIPSraylib) exposes graphics and input. |
+| [ElfScript](https://github.com/ohmtal/ElfScript) / [repo](https://github.com/AllBinary/AllBinary-Platform-ElfScript) | Interpreted (embedded) | Desktop | Embeddable scripting language with game engine examples. The [raylib bindings index](https://github.com/raysan5/raylib/blob/master/BINDINGS.md) lists a native binding. |
+| [Elle](https://github.com/acquitelol/elle) / [repo](https://github.com/AllBinary/AllBinary-Platform-Elle) | Native (QBE) | Desktop | Compiles through QBE and has a [raylib module](https://github.com/acquitelol/elle/blob/rewrite/std/raylib.le). |
+| [Matte](https://github.com/jcorks/matte) / [repo](https://github.com/AllBinary/AllBinary-Platform-Matte) | Interpreted (embedded) | Desktop | The [raylib module](https://github.com/jcorks/raylib-matte) exposes native graphics and input functions. |
+| [Oberon-2 (Ofront+)](https://github.com/RobertFlexx/Rayberon) / [repo](https://github.com/AllBinary/AllBinary-Platform-Oberon-2) | Native (via Ofront+) | Desktop | Rayberon binds raylib for native 2D and 3D graphics. |
+| [Component Pascal (Ofront+)](https://github.com/RobertFlexx/Rayberon) / [repo](https://github.com/AllBinary/AllBinary-Platform-Component-Pascal) | Native (via Ofront+) | Desktop | Rayberon provides bindings for the Component Pascal dialect through Ofront+. |
+| [Scopes](https://github.com/Fundament-Software/scopes) / [repo](https://github.com/AllBinary/AllBinary-Platform-Scopes) | Native | Desktop | The [raylib wrapper](https://github.com/salotz/raylib-scopes) demonstrates native graphics integration. |
+| [SmallBASIC](https://smallbasic.github.io/pages/plugins_raylib.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-SmallBASIC) | Interpreted | Desktop | A native raylib plugin exposes rendering, input, and audio. [Interpreter](https://github.com/smallbasic/SmallBASIC). |
+| [Solod](https://github.com/solod-dev/solod) / [repo](https://github.com/AllBinary/AllBinary-Platform-Solod) | Native (via C) | Desktop | Provides [raylib bindings](https://github.com/solod-dev/raylib) for native graphics. |
+| [Wave](https://github.com/wavefnd/Wave) / [repo](https://github.com/AllBinary/AllBinary-Platform-Wave) | Native | Desktop | Has [native raylib bindings](https://github.com/wavefnd/raylib-wave). |
+| [Mach](https://github.com/briar-systems/mach) / [repo](https://github.com/AllBinary/AllBinary-Platform-Mach) | Native | Desktop | Systems language with [raylib bindings](https://github.com/Angluca/mach-raylib). |
+| [Jule](https://github.com/julelang/jule) / [repo](https://github.com/AllBinary/AllBinary-Platform-Jule) | Native (via C++) | Desktop | Supports C/C++ interoperability and has [community raylib bindings](https://github.com/SabeDoesThings/rayjule). |
+| [XD Pascal](https://github.com/vtereshkov/xdpw) / [repo](https://github.com/AllBinary/AllBinary-Platform-XD-Pascal) | Native | Desktop (Windows) | Embeddable Pascal dialect with an [older raylib binding](https://github.com/vtereshkov/raylib-xdpw). |
+| [F*](https://github.com/FStarLang/FStar) / [repo](https://github.com/AllBinary/AllBinary-Platform-FStar) | Native via Low* and KaRaMeL | Desktop | [KaRaMeL](https://github.com/FStarLang/karamel) compiles the Low* subset to C. The [raylib index](https://github.com/raysan5/raylib/blob/master/BINDINGS.md) lists F* bindings. |
+| [MLton (Standard ML)](https://github.com/MLton/mlton) / [repo](https://github.com/AllBinary/AllBinary-Platform-Standard-ML) | Native (MLton) | Desktop | Implementation-specific support; MLton supports calling C and exporting functions to C. |
 
 ### Possible Future - TBD
 
-Without an AllBinary repo, links point to official language sites or documentation.
-
-| Language | Language type | Targets | Notes |
-|----------|---------------|---------|-------|
-| [Bend](https://github.com/AllBinary/AllBinary-Platform-Bend) | Native (CPU/GPU backends) | Desktop (Linux and macOS; Windows via WSL) | Functional language focused on automatic parallelism; current Bend 2 also supports dependent types and proofs. Game runtime and graphics integration would need evaluation. |
+| Language/AllBinary Repo | Language type | Targets | Notes |
+|-------------------------|---------------|---------|-------|
+| [Bend](https://github.com/bendlang/bend) / [repo](https://github.com/AllBinary/AllBinary-Platform-Bend) | Native (CPU/GPU backends) | Desktop (Linux and macOS; Windows via WSL) | Functional language focused on automatic parallelism; current Bend 2 also supports dependent types and proofs. Game runtime and graphics integration would need evaluation. |
 | [Hare](https://harelang.org/documentation/usage/system-libraries.html) | Native | Desktop (Linux and BSD; Windows via WSL is an unsupported workaround) | C FFI and mixed Hare/C programs. [Upstream platform policy](https://harelang.org/documentation/faq.html). |
 | [Kit](https://github.com/kitlang/kit) | Native (compiles through C) | Desktop (Linux and macOS; Windows via WSL for the current raylib toolchain) | A game-oriented language that imports C headers and uses their functions and types. The [experimental Rust compiler](https://github.com/kitlang-dev/kitc) has a documented [raylib package](https://kit-lang.org/docs/2026.7.12/packages/kit-raylib.html). [Current compiler platforms](https://kit-lang.org/faqs.html). The [original compiler](https://github.com/kitlang/kit#windows-setup) supports MinGW-w64. |
 | [Mojo](https://mojolang.org/docs/manual/get-started/) | Native (MLIR/LLVM) | Desktop (Linux and macOS; Windows via WSL) | Python-inspired syntax with static typing, ownership, and Python/C interoperability. |
@@ -325,7 +322,7 @@ Without an AllBinary repo, links point to official language sites or documentati
 | [Io (native branch)](https://github.com/IoLanguage/io) | Interpreted | Desktop (native branch); Web/WASM (current branch) | Native branch supports `DynLib` and C extensions; its current WebAssembly path uses host integration instead. [BSD/MIT-style](https://iolanguage.org/docs/Guide/). |
 | [Objeck](https://www.objeck.org/doc_native_interface.html) | Managed VM | Desktop | C++ native modules expose functions to Objeck. The project provides [SDL2 bindings](https://www.objeck.org/api/latest/game.sdl2-surface.html?scrollTo=game.sdl2). [Source and license](https://github.com/objeck/objeck-lang). |
 | [Unicon](https://unicon.sourceforge.io/up/functions.html#loadfunc) | Interpreted (VM) | Desktop | `loadfunc()` loads a C function from a shared library using the Unicon calling interface. [GPL](https://github.com/uniconproject/unicon). |
-| [Oberon+](https://github.com/AllBinary/AllBinary-Platform-OberonPlus) | Managed VM (CLI/Mono); Native via generated C | Desktop | The OBX compiler emits .NET CLI bytecode, or C99 source for native builds. Few game libraries. |
+| [Oberon+](https://github.com/rochus-keller/Oberon) / [repo](https://github.com/AllBinary/AllBinary-Platform-OberonPlus) | Managed VM (CLI/Mono); Native via generated C | Desktop | The OBX compiler emits .NET CLI bytecode, or C99 source for native builds. Few game libraries. |
 | [X11-Basic](https://x11-basic.sourceforge.net/X11-Basic-manual.pdf) | Interpreted or native (via C) | Desktop | `LINK`, `SYM_ADR`, and `CALL` support calling routines in shared libraries. Includes graphics and sound commands. GPLv2 or later. |
 | [Yabasic](https://fossies.org/linux/yabasic/yabasic.htm) | Interpreted | Desktop | Its libffi-based foreign function interface calls native functions from shared libraries and DLLs. [MIT interpreter](https://github.com/marcIhm/yabasic). |
 | [Amiga E (original EC compiler)](https://amiga-e.com/docs/language/beginner-modules.html) | Native (68k) | Desktop (Amiga) | `MODULE` declarations and `OpenLibrary` let programs call native Amiga shared-library functions. [Original GPL compiler](https://strlen.com/amiga-e/). |

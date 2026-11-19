@@ -22,7 +22,7 @@ public class TouchScreenTypeFactory
         return TouchScreenTypeFactory.instance;
     }
         
-    public void TouchScreenTypeFactory()
+    private TouchScreenTypeFactory()
     {
         final TouchScreenFactory touchScreenFactory = 
                 TouchScreenFactory.getInstance();
