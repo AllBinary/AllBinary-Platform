@@ -63,15 +63,15 @@ Each language in the tables below is described two ways:
 
 ## Platform support tiers
 
-### Tier 0 – Games (https://allbinary.itch.io), thick clients, and services run
+### Tier 1a Thick Clients and Server/Services deployed - No immediate plans to change this
 
-- Windows
-- Linux - thick clients and services
+- J2SE for Windows, Mac, and Linux
 
-### Tier 1 – Games (https://allbinary.itch.io) run
+### Tier 1b – Games (https://allbinary.itch.io) deployed
 
+- Windows via Avian
 - Android - including Ouya (special Scanline and game controller support), HarmonyOS pre 5, Legacy Android TV / Google TV - deployed on Google Play for the Logitech Revue, ChromeOS / Chromebooks - emulated via Android from Google Play
-- Web via HTML5/JavaScript from GWT and 99% raw javascript
+- Web via HTML5/JavaScript
 
 ### Tier 2 – Games run but not currently deployed
 
@@ -85,6 +85,7 @@ Each language in the tables below is described two ways:
 - HarmonyOS 5+ via ArkTS
 - macOS
 - iOS, iPadOS, Apple Vision Pro / visionOS - still needs better windowed app behavior
+- Windows - tested with GraalVM, but not deployed
 
 ### Tier 3 – Planned
 
