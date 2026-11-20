@@ -75,7 +75,9 @@ Each language in the tables below is described two ways:
 
 ### Tier 2 – Games run but not currently deployed
 
-- J2ME/MIDP (currently limited to 2d legacy AllBinary games)
+- J2ME/MIDP (currently limited to 2d legacy AllBinary games) - legacy games on various J2ME stores even a few on Blackberry's App Store
+- Android Fire OS for Amazon Fire TV - legacy games were on Amazon App store at one point
+- Android Legacy - Android TV / Google TV - deployed on Google Play for the Logitech Revue
 - Linux - games
 - HarmonyOS 5+ via ArkTS
 - macOS
@@ -86,7 +88,6 @@ Each language in the tables below is described two ways:
 - Web via WebAssembly (WASM)
 - Samsung Tizen
 - LG webOS
-- Amazon Fire TV — Fire OS
 - Amazon Fire TV — Vega OS
 - KaiOS
 - Nintendo Switch
@@ -95,6 +96,7 @@ Each language in the tables below is described two ways:
 - Xbox - DirectX 12 and Microsoft GDK (I have a unreleased game that uses DirectX already)
 - Steam Deck / SteamOS - builds on existing Linux support; Steam-specific features could be added
 - Android TV / Google TV - builds on existing Android support
+- Android Auto
 - Apple TV / tvOS
 
 ## Current build state
@@ -132,6 +134,7 @@ The public repo root pom builds, with 5 private libraries it needs.
 |-------------------------|---------------|---------|----------------|----------------|
 | [Ada](https://www.adaic.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Ada) | Native | Desktop | GNAT |  |
 | [AngelScript](https://www.angelcode.com/angelscript/) / [repo](https://github.com/AllBinary/AllBinary-Platform-AngelScript) | Managed VM (embedded bytecode) | Desktop (inside a host engine) | Statically typed scripting with C++-like syntax, classes, and interfaces; embedded through a C++ host. | Converter, runtime, and poms in progress; checked with the ascheck host (AngelScript 2.39.0). |
+| [AssemblyScript](https://www.assemblyscript.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-AssemblyScript) | JS engine (WASM) | Web | TypeScript-like language compiling to WebAssembly; browser integration requires host bindings. | Converter, runtime, and poms in progress; checked with asc 0.28 plus a transform that compiles every function (asc only compiles what the entry reaches). |
 | [C23](https://www.open-std.org/jtc1/sc22/wg14/) / [repo](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop |  |  |
 | [C++](https://isocpp.org/get-started) / [repo](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop |  |  |
 | [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) / [repo](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. | NativeAOT could make a true native build later. |
@@ -140,6 +143,8 @@ The public repo root pom builds, with 5 private libraries it needs.
 | [Dart](https://dart.dev/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native, JS engine (dart2js / WASM) | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |  |
 | [Elixir](https://elixir-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Elixir) | Managed VM | Desktop | BEAM. Shares a runtime with Erlang. |  |
 | [Erlang](https://www.erlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. |  |
+| [F#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp) / [repo](https://github.com/AllBinary/AllBinary-Platform-FSharp) | Managed VM (.NET CLR) | Desktop | ML-family functional language with access to .NET libraries. | Converter, runtime, and poms done; the working root builds (Tier 3). Compiled with the .NET SDK F# compiler (`dotnet fsc.dll`, .NET 8 SDK) to one library per project. Candidate for MonoGame/FNA integration. Every converted class is a type of one recursive namespace, so classes can refer to each other in any order like Java. |
+| [GDScript](https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_languages.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-GDScript) | Interpreted (Godot) | Desktop, Mobile, Web (via Godot exports) | Godot's scripting language with optional static typing. | Converter, runtime, and poms in progress; checked headless with Godot 4.7.2, which loads every script of the runtime, the dependencies, and the project so the GDScript parser and analyzer check them. The converted code is untyped, with one global `class_name` per file, single inheritance, and no exceptions or overloading, so Java exceptions are a pending exception and overloads get the parameter count in their names. Planned Godot integration. |
 | [Gleam](https://gleam.run/) | Managed VM (BEAM), JS engine | Desktop (BEAM), Web (JavaScript) | Statically typed functional language targeting Erlang and JavaScript. Great for multiplayer backend servers	Poor fit for client rendering/physics |  |
 | [Go](https://go.dev/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Go) | Native | Desktop |  |  |
 | [Groovy](https://groovy-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Groovy) | JVM | Desktop (J2SE) |  |  |
@@ -170,12 +175,9 @@ The public repo root pom builds, with 5 private libraries it needs.
 | Language/AllBinary Repo | Language type | Targets | Notes | Other Progress |
 |-------------------------|---------------|---------|----------------|----------------|
 | [ActionScript](https://airsdk.dev/reference/actionscript/3.0/) / [repo](https://github.com/AllBinary/AllBinary-Platform-ActionScript) | Managed VM (AIR) | Desktop and Mobile (AIR), Web (Ruffle) | Flash Player reached end of life in 2020; AIR is now maintained by Harman. Matches the Flash/ActionScript target in the diagram. |  |
-| [AssemblyScript](https://www.assemblyscript.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-AssemblyScript) | JS engine (WASM) | Web | TypeScript-like language compiling to WebAssembly; browser integration requires host bindings. | Converter, runtime, and poms in progress; checked with asc 0.28 plus a transform that compiles every function (asc only compiles what the entry reaches). |
 | [COBOL](https://gnucobol.sourceforge.io/) / [repo](https://github.com/AllBinary/AllBinary-Platform-COBOL) | Native | Desktop | GnuCOBOL compiles through C. |  |
 | [Elm](https://guide.elm-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Elm) | JS engine | Web | Pure functional; game state is updated through messages (The Elm Architecture). |  |
-| [F#](https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp) / [repo](https://github.com/AllBinary/AllBinary-Platform-FSharp) | Managed VM (.NET CLR) | Desktop | ML-family functional language with access to .NET libraries. | Converter, runtime, and poms in progress; compiled with the .NET SDK F# compiler (`dotnet fsc.dll`, .NET 8 SDK) to one library per project. Candidate for MonoGame/FNA integration. Every converted class is a type of one recursive namespace, so classes can refer to each other in any order like Java. |
 | [FORTRAN](https://fortran-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-FORTRAN) | Native | Desktop |  |  |
-| [GDScript](https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_languages.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-GDScript) | Interpreted (Godot) | Desktop, Mobile, Web (via Godot exports) | Godot's scripting language with optional static typing. | Converter, runtime, and poms in progress; checked headless with Godot 4.7.2, which loads every script of the runtime, the dependencies, and the project so the GDScript parser and analyzer check them. The converted code is untyped, with one global `class_name` per file, single inheritance, and no exceptions or overloading, so Java exceptions are a pending exception and overloads get the parameter count in their names. Planned Godot integration. |
 | [Goose](https://github.com/aardappel/goose) / [repo](https://github.com/AllBinary/AllBinary-Platform-Goose) | Native (compiles through C) | Desktop | C output builds with MSVC, GCC, or Clang; bundled TinyCC backend for in-process execution. |  |
 | [Grain](https://grain-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Grain) | JS engine (WASM) | Web | Compiles to WebAssembly; runs in the browser's WASM engine, not as JavaScript. Young language and ecosystem. |  |
 | [Objective-C](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-Objective-C) | Native | Desktop (macOS first), Mobile (iOS) |  |  |
