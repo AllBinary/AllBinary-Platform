@@ -70,18 +70,21 @@ Each language in the tables below is described two ways:
 
 ### Tier 1 – Games (https://allbinary.itch.io) run
 
-- Android
+- Android - including Ouya (special Scanline and game controller support), HarmonyOS pre 5, Legacy Android TV / Google TV - deployed on Google Play for the Logitech Revue, ChromeOS / Chromebooks - emulated via Android from Google Play
 - Web via HTML5/JavaScript from GWT and 99% raw javascript
 
 ### Tier 2 – Games run but not currently deployed
 
 - J2ME/MIDP (currently limited to 2d legacy AllBinary games) - legacy games on various J2ME stores even a few on Blackberry's App Store
 - Android Fire OS for Amazon Fire TV - legacy games were on Amazon App store at one point
-- Android Legacy - Android TV / Google TV - deployed on Google Play for the Logitech Revue
+- Android XR - needs polish
+- Android TV / Google TV - needs polish and newer API usage
+- Meta Quest / Horizon OS - needs polish but still just Android
+- Google Play Games on PC - emulation works of and on depending on the Google Play Games on PC release
 - Linux - games
 - HarmonyOS 5+ via ArkTS
 - macOS
-- iOS
+- iOS, iPadOS, Apple Vision Pro / visionOS - still needs better windowed app behavior
 
 ### Tier 3 – Planned
 
@@ -95,9 +98,9 @@ Each language in the tables below is described two ways:
 - PlayStation
 - Xbox - DirectX 12 and Microsoft GDK (I have a unreleased game that uses DirectX already)
 - Steam Deck / SteamOS - builds on existing Linux support; Steam-specific features could be added
-- Android TV / Google TV - builds on existing Android support
-- Android Auto
+- Android Auto and Android Automotive OS
 - Apple TV / tvOS
+- Roku OS - evaluate a BrightScript port for 2D games
 
 ## Current build state
 
