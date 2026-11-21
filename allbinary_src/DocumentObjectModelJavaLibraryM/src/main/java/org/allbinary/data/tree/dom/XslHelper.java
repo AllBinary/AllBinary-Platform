@@ -42,7 +42,7 @@ public class XslHelper
         public static final String QUIXSLT_FACTORY_PROPERTY = "allbinary.xslt.quixslt.factory";
 
         //TWB - GAE needed xalan.jar and serializer.jar
-        public static final Processor GAE = new Processor("GAE", "org.apache.xalan.processor.TransformerFactoryImpl");
+        public static final Processor GAE = named("GAE", "org.apache.xalan.processor.TransformerFactoryImpl");
         public static final Processor JAXP = new Processor("JAXP", TransformerFactory::newInstance);
         public static final Processor JDK_XSLTC = named("JDK_XSLTC",
             "com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl");
