@@ -29,6 +29,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.java.characters.CharacterSetData;
+import org.allbinary.data.tree.dom.XslHelper;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
@@ -66,8 +67,12 @@ public class XmlDocumentHelper {
     private Transformer createTransformer(final int indent, final boolean ignoreDeclaration)
             throws TransformerConfigurationException {
         final BooleanFactory booleanFactory = BooleanFactory.getInstance();
-        final TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        transformerFactory.setAttribute(this.INDENT_NUMBER, indent);
+        final TransformerFactory transformerFactory = XslHelper.getInstance().newTransformerFactory();
+        try {
+            transformerFactory.setAttribute(this.INDENT_NUMBER, indent);
+        } catch (IllegalArgumentException e) {
+            // Some providers only support the standard indentation switch.
+        }
         final Transformer transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty(OutputKeys.ENCODING, CharacterSetData.getInstance().UTF_8);
         transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION,
@@ -111,7 +116,7 @@ public class XmlDocumentHelper {
          final StreamResult streamResult = new StreamResult(byteArrayOutputStream);
          
          final TransformerFactory copyTransformerFactory
-               = TransformerFactory.newInstance();
+               = XslHelper.getInstance().newTransformerFactory();
          
          final Transformer copyTransformer
                = copyTransformerFactory.newTransformer();
