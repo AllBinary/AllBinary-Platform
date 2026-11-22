@@ -129,6 +129,7 @@ The public and private repo root poms build. J2ME-style client code builds, and 
 | Language/AllBinary Repo | Language type | Targets | Notes |
 |-------------------------|---------------|---------|----------------|
 | [TypeScript](https://www.typescriptlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-TypeScript) | JS engine (ArkTS: Managed VM) | Web, Mobile (HarmonyOS via ArkTS) | ArkTS compiles to Ark bytecode, which runs on the Ark runtime. Also the source for the JavaScript output (via `tsc`). |
+| [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) / [repo](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. | NativeAOT could make a true native build later. Runs MSVW via SWT |
 
 ### Tier 3 – Public root pom build (with 5 private libraries)
 
@@ -141,7 +142,6 @@ The public repo root pom builds, with 5 private libraries it needs.
 | [AssemblyScript](https://www.assemblyscript.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-AssemblyScript) | JS engine (WASM) | Web | TypeScript-like language compiling to WebAssembly; browser integration requires host bindings. | Converter, runtime, and poms in progress; checked with asc 0.28 plus a transform that compiles every function (asc only compiles what the entry reaches). |
 | [C23](https://www.open-std.org/jtc1/sc22/wg14/) / [repo](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop |  |  |
 | [C++](https://isocpp.org/get-started) / [repo](https://github.com/AllBinary/AllBinary-Platform-C-CPP) | Native | Desktop |  |  |
-| [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) / [repo](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. | NativeAOT could make a true native build later. |
 | [Clojure](https://clojure.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Clojure) | JVM | Desktop (JVM) | Lisp on the JVM. | Converter, runtime, and poms in progress; compiled with clojure.main (Clojure 1.12.6) and jcheck, which declares every namespace first so classes can refer to each other in cycles. a converted class is a namespace with run time method dispatch, and java.* classes are the JVM classes through interop. ClojureScript (a separate compiler targeting JavaScript) is not used. |
 | [D](https://dlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-D) | Native (LLVM via LDC) | Desktop | Object-oriented systems language with garbage collection and C interoperability. | Converter, runtime, and poms in progress; checked with `ldc2 -o-` (LDC 1.43, D 2.113) over the runtime, the dependencies, and the project in one run. A Java class is a D class, an interface a D interface, and every file is a module that imports a generated module of all of them. |
 | [Dart](https://dart.dev/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Dart) | Native, JS engine (dart2js / WASM) | Desktop, Mobile (via Flutter), Web (JS/WASM) | `dart compile exe` for Desktop; `dart compile js` or `wasm` for Web. |  |
