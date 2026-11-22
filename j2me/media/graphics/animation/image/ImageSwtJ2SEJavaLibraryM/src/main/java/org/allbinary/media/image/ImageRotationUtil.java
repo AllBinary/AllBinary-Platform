@@ -48,8 +48,8 @@ public class ImageRotationUtil {
         if(this.features.isFeature(OpenGLFeatureFactory.getInstance().OPENGL)) {
             
             if (image.getType() >= OpenGLESImage.TYPE) {
-                final OpenGLESImage openGLESImage = ((OpenGLESImage) image);
-                //originalImage2 = openGLESImage.openGLBitmap.getImage();
+                final OpenGLESImage openGLESImage = SwtOpenGLESImageBridge.getOpenGLESImage(image);
+                //originalImage2 = SwtOpenGLESImageBridge.getBitmapImage(openGLESImage);
                 openGLESImage.openGLESImageProperties.angle = totalAngle;
 //                if(originalImage != image) {
 //                    throw new RuntimeException();
@@ -60,8 +60,8 @@ public class ImageRotationUtil {
             }
 
 //            if (originalImage.getType() >= OpenGLESImage.TYPE) {
-//                final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
-//                //originalImage2 = openGLESImage.openGLBitmap.getImage();
+//                final OpenGLESImage openGLESImage = SwtOpenGLESImageBridge.getOpenGLESImage(originalImage);
+//                //originalImage2 = SwtOpenGLESImageBridge.getBitmapImage(openGLESImage);
 //                openGLESImage.openGLESImageProperties.angle = totalAngle;
 ////                if(originalImage != image) {
 ////                    throw new RuntimeException();

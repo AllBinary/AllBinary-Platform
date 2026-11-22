@@ -22,7 +22,7 @@ public class FakeLayerManager extends AllBinaryGameLayerManager
     implements GeographicMapCompositeInterface {
 
     private BasicGeographicMap[] geographicMapInterfaceArray = BasicGeographicMap.NULL_BASIC_GEOGRAPHIC_MAP_ARRAY;
-    private GeographicMapCellType[] geographicMapCellTypeArray = GeographicMapCellType.NULL_GEOGRAPHIC_MAP_CELL_TYPE_ARRAY;
+    private GeographicMapCellType[] cachedGeographicMapCellTypes = GeographicMapCellType.NULL_GEOGRAPHIC_MAP_CELL_TYPE_ARRAY;
 
     public FakeLayerManager(GameInfo gameInfo) {
         super(BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE, gameInfo);
@@ -37,12 +37,12 @@ public class FakeLayerManager extends AllBinaryGameLayerManager
     public void setGeographicMapInterface(
         final BasicGeographicMap[] geographicMapInterfaceArray) {
         this.geographicMapInterfaceArray = geographicMapInterfaceArray;
-        this.geographicMapCellTypeArray = new GeographicMapCellType[this.geographicMapInterfaceArray.length];
+        this.cachedGeographicMapCellTypes = new GeographicMapCellType[this.geographicMapInterfaceArray.length];
     }
 
     @Override
     public GeographicMapCellType[] geographicMapCellTypeArray() {
-        return this.geographicMapCellTypeArray;
+        return this.cachedGeographicMapCellTypes;
     }
 
 }

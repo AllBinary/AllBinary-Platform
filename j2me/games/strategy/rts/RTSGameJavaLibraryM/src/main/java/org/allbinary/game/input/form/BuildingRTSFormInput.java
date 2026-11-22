@@ -263,14 +263,14 @@ public class BuildingRTSFormInput extends RTSFormInput
                     }
                     else
                     {
-                        final RTSLayer rtsLayer = (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex];
+                        final RTSLayer positionedLayer = (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex];
                         
                         //update area and position
                         final GPoint cellPoint = geographicMapCellPosition.getPoint();
 
-                        rtsLayer.setPosition(cellPoint.getX(), cellPoint.getY(), cellPoint.getZ());
+                        positionedLayer.setPosition(cellPoint.getX(), cellPoint.getY(), cellPoint.getZ());
 
-                        rtsLayer.geographicMapCellPositionAreaBase.update(geographicMapInterface);
+                        positionedLayer.geographicMapCellPositionAreaBase.update(geographicMapInterface);
                     }
 
                     final RTSLayer rtsLayer = (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex];

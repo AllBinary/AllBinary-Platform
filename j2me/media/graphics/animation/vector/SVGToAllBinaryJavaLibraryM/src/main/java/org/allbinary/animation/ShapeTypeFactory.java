@@ -33,8 +33,14 @@ public class ShapeTypeFactory {
     public final String KEY_RECTANGLE = "rectangle";
     public final String KEY_RECT = "rect";
     
-    public final ShapeType LINE = new ShapeType(KEY_LINE);
-    public final ShapeType CIRCLE = new ShapeType(KEY_CIRCLE);
-    public final ShapeType RECTANGLE = new ShapeType(KEY_RECTANGLE);
+    public final ShapeType LINE;
+    public final ShapeType CIRCLE;
+    public final ShapeType RECTANGLE;
+
+    public ShapeTypeFactory() {
+        this.LINE = new ShapeType(this.KEY_LINE);
+        this.CIRCLE = new ShapeType(this.KEY_CIRCLE);
+        this.RECTANGLE = new ShapeType(this.KEY_RECTANGLE);
+    }
     
 }

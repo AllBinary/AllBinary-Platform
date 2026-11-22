@@ -114,7 +114,7 @@ public class ImageModifierUtil {
             //this.logUtil.putF(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, this.commonStrings.CONSTRUCTOR);
             
             if (image.getType() >= OpenGLESImage.TYPE) {
-                final OpenGLESImage openGLESImage = ((OpenGLESImage) image);
+                final OpenGLESImage openGLESImage = SwtOpenGLESImageBridge.getOpenGLESImage(image);
                 openGLESImage.imageProcessor = ModifierOpenGLESImageProcessor.getInstance();
                 openGLESImage.openGLESImageProperties.redf = basicColor.getRedComponent();
                 openGLESImage.openGLESImageProperties.greenf = basicColor.getGreenComponent();
@@ -214,7 +214,7 @@ public class ImageModifierUtil {
             //this.logUtil.putF(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, this.commonStrings.CONSTRUCTOR);
             
             if (image.getType() >= OpenGLESImage.TYPE) {
-                final OpenGLESImage openGLESImage = ((OpenGLESImage) image);
+                final OpenGLESImage openGLESImage = SwtOpenGLESImageBridge.getOpenGLESImage(image);
                 openGLESImage.imageProcessor = ModifierOpenGLESImageProcessor.getInstance();
                 openGLESImage.openGLESImageProperties.alphaf = ((float) alphaInt)  / 255f;
                 return;

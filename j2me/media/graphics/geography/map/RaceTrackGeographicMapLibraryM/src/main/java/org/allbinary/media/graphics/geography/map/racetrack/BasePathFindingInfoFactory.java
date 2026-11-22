@@ -50,10 +50,20 @@ public class BasePathFindingInfoFactory {
             private int startLineId;
             private int finishLineId;
             private final BasePathFindingInfoFactory pathFindingInfoFactory;
+            private final BasicGeographicMap geographicMapInterface;
+            private final PathFindingInfo pathFindingInfo;
+            private final int[][] mapArray;
 
-            public RaceTrackGeographicMapCellPositionFactoryInitVisitor(final BasePathFindingInfoFactory pathFindingInfoFactory)
+            public RaceTrackGeographicMapCellPositionFactoryInitVisitor(
+                    final BasePathFindingInfoFactory pathFindingInfoFactory,
+                    final BasicGeographicMap geographicMapInterface,
+                    final PathFindingInfo pathFindingInfo,
+                    final int[][] mapArray)
             {
                 this.pathFindingInfoFactory = pathFindingInfoFactory;
+                this.geographicMapInterface = geographicMapInterface;
+                this.pathFindingInfo = pathFindingInfo;
+                this.mapArray = mapArray;
 
                 final GeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
                     geographicMapInterface.getGeographicMapCellTypeFactory();
@@ -76,14 +86,14 @@ public class BasePathFindingInfoFactory {
                 //AllBinaryTiledLayer2 allBinaryTiledLayer = RaceTrackGeographicMap.this.getAllBinaryTiledLayer();
                 //this.cellTypeIdToGeographicMapCellType[allBinaryTiledLayer.getCell(col, row)];
 
-                final int cellTypeId = mapArray[row][column];
+                final int cellTypeId = this.mapArray[row][column];
 
-                final int geographicCellType = geographicMapInterface.getCellTypeFromMapCellTypeInt(cellTypeId);
+                final int geographicCellType = this.geographicMapInterface.getCellTypeFromMapCellTypeInt(cellTypeId);
 
                 if (geographicCellType == this.startLineId)
                 {
                     this.pathFindingInfoFactory.addStartPathFindingNode(
-                       pathFindingInfo,
+                       this.pathFindingInfo,
                        cellPosition);
                 }
 
@@ -93,9 +103,9 @@ public class BasePathFindingInfoFactory {
                     if (geographicCellType == this.startLineId)
                     {
                         this.pathFindingInfoFactory.addEndPathFindingNode(
-                           pathFindingInfo,
-                           geographicMapInterface.getGeographicMapCellPositionFactoryInterface().getInstance(
-                           geographicMapInterface,
+                           this.pathFindingInfo,
+                           this.geographicMapInterface.getGeographicMapCellPositionFactoryInterface().getInstance(
+                           this.geographicMapInterface,
                            cellPosition.getColumn(), cellPosition.getRow(),
                            tiledLayer.getColumns(), tiledLayer.getRows(),
                            tiledLayer.getCellWidth(), tiledLayer.getCellHeight()));
@@ -103,13 +113,13 @@ public class BasePathFindingInfoFactory {
                     else
                     {
                         this.pathFindingInfoFactory.addEndPathFindingNode(
-                           pathFindingInfo,
+                           this.pathFindingInfo,
                            cellPosition);
                     }
                 }
 
                 final GeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
-                    geographicMapInterface.getGeographicMapCellTypeFactory();
+                    this.geographicMapInterface.getGeographicMapCellTypeFactory();
                 
                 final GeographicMapCellTypeFactory geographicMapCellTypeFactory = 
                     GeographicMapCellTypeFactory.getInstance();
@@ -132,8 +142,8 @@ public class BasePathFindingInfoFactory {
                     final CommonSeps commonSeps = CommonSeps.getInstance();
                     this.pathFindingInfoFactory.logUtil.put(
                             new StringMaker().append(commonSeps.BRACKET_OPEN).appendint(row).append(commonSeps.BRACKET_CLOSE)
-                                .append(commonSeps.BRACKET_OPEN).appendint(column).append("] in [").appendint(mapArray.length).append(commonSeps.BRACKET_CLOSE)
-                                .append(commonSeps.BRACKET_OPEN).appendint(mapArray[0].length).append(commonSeps.BRACKET_CLOSE).toString(), 
+                                .append(commonSeps.BRACKET_OPEN).appendint(column).append("] in [").appendint(this.mapArray.length).append(commonSeps.BRACKET_CLOSE)
+                                .append(commonSeps.BRACKET_OPEN).appendint(this.mapArray[0].length).append(commonSeps.BRACKET_CLOSE).toString(), 
                             this, "visit", e);
                     throw e;
                 }
@@ -141,7 +151,7 @@ public class BasePathFindingInfoFactory {
         }
 
         geographicMapInterface.getGeographicMapCellPositionFactory().visit(
-           new RaceTrackGeographicMapCellPositionFactoryInitVisitor(this));
+           new RaceTrackGeographicMapCellPositionFactoryInitVisitor(this, geographicMapInterface, pathFindingInfo, mapArray));
     }
     
     private void addStartPathFindingNode(final PathFindingInfo pathFindingInfo,
