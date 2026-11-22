@@ -51,9 +51,9 @@ public class AssignWaypointsUtil
 
         for (int index = list.size() - 1; index >= 0; index--)
         {
-            RTSLayer waypointLayer = (RTSLayer) list.get(index);
+            RTSLayer ownedWaypointLayer = (RTSLayer) list.get(index);
             
-            this.WAYPOINT_EVENT.setRtsLayer(waypointLayer);
+            this.WAYPOINT_EVENT.setRtsLayer(ownedWaypointLayer);
             unitWaypointBehavior.onWaypointEvent(this.WAYPOINT_EVENT);
         }
 

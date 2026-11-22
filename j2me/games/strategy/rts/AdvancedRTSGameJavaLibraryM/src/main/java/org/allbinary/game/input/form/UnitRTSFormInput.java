@@ -126,18 +126,18 @@ public class UnitRTSFormInput extends RTSFormInput
         else
         {
             //update area and position            
-            GPoint cellPoint = geographicMapCellPosition.getPoint();
+            GPoint selectedCellPoint = geographicMapCellPosition.getPoint();
 
-            final RTSLayer rtsLayer = (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex];
-            rtsLayer.setPosition(
-                    cellPoint.getX(), cellPoint.getY(), 
-                    rtsLayer.getZP());
+            final RTSLayer positionedLayer = (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex];
+            positionedLayer.setPosition(
+                    selectedCellPoint.getX(), selectedCellPoint.getY(), 
+                    positionedLayer.getZP());
 
             final GeographicMapCompositeInterface geographicMapCompositeInterface
-                = (GeographicMapCompositeInterface) rtsLayer.allBinaryGameLayerManagerP;
+                = (GeographicMapCompositeInterface) positionedLayer.allBinaryGameLayerManagerP;
             final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
             
-            rtsLayer.geographicMapCellPositionAreaBase.update(geographicMapInterface);
+            positionedLayer.geographicMapCellPositionAreaBase.update(geographicMapInterface);
         }
 
         // Move unit to center

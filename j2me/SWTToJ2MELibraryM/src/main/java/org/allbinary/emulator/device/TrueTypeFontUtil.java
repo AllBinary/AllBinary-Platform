@@ -20,8 +20,8 @@ import javax.microedition.lcdui.Image;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.ImageLoader;
+import org.eclipse.swt.graphics.PaletteData;
 
-import org.microemu.device.swt.SwtMutableImage;
 
 import org.allbinary.AvianUtil;
 import org.allbinary.data.resource.ResourceUtil;
@@ -85,19 +85,19 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
                 final OpenGLCapabilities openGLCapabilities = OpenGLCapabilities.getInstance();
                 if (openGLCapabilities.isTextureSizeValid(1024) && this.scale == 2) {
                     final String FONT_ATLAS_1024 = "/font_1024.png";
-                    final Image image = Image.createImage(ResourceUtil.getInstance().getResourceAsStream(FONT_ATLAS_1024));
+                    final Image image = Image.createImageFromInputStream(ResourceUtil.getInstance().getResourceAsStream(FONT_ATLAS_1024));
                     image.setName(canvasStrings.FONT_ATLAS);
                     this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
                     //SwtSystemFont.scale = this.scale;
                     //MyFont.getInstance().update();
                 } else if (openGLCapabilities.isTextureSizeValid(512)) {
                     final String FONT_ATLAS_512 = "/font_512.png";
-                    final Image image = Image.createImage(ResourceUtil.getInstance().getResourceAsStream(FONT_ATLAS_512));
+                    final Image image = Image.createImageFromInputStream(ResourceUtil.getInstance().getResourceAsStream(FONT_ATLAS_512));
                     image.setName(canvasStrings.FONT_ATLAS);
                     this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
                 } else {
                     final String FONT_ATLAS_512 = "/font_512.png";
-                    final Image image = Image.createImage(ResourceUtil.getInstance().getResourceAsStream(FONT_ATLAS_512));
+                    final Image image = Image.createImageFromInputStream(ResourceUtil.getInstance().getResourceAsStream(FONT_ATLAS_512));
                     image.setName(canvasStrings.FONT_ATLAS);
                     this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
                     //throw new RuntimeException();
@@ -120,10 +120,22 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         
         //final CommonStrings commonStrings = CommonStrings.getInstance();
         //this.logUtil.putF(commonStrings.START, this, "saveFontAtlasAsFile");
-        
+
         final Image image = this.getFontBitmap(null, cellSize, BasicColorFactory.getInstance().WHITE);
         final ImageLoader imageLoader = new ImageLoader();
-        final ImageData imageData = ((SwtMutableImage) image).image.getImageData();
+        //final ImageData imageData = ((SwtMutableImage) image).image.getImageData();
+        final int width = image.getWidth();
+        final int height = image.getHeight();
+        final int[] pixels = new int[width * height];
+        image.getRGB(pixels, 0, width, 0, 0, width, height);
+        final ImageData imageData = new ImageData(width, height, 32,
+                new PaletteData(0xFF0000, 0xFF00, 0xFF));
+        for (int index = 0; index < pixels.length; index++) {
+            pixels[index] &= 0xFFFFFF;
+        }
+        for (int row = 0; row < height; row++) {
+            imageData.setPixels(0, row, width, pixels, row * width);
+        }
         imageData.transparentPixel = imageData.getPixel(0, 0);
         imageLoader.data = new ImageData[]{imageData};
         imageLoader.save(CommonSeps.getInstance().PERIOD + CanvasStrings.getInstance().FONT_ATLAS, SWT.IMAGE_PNG);            
@@ -325,7 +337,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
                 if(this.characterArray[0] == 'D') _characterWidth[index] -= 4;
                 if(this.characterArray[0] >= 'A' && this.characterArray[0] <= 'Z') _characterWidth[index] -= 2;
             }
-            _characterWidth[index] *= this.widthScale;
+            _characterWidth[index] = (int) (_characterWidth[index] * this.widthScale);
             
             //stringMaker.delete(0, stringMaker.length());
             //System.out.println(stringMaker.append(index).append(CHAR_WIDTH).append(_characterWidth[index]).toString());

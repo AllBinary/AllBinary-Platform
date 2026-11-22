@@ -63,105 +63,19 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
         
         try {
 
-            int index = 0;
-
             final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
             final BasicColor basicColor = this.getBasicColorP();
-
             final int textX = this.textX;
             final int y = this.y;
-            final int firstIndex = index;
-            class ProductivityNumberStringHud extends NumberStringHud {
-                
-                ProductivityNumberStringHud() {
-                    super("Productivity:", 999,
-                        basicHudFactory.ABSOLUTE, basicHudFactory.HORIZONTAL,
-                        0, basicColor);
-                }
-                
-                @Override
-                public void updateMeasurement(final Graphics graphics) {
-                    final Font font = graphics.getFont();
-                    this.updateMaxWidth = textX;
-                    this.updateMaxHeight = y + ((firstIndex + 1) * font.getHeight());
-                    
-                    super.updateMeasurement(graphics);
-                }
 
-            };
-            
-            productivityHud = new ProductivityNumberStringHud();
-            index++;
-
-            final int secondIndex = index;
-            class EfficiencyNumberStringHud extends NumberStringHud {
-                
-                EfficiencyNumberStringHud() {
-                    super("Efficiency:", 999,
-                        basicHudFactory.ABSOLUTE, basicHudFactory.HORIZONTAL,
-                        0, basicColor);
-                }
-                
-                @Override
-                public void updateMeasurement(final Graphics graphics) {
-                    super.updateMeasurement(graphics);
-
-                    final Font font = graphics.getFont();
-                    this.updateMaxWidth = textX;
-                    this.updateMaxHeight = y + ((secondIndex + 1) * font.getHeight());
-                }
-
-            };
-
-            efficiencyHud = new EfficiencyNumberStringHud();
-            index++;
-
-            final String HEALTH = this.HEALTH;
-            final int thirdIndex = index;
-            class HealthNumberStringHud extends NumberStringHud {
-                
-                HealthNumberStringHud() {
-                    super(HEALTH, 99999,
-                        basicHudFactory.ABSOLUTE, basicHudFactory.HORIZONTAL,
-                        0, basicColor);
-                }
-                
-                @Override
-                public void updateMeasurement(final Graphics graphics) {
-                    
-                    final Font font = graphics.getFont();
-                    this.updateMaxWidth = textX;
-                    this.updateMaxHeight = y + ((thirdIndex + 1) * font.getHeight());
-                    
-                    super.updateMeasurement(graphics);
-                }
-
-            };
-            
-            final int totalLength = HEALTH.length() + 1;
-            healthHud = new HealthNumberStringHud();
-
-            final int fourthIndex = index;
-            class MaxHealthNumberStringHud extends NumberStringHud {
-                
-                MaxHealthNumberStringHud() {
-                    super("/ ", 99999,
-                        basicHudFactory.ABSOLUTE, basicHudFactory.HORIZONTAL, 
-                        0, basicColor);
-                }
-                
-                @Override
-                public void updateMeasurement(final Graphics graphics) {
-                    super.updateMeasurement(graphics);
-                    
-                    final Font font = graphics.getFont();
-                    this.updateMaxWidth = textX + (totalLength * font.getHeight());
-                    this.updateMaxHeight = y + ((fourthIndex + 1) * font.getHeight());
-                }
-
-            };
-
-            maxHealthHud = new MaxHealthNumberStringHud();
+            productivityHud = new BuildingNumberHud("Productivity:", 999, basicHudFactory,
+                    basicColor, textX, y, 1, 0, true);
+            efficiencyHud = new BuildingNumberHud("Efficiency:", 999, basicHudFactory,
+                    basicColor, textX, y, 2, 0, false);
+            healthHud = new BuildingNumberHud(this.HEALTH, 99999, basicHudFactory,
+                    basicColor, textX, y, 3, 0, true);
+            maxHealthHud = new BuildingNumberHud("/ ", 99999, basicHudFactory,
+                    basicColor, textX, y, 3, this.HEALTH.length() + 1, false);
             
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -171,6 +85,42 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
         this.efficiencyHud = efficiencyHud;
         this.healthHud = healthHud;
         this.maxHealthHud = maxHealthHud;
+    }
+
+
+    private static final class BuildingNumberHud extends NumberStringHud {
+
+        private final int baseTextX;
+        private final int baseY;
+        private final int row;
+        private final int prefixLength;
+        private final boolean positionBeforeMeasurement;
+
+        BuildingNumberHud(final String label, final int maximum, final BasicHudFactory basicHudFactory,
+                final BasicColor basicColor, final int baseTextX, final int baseY,
+                final int row, final int prefixLength, final boolean positionBeforeMeasurement) {
+            super(label, maximum, basicHudFactory.ABSOLUTE, basicHudFactory.HORIZONTAL, 0, basicColor);
+            this.baseTextX = baseTextX;
+            this.baseY = baseY;
+            this.row = row;
+            this.prefixLength = prefixLength;
+            this.positionBeforeMeasurement = positionBeforeMeasurement;
+        }
+
+        @Override
+        public void updateMeasurement(final Graphics graphics) {
+            if (!this.positionBeforeMeasurement) {
+                super.updateMeasurement(graphics);
+            }
+
+            final Font font = graphics.getFont();
+            this.updateMaxWidth = this.baseTextX + this.prefixLength * font.getHeight();
+            this.updateMaxHeight = this.baseY + this.row * font.getHeight();
+
+            if (this.positionBeforeMeasurement) {
+                super.updateMeasurement(graphics);
+            }
+        }
     }
 
     @Override
