@@ -2,22 +2,23 @@
 
 ### About
 
-AllBinary Game Engine / AllBinary Polyglot (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation (https://ia.allbinary.com), and everything else AllBinary.
+AllBinary Game Engine / AllBinary Polyglot (Example Games: https://allbinary.itch.io) and everything else AllBinary.
 
 ### What is the AllBinary Platform?
 
-This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform), Kotlin version https://github.com/AllBinary/AllBinary-Platform-KMP, TypScript/JavaScript https://github.com/AllBinary/AllBinary-Platform-TypeScript/https://github.com/AllBinary/AllBinary-Platform-Javascript.  This repo does not include the rest of the AllBinary Platform that includes tighter third-party integration code or individual apps or games that are not tools. The AllBinary Platform includes but is not limited to the following projects:
+This repository contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform). Kotlin, TypScript, JavaScript, C#, and the other polyglot repos are in: https://github.com/AllBinary/AllBinary-Platform/blob/master/POLYGLOT.md 
+The AllBinary Platform includes but is not limited to the following projects:
 
 * AllBinary Game Engine / AllBinary Polyglot - includes the AllBinary Multi-Platform Development Kit
-* Freeblisket/Weblisket E-Commerce Solution (https://allbinary.com)
-* AllBinary Input Automation
+* Freeblisket/Weblisket E-Commerce Solution (https://allbinary.com outdated)
+* AllBinary Input Automation (https://ia.allbinary.com offline)
 * Various Tools like AllBinary Vector Graphics Tool and AllBinary Sprite Tool
 
-The AllBinary Platform represents more than 10 years of development and > 1 million LOC.  Some of which is represented by the this repo info: https://www.openhub.net/p/AllBinary-Platform/analyses/latest/languages_summary
+This repo does not include the entire AllBinary Platform some is in other public repos listes below or in private repos.  The AllBinary Platform represents more than 20 years of development and > 1 million LOC excluding polyglot code.  Some of which is represented by the this repo info: https://www.openhub.net/p/AllBinary-Platform/analyses/latest/languages_summary
 
 ### What is the current commercial product development?
 
-Reducing the cost of user interface development with scene editor integration.  Currently that includes the ability to import games created in GDevelop using: https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop  GDevelop and any future scene editor integration includes LLM support.
+Reducing the cost of user interface development with scene editor integration for most used programming languages.  Currently that includes the ability to import games created in GDevelop using: https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop  GDevelop and any future scene editor integration includes LLM support.
 
 ### Where is the License?
 
@@ -190,8 +191,6 @@ The main goal of AllBinary InputAutomationTool Solution is to help reduce manual
 ### What is the planned future Implementation for the AllBinary Platform?
 
 Better integration with GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
-
-Polyglot support: https://github.com/AllBinary/AllBinary-Platform/blob/master/POLYGLOT.md
 
 3D/OpenGLES mappings for WebGL to deploy 3d games in browsers.
 
