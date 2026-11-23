@@ -194,6 +194,8 @@ Grouped by language type. For planned languages
 
 | Language/AllBinary Repo | Language type | Targets | Notes | Other Progress |
 |-------------------------|---------------|---------|----------------|----------------|
+| [JRuby](https://www.jruby.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-JRuby) | JVM | Desktop (JVM) | Ruby implementation with access to Java libraries. |  |
+| [Jython](https://www.jython.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Jython) | JVM | Desktop (JVM) | Python implementation with access to Java libraries. Jython 2.7 targets Python 2.7. |  |
 | [Crystal](https://crystal-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Crystal) | Native (LLVM) | Desktop | Ruby-inspired syntax with static typing and type inference. | Converter, runtime, and poms in progress; checked with `crystal build --no-codegen` (Crystal 1.22.3) and an entry that calls every method (Crystal only type checks the code a program reaches). A Java class is a Crystal class, an interface a module, and references are nilable. |
 | [ASM](https://www.nasm.us/doc/) / [repo](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |  |
 | [Scheme](https://www.r7rs.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |  |
