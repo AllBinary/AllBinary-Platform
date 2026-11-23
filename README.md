@@ -2,11 +2,10 @@
 
 ### About
 
-AllBinary Game Engine / AllBinary Polyglot (Example Games: https://allbinary.itch.io) and everything else AllBinary.
+AllBinary Game Engine / AllBinary Polyglot (Example Games: https://allbinary.itch.io).  This repository contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform). Kotlin, TypScript, JavaScript, C#, and the other polyglot repos are in: https://github.com/AllBinary/AllBinary-Platform/blob/master/POLYGLOT.md 
 
-### What is the AllBinary Platform?
+### What is in AllBinary Platform?
 
-This repository contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform). Kotlin, TypScript, JavaScript, C#, and the other polyglot repos are in: https://github.com/AllBinary/AllBinary-Platform/blob/master/POLYGLOT.md 
 The AllBinary Platform includes but is not limited to the following projects:
 
 * AllBinary Game Engine / AllBinary Polyglot - includes the AllBinary Multi-Platform Development Kit
