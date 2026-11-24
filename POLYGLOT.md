@@ -129,7 +129,7 @@ The public and private repo root poms build. J2ME-style client code builds, and 
 | Language/AllBinary Repo | Language type | Targets | Notes |
 |-------------------------|---------------|---------|----------------|
 | [TypeScript](https://www.typescriptlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-TypeScript) | JS engine (ArkTS: Managed VM) | Web, Mobile (HarmonyOS via ArkTS) | ArkTS compiles to Ark bytecode, which runs on the Ark runtime. Also the source for the JavaScript output (via `tsc`). |
-| [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) / [repo](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. | NativeAOT could make a true native build later. Runs MSVW via SWT |
+| [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) / [repo](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. Runs MSVW via SWT |
 
 ### Tier 3 – Public root pom build (with 5 private libraries)
 
