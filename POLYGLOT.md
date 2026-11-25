@@ -191,7 +191,7 @@ The public repo root pom builds, with 5 private libraries it needs.
 
 ### Planned – Initial commit not yet added or in progress
 
-Grouped by language type. For planned languages
+Grouped by language type. For planned languages.  If your language is not in the file then please email me at travisberthelot@allbinary.com and point me to the compiler.
 
 | Language/AllBinary Repo | Language type | Targets | Notes | Other Progress |
 |-------------------------|---------------|---------|----------------|----------------|
