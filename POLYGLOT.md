@@ -571,3 +571,4 @@ Grouped by language type. For planned languages.  If your language is not in the
 | [Rex](https://github.com/peterkelly/rex) | Interpreted (embedded) | Desktop (inside a Rust host) | A Rust host can register synchronous or asynchronous native functions for workflow scripts. MIT. |  |
 | [Wybe](https://github.com/pschachte/wybe/blob/master/WYBE.md) | Native (LLVM) | Desktop | Foreign calls can specify C as their target language. [MIT compiler](https://github.com/pschachte/wybe). |  |
 | [Zygo (zygomys)](https://github.com/glycerine/zygomys) | Interpreted (embedded) | Desktop (inside a Go host) | Calls compiled Go methods on host-provided Go values. BSD-2-Clause. |  |
+| [Blood](https://blood-lang.org/) | Not yet documented | Not yet documented | Announced by Kit Langton. | Awaiting public compiler and documentation. |
