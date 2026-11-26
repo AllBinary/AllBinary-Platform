@@ -87,7 +87,7 @@ public class AllBinaryMediaManager {
     private static final String CREATE_PLAYER = "createPlayer";
     
     public static Player createPlayer(final String resource) throws Exception {
-        if (resource.startsWith(Manager.TONE_DEVICE_LOCATOR)) {
+        if (resource != null && Manager.TONE_DEVICE_LOCATOR != null && resource.startsWith(Manager.TONE_DEVICE_LOCATOR)) {
             return AllBinaryMediaManager.createPlayerFromInputStream(new ByteArrayInputStream(NullUtil.getInstance().NULL_BYTE_ARRAY), AudioContentTypeDataFactory.getInstance().MIME_AUDIO_TONE.getName());
         } else
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().SOUND))

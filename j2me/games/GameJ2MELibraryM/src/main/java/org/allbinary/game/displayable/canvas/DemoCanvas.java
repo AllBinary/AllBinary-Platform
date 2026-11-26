@@ -1071,12 +1071,7 @@ public class DemoCanvas extends RunnableCanvas
             {
                 //PreLogUtil.put(commonStrings.START, this, "Starting Run Loop");
                 
-                while (this.isRunning())
-                {
-                    this.run3();
-                }
-                
-                this.end();
+                this.runCanvasLoop();
             }
         }
         catch (Exception e)
@@ -1085,6 +1080,13 @@ public class DemoCanvas extends RunnableCanvas
         }
 
         this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
+    }
+
+    private void runCanvasLoop() throws Exception {
+        while (this.isRunning()) {
+            this.run3();
+        }
+        this.end();
     }
 
     public void run3() throws Exception {
