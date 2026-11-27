@@ -124,7 +124,7 @@ The public repo, private repo, and GDevelop JSON conversion all build. J2ME-styl
 
 ### Tier 2 – AllBinary legacy game(s) (https://allbinary.itch.io) run
 
-The public and private repo root poms build. J2ME-style client code builds, and at least one legacy game runs.
+The public and private repo root poms build. J2ME-style client code builds including integration, and at least one legacy game runs.
 
 | Language/AllBinary Repo | Language type | Targets | Notes |
 |-------------------------|---------------|---------|----------------|
