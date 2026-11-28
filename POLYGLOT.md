@@ -129,9 +129,9 @@ The public and private repo root poms build. J2ME-style client code builds inclu
 | Language/AllBinary Repo | Language type | Targets | Notes |
 |-------------------------|---------------|---------|----------------|
 | [TypeScript](https://www.typescriptlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-TypeScript) | JS engine (ArkTS: Managed VM) | Web, Mobile (HarmonyOS via ArkTS) | ArkTS compiles to Ark bytecode, which runs on the Ark runtime. Also the source for the JavaScript output (via `tsc`). |
-| [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) / [repo](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. Runs MSVW via SWT |
-| [Erlang](https://www.erlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. Runs MSVW via SWT |
-
+| [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) / [repo](https://github.com/AllBinary/AllBinary-Platform-CSharp) | Managed VM | Desktop | .NET CLR. NativeAOT could make a true native build later. Runs MSWV via SWT |
+| [Erlang](https://www.erlang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Erlang) | Managed VM | Desktop | BEAM VM, built through `escript`. Runs MSWV via SWT |
+| [Lua](https://www.lua.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop | Runs MSWV via SWT | 
 
 ### Tier 3 – Public root pom build (with 5 private libraries)
 
@@ -165,7 +165,6 @@ The public repo root pom builds, with 5 private libraries it needs.
 | [Julia](https://julialang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Julia) | JIT (LLVM) | Desktop | Designed for numerical computing. Code compiles on first call, so startup is slower; standalone executables via PackageCompiler or `juliac`. |  |
 | [Lean 4](https://lean-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Lean) | Native (compiles through C) | Desktop | Functional programming language and proof assistant with dependent types, reference counting, and C interoperability. |  |
 | [Lisp](https://github.com/sbcl/sbcl) / [repo](https://github.com/AllBinary/AllBinary-Platform-Lisp-with-native-call-support) | Native (e.g. SBCL) | Desktop | Code can be redefined while the program runs (REPL). Garbage collected; smaller library ecosystem. |  |
-| [Lua](https://www.lua.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Lua) | Interpreted | Desktop |  | Integration builds |
 | [Nim](https://nim-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Nim) | Native (compiles through C) | Desktop | Raylib/SDL2 bindings. Deterministic memory management (ARC/ORC). Smaller community than C++/C#. |  |
 | [OCaml](https://ocaml.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Ocaml) | Native | Desktop | ocamlopt (bytecode is also possible) |  |
 | [Object Pascal](https://www.freepascal.org/docs.html) / [repo](https://github.com/AllBinary/AllBinary-Platform-ObjectPascal) | Native | Desktop | Free Pascal |  |
@@ -181,7 +180,7 @@ The public repo root pom builds, with 5 private libraries it needs.
 | [Swift](https://www.swift.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Swift) | Native | Mobile (iOS, Android), Desktop | Compiles natively on macOS, Linux, and Windows. Android is supported through the official Swift SDK for Android. |  |
 | [Tcl](https://www.tcl-lang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Tcl) | Interpreted | Desktop |  |  |
 | [Wren](https://wren.io/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Wren) | Interpreted (embedded) | Desktop (inside a host engine) | Designed for embedding in game engines. Requires a host C/C++ engine. |  |
-| [Zig](https://ziglang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop |  |  |
+| [Zig](https://ziglang.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Zig) | Native | Desktop |  | Integration builds |
 
 ### Tier 4 – AllBinaryBase builds (with 5 private libraries)
 
@@ -200,6 +199,7 @@ Grouped by language type. For planned languages.  If your language is not in the
 | [JRuby](https://www.jruby.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-JRuby) | JVM | Desktop (JVM) | Ruby implementation with access to Java libraries. |  |
 | [Jython](https://www.jython.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Jython) | JVM | Desktop (JVM) | Python implementation with access to Java libraries. Jython 2.7 targets Python 2.7. |  |
 | [ASM](https://www.nasm.us/doc/) / [repo](https://github.com/AllBinary/AllBinary-Platform-ASM) | Native | Desktop | Platform/ISA specific |  |
+| [SPARK](https://www.adacore.com/languages/spark) | Native (GNAT) | Desktop, Embedded | Ada-based language for formal verification. GNAT compiles SPARK code, and GNATprove checks data flow and proves properties specified by contracts. |  |
 | [Scheme](https://www.r7rs.org/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Scheme) | Native (via Chicken/Gambit C) | Desktop | Many separate implementations; Chicken and Gambit compile through C. |  |
 | [Beef](https://www.beeflang.org/docs/language-guide/interop/) / [repo](https://github.com/AllBinary/AllBinary-Platform-Beef) | Native | Desktop | Static/dynamic library linking through `extern`, DLL imports, and C linkage. |  |
 | [BlitzMax](https://www.blitzmax.org/docs/en/language/interfacing_with_c/) / [repo](https://github.com/AllBinary/AllBinary-Platform-BlitzMax) | Native | Desktop | `Import` and `Extern` integrate C source and functions. |  |
